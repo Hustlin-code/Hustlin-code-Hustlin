@@ -310,7 +310,14 @@ window.HFY = (function(){
   const ADSENSE_PUB_ID = 'ca-pub-1249156793457835';
 
   // Pages where ads should not appear
-  const NO_ADS_PAGES = ['index.html', 'work-with-us.html', ''];
+  // learn.html serves gated course content. No ads there, for three reasons:
+  //   1. Paying customers shouldn't see ads in a product they bought.
+  //   2. The page is noindex and its content only arrives after an
+  //      authenticated fetch, so the AdSense crawler sees an empty shell and
+  //      has nothing to target against anyway.
+  //   3. Serving ads on login-gated pages is a policy grey area worth avoiding.
+  // Ads stay on the public marketing pages, which is where they actually earn.
+  const NO_ADS_PAGES = ['index.html', 'work-with-us.html', 'learn.html', 'auth-callback.html', ''];
 
   function adsAllowed(){
     const page = window.location.pathname.split('/').pop() || '';
