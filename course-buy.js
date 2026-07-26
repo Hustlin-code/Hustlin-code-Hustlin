@@ -43,6 +43,21 @@
     else el.textContent = text;
   }
 
+  // A course that isn't on sale yet is marked active = false in the database.
+  // RLS on public.courses only returns active rows, so "no row" means "not
+  // for sale" — no separate flag needed, and the browser can't override it.
+  async function isOnSale(course) {
+    try {
+      var res = await window.HFY_SUPABASE
+        .from('courses').select('key').eq('key', course).limit(1);
+      if (res.error) throw res.error;
+      return !!(res.data && res.data.length);
+    } catch (e) {
+      console.error('course-buy: catalog lookup failed', e);
+      return true; // don't block a sale because of a transient network error
+    }
+  }
+
   ready(async function () {
     var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-hfy-buy]'));
     if (!buttons.length) return;
@@ -50,6 +65,17 @@
     var course = buttons[0].getAttribute('data-hfy-buy');
     var user = null;
     var owns = false;
+
+    if (!(await isOnSale(course))) {
+      buttons.forEach(function (btn) {
+        setLabel(btn, 'Coming Soon');
+        btn.setAttribute('aria-disabled', 'true');
+        btn.style.opacity = '.55';
+        btn.style.cursor = 'default';
+        btn.addEventListener('click', function (e) { e.preventDefault(); });
+      });
+      return;
+    }
 
     try {
       user = await window.HFY.auth.getUser();
