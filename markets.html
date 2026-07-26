@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Live market data from Hustlin' — indices, crypto, and forex, with plain-English context. Watch the market while you learn what you're actually looking at.">
+<title>Markets | Hustlin'</title>
+
+<!-- Social Preview -->
+<meta property="og:title" content="Markets | Hustlin'">
+<meta property="og:description" content="Live market data with plain-English context. Watch the market while you learn what you're actually looking at.">
+<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://www.hustlin.org/markets.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Markets | Hustlin'">
+<meta name="twitter:description" content="Live market data with plain-English context. Watch the market while you learn what you're actually looking at.">
+<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260728">
+<style>
+/* Cleaner headline — swap the heavy embossed "Impact" poster font (the
+   shared .hero-h1 default) for the site's normal clean display font,
+   dropping the thick outline/drop-shadow stack. */
+.mkt-hero .hero-h1{
+  font-family:var(--f-body);
+  font-weight:800;
+  letter-spacing:-.01em;
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+.mkt-hero .hero-h1 em{
+  font-style:normal;
+  color:var(--amber);
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+
+/* ─── SITE FOOTER — BRANDED ─────────────────────────────── */
+.hfy-footer {
+  background: #060606;
+  border-top: 1px solid rgba(245,197,32,.2);
+  padding: 64px 40px 0;
+  margin-top: 0;
+}
+.hfy-ft-top {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.hfy-ft-brand img {
+  height: 52px; width: auto;
+  mix-blend-mode: screen;
+  margin-bottom: 14px;
+  display: block;
+}
+.hfy-ft-brand p {
+  font-size: .85rem;
+  color: rgba(255,255,255,.35);
+  line-height: 1.7;
+  max-width: 220px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-col-title {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #f5c520;
+  margin-bottom: 16px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-links a {
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  transition: color .2s;
+  line-height: 1;
+}
+.hfy-ft-links a:hover { color: #f5c520 }
+.hfy-ft-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border-radius: 100px;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  width: fit-content;
+}
+.hfy-ft-x {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.8);
+}
+.hfy-ft-x:hover {
+  background: #000;
+  border-color: #fff;
+  color: #fff !important;
+}
+.hfy-ft-ig {
+  background: rgba(225,48,108,.08);
+  border: 1px solid rgba(225,48,108,.25);
+  color: rgba(225,48,108,.9);
+}
+.hfy-ft-ig:hover {
+  background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-yt {
+  background: rgba(255,0,0,.08);
+  border: 1px solid rgba(255,0,0,.25);
+  color: rgba(255,80,80,.9);
+}
+.hfy-ft-yt:hover {
+  background: #ff0000;
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-social svg {
+  width: 15px; height: 15px;
+  fill: currentColor; flex-shrink: 0;
+}
+.hfy-ft-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hfy-ft-copy {
+  font-size: .78rem;
+  color: rgba(255,255,255,.2);
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(239,68,68,.3);
+  background: rgba(239,68,68,.05);
+  font-size: .74rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.8;
+  text-align: center;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: .78rem;
+  color: rgba(255,80,80,.9);
+  letter-spacing: .05em;
+}
+@media(max-width:900px){
+  .hfy-ft-top { grid-template-columns: 1fr 1fr; gap: 36px }
+}
+@media(max-width:560px){
+  .hfy-footer { padding: 44px 18px 0 }
+  .hfy-ft-top { grid-template-columns: 1fr; gap: 28px }
+  .hfy-ft-bottom { flex-direction: column; align-items: flex-start }
+}
+</style>
+<style>
+/* ─ Page-specific additions only ─ */
+
+/* Breadcrumb */
+.breadcrumb{
+  font-size:.78rem;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:7px;margin-bottom:18px;
+}
+.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
+
+/* Static hero note (non-interactive, replaces the old "See live data" link) */
+.mkt-hero-note{
+  color:var(--green-lt);font-size:.94rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:6px;letter-spacing:.01em;
+}
+
+/* Live pill */
+.live-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);
+  color:var(--green-lt);padding:5px 14px;border-radius:20px;
+  font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  margin-bottom:26px;
+}
+.live-pill-dot{width:7px;height:7px;border-radius:50%;background:var(--green-lt);animation:hfyPulse 1.6s infinite}
+@keyframes hfyPulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Widget shells */
+.mkt-section{background:var(--dark)}
+.mkt-ticker-wrap{
+  border-radius:var(--r-md);overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);margin-bottom:36px;
+}
+.mkt-widget-card{
+  background:var(--dark-card);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-lg);padding:4px;overflow:hidden;
+}
+.mkt-caption{
+  font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.7;
+  max-width:640px;margin:16px auto 0;text-align:center;
+}
+.mkt-terms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+@media(max-width:900px){.mkt-terms-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.mkt-terms-grid{grid-template-columns:1fr}}
+.mkt-term-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);
+  padding:24px;transition:all .2s;
+}
+.mkt-term-card:hover{border-color:var(--amber);box-shadow:var(--sh-sm);transform:translateY(-2px)}
+.mkt-term-name{font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:6px}
+.mkt-term-desc{font-size:.83rem;color:var(--text-muted);line-height:1.6}
+
+/* Side nav — vertical widget links beside the main content on desktop,
+   collapses to a horizontal pill bar on narrower screens. */
+.mkt-layout{
+  display:grid;grid-template-columns:220px 1fr;align-items:start;
+  margin-top:108px;
+}
+.mkt-side-nav{
+  position:sticky;top:108px;align-self:start;
+  height:calc(100vh - 108px);overflow-y:auto;
+  background:#060606;border-right:1px solid rgba(255,255,255,.08);
+  padding:28px 16px;display:flex;flex-direction:column;gap:4px;
+}
+.mkt-side-nav-title{
+  font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.32);margin-bottom:8px;padding:0 10px;
+}
+.mkt-main{min-width:0}
+@media(max-width:900px){
+  .mkt-layout{display:block;margin-top:76px}
+  .mkt-side-nav{
+    position:sticky;top:76px;height:auto;width:auto;z-index:40;
+    flex-direction:row;overflow-x:auto;overflow-y:visible;
+    border-right:none;border-bottom:1px solid rgba(255,255,255,.06);
+    padding:12px 16px;gap:8px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .mkt-side-nav::-webkit-scrollbar{display:none}
+  .mkt-side-nav-title{display:none}
+  .mkt-side-nav a{flex-shrink:0}
+}
+@media(max-width:480px){.mkt-layout{margin-top:64px}.mkt-side-nav{top:64px;padding:10px 14px;gap:6px}}
+
+/* Hero — the 52vh min-height (set below) is desktop-only. On mobile it
+   fights the site's flex-start override in styles.css because inline
+   styles beat media-query rules, forcing a huge centered empty gap
+   above the page content. Moved to a class so the mobile override wins. */
+.mkt-hero{min-height:52vh}
+@media(max-width:1024px){.mkt-hero{min-height:auto;align-items:flex-start}}
+@media(max-width:600px){.mkt-hero{padding-top:28px}}
+/* Desktop — the site-wide .hero padding (60px 40px 120px) plus a tall
+   forced min-height push the CTA button below the fold on markets.html,
+   since this page's hero is single-column (no side image to balance it).
+   Trim the padding and inter-element spacing so more is visible without
+   scrolling, without touching .hero on other pages. */
+@media(min-width:1025px){
+  .mkt-hero{min-height:44vh;padding-top:44px;padding-bottom:56px}
+  .mkt-hero .hero-sub{margin-bottom:24px}
+  .mkt-hero .cta-row{margin-top:0}
+}
+
+/* Ticker tape strip */
+.mkt-ticker-section{padding:18px 40px}
+@media(max-width:600px){.mkt-ticker-section{padding:10px 14px}}
+.mkt-side-nav a{
+  font-size:.85rem;font-weight:600;color:rgba(255,255,255,.55);
+  padding:10px 12px;border-radius:10px;transition:all .2s;white-space:nowrap;
+}
+.mkt-side-nav a:hover{color:var(--amber);background:rgba(240,192,48,.08)}
+@media(max-width:900px){
+  .mkt-side-nav a{
+    border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);
+    border-radius:20px;padding:7px 14px;font-size:.74rem;letter-spacing:.03em;
+  }
+  .mkt-side-nav a:hover{border-color:rgba(240,192,48,.4)}
+}
+
+/* Section label inside dark widget sections */
+.mkt-eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+
+/* Widget grids */
+.mkt-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+.mkt-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.mkt-grid-4{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+@media(max-width:900px){.mkt-grid-2,.mkt-grid-3,.mkt-grid-4{grid-template-columns:1fr}}
+.mkt-stack{display:flex;flex-direction:column;gap:24px;margin-top:36px}
+.mkt-widget-card{margin-top:0}
+.mkt-card-lbl{
+  font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);padding:14px 18px 0;
+}
+
+/* Spotlight symbol pill */
+.mkt-symbol-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(240,192,48,.1);border:1px solid rgba(240,192,48,.3);
+  color:var(--amber);padding:6px 16px;border-radius:20px;
+  font-family:var(--f-mono);font-size:.82rem;font-weight:700;margin-bottom:8px;
+}
+
+/* Widget hub — link cards to each standalone widget page */
+.mkt-nav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+@media(max-width:900px){.mkt-nav-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.mkt-nav-grid{grid-template-columns:1fr}}
+.mkt-nav-card{
+  display:block;background:var(--dark-card);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-lg);padding:26px;transition:all .2s;
+}
+.mkt-nav-card:hover{border-color:rgba(240,192,48,.4);box-shadow:0 10px 30px rgba(0,0,0,.35);transform:translateY(-3px)}
+.mkt-nav-card-title{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:8px}
+.mkt-nav-card-desc{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:16px}
+.mkt-nav-card-go{font-size:.8rem;font-weight:700;color:var(--amber);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.mkt-nav-card:hover .mkt-nav-card-go{gap:9px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:96px;width:auto;display:block;mix-blend-mode:screen">
+  </a>
+</nav>
+
+<div class="mkt-layout">
+  <!-- SIDE NAV -->
+  <aside class="mkt-side-nav">
+    <div class="mkt-side-nav-title">Widgets</div>
+    <a href="Markets/chart.html">Chart</a>
+    <a href="Markets/compare.html">Compare</a>
+    <a href="Markets/watchlists.html">Watchlists</a>
+    <a href="Markets/tickers.html">Tickers</a>
+    <a href="Markets/heatmaps.html">Heatmaps</a>
+    <a href="Markets/screeners.html">Screeners</a>
+    <a href="Markets/spotlight.html">Spotlight</a>
+    <a href="Markets/news.html">News</a>
+    <a href="Markets/calendar.html">Calendar</a>
+  </aside>
+
+  <div class="mkt-main">
+
+<!-- HERO -->
+<section class="hero mkt-hero">
+  <div class="hero-wrap" style="grid-template-columns:1fr">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Markets</span>
+      </div>
+      <div class="live-pill">
+        <span class="live-pill-dot"></span>
+        Live Market Data
+      </div>
+      <h1 class="hero-h1" style="font-size:clamp(2.2rem,4vw,3.6rem)">
+        Watch The Market.<br>
+        <em>Learn What You're Seeing.</em>
+      </h1>
+      <p class="hero-sub" style="max-width:640px">
+        Charts, watchlists, heatmaps, screeners, news, and the economic calendar — every market widget we could bolt on, all on one page, no login required. Not sure what any of it means yet? That's what Stage 4 is for.
+      </p>
+      <div class="cta-row">
+        <a class="btn-a" href="learn.html?course=fl&amp;stage=4">Learn what these numbers mean <span>→</span></a>
+        <span class="mkt-hero-note">See live data ↓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER TAPE STRIP -->
+<div class="mkt-section mkt-ticker-section">
+  <div class="mkt-ticker-wrap" style="max-width:1400px;margin:0 auto">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+          { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
+          { "proName": "FOREXCOM:DJI", "title": "Dow 30" },
+          { "proName": "TVC:RUT", "title": "Russell 2000" },
+          { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
+          { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
+          { "proName": "BITSTAMP:ETHUSD", "title": "Ethereum" },
+          { "proName": "TVC:GOLD", "title": "Gold" },
+          { "proName": "TVC:US10Y", "title": "US 10Y" },
+          { "proName": "NASDAQ:TTWO", "title": "Take-Two" },
+          { "proName": "NYSE:SWK", "title": "Stanley B&D" },
+          { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
+          { "proName": "NYSE:ORCL", "title": "Oracle" },
+          { "proName": "AMEX:HYD", "title": "High Yield Muni" },
+          { "proName": "NYSE:UPS", "title": "UPS" },
+          { "proName": "NYSE:KMX", "title": "CarMax" },
+          { "proName": "NYSE:IIPR", "title": "Innovative Ind." },
+          { "proName": "NYSE:BBW", "title": "Build-A-Bear" },
+          { "proName": "AMEX:FRDM", "title": "Freedom 100" },
+          { "proName": "NYSE:TGT", "title": "Target" },
+          { "proName": "AMEX:BMNR", "title": "Bitmine" },
+          { "proName": "NYSE:UNH", "title": "UnitedHealth" },
+          { "proName": "NASDAQ:TSLA", "title": "Tesla" },
+          { "proName": "NASDAQ:SOFI", "title": "SoFi" },
+          { "proName": "NYSE:HD", "title": "Home Depot" },
+          { "proName": "NASDAQ:HOOD", "title": "Robinhood" },
+          { "proName": "NYSE:BRK.B", "title": "Berkshire B" },
+          { "proName": "NASDAQ:AVAV", "title": "AeroVironment" },
+          { "proName": "NYSE:CAG", "title": "Conagra" },
+          { "proName": "NYSE:JOBY", "title": "Joby Aviation" },
+          { "proName": "NASDAQ:PANW", "title": "Palo Alto" },
+          { "proName": "NASDAQ:META", "title": "Meta" },
+          { "proName": "AMEX:GDX", "title": "Gold Miners" },
+          { "proName": "AMEX:SCHD", "title": "Schwab Dividend" },
+          { "proName": "NYSE:DG", "title": "Dollar General" },
+          { "proName": "NYSE:HRL", "title": "Hormel" },
+          { "proName": "NYSE:TOST", "title": "Toast" },
+          { "proName": "NASDAQ:AMZN", "title": "Amazon" },
+          { "proName": "AMEX:LNG", "title": "Cheniere" },
+          { "proName": "NASDAQ:AEP", "title": "Am. Electric" },
+          { "proName": "NYSE:JPM", "title": "JPMorgan" },
+          { "proName": "NYSE:EQT", "title": "EQT" },
+          { "proName": "NASDAQ:INTU", "title": "Intuit" },
+          { "proName": "NASDAQ:PLTR", "title": "Palantir" }
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "colorTheme": "dark",
+        "locale": "en"
+      }
+      </script>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLORE THE WIDGETS -->
+<section class="sec mkt-section" id="explore">
+  <div class="sec-inner">
+    <p class="mkt-eyebrow">Live Data</p>
+    <h2 class="sec-h2" style="color:#fff">Every widget, its own page.</h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Pick a tool below — each one opens full-width on its own page so it has room to breathe.</p>
+
+    <div class="mkt-nav-grid">
+      <a class="mkt-nav-card" href="Markets/chart.html">
+        <div class="mkt-nav-card-title">Chart</div>
+        <div class="mkt-nav-card-desc">Pull up any symbol, draw trendlines, add indicators, switch timeframes.</div>
+        <div class="mkt-nav-card-go">Open Chart <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/compare.html">
+        <div class="mkt-nav-card-title">Compare</div>
+        <div class="mkt-nav-card-desc">S&amp;P 500, Nasdaq 100, and Dow 30 layered on one chart, plus quick mini-charts for names people ask about most.</div>
+        <div class="mkt-nav-card-go">Open Compare <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/watchlists.html">
+        <div class="mkt-nav-card-title">Watchlists</div>
+        <div class="mkt-nav-card-desc">A tabbed overview, today's biggest movers, and a straight quotes table.</div>
+        <div class="mkt-nav-card-go">Open Watchlists <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/tickers.html">
+        <div class="mkt-nav-card-title">Tickers</div>
+        <div class="mkt-nav-card-desc">A single symbol badge and a compact multi-symbol row.</div>
+        <div class="mkt-nav-card-go">Open Tickers <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/heatmaps.html">
+        <div class="mkt-nav-card-title">Heatmaps</div>
+        <div class="mkt-nav-card-desc">Stocks, crypto, ETFs, and forex — colored by how they're moving today.</div>
+        <div class="mkt-nav-card-go">Open Heatmaps <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/screeners.html">
+        <div class="mkt-nav-card-title">Screeners</div>
+        <div class="mkt-nav-card-desc">Sortable tables of stocks and crypto — rank by any metric.</div>
+        <div class="mkt-nav-card-go">Open Screeners <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/spotlight.html">
+        <div class="mkt-nav-card-title">Spotlight</div>
+        <div class="mkt-nav-card-desc">Quote info, a technical-analysis gauge, financials, and a company profile for one symbol at a time.</div>
+        <div class="mkt-nav-card-go">Open Spotlight <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/news.html">
+        <div class="mkt-nav-card-title">News</div>
+        <div class="mkt-nav-card-desc">Headlines feeding into the numbers above.</div>
+        <div class="mkt-nav-card-go">Open News <span>→</span></div>
+      </a>
+      <a class="mkt-nav-card" href="Markets/calendar.html">
+        <div class="mkt-nav-card-title">Calendar</div>
+        <div class="mkt-nav-card-desc">Jobs reports, inflation data, rate decisions — the releases that tend to move markets.</div>
+        <div class="mkt-nav-card-go">Open Calendar <span>→</span></div>
+      </a>
+    </div>
+
+    <p class="mkt-caption">Market data provided by TradingView and may be delayed. Shown for educational purposes only — nothing on this page is investment advice, and past performance doesn't guarantee future results.</p>
+  </div>
+</section>
+
+<!-- WHAT AM I LOOKING AT -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">Quick Reference</p>
+    <h2 class="sec-h2">What am I actually looking at?</h2>
+    <p class="sec-sub">The short version of what each number below means. For the full breakdown — including how to actually invest — head to Stage 4.</p>
+
+    <div class="mkt-terms-grid">
+      <div class="mkt-term-card">
+        <div class="mkt-term-name">S&amp;P 500</div>
+        <div class="mkt-term-desc">Tracks 500 of the largest U.S. companies. The most common benchmark for "how the market is doing" as a whole.</div>
+      </div>
+      <div class="mkt-term-card">
+        <div class="mkt-term-name">Nasdaq 100</div>
+        <div class="mkt-term-desc">Leans heavily tech and growth companies. Moves faster — up and down — than the S&amp;P 500.</div>
+      </div>
+      <div class="mkt-term-card">
+        <div class="mkt-term-name">Dow 30</div>
+        <div class="mkt-term-desc">Just 30 large, established companies. The oldest index still widely quoted, though less representative than the S&amp;P 500.</div>
+      </div>
+      <div class="mkt-term-card">
+        <div class="mkt-term-name">VIX</div>
+        <div class="mkt-term-desc">Nicknamed the "fear index." Rises when investors expect big swings, falls when things feel calm.</div>
+      </div>
+      <div class="mkt-term-card">
+        <div class="mkt-term-name">Bitcoin / Crypto</div>
+        <div class="mkt-term-desc">Trades 24/7, unlike stocks. Much more volatile — bigger potential swings in both directions.</div>
+      </div>
+      <div class="mkt-term-card">
+        <div class="mkt-term-name">Forex (EUR/USD, etc.)</div>
+        <div class="mkt-term-desc">How much one currency is worth in another. Moves on interest rates, inflation, and economic data.</div>
+      </div>
+    </div>
+
+    <div class="cta-row" style="margin-top:44px;justify-content:center">
+      <a class="btn-a" href="learn.html?course=fl&amp;stage=4">Start Stage 4: Invest <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    <!-- Brand -->
+    <div class="hfy-ft-brand">
+      <img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'">
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    <!-- Courses -->
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="learn.html?course=dwg&amp;stage=1">Disability Wealth Guide</a>
+        <a href="markets.html">Markets</a>
+        <a href="technical-analysis.html">Technical Analysis — $27.95</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis — $27.95</a>
+        <a href="trading-psychology.html">Trading Psychology — $27.95</a>
+        <a href="economics.html">Economics for Traders — $27.95</a>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="financial-literacy.html">Financial Literacy</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    <!-- Follow -->
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site, including live market data, is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+HFY.initNavOnly();
+</script>
+</body>
+</html>

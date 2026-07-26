@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Payment Received | Hustlin'</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260728">
+<style>
+.auth-wrap{min-height:100vh;background:#060606;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center}
+.auth-logo{margin-bottom:36px}
+.auth-logo img{height:56px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.auth-card{background:var(--dark-card);border:1px solid rgba(240,192,48,.2);border-radius:var(--r-lg);padding:40px;max-width:440px;width:100%}
+.auth-card h1{color:#fff;font-size:1.4rem;margin-bottom:10px}
+.auth-card p{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.6;margin-bottom:22px}
+.status-icon{font-size:2.4rem;margin-bottom:16px}
+.auth-card .btn-a{width:100%;justify-content:center}
+</style>
+</head>
+<body>
+<div class="auth-wrap">
+  <a class="auth-logo" href="index.html"><img src="assets/hustlin-logo.png" alt="Hustlin'"></a>
+  <div class="auth-card" id="card">
+    <div class="status-icon">⏳</div>
+    <h1>Confirming your payment…</h1>
+    <p>This usually takes a few seconds.</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
+<script src="app.js"></script>
+<script src="auth.js"></script>
+<script src="course-access.js"></script>
+<script>
+(async function(){
+  const params = new URLSearchParams(window.location.search);
+  const course = params.get('course') || 'ta';
+  const courseName = (window.HFY_CONFIG.COURSES[course] && window.HFY_CONFIG.COURSES[course].name) || 'your course';
+  const card = document.getElementById('card');
+
+  function renderOk(){
+    card.innerHTML =
+      '<div class="status-icon">✓</div>' +
+      '<h1>You\'re in!</h1>' +
+      '<p>' + courseName + ' is now unlocked on your account.</p>' +
+      // Stage 2 for every course: stage 1 is the free one they've likely
+      // already read, so send buyers straight to the first thing they paid for.
+      '<a class="btn-a" href="learn.html?course=' + encodeURIComponent(course) + '&amp;stage=2">Start Learning →</a>';
+  }
+  function renderPending(){
+    card.innerHTML =
+      '<div class="status-icon">📬</div>' +
+      '<h1>Payment received</h1>' +
+      '<p>We\'re still confirming this with Stripe — it can take up to a minute. Refresh this page shortly, or head back to the course and it\'ll unlock automatically once confirmed.</p>' +
+      '<a class="btn-a" href="javascript:location.reload()">Refresh</a>';
+  }
+  function renderSignedOut(){
+    card.innerHTML =
+      '<div class="status-icon">🔑</div>' +
+      '<h1>Payment received</h1>' +
+      '<p>Sign in with the same email you used at checkout to see your unlocked course.</p>' +
+      '<a class="btn-a" href="login.html">Sign In</a>';
+  }
+
+  const user = await window.HFY.auth.getUser();
+  if(!user){ renderSignedOut(); return; }
+
+  // Poll for the webhook to land (Stripe → Supabase can take a moment).
+  for(let i = 0; i < 6; i++){
+    const has = await window.HFY.access.checkCourseAccess(course);
+    if(has){ renderOk(); return; }
+    await new Promise(r => setTimeout(r, 2000));
+  }
+  renderPending();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Hustlin' Financial Literacy Course — free with a Hustlin' account. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
+<title>Financial Literacy Course | Hustlin'</title>
+
+<!-- Social Preview -->
+<meta property="og:title" content="Free Financial Literacy Course | Hustlin'">
+<meta property="og:description" content="The Hustlin' Financial Literacy Course — free with a Hustlin' account. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
+<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://www.hustlin.org/financial-literacy.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Financial Literacy Course | Hustlin'">
+<meta name="twitter:description" content="The Hustlin' Financial Literacy Course — free with a Hustlin' account. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
+<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260728">
+<style>
+/* ─ Page-specific additions only ─ */
+
+/* Breadcrumb */
+.breadcrumb{
+  font-size:.78rem;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:7px;margin-bottom:18px;
+}
+.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
+
+/* FREE badge pill */
+.free-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);
+  color:var(--green-lt);padding:5px 14px;border-radius:20px;
+  font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.free-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green-lt);
+  box-shadow:0 0 6px var(--green-lt);animation:fpdot 2s ease-in-out infinite alternate}
+@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}}
+
+/* The base .hero class carries a large bottom padding (120px, meant for
+   taller/shorter viewports) that leaves an oversized gap between the
+   hero and the cream roadmap section below on this page at any width
+   under the 1025px "compact hero" breakpoint. Trim it unconditionally. */
+.fl-hero{padding-bottom:32px}
+
+/* Cleaner headline — swap the heavy embossed "Impact" poster font (the
+   shared .hero-h1 default) for the site's normal clean display font,
+   dropping the thick outline/drop-shadow stack. Matches the treatment
+   already used for the headline on index.html. */
+.fl-hero .hero-h1{
+  font-family:var(--f-body);
+  font-weight:800;
+  letter-spacing:-.01em;
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+.fl-hero .hero-h1 em{
+  font-style:normal;
+  color:var(--amber);
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+
+/* .hero-stats defaults to align-items:stretch, so every stat item gets
+   stretched to match the tallest one — the bordered "Your Progress" box,
+   which is naturally taller (value + label + progress bar). On the plain
+   text stats that extra height is invisible, but on the bordered box it
+   shows up as dead space below the progress bar. Let each item size to
+   its own content instead. */
+.fl-hero .hero-stats{align-items:flex-start}
+
+/* Compact hero — fit headline + stats + journey card in one viewport
+   on desktop without scrolling (mobile keeps the roomier default). */
+@media(min-width:1025px){
+  .fl-hero{padding:128px 40px 32px}
+  .fl-hero .free-pill{margin-bottom:12px}
+  .fl-hero .hero-h1{font-size:clamp(2.1rem,3vw,2.8rem);margin-bottom:12px}
+  .fl-hero .hero-sub{font-size:1rem;line-height:1.55;margin-bottom:18px}
+  .fl-hero #hero-cta-img{height:48px}
+  .fl-hero .hero-stats{margin-top:22px;padding-top:16px}
+  .fl-hero .journey-card{padding:18px}
+  .fl-hero .journey-card-title{margin-bottom:10px}
+  .fl-hero .j-step{padding:8px 0}
+  .fl-hero .j-desc{font-size:.72rem;line-height:1.35}
+  .fl-hero #card-cta-img{height:44px}
+  .fl-hero .journey-card .btn-badge-img{margin-top:8px}
+}
+
+/* Stage cards (extends styles.css .s-card) */
+/* We use the existing .stages / .s-card classes from styles.css */
+/* Additional state for clickable stage links */
+.s-card[data-stage-card]{cursor:pointer;background:#000 !important;border:2px solid #000 !important;text-decoration:none;display:block}
+.s-card[data-stage-card]:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(240,192,48,.35)}
+.s-card[data-stage-card] .s-tag{color:rgba(255,255,255,.65) !important}
+.s-card[data-stage-card] .s-lock{color:var(--amber) !important;font-weight:700}
+.s-card[data-stage-card] .s-num{color:rgba(240,192,48,.7) !important}
+
+/* Progress ring override for this page — larger */
+.prog-ring-wrap{text-align:center;flex-shrink:0}
+
+/* For-who cards (reuses .persona from styles.css) */
+
+/* Footer */
+.page-footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.07);padding:40px;text-align:center}
+.pf-links{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin:12px 0}
+.pf-link{font-size:.78rem;color:rgba(255,255,255,.28);transition:.2s}
+.pf-link:hover{color:var(--amber)}
+.pf-copy{font-size:.73rem;color:rgba(255,255,255,.16);margin-bottom:6px}
+.pf-disc{font-size:.7rem;color:rgba(255,255,255,.12);max-width:580px;margin:0 auto;line-height:1.65}
+
+
+
+/* Email row */
+.email-row{
+  display:flex;gap:8px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.11);border-radius:var(--r-sm);
+  padding:6px 6px 6px 16px;transition:all .2s;max-width:480px;margin:0 auto;
+}
+.email-row:focus-within{border-color:rgba(240,192,48,.35);background:rgba(240,192,48,.03);box-shadow:0 0 16px rgba(240,192,48,.1)}
+.email-row input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:.93rem;font-family:var(--f-body);min-width:0}
+.email-row input::placeholder{color:rgba(255,255,255,.25)}
+.email-row .nav-cta{flex-shrink:0;padding:10px 18px;font-size:.82rem}
+.email-ok{display:none;background:rgba(45,160,45,.1);border:1px solid rgba(45,160,45,.25);border-radius:var(--r-sm);padding:10px;color:var(--green-lt);font-weight:600;font-size:.85rem;margin-top:8px;text-align:center}
+
+@media(max-width:768px){
+  .email-row{flex-direction:column;padding:10px;gap:8px}
+  .email-row .nav-cta{width:100%;padding:12px;text-align:center}
+
+}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+<style>
+/* ─── SITE FOOTER — BRANDED ─────────────────────────────── */
+.hfy-footer {
+  background: #060606;
+  border-top: 1px solid rgba(245,197,32,.2);
+  padding: 64px 40px 0;
+  margin-top: 0;
+}
+.hfy-ft-top {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.hfy-ft-brand img {
+  height: 52px; width: auto;
+  mix-blend-mode: screen;
+  margin-bottom: 14px;
+  display: block;
+}
+.hfy-ft-brand p {
+  font-size: .85rem;
+  color: rgba(255,255,255,.35);
+  line-height: 1.7;
+  max-width: 220px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-col-title {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #f5c520;
+  margin-bottom: 16px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-links a {
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  transition: color .2s;
+  line-height: 1;
+}
+.hfy-ft-links a:hover { color: #f5c520 }
+.hfy-ft-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border-radius: 100px;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  width: fit-content;
+}
+.hfy-ft-x {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.8);
+}
+.hfy-ft-x:hover {
+  background: #000;
+  border-color: #fff;
+  color: #fff !important;
+}
+.hfy-ft-ig {
+  background: rgba(225,48,108,.08);
+  border: 1px solid rgba(225,48,108,.25);
+  color: rgba(225,48,108,.9);
+}
+.hfy-ft-ig:hover {
+  background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-yt {
+  background: rgba(255,0,0,.08);
+  border: 1px solid rgba(255,0,0,.25);
+  color: rgba(255,80,80,.9);
+}
+.hfy-ft-yt:hover {
+  background: #ff0000;
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-social svg {
+  width: 15px; height: 15px;
+  fill: currentColor; flex-shrink: 0;
+}
+.hfy-ft-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hfy-ft-copy {
+  font-size: .78rem;
+  color: rgba(255,255,255,.2);
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(239,68,68,.3);
+  background: rgba(239,68,68,.05);
+  font-size: .74rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.8;
+  text-align: center;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: .78rem;
+  color: rgba(255,80,80,.9);
+  letter-spacing: .05em;
+}
+@media(max-width:900px){
+  .hfy-ft-top { grid-template-columns: 1fr 1fr; gap: 36px }
+}
+@media(max-width:560px){
+  .hfy-footer { padding: 44px 18px 0 }
+  .hfy-ft-top { grid-template-columns: 1fr; gap: 28px }
+  .hfy-ft-bottom { flex-direction: column; align-items: flex-start }
+}
+ROME BADGE BUTTON (matches logo branding) ─ */
+/* ─ IMAGE BADGE BUTTONS (real cropped PNGs, matches nav) ─ */
+.btn-badge-img{display:inline-flex;align-items:center;text-decoration:none;transition:transform .2s}
+.btn-badge-img:hover{transform:translateY(-2px) scale(1.02)}
+.btn-badge-img img{height:64px;width:auto;display:block}
+.s-name-img{height:52px;width:auto;display:block;margin-bottom:8px}
+@media(max-width:600px){.btn-badge-img img{height:52px}.s-name-img{height:44px}}
+
+.btn-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 34px;
+  border-radius: 100px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 50%, #000 100%);
+  border: 2px solid #ccc;
+  border-top-color: #f2f2f2;
+  border-bottom-color: #999;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .2s;
+  animation: badge-glow 2s ease-in-out infinite alternate;
+}
+.btn-badge:hover { transform: translateY(-2px) scale(1.02); }
+@keyframes badge-glow {
+  from { box-shadow: 0 0 0 1px #8a6a00, 0 0 18px rgba(240,192,48,.55), 0 0 36px rgba(240,192,48,.25), inset 0 2px 4px rgba(255,255,255,.15); }
+  to   { box-shadow: 0 0 0 1px #c9a84c, 0 0 34px rgba(255,220,60,.85), 0 0 64px rgba(240,192,48,.4), inset 0 2px 4px rgba(255,255,255,.25); }
+}
+.btn-badge::before {
+  content: '';
+  position: absolute; top: -5%; left: -80%; width: 45%; height: 110%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.06) 30%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.06) 70%, transparent 100%);
+  animation: badge-shine 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes badge-shine {
+  0% { left: -80%; opacity: 0 }
+  5% { opacity: 1 }
+  40% { left: 140%; opacity: 1 }
+  41% { opacity: 0 }
+  100% { left: 140%; opacity: 0 }
+}
+.btn-badge-text {
+  position: relative; z-index: 2;
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  background: linear-gradient(180deg, #fff4c2 0%, #f5c520 35%, #d89a10 65%, #f5c520 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.6));
+}
+@media (max-width: 600px) {
+  .btn-badge { padding: 14px 26px }
+  .btn-badge-text { font-size: .95rem }
+}
+</style>
+<style>
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:70px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))">
+  </a>
+  <div class="nav-stages">
+    <a href="learn.html?course=fl&amp;stage=1" data-nav-stage="stage1" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Survive.png" alt="Survive" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=fl&amp;stage=2" data-nav-stage="stage2" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Stabilize.png" alt="Stabilize" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=fl&amp;stage=3" data-nav-stage="stage3" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Rebuild.png" alt="Rebuild" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=fl&amp;stage=4" data-nav-stage="stage4" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Invest.png" alt="Invest" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=fl&amp;stage=5" data-nav-stage="stage5" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/BuildWealth.png" alt="Build Wealth" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+  </div>
+  
+</nav>
+
+<!-- HERO -->
+<section class="hero fl-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Financial Literacy Course</span>
+      </div>
+      <div class="free-pill">
+        <span class="free-pill-dot"></span>
+        100% Free · No Account Required
+      </div>
+      <h1 class="hero-h1">
+        The Financial Foundation<br>
+        <em>Nobody Taught You.</em>
+      </h1>
+      <p class="hero-sub">
+        Five stages. Zero fluff. Starting from wherever you actually are —
+        not where the textbooks assume you should be. Banking, credit, budgeting,
+        debt, and real investing. Taught straight.
+      </p>
+      <div class="cta-row">
+        <a class="btn-badge-img" href="learn.html?course=fl&amp;stage=1" id="hero-cta"><img src="assets/buttons/StartJourney.png" alt="Start Stage 1 — Free" id="hero-cta-img"></a>
+        <a class="btn-b" href="#roadmap">See all 5 stages ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">$<span>0</span></div><div class="stat-lbl">To start</div></div>
+        <div><div class="stat-val"><span>5</span></div><div class="stat-lbl">Stages</div></div>
+        <div class="stat-highlight">
+          <div class="stat-val"><span id="hero-pct">0</span>%</div>
+          <div class="stat-lbl">Your progress</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" id="hero-pct-bar"></div></div>
+        </div>
+        <div><div class="stat-val"><span>0</span></div><div class="stat-lbl">Judgment, ever</div></div>
+      </div>
+      <style>
+        .stat-highlight{background:rgba(232,160,32,.08);border:1px solid rgba(232,160,32,.4);border-radius:12px;padding:10px 16px 12px;position:relative;box-shadow:0 0 20px rgba(232,160,32,.1)}
+        .stat-highlight .stat-val{color:var(--amber)}
+        .stat-highlight .stat-val span{color:var(--amber)}
+        .stat-highlight .stat-lbl{color:rgba(232,160,32,.7);font-weight:700}
+        .stat-bar-track{width:100%;height:4px;background:rgba(232,160,32,.15);border-radius:4px;margin-top:8px;overflow:hidden}
+        .stat-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#c9861a,var(--amber));border-radius:4px;transition:width .6s ease}
+        @media(max-width:600px){.stat-highlight{padding:8px 12px 10px}}
+      </style>
+    </div>
+
+    <!-- Journey / progress card -->
+    <div class="journey-card" id="progress-card">
+      <div class="journey-card-title">Your Financial Journey</div>
+      <div class="j-step">
+        <div class="j-num now" id="jn1">1</div>
+        <div class="j-info">
+          <div class="j-name">Survive</div>
+          <div class="j-desc">Banking, credit basics, first budget</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn2">2</div>
+        <div class="j-info">
+          <div class="j-name">Stabilize</div>
+          <div class="j-desc">Emergency fund, debt avalanche, side income</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn3">3</div>
+        <div class="j-info">
+          <div class="j-name">Rebuild</div>
+          <div class="j-desc">Credit repair, Roth IRA, compound interest</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn4">4</div>
+        <div class="j-info">
+          <div class="j-name">Invest</div>
+          <div class="j-desc">Index funds, dividends, owning the market</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn5">5</div>
+        <div class="j-info">
+          <div class="j-name">Build Wealth</div>
+          <div class="j-desc">Compound growth, tax strategy, legacy</div>
+        </div>
+      </div>
+      <a class="btn-badge-img" href="learn.html?course=fl&amp;stage=1" id="card-cta"><img src="assets/buttons/StartJourney.png" alt="Begin Stage 1 Now" id="card-cta-img"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="sec roadmap" id="roadmap">
+  <div class="sec-inner">
+    <p class="sec-eye">The Full Course</p>
+    <h2 class="sec-h2">Five Stages. One Clear Path.</h2>
+    <p class="sec-sub">Each stage unlocks after you complete the one before it. Stage 1 is open right now — no waiting, no signup needed.</p>
+    <div class="stages" style="margin-top:44px">
+      <a class="s-card" data-stage-card="stage1" href="learn.html?course=fl&amp;stage=1">
+        <div class="s-num">STAGE 1</div>
+        <img class="s-name-img" src="assets/buttons/Survive.png" alt="Survive">
+        <div class="s-tag">Banking, credit basics, zero-based budget, financial traps, variable income, safety net</div>
+      </a>
+      <a class="s-card" data-stage-card="stage2" href="learn.html?course=fl&amp;stage=2">
+        <div class="s-num">STAGE 2</div>
+        <img class="s-name-img" src="assets/buttons/Stabilize.png" alt="Stabilize">
+        <div class="s-tag">$1,000 emergency fund, debt avalanche, side income streams, negotiating bills</div>
+      </a>
+      <a class="s-card" data-stage-card="stage3" href="learn.html?course=fl&amp;stage=3">
+        <div class="s-num">STAGE 3</div>
+        <img class="s-name-img" src="assets/buttons/Rebuild.png" alt="Rebuild">
+        <div class="s-tag">Credit repair, Roth IRA, first brokerage account, compound interest in action</div>
+      </a>
+      <a class="s-card" data-stage-card="stage4" href="learn.html?course=fl&amp;stage=4">
+        <div class="s-num">STAGE 4</div>
+        <img class="s-name-img" src="assets/buttons/Invest.png" alt="Invest">
+        <div class="s-tag">How the market works, index funds, dividends, dollar-cost averaging, diversification</div>
+      </a>
+      <a class="s-card" data-stage-card="stage5" href="learn.html?course=fl&amp;stage=5">
+        <div class="s-num">STAGE 5</div>
+        <img class="s-name-img" src="assets/buttons/BuildWealth.png" alt="Build Wealth">
+        <div class="s-tag">Compound growth at scale, tax strategy, estate basics, your financial freedom number</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="sec for-who">
+  <div class="sec-inner">
+    <div class="fw-grid">
+      <div class="fw-cards">
+        <p class="sec-eye">Who This Is For</p>
+        <h2 class="sec-h2">Most Financial Advice Assumes You Have Something.</h2>
+        <p class="sec-sub" style="margin-bottom:28px">We assume you have nothing — and build from there. No minimum income. No prior knowledge. Zero judgment about how you got here.</p>
+        <div class="persona">
+          <div class="p-icon">🔓</div>
+          <div><div class="p-name">Recently Released</div><div class="p-desc">Walking out with nothing but determination. You need banking, ID, and a clear first step. We start exactly there.</div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">⚖️</div>
+          <div><div class="p-name">Recovering from Divorce</div><div class="p-desc">Split finances, lost income, new start. Your assets took a hit. This course rebuilds the foundation.</div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">💥</div>
+          <div><div class="p-name">After Financial Collapse</div><div class="p-desc">Bankruptcy, job loss, medical debt. Credit wrecked. You don't know where to start. This is exactly where to start.</div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🌱</div>
+          <div><div class="p-name">Starting Late</div><div class="p-desc">Nobody taught you this. You're 30, 40, 50. Ready to learn. It is not too late — and compound interest proves it.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='learn.html?course=dwg&amp;stage=1'">
+          <div class="p-icon">♿</div>
+          <div><div class="p-name">Living With a Disability</div><div class="p-desc">SSDI, SSI, ABLE accounts, Special Needs Trusts — how to save and invest without losing your benefits. <strong style="color:var(--amber)">See the dedicated guide →</strong></div></div>
+        </div>
+      </div>
+      <div class="fw-panel">
+        <div class="fw-quote">
+          "If the only way you ever make money is by trading hours for dollars,
+          you're not an <em>owner</em> in this economy."
+        </div>
+        <p class="fw-body">Most financial programs stop at "save money and pay off debt." That's where we start. By Stage 4 you're learning how the market actually works — what index funds are, how compound interest builds real wealth, and how to open a brokerage account without guessing.</p>
+        <div class="fw-checks">
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">No minimum income required to start</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Covers second-chance banking and building from zero</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Goes past budgeting into real ownership and investing</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Built-in tools: Budget Builder, Debt Tracker, Sinking Fund Planner</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Progress saved to your device — pick up where you left off</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALLOUT -->
+<section class="callout-sec">
+  <div class="callout-txt">
+    <span class="callout-soft">The mission</span>
+    The information that builds wealth has been kept behind expensive courses and confusing jargon —
+    <em>on purpose.</em>
+    We built this to change that.
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Stay Updated</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:8px">New Stages. <span style="color:var(--amber)">First to Know.</span></h2>
+    <p style="color:rgba(255,255,255,.38);font-size:.93rem;margin-bottom:26px">Get notified when new modules go live. That's it — no noise.</p>
+    <div class="email-row">
+      <input type="email" id="fl-email" placeholder="your@email.com" autocomplete="email">
+      <button class="nav-cta" onclick="flSubscribe()">GET UPDATES</button>
+    </div>
+    <div class="email-ok" id="fl-ok">✓ You're in. Welcome to Hustlin'.</div>
+  </div>
+</section>
+
+<!-- TAGLINE BAND -->
+
+
+<!-- FOOTER -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    <!-- Brand -->
+    <div class="hfy-ft-brand">
+      <img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'">
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    <!-- Courses -->
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="markets.html">Markets</a>
+        <a href="learn.html?course=dwg&amp;stage=1">Disability Wealth Guide</a>
+        <a href="technical-analysis.html">Technical Analysis — $27.95</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis — $27.95</a>
+        <a href="trading-psychology.html">Trading Psychology — $27.95</a>
+        <a href="economics.html">Economics for Traders — $27.95</a>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="financial-literacy.html">Financial Literacy</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    <!-- Follow -->
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+// Render nav stage states + roadmap cards
+HFY.initNavOnly();
+
+// Update hero progress stat
+const totalPct = Math.round(
+  (HFY.getPct('stage1') + HFY.getPct('stage2') + HFY.getPct('stage3') + HFY.getPct('stage4') + HFY.getPct('stage5')) / 5
+);
+document.getElementById('hero-pct').textContent = totalPct;
+document.getElementById('hero-pct-bar').style.width = totalPct + '%';
+
+// Update journey card to show completed stages
+const stageKeys = ['stage1','stage2','stage3','stage4','stage5'];
+stageKeys.forEach((key, i) => {
+  const pct = HFY.getPct(key);
+  const jn = document.getElementById('jn' + (i + 1));
+  if (jn) {
+    if (pct >= 100) {
+      jn.className = 'j-num';
+      jn.style.background = 'var(--green)';
+      jn.style.color = '#fff';
+      jn.textContent = '✓';
+    } else if (HFY.isUnlocked(key) && i > 0 && HFY.getPct(stageKeys[i-1]) >= 100) {
+      jn.className = 'j-num now';
+    }
+  }
+});
+
+// Update hero CTA based on progress
+const nextStageIdx = stageKeys.findIndex(k => HFY.getPct(k) < 100);
+if (nextStageIdx > 0) {
+  const meta = HFY.STAGE_META[stageKeys[nextStageIdx]];
+  const imgFile = meta.name.replace(/\s+/g, '') + '.png';
+  const heroCta = document.getElementById('hero-cta');
+  const cardCta = document.getElementById('card-cta');
+  const navBtn = document.getElementById('nav-cta-btn');
+  if (heroCta) { heroCta.href = HFY.stageHref(stageKeys[nextStageIdx]); const img = document.getElementById('hero-cta-img'); if (img) { img.src = 'assets/buttons/' + imgFile; img.alt = 'Resume Stage ' + meta.num + ': ' + meta.name; } }
+  if (cardCta) { cardCta.href = HFY.stageHref(stageKeys[nextStageIdx]); const img = document.getElementById('card-cta-img'); if (img) { img.src = 'assets/buttons/' + imgFile; img.alt = 'Resume Stage ' + meta.num + ': ' + meta.name; } }
+  if (navBtn) { navBtn.textContent = 'Resume →'; navBtn.href = HFY.stageHref(stageKeys[nextStageIdx]); }
+} else if (nextStageIdx === -1) {
+  // All complete
+  const heroCta = document.getElementById('hero-cta');
+  if (heroCta) { heroCta.href = HFY.stageHref('stage5'); const img = document.getElementById('hero-cta-img'); if (img) { img.src = 'assets/buttons/BuildWealth.png'; img.alt = 'Course Complete! Review'; } }
+}
+
+// Email subscribe
+async function flSubscribe() {
+  const input = document.getElementById('fl-email');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) { input.focus(); return; }
+  const btn = input.nextElementSibling;
+  btn.textContent = 'JOINING...'; btn.disabled = true;
+  try {
+    await fetch('https://api.convertkit.com/v3/forms/YOUR_CONVERTKIT_FORM_ID/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: 'YOUR_CONVERTKIT_PUBLIC_API_KEY', email })
+    });
+  } catch(e) {}
+  document.querySelector('.email-row').style.display = 'none';
+  document.getElementById('fl-ok').style.display = 'block';
+}
+document.getElementById('fl-email').addEventListener('keydown', e => {
+  if (e.key === 'Enter') flSubscribe();
+});
+</script>
+</body>
+</html>

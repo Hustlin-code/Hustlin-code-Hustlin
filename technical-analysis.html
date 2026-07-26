@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Hustlin' Technical Analysis Course — Stage 1 free with an account, full course $27.95. Read charts, spot trends and patterns, use indicators, and build your own TA routine. Five stages starting from a blank chart.">
+<title>Technical Analysis Course | Hustlin'</title>
+
+<!-- Social Preview -->
+<meta property="og:title" content="Technical Analysis Course | Hustlin'">
+<meta property="og:description" content="The Hustlin' Technical Analysis Course — Stage 1 free with an account, full course $27.95. Read charts, spot trends and patterns, use indicators, and build your own TA routine.">
+<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://www.hustlin.org/technical-analysis.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical Analysis Course | Hustlin'">
+<meta name="twitter:description" content="The Hustlin' Technical Analysis Course — Stage 1 free with an account, full course $27.95. Read charts, spot trends and patterns, use indicators, and build your own TA routine.">
+<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260728">
+<style>
+/* ─ Page-specific additions only ─ */
+
+/* Breadcrumb */
+.breadcrumb{
+  font-size:.78rem;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:7px;margin-bottom:18px;
+}
+.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
+
+/* FREE badge pill */
+.free-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);
+  color:var(--green-lt);padding:5px 14px;border-radius:20px;
+  font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.free-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green-lt);
+  box-shadow:0 0 6px var(--green-lt);animation:fpdot 2s ease-in-out infinite alternate}
+@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}}
+
+/* Stage cards (extends styles.css .s-card) — text-only, no custom PNGs for this course */
+.s-card[data-stage-card]{cursor:pointer}
+.s-card[data-stage-card].live:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(240,192,48,.15)}
+
+/* Progress ring override for this page — larger */
+.prog-ring-wrap{text-align:center;flex-shrink:0}
+
+/* Footer */
+.page-footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.07);padding:40px;text-align:center}
+.pf-links{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin:12px 0}
+.pf-link{font-size:.78rem;color:rgba(255,255,255,.28);transition:.2s}
+.pf-link:hover{color:var(--amber)}
+.pf-copy{font-size:.73rem;color:rgba(255,255,255,.16);margin-bottom:6px}
+.pf-disc{font-size:.7rem;color:rgba(255,255,255,.12);max-width:580px;margin:0 auto;line-height:1.65}
+
+/* Email row */
+.email-row{
+  display:flex;gap:8px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.11);border-radius:var(--r-sm);
+  padding:6px 6px 6px 16px;transition:all .2s;max-width:480px;margin:0 auto;
+}
+.email-row:focus-within{border-color:rgba(240,192,48,.35);background:rgba(240,192,48,.03);box-shadow:0 0 16px rgba(240,192,48,.1)}
+.email-row input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:.93rem;font-family:var(--f-body);min-width:0}
+.email-row input::placeholder{color:rgba(255,255,255,.25)}
+.email-row .nav-cta{flex-shrink:0;padding:10px 18px;font-size:.82rem}
+.email-ok{display:none;background:rgba(45,160,45,.1);border:1px solid rgba(45,160,45,.25);border-radius:var(--r-sm);padding:10px;color:var(--green-lt);font-weight:600;font-size:.85rem;margin-top:8px;text-align:center}
+
+@media(max-width:768px){
+  .email-row{flex-direction:column;padding:10px;gap:8px}
+  .email-row .nav-cta{width:100%;padding:12px;text-align:center}
+}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+<style>
+/* ─── SITE FOOTER — BRANDED ─────────────────────────────── */
+.hfy-footer {
+  background: #060606;
+  border-top: 1px solid rgba(245,197,32,.2);
+  padding: 64px 40px 0;
+  margin-top: 0;
+}
+.hfy-ft-top {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.hfy-ft-brand img {
+  height: 52px; width: auto;
+  mix-blend-mode: screen;
+  margin-bottom: 14px;
+  display: block;
+}
+.hfy-ft-brand p {
+  font-size: .85rem;
+  color: rgba(255,255,255,.35);
+  line-height: 1.7;
+  max-width: 220px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-col-title {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #f5c520;
+  margin-bottom: 16px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-links a {
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  transition: color .2s;
+  line-height: 1;
+}
+.hfy-ft-links a:hover { color: #f5c520 }
+.hfy-ft-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border-radius: 100px;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  width: fit-content;
+}
+.hfy-ft-x {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.8);
+}
+.hfy-ft-x:hover {
+  background: #000;
+  border-color: #fff;
+  color: #fff !important;
+}
+.hfy-ft-ig {
+  background: rgba(225,48,108,.08);
+  border: 1px solid rgba(225,48,108,.25);
+  color: rgba(225,48,108,.9);
+}
+.hfy-ft-ig:hover {
+  background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-yt {
+  background: rgba(255,0,0,.08);
+  border: 1px solid rgba(255,0,0,.25);
+  color: rgba(255,80,80,.9);
+}
+.hfy-ft-yt:hover {
+  background: #ff0000;
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-social svg {
+  width: 15px; height: 15px;
+  fill: currentColor; flex-shrink: 0;
+}
+.hfy-ft-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hfy-ft-copy {
+  font-size: .78rem;
+  color: rgba(255,255,255,.2);
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(239,68,68,.3);
+  background: rgba(239,68,68,.05);
+  font-size: .74rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.8;
+  text-align: center;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: .78rem;
+  color: rgba(255,80,80,.9);
+  letter-spacing: .05em;
+}
+@media(max-width:900px){
+  .hfy-ft-top { grid-template-columns: 1fr 1fr; gap: 36px }
+}
+@media(max-width:560px){
+  .hfy-footer { padding: 44px 18px 0 }
+  .hfy-ft-top { grid-template-columns: 1fr; gap: 28px }
+  .hfy-ft-bottom { flex-direction: column; align-items: flex-start }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/TA Buttons/BlueHustlinLogo-cropped.png" alt="Hustlin'" style="height:70px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))">
+  </a>
+  <div class="nav-stages">
+    <a href="learn.html?course=ta&amp;stage=1" data-nav-stage="ta1" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/TA Buttons/ChartBasics-cropped.png" alt="Chart Basics" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=ta&amp;stage=2" data-nav-stage="ta2" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/TA Buttons/TrendandVolume-cropped.png" alt="Trend &amp; Volume" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=ta&amp;stage=3" data-nav-stage="ta3" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/TA Buttons/ChartPatterns-cropped.png" alt="Chart Patterns" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=ta&amp;stage=4" data-nav-stage="ta4" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/TA Buttons/Indicators-cropped.png" alt="Indicators" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="learn.html?course=ta&amp;stage=5" data-nav-stage="ta5" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/TA Buttons/Advanced-cropped.png" alt="Advanced" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Technical Analysis Course</span>
+      </div>
+      <div class="free-pill">
+        <span class="free-pill-dot"></span>
+        Stage 1 Free · Stages 2–5 <span class="lock-price" style="color:inherit">$9.99</span>
+      </div>
+      <h1 class="hero-h1">
+        Read The Chart<br>
+        <em>Like You Mean It.</em>
+      </h1>
+      <p class="hero-sub">
+        Five stages. Real books, real videos, zero hype. From your first
+        candlestick to Elliott Wave — learn to see what price is actually
+        telling you, and build a repeatable process you can trust.
+      </p>
+      <div class="cta-row">
+        <a href="learn.html?course=ta&amp;stage=1" id="hero-cta" style="display:inline-flex;align-items:center;text-decoration:none;"><img id="hero-cta-img" src="assets/TA Buttons/Begin-cropped.png" alt="Start Stage 1 — Free" style="height:52px;width:auto;display:block;"></a>
+        <a class="btn-b" href="#roadmap">See all 5 stages ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">$<span>0</span></div><div class="stat-lbl">To start</div></div>
+        <div><div class="stat-val"><span>5</span></div><div class="stat-lbl">Stages</div></div>
+        <div class="stat-highlight">
+          <div class="stat-val"><span id="hero-pct">0</span>%</div>
+          <div class="stat-lbl">Your progress</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" id="hero-pct-bar"></div></div>
+        </div>
+        <div><div class="stat-val"><span>0</span></div><div class="stat-lbl">Hype, ever</div></div>
+      </div>
+      <style>
+        .stat-highlight{background:rgba(232,160,32,.08);border:1px solid rgba(232,160,32,.4);border-radius:12px;padding:10px 16px 12px;position:relative;box-shadow:0 0 20px rgba(232,160,32,.1)}
+        .stat-highlight .stat-val{color:var(--amber)}
+        .stat-highlight .stat-val span{color:var(--amber)}
+        .stat-highlight .stat-lbl{color:rgba(232,160,32,.7);font-weight:700}
+        .stat-bar-track{width:100%;height:4px;background:rgba(232,160,32,.15);border-radius:4px;margin-top:8px;overflow:hidden}
+        .stat-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#c9861a,var(--amber));border-radius:4px;transition:width .6s ease}
+        @media(max-width:600px){.stat-highlight{padding:8px 12px 10px}}
+      </style>
+    </div>
+
+    <!-- Journey / progress card -->
+    <div class="journey-card" id="progress-card">
+      <div class="journey-card-title">Your Technical Analysis Journey</div>
+      <div class="j-step">
+        <div class="j-num now" id="jn1">1</div>
+        <div class="j-info">
+          <div class="j-name">Chart Basics</div>
+          <div class="j-desc">Candlesticks, timeframes, support &amp; resistance</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn2">2</div>
+        <div class="j-info">
+          <div class="j-name">Trend &amp; Volume Analysis</div>
+          <div class="j-desc">Moving averages, channels, volume confirmation</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn3">3</div>
+        <div class="j-info">
+          <div class="j-name">Chart Patterns</div>
+          <div class="j-desc">Head &amp; shoulders, triangles, candlestick reversals</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn4">4</div>
+        <div class="j-info">
+          <div class="j-name">Indicators &amp; Signals</div>
+          <div class="j-desc">MACD, RSI, Bollinger Bands, risk management</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn5">5</div>
+        <div class="j-info">
+          <div class="j-name">Advanced Methods</div>
+          <div class="j-desc">Point &amp; Figure, Elliott Wave, your own routine</div>
+        </div>
+      </div>
+      <a href="learn.html?course=ta&amp;stage=1" id="card-cta" style="display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:22px;"><img id="card-cta-img" src="assets/TA Buttons/Begin-cropped.png" alt="Begin Stage 1 Now" style="height:52px;width:auto;display:block;"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="sec roadmap" id="roadmap">
+  <div class="sec-inner">
+    <p class="sec-eye">The Full Course</p>
+    <h2 class="sec-h2">Five Stages. One Clear Chart.</h2>
+    <p class="sec-sub">Stage 1 is open right now — no signup needed. Stages 2–5 unlock with a one-time $9.99 payment (one account, all four stages).</p>
+    <div class="stages" style="margin-top:44px">
+      <a class="s-card" data-stage-card="ta1" href="learn.html?course=ta&amp;stage=1">
+        <div class="s-num">STAGE 1</div>
+        <img class="s-name-img" src="assets/TA Buttons/ChartBasics-cropped.png" alt="Chart Basics">
+        <div class="s-tag">OHLC, candlestick anatomy, timeframes, support &amp; resistance, trendlines, volume</div>
+        <div class="s-lock-caption">Free access</div>
+      </a>
+      <a class="s-card" data-stage-card="ta2" href="learn.html?course=ta&amp;stage=2">
+        <div class="s-num">STAGE 2</div>
+        <img class="s-name-img" src="assets/TA Buttons/TrendandVolume-cropped.png" alt="Trend &amp; Volume">
+        <div class="s-tag">Moving averages, golden/death cross, channels, breakouts, volume confirmation</div>
+        <div class="s-lock-caption">$9.99 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ta3" href="learn.html?course=ta&amp;stage=3">
+        <div class="s-num">STAGE 3</div>
+        <img class="s-name-img" src="assets/TA Buttons/ChartPatterns-cropped.png" alt="Chart Patterns">
+        <div class="s-tag">Head &amp; shoulders, double tops/bottoms, triangles, flags, gaps, candlestick reversals</div>
+        <div class="s-lock-caption">$9.99 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ta4" href="learn.html?course=ta&amp;stage=4">
+        <div class="s-num">STAGE 4</div>
+        <img class="s-name-img" src="assets/TA Buttons/Indicators-cropped.png" alt="Indicators &amp; Signals">
+        <div class="s-tag">MACD, RSI, stochastics, Bollinger Bands, signal checklists, risk management</div>
+        <div class="s-lock-caption">$9.99 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ta5" href="learn.html?course=ta&amp;stage=5">
+        <div class="s-num">STAGE 5</div>
+        <img class="s-name-img" src="assets/TA Buttons/Advanced-cropped.png" alt="Advanced Methods">
+        <div class="s-tag">Point &amp; Figure charting, Elliott Wave theory, building your own TA routine</div>
+        <div class="s-lock-caption">$9.99 one-time · sign-in required</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="sec for-who">
+  <div class="sec-inner">
+    <div class="fw-grid">
+      <div class="fw-cards">
+        <p class="sec-eye">Who This Is For</p>
+        <h2 class="sec-h2">Most TA Content Is Either a $2,000 Course or a Guru's Highlight Reel.</h2>
+        <p class="sec-sub" style="margin-bottom:28px">This is neither. It's the actual substance from real technical analysis textbooks — Stage 1 is free, and the full course is a one-time $9.99, not a $2,000 subscription.</p>
+        <div class="persona">
+          <div class="p-icon">🆕</div>
+          <div><div class="p-name">New to the Market</div><div class="p-desc">You've never opened a chart in your life. Stage 1 assumes zero prior knowledge — we start at what a candle even is.</div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">📦</div>
+          <div><div class="p-name">Buy-and-Hold, Ready to Time Entries</div><div class="p-desc">You already invest. Now you want to stop buying at the worst possible moment. This course is about timing, not gambling.</div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🗓️</div>
+          <div><div class="p-name">Weekend Chart-Reader</div><div class="p-desc">You check your portfolio sometimes and want the charts to actually mean something instead of just looking like noise.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='financial-literacy.html'">
+          <div class="p-icon">🎓</div>
+          <div><div class="p-name">Coming From the Financial Literacy Course</div><div class="p-desc">Finished Stage 4: Invest and want to go deeper on the market side? This is the natural next step. <strong style="color:var(--amber)">Start there first →</strong></div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🧭</div>
+          <div><div class="p-name">Skeptical of "Gurus"</div><div class="p-desc">No signals for sale, no Discord upsell, no "I made $10k this week" screenshots. Just the actual books, explained plainly.</div></div>
+        </div>
+      </div>
+      <div class="fw-panel">
+        <div class="fw-quote">
+          "A chart is not a crystal ball. It's a <em>record</em> — and reading
+          it well just means understanding what already happened clearly enough
+          to make a better decision about what's next."
+        </div>
+        <p class="fw-body">Technical analysis doesn't predict the future. It organizes the present. This course teaches you to read price action, volume, and indicators the way real technicians do — sourced from the actual textbooks the field is built on, not repackaged hype. By Stage 5 you're working with Point &amp; Figure charting and Elliott Wave theory, and you'll have your own repeatable routine for reviewing any chart.</p>
+        <div class="fw-checks">
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Grounded in real technical analysis textbooks, not opinions</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Goes from your first candlestick to advanced charting methods</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Includes an honest look at where TA methods disagree or fall short</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Progress saved to your device — pick up where you left off</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALLOUT -->
+<section class="callout-sec">
+  <div class="callout-txt">
+    <span class="callout-soft">The mission</span>
+    Real chart-reading skill has been kept behind expensive courses and confident-sounding nonsense —
+    <em>on purpose.</em>
+    We built this to change that.
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Stay Updated</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:8px">New Stages. <span style="color:var(--amber)">First to Know.</span></h2>
+    <p style="color:rgba(255,255,255,.38);font-size:.93rem;margin-bottom:26px">Get notified when new modules go live. That's it — no noise.</p>
+    <div class="email-row">
+      <input type="email" id="ta-email" placeholder="your@email.com" autocomplete="email">
+      <button class="nav-cta" onclick="taSubscribe()">GET UPDATES</button>
+    </div>
+    <div class="email-ok" id="ta-ok">✓ You're in. Welcome to Hustlin'.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    <!-- Brand -->
+    <div class="hfy-ft-brand">
+      <img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'">
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    <!-- Courses -->
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="technical-analysis.html">Technical Analysis — $27.95</a>
+        <a href="markets.html">Markets</a>
+        <a href="learn.html?course=dwg&amp;stage=1">Disability Wealth Guide</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis — $27.95</a>
+        <a href="trading-psychology.html">Trading Psychology — $27.95</a>
+        <a href="economics.html">Economics for Traders — $27.95</a>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="financial-literacy.html">Financial Literacy</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    <!-- Follow -->
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Technical analysis is not a guarantee of future price movement. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
+<script src="app.js"></script>
+<script src="auth.js"></script>
+<script src="course-access.js"></script>
+<script>
+// Render nav stage states + roadmap cards
+HFY.initNavOnly();
+
+// Update hero progress stat
+const totalPct = Math.round(
+  (HFY.getPct('ta1') + HFY.getPct('ta2') + HFY.getPct('ta3') + HFY.getPct('ta4') + HFY.getPct('ta5')) / 5
+);
+document.getElementById('hero-pct').textContent = totalPct;
+document.getElementById('hero-pct-bar').style.width = totalPct + '%';
+
+// Update journey card to show completed stages
+const stageKeys = ['ta1','ta2','ta3','ta4','ta5'];
+stageKeys.forEach((key, i) => {
+  const pct = HFY.getPct(key);
+  const jn = document.getElementById('jn' + (i + 1));
+  if (jn) {
+    if (pct >= 100) {
+      jn.className = 'j-num';
+      jn.style.background = 'var(--green)';
+      jn.style.color = '#fff';
+      jn.textContent = '✓';
+    } else if (HFY.isUnlocked(key) && i > 0 && HFY.getPct(stageKeys[i-1]) >= 100) {
+      jn.className = 'j-num now';
+    }
+  }
+});
+
+// Update hero CTA based on progress
+const nextStageIdx = stageKeys.findIndex(k => HFY.getPct(k) < 100);
+if (nextStageIdx > 0) {
+  const meta = HFY.STAGE_META[stageKeys[nextStageIdx]];
+  const heroCta = document.getElementById('hero-cta');
+  const cardCta = document.getElementById('card-cta');
+  const navBtn = document.getElementById('nav-cta-btn');
+  if (heroCta) { heroCta.href = HFY.stageHref(stageKeys[nextStageIdx]); const img = document.getElementById('hero-cta-img'); if (img) img.alt = 'Resume Stage ' + meta.num + ': ' + meta.name; }
+  if (cardCta) { cardCta.href = HFY.stageHref(stageKeys[nextStageIdx]); const img = document.getElementById('card-cta-img'); if (img) img.alt = 'Resume Stage ' + meta.num + ': ' + meta.name; }
+  if (navBtn) { navBtn.textContent = 'Resume →'; navBtn.href = HFY.stageHref(stageKeys[nextStageIdx]); }
+} else if (nextStageIdx === -1) {
+  // All complete
+  const heroCta = document.getElementById('hero-cta');
+  if (heroCta) { heroCta.href = HFY.stageHref('ta5'); const img = document.getElementById('hero-cta-img'); if (img) img.alt = 'Course Complete! Review'; }
+}
+
+async function taSubscribe() {
+  const input = document.getElementById('ta-email');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) { input.focus(); return; }
+  const btn = input.nextElementSibling;
+  btn.textContent = 'JOINING...'; btn.disabled = true;
+  try {
+    await fetch('https://api.convertkit.com/v3/forms/YOUR_CONVERTKIT_FORM_ID/subscribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: 'YOUR_CONVERTKIT_PUBLIC_API_KEY', email })
+    });
+  } catch(e) {}
+  document.querySelector('.email-row').style.display = 'none';
+  document.getElementById('ta-ok').style.display = 'block';
+}
+document.getElementById('ta-email').addEventListener('keydown', e => {
+  if (e.key === 'Enter') taSubscribe();
+});
+
+// Stages 2–5 are paywalled ($9.99, one account unlocks all four). The
+// FORCE_UNLOCK_ALL flag in app.js only governs the free progression
+// display above — it does not grant real access, which the course-gate
+// on each stage page enforces. This just corrects the roadmap card
+// labels/lock icons to reflect real purchase status instead of showing
+// everything as "unlocked".
+(async function(){
+  const paidStages = ['ta2','ta3','ta4','ta5'];
+  let hasAccess = false;
+  try{ hasAccess = await HFY.access.checkCourseAccess('ta'); }catch(e){ hasAccess = false; }
+  paidStages.forEach(function(key){
+    const card = document.querySelector('[data-stage-card="' + key + '"]');
+    if(!card) return;
+    const lockEl = card.querySelector('.s-lock');
+    if(hasAccess){
+      if(lockEl) lockEl.innerHTML = '<span class="s-lock-caption">Unlocked</span><span class="s-lock-btn s-lock-btn--free">Start now <span class="s-lock-arrow">→</span></span>';
+      card.classList.remove('locked');
+      card.classList.add('live');
+    } else {
+      if(lockEl) lockEl.innerHTML = '<span class="s-lock-caption">$9.99 one-time · sign-in required</span><img src="assets/TA Buttons/Unlock-cropped.png" alt="Unlock" style="height:38px;width:auto;display:block;">';
+      card.classList.add('locked');
+      card.classList.remove('live');
+    }
+  });
+})();
+</script>
+
+<style>
+/* ─── TA COURSE — BLUE THEME OVERRIDE (chrome only, not lesson content) ───
+   Placed last so it wins over every earlier <style> block on this page,
+   regardless of selector order. */
+:root{
+  --amber: #2FA7FF;
+  --amber-lt: #7DD8FF;
+}
+.nav{border-bottom-color:rgba(47,167,255,.45)}
+.hfy-account-btn:hover{border-color:rgba(47,167,255,.4)}
+.btn-a:hover{box-shadow:0 8px 24px rgba(47,167,255,.38)}
+.hero-h1 em{text-shadow:1px 1px 0 #007cd6,2px 2px 0 #0064ad,3px 3px 0 #004c85,4px 4px 0 #00355c,5px 6px 3px rgba(0,0,0,.75),0 0 26px rgba(47,167,255,.55),0 0 50px rgba(47,167,255,.25)}
+.s-card.live:hover{box-shadow:0 10px 30px rgba(47,167,255,.18)}
+.s-card[data-stage-card].live:hover{box-shadow:0 8px 28px rgba(47,167,255,.15)}
+.callout-sec::before{background:radial-gradient(ellipse at 50% 0%,rgba(47,167,255,.08) 0%,transparent 60%)}
+.stage-complete-banner{background:linear-gradient(135deg,rgba(45,160,45,.14),rgba(47,167,255,.10))}
+.hfy-gate-notice{background:rgba(47,167,255,.1);border-color:rgba(47,167,255,.35)}
+.hfy-gate-card{border-color:rgba(47,167,255,.25)}
+.email-row:focus-within{border-color:rgba(47,167,255,.35);background:rgba(47,167,255,.03);box-shadow:0 0 16px rgba(47,167,255,.1)}
+.stat-highlight{background:rgba(47,167,255,.08);border-color:rgba(47,167,255,.4);box-shadow:0 0 20px rgba(47,167,255,.1)}
+.stat-highlight .stat-lbl{color:rgba(47,167,255,.7)}
+.stat-bar-track{background:rgba(47,167,255,.15)}
+.stat-bar-fill{background:linear-gradient(90deg,#0d6fc4,var(--amber))}
+
+/* Roadmap cards to match the Financial Literacy course style: plain
+   black cards with the stage-name button image, no lock/price chrome. */
+.s-card[data-stage-card]{background:#000 !important;border:2px solid #000 !important;text-decoration:none;display:block}
+.s-card[data-stage-card]:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(47,167,255,.35)}
+.s-card[data-stage-card] .s-tag{color:rgba(255,255,255,.65) !important}
+.s-card[data-stage-card] .s-num{color:rgba(47,167,255,.75) !important}
+.s-card[data-stage-card] .s-lock-caption{display:block;margin-top:10px;color:rgba(255,255,255,.4) !important}
+.s-name-img{height:52px;width:auto;display:block;margin-bottom:8px}
+@media(max-width:600px){.s-name-img{height:44px}}
+</style>
+</body>
+</html>

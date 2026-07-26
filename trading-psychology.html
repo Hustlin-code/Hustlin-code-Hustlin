@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Trading Psychology Mastery Course | hustlin.org</title>
+    <meta name="description" content="Master the mental game of trading. Learn discipline, emotional control, risk mindset, and the psychological habits of elite traders. A comprehensive course by Hustlin.org." />
+    <meta name="keywords" content="trading psychology, trading mindset, trading discipline, emotional trading, fear and greed trading, trader psychology, stock market psychology, trading course, mental edge trading" />
+    <link rel="canonical" href="https://hustlin.org/trading-psychology" />
+    <meta property="og:title" content="Trading Psychology Mastery: The Mental Edge That Separates Winners from Losers" />
+    <meta property="og:description" content="Master the mental game of trading. Learn discipline, emotional control, risk mindset, and the psychological habits of elite traders. A comprehensive course by Hustlin.org." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hustlin.org/trading-psychology" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Trading Psychology Mastery: The Mental Edge That Separates Winners from Losers",
+        "description": "Master the mental game of trading. Learn discipline, emotional control, risk mindset, and the psychological habits of elite traders.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Hustlin.org",
+            "url": "https://hustlin.org"
+        },
+        "numberOfCredits": "35 Lessons",
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "courseWorkload": "7 Modules, 35 Lessons"
+        }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    navy: {
+                        900: '#0A0A0A',
+                        800: '#141414',
+                        700: '#1B1B1B',
+                        600: '#222222',
+                        500: '#2a2a2a'
+                    },
+                    gold: {
+                        400: '#FFE668',
+                        500: '#F0C030',
+                        600: '#D9A020',
+                        700: '#B8871A'
+                    },
+                    slate: {
+                        300: '#cbd5e1',
+                        400: '#94a3b8',
+                        500: '#64748b'
+                    }
+                }
+            }
+        }
+    };
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <style>
+        :root {
+            --bg-primary: #0A0A0A;
+            --bg-card: #141414;
+            --bg-card-hover: #1B1B1B;
+            --gold: #F0C030;
+            --gold-light: #FFE668;
+            --gold-dark: #D9A020;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-subtle: rgba(240,192,48, 0.12);
+            --shadow-gold: rgba(240,192,48, 0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .gradient-gold-text {
+            background: linear-gradient(135deg, #FFE668, #F0C030, #D9A020);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(240,192,48, 0.3);
+            box-shadow: 0 20px 40px -12px var(--shadow-gold), 0 0 0 1px rgba(240,192,48, 0.15);
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, rgba(240,192,48, 0.08), rgba(240,192,48, 0.03));
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+        }
+
+        .lesson-item {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .lesson-item:hover {
+            background: rgba(240,192,48, 0.06);
+            padding-left: 2rem;
+        }
+
+        .lesson-item:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            opacity: 0.5;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .lesson-item:hover .lesson-dot {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #FFE668, #F0C030, #D9A020);
+            color: #0A0A0A;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -8px rgba(240,192,48, 0.5);
+        }
+
+        .stats-bar {
+            background: linear-gradient(135deg, rgba(240,192,48, 0.1), rgba(240,192,48, 0.05));
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:hover {
+            border-color: rgba(240,192,48, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .learn-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .learn-check {
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(240,192,48, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge {
+            background: rgba(240,192,48, 0.15);
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            letter-spacing: 0.04em;
+        }
+
+        .module-number {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+
+        .cta-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, #0d1326 50%, var(--bg-primary) 100%);
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+        }
+
+        @media (max-width: 767px) {
+            .module-header { padding: 1.25rem; }
+            .lesson-item { padding: 0.65rem 1.25rem; font-size: 0.9rem; }
+            .lesson-item:hover { padding-left: 1.5rem; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body data-id="0" class="min-h-screen">
+    <app-icon data-id="1" hidden data-icon="trending-up" data-palette="Yellow"></app-icon>
+    <app-disclaimer data-id="2" intent="financial"></app-disclaimer>
+
+    <!-- Navigation -->
+    <nav data-id="3" id="navbar-x8k2" class="fixed top-0 left-0 right-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-white/5">
+        <div data-id="4" class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+            <div data-id="5" class="flex items-center gap-2">
+                <span data-id="6" class="text-gold-500 font-bold text-xl tracking-tight">hustlin</span><span data-id="7" class="text-white/40">.org</span>
+            </div>
+            <div data-id="8" class="hidden md:flex items-center gap-8">
+                <a data-id="9" href="#modules" class="text-sm text-slate-400 hover:text-gold-500 transition-colors">Modules</a>
+                <a data-id="10" href="#learn" class="text-sm text-slate-400 hover:text-gold-500 transition-colors">What You'll Learn</a>
+                <a data-id="11" href="#who" class="text-sm text-slate-400 hover:text-gold-500 transition-colors">Who It's For</a>
+                <a data-id="12" href="#enroll" class="btn-gold text-sm !py-2 !px-5 !rounded-lg">Enroll Now</a>
+            </div>
+            <button data-id="13" id="mobile-menu-btn-j4m1" class="md:hidden p-2 text-slate-400 hover:text-gold-500 transition-colors" aria-label="Open menu">
+                <i data-id="14" data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <nav data-id="15" id="mobile-menu-r7p3" class="hidden fixed inset-0 bg-navy-900/98 z-[60] flex flex-col p-6" aria-label="Mobile navigation">
+        <div data-id="16" class="flex justify-between items-center mb-10">
+            <span data-id="17" class="text-gold-500 font-bold text-xl">hustlin<span data-id="18" class="text-white/40">.org</span></span>
+            <button data-id="19" id="mobile-menu-close-u2q5" class="p-2 text-slate-400 hover:text-gold-500" aria-label="Close menu">
+                <i data-id="20" data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div data-id="21" class="flex flex-col gap-6">
+            <a data-id="22" href="#modules" class="text-lg text-slate-300 hover:text-gold-500 transition-colors mobile-nav-link">Modules</a>
+            <a data-id="23" href="#learn" class="text-lg text-slate-300 hover:text-gold-500 transition-colors mobile-nav-link">What You'll Learn</a>
+            <a data-id="24" href="#who" class="text-lg text-slate-300 hover:text-gold-500 transition-colors mobile-nav-link">Who It's For</a>
+            <a data-id="25" href="#enroll" class="btn-gold text-center mt-4 mobile-nav-link">Enroll Now</a>
+        </div>
+    </nav>
+
+    <main data-id="26">
+        <!-- Hero Section -->
+        <section data-id="27" id="hero-s3v9" class="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-8 overflow-hidden">
+            <div data-id="28" class="hero-glow"></div>
+            <div data-id="29" class="max-w-4xl mx-auto text-center relative z-10">
+                <div data-id="30" class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20">
+                    <i data-id="31" data-lucide="award" class="w-4 h-4 text-gold-500"></i>
+                    <span data-id="32" class="text-gold-500 text-sm font-semibold tracking-wide">PREMIUM COURSE BY HUSTLIN.ORG</span>
+                </div>
+                <h1 data-id="33" id="hero-title-m8n4" class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    Trading Psychology Mastery: <br data-id="34" class="hidden md:block" />
+                    <span data-id="35" class="gradient-gold-text">The Mental Edge That Separates Winners from Losers</span>
+                </h1>
+                <p data-id="36" id="hero-subtitle-k2j7" class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Strategy alone doesn't make profitable traders — psychology does. This comprehensive course arms you with the mental frameworks, emotional discipline, and behavioral insights used by elite traders to consistently outperform. Transform the way you think, react, and execute in the markets.
+                </p>
+                <div data-id="37" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a data-id="38" href="#enroll" class="btn-gold text-base">
+                        Start Your Transformation
+                    </a>
+                    <a data-id="39" href="#modules" class="text-slate-400 hover:text-gold-500 transition-colors text-sm flex items-center gap-2">
+                        Explore the Curriculum
+                        <i data-id="40" data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section data-id="41" id="stats-bar-p9w2" class="stats-bar py-5 px-4 md:px-8">
+            <div data-id="42" class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+                <div data-id="43" class="flex flex-col items-center">
+                    <div data-id="44" class="flex items-center gap-2 mb-1">
+                        <i data-id="45" data-lucide="layers" class="w-5 h-5 text-gold-500"></i>
+                        <span data-id="46" class="text-xl md:text-2xl font-bold text-white">7</span>
+                    </div>
+                    <span data-id="47" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Modules</span>
+                </div>
+                <div data-id="48" class="flex flex-col items-center">
+                    <div data-id="49" class="flex items-center gap-2 mb-1">
+                        <i data-id="50" data-lucide="book-open" class="w-5 h-5 text-gold-500"></i>
+                        <span data-id="51" class="text-xl md:text-2xl font-bold text-white">35</span>
+                    </div>
+                    <span data-id="52" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Lessons</span>
+                </div>
+                <div data-id="53" class="flex flex-col items-center">
+                    <div data-id="54" class="flex items-center gap-2 mb-1">
+                        <i data-id="55" data-lucide="infinity" class="w-5 h-5 text-gold-500"></i>
+                        <span data-id="56" class="text-xl md:text-2xl font-bold text-white">Lifetime</span>
+                    </div>
+                    <span data-id="57" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Access</span>
+                </div>
+                <div data-id="58" class="flex flex-col items-center">
+                    <div data-id="59" class="flex items-center gap-2 mb-1">
+                        <i data-id="60" data-lucide="badge-check" class="w-5 h-5 text-gold-500"></i>
+                        <span data-id="61" class="text-xl md:text-2xl font-bold text-white">Certificate</span>
+                    </div>
+                    <span data-id="62" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Of Completion</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- What You'll Learn -->
+        <section data-id="63" id="learn" class="py-16 md:py-24 px-4 md:px-8">
+            <div data-id="64" class="max-w-5xl mx-auto">
+                <div data-id="65" class="text-center mb-12">
+                    <h2 data-id="66" id="learn-title-q4r8" class="text-2xl md:text-3xl font-bold mb-4">What You'll Learn</h2>
+                    <p data-id="67" class="text-slate-400 max-w-xl mx-auto">A deep, practical toolkit for mastering the mental side of trading — the factor that determines 80% of your results.</p>
+                </div>
+                <div data-id="68" class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
+                    <div data-id="69" class="learn-item">
+                        <i data-id="70" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="71" class="text-slate-300">Identify and neutralize the cognitive biases that cause impulsive, account-draining decisions</span>
+                    </div>
+                    <div data-id="72" class="learn-item">
+                        <i data-id="73" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="74" class="text-slate-300">Build ironclad discipline to follow your trading plan under emotional pressure</span>
+                    </div>
+                    <div data-id="75" class="learn-item">
+                        <i data-id="76" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="77" class="text-slate-300">Develop a healthy relationship with risk and loss so they no longer paralyze you</span>
+                    </div>
+                    <div data-id="78" class="learn-item">
+                        <i data-id="79" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="80" class="text-slate-300">Understand how fear, greed, and FOMO hijack your brain — and how to reclaim control</span>
+                    </div>
+                    <div data-id="81" class="learn-item">
+                        <i data-id="82" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="83" class="text-slate-300">Use journaling, routines, and mindfulness to sharpen focus and consistency</span>
+                    </div>
+                    <div data-id="84" class="learn-item">
+                        <i data-id="85" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="86" class="text-slate-300">Read crowd psychology and institutional behavior to anticipate market moves</span>
+                    </div>
+                    <div data-id="87" class="learn-item">
+                        <i data-id="88" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="89" class="text-slate-300">Build genuine, process-based confidence that survives losing streaks</span>
+                    </div>
+                    <div data-id="90" class="learn-item">
+                        <i data-id="91" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
+                        <span data-id="92" class="text-slate-300">Create a personal psychological trading system you can rely on for years</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Modules -->
+        <section data-id="93" id="modules" class="py-16 md:py-24 px-4 md:px-8">
+            <div data-id="94" class="max-w-5xl mx-auto">
+                <div data-id="95" class="text-center mb-14">
+                    <h2 data-id="96" id="modules-title-w5t3" class="text-2xl md:text-3xl font-bold mb-4">Course Curriculum</h2>
+                    <p data-id="97" class="text-slate-400 max-w-xl mx-auto">Seven meticulously crafted modules that take you from understanding your own wiring to building a complete psychological trading system.</p>
+                </div>
+
+                <div data-id="98" class="space-y-6">
+                    <!-- Module 1 -->
+                    <div data-id="99" class="module-card fade-in">
+                        <div data-id="100" class="module-header">
+                            <div data-id="101" class="flex items-start justify-between">
+                                <div data-id="102" class="flex items-start gap-4">
+                                    <span data-id="103" class="text-3xl">🧠</span>
+                                    <div data-id="104">
+                                        <span data-id="105" class="module-number">Module 1</span>
+                                        <h3 data-id="106" id="mod1-title-a3b6" class="text-lg md:text-xl font-bold text-white mt-1">The Trader's Mind — Understanding Your Psychological Wiring</h3>
+                                    </div>
+                                </div>
+                                <span data-id="107" class="badge whitespace-nowrap">5 Lessons</span>
+                            </div>
+                        </div>
+                        <div data-id="108" id="mod1-lessons-c4d8" class="module-lessons">
+                            <div data-id="109" class="lesson-item"><span data-id="110" class="lesson-dot"></span><span data-id="111" class="text-slate-300 text-sm">1.1 — Why 90% of Traders Fail (And It's Not Strategy)</span><i data-id="112" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="113" class="lesson-item"><span data-id="114" class="lesson-dot"></span><span data-id="115" class="text-slate-300 text-sm">1.2 — The Neuroscience of Financial Decision-Making</span><i data-id="116" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="117" class="lesson-item"><span data-id="118" class="lesson-dot"></span><span data-id="119" class="text-slate-300 text-sm">1.3 — Cognitive Biases That Destroy Trading Accounts</span><i data-id="120" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="121" class="lesson-item"><span data-id="122" class="lesson-dot"></span><span data-id="123" class="text-slate-300 text-sm">1.4 — How Your Brain Processes Wins and Losses Differently</span><i data-id="124" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="125" class="lesson-item"><span data-id="126" class="lesson-dot"></span><span data-id="127" class="text-slate-300 text-sm">1.5 — Developing a Self-Awareness Practice for Traders</span><i data-id="128" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 -->
+                    <div data-id="129" class="module-card fade-in">
+                        <div data-id="130" class="module-header">
+                            <div data-id="131" class="flex items-start justify-between">
+                                <div data-id="132" class="flex items-start gap-4">
+                                    <span data-id="133" class="text-3xl">🎭</span>
+                                    <div data-id="134">
+                                        <span data-id="135" class="module-number">Module 2</span>
+                                        <h3 data-id="136" id="mod2-title-e5f9" class="text-lg md:text-xl font-bold text-white mt-1">Fear, Greed, and the Emotional Cycle of Markets</h3>
+                                    </div>
+                                </div>
+                                <span data-id="137" class="badge whitespace-nowrap">5 Lessons</span>
+                            </div>
+                        </div>
+                        <div data-id="138" id="mod2-lessons-g6h1">
+                            <div data-id="139" class="lesson-item"><span data-id="140" class="lesson-dot"></span><span data-id="141" class="text-slate-300 text-sm">2.1 — Understanding Market Emotions at a Macro Level</span><i data-id="142" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="143" class="lesson-item"><span data-id="144" class="lesson-dot"></span><span data-id="145" class="text-slate-300 text-sm">2.2 — The Fear of Missing Out (FOMO) and How It Destroys Discipline</span><i data-id="146" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="147" class="lesson-item"><span data-id="148" class="lesson-dot"></span><span data-id="149" class="text-slate-300 text-sm">2.3 — Panic Selling vs. Strategic Exits</span><i data-id="150" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="151" class="lesson-item"><span data-id="152" class="lesson-dot"></span><span data-id="153" class="text-slate-300 text-sm">2.4 — Greed and Overconfidence: The Silent Account Killers</span><i data-id="154" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="155" class="lesson-item"><span data-id="156" class="lesson-dot"></span><span data-id="157" class="text-slate-300 text-sm">2.5 — The Emotional Cycle of a Trade — Entry to Exit</span><i data-id="158" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 3 -->
+                    <div data-id="159" class="module-card fade-in">
+                        <div data-id="160" class="module-header">
+                            <div data-id="161" class="flex items-start justify-between">
+                                <div data-id="162" class="flex items-start gap-4">
+                                    <span data-id="163" class="text-3xl">⚔️</span>
+                                    <div data-id="164">
+                                        <span data-id="165" class="module-number">Module 3</span>
+                                        <h3 data-id="166" id="mod3-title-i7j2" class="text-lg md:text-xl font-bold text-white mt-1">Discipline and the Professional Trading Mindset</h3>
+                                    </div>
+                                </div>
+                                <span data-id="167" class="badge whitespace-nowrap">5 Lessons</span>
+                            </div>
+                        </div>
+                        <div data-id="168" id="mod3-lessons-k8l3">
+                            <div data-id="169" class="lesson-item"><span data-id="170" class="lesson-dot"></span><span data-id="171" class="text-slate-300 text-sm">3.1 — What Discipline Actually Looks Like in Real Trading</span><i data-id="172" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="173" class="lesson-item"><span data-id="174" class="lesson-dot"></span><span data-id="175" class="text-slate-300 text-sm">3.2 — Building Pre-Trade Routines That Lock In Focus</span><i data-id="176" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="177" class="lesson-item"><span data-id="178" class="lesson-dot"></span><span data-id="179" class="text-slate-300 text-sm">3.3 — How to Stick to Your Trading Plan When It Hurts</span><i data-id="180" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="181" class="lesson-item"><span data-id="182" class="lesson-dot"></span><span data-id="183" class="text-slate-300 text-sm">3.4 — The Role of Patience in High-Probability Setups</span><i data-id="184" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="185" class="lesson-item"><span data-id="186" class="lesson-dot"></span><span data-id="187" class="text-slate-300 text-sm">3.5 — Eliminating Impulsive Trades Forever</span><i data-id="188" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 4 -->
+                    <div data-id="189" class="module-card fade-in">
+                        <div data-id="190" class="module-header">
+                            <div data-id="191" class="flex items-start justify-between">
+                                <div data-id="192" class="flex items-start gap-4">
+                                    <span data-id="193" class="text-3xl">🛡️</span>
+                                    <div data-id="194">
+                                        <span data-id="195" class="module-number">Module 4</span>
+                                        <h3 data-id="196" id="mod4-title-m9n4" class="text-lg md:text-xl font-bold text-white mt-1">Risk Psychology — Making Peace With Loss</h3>
+                                    </div>
+                                </div>
+                                <span data-id="197" class="badge whitespace-nowrap">5 Lessons</span>
+                            </div>
+                        </div>
+                        <div data-id="198" id="mod4-lessons-o1p5">
+                            <div data-id="199" class="lesson-item"><span data-id="200" class="lesson-dot"></span><span data-id="201" class="text-slate-300 text-sm">4.1 — Reframing Loss as the Cost of Doing Business</span><i data-id="202" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="203" class="lesson-item"><span data-id="204" class="lesson-dot"></span><span data-id="205" class="text-slate-300 text-sm">4.2 — Position Sizing and Its Psychological Impact</span><i data-id="206" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="207" class="lesson-item"><span data-id="208" class="lesson-dot"></span><span data-id="209" class="text-slate-300 text-sm">4.3 — The Danger of Revenge Trading</span><i data-id="210" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="211" class="lesson-item"><span data-id="212" class="lesson-dot"></span><span data-id="213" class="text-slate-300 text-sm">4.4 — How to Cut Losses Without Emotional Conflict</span><i data-id="214" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="215" class="lesson-item"><span data-id="216" class="lesson-dot"></span><span data-id="217" class="text-slate-300 text-sm">4.5 — Managing Drawdown Periods Mentally</span><i data-id="218" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 5 -->
+                    <div data-id="219" class="module-card fade-in">
+                        <div data-id="220" class="module-header">
+                            <div data-id="221" class="flex items-start justify-between">
+                                <div data-id="222" class="flex items-start gap-4">
+                                    <span data-id="223" class="text-3xl">🏆</span>
+                                    <div data-id="224">
+                                        <span data-id="225" class="module-number">Module 5</span>
+                                        <h3 data-id="226" id="mod5-title-q2r6" class="text-lg md:text-xl font-bold text-white mt-1">Developing Elite-Level Confidence</h3>
+                                    </div>
+                                </div>
+                                <span data-id="227" class="badge whitespace-nowrap">5 Lessons</span>
+                            </div>
+                        </div>
+                        <div data-id="228" id="mod5-lessons-s3t7">
+                            <div data-id="229" class="lesson-item"><span data-id="230" class="lesson-dot"></span><span data-id="231" class="text-slate-300 text-sm">5.1 — Confidence vs. Arrogance in Trading</span><i data-id="232" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="233" class="lesson-item"><span data-id="234" class="lesson-dot"></span><span data-id="235" class="text-slate-300 text-sm">5.2 — Building Confidence Through Process, Not Profits</span><i data-id="236" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="237" class="lesson-item"><span data-id="238" class="lesson-dot"></span><span data-id="239" class="text-slate-300 text-sm">5.3 — Journaling as a Confidence and Performance Tool</span><i data-id="240" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="241" class="lesson-item"><span data-id="242" class="lesson-dot"></span><span data-id="243" class="text-slate-300 text-sm">5.4 — How to Trade Through a Losing Streak</span><i data-id="244" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="245" class="lesson-item"><span data-id="246" class="lesson-dot"></span><span data-id="247" class="text-slate-300 text-sm">5.5 — The Compound Effect of Small Daily Disciplines</span><i data-id="248" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 6 -->
+                    <div data-id="249" class="module-card fade-in">
+                        <div data-id="250" class="module-header">
+                            <div data-id="251" class="flex items-start justify-between">
+                                <div data-id="252" class="flex items-start gap-4">
+                                    <span data-id="253" class="text-3xl">📊</span>
+                                    <div data-id="254">
+                                        <span data-id="255" class="module-number">Module 6</span>
+                                        <h3 data-id="256" id="mod6-title-u4v8" class="text-lg md:text-xl font-bold text-white mt-1">Behavioral Finance and Market Crowd Psychology</h3>
+                                    </div>
+                                </div>
+                                <span data-id="257" class="badge whitespace-nowrap">5 Lessons</span>
+                            </div>
+                        </div>
+                        <div data-id="258" id="mod6-lessons-w5x9">
+                            <div data-id="259" class="lesson-item"><span data-id="260" class="lesson-dot"></span><span data-id="261" class="text-slate-300 text-sm">6.1 — How Market Professionals Exploit Retail Psychology</span><i data-id="262" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="263" class="lesson-item"><span data-id="264" class="lesson-dot"></span><span data-id="265" class="text-slate-300 text-sm">6.2 — Herd Behavior and Contrarian Thinking</span><i data-id="266" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="267" class="lesson-item"><span data-id="268" class="lesson-dot"></span><span data-id="269" class="text-slate-300 text-sm">6.3 — Smart Money vs. Dumb Money — Reading the Crowd</span><i data-id="270" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="271" class="lesson-item"><span data-id="272" class="lesson-dot"></span><span data-id="273" class="text-slate-300 text-sm">6.4 — Supply, Demand, and the Psychology Behind Price Action</span><i data-id="274" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="275" class="lesson-item"><span data-id="276" class="lesson-dot"></span><span data-id="277" class="text-slate-300 text-sm">6.5 — How Volume Reveals Institutional Intent</span><i data-id="278" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 7 -->
+                    <div data-id="279" class="module-card fade-in">
+                        <div data-id="280" class="module-header">
+                            <div data-id="281" class="flex items-start justify-between">
+                                <div data-id="282" class="flex items-start gap-4">
+                                    <span data-id="283" class="text-3xl">🧩</span>
+                                    <div data-id="284">
+                                        <span data-id="285" class="module-number">Module 7</span>
+                                        <h3 data-id="286" id="mod7-title-y6z1" class="text-lg md:text-xl font-bold text-white mt-1">Building Your Psychological Trading System</h3>
+                                    </div>
+                                </div>
+                                <span data-id="287" class="badge whitespace-nowrap">5 Lessons</span>
+                            </div>
+                        </div>
+                        <div data-id="288" id="mod7-lessons-a7b2">
+                            <div data-id="289" class="lesson-item"><span data-id="290" class="lesson-dot"></span><span data-id="291" class="text-slate-300 text-sm">7.1 — Creating a Personal Trading Manifesto</span><i data-id="292" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="293" class="lesson-item"><span data-id="294" class="lesson-dot"></span><span data-id="295" class="text-slate-300 text-sm">7.2 — Your Daily Mental Performance Checklist</span><i data-id="296" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="297" class="lesson-item"><span data-id="298" class="lesson-dot"></span><span data-id="299" class="text-slate-300 text-sm">7.3 — Meditation, Mindfulness, and Mental Recovery</span><i data-id="300" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="301" class="lesson-item"><span data-id="302" class="lesson-dot"></span><span data-id="303" class="text-slate-300 text-sm">7.4 — Long-Term Psychological Health as a Trader</span><i data-id="304" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                            <div data-id="305" class="lesson-item"><span data-id="306" class="lesson-dot"></span><span data-id="307" class="text-slate-300 text-sm">7.5 — Putting It All Together — Your Edge Is Your Mind</span><i data-id="308" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who This Course Is For -->
+        <section data-id="309" id="who" class="py-16 md:py-24 px-4 md:px-8">
+            <div data-id="310" class="max-w-5xl mx-auto">
+                <div data-id="311" class="text-center mb-12">
+                    <h2 data-id="312" id="who-title-c8d3" class="text-2xl md:text-3xl font-bold mb-4">Who This Course Is For</h2>
+                    <p data-id="313" class="text-slate-400 max-w-xl mx-auto">Whether you're just starting or have years in the markets, your psychology is your most powerful — or most dangerous — asset.</p>
+                </div>
+                <div data-id="314" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div data-id="315" class="profile-card">
+                        <div data-id="316" class="flex items-center gap-3 mb-4">
+                            <div data-id="317" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
+                                <i data-id="318" data-lucide="sprout" class="w-6 h-6 text-gold-500"></i>
+                            </div>
+                            <h3 data-id="319" class="font-bold text-lg text-white">The Beginner Trader</h3>
+                        </div>
+                        <p data-id="320" class="text-slate-400 text-sm leading-relaxed">You're learning the markets and want to build on the right mental foundation from day one. Most beginners skip psychology and pay dearly. You won't make that mistake.</p>
+                    </div>
+                    <div data-id="321" class="profile-card">
+                        <div data-id="322" class="flex items-center gap-3 mb-4">
+                            <div data-id="323" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
+                                <i data-id="324" data-lucide="flame" class="w-6 h-6 text-gold-500"></i>
+                            </div>
+                            <h3 data-id="325" class="font-bold text-lg text-white">The Struggling Trader</h3>
+                        </div>
+                        <p data-id="326" class="text-slate-400 text-sm leading-relaxed">You know your strategy works on paper, but you keep breaking your own rules. Revenge trades, FOMO entries, early exits — this course was built for you.</p>
+                    </div>
+                    <div data-id="327" class="profile-card">
+                        <div data-id="328" class="flex items-center gap-3 mb-4">
+                            <div data-id="329" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
+                                <i data-id="330" data-lucide="target" class="w-6 h-6 text-gold-500"></i>
+                            </div>
+                            <h3 data-id="331" class="font-bold text-lg text-white">The Experienced Trader</h3>
+                        </div>
+                        <p data-id="332" class="text-slate-400 text-sm leading-relaxed">You're profitable but know there's another level. You want the mental edge to scale your performance, handle larger positions, and trade with unshakable composure.</p>
+                    </div>
+                    <div data-id="333" class="profile-card">
+                        <div data-id="334" class="flex items-center gap-3 mb-4">
+                            <div data-id="335" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
+                                <i data-id="336" data-lucide="line-chart" class="w-6 h-6 text-gold-500"></i>
+                            </div>
+                            <h3 data-id="337" class="font-bold text-lg text-white">The Long-Term Investor</h3>
+                        </div>
+                        <p data-id="338" class="text-slate-400 text-sm leading-relaxed">You invest for the long haul but catch yourself panic-selling in drawdowns or chasing hot tips. This course gives you the emotional anchor to stay the course.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section data-id="339" id="enroll" class="cta-section py-20 md:py-28 px-4 md:px-8">
+            <div data-id="340" class="max-w-3xl mx-auto text-center">
+                <div data-id="341" class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20">
+                    <i data-id="342" data-lucide="zap" class="w-4 h-4 text-gold-500"></i>
+                    <span data-id="343" class="text-gold-500 text-sm font-semibold">TRANSFORM YOUR TRADING</span>
+                </div>
+                <h2 data-id="344" id="cta-title-e9f4" class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+                    Your Edge Is <span data-id="345" class="gradient-gold-text">Your Mind</span>
+                </h2>
+                <p data-id="346" class="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                    The market doesn't care about your feelings — but your profitability depends on how well you manage them. Join the traders who've decided to master the one variable they can actually control: themselves.
+                </p>
+                <div style="font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;color:#F0C030;margin-bottom:4px">$27.95</div>
+<div style="font-size:.85rem;color:#94a3b8;margin-bottom:26px">One-time payment · lifetime access</div>
+<div data-id="347" class="flex flex-col items-center gap-5">
+                    <a data-id="348" href="#" data-hfy-buy="psych" class="btn-gold text-lg px-10 py-4">
+                        Enroll Now
+                    </a>
+                    <div data-id="349" class="flex flex-wrap items-center justify-center gap-6 mt-4 text-sm text-slate-500">
+                        <span data-id="350" class="flex items-center gap-2"><i data-id="351" data-lucide="shield-check" class="w-4 h-4 text-gold-500/60"></i>Lifetime Access</span>
+                        <span data-id="352" class="flex items-center gap-2"><i data-id="353" data-lucide="refresh-cw" class="w-4 h-4 text-gold-500/60"></i>Free Updates</span>
+                        <span data-id="354" class="flex items-center gap-2"><i data-id="355" data-lucide="award" class="w-4 h-4 text-gold-500/60"></i>Certificate Included</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer data-id="356" id="footer-g1h5" class="border-t border-white/5 py-8 px-4 md:px-8">
+        <div data-id="357" class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div data-id="358" class="flex items-center gap-2">
+                <span data-id="359" class="text-gold-500 font-bold">hustlin</span><span data-id="360" class="text-white/40">.org</span>
+            </div>
+            <p data-id="361" class="text-slate-500 text-sm">&copy; 2026 hustlin.org — All rights reserved.</p>
+            <p data-id="362" class="text-slate-600 text-xs">Made by Copilot</p>
+        </div>
+    </footer>
+
+    <script>
+        // Icons — progressive enhancement
+        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+            lucide.createIcons();
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn-j4m1');
+        const mobileMenu = document.getElementById('mobile-menu-r7p3');
+        const mobileMenuClose = document.getElementById('mobile-menu-close-u2q5');
+
+        if (mobileMenuBtn && mobileMenu && mobileMenuClose) {
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            });
+
+            mobileMenuClose.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = '';
+            });
+
+            // Close on nav link click
+            document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar-x8k2');
+        if (navbar) {
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 40) {
+                    navbar.style.borderBottomColor = 'rgba(240,192,48, 0.1)';
+                    navbar.style.backgroundColor = 'rgba(10, 15, 30, 0.98)';
+                } else {
+                    navbar.style.borderBottomColor = 'rgba(255,255,255,0.05)';
+                    navbar.style.backgroundColor = 'rgba(10, 15, 30, 0.95)';
+                }
+            });
+        }
+
+        // Module card expand/collapse
+        document.querySelectorAll('.module-header').forEach(function (header) {
+            header.style.cursor = 'pointer';
+            header.addEventListener('click', function () {
+                const card = this.closest('.module-card');
+                const lessons = card.querySelector('[id^="mod"][id*="-lessons-"]');
+                if (!lessons) return;
+
+                const isHidden = lessons.style.display === 'none';
+                lessons.style.display = isHidden ? '' : 'none';
+
+                // Rotate chevrons or toggle indicator
+                const chevrons = lessons.querySelectorAll('[data-lucide="chevron-right"]');
+                // No special animation needed — simple toggle
+            });
+        });
+
+        // Fade-in on scroll (Intersection Observer)
+        const fadeEls = document.querySelectorAll('.fade-in');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            fadeEls.forEach(function (el) {
+                observer.observe(el);
+            });
+        } else {
+            // Fallback: show all
+            fadeEls.forEach(function (el) {
+                el.classList.add('visible');
+            });
+        }
+
+        // Lesson item hover ripple effect
+        document.querySelectorAll('.lesson-item').forEach(function (item) {
+            item.addEventListener('mouseenter', function () {
+                this.querySelector('.lesson-dot').style.boxShadow = '0 0 8px rgba(240,192,48, 0.6)';
+            });
+            item.addEventListener('mouseleave', function () {
+                this.querySelector('.lesson-dot').style.boxShadow = 'none';
+            });
+        });
+    </script>
+
+<!-- Hustlin' auth + checkout -->
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="course-access.js"></script>
+<script src="course-buy.js?v=20260726"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Gated content viewer. This file contains NO lesson content. Lessons are
+     fetched at runtime from the course-content Edge Function, which verifies
+     the user's JWT and their entitlement before returning anything, and pulls
+     the HTML from a private Supabase Storage bucket. There is no URL that
+     serves lesson content to an unauthenticated or unpaid visitor. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Course — Hustlin'</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260728">
+<style>
+  #hfy-lesson-styles:empty { display: none }
+  .hfy-learn-state {
+    min-height: 62vh; display: flex; align-items: center;
+    justify-content: center; padding: 48px 24px;
+  }
+  .hfy-learn-card {
+    max-width: 460px; width: 100%; text-align: center;
+    background: #0b0b0b; border: 1px solid rgba(245,197,32,.28);
+    border-radius: 16px; padding: 38px 32px;
+  }
+  .hfy-learn-card h3 { margin: 0 0 10px; font-size: 1.4rem; color: #fff }
+  .hfy-learn-card p { margin: 0 0 22px; color: rgba(255,255,255,.6); font-size: .92rem; line-height: 1.6 }
+  .hfy-learn-price {
+    font-family: 'Space Mono', monospace; font-size: 2.5rem;
+    font-weight: 700; color: var(--amber, #f0c030); margin-bottom: 6px;
+  }
+  .hfy-learn-alt { margin-top: 16px; font-size: .82rem; color: rgba(255,255,255,.45) }
+  .hfy-learn-alt a { color: var(--amber, #f0c030) }
+  .hfy-learn-err { display: none; margin-top: 14px; color: #ff6b6b; font-size: .85rem }
+  .hfy-learn-spin {
+    width: 34px; height: 34px; margin: 0 auto 18px; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,.12);
+    border-top-color: var(--amber, #f0c030);
+    animation: hfy-spin .8s linear infinite;
+  }
+  @keyframes hfy-spin { to { transform: rotate(360deg) } }
+  .hfy-stage-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+    padding: 18px 16px 0;
+  }
+  .hfy-stage-tab {
+    padding: 8px 15px; border-radius: 999px; font-size: .8rem; font-weight: 600;
+    text-decoration: none; border: 1px solid rgba(255,255,255,.14);
+    color: rgba(255,255,255,.62); background: rgba(255,255,255,.02);
+  }
+  .hfy-stage-tab:hover { border-color: var(--amber, #f0c030); color: #fff }
+  .hfy-stage-tab.active {
+    background: var(--amber, #f0c030); color: #000; border-color: var(--amber, #f0c030);
+  }
+  .hfy-stage-tab .lk { opacity: .55; margin-left: 5px }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html"><img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:96px;width:auto;display:block;mix-blend-mode:screen" id="hfy-nav-logo"></a>
+  <div class="nav-stages"></div>
+</nav>
+
+<div class="hfy-stage-tabs" id="hfy-stage-tabs"></div>
+
+<!-- Per-course theme + lesson styles, injected from the fetched lesson -->
+<div id="hfy-lesson-styles"></div>
+
+<section class="sec stage-content" id="hfy-stage-root">
+  <div class="sec-inner">
+    <div id="hfy-lesson"></div>
+    <div class="hfy-learn-state" id="hfy-state">
+      <div class="hfy-learn-card">
+        <div class="hfy-learn-spin"></div>
+        <h3>Loading your lesson…</h3>
+        <p>Checking your access.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+    <div class="hfy-ft-brand">
+      <img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'">
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="technical-analysis.html">Technical Analysis</a>
+        <a href="markets.html">Markets</a>
+        <a href="learn.html?course=dwg&amp;stage=1">Disability Wealth Guide</a>
+      </div>
+    </div>
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+  </div>
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Always consult a qualified professional before making financial decisions.
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="course-access.js"></script>
+<script src="learn.js?v=20260726"></script>
+</body>
+</html>

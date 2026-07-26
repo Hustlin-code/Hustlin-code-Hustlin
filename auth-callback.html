@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Signing you in… | Hustlin'</title>
+<!-- OAuth landing page. Google sends the user back here with the session in
+     the URL fragment; supabase-js picks it up automatically (detectSessionInUrl
+     is on by default), then we forward to wherever they were headed.
+
+     This exists as its own page so the Supabase "Redirect URLs" allow-list only
+     ever needs one fixed entry per environment, instead of every course URL a
+     visitor might have been on when they clicked Sign In. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260728">
+<style>
+.auth-wrap{min-height:100vh;background:#060606;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
+.auth-logo{margin-bottom:36px}
+.auth-logo img{height:56px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.auth-card{background:var(--dark-card);border:1px solid rgba(240,192,48,.2);border-radius:var(--r-lg);padding:38px;max-width:400px;width:100%}
+.auth-card h1{color:#fff;font-size:1.4rem;margin-bottom:6px}
+.auth-card .auth-sub{color:rgba(255,255,255,.5);font-size:.88rem;margin-bottom:26px}
+.auth-msg{font-size:.85rem;margin-top:14px;padding:10px 12px;border-radius:8px;display:none}
+.auth-msg.err{background:rgba(255,34,34,.1);color:#ff8080;border:1px solid rgba(255,34,34,.25);display:block}
+</style>
+</head>
+<body>
+<div class="auth-wrap">
+  <a class="auth-logo" href="index.html"><img src="assets/hustlin-logo.png" alt="Hustlin'"></a>
+  <div class="auth-card" style="text-align:center">
+    <div class="hfy-cb-spin" id="spin"></div>
+    <h1 id="cb-title">Signing you in…</h1>
+    <div class="auth-sub" id="cb-msg">One moment.</div>
+    <div class="auth-msg" id="msg"></div>
+  </div>
+</div>
+
+<style>
+.hfy-cb-spin{
+  width:34px;height:34px;margin:4px auto 18px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.12);border-top-color:var(--amber,#f0c030);
+  animation:hfy-cb-spin .8s linear infinite;
+}
+@keyframes hfy-cb-spin{to{transform:rotate(360deg)}}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
+<script src="app.js"></script>
+<script src="auth.js"></script>
+<script>
+(async function(){
+  const msg = document.getElementById('msg');
+
+  function fail(text){
+    document.getElementById('spin').style.display = 'none';
+    document.getElementById('cb-title').textContent = "Couldn't sign you in";
+    document.getElementById('cb-msg').textContent = '';
+    msg.className = 'auth-msg err';
+    msg.innerHTML = text + '<br><br><a class="btn-a" href="login.html">Back to Sign In</a>';
+  }
+
+  // Google/Supabase report failures back on the query string, not the fragment.
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('error')){
+    fail(params.get('error_description') || params.get('error'));
+    return;
+  }
+
+  // supabase-js parses the fragment on client creation, but that's async —
+  // poll briefly rather than assuming it has landed by the time we run.
+  let session = null;
+  for(let i = 0; i < 25 && !session; i++){
+    session = await window.HFY.auth.getSession();
+    if(session) break;
+    await new Promise(r => setTimeout(r, 120));
+  }
+
+  if(!session){
+    fail('The sign-in link expired or was already used. Please try again.');
+    return;
+  }
+
+  window.location.replace(window.HFY.auth.consumeOAuthRedirect());
+})();
+</script>
+</body>
+</html>
