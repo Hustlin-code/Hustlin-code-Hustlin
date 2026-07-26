@@ -317,7 +317,24 @@ window.HFY = (function(){
   //      has nothing to target against anyway.
   //   3. Serving ads on login-gated pages is a policy grey area worth avoiding.
   // Ads stay on the public marketing pages, which is where they actually earn.
-  const NO_ADS_PAGES = ['index.html', 'work-with-us.html', 'learn.html', 'auth-callback.html', ''];
+  const NO_ADS_PAGES = [
+    '', 'index.html', 'work-with-us.html',
+
+    // Gated course content. Paying customers shouldn't see ads in a product
+    // they bought, and the page is noindex with content that only arrives
+    // after an authenticated fetch - the crawler sees an empty shell anyway.
+    'learn.html', 'auth-callback.html',
+
+    // Course sales pages. Ads here are actively negative: Google will serve
+    // competing trading-course ads next to our own Buy button.
+    'economics.html', 'fundamental-analysis.html', 'trading-psychology.html',
+
+    // Conversion and account flows. Near-zero ad revenue, and ads next to a
+    // sign-in form or a payment confirmation undermine trust exactly where
+    // it matters most.
+    'checkout-success.html', 'login.html', 'signup.html',
+    'forgot-password.html', 'reset-password.html'
+  ];
 
   function adsAllowed(){
     const page = window.location.pathname.split('/').pop() || '';
