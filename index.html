@@ -303,6 +303,16 @@
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: 24px;
 }
+
+/* About band - states the app name and purpose as readable text, which is
+   what Google's OAuth branding review looks for on the home page. */
+.ix-about { background: #060606; border-top: 1px solid rgba(255,255,255,.07); padding: 64px 40px }
+.ix-about-inner { max-width: 780px; margin: 0 auto }
+.ix-about-h { font-family: var(--f-display); font-size: 1.6rem; color: #fff; margin-bottom: 18px }
+.ix-about-p { font-size: .92rem; line-height: 1.85; color: rgba(255,255,255,.55); margin-bottom: 14px }
+.ix-about-p strong { color: var(--amber) }
+.ix-about-p a { color: var(--amber); text-decoration: underline }
+@media(max-width:560px){ .ix-about { padding: 44px 18px } }
 .ix-footer-links { display: flex; gap: 24px; flex-wrap: wrap }
 .ix-footer-link { font-size: .8rem; color: rgba(255,255,255,.28); transition: .2s }
 .ix-footer-link:hover { color: var(--amber) }
@@ -508,7 +518,7 @@
 <section class="ix-featured">
   <div class="ix-featured-inner">
     <div>
-      <div class="ix-feat-label"><div class="ix-feat-dot"></div>Free · No Account Needed</div>
+      <div class="ix-feat-label"><div class="ix-feat-dot"></div>Free · Just Create an Account</div>
       <h2 class="ix-feat-h">The Financial Foundation<br><em>Nobody Taught You.</em></h2>
       <p class="ix-feat-p">Five stages from banking basics to building wealth. Starts from absolute zero. Built for people who were never given a roadmap — until now.</p>
       <div class="cta-row" style="margin-top:0">
@@ -555,7 +565,7 @@
       <div class="ix-card ix-free live" onclick="location.href='financial-literacy.html'">
         <div class="ix-card-body">
           <div class="ix-card-ico">🏦</div>
-          <div class="ix-pill pill-free">Free · No Account</div>
+          <div class="ix-pill pill-free">Free · Account Required</div>
           <div class="ix-card-title">Financial Literacy</div>
           <div class="ix-card-desc">Banking through building wealth. Starts from zero. No jargon, no judgment.</div>
         </div>
@@ -567,13 +577,13 @@
       <div class="ix-card ix-free ix-ta live" onclick="location.href='technical-analysis.html'">
         <div class="ix-card-body">
           <div class="ix-card-ico">📈</div>
-          <div class="ix-pill pill-free">Free · No Account</div>
+          <div class="ix-pill pill-free">$27.95 · Stage 1 Free</div>
           <div class="ix-card-title">Technical Analysis</div>
           <div class="ix-card-desc">Charts, indicators, patterns, and a complete trading system with defined rules.</div>
         </div>
         <div class="ix-card-foot">
           <div class="ix-card-note">5 Stages · 40 Modules</div>
-          <div class="ix-card-go">Start Free →</div>
+          <div class="ix-card-go">Start Stage 1 Free →</div>
         </div>
       </div>
       <div class="ix-card ix-soon">
@@ -619,6 +629,31 @@
 </section>
 
 <!-- ─ FOOTER ─ -->
+<!-- - ABOUT / OAUTH BRANDING - -->
+<section class="ix-about" id="about">
+  <div class="ix-about-inner">
+    <h2 class="ix-about-h">About Hustlin'</h2>
+    <p class="ix-about-p">
+      <strong>Hustlin'</strong> (hustlin.org) is a financial education platform for people
+      building from the ground up. We publish structured, self-paced courses on financial
+      literacy, technical analysis, and investing - written in plain language, with no jargon
+      and no judgment.
+    </p>
+    <p class="ix-about-p">
+      Create a free Hustlin' account to track your progress and unlock course content. You can
+      sign up with an email address and password, or sign in with Google. When you choose
+      Google, we request only your name, email address, and profile picture - enough to create
+      your account and show you which courses you have access to. We never post on your behalf
+      and never access any other Google data.
+    </p>
+    <p class="ix-about-p">
+      Stage 1 of every course is free with an account. Full courses are a one-time payment.
+      See our <a href="privacy-policy.html">Privacy Policy</a> and
+      <a href="terms-of-service.html">Terms of Service</a>.
+    </p>
+  </div>
+</section>
+
 <footer class="ix-footer">
   <div class="ix-footer-inner">
     <div class="ix-footer-links">
