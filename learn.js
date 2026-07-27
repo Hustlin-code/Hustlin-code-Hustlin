@@ -173,14 +173,32 @@
       });
     });
 
-    return out
+    return rewriteStageLinks(out
       .replace(/(?:\.\.\/)?disability-wealth-guide\.html/gi, href('dwg', 1))
-      .replace(/(["'(])\.\.\/([a-z0-9_-]+\.html)/gi, '$1$2')
-      // Bare same-course stage links ("stage-3-chart-patterns.html") written
-      // back when every stage was a sibling file in the same folder.
-      .replace(/(href\s*=\s*["'])stage-(\d+)[a-z0-9-]*\.html(["'])/gi, function (m, pre, num, q) {
-        return pre + href(course, parseInt(num, 10)) + q;
-      });
+      .replace(/(["'(])\.\.\/([a-z0-9_-]+\.html)/gi, '$1$2'));
+  }
+
+  // Bare same-course stage links ("stage-3-rebuild.html"), left over from when
+  // every stage was a sibling file. Those files no longer exist, so any that
+  // survive are a 404.
+  //
+  // Applied to the lesson's SCRIPT as well as its HTML, because the biggest
+  // offender isn't in the markup at all: addNextButtons() builds the "Next
+  // Stage" card at runtime from a template literal containing
+  // <a href="stage-3-rebuild.html">. That string lives inside a <script>, which
+  // the Edge Function extracts separately, so rewriting only the HTML left the
+  // most prominent button on the page pointing at a dead URL.
+  //
+  // Deliberately matches any quote/paren delimiter rather than href= only, so
+  // it also catches onclick="location.href='stage-1-survive.html#tools'".
+  // Trailing #fragments are preserved — #tools is a real anchor on the page.
+  function rewriteStageLinks(text) {
+    return text.replace(
+      /(["'(])(?:\.\.\/)?stage-(\d+)[a-z0-9-]*\.html(#[a-z0-9_-]*)?(["')])/gi,
+      function (m, open, num, frag, close) {
+        return open + href(course, parseInt(num, 10)) + (frag || '') + close;
+      }
+    );
   }
 
   // The stored pages carry a paywall-hardening rule (.course-layout
@@ -198,12 +216,29 @@
     try {
       // Deliberately not innerHTML — injected <script> never executes that way.
       var s = document.createElement('script');
-      s.textContent = code;
+      // Same stage-link rewrite the HTML gets: the lesson script builds the
+      // "Next Stage" button from a template literal, so its URLs need fixing
+      // before the code ever runs.
+      s.textContent = rewriteStageLinks(code);
       document.body.appendChild(s);
     } catch (e) {
       console.error('lesson script failed', e);
     }
   }
+
+  // Last line of defence. Anything that still resolves to a stage-*.html file —
+  // a link built after this script ran, an inline handler shape not matched
+  // above — gets caught on the way out and redirected to the right lesson
+  // instead of a 404. Costs one delegated listener.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var m = /(?:^|\/)stage-(\d+)[a-z0-9-]*\.html(#[a-z0-9_-]*)?$/i.exec(a.getAttribute('href') || '');
+    if (!m) return;
+    e.preventDefault();
+    console.warn('learn.js: caught a legacy stage link →', a.getAttribute('href'));
+    window.location.href = href(course, parseInt(m[1], 10)) + (m[2] || '');
+  }, true);
 
   // Lessons show one module at a time: the sidebar toggles a `cs-visible`
   // class, and the lesson's own script adds it to module 1 on load. That
