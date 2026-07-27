@@ -140,6 +140,46 @@
     }catch(e){ console.error('HFY.auth: session expiry check failed', e); }
   }
 
+  // ─── Reset course progress ───────────────────────────
+  // Clears local state and the account copy. Deliberately does NOT touch
+  // public.purchases: wiping your progress must never cost you a course you
+  // paid for. The server delete is allowed by the "own progress/achievements
+  // delete" RLS policies, so a user can only ever clear their own rows.
+  const PROGRESS_KEYS = [
+    'hfy_progress_v2',    // ticked steps + milestones (app.js)
+    'hfy_wins_v1',        // earned module/stage/course badges (rewards.js)
+    'hfy_streak_v1',      // day streak
+    'hfy_stagemeta_v1'    // cached module counts per stage
+  ];
+
+  async function resetAllProgress(){
+    PROGRESS_KEYS.forEach(function(k){
+      try{ localStorage.removeItem(k); }catch(e){}
+    });
+
+    const user = await getUser();
+    if(!user) return;   // signed out: local wipe is the whole story
+
+    const { error: pe } = await client.from('progress').delete().eq('user_id', user.id);
+    if(pe) throw pe;
+    const { error: ae } = await client.from('achievements').delete().eq('user_id', user.id);
+    if(ae) throw ae;
+  }
+
+  function injectAccountMenuStyles(){
+    if(document.getElementById('hfy-account-extra-css')) return;
+    const css = document.createElement('style');
+    css.id = 'hfy-account-extra-css';
+    css.textContent =
+      '.hfy-account-item{display:block;width:100%;text-align:left;padding:9px 14px;background:none;' +
+      'border:none;color:rgba(255,255,255,.72);font-size:.82rem;cursor:pointer;font-family:inherit}' +
+      '.hfy-account-item:hover{background:rgba(255,255,255,.06);color:#fff}' +
+      '.hfy-account-item:disabled{opacity:.5;cursor:default}' +
+      '.hfy-account-note{padding:8px 14px;font-size:.75rem;line-height:1.45;' +
+      'border-top:1px solid rgba(255,255,255,.08)}';
+    document.head.appendChild(css);
+  }
+
   // ─── Account nav — sign-in indicator + Sign Out ──────
   // Injected automatically into the shared nav on any page that loads
   // auth.js. No per-page markup needed.
@@ -194,14 +234,73 @@
         '</button>' +
         '<div class="hfy-account-menu">' +
           '<div class="hfy-account-email"></div>' +
+          '<button type="button" class="hfy-account-item hfy-account-password">Change password</button>' +
+          '<button type="button" class="hfy-account-item hfy-account-reset">Reset course progress</button>' +
+          '<div class="hfy-account-note" hidden></div>' +
           '<button type="button" class="hfy-account-signout">Sign Out</button>' +
         '</div>';
       host.appendChild(wrap);
+      injectAccountMenuStyles();
+
+      var note = wrap.querySelector('.hfy-account-note');
+      function say(msg, tone){
+        note.textContent = msg;
+        note.hidden = false;
+        note.style.color = tone === 'bad' ? '#ff8080'
+                         : tone === 'good' ? '#7dd87d'
+                         : 'rgba(255,255,255,.55)';
+      }
 
       wrap.querySelector('#hfy-account-toggle').addEventListener('click', function(e){
         e.stopPropagation();
         wrap.classList.toggle('open');
       });
+
+      // ─── Change password ───
+      // Sends the standard recovery email to the address on the account rather
+      // than asking for it again — they're signed in, we already know it.
+      wrap.querySelector('.hfy-account-password').addEventListener('click', async function(){
+        var btn = this;
+        var current = await getUser();
+        if(!current || !current.email){
+          say('Could not read your email address. Try signing out and back in.', 'bad');
+          return;
+        }
+        btn.disabled = true;
+        say('Sending reset link…');
+        try{
+          var res = await resetPasswordForEmail(current.email);
+          if(res && res.error) throw res.error;
+          say('Reset link sent to ' + current.email + '. Check your inbox.', 'good');
+        }catch(err){
+          console.error('password reset failed', err);
+          say('Could not send the reset link. Please try again shortly.', 'bad');
+          btn.disabled = false;
+        }
+      });
+
+      // ─── Reset course progress ───
+      wrap.querySelector('.hfy-account-reset').addEventListener('click', async function(){
+        var btn = this;
+        if(!confirm(
+          'Reset ALL course progress?\n\n' +
+          'This clears every ticked step, every badge, and your streak — on this ' +
+          'device and on your account.\n\n' +
+          'Courses you have paid for stay unlocked. This cannot be undone.'
+        )) return;
+        btn.disabled = true;
+        say('Resetting…');
+        try{
+          await resetAllProgress();
+          say('Progress cleared. Reloading…', 'good');
+          setTimeout(function(){ window.location.reload(); }, 900);
+        }catch(err){
+          console.error('progress reset failed', err);
+          say('Could not reset on the server. Try again shortly.', 'bad');
+          btn.disabled = false;
+        }
+      });
+
       wrap.querySelector('.hfy-account-signout').addEventListener('click', async function(){
         await signOut();
         localStorage.removeItem(LAST_ACTIVE_KEY);
@@ -229,6 +328,7 @@
   window.HFY.auth = {
     client, getSession, getUser, signUp, signIn, signOut, onAuthChange, goToLogin,
     renderAccountNav, resetPasswordForEmail, updatePassword,
-    signInWithGoogle, consumeOAuthRedirect, siteBase
+    signInWithGoogle, consumeOAuthRedirect, siteBase,
+    resetAllProgress
   };
 })();

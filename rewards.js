@@ -461,24 +461,75 @@
     });
   }
 
+  // The best moment to offer the next course is the one where they've just
+  // proved they finish things. Look up a paid course that's actually on sale
+  // and that they don't already own — never hard-code it, or the pitch outlives
+  // the product. Returns null if there's nothing honest to offer.
+  async function nextCourseOffer(justFinished) {
+    var client = sb();
+    if (!client) return null;
+    try {
+      var cr = await client.from('courses')
+        .select('key,name,price_cents,is_free,stage_count')
+        .eq('is_free', false)
+        .order('sort_order', { ascending: true });
+      if (cr.error || !cr.data || !cr.data.length) return null;
+
+      // RLS on public.courses only returns active rows, so anything still
+      // "Coming Soon" is filtered out for us. Drop empty shells regardless.
+      var candidates = cr.data.filter(function (c) {
+        return c.key !== justFinished && (c.stage_count || 0) > 0 && (c.price_cents || 0) > 0;
+      });
+      if (!candidates.length) return null;
+
+      var user = await currentUser();
+      if (user) {
+        var owned = await client.from('purchases').select('course').eq('status', 'paid');
+        if (!owned.error && owned.data) {
+          var mine = owned.data.map(function (p) { return p.course; });
+          candidates = candidates.filter(function (c) { return mine.indexOf(c.key) === -1; });
+        }
+      }
+      return candidates[0] || null;
+    } catch (e) {
+      console.error('rewards: offer lookup failed', e);
+      return null;
+    }
+  }
+
   function onCourseDone(evt) {
     var k = winKey('course', evt.course, 0, '');
     if (!alreadyWon(k)) {
       recordWin(k, COURSE_NAMES[evt.course] || evt.course);
       pushWin('course', evt.course, 0, '', COURSE_NAMES[evt.course] || evt.course);
     }
-    celebrate({
-      icon: '👑',
-      eyebrow: 'Course complete',
-      title: 'You finished',
-      subtitle: COURSE_NAMES[evt.course] || 'the course',
-      line: 'Every stage, every step. Most people never start. You finished. ' +
-            'Take the certificate — you earned the right to show it.',
-      actions: [
-        { label: '⬇  Download your certificate', onClick: function () { downloadCertificate(evt.course); } },
-        { label: 'Back to the course', alt: true, href: 'financial-literacy.html' }
-      ],
-      confettiMs: 5200
+
+    nextCourseOffer(evt.course).then(function (offer) {
+      var actions = [
+        { label: '⬇  Download your certificate', onClick: function () { downloadCertificate(evt.course); } }
+      ];
+      if (offer) {
+        var price = '$' + ((offer.price_cents || 0) / 100).toFixed(2);
+        actions.push({
+          label: 'Next: ' + offer.name + ' — ' + price,
+          href: offer.key === 'ta' ? 'technical-analysis.html'
+                                   : 'learn.html?course=' + encodeURIComponent(offer.key) + '&stage=1'
+        });
+      }
+      actions.push({ label: 'Back to the course', alt: true, href: 'financial-literacy.html' });
+
+      celebrate({
+        icon: '👑',
+        eyebrow: 'Course complete',
+        title: 'You finished',
+        subtitle: COURSE_NAMES[evt.course] || 'the course',
+        line: 'Every stage, every step. Most people never start. You finished. ' +
+              'Take the certificate — you earned the right to show it.' +
+              (offer ? ' And when you want the next one, ' + offer.name +
+                       ' picks up where this leaves off.' : ''),
+        actions: actions,
+        confettiMs: 5200
+      });
     });
   }
 
