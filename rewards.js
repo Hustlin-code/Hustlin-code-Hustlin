@@ -36,7 +36,33 @@
   var EARNED_KEY = 'hfy_wins_v1';   // local mirror of public.achievements
   var STREAK_KEY = 'hfy_streak_v1';
 
-  var COURSE_NAMES = { fl: 'Financial Literacy', ta: 'Technical Analysis', dwg: 'Disability Wealth Guide' };
+  var COURSE_NAMES = {
+    fl:    'Financial Literacy',
+    ta:    'Technical Analysis',
+    dwg:   'Disability Wealth Guide',
+    econ:  'Economics for Traders',
+    fund:  'Fundamental Analysis',
+    psych: 'Trading Psychology'
+  };
+
+  // One line per course, printed under the course name on the certificate.
+  // This used to be a single hardcoded string about banking and budgeting,
+  // which meant a Technical Analysis graduate got handed a certificate
+  // describing the Financial Literacy syllabus.
+  var CERT_BLURBS = {
+    fl:    'Banking, credit, budgeting, debt and investing — start to finish. ' +
+           'Not because it was easy, but because they finished it.',
+    ta:    'Candlesticks, trend, volume, chart patterns, indicators and advanced methods — ' +
+           'from a blank chart to a routine they can repeat.',
+    dwg:   'SSDI, SSI, ABLE accounts and Special Needs Trusts — how to build real wealth ' +
+           'without losing the benefits that make it possible.',
+    econ:  'Growth, inflation, interest rates and the indicators that move markets — ' +
+           'reading the economy the way it actually moves money.',
+    fund:  'Financial statements, business quality and intrinsic value — ' +
+           'how to judge what a company is actually worth.',
+    psych: 'Cognitive bias, emotional discipline and the mental game of money — ' +
+           'the part of trading that never shows up on the chart.'
+  };
 
   // Stage badges. Named, not numbered — "Survivor" is something you tell
   // someone; "Stage 1 complete" isn't.
@@ -318,61 +344,232 @@
 
   // ── certificate ───────────────────────────────────────────────────────
   // Drawn on a canvas so it needs no server, no library and no network.
-  function makeCertificate(courseKey, name) {
-    var W = 1600, H = 1130;
+  //
+  // Sized 1200x900 logical at 2x device scale — retina-sharp, and a 4:3 ratio
+  // that posts to LinkedIn and Instagram without the gold border getting
+  // cropped off the edges.
+
+  var CERT_W = 1200, CERT_H = 900, CERT_SCALE = 2;
+  var BRAND = {
+    bg:     '#0A0A0A',
+    amber:  '#F0C030',
+    amberL: '#FFE668',
+    white:  '#FBF7EC',
+    body:   "'Plus Jakarta Sans', system-ui, sans-serif",
+    mono:   "'Space Mono', ui-monospace, monospace"
+  };
+
+  // Canvas does not wait for webfonts. Without this the whole certificate
+  // silently renders in system-ui — which is exactly why the old one looked
+  // generic no matter what font string was passed.
+  async function ensureCertFonts() {
+    if (!document.fonts || !document.fonts.load) return;
+    var specs = [
+      '800 64px "Plus Jakarta Sans"', '800 38px "Plus Jakarta Sans"',
+      '600 16px "Plus Jakarta Sans"', '400 17px "Plus Jakarta Sans"',
+      '700 12px "Space Mono"',        '400 15px "Space Mono"'
+    ];
+    try {
+      await Promise.all(specs.map(function (s) { return document.fonts.load(s); }));
+      await document.fonts.ready;
+    } catch (e) { /* fall back to system fonts rather than block the download */ }
+  }
+
+  function loadLogo() {
+    return new Promise(function (resolve) {
+      var img = new Image(), settled = false;
+      function done(v) { if (!settled) { settled = true; resolve(v); } }
+      img.onload = function () { done(img); };
+      img.onerror = function () { done(null); };
+      setTimeout(function () { done(null); }, 2500);  // never hang the download
+      img.src = 'assets/hustlin-logo.png';
+    });
+  }
+
+  // Letter-spaced centred text. ctx.letterSpacing is still patchy across
+  // browsers, so space it by hand.
+  function tracked(x, text, cx, y, spacing) {
+    var chars = String(text).split(''), total = 0, i;
+    for (i = 0; i < chars.length; i++) total += x.measureText(chars[i]).width + spacing;
+    total -= spacing;
+    var px = cx - total / 2;
+    for (i = 0; i < chars.length; i++) {
+      var w = x.measureText(chars[i]).width;
+      x.fillText(chars[i], px + w / 2, y);
+      px += w + spacing;
+    }
+  }
+
+  // Shrink until it fits. "Bartholomew Vandermeer-Castellanos" should not
+  // run off the edge of his own certificate.
+  function fitFont(x, text, weight, startPx, family, maxW) {
+    var px = startPx;
+    while (px > 18) {
+      x.font = weight + ' ' + px + 'px ' + family;
+      if (x.measureText(text).width <= maxW) break;
+      px -= 2;
+    }
+    return px;
+  }
+
+  function wrapCentered(x, text, cx, y, maxW, lh, maxLines) {
+    var words = String(text).split(' '), line = '', lines = [];
+    words.forEach(function (w) {
+      var t = line ? line + ' ' + w : w;
+      if (x.measureText(t).width > maxW && line) { lines.push(line); line = w; }
+      else line = t;
+    });
+    if (line) lines.push(line);
+    if (maxLines) lines = lines.slice(0, maxLines);
+    lines.forEach(function (l, i) { x.fillText(l, cx, y + i * lh); });
+    return lines.length;
+  }
+
+  // "adam" -> "Adam", "mary-jane o'brien" -> "Mary-Jane O'Brien".
+  // A word that already contains a capital is left alone, so "McDonald" and
+  // "van der Berg" survive intact.
+  function titleCase(s) {
+    return String(s || '').trim().replace(/\S+/g, function (w) {
+      if (/[A-Z]/.test(w)) return w;
+      return w.replace(/(^[a-z])|([-'][a-z])/g, function (m) { return m.toUpperCase(); });
+    });
+  }
+
+  async function makeCertificate(courseKey, name) {
+    await ensureCertFonts();
+    var logo = await loadLogo();
+
+    var W = CERT_W, H = CERT_H;
     var c = document.createElement('canvas');
-    c.width = W; c.height = H;
+    c.width = W * CERT_SCALE; c.height = H * CERT_SCALE;
     var x = c.getContext('2d');
-
-    x.fillStyle = '#070707'; x.fillRect(0, 0, W, H);
-    var g = x.createRadialGradient(W / 2, H * .34, 40, W / 2, H * .34, W * .72);
-    g.addColorStop(0, 'rgba(245,197,32,.15)'); g.addColorStop(1, 'rgba(0,0,0,0)');
-    x.fillStyle = g; x.fillRect(0, 0, W, H);
-
-    x.strokeStyle = '#f5c520'; x.lineWidth = 5; x.strokeRect(42, 42, W - 84, H - 84);
-    x.strokeStyle = 'rgba(245,197,32,.32)'; x.lineWidth = 1.5; x.strokeRect(62, 62, W - 124, H - 124);
-
+    x.scale(CERT_SCALE, CERT_SCALE);
     x.textAlign = 'center';
-    x.fillStyle = '#f5c520';
-    x.font = '800 40px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText("HUSTLIN'", W / 2, 168);
+    x.textBaseline = 'alphabetic';
 
+    // ── ground ──
+    x.fillStyle = BRAND.bg; x.fillRect(0, 0, W, H);
+
+    var glow = x.createRadialGradient(W / 2, H * .30, 20, W / 2, H * .30, W * .68);
+    glow.addColorStop(0, 'rgba(240,192,48,.13)');
+    glow.addColorStop(.55, 'rgba(240,192,48,.03)');
+    glow.addColorStop(1, 'rgba(0,0,0,0)');
+    x.fillStyle = glow; x.fillRect(0, 0, W, H);
+
+    // vignette — pushes the eye to the middle
+    var vig = x.createRadialGradient(W / 2, H / 2, H * .34, W / 2, H / 2, H * .95);
+    vig.addColorStop(0, 'rgba(0,0,0,0)');
+    vig.addColorStop(1, 'rgba(0,0,0,.55)');
+    x.fillStyle = vig; x.fillRect(0, 0, W, H);
+
+    // ── frame ──
+    x.strokeStyle = BRAND.amber; x.lineWidth = 3;
+    x.strokeRect(26, 26, W - 52, H - 52);
+    x.strokeStyle = 'rgba(240,192,48,.28)'; x.lineWidth = 1;
+    x.strokeRect(38, 38, W - 76, H - 76);
+
+    // corner brackets on the inner frame
+    (function () {
+      var L = 26, i = 38, o = 1.5;
+      x.strokeStyle = 'rgba(240,192,48,.85)'; x.lineWidth = 2;
+      [[i, i, 1, 1], [W - i, i, -1, 1], [i, H - i, 1, -1], [W - i, H - i, -1, -1]]
+        .forEach(function (p) {
+          x.beginPath();
+          x.moveTo(p[0] + p[2] * L, p[1] + p[3] * o);
+          x.lineTo(p[0] + p[2] * o, p[1] + p[3] * o);
+          x.lineTo(p[0] + p[2] * o, p[1] + p[3] * L);
+          x.stroke();
+        });
+    })();
+
+    // ── logo ──
+    if (logo && logo.width) {
+      var lh = 44, lw = lh * (logo.width / logo.height);
+      x.drawImage(logo, W / 2 - lw / 2, 62, lw, lh);
+    } else {
+      x.fillStyle = BRAND.amber;
+      x.font = '800 34px ' + BRAND.body;
+      x.fillText("HUSTLIN'", W / 2, 96);
+    }
+
+    // ── eyebrow ──
+    x.fillStyle = 'rgba(255,255,255,.40)';
+    x.font = '700 12px ' + BRAND.mono;
+    tracked(x, 'CERTIFICATE OF COMPLETION', W / 2, 148, 4.2);
+
+    x.strokeStyle = 'rgba(240,192,48,.5)'; x.lineWidth = 1;
+    x.beginPath(); x.moveTo(W / 2 - 52, 168); x.lineTo(W / 2 + 52, 168); x.stroke();
+
+    // ── recipient ──
     x.fillStyle = 'rgba(255,255,255,.5)';
-    x.font = '600 22px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText('CERTIFICATE OF COMPLETION', W / 2, 232);
+    x.font = '400 17px ' + BRAND.body;
+    x.fillText('This certifies that', W / 2, 232);
 
-    x.fillStyle = 'rgba(255,255,255,.62)';
-    x.font = '400 26px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText('This certifies that', W / 2, 350);
+    var who = titleCase(name) || 'A Hustlin’ Member';
+    fitFont(x, who, '800', 64, BRAND.body, W - 260);
+    x.fillStyle = BRAND.white;
+    x.fillText(who, W / 2, 312);
 
-    x.fillStyle = '#ffffff';
-    x.font = '800 84px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText(name || 'A Hustlin’ Member', W / 2, 452);
+    // gold rule that fades out at both ends
+    (function () {
+      var half = 210;
+      var rg = x.createLinearGradient(W / 2 - half, 0, W / 2 + half, 0);
+      rg.addColorStop(0, 'rgba(240,192,48,0)');
+      rg.addColorStop(.5, 'rgba(240,192,48,.75)');
+      rg.addColorStop(1, 'rgba(240,192,48,0)');
+      x.strokeStyle = rg; x.lineWidth = 1.5;
+      x.beginPath(); x.moveTo(W / 2 - half, 348); x.lineTo(W / 2 + half, 348); x.stroke();
+    })();
 
-    x.strokeStyle = 'rgba(245,197,32,.55)'; x.lineWidth = 2;
-    x.beginPath(); x.moveTo(W / 2 - 300, 492); x.lineTo(W / 2 + 300, 492); x.stroke();
+    // ── course ──
+    x.fillStyle = 'rgba(255,255,255,.5)';
+    x.font = '400 17px ' + BRAND.body;
+    x.fillText('has completed every stage of', W / 2, 398);
 
-    x.fillStyle = 'rgba(255,255,255,.62)';
-    x.font = '400 26px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText('has completed every stage of', W / 2, 560);
+    var course = COURSE_NAMES[courseKey] || 'the course';
+    fitFont(x, course, '800', 40, BRAND.body, W - 260);
+    x.fillStyle = BRAND.amber;
+    x.fillText(course, W / 2, 458);
 
-    x.fillStyle = '#f5c520';
-    x.font = '800 58px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText(COURSE_NAMES[courseKey] || 'the course', W / 2, 640);
+    x.fillStyle = 'rgba(255,255,255,.36)';
+    x.font = '400 15px ' + BRAND.body;
+    wrapCentered(x, CERT_BLURBS[courseKey] ||
+      'Every stage, start to finish. Not because it was easy, but because they finished it.',
+      W / 2, 512, 720, 26, 2);
 
-    x.fillStyle = 'rgba(255,255,255,.42)';
-    x.font = '400 23px "Plus Jakarta Sans", system-ui, sans-serif';
-    wrapText(x, 'Banking, credit, budgeting, debt, and investing — start to finish. ' +
-                'Not because it was easy, but because they finished it.', W / 2, 726, 1080, 36);
+    // ── footer band ──
+    x.strokeStyle = 'rgba(255,255,255,.09)'; x.lineWidth = 1;
+    x.beginPath(); x.moveTo(180, 648); x.lineTo(W - 180, 648); x.stroke();
 
+    // Two columns, symmetric about the centre line. There was a third
+    // ("CREDENTIAL ID") but the number verified nothing — no page looked it
+    // up and it was never stored, so it was decoration pretending to be a
+    // credential. Removed rather than left as a hollow trust signal.
     var d = new Date();
-    x.fillStyle = 'rgba(255,255,255,.55)';
-    x.font = '600 24px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText(d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }), W / 2, 880);
+    var cols = [
+      { cx: W / 2 - 190, label: 'DATE ISSUED',  value: d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }) },
+      { cx: W / 2 + 190, label: 'PRESENTED BY', value: 'Hustlin.org' }
+    ];
 
-    x.fillStyle = 'rgba(255,255,255,.3)';
-    x.font = '400 22px "Plus Jakarta Sans", system-ui, sans-serif';
-    x.fillText('hustlin.org', W / 2, 1010);
+    cols.forEach(function (col) {
+      x.fillStyle = 'rgba(240,192,48,.60)';
+      x.font = '700 10px ' + BRAND.mono;
+      tracked(x, col.label, col.cx, 700, 3);
+
+      x.fillStyle = 'rgba(255,255,255,.72)';
+      x.font = '600 16px ' + BRAND.body;
+      x.fillText(col.value, col.cx, 736);
+
+      x.strokeStyle = 'rgba(240,192,48,.30)'; x.lineWidth = 1;
+      x.beginPath(); x.moveTo(col.cx - 84, 752); x.lineTo(col.cx + 84, 752); x.stroke();
+    });
+
+    // ── mark ──
+    // The wordmark used to repeat "HUSTLIN.ORG" here, but the footer column
+    // now carries it under "PRESENTED BY", so this is the tagline alone.
+    x.fillStyle = 'rgba(255,255,255,.26)';
+    x.font = '400 13px ' + BRAND.body;
+    x.fillText('Financial education that levels the field.', W / 2, 832);
 
     return c;
   }
@@ -395,9 +592,13 @@
       if (u) name = (u.user_metadata && (u.user_metadata.full_name || u.user_metadata.name)) ||
                     (u.email ? u.email.split('@')[0] : '');
     } catch (e) {}
-    var typed = window.prompt('Name for the certificate:', name || '');
+
+    // Pre-fill the prompt already title-cased — the old version offered back
+    // the raw email prefix, which is why certificates came out saying "adam".
+    var typed = window.prompt('Name for the certificate:', titleCase(name));
     if (typed === null) return;                    // cancelled
-    var canvas = makeCertificate(courseKey, typed.trim() || name);
+
+    var canvas = await makeCertificate(courseKey, typed.trim() || name);
     var a = document.createElement('a');
     a.download = 'hustlin-' + courseKey + '-certificate.png';
     a.href = canvas.toDataURL('image/png');
