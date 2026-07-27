@@ -661,12 +661,26 @@ window.HFY = (function(){
 
     // Keep the active chip on screen without touching page scroll —
     // scrollIntoView would drag the whole document on iOS.
+    //
+    // Only nudges when the chip is actually out of view. Centring
+    // unconditionally left module 1 hanging half off the left edge on load:
+    // centring a chip that already sits flush at the start can only push it
+    // backwards, and a clipped FIRST card reads as "you missed something"
+    // rather than "there is more ahead".
     function centreOn(chip){
       if(!window.matchMedia || !window.matchMedia('(max-width:900px)').matches) return;
-      var left = chip.offsetLeft - (list.clientWidth - chip.offsetWidth) / 2;
-      var max  = list.scrollWidth - list.clientWidth;
-      left = Math.max(0, Math.min(left, max));
-      if(Math.abs(left - list.scrollLeft) < 8) return;
+      var pad     = 30;                       // width of the edge fade
+      var chipL   = chip.offsetLeft;
+      var chipR   = chipL + chip.offsetWidth;
+      var viewL   = list.scrollLeft;
+      var viewR   = viewL + list.clientWidth;
+      if(chipL >= viewL && chipR <= viewR) return;   // already fully visible
+
+      var left;
+      if(chipL < viewL) left = chipL - pad;                        // off to the left
+      else              left = chipR - list.clientWidth + pad;     // off to the right
+      left = Math.max(0, Math.min(left, list.scrollWidth - list.clientWidth));
+      if(Math.abs(left - list.scrollLeft) < 4) return;
       if(list.scrollTo) list.scrollTo({ left: left, behavior: 'smooth' });
       else list.scrollLeft = left;
     }

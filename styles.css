@@ -13,6 +13,12 @@
   --dark-card:  #1B1B1B;
   --amber:      #F0C030;
   --amber-lt:   #FFE668;
+  /* Amber at full brightness is a dark-background colour: on the cream
+     surfaces it drops to ~1.9:1 and small text in it is unreadable. This is
+     the same hue taken down to a bronze that clears WCAG AA on cream, for
+     amber-coloured text, dots and hairlines sitting on light cards. */
+  --amber-ink:  #7A4E00;
+  --amber-mid:  #B3810F;
   --orange:     #E8720E;
   --green:      #2DA02D;
   --green-lt:   #5EDD5E;
@@ -449,15 +455,15 @@ a{text-decoration:none}
     margin:0 0 8px;padding:0 2px;
   }
   .csh-label{
-    font-family:var(--f-mono);font-size:.66rem;font-weight:700;
-    letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);
+    font-family:var(--f-mono);font-size:.68rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--text-body);
   }
-  .csh-count{color:var(--amber)}
+  .csh-count{color:var(--amber-ink)}
   .csh-hint{
     display:inline-flex;align-items:center;gap:5px;white-space:nowrap;
     font-family:var(--f-mono);font-size:.62rem;font-weight:700;
-    letter-spacing:.06em;text-transform:uppercase;color:var(--amber);
-    background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);
+    letter-spacing:.06em;text-transform:uppercase;color:var(--amber-ink);
+    background:rgba(240,192,48,.28);border:1px solid var(--amber-mid);
     border-radius:999px;padding:3px 9px;
     transition:opacity .3s ease;
   }
@@ -466,39 +472,60 @@ a{text-decoration:none}
   @keyframes csNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
   @media(prefers-reduced-motion:reduce){.csh-hint i{animation:none}}
 
-  /* edge fades: the card under the fade is visibly cut off, which is what
-     tells the eye the row keeps going */
+  /* Edge fades. Narrow and short: a wide soft fade washed the peeking card
+     out to near-invisible, which lost the whole point — the reader has to
+     see a real, legible card getting clipped. Solid for the first third,
+     then out fast, so only the last ~20px of the card is veiled. */
   .cs-rail::before,.cs-rail::after{
-    content:"";position:absolute;top:0;bottom:12px;width:40px;
+    content:"";position:absolute;top:0;bottom:12px;width:30px;
     pointer-events:none;z-index:2;opacity:0;transition:opacity .22s ease;
   }
-  .cs-rail::before{left:0;background:linear-gradient(90deg,var(--white) 20%,transparent)}
-  .cs-rail::after{right:0;background:linear-gradient(270deg,var(--white) 20%,transparent)}
+  .cs-rail::before{left:0;background:linear-gradient(90deg,var(--white) 35%,transparent)}
+  .cs-rail::after{right:0;background:linear-gradient(270deg,var(--white) 35%,transparent)}
   .cs-rail.cs-more-left::before{opacity:1}
   .cs-rail.cs-more-right::after{opacity:1}
 
-  /* narrower cards guarantee a partial third card peeks in on a 390px screen */
-  .cs-item{width:9.1rem;min-width:9.1rem;max-width:9.1rem}
+  /* Cards need to read as cards. On the cream panel a transparent chip with
+     a transparent border is just floating text, so the strip looked like one
+     block of copy rather than a row of separate, tappable modules. */
+  .cs-item{
+    width:9.1rem;min-width:9.1rem;max-width:9.1rem;
+    background:var(--cream);border:1px solid var(--border);
+  }
+  .cs-item .cs-txt{color:var(--text-dark)}
+  .cs-item.cs-active{
+    background:#FBEBC4;border-color:var(--amber-mid);
+    box-shadow:inset 0 0 0 1px var(--amber-mid);
+  }
+  .cs-item.cs-active .cs-txt{color:var(--text-dark)}
+  .cs-item.cs-done{border-color:var(--amber-mid)}
+  .cs-item.cs-done .cs-check{background:var(--amber-ink);color:#FFF3D0;box-shadow:none}
+
   .cs-list{padding-bottom:10px;scroll-padding-inline-start:2px}
   .cs-list::after{content:"";flex:0 0 30px}   /* last card clears the right fade */
 
   /* keep the scrollbar permanently visible instead of iOS's fade-in-on-touch */
-  .cs-list{scrollbar-width:thin;scrollbar-color:rgba(232,160,32,.6) rgba(107,96,71,.14)}
+  .cs-list{scrollbar-width:thin;scrollbar-color:var(--amber-mid) rgba(37,31,19,.12)}
   .cs-list::-webkit-scrollbar{height:4px;-webkit-appearance:none}
-  .cs-list::-webkit-scrollbar-track{background:rgba(107,96,71,.14);border-radius:99px}
-  .cs-list::-webkit-scrollbar-thumb{background:rgba(232,160,32,.6);border-radius:99px}
+  .cs-list::-webkit-scrollbar-track{background:rgba(37,31,19,.12);border-radius:99px}
+  .cs-list::-webkit-scrollbar-thumb{background:var(--amber-mid);border-radius:99px}
 
-  /* position dots — second, unmissable "N modules" signal */
+  /* Position dots. Three tones that are told apart by darkness, not hue —
+     pale amber on cream was invisible at arm's length, and colour alone
+     would not survive a colour-blind reader either.
+       unread  neutral, low
+       done    mid bronze
+       current dark bronze, stretched into a pill */
   .cs-dots{
     display:flex;justify-content:center;align-items:center;
-    gap:6px;margin-top:9px;flex-wrap:wrap;
+    gap:7px;margin-top:10px;flex-wrap:wrap;
   }
   .cs-dot{
-    width:6px;height:6px;padding:0;border:0;border-radius:50%;cursor:pointer;
-    background:rgba(107,96,71,.25);transition:width .2s ease,background .2s ease;
+    width:7px;height:7px;padding:0;border:0;border-radius:50%;cursor:pointer;
+    background:rgba(37,31,19,.28);transition:width .2s ease,background .2s ease;
   }
-  .cs-dot.cs-dot-done{background:rgba(232,160,32,.5)}
-  .cs-dot.on{width:20px;border-radius:99px;background:var(--amber)}
+  .cs-dot.cs-dot-done{background:var(--amber-mid)}
+  .cs-dot.on{width:22px;border-radius:99px;background:var(--amber-ink)}
 }
 
 /* Scoped to the new sidebar+panel layout (Stage 5) only — one module
