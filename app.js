@@ -167,7 +167,10 @@ window.HFY = (function(){
       banner.style.display = 'flex';
       const link = banner.querySelector('.scb-next');
       const meta = STAGE_META[next];
-      if(link){ link.href = meta.file; link.innerHTML = 'Start Stage '+meta.num+': '+meta.name+' →'; }
+      // stageHref(), not meta.file — the stage-*.html files no longer exist on
+      // the deployed site. Lessons are served through learn.html?course=&stage=,
+      // so linking to meta.file gives every "next stage" button a 404.
+      if(link){ link.href = stageHref(next); link.innerHTML = 'Start Stage '+meta.num+': '+meta.name+' →'; }
     } else {
       banner.style.display = 'none';
     }
@@ -210,7 +213,12 @@ window.HFY = (function(){
       if(lockEl){
         const idx = COURSE_STAGE_LISTS[meta.course].indexOf(key);
         if(unlocked){
-          lockEl.innerHTML = done ? '✓ Complete' : (key === currentProgressStage ? '● You are here — start now' : '● Unlocked — start now');
+          // currentProgressByCourse[meta.course] is the stage this reader is
+          // actually up to in THIS course. (This used to read an undeclared
+          // `currentProgressStage`, which throws a ReferenceError the moment a
+          // stage card contains a .s-lock element and aborts the rest of this
+          // loop — leaving every card below it without a click handler.)
+          lockEl.innerHTML = done ? '✓ Complete' : (key === currentProgressByCourse[meta.course] ? '● You are here — start now' : '● Unlocked — start now');
         } else {
           lockEl.innerHTML = '🔒 Unlocks after Stage '+idx+' · <span style="text-decoration:underline">keep going →</span>';
         }
@@ -309,6 +317,16 @@ window.HFY = (function(){
   // ✅ PRODUCTION: Real AdSense ID configured
   const ADSENSE_PUB_ID = 'ca-pub-1249156793457835';
 
+  // Numeric slot ID for the in-article unit used between modules. Create it in
+  // AdSense (Ads → By ad unit → Display ads) and paste the data-ad-slot number
+  // here, e.g. '1234567890'.
+  //
+  // Left empty on purpose: the previous value was the string 'auto', which is
+  // not a valid slot ID, so those units could never fill and just reserved
+  // blank 90px gaps down the page. While this is empty we skip the manual
+  // units entirely and let Auto Ads (enabled above) place everything instead.
+  const AD_SLOT_ID = '';
+
   // Pages where ads should not appear
   // learn.html serves gated course content. No ads there, for three reasons:
   //   1. Paying customers shouldn't see ads in a product they bought.
@@ -364,6 +382,7 @@ window.HFY = (function(){
   // These run ALONGSIDE Auto Ads for better coverage on long-form pages.
   function insertModuleAds(){
     if(!adsAllowed()) return;
+    if(!AD_SLOT_ID) return; // no valid unit configured — Auto Ads covers the page
     const modules = document.querySelectorAll('.module');
     if(modules.length < 3) return;
 
@@ -373,16 +392,19 @@ window.HFY = (function(){
         const adWrap = document.createElement('div');
         adWrap.className = 'hfy-ad-slot';
         adWrap.style.cssText = 'margin:24px 0;text-align:center;min-height:90px;background:transparent';
-        adWrap.innerHTML = `
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="${ADSENSE_PUB_ID}"
-               data-ad-slot="auto"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
-        `;
+        // No inline <script> here: a <script> tag written via innerHTML is
+        // never executed by the browser, so the push() below used to be dead
+        // code and these units sat empty. Insert the <ins>, then push from
+        // real JS after it's in the document.
+        adWrap.innerHTML =
+          '<ins class="adsbygoogle" style="display:block"' +
+          ' data-ad-client="' + ADSENSE_PUB_ID + '"' +
+          ' data-ad-slot="' + AD_SLOT_ID + '"' +
+          ' data-ad-format="auto" data-full-width-responsive="true"></ins>';
         mod.parentNode.insertBefore(adWrap, mod.nextSibling);
+        try{
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }catch(e){ /* adblocker or script not loaded — leave the slot empty */ }
       }
     });
   }

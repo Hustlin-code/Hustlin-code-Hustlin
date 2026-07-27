@@ -52,6 +52,11 @@
   var elStyles = document.getElementById('hfy-lesson-styles');
   var elTabs = document.getElementById('hfy-stage-tabs');
 
+  // Set once load() knows whether there's a session. Used only to decide what
+  // the stage tabs and the end-of-lesson prompt should say — the server has
+  // already made the actual access decision by the time we render anything.
+  var signedIn = false;
+
   function href(c, s) { return 'learn.html?course=' + encodeURIComponent(c) + '&stage=' + s; }
 
   function card(inner) {
@@ -83,12 +88,25 @@
     else host.innerHTML = html;
   }
 
+  // Highest stage number this visitor can open right now. Mirrors the three
+  // server-side rules in the course-content Edge Function, in the same order,
+  // so the padlocks match what a click would actually do.
+  //   · signed out        → anon_stages (Financial Literacy = 1, others 0)
+  //   · signed in         → every stage of a free course, else free_stages
+  //   · signed in + paid  → everything (server sends entitled: true)
+  function openUpTo(data) {
+    if (data.entitled) return data.stage_count;
+    if (!signedIn) return data.anon_stages || 0;
+    if (data.is_free) return data.stage_count;
+    return data.free_stages || 1;
+  }
+
   function renderTabs(data) {
     if (!data || !data.stage_count || data.stage_count < 2) { elTabs.innerHTML = ''; return; }
-    var freeUpTo = data.is_free ? data.stage_count : 1;
+    var openTo = openUpTo(data);
     var out = '';
     for (var i = 1; i <= data.stage_count; i++) {
-      var locked = i > freeUpTo && !data.unlocked;
+      var locked = i > openTo;
       out += '<a class="hfy-stage-tab' + (i === stage ? ' active' : '') + '" href="' + href(course, i) + '">' +
         'Stage ' + i + (locked ? '<span class="lk">🔒</span>' : '') + '</a>';
     }
@@ -151,6 +169,29 @@
     }
   }
 
+  // Appended under a lesson that a signed-out visitor just read for free.
+  // This is the only place the free stage asks for anything: they've already
+  // got the whole lesson, so the pitch is "keep going", not "pay a toll".
+  function renderNextStepPrompt(data) {
+    if (signedIn) return;
+    if (stage >= (data.stage_count || 1)) return;
+
+    var back = encodeURIComponent(window.location.href);
+    var box = document.createElement('div');
+    box.className = 'hfy-learn-card';
+    box.style.cssText = 'max-width:560px;margin:40px auto 0;text-align:center';
+    box.innerHTML =
+      '<h3>That\'s Stage ' + stage + ' done.</h3>' +
+      '<p>Stage ' + (stage + 1) + ' picks up right where this left off. Create a free ' +
+      'account to keep going and to save your progress across the rest of ' +
+      (data.course_name || 'the course') + ' — it\'s free, all the way through.</p>' +
+      '<a class="btn-a" href="signup.html?redirect=' + back +
+      '" style="width:100%;justify-content:center">Create Free Account</a>' +
+      '<div class="hfy-learn-alt">Already have one? <a href="login.html?redirect=' + back +
+      '">Sign in</a></div>';
+    elLesson.appendChild(box);
+  }
+
   function renderLesson(data) {
     elState.style.display = 'none';
     elState.innerHTML = '';
@@ -159,21 +200,34 @@
     document.title = data.title
       ? data.title + ' — ' + data.course_name + " | Hustlin'"
       : data.course_name + " | Hustlin'";
-    data.unlocked = true;
     renderTabs(data);
     runLessonScript(data.script);
+    renderNextStepPrompt(data);
     window.scrollTo(0, 0);
   }
 
   function renderSignIn(data) {
     var back = encodeURIComponent(window.location.href);
     var name = (data && data.course_name) || 'this course';
+    var anon = (data && data.anon_stages) || 0;
+
+    // If this course has stages open to everyone, point the visitor at them
+    // rather than making the sign-up wall the only thing on the page.
+    var alt = anon > 0
+      ? '<div class="hfy-learn-alt">Not ready? <a href="' + href(course, anon) +
+        '">Read Stage ' + anon + ' free, no account →</a></div>'
+      : '';
+
     card(
       '<h3>Create a free account to continue</h3>' +
-      '<p>' + name + ' is available to Hustlin\' members. Signing up takes about twenty seconds and Stage 1 is free.</p>' +
+      '<p>Stage ' + (data && data.stage ? data.stage : stage) + ' of ' + name +
+      ' is for Hustlin\' members. Signing up takes about twenty seconds, costs nothing, ' +
+      'and saves your progress.</p>' +
       '<a class="btn-a" href="signup.html?redirect=' + back + '" style="width:100%;justify-content:center">Create Free Account</a>' +
-      '<div class="hfy-learn-alt">Already have one? <a href="login.html?redirect=' + back + '">Sign in</a></div>'
+      '<div class="hfy-learn-alt">Already have one? <a href="login.html?redirect=' + back + '">Sign in</a></div>' +
+      alt
     );
+    renderTabs(data);
   }
 
   function renderPaywall(data) {
@@ -214,6 +268,7 @@
   async function load() {
     try {
       var session = await window.HFY.auth.getSession();
+      signedIn = !!session;
       var res = await fetch(FN_URL, {
         method: 'POST',
         headers: {
