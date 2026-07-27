@@ -63,7 +63,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607271731">
+<link rel="stylesheet" href="styles.css?v=202607271747">
 <style>
 /* Cleaner headline — swap the heavy embossed "Impact" poster font (the
    shared .hero-h1 default) for the site's normal clean display font,
@@ -350,34 +350,40 @@
     display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:20px;margin-top:32px;
   }
+  /* This section sits on a CREAM surface, so every colour here comes from
+     the light-surface tokens in styles.css - not the dark-background ones.
+     Note --amber-ink rather than --amber for the tag: full-brightness amber
+     measures about 1.9:1 on cream and is unreadable at this size. */
   .bp-card{
     display:block;text-decoration:none;
-    border:1px solid rgba(255,255,255,.09);
-    background:rgba(255,255,255,.02);
-    border-radius:14px;padding:26px 24px;
-    transition:border-color .2s,transform .2s,background .2s;
+    border:1px solid var(--border);
+    background:var(--white);
+    border-radius:var(--r-md);padding:26px 24px;
+    box-shadow:var(--sh-sm);
+    transition:border-color .2s,transform .2s,box-shadow .2s;
   }
   .bp-card:hover{
-    border-color:rgba(245,197,32,.45);
-    background:rgba(245,197,32,.04);
+    border-color:var(--amber-mid);
+    box-shadow:var(--sh-md);
     transform:translateY(-3px);
   }
   .bp-tag{
-    font-family:var(--f-body);font-size:.64rem;font-weight:800;
-    letter-spacing:.11em;text-transform:uppercase;color:var(--amber);
+    font-family:var(--f-body);font-size:.66rem;font-weight:800;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--amber-ink);
     margin-bottom:12px;
   }
   .bp-title{
     font-family:var(--f-body);font-size:1.12rem;font-weight:800;
-    color:#fff;margin:0 0 10px;line-height:1.34;letter-spacing:-.01em;
+    color:var(--text-dark);margin:0 0 10px;line-height:1.34;letter-spacing:-.01em;
   }
+  .bp-card:hover .bp-title{color:var(--amber-ink)}
   .bp-desc{
     font-family:var(--f-body);font-size:.9rem;line-height:1.65;
-    color:rgba(255,255,255,.5);margin:0 0 16px;
+    color:var(--text-body);margin:0 0 16px;
   }
   .bp-meta{
     font-family:var(--f-mono,'Space Mono',monospace);
-    font-size:.7rem;color:rgba(255,255,255,.3);
+    font-size:.7rem;color:var(--text-muted);
   }
 </style>
 
@@ -483,7 +489,7 @@
   </div>
 </footer>
 
-<script src="app.js?v=202607271731"></script>
+<script src="app.js?v=202607271747"></script>
 <script>
 HFY.initNavOnly();
 
