@@ -1090,3 +1090,159 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .hfy-gate-card .hfy-gate-error{color:var(--red);font-size:.83rem;margin-top:10px;display:none}
 .hfy-gate-price{font-family:var(--f-mono);color:var(--amber);font-size:1.6rem;font-weight:700;margin-bottom:6px}
 
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SITE FOOTER — BRANDED  (.hfy-footer)
+   ───────────────────────────────────────────────────────────────────────────
+   Single source of truth for footer styling. Promoted here 2026-07-27 from 27
+   duplicated inline <style> copies. Markup lives in footer.template.html and
+   is stamped into pages by tools/stamp-footers.mjs — do not re-inline these
+   rules in a page. about.html, learn.html and blog/*.html carried .hfy-footer
+   markup with no CSS at all before this move; their footers were unstyled.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.hfy-footer {
+  background: #060606;
+  border-top: 1px solid rgba(245,197,32,.2);
+  padding: 64px 40px 0;
+  margin-top: 0;
+}
+.hfy-ft-top {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.hfy-ft-brand img {
+  height: 52px; width: auto;
+  mix-blend-mode: screen;
+  margin-bottom: 14px;
+  display: block;
+}
+.hfy-ft-brand p {
+  font-size: .85rem;
+  color: rgba(255,255,255,.35);
+  line-height: 1.7;
+  max-width: 220px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-col-title {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #f5c520;
+  margin-bottom: 16px;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-links a {
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  transition: color .2s;
+  line-height: 1;
+}
+.hfy-ft-links a:hover { color: #f5c520 }
+.hfy-ft-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hfy-ft-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border-radius: 100px;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+  width: fit-content;
+}
+.hfy-ft-x {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.8);
+}
+.hfy-ft-x:hover {
+  background: #000;
+  border-color: #fff;
+  color: #fff !important;
+}
+.hfy-ft-ig {
+  background: rgba(225,48,108,.08);
+  border: 1px solid rgba(225,48,108,.25);
+  color: rgba(225,48,108,.9);
+}
+.hfy-ft-ig:hover {
+  background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-yt {
+  background: rgba(255,0,0,.08);
+  border: 1px solid rgba(255,0,0,.25);
+  color: rgba(255,80,80,.9);
+}
+.hfy-ft-yt:hover {
+  background: #ff0000;
+  border-color: transparent;
+  color: #fff !important;
+}
+.hfy-ft-social svg {
+  width: 15px; height: 15px;
+  fill: currentColor; flex-shrink: 0;
+}
+.hfy-ft-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hfy-ft-copy {
+  font-size: .78rem;
+  color: rgba(255,255,255,.2);
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(239,68,68,.3);
+  background: rgba(239,68,68,.05);
+  font-size: .74rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.8;
+  text-align: center;
+  font-family: var(--f-body, 'Segoe UI', sans-serif);
+}
+.hfy-ft-disc strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: .78rem;
+  color: rgba(255,80,80,.9);
+  letter-spacing: .05em;
+}
+
+@media(max-width:900px){
+  .hfy-ft-top { grid-template-columns: 1fr 1fr; gap: 36px }
+}
+@media(max-width:560px){
+  .hfy-footer { padding: 44px 18px 0 }
+  .hfy-ft-top { grid-template-columns: 1fr; gap: 28px }
+  .hfy-ft-bottom { flex-direction: column; align-items: flex-start }
+}
