@@ -785,6 +785,14 @@
       list: list, stagesDone: stagesDone, courseDone: done,
       stageKey: key, stageNum: currentIdx + 1,
       badge: STAGE_BADGES[key] || null,
+      // The stage's real title ("Chart Basics"), which is NOT the badge you
+      // earn for finishing it ("Chart Reader"). The banner used to print the
+      // badge name in both places, so Technical Analysis opened with
+      // "Stage 1: Chart Reader is waiting" — naming the reward as though it
+      // were the lesson. It slipped through on Financial Literacy only
+      // because "Survivor" and "Survive" look near enough alike.
+      stageName: (window.HFY.STAGE_META && window.HFY.STAGE_META[key] &&
+                  window.HFY.STAGE_META[key].name) || '',
       pct: key ? window.HFY.getPct(key) : 0,
       modulesTotal: total,
       modulesDone: key ? modulesWon(course, currentIdx + 1) : 0
@@ -796,22 +804,31 @@
     var css = document.createElement('style');
     css.id = 'hfy-prog-css';
     css.textContent = [
+      // Colours come from --amber, not hardcoded gold. Technical Analysis
+      // re-themes --amber to #2FA7FF in its own :root block, so this banner
+      // now turns blue on that course automatically — and any future course
+      // theme is picked up for free. Each themed property is declared twice:
+      // a plain rgba/hex first, then a color-mix() version. Browsers without
+      // color-mix drop the second declaration and keep the working fallback.
       '.hfy-prog{display:flex;align-items:center;gap:18px;flex-wrap:wrap;max-width:1100px;margin:0 auto;',
       'background:linear-gradient(135deg,rgba(245,197,32,.09),rgba(10,10,10,.9));',
       'border:1px solid rgba(245,197,32,.32);border-radius:16px;padding:18px 22px}',
+      '.hfy-prog{background:linear-gradient(135deg,color-mix(in srgb,var(--amber,#f5c520) 9%,transparent),rgba(10,10,10,.9));',
+      'border-color:color-mix(in srgb,var(--amber,#f5c520) 32%,transparent)}',
       '.hfy-prog-main{flex:1;min-width:230px}',
       '.hfy-prog-eyebrow{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;',
       'color:#3ec83e;margin-bottom:6px}',
       '.hfy-prog-line{font-size:1.02rem;font-weight:700;color:#fff;line-height:1.4}',
-      '.hfy-prog-line em{font-style:normal;color:#f5c520}',
+      '.hfy-prog-line em{font-style:normal;color:var(--amber,#f5c520)}',
       '.hfy-prog-sub{margin-top:5px;font-size:.8rem;color:rgba(255,255,255,.5)}',
       '.hfy-prog-bar{margin-top:11px;height:6px;border-radius:4px;background:rgba(255,255,255,.1);overflow:hidden}',
       '.hfy-prog-fill{height:100%;width:0;border-radius:4px;',
-      'background:linear-gradient(to right,#f5c520,#3ec83e);transition:width 1s ease}',
+      'background:linear-gradient(to right,var(--amber,#f5c520),#3ec83e);transition:width 1s ease}',
       '.hfy-prog-cta{flex-shrink:0;display:inline-block;padding:12px 22px;border-radius:11px;font-size:.86rem;',
       'font-weight:800;text-decoration:none;background:linear-gradient(135deg,#f5c520,#e0a800);color:#0a0a0a}',
+      '.hfy-prog-cta{background:linear-gradient(135deg,var(--amber,#f5c520),color-mix(in srgb,var(--amber,#f5c520) 78%,#000))}',
       '.hfy-prog-streak{flex-shrink:0;text-align:center;padding:0 4px}',
-      '.hfy-prog-streak b{display:block;font-size:1.5rem;color:#f5c520;line-height:1}',
+      '.hfy-prog-streak b{display:block;font-size:1.5rem;color:var(--amber,#f5c520);line-height:1}',
       '.hfy-prog-streak span{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38)}',
       '@media(max-width:640px){.hfy-prog{padding:16px}.hfy-prog-cta{width:100%;text-align:center}}'
     ].join('');
@@ -838,7 +855,7 @@
         pct = 100;
       } else if (st.pct === 0 && st.stagesDone === 0) {
         eyebrow = 'Start here';
-        line = 'Stage 1: <em>' + esc(st.badge ? st.badge.name : 'Survive') + '</em> is waiting.';
+        line = 'Stage 1: <em>' + esc(st.stageName || (st.badge ? st.badge.name : 'Stage 1')) + '</em> is waiting.';
         sub = st.modulesTotal ? st.modulesTotal + ' modules. Most people finish the first in under ten minutes.'
                               : 'Most people finish the first module in under ten minutes.';
         cta = { label: 'Start Stage 1 →', href: href };
@@ -848,7 +865,9 @@
         line = left
           ? '<em>' + left + ' module' + (left === 1 ? '' : 's') + '</em> from becoming a ' +
             esc(st.badge ? st.badge.name : 'graduate') + '.'
-          : "You're <em>" + st.pct + '%</em> through ' + esc(st.badge ? st.badge.name : 'this stage') + '.';
+          // "through Chart Basics" — the stage. The line above says "becoming
+          // a Chart Reader" — the badge. Those are correctly different words.
+          : "You're <em>" + st.pct + '%</em> through ' + esc(st.stageName || 'this stage') + '.';
         sub = st.stagesDone
           ? st.stagesDone + ' stage' + (st.stagesDone === 1 ? '' : 's') + ' already behind you.'
           : 'You have already started. Finishing is the hard part — and the short part.';
