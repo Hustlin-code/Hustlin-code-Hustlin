@@ -9,17 +9,58 @@
 <!-- Social Preview -->
 <meta property="og:title" content="Technical Analysis Course | Hustlin'">
 <meta property="og:description" content="The Hustlin' Technical Analysis Course — the complete five-stage course, $27.95 one-time. Read charts, spot trends and patterns, use indicators, and build your own TA routine.">
-<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
-<meta property="og:url" content="https://www.hustlin.org/technical-analysis.html">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/technical-analysis.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Technical Analysis Course | Hustlin'">
 <meta name="twitter:description" content="The Hustlin' Technical Analysis Course — the complete five-stage course, $27.95 one-time. Read charts, spot trends and patterns, use indicators, and build your own TA routine.">
-<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/technical-analysis.html">
+<!-- Course schema. Technical Analysis is a single one-time $27.95 purchase
+     unlocking all five stages (courses.price_cents = 2795, free_stages = 0).
+     Price must stay in step with public.courses \u2014 that table is the
+     source of truth the Edge Function actually charges from. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Technical Analysis",
+  "description": "A five-stage technical analysis course built from the standard textbooks \u2014 candlestick anatomy, support and resistance, moving averages, volume confirmation, chart patterns, MACD, RSI, Bollinger Bands, risk management, Point & Figure charting and Elliott Wave theory. Starts from a blank chart and ends with a repeatable review routine.",
+  "url": "https://hustlin.org/technical-analysis.html",
+  "provider": { "@type": "Organization", "name": "Hustlin'", "url": "https://hustlin.org/" },
+  "inLanguage": "en-US",
+  "isAccessibleForFree": false,
+  "educationalLevel": "Beginner to Advanced",
+  "teaches": [
+    "Reading OHLC bars and candlestick anatomy",
+    "Support, resistance and trendlines",
+    "Moving averages, golden cross and death cross",
+    "Volume confirmation and breakouts",
+    "Head and shoulders, double tops, triangles, flags and gaps",
+    "MACD, RSI, stochastics and Bollinger Bands",
+    "Risk management and signal checklists",
+    "Point & Figure charting and Elliott Wave theory"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "27.95",
+    "priceCurrency": "USD",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://hustlin.org/technical-analysis.html"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT20H"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607271109">
+<link rel="stylesheet" href="styles.css?v=202607271141">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -269,7 +310,7 @@
         <a class="btn-b" href="#roadmap">See all 5 stages ↓</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-val">$<span>0</span></div><div class="stat-lbl">To start</div></div>
+        <div><div class="stat-val">$<span>27.95</span></div><div class="stat-lbl">One-time</div></div>
         <div><div class="stat-val"><span>5</span></div><div class="stat-lbl">Stages</div></div>
         <div class="stat-highlight">
           <div class="stat-val"><span id="hero-pct">0</span>%</div>
@@ -517,12 +558,12 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607271109"></script>
-<script src="app.js?v=202607271109"></script>
-<script src="rewards.js?v=202607271109"></script>
-<script src="auth.js?v=202607271109"></script>
-<script src="course-access.js?v=202607271109"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
+<script src="supabase-config.js?v=202607271141"></script>
+<script src="app.js?v=202607271141"></script>
+<script src="rewards.js?v=202607271141"></script>
+<script src="auth.js?v=202607271141"></script>
+<script src="course-access.js?v=202607271141"></script>
 <script>
 // Render nav stage states + roadmap cards
 HFY.initNavOnly();
@@ -636,6 +677,57 @@ document.getElementById('ta-email').addEventListener('keydown', e => {
       card.classList.add('locked');
       card.classList.remove('live');
     }
+  });
+
+  // ── Hero / card CTA → real checkout ────────────────────────────────
+  // These two buttons used to link straight to learn.html?course=ta&stage=1.
+  // With free_stages = 0 that always answers 402, so the only sellable
+  // course sent buyers to a paywall interstitial instead of to Stripe.
+  //
+  // Deliberately NOT using course-buy.js here. That helper assumes a text
+  // label: setLabel() falls back to el.textContent when it finds no text
+  // node, and these CTAs contain nothing but an <img>, so it would replace
+  // the artwork with a bare string. It would also overwrite the href that
+  // the resume logic above sets for owners. Wiring it here reuses the
+  // checkCourseAccess call already made and leaves the owner path alone.
+  if(hasAccess) return; // owner: resume logic above already set the hrefs
+
+  const buyCtas = ['hero-cta','card-cta']
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  if(!buyCtas.length) return;
+
+  let signedIn = false;
+  try{ signedIn = !!(await HFY.auth.getUser()); }catch(e){ signedIn = false; }
+
+  buyCtas.forEach(function(cta){
+    const img = cta.querySelector('img');
+    if(img) img.alt = signedIn
+      ? 'Buy the Technical Analysis Course — $27.95 one-time'
+      : 'Create a free account to get the Technical Analysis Course';
+
+    cta.addEventListener('click', async function(e){
+      e.preventDefault();
+      if(cta.dataset.busy === '1') return;
+
+      if(!signedIn){
+        window.location.href = 'signup.html?redirect=' + encodeURIComponent(window.location.href);
+        return;
+      }
+
+      cta.dataset.busy = '1';
+      cta.style.opacity = '.6';
+      cta.style.pointerEvents = 'none';
+      try{
+        await HFY.access.startCheckout('ta');
+      }catch(err){
+        console.error('TA checkout failed', err);
+        cta.dataset.busy = '';
+        cta.style.opacity = '';
+        cta.style.pointerEvents = '';
+        alert(err.message || 'Could not start checkout. Please try again.');
+      }
+    });
   });
 })();
 </script>

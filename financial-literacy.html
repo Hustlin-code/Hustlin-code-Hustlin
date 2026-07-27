@@ -9,17 +9,57 @@
 <!-- Social Preview -->
 <meta property="og:title" content="Free Financial Literacy Course | Hustlin'">
 <meta property="og:description" content="The Hustlin' Financial Literacy Course — Stage 1 opens with no account at all, the rest is free once you sign up. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
-<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
-<meta property="og:url" content="https://www.hustlin.org/financial-literacy.html">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/financial-literacy.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free Financial Literacy Course | Hustlin'">
 <meta name="twitter:description" content="The Hustlin' Financial Literacy Course — Stage 1 opens with no account at all, the rest is free once you sign up. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
-<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/financial-literacy.html">
+<!-- Course schema. Financial Literacy is free the whole way through:
+     Stage 1 opens with no account (courses.anon_stages = 1), Stages 2-5 are
+     free once signed up (is_free = true, free_stages = 99). Priced at 0
+     rather than omitted so the free offer is explicit to Google. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Financial Literacy",
+  "description": "A five-stage financial literacy course starting from absolute zero \u2014 second-chance banking, credit scores, zero-based budgeting, predatory-lending traps, emergency funds, the debt avalanche, credit repair, Roth IRAs, index funds and long-term wealth building. Written in plain language for people starting over.",
+  "url": "https://hustlin.org/financial-literacy.html",
+  "provider": { "@type": "Organization", "name": "Hustlin'", "url": "https://hustlin.org/" },
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "educationalLevel": "Beginner",
+  "teaches": [
+    "Opening a bank account with a ChexSystems history",
+    "How a credit score is calculated and how to build one from zero",
+    "Zero-based budgeting and variable-income budgeting",
+    "Recognising payday loans, rent-to-own and buy-here-pay-here traps",
+    "Building an emergency fund and a sinking fund",
+    "The debt avalanche method",
+    "Roth IRAs, index funds and compound interest"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "category": "Free",
+    "availability": "https://schema.org/InStock",
+    "url": "https://hustlin.org/financial-literacy.html"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT20H"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607271109">
+<link rel="stylesheet" href="styles.css?v=202607271141">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -375,7 +415,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       </div>
       <div class="free-pill">
         <span class="free-pill-dot"></span>
-        100% Free · No Account Required
+        Free · Stage 1 Needs No Account
       </div>
       <h1 class="hero-h1">
         The Financial Foundation<br>
@@ -637,8 +677,8 @@ ROME BADGE BUTTON (matches logo branding) ─ */
   </div>
 </footer>
 
-<script src="app.js?v=202607271109"></script>
-<script src="rewards.js?v=202607271109"></script>
+<script src="app.js?v=202607271141"></script>
+<script src="rewards.js?v=202607271141"></script>
 <script>
 // Render nav stage states + roadmap cards
 HFY.initNavOnly();

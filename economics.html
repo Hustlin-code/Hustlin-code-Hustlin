@@ -12,12 +12,15 @@
     <meta property="og:description" content="Learn how macroeconomics, economic indicators, GDP, inflation, interest rates, and global events move financial markets. A comprehensive trader's economics course." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hustlin.org/economics.html" />
-    <meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png" />
+    <meta property="og:image" content="https://hustlin.org/assets/social-preview.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Economics for Traders: How the Economy Moves Markets — And Your Money" />
     <meta name="twitter:description" content="Learn how macroeconomics, economic indicators, GDP, inflation, interest rates, and global events move financial markets. A comprehensive trader's economics course." />
-    <meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png" />
-    <meta name="robots" content="index, follow" />
+    <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png" />
+    <!-- Not on sale yet (courses.active = false). Keep out of the index so
+         Google does not surface a $27.95 price for something nobody can buy.
+         Flip to "index, follow" on the day the course goes live. -->
+    <meta name="robots" content="noindex, follow" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -29,7 +32,7 @@
         "name": "hustlin.org",
         "url": "https://hustlin.org"
       },
-      "url": "https://hustlin.org/economics-for-traders",
+      "url": "https://hustlin.org/economics.html",
       "numberOfCredits": 42,
       "hasCourseInstance": {
         "@type": "CourseInstance",
@@ -42,7 +45,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/lucide@1.17.0" defer></script>
     <script>
       tailwind.config = {
         theme: {
@@ -924,11 +927,11 @@
     </script>
 
 <!-- Hustlin' auth + checkout -->
-<script src="app.js?v=202607271109"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607271109"></script>
-<script src="auth.js?v=202607271109"></script>
-<script src="course-access.js?v=202607271109"></script>
-<script src="course-buy.js?v=202607271109"></script>
+<script src="app.js?v=202607271141"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
+<script src="supabase-config.js?v=202607271141"></script>
+<script src="auth.js?v=202607271141"></script>
+<script src="course-access.js?v=202607271141"></script>
+<script src="course-buy.js?v=202607271141"></script>
 </body>
 </html>
