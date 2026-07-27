@@ -53,7 +53,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607271256">
+<link rel="stylesheet" href="styles.css?v=202607271258">
 <style>
 /* ── INDEX PAGE ONLY ── */
 
@@ -91,13 +91,9 @@
 }
 
 /* Logo - mix-blend-mode:screen removes the black box */
-.ix-logo {
-  height: clamp(80px, 11vw, 140px);
-  width: auto; display: block;
-  margin: 0 auto 44px;
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 4px 24px rgba(0,0,0,.3));
-}
+/* .ix-logo removed — the hero wordmark image was dropped from the landing
+   page. The <img> was the only user of this class here; the JSON-LD
+   "logo" field and the footer logo on other pages are unaffected. */
 
 /* Gold accent bar */
 .ix-accent-bar {
@@ -137,8 +133,6 @@
 .ix-brand-line strong {
   color: #f5c520; font-weight: 800; letter-spacing: .01em;
 }
-.ix-logo { margin-bottom: 20px }
-
 .ix-ctas {
   display: flex; align-items: center; justify-content: center;
   gap: 14px; flex-wrap: wrap;
@@ -542,7 +536,6 @@
   <div class="ix-hero-bg"></div>
   <div class="ix-hero-overlay"></div>
   <div class="ix-hero-inner">
-    <img class="ix-logo" src="assets/hustlin-logo.png" alt="Hustlin'" onerror="this.style.display='none'">
     <p class="ix-brand-line">
       <strong>Hustlin'</strong> — free financial education for people building from the ground up.
     </p>
@@ -761,7 +754,7 @@
   <div class="ix-footer-disc">Educational content only. Not financial, investment, tax, or legal advice. Always conduct your own research before making financial decisions.</div>
 </footer>
 
-<script src="app.js?v=202607271256"></script>
+<script src="app.js?v=202607271258"></script>
 
 </body>
 </html>
