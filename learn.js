@@ -135,10 +135,37 @@
     [/(?:\.\.\/)?TA(?:%20| )Course\/stage-(\d+)[a-z0-9%-]*\.html/gi, 'ta']
   ];
 
+  // Cache-bust for lesson-embedded images.
+  //
+  // deploy-site.ps1 stamps ?v= onto every script and stylesheet in the site's
+  // own HTML, but lesson HTML lives in Supabase Storage and its <img> tags are
+  // bare — "assets/buttons/Invest.png". Image filenames never change, so once
+  // Cloudflare and the visitor's browser have a copy, replacing the artwork
+  // changes nothing on screen until someone purges the CDN and hard-refreshes.
+  // That's how the rebuilt buttons kept rendering in their old broken form.
+  //
+  // Reading the version off our own <script src="learn.js?v=…"> tag means this
+  // rides the existing deploy stamp: every deploy gives lesson images a URL
+  // nobody has cached, with nothing to remember to bump.
+  var ASSET_V = (function () {
+    try {
+      var s = document.querySelector('script[src*="learn.js"]');
+      var m = s && /[?&]v=([^&"']+)/.exec(s.getAttribute('src') || '');
+      return m && m[1] !== 'DEPLOYSTAMP' ? m[1] : '';
+    } catch (e) { return ''; }
+  })();
+
+  function stampAssets(html) {
+    if (!ASSET_V) return html;
+    return html.replace(/(["'(])(assets\/[^"')?#]+\.(?:png|jpe?g|gif|svg|webp))(["')])/gi,
+      function (m, pre, path, post) { return pre + path + '?v=' + ASSET_V + post; });
+  }
+
   function rewrite(html) {
     var out = html
       .replace(/(["'(])\.\.\/assets\//g, '$1assets/')
       .replace(/(["'(])\.\.\/styles\.css/g, '$1styles.css');
+    out = stampAssets(out);
 
     FOLDER_COURSE.forEach(function (pair) {
       out = out.replace(pair[0], function (m, num) {
