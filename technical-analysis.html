@@ -60,7 +60,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607271258">
+<link rel="stylesheet" href="styles.css?v=202607271301">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -559,11 +559,11 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607271258"></script>
-<script src="app.js?v=202607271258"></script>
-<script src="rewards.js?v=202607271258"></script>
-<script src="auth.js?v=202607271258"></script>
-<script src="course-access.js?v=202607271258"></script>
+<script src="supabase-config.js?v=202607271301"></script>
+<script src="app.js?v=202607271301"></script>
+<script src="rewards.js?v=202607271301"></script>
+<script src="auth.js?v=202607271301"></script>
+<script src="course-access.js?v=202607271301"></script>
 <script>
 // Render nav stage states + roadmap cards
 HFY.initNavOnly();
@@ -743,7 +743,28 @@ document.getElementById('ta-email').addEventListener('keydown', e => {
 .nav{border-bottom-color:rgba(47,167,255,.45)}
 .hfy-account-btn:hover{border-color:rgba(47,167,255,.4)}
 .btn-a:hover{box-shadow:0 8px 24px rgba(47,167,255,.38)}
-.hero-h1 em{text-shadow:1px 1px 0 #007cd6,2px 2px 0 #0064ad,3px 3px 0 #004c85,4px 4px 0 #00355c,5px 6px 3px rgba(0,0,0,.75),0 0 26px rgba(47,167,255,.55),0 0 50px rgba(47,167,255,.25)}
+/* Hero headline — matches the Financial Literacy page.
+   The shared .hero-h1 default is the heavy embossed "Impact" poster face
+   with a layered 3D drop-shadow stack. This swaps it for the site's clean
+   display font (Plus Jakarta Sans 800) and drops the stroke and shadows,
+   exactly as .fl-hero .hero-h1 does on financial-literacy.html.
+
+   The blue is kept: --amber is themed to #2FA7FF at the top of this block,
+   so the <em> picks the course colour up automatically — no hardcoded hex,
+   and it stays in step if the theme colour ever changes. */
+.hero-h1{
+  font-family:var(--f-body);
+  font-weight:800;
+  letter-spacing:-.01em;
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+.hero-h1 em{
+  font-style:normal;
+  color:var(--amber);
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
 .s-card.live:hover{box-shadow:0 10px 30px rgba(47,167,255,.18)}
 .s-card[data-stage-card].live:hover{box-shadow:0 8px 28px rgba(47,167,255,.15)}
 .callout-sec::before{background:radial-gradient(ellipse at 50% 0%,rgba(47,167,255,.08) 0%,transparent 60%)}
