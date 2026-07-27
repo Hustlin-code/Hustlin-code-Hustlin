@@ -487,6 +487,151 @@
     return !u;
   }
 
+  // ── the gap, shown before they start ──────────────────────────────────
+  // A reward after the fact only motivates someone already reading. This puts
+  // the unfinished thing in front of them on arrival: how far in they are, the
+  // streak they'd break, and how many modules stand between them and the next
+  // badge. Renders into any element carrying data-hfy-progress="<courseKey>".
+  var META_KEY = 'hfy_stagemeta_v1';
+
+  function loadStageMeta() {
+    try { return JSON.parse(localStorage.getItem(META_KEY) || '{}'); } catch (e) { return {}; }
+  }
+  // Module totals only exist inside a lesson, so record them whenever one is
+  // open. Course pages then know "5 more modules" instead of just a percentage.
+  function recordStageMeta(stageKey) {
+    var mods = document.querySelectorAll('.module');
+    if (!mods.length) return;
+    var meta = loadStageMeta();
+    meta[stageKey] = { modules: mods.length, seen: Date.now() };
+    try { localStorage.setItem(META_KEY, JSON.stringify(meta)); } catch (e) {}
+  }
+
+  function streakCount() {
+    try {
+      var s = JSON.parse(localStorage.getItem(STREAK_KEY) || '{}');
+      if (!s.last) return 0;
+      var today = new Date().toISOString().slice(0, 10);
+      var y = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+      // A streak that wasn't touched today or yesterday is already broken.
+      return (s.last === today || s.last === y) ? (s.count || 0) : 0;
+    } catch (e) { return 0; }
+  }
+
+  function modulesWon(course, stageNum) {
+    var n = 0, prefix = 'module:' + course + ':' + stageNum + ':';
+    Object.keys(earned).forEach(function (k) { if (k.indexOf(prefix) === 0) n++; });
+    return n;
+  }
+
+  function courseState(course) {
+    var list = (window.HFY.COURSE_STAGE_LISTS || {})[course] || [];
+    var meta = loadStageMeta();
+    var stagesDone = 0, current = null, currentIdx = 0;
+    for (var i = 0; i < list.length; i++) {
+      if (window.HFY.getPct(list[i]) >= 100) { stagesDone++; continue; }
+      if (!current) { current = list[i]; currentIdx = i; }
+    }
+    var done = stagesDone === list.length && list.length > 0;
+    var key = current || list[list.length - 1];
+    var total = (meta[key] && meta[key].modules) || 0;
+    return {
+      list: list, stagesDone: stagesDone, courseDone: done,
+      stageKey: key, stageNum: currentIdx + 1,
+      badge: STAGE_BADGES[key] || null,
+      pct: key ? window.HFY.getPct(key) : 0,
+      modulesTotal: total,
+      modulesDone: key ? modulesWon(course, currentIdx + 1) : 0
+    };
+  }
+
+  function bannerStyles() {
+    if (document.getElementById('hfy-prog-css')) return;
+    var css = document.createElement('style');
+    css.id = 'hfy-prog-css';
+    css.textContent = [
+      '.hfy-prog{display:flex;align-items:center;gap:18px;flex-wrap:wrap;max-width:1100px;margin:0 auto;',
+      'background:linear-gradient(135deg,rgba(245,197,32,.09),rgba(10,10,10,.9));',
+      'border:1px solid rgba(245,197,32,.32);border-radius:16px;padding:18px 22px}',
+      '.hfy-prog-main{flex:1;min-width:230px}',
+      '.hfy-prog-eyebrow{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;',
+      'color:#3ec83e;margin-bottom:6px}',
+      '.hfy-prog-line{font-size:1.02rem;font-weight:700;color:#fff;line-height:1.4}',
+      '.hfy-prog-line em{font-style:normal;color:#f5c520}',
+      '.hfy-prog-sub{margin-top:5px;font-size:.8rem;color:rgba(255,255,255,.5)}',
+      '.hfy-prog-bar{margin-top:11px;height:6px;border-radius:4px;background:rgba(255,255,255,.1);overflow:hidden}',
+      '.hfy-prog-fill{height:100%;width:0;border-radius:4px;',
+      'background:linear-gradient(to right,#f5c520,#3ec83e);transition:width 1s ease}',
+      '.hfy-prog-cta{flex-shrink:0;display:inline-block;padding:12px 22px;border-radius:11px;font-size:.86rem;',
+      'font-weight:800;text-decoration:none;background:linear-gradient(135deg,#f5c520,#e0a800);color:#0a0a0a}',
+      '.hfy-prog-streak{flex-shrink:0;text-align:center;padding:0 4px}',
+      '.hfy-prog-streak b{display:block;font-size:1.5rem;color:#f5c520;line-height:1}',
+      '.hfy-prog-streak span{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38)}',
+      '@media(max-width:640px){.hfy-prog{padding:16px}.hfy-prog-cta{width:100%;text-align:center}}'
+    ].join('');
+    document.head.appendChild(css);
+  }
+
+  function renderProgressBanner() {
+    var hosts = document.querySelectorAll('[data-hfy-progress]');
+    if (!hosts.length) return;
+    bannerStyles();
+
+    Array.prototype.forEach.call(hosts, function (host) {
+      var course = host.getAttribute('data-hfy-progress') || 'fl';
+      var st = courseState(course);
+      var streak = streakCount();
+      var href = 'learn.html?course=' + encodeURIComponent(course) + '&stage=' + st.stageNum;
+      var eyebrow, line, sub, cta, pct = st.pct;
+
+      if (st.courseDone) {
+        eyebrow = 'Course complete';
+        line = 'You finished <em>' + esc(COURSE_NAMES[course] || 'the course') + '</em>.';
+        sub = 'Every stage, every step. Take the certificate.';
+        cta = { label: '⬇  Certificate', download: true };
+        pct = 100;
+      } else if (st.pct === 0 && st.stagesDone === 0) {
+        eyebrow = 'Start here';
+        line = 'Stage 1: <em>' + esc(st.badge ? st.badge.name : 'Survive') + '</em> is waiting.';
+        sub = st.modulesTotal ? st.modulesTotal + ' modules. Most people finish the first in under ten minutes.'
+                              : 'Most people finish the first module in under ten minutes.';
+        cta = { label: 'Start Stage 1 →', href: href };
+      } else {
+        var left = st.modulesTotal ? Math.max(st.modulesTotal - st.modulesDone, 0) : 0;
+        eyebrow = 'Pick up where you left off';
+        line = left
+          ? '<em>' + left + ' module' + (left === 1 ? '' : 's') + '</em> from becoming a ' +
+            esc(st.badge ? st.badge.name : 'graduate') + '.'
+          : "You're <em>" + st.pct + '%</em> through ' + esc(st.badge ? st.badge.name : 'this stage') + '.';
+        sub = st.stagesDone
+          ? st.stagesDone + ' stage' + (st.stagesDone === 1 ? '' : 's') + ' already behind you.'
+          : 'You have already started. Finishing is the hard part — and the short part.';
+        cta = { label: 'Resume Stage ' + st.stageNum + ' →', href: href };
+      }
+
+      host.innerHTML =
+        '<div class="hfy-prog">' +
+          (streak > 1 ? '<div class="hfy-prog-streak"><b>' + streak + '</b><span>day streak</span></div>' : '') +
+          '<div class="hfy-prog-main">' +
+            '<div class="hfy-prog-eyebrow">' + esc(eyebrow) + '</div>' +
+            '<div class="hfy-prog-line">' + line + '</div>' +
+            '<div class="hfy-prog-sub">' + esc(sub) + '</div>' +
+            '<div class="hfy-prog-bar"><div class="hfy-prog-fill"></div></div>' +
+          '</div>' +
+          (cta.download
+            ? '<button class="hfy-prog-cta" type="button">' + esc(cta.label) + '</button>'
+            : '<a class="hfy-prog-cta" href="' + cta.href + '">' + esc(cta.label) + '</a>') +
+        '</div>';
+
+      var fill = host.querySelector('.hfy-prog-fill');
+      if (fill) setTimeout(function () { fill.style.width = pct + '%'; }, 60);
+      if (cta.download) {
+        host.querySelector('.hfy-prog-cta')
+            .addEventListener('click', function () { downloadCertificate(course); });
+      }
+    });
+  }
+
   // ── read-only modules ─────────────────────────────────────────────────
   // Not every module has action steps — "Your Three-Tier Safety Net" in
   // Stage 1 is pure reading. Those can never satisfy the tick-every-step rule,
@@ -559,10 +704,21 @@
   watchModuleChanges();
 
   window.HFY.onCompletion(function (evt) {
-    if (evt.type === 'module') onModuleDone(evt);
+    if (evt.type === 'module') { onModuleDone(evt); renderProgressBanner(); }
     else if (evt.type === 'stage') onStageDone(evt);
-    else if (evt.type === 'restored') pushProgress(evt.stageKey);
+    else if (evt.type === 'restored') {
+      recordStageMeta(evt.stageKey);   // learn how many modules this stage has
+      pushProgress(evt.stageKey);
+      renderProgressBanner();
+    }
   });
+
+  // Course pages have no lesson to restore, so render on load.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderProgressBanner);
+  } else {
+    renderProgressBanner();
+  }
 
   // Pull server state once auth settles, then re-render the restored stage so
   // progress from another device appears without a manual reload.
