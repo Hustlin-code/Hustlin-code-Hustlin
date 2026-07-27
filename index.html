@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607262204">
+<link rel="stylesheet" href="styles.css?v=202607262206">
 <style>
 /* ── INDEX PAGE ONLY ── */
 
@@ -325,7 +325,19 @@
    what Google's OAuth branding review looks for on the home page. */
 .ix-about { background: #060606; border-top: 1px solid rgba(255,255,255,.07); padding: 64px 40px }
 .ix-about-inner { max-width: 780px; margin: 0 auto }
-.ix-about-h { font-family: var(--f-display); font-size: 1.6rem; color: #fff; margin-bottom: 18px }
+/* Matches .ix-c-h / .ix-feat-h. This was the only heading on the page still
+   set in var(--f-display) — Impact — which renders as cramped condensed
+   letterforms with ragged edges next to the Plus Jakarta Sans used by every
+   other section heading. The stroke/shadow reset mirrors the sibling rules so
+   no global heading treatment can leak back in. */
+.ix-about-h {
+  font-family: var(--f-body);
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  font-weight: 700; color: #fff;
+  letter-spacing: -.01em; line-height: 1.25;
+  margin-bottom: 18px;
+  -webkit-text-stroke: 0; text-shadow: none;
+}
 .ix-about-p { font-size: .92rem; line-height: 1.85; color: rgba(255,255,255,.55); margin-bottom: 14px }
 .ix-about-p strong { color: var(--amber) }
 .ix-about-p a { color: var(--amber); text-decoration: underline }
@@ -715,7 +727,7 @@
   <div class="ix-footer-disc">Educational content only. Not financial, investment, tax, or legal advice. Always conduct your own research before making financial decisions.</div>
 </footer>
 
-<script src="app.js?v=202607262204"></script>
+<script src="app.js?v=202607262206"></script>
 
 </body>
 </html>
