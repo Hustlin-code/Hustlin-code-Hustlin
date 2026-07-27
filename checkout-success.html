@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607262107">
+<link rel="stylesheet" href="styles.css?v=202607262112">
 <style>
 .auth-wrap{min-height:100vh;background:#060606;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center}
 .auth-logo{margin-bottom:36px}
@@ -31,10 +31,10 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607262107"></script>
-<script src="app.js?v=202607262107"></script>
-<script src="auth.js?v=202607262107"></script>
-<script src="course-access.js?v=202607262107"></script>
+<script src="supabase-config.js?v=202607262112"></script>
+<script src="app.js?v=202607262112"></script>
+<script src="auth.js?v=202607262112"></script>
+<script src="course-access.js?v=202607262112"></script>
 <script>
 (async function(){
   const params = new URLSearchParams(window.location.search);
@@ -42,14 +42,28 @@
   const courseName = (window.HFY_CONFIG.COURSES[course] && window.HFY_CONFIG.COURSES[course].name) || 'your course';
   const card = document.getElementById('card');
 
-  function renderOk(){
+  // First stage the buyer hasn't already read for free. Read from the courses
+  // table rather than hardcoded, because free_stages varies per course and
+  // changes over time — Technical Analysis went to 0 (no free stage), so
+  // the old hardcoded "stage 2" would have skipped a stage they just paid for.
+  async function firstPaidStage(){
+    try{
+      const { data, error } = await window.HFY_SUPABASE
+        .from('courses').select('free_stages').eq('key', course).maybeSingle();
+      if(error || !data) return 1;
+      const free = typeof data.free_stages === 'number' ? data.free_stages : 0;
+      return free + 1;
+    }catch(e){ console.error('firstPaidStage failed', e); return 1; }
+  }
+
+  async function renderOk(){
+    const startAt = await firstPaidStage();
     card.innerHTML =
       '<div class="status-icon">✓</div>' +
       '<h1>You\'re in!</h1>' +
       '<p>' + courseName + ' is now unlocked on your account.</p>' +
-      // Stage 2 for every course: stage 1 is the free one they've likely
-      // already read, so send buyers straight to the first thing they paid for.
-      '<a class="btn-a" href="learn.html?course=' + encodeURIComponent(course) + '&amp;stage=2">Start Learning →</a>';
+      '<a class="btn-a" href="learn.html?course=' + encodeURIComponent(course) +
+      '&amp;stage=' + startAt + '">Start Learning →</a>';
   }
   function renderPending(){
     card.innerHTML =
@@ -72,7 +86,7 @@
   // Poll for the webhook to land (Stripe → Supabase can take a moment).
   for(let i = 0; i < 6; i++){
     const has = await window.HFY.access.checkCourseAccess(course);
-    if(has){ renderOk(); return; }
+    if(has){ await renderOk(); return; }
     await new Promise(r => setTimeout(r, 2000));
   }
   renderPending();

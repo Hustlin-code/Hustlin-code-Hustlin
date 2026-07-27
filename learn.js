@@ -94,11 +94,20 @@
   //   · signed out        → anon_stages (Financial Literacy = 1, others 0)
   //   · signed in         → every stage of a free course, else free_stages
   //   · signed in + paid  → everything (server sends entitled: true)
+  //
+  // Both counts default to 0 when absent, never to 1. `free_stages || 1` would
+  // turn a deliberate 0 — a course with no free stage at all, which is what
+  // Technical Analysis is now — straight back into 1 and show an open padlock
+  // on a stage that answers 402. Erring toward "locked" is the safe direction:
+  // the server decides either way, so the worst case is a padlock on something
+  // that would in fact open, not a promise of free content that isn't.
+  function num(v) { return typeof v === 'number' ? v : 0; }
+
   function openUpTo(data) {
     if (data.entitled) return data.stage_count;
-    if (!signedIn) return data.anon_stages || 0;
+    if (!signedIn) return num(data.anon_stages);
     if (data.is_free) return data.stage_count;
-    return data.free_stages || 1;
+    return num(data.free_stages);
   }
 
   function renderTabs(data) {
@@ -232,13 +241,26 @@
 
   function renderPaywall(data) {
     var price = ((data.price_cents || 0) / 100).toFixed(2);
+
+    // Only mention a free stage if the course actually has one. Technical
+    // Analysis has free_stages = 0, so the old hardcoded "Stage 1 stays free
+    // either way" line and the "back to free Stage 1" link were both offering
+    // something that now answers 402.
+    var free = Math.max(num(data.free_stages), num(data.anon_stages));
+    var freeNote = free > 0
+      ? ' Stage' + (free > 1 ? 's 1–' + free + ' stay' : ' 1 stays') + ' free either way.'
+      : '';
+    var altLink = free > 0
+      ? '<div class="hfy-learn-alt"><a href="' + href(course, 1) + '">← Back to free Stage 1</a></div>'
+      : '<div class="hfy-learn-alt"><a href="financial-literacy.html">Not ready? Start the free Financial Literacy course →</a></div>';
+
     card(
       '<div class="hfy-learn-price">$' + price + '</div>' +
       '<h3>Unlock ' + data.course_name + '</h3>' +
-      '<p>One-time payment, lifetime access to all ' + data.stage_count + ' stages. Stage 1 stays free either way.</p>' +
+      '<p>One-time payment, lifetime access to all ' + data.stage_count + ' stages.' + freeNote + '</p>' +
       '<button class="btn-a" id="hfy-buy" style="width:100%;justify-content:center">Buy Now</button>' +
       '<div class="hfy-learn-err" id="hfy-buy-err"></div>' +
-      '<div class="hfy-learn-alt"><a href="' + href(course, 1) + '">← Back to free Stage 1</a></div>'
+      altLink
     );
     var btn = document.getElementById('hfy-buy');
     btn.addEventListener('click', function () {
