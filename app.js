@@ -461,7 +461,7 @@ window.HFY = (function(){
     // sign-in form or a payment confirmation undermine trust exactly where
     // it matters most.
     'checkout-success.html', 'login.html', 'signup.html',
-    'forgot-password.html', 'reset-password.html'
+    'forgot-password.html', 'reset-password.html', 'change-password.html'
   ];
 
   function adsAllowed(){

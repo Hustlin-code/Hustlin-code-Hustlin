@@ -257,26 +257,13 @@
       });
 
       // ─── Change password ───
-      // Sends the standard recovery email to the address on the account rather
-      // than asking for it again — they're signed in, we already know it.
-      wrap.querySelector('.hfy-account-password').addEventListener('click', async function(){
-        var btn = this;
-        var current = await getUser();
-        if(!current || !current.email){
-          say('Could not read your email address. Try signing out and back in.', 'bad');
-          return;
-        }
-        btn.disabled = true;
-        say('Sending reset link…');
-        try{
-          var res = await resetPasswordForEmail(current.email);
-          if(res && res.error) throw res.error;
-          say('Reset link sent to ' + current.email + '. Check your inbox.', 'good');
-        }catch(err){
-          console.error('password reset failed', err);
-          say('Could not send the reset link. Please try again shortly.', 'bad');
-          btn.disabled = false;
-        }
+      // Sends them to change-password.html, which re-checks the current
+      // password and calls updateUser() directly. This used to fire a recovery
+      // email instead, but a signed-in user has no need to round-trip through
+      // their inbox — and Supabase's built-in email sender is rate-limited
+      // hard enough that the email frequently never arrived.
+      wrap.querySelector('.hfy-account-password').addEventListener('click', function(){
+        window.location.href = window.HFY.homeHref('change-password.html');
       });
 
       // ─── Reset course progress ───
