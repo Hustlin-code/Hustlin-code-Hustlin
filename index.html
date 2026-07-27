@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607262112">
+<link rel="stylesheet" href="styles.css?v=202607262139">
 <style>
 /* ── INDEX PAGE ONLY ── */
 
@@ -320,17 +320,6 @@
 
 /* About band - states the app name and purpose as readable text, which is
    what Google's OAuth branding review looks for on the home page. */
-/* ─ WHAT HUSTLIN' IS ─
-   Kept high on the page and in plain text so the OAuth consent screen's
-   app name and purpose are both unmissable to a reviewer. */
-.ix-purpose { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); padding: 40px }
-.ix-purpose-inner { max-width: 820px; margin: 0 auto; text-align: center }
-.ix-purpose-h { font-family: var(--f-display); font-size: clamp(1.15rem, 2vw, 1.5rem); color: #fff; margin-bottom: 14px }
-.ix-purpose-p { font-size: .92rem; line-height: 1.85; color: rgba(255,255,255,.58); margin: 0 auto 12px; max-width: 720px }
-.ix-purpose-p strong { color: var(--amber) }
-.ix-purpose-p a { color: var(--amber); text-decoration: underline }
-@media(max-width:560px){ .ix-purpose { padding: 30px 18px } }
-
 .ix-about { background: #060606; border-top: 1px solid rgba(255,255,255,.07); padding: 64px 40px }
 .ix-about-inner { max-width: 780px; margin: 0 auto }
 .ix-about-h { font-family: var(--f-display); font-size: 1.6rem; color: #fff; margin-bottom: 18px }
@@ -543,71 +532,6 @@
   </a>
 </section>
 
-<!-- ─ WHAT HUSTLIN' IS ─
-     Names the app and states its purpose in visible text, immediately after
-     the hero. Required by Google's OAuth branding review; also the clearest
-     answer on the page to "what is this site?" -->
-<section class="ix-purpose" id="what-is-hustlin">
-  <div class="ix-purpose-inner">
-    <h2 class="ix-purpose-h">What Hustlin' Is</h2>
-    <p class="ix-purpose-p">
-      <strong>Hustlin'</strong> is a free financial education platform at hustlin.org. It publishes
-      structured, self-paced courses that teach banking, credit, budgeting, paying off debt, and
-      investing in plain language — written for people starting from zero, or starting over.
-    </p>
-    <p class="ix-purpose-p">
-      Stage 1 of the Financial Literacy course opens with no account at all. A free Hustlin' account
-      saves your progress and unlocks the remaining stages. You can create one with an email address
-      and password, or sign in with Google — in which case Hustlin' requests only your name, email
-      address, and profile picture, purely to create your account and show which courses you have
-      access to. Hustlin' never posts on your behalf and never accesses any other Google data.
-      See the <a href="privacy-policy.html">Privacy Policy</a> and
-      <a href="terms-of-service.html">Terms of Service</a>.
-    </p>
-  </div>
-</section>
-
-<!-- ─ FEATURED FREE COURSE ─ -->
-<section class="ix-featured">
-  <div class="ix-featured-inner">
-    <div>
-      <div class="ix-feat-label"><div class="ix-feat-dot"></div>Free · Stage 1 Needs No Account</div>
-      <h2 class="ix-feat-h">The Financial Foundation<br><em>Nobody Taught You.</em></h2>
-      <p class="ix-feat-p">Five stages from banking basics to building wealth. Starts from absolute zero. Built for people who were never given a roadmap — until now.</p>
-      <div class="cta-row" style="margin-top:0">
-        <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Stage 1 Free" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
-      </div>
-    </div>
-    <div class="ix-stages">
-      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=1">
-        <div class="ix-stage-num">1</div>
-        <div><div class="ix-stage-name">Survive</div><div class="ix-stage-desc">Banking, credit, first budget, financial traps</div></div>
-        <div class="ix-stage-arr">→</div>
-      </a>
-      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=2" style="text-decoration:none;color:inherit">
-        <div class="ix-stage-num">2</div>
-        <div><div class="ix-stage-name">Stabilize</div><div class="ix-stage-desc">Emergency fund, debt avalanche, side income</div></div>
-        <div class="ix-stage-arr">→</div>
-      </a>
-      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=3" style="text-decoration:none;color:inherit">
-        <div class="ix-stage-num">3</div>
-        <div><div class="ix-stage-name">Rebuild</div><div class="ix-stage-desc">Credit repair, Roth IRA, compound interest</div></div>
-        <div class="ix-stage-arr">→</div>
-      </a>
-      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=4" style="text-decoration:none;color:inherit">
-        <div class="ix-stage-num">4</div>
-        <div><div class="ix-stage-name">Invest</div><div class="ix-stage-desc">Index funds, dividends, owning the market</div></div>
-        <div class="ix-stage-arr">→</div>
-      </a>
-      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=5" style="text-decoration:none;color:inherit">
-        <div class="ix-stage-num">5</div>
-        <div><div class="ix-stage-name">Build Wealth</div><div class="ix-stage-desc">Compound growth, tax strategy, legacy</div></div>
-        <div class="ix-stage-arr">→</div>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ─ ALL COURSES ─ -->
 <section class="ix-courses" id="courses">
   <div class="ix-courses-inner">
@@ -667,6 +591,47 @@
   </div>
 </section>
 
+<!-- ─ FEATURED FREE COURSE ─ -->
+<section class="ix-featured">
+  <div class="ix-featured-inner">
+    <div>
+      <div class="ix-feat-label"><div class="ix-feat-dot"></div>Free · Stage 1 Needs No Account</div>
+      <h2 class="ix-feat-h">The Financial Foundation<br><em>Nobody Taught You.</em></h2>
+      <p class="ix-feat-p">Five stages from banking basics to building wealth. Starts from absolute zero. Built for people who were never given a roadmap — until now.</p>
+      <div class="cta-row" style="margin-top:0">
+        <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Stage 1 Free" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
+      </div>
+    </div>
+    <div class="ix-stages">
+      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=1">
+        <div class="ix-stage-num">1</div>
+        <div><div class="ix-stage-name">Survive</div><div class="ix-stage-desc">Banking, credit, first budget, financial traps</div></div>
+        <div class="ix-stage-arr">→</div>
+      </a>
+      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=2" style="text-decoration:none;color:inherit">
+        <div class="ix-stage-num">2</div>
+        <div><div class="ix-stage-name">Stabilize</div><div class="ix-stage-desc">Emergency fund, debt avalanche, side income</div></div>
+        <div class="ix-stage-arr">→</div>
+      </a>
+      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=3" style="text-decoration:none;color:inherit">
+        <div class="ix-stage-num">3</div>
+        <div><div class="ix-stage-name">Rebuild</div><div class="ix-stage-desc">Credit repair, Roth IRA, compound interest</div></div>
+        <div class="ix-stage-arr">→</div>
+      </a>
+      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=4" style="text-decoration:none;color:inherit">
+        <div class="ix-stage-num">4</div>
+        <div><div class="ix-stage-name">Invest</div><div class="ix-stage-desc">Index funds, dividends, owning the market</div></div>
+        <div class="ix-stage-arr">→</div>
+      </a>
+      <a class="ix-stage-row" href="learn.html?course=fl&amp;stage=5" style="text-decoration:none;color:inherit">
+        <div class="ix-stage-num">5</div>
+        <div><div class="ix-stage-name">Build Wealth</div><div class="ix-stage-desc">Compound growth, tax strategy, legacy</div></div>
+        <div class="ix-stage-arr">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ─ MISSION ─ -->
 <section class="ix-mission">
   <div class="ix-mission-inner">
@@ -682,26 +647,34 @@
 </section>
 
 <!-- ─ FOOTER ─ -->
-<!-- - ABOUT / OAUTH BRANDING - -->
+<!-- ─ WHAT HUSTLIN' IS ─
+     Names the app and states its purpose in visible text, immediately after
+     the hero. Required by Google's OAuth branding review; also the clearest
+     answer on the page to "what is this site?" -->
+<!-- - ABOUT / OAUTH BRANDING -
+     Single place that names the app and states its purpose in plain visible
+     text, plus the exact Google scopes. Google's OAuth branding review reads
+     this; keep the app name spelled exactly as the consent screen has it. -->
 <section class="ix-about" id="about">
   <div class="ix-about-inner">
     <h2 class="ix-about-h">About Hustlin'</h2>
     <p class="ix-about-p">
-      <strong>Hustlin'</strong> (hustlin.org) is a financial education platform for people
-      building from the ground up. We publish structured, self-paced courses on financial
-      literacy, technical analysis, and investing - written in plain language, with no jargon
-      and no judgment.
+      <strong>Hustlin'</strong> (hustlin.org) is a free financial education platform for people
+      building from the ground up. We publish structured, self-paced courses on banking, credit,
+      budgeting, paying off debt, investing, and reading the market - written in plain language,
+      with no jargon and no judgment, for people starting from zero or starting over.
     </p>
     <p class="ix-about-p">
-      Stage 1 of the Financial Literacy course opens with no account at all — just click and read. A free Hustlin' account tracks your progress and unlocks the rest of the course content. You can
-      sign up with an email address and password, or sign in with Google. When you choose
-      Google, we request only your name, email address, and profile picture - enough to create
-      your account and show you which courses you have access to. We never post on your behalf
-      and never access any other Google data.
+      The Financial Literacy course is free the whole way through. Stage 1 opens to everyone with
+      no account at all - just click and read - and the remaining stages are free once you sign up.
+      Our other courses are a single one-time payment each, with lifetime access and no subscription.
     </p>
     <p class="ix-about-p">
-      The Financial Literacy course is free in full: Stage 1 opens to everyone with no account needed, and the remaining stages are free once you sign up. The paid courses are a single one-time payment each, with lifetime access and no subscription.
-      See our <a href="privacy-policy.html">Privacy Policy</a> and
+      A free Hustlin' account saves your progress and unlocks the rest of the course content. You
+      can create one with an email address and password, or sign in with Google. When you choose
+      Google, we request only your name, email address, and profile picture - enough to create your
+      account and show you which courses you have access to. We never post on your behalf and never
+      access any other Google data. See our <a href="privacy-policy.html">Privacy Policy</a> and
       <a href="terms-of-service.html">Terms of Service</a>.
     </p>
   </div>
@@ -727,7 +700,7 @@
   <div class="ix-footer-disc">Educational content only. Not financial, investment, tax, or legal advice. Always conduct your own research before making financial decisions.</div>
 </footer>
 
-<script src="app.js?v=202607262112"></script>
+<script src="app.js?v=202607262139"></script>
 
 </body>
 </html>

@@ -178,6 +178,34 @@
     }
   }
 
+  // Lessons show one module at a time: the sidebar toggles a `cs-visible`
+  // class, and the lesson's own script adds it to module 1 on load. That
+  // single statement is the LAST line of a long script that also boots the
+  // page's interactive calculators — so any error in those (a tool element
+  // that didn't survive extraction, a stale ID) stops execution before it and
+  // leaves the reader staring at a blank pane next to a working sidebar.
+  //
+  // Function declarations hoist, so the sidebar keeps working and clicking any
+  // module recovers — which is exactly why this failed quietly. Cheap
+  // insurance: if the lesson defines modules and none ended up visible, show
+  // the first one.
+  function ensureModuleVisible() {
+    try {
+      var modules = elLesson.querySelectorAll('.course-main .module, .module');
+      if (!modules.length) return;
+      for (var i = 0; i < modules.length; i++) {
+        if (modules[i].classList.contains('cs-visible')) return;
+      }
+      modules[0].classList.add('cs-visible');
+      var first = modules[0].id &&
+        elLesson.querySelector('.cs-item[data-cs="' + modules[0].id + '"]');
+      if (first) first.classList.add('cs-active');
+      console.warn('learn.js: no module was visible after the lesson script ran — revealed the first one');
+    } catch (e) {
+      console.error('ensureModuleVisible failed', e);
+    }
+  }
+
   // Appended under a lesson that a signed-out visitor just read for free.
   // This is the only place the free stage asks for anything: they've already
   // got the whole lesson, so the pitch is "keep going", not "pay a toll".
@@ -211,6 +239,7 @@
       : data.course_name + " | Hustlin'";
     renderTabs(data);
     runLessonScript(data.script);
+    ensureModuleVisible();
     renderNextStepPrompt(data);
     window.scrollTo(0, 0);
   }
