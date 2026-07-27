@@ -47,6 +47,28 @@
   var stage = parseInt(params.get('stage') || '1', 10);
   if (!(stage >= 1)) stage = 1;
 
+  // ── per-course theme ──────────────────────────────────────────────────
+  // learn.html is one shared shell for every course, and all of its chrome
+  // is written against var(--amber) — the stage tabs, the price, and every
+  // .btn-a in styles.css. The Technical Analysis pages re-theme that token
+  // to blue in their own :root, but learn.html never received it, so a TA
+  // reader got a blue nav and blue stage buttons wrapped around a gold
+  // "Create Free Account" card.
+  //
+  // Setting the token here re-colours the auth wall, the paywall, the stage
+  // tabs and the error card in one move, for every stage of the course. Add
+  // a key here when a future course gets its own colour.
+  var COURSE_THEMES = {
+    ta: { '--amber': '#2FA7FF', '--amber-lt': '#7DD8FF' }
+  };
+  (function applyCourseTheme() {
+    var t = COURSE_THEMES[course];
+    if (!t) return;
+    Object.keys(t).forEach(function (k) {
+      document.documentElement.style.setProperty(k, t[k]);
+    });
+  })();
+
   var elState = document.getElementById('hfy-state');
   var elLesson = document.getElementById('hfy-lesson');
   var elStyles = document.getElementById('hfy-lesson-styles');

@@ -8,7 +8,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607271309">
+<link rel="stylesheet" href="styles.css?v=202607271314">
+<script>
+/* Carry the course colour through the auth flow. Someone who taps "Create
+   Free Account" inside a blue Technical Analysis lesson should not land on a
+   gold signup page. The course is read out of the redirect target we were
+   already given, so no extra query parameter is needed anywhere.
+
+   Runs in <head>, before first paint, so there is no gold-to-blue flash. */
+(function () {
+  var THEMES = { ta: { '--amber': '#2FA7FF', '--amber-lt': '#7DD8FF' } };
+  try {
+    var back = new URLSearchParams(location.search).get('redirect') || '';
+    back = decodeURIComponent(back);
+    // learn.html sends ?course=ta; the sales page sends its own filename.
+    var m = /[?&]course=([a-z]+)/i.exec(back);
+    var key = m ? m[1].toLowerCase() : (/technical-analysis/i.test(back) ? 'ta' : '');
+    var t = THEMES[key];
+    if (t) Object.keys(t).forEach(function (k) {
+      document.documentElement.style.setProperty(k, t[k]);
+    });
+  } catch (e) { /* untouched default gold is a fine outcome */ }
+})();
+</script>
 <style>
 .auth-wrap{min-height:100vh;background:#060606;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
 .auth-logo{margin-bottom:36px}
@@ -61,9 +83,9 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607271309"></script>
-<script src="app.js?v=202607271309"></script>
-<script src="auth.js?v=202607271309"></script>
+<script src="supabase-config.js?v=202607271314"></script>
+<script src="app.js?v=202607271314"></script>
+<script src="auth.js?v=202607271314"></script>
 <script>
 function getRedirect(){
   const params = new URLSearchParams(window.location.search);
