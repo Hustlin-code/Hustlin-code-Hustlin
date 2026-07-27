@@ -95,32 +95,90 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=202607271747">
+<link rel="stylesheet" href="../styles.css?v=202607271749">
 <style>
+  /* These pages render on a CREAM surface (.sec default). Every colour below
+     comes from the light-surface tokens in styles.css. Do not use --amber or
+     white here: --amber measures ~1.9:1 on cream, white ~1.07:1. */
   .post-hero .hero-h1{font-family:var(--f-body);font-weight:800;letter-spacing:-.01em;-webkit-text-stroke:0;text-shadow:none}
   .post-hero .hero-h1 em{font-style:normal;color:var(--amber);-webkit-text-stroke:0;text-shadow:none}
+
   .pw{max-width:760px;margin:0 auto;padding:0 24px}
-  .pw h2{font-family:var(--f-body);font-size:1.45rem;font-weight:800;color:#fff;margin:44px 0 14px;letter-spacing:-.01em}
-  .pw h3{font-family:var(--f-body);font-size:1rem;font-weight:700;color:var(--amber);margin:26px 0 10px}
-  .pw p{font-family:var(--f-body);font-size:1rem;line-height:1.78;color:rgba(255,255,255,.64);margin:0 0 16px}
-  .pw p strong{color:rgba(255,255,255,.92)}
-  .pw a{color:var(--amber);text-decoration:none}
-  .pw a:hover{text-decoration:underline}
+
+  .pw h2{
+    font-family:var(--f-body);font-size:1.45rem;font-weight:800;
+    color:var(--text-dark);margin:44px 0 14px;letter-spacing:-.01em;
+  }
+  .pw h3{
+    font-family:var(--f-body);font-size:1rem;font-weight:700;
+    color:var(--amber-ink);margin:26px 0 10px;
+  }
+  .pw p{
+    font-family:var(--f-body);font-size:1.02rem;line-height:1.78;
+    color:var(--text-body);margin:0 0 16px;
+  }
+  .pw p strong{color:var(--text-dark);font-weight:700}
+  .pw a{color:var(--amber-ink);text-decoration:underline;text-underline-offset:2px}
+  .pw a:hover{color:var(--orange)}
+
   .pw ul{list-style:none;padding:0;margin:0 0 18px}
-  .pw ul li{font-family:var(--f-body);font-size:.97rem;line-height:1.72;color:rgba(255,255,255,.64);padding:0 0 0 26px;margin-bottom:11px;position:relative}
-  .pw ul li:before{content:"→";position:absolute;left:0;color:var(--amber);font-weight:700}
-  .pw ol{padding-left:20px;margin:0 0 18px}
-  .pw ol li{font-family:var(--f-body);font-size:.97rem;line-height:1.72;color:rgba(255,255,255,.64);margin-bottom:12px;padding-left:6px}
-  .pbox{border:1px solid rgba(245,197,32,.28);background:rgba(245,197,32,.05);border-radius:12px;padding:20px 22px;margin:0 0 20px}
-  .pbox .pt{font-family:var(--f-body);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:9px}
-  .pbox p{margin:0;color:rgba(255,255,255,.72);font-size:.95rem}
-  .pwarn{border-color:rgba(255,120,80,.35);background:rgba(255,120,80,.06)}
-  .pwarn .pt{color:#ff8a5c}
-  .pmeta{font-family:var(--f-mono,'Space Mono',monospace);font-size:.74rem;color:rgba(255,255,255,.34);margin-bottom:26px}
-  .pnext{border-top:1px solid rgba(255,255,255,.09);margin-top:48px;padding-top:28px}
-  table.ptab{width:100%;border-collapse:collapse;margin:0 0 20px;font-family:var(--f-body);font-size:.9rem}
-  table.ptab th{text-align:left;padding:10px 12px;color:var(--amber);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid rgba(245,197,32,.25)}
-  table.ptab td{padding:11px 12px;color:rgba(255,255,255,.62);border-bottom:1px solid rgba(255,255,255,.07);line-height:1.55}
+  .pw ul li{
+    font-family:var(--f-body);font-size:.99rem;line-height:1.72;
+    color:var(--text-body);padding:0 0 0 26px;margin-bottom:11px;position:relative;
+  }
+  .pw ul li:before{content:"\2192";position:absolute;left:0;color:var(--amber-ink);font-weight:700}
+  .pw ul li strong{color:var(--text-dark)}
+
+  .pw ol{padding-left:22px;margin:0 0 18px}
+  .pw ol li{
+    font-family:var(--f-body);font-size:.99rem;line-height:1.72;
+    color:var(--text-body);margin-bottom:12px;padding-left:6px;
+  }
+  .pw ol li::marker{color:var(--amber-ink);font-weight:700}
+  .pw ol li strong{color:var(--text-dark)}
+
+  .pbox{
+    border:1px solid rgba(179,129,15,.38);
+    background:rgba(240,192,48,.12);
+    border-radius:var(--r-md);padding:20px 22px;margin:0 0 22px;
+  }
+  .pbox .pt{
+    font-family:var(--f-body);font-size:.7rem;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink);
+    display:block;margin-bottom:9px;
+  }
+  .pbox p{margin:0;color:var(--text-body);font-size:.96rem}
+  .pbox p strong{color:var(--text-dark)}
+
+  .pwarn{border-color:rgba(138,58,0,.38);background:rgba(232,114,14,.10)}
+  .pwarn .pt{color:#8A3A00}
+
+  .pmeta{
+    font-family:var(--f-mono,'Space Mono',monospace);
+    font-size:.75rem;color:var(--text-muted);margin-bottom:28px;
+  }
+
+  .pnext{border-top:1px solid var(--border);margin-top:48px;padding-top:28px}
+
+  table.ptab{
+    width:100%;border-collapse:collapse;margin:0 0 22px;
+    font-family:var(--f-body);font-size:.92rem;
+    background:var(--white);border-radius:var(--r-sm);overflow:hidden;
+    box-shadow:var(--sh-sm);
+  }
+  table.ptab th{
+    text-align:left;padding:11px 13px;color:var(--amber-ink);
+    font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;
+    background:rgba(240,192,48,.14);
+    border-bottom:1px solid var(--border);
+  }
+  table.ptab td{
+    padding:12px 13px;color:var(--text-body);
+    border-bottom:1px solid var(--border);line-height:1.55;
+  }
+  table.ptab tr:last-child td{border-bottom:0}
+  table.ptab td strong{color:var(--text-dark)}
+  table.ptab td em{color:var(--text-muted)}
 </style>
 </head>
 <body>
@@ -382,6 +440,6 @@
   </div>
 </footer>
 
-<script src="../app.js?v=202607271747"></script>
+<script src="../app.js?v=202607271749"></script>
 </body>
 </html>
