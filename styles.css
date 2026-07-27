@@ -434,6 +434,73 @@ a{text-decoration:none}
   .cs-check{position:absolute;top:8px;right:8px}
 }
 
+/* ─── MOBILE MODULE RAIL — "there are more modules" affordance ──────────
+   On phones the sidebar collapses into a horizontal strip and it read as
+   a static two-card box: nothing signalled that modules 3-8 existed.
+   app.js wraps .cs-list in .cs-rail and injects .cs-railhead + .cs-dots,
+   so every stage page (FL + TA + guides) picks this up with no per-page
+   HTML edits. All of it is inert above 900px. */
+.cs-rail{position:relative}
+.cs-railhead,.cs-dots{display:none}
+
+@media(max-width:900px){
+  .cs-railhead{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin:0 0 8px;padding:0 2px;
+  }
+  .csh-label{
+    font-family:var(--f-mono);font-size:.66rem;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);
+  }
+  .csh-count{color:var(--amber)}
+  .csh-hint{
+    display:inline-flex;align-items:center;gap:5px;white-space:nowrap;
+    font-family:var(--f-mono);font-size:.62rem;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--amber);
+    background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);
+    border-radius:999px;padding:3px 9px;
+    transition:opacity .3s ease;
+  }
+  .csh-hint i{font-style:normal;display:inline-block;animation:csNudge 1.7s ease-in-out infinite}
+  .cs-railhead.cs-touched .csh-hint{opacity:0}
+  @keyframes csNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+  @media(prefers-reduced-motion:reduce){.csh-hint i{animation:none}}
+
+  /* edge fades: the card under the fade is visibly cut off, which is what
+     tells the eye the row keeps going */
+  .cs-rail::before,.cs-rail::after{
+    content:"";position:absolute;top:0;bottom:12px;width:40px;
+    pointer-events:none;z-index:2;opacity:0;transition:opacity .22s ease;
+  }
+  .cs-rail::before{left:0;background:linear-gradient(90deg,var(--white) 20%,transparent)}
+  .cs-rail::after{right:0;background:linear-gradient(270deg,var(--white) 20%,transparent)}
+  .cs-rail.cs-more-left::before{opacity:1}
+  .cs-rail.cs-more-right::after{opacity:1}
+
+  /* narrower cards guarantee a partial third card peeks in on a 390px screen */
+  .cs-item{width:9.1rem;min-width:9.1rem;max-width:9.1rem}
+  .cs-list{padding-bottom:10px;scroll-padding-inline-start:2px}
+  .cs-list::after{content:"";flex:0 0 30px}   /* last card clears the right fade */
+
+  /* keep the scrollbar permanently visible instead of iOS's fade-in-on-touch */
+  .cs-list{scrollbar-width:thin;scrollbar-color:rgba(232,160,32,.6) rgba(107,96,71,.14)}
+  .cs-list::-webkit-scrollbar{height:4px;-webkit-appearance:none}
+  .cs-list::-webkit-scrollbar-track{background:rgba(107,96,71,.14);border-radius:99px}
+  .cs-list::-webkit-scrollbar-thumb{background:rgba(232,160,32,.6);border-radius:99px}
+
+  /* position dots — second, unmissable "N modules" signal */
+  .cs-dots{
+    display:flex;justify-content:center;align-items:center;
+    gap:6px;margin-top:9px;flex-wrap:wrap;
+  }
+  .cs-dot{
+    width:6px;height:6px;padding:0;border:0;border-radius:50%;cursor:pointer;
+    background:rgba(107,96,71,.25);transition:width .2s ease,background .2s ease;
+  }
+  .cs-dot.cs-dot-done{background:rgba(232,160,32,.5)}
+  .cs-dot.on{width:20px;border-radius:99px;background:var(--amber)}
+}
+
 /* Scoped to the new sidebar+panel layout (Stage 5) only — one module
    visible at a time, swapped instantly via JS, zero reflow/scroll.
    Stages using the classic accordion (.mod-toggle / tog()) are

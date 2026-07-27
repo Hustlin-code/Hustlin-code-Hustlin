@@ -569,3 +569,152 @@ window.HFY = (function(){
     }
   };
 })();
+
+/* ─────────────────────────────────────────────────────────────────────
+   MOBILE MODULE RAIL — discoverability for the horizontal module strip
+   ─────────────────────────────────────────────────────────────────────
+   Below 900px the course sidebar collapses into a horizontal .cs-list.
+   On a phone that read as a static box with ~2 cards: nothing told the
+   user modules 3..N existed. This progressively enhances every .cs-list
+   on the page with:
+     - a "Module 3 of 8" counter + a swipe hint that retires on first scroll
+     - gradient edge fades that appear only when there IS more that way
+     - tappable position dots that mirror active/completed state
+   It runs on every stage page automatically because all of them load
+   app.js — no per-stage HTML edits, so new stages inherit it for free.
+   Above 900px the injected nodes are display:none and this is a no-op. */
+(function(){
+  'use strict';
+
+  var HINT_KEY = 'hfy_rail_hint_seen';
+
+  function seenHint(){
+    try { return localStorage.getItem(HINT_KEY) === '1'; } catch(e){ return false; }
+  }
+  function markHintSeen(){
+    try { localStorage.setItem(HINT_KEY, '1'); } catch(e){}
+  }
+
+  function buildRail(list){
+    if(list.dataset.hfyRail) return;
+    var items = Array.prototype.slice.call(list.querySelectorAll('.cs-item'));
+    if(items.length < 2) return;               // nothing to scroll, no cue needed
+    list.dataset.hfyRail = '1';
+
+    var parent = list.parentNode;
+
+    // wrap the scroller so the fades have something to anchor to
+    var rail = document.createElement('div');
+    rail.className = 'cs-rail';
+    parent.insertBefore(rail, list);
+    rail.appendChild(list);
+
+    var head = document.createElement('div');
+    head.className = 'cs-railhead';
+    head.innerHTML =
+      '<span class="csh-label">Module <span class="csh-count">1 of ' + items.length + '</span></span>' +
+      '<span class="csh-hint">Swipe <i>→</i></span>';
+    parent.insertBefore(head, rail);
+    if(seenHint()) head.classList.add('cs-touched');
+
+    var dots = document.createElement('div');
+    dots.className = 'cs-dots';
+    dots.setAttribute('role', 'tablist');
+    dots.setAttribute('aria-label', 'Module navigation');
+    items.forEach(function(item, i){
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'cs-dot';
+      dot.setAttribute('aria-label', 'Go to module ' + (i + 1) + ' of ' + items.length);
+      dot.addEventListener('click', function(){ item.click(); });
+      dots.appendChild(dot);
+    });
+    parent.insertBefore(dots, rail.nextSibling);
+
+    var countEl = head.querySelector('.csh-count');
+    var dotEls  = Array.prototype.slice.call(dots.children);
+
+    // ── edge fades: only shown when there is actually more in that direction
+    function syncEdges(){
+      var max = list.scrollWidth - list.clientWidth;
+      var x   = list.scrollLeft;
+      rail.classList.toggle('cs-more-left',  x > 4);
+      rail.classList.toggle('cs-more-right', max > 4 && x < max - 4);
+    }
+
+    // ── mirror sidebar state onto the dots + counter
+    function syncState(){
+      var activeIdx = -1;
+      items.forEach(function(item, i){
+        if(item.classList.contains('cs-active')) activeIdx = i;
+        dotEls[i].classList.toggle('cs-dot-done', item.classList.contains('cs-done'));
+      });
+      dotEls.forEach(function(d, i){
+        d.classList.toggle('on', i === activeIdx);
+        d.setAttribute('aria-selected', i === activeIdx ? 'true' : 'false');
+      });
+      if(activeIdx > -1){
+        countEl.textContent = (activeIdx + 1) + ' of ' + items.length;
+        centreOn(items[activeIdx]);
+      }
+    }
+
+    // Keep the active chip on screen without touching page scroll —
+    // scrollIntoView would drag the whole document on iOS.
+    function centreOn(chip){
+      if(!window.matchMedia || !window.matchMedia('(max-width:900px)').matches) return;
+      var left = chip.offsetLeft - (list.clientWidth - chip.offsetWidth) / 2;
+      var max  = list.scrollWidth - list.clientWidth;
+      left = Math.max(0, Math.min(left, max));
+      if(Math.abs(left - list.scrollLeft) < 8) return;
+      if(list.scrollTo) list.scrollTo({ left: left, behavior: 'smooth' });
+      else list.scrollLeft = left;
+    }
+
+    var raf = null;
+    list.addEventListener('scroll', function(){
+      if(raf) return;
+      raf = requestAnimationFrame(function(){ raf = null; syncEdges(); });
+    }, { passive: true });
+
+    // first real swipe means they've got it — retire the hint for good
+    list.addEventListener('scroll', function once(){
+      list.removeEventListener('scroll', once);
+      head.classList.add('cs-touched');
+      markHintSeen();
+    }, { passive: true });
+
+    window.addEventListener('resize', syncEdges);
+
+    // the stage pages toggle cs-active / cs-done directly on the chips
+    new MutationObserver(syncState).observe(list, {
+      subtree: true, attributes: true, attributeFilter: ['class']
+    });
+
+    syncState();
+    syncEdges();
+    // fonts/images landing late change scrollWidth
+    window.addEventListener('load', function(){ syncEdges(); syncState(); });
+  }
+
+  function init(){
+    Array.prototype.forEach.call(document.querySelectorAll('.cs-list'), buildRail);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // learn.html renders lessons by fetching the stage HTML from Supabase and
+  // dropping it into #hfy-lesson with innerHTML — long after DOMContentLoaded.
+  // Watch for a .cs-list that shows up late so the viewer gets the same
+  // treatment as a directly-served stage page. buildRail() is idempotent.
+  var queued = false;
+  new MutationObserver(function(){
+    if(queued) return;
+    queued = true;
+    setTimeout(function(){ queued = false; init(); }, 0);
+  }).observe(document.documentElement, { childList: true, subtree: true });
+})();
