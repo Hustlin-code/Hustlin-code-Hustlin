@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Who writes Hustlin', where the numbers come from, and how we source and verify financial education content. Our editorial standards, funding, and limits — stated plainly.">
+<title>About & Editorial Standards | Hustlin'</title>
+
+<!-- Social Preview -->
+<meta property="og:title" content="About & Editorial Standards | Hustlin'">
+<meta property="og:description" content="Who writes Hustlin', where the numbers come from, and how we verify what we publish. Stated plainly, including what we're not.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/about.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About & Editorial Standards | Hustlin'">
+<meta name="twitter:description" content="Who writes Hustlin', where the numbers come from, and how we verify what we publish.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/about.html">
+
+<!-- Structured data. Google applies elevated Experience/Expertise/
+     Authoritativeness/Trust scrutiny to financial (YMYL) content. An
+     AboutPage tied to the Organization entity, with a stated publishing
+     policy and correction process, is the standard signal for this. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://hustlin.org/about.html#aboutpage",
+      "url": "https://hustlin.org/about.html",
+      "name": "About & Editorial Standards | Hustlin'",
+      "description": "Who writes Hustlin', how content is sourced and verified, how the site is funded, and what Hustlin' explicitly is not.",
+      "inLanguage": "en-US",
+      "mainEntity": { "@id": "https://hustlin.org/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "alternateName": "hustlin.org",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "description": "Free financial education for people building from the ground up. Structured, self-paced courses on banking, credit, budgeting, debt, investing, and reading the market.",
+      "foundingDate": "2026",
+      "knowsAbout": [
+        "Second-chance banking",
+        "ChexSystems",
+        "Credit scores and credit repair",
+        "Zero-based budgeting",
+        "Debt repayment strategies",
+        "ABLE accounts and disability benefits",
+        "Index fund investing",
+        "Technical analysis"
+      ],
+      "publishingPrinciples": "https://hustlin.org/about.html#standards",
+      "sameAs": [
+        "https://x.com/hustlin_org",
+        "https://www.instagram.com/hustlin_org/",
+        "https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A"
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=202607271731">
+<style>
+  .about-hero .hero-h1{
+    font-family:var(--f-body);
+    font-weight:800;
+    letter-spacing:-.01em;
+    -webkit-text-stroke:0;
+    text-shadow:none;
+  }
+  .about-hero .hero-h1 em{
+    font-style:normal;
+    color:var(--amber);
+    -webkit-text-stroke:0;
+    text-shadow:none;
+  }
+  .ab-wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  .ab-block{margin-bottom:56px}
+  .ab-block h2{
+    font-family:var(--f-body);font-size:1.5rem;font-weight:800;
+    color:#fff;margin:0 0 16px;letter-spacing:-.01em;
+  }
+  .ab-block h3{
+    font-family:var(--f-body);font-size:1.02rem;font-weight:700;
+    color:var(--amber);margin:28px 0 10px;
+  }
+  .ab-block p{
+    font-family:var(--f-body);font-size:.98rem;line-height:1.75;
+    color:rgba(255,255,255,.62);margin:0 0 14px;
+  }
+  .ab-block p strong{color:rgba(255,255,255,.9)}
+  .ab-block a{color:var(--amber);text-decoration:none}
+  .ab-block a:hover{text-decoration:underline}
+  .ab-list{list-style:none;padding:0;margin:0 0 14px}
+  .ab-list li{
+    font-family:var(--f-body);font-size:.95rem;line-height:1.7;
+    color:rgba(255,255,255,.62);padding:0 0 0 26px;margin-bottom:10px;position:relative;
+  }
+  .ab-list li:before{
+    content:"→";position:absolute;left:0;color:var(--amber);font-weight:700;
+  }
+  .ab-callout{
+    border:1px solid rgba(245,197,32,.28);
+    background:rgba(245,197,32,.05);
+    border-radius:12px;padding:22px 24px;margin:0 0 20px;
+  }
+  .ab-callout .ab-ct{
+    font-family:var(--f-body);font-size:.7rem;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--amber);
+    display:block;margin-bottom:10px;
+  }
+  .ab-callout p{margin:0;color:rgba(255,255,255,.7)}
+  .ab-warn{border-color:rgba(255,120,80,.35);background:rgba(255,120,80,.06)}
+  .ab-warn .ab-ct{color:#ff8a5c}
+  .ab-meta{
+    font-family:var(--f-mono,'Space Mono',monospace);
+    font-size:.75rem;color:rgba(255,255,255,.32);
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:18px;margin-top:8px;
+  }
+  @media(max-width:640px){
+    .ab-block h2{font-size:1.28rem}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:96px;width:auto;display:block;mix-blend-mode:screen">
+  </a>
+  <a class="nav-market-btn" href="markets.html">See Full Market Data →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero about-hero" style="min-height:48vh">
+  <div class="hero-wrap" style="grid-template-columns:1fr">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>About</span>
+      </div>
+      <div class="eyebrow"><span>●</span> Who's Behind This</div>
+      <h1 class="hero-h1" style="font-size:clamp(2.1rem,4vw,3.4rem)">
+        No Gurus.<br><em>Just the Receipts.</em>
+      </h1>
+      <p class="hero-sub">
+        Financial advice is full of people who want you to trust them without telling you
+        who they are. Here's who writes this, where every number comes from, how we make
+        money, and — just as important — what we're not qualified to do.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:56px">
+<div class="ab-wrap">
+
+  <!-- ================= WHO ================= -->
+  <!--
+    ────────────────────────────────────────────────────────────────────────
+    This section is publishable exactly as written — no placeholders, nothing
+    invented. It attributes the work to Hustlin' as a publisher, which is a
+    legitimate and common authorship model, and the JSON-LD above matches it.
+
+    IT WILL WORK HARDER IF YOU SIGN IT. Google's quality guidelines put
+    "Experience" first in E-E-A-T, and for this subject a named person who has
+    actually lived it outranks any credential. There's a ready-made block
+    commented out below — uncomment it, fill in two sentences, done.
+    ────────────────────────────────────────────────────────────────────────
+  -->
+  <div class="ab-block" id="who">
+    <h2>Who writes Hustlin'</h2>
+
+    <p>
+      Hustlin' is an independent financial education publisher, launched in 2026 and
+      operated from Tennessee. It isn't a media company, a fintech, or a licensed
+      advisory firm. It's a small operation built around one belief: the information
+      that builds wealth was kept behind expensive courses and deliberate jargon, and
+      that's a solvable problem.
+    </p>
+    <p>
+      Everything published here is written in-house. We don't run guest posts, we don't
+      accept sponsored placements inside course material, and no article on this site was
+      commissioned by a bank, a lender, or a brokerage.
+    </p>
+    <p>
+      What qualifies this material isn't a certification — it's the sourcing. Every
+      figure traces back to a primary government source, every claim we can't support
+      gets cut, and where a decision genuinely needs a licensed professional we say so
+      and point you to one. The standards below are the whole argument for trusting it.
+    </p>
+
+    <!--
+      ══ OPTIONAL: SIGN YOUR WORK ═════════════════════════════════════════
+      Delete the comment markers around the block below and fill it in.
+      Two honest sentences beat three paragraphs of credentials.
+
+      Worth naming if true: rebuilding your own credit, banking with
+      ChexSystems marks against you, coming up without any of this explained
+      to you, time working in reentry, lending, credit unions, or social
+      services. Lived experience is a real qualification here — say it plainly.
+
+    <h3>The person behind it</h3>
+    <p>
+      <strong>YOUR NAME</strong> — founder and writer.
+    </p>
+    <p>
+      TWO OR THREE SENTENCES ON YOUR BACKGROUND. What you went through, what
+      you learned the hard way, why you decided to write it all down.
+    </p>
+    <p>
+      Questions, corrections, or partnership inquiries:
+      <a href="mailto:YOUR@EMAIL">YOUR@EMAIL</a>
+    </p>
+      ═════════════════════════════════════════════════════════════════════
+    -->
+  </div>
+
+  <!-- ================= MISSION ================= -->
+  <div class="ab-block" id="mission">
+    <h2>Why this exists</h2>
+    <p>
+      Most financial advice quietly assumes you already have something — a bank account
+      that will accept you, a credit score above 600, a cushion to fall back on, someone
+      in your life who explained how any of this works. Hustlin' assumes none of that.
+    </p>
+    <p>
+      The Financial Literacy course starts at opening a bank account when ChexSystems has
+      locked you out, and ends at tax strategy and building generational wealth. It is
+      free the entire way through. Stage 1 opens with no account at all.
+    </p>
+    <p>
+      We built it for people coming home from incarceration, rebuilding after divorce or
+      bankruptcy or medical debt, or simply starting at 40 because nobody ever taught them.
+      There is no judgment anywhere in this material about how you got here.
+    </p>
+  </div>
+
+  <!-- ================= STANDARDS ================= -->
+  <div class="ab-block" id="standards">
+    <h2>Editorial standards</h2>
+    <p>
+      Financial content is only worth as much as its sourcing. Here's how ours works.
+    </p>
+
+    <h3>Where the numbers come from</h3>
+    <p>
+      Every benefit figure, contribution limit, income threshold, and tax number on this
+      site is taken from a primary government source — not from another blog. Specifically:
+    </p>
+    <ul class="ab-list">
+      <li>Benefit and disability figures come from the Social Security Administration's
+          annual Red Book and COLA notices</li>
+      <li>Retirement and account contribution limits come from IRS publications</li>
+      <li>Credit reporting rights and dispute procedures come from the CFPB and the
+          FTC-authorized AnnualCreditReport.com</li>
+      <li>ABLE account rules come from the ABLE National Resource Center</li>
+    </ul>
+
+    <h3>Dated figures</h3>
+    <p>
+      Benefit limits, contribution caps, and tax thresholds change every year. Pages
+      carrying year-specific numbers state which year they reflect and when they were last
+      verified. The Disability Wealth Guide, which is the most figure-dense page on the
+      site, carries a verification date in its footer for exactly this reason.
+    </p>
+
+    <h3>Corrections</h3>
+    <p>
+      If you find an error — a stale figure, a rule that changed, a link that broke — email
+      us and we'll fix it and update the verification date. We would rather be corrected
+      than be confidently wrong about something that affects someone's benefits or savings.
+    </p>
+
+    <h3>What we don't do</h3>
+    <ul class="ab-list">
+      <li>We don't sell signals, alerts, picks, or a Discord</li>
+      <li>We don't take affiliate commissions on the banks, cards, or brokerages we name.
+          When we recommend a product it is because it fits the situation, not because it pays</li>
+      <li>We don't publish income screenshots, testimonials we can't verify, or
+          "I made $10k this week" claims</li>
+      <li>We don't invent statistics. If we cite a number, there's a source behind it</li>
+    </ul>
+  </div>
+
+  <!-- ================= FUNDING ================= -->
+  <div class="ab-block" id="funding">
+    <h2>How this is funded</h2>
+    <p>
+      Being straight about the money matters, because it tells you what our incentives are.
+    </p>
+    <ul class="ab-list">
+      <li><strong>The Financial Literacy course is free</strong> — all five stages. Stage 1
+          requires no account at all. This is the core of the site and it will stay free.</li>
+      <li><strong>The Disability Wealth Guide is free</strong> and requires no account.</li>
+      <li><strong>Specialist courses</strong> — Technical Analysis, and others in
+          development — are a single $27.95 payment with lifetime access. No subscription,
+          no upsell ladder.</li>
+      <li><strong>Display advertising</strong> through Google AdSense helps fund the free
+          material. See our <a href="privacy-policy.html">Privacy Policy</a> for how that
+          works and how to opt out of personalization.</li>
+    </ul>
+    <p>
+      We're early. Hustlin' launched in 2026 and we'd rather say that plainly than imply a
+      track record we don't have yet. If you want to work with us while it's being built,
+      the <a href="work-with-us.html">partner page</a> is open.
+    </p>
+  </div>
+
+  <!-- ================= LIMITS ================= -->
+  <div class="ab-block" id="limits">
+    <h2>What Hustlin' is not</h2>
+
+    <div class="ab-callout">
+      <span class="ab-ct">Read this part carefully</span>
+      <p>
+        Hustlin' publishes financial education. It does not provide financial advice, and
+        the difference is not a technicality.
+      </p>
+    </div>
+
+    <p>
+      We are <strong>not</strong> registered investment advisers, financial planners,
+      broker-dealers, attorneys, tax professionals, or Social Security representatives.
+      Nothing on this site is a personalized recommendation, because we don't know your
+      situation, your income, your debts, your state, or your benefits status.
+    </p>
+    <p>
+      Some decisions genuinely require a professional, and we say so where it matters:
+    </p>
+    <ul class="ab-list">
+      <li>A Special Needs Trust must be drafted by an attorney who specializes in
+          special needs planning. Getting it wrong can cost someone their coverage.</li>
+      <li>Before any change that could affect SSDI, SSI, Medicaid, or Medicare, talk to a
+          free WIPA benefits counselor.</li>
+      <li>Self-employment tax planning needs a CPA who knows your actual numbers.</li>
+    </ul>
+    <p>
+      Pointing you to someone better qualified is part of the job, not an admission of
+      failure.
+    </p>
+
+    <div class="ab-meta">
+      Last updated: July 2026 · hustlin.org
+    </div>
+  </div>
+
+  <div class="cta-row" style="justify-content:flex-start">
+    <a class="btn-a" href="financial-literacy.html">Start the free course →</a>
+    <a class="btn-b" href="work-with-us.html">Partner with us</a>
+  </div>
+
+</div>
+</section>
+
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    <!-- Brand -->
+    <div class="hfy-ft-brand">
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    <!-- Courses -->
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="markets.html">Markets</a>
+        <a href="technical-analysis.html">Technical Analysis — $27.95</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis — Coming Soon</a>
+        <a href="trading-psychology.html">Trading Psychology — Coming Soon</a>
+        <a href="economics.html">Economics for Traders — Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="financial-literacy.html">Financial Literacy</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    <!-- Follow -->
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+
+<script src="app.js?v=202607271731"></script>
+</body>
+</html>

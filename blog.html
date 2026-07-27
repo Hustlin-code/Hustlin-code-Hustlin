@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Hustlin' blog — real talk on banking, credit, debt, and investing. No jargon, no judgment. New posts coming soon.">
+<meta name="description" content="The Hustlin' blog — real talk on banking, credit, debt, and investing. ChexSystems, ABLE accounts, debt payoff strategy. No jargon, no judgment.">
 <title>Blog | Hustlin'</title>
 
 <!-- Social Preview -->
@@ -17,10 +17,53 @@
 <meta name="twitter:description" content="Real talk on banking, credit, debt, and investing — from the team building Hustlin'. No jargon, no judgment.">
 <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
 <link rel="canonical" href="https://hustlin.org/blog.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://hustlin.org/blog.html#blog",
+  "url": "https://hustlin.org/blog.html",
+  "name": "The Hustlin' Blog",
+  "description": "Real talk on banking, credit, debt, and investing. No jargon, no judgment.",
+  "inLanguage": "en-US",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://hustlin.org/#organization",
+    "name": "Hustlin'",
+    "url": "https://hustlin.org/",
+    "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" }
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Denied a Bank Account? It's Probably ChexSystems.",
+      "url": "https://hustlin.org/blog/chexsystems-explained.html",
+      "datePublished": "2026-07-27",
+      "author": { "@id": "https://hustlin.org/#organization" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "You Can Save Money on SSI. Legally.",
+      "url": "https://hustlin.org/blog/save-money-on-ssi.html",
+      "datePublished": "2026-07-27",
+      "author": { "@id": "https://hustlin.org/#organization" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Avalanche vs. Snowball: The Honest Answer.",
+      "url": "https://hustlin.org/blog/debt-avalanche-vs-snowball.html",
+      "datePublished": "2026-07-27",
+      "author": { "@id": "https://hustlin.org/#organization" }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607271654">
+<link rel="stylesheet" href="styles.css?v=202607271731">
 <style>
 /* Cleaner headline — swap the heavy embossed "Impact" poster font (the
    shared .hero-h1 default) for the site's normal clean display font,
@@ -260,6 +303,84 @@
   </div>
 </section>
 
+<!-- POSTS -->
+<section class="sec" id="posts">
+  <div class="sec-inner">
+    <div class="sec-eye">Latest</div>
+    <h2 class="sec-h2">Start here.</h2>
+
+    <div class="bp-grid">
+
+      <a class="bp-card" href="blog/chexsystems-explained.html">
+        <div class="bp-tag">Banking</div>
+        <h3 class="bp-title">Denied a Bank Account? It's Probably ChexSystems.</h3>
+        <p class="bp-desc">
+          The reporting system nobody warns you about until it's already cost you an account.
+          How to pull your free report, dispute what's wrong, and get banked this week anyway.
+        </p>
+        <div class="bp-meta">6 min read · July 2026</div>
+      </a>
+
+      <a class="bp-card" href="blog/save-money-on-ssi.html">
+        <div class="bp-tag">Disability Finance</div>
+        <h3 class="bp-title">You Can Save Money on SSI. Legally.</h3>
+        <p class="bp-desc">
+          The $2,000 limit is real. So is the federal law written specifically to get around
+          it. ABLE accounts, the 2026 rules, and what to do this week.
+        </p>
+        <div class="bp-meta">7 min read · July 2026</div>
+      </a>
+
+      <a class="bp-card" href="blog/debt-avalanche-vs-snowball.html">
+        <div class="bp-tag">Debt</div>
+        <h3 class="bp-title">Avalanche vs. Snowball: The Honest Answer.</h3>
+        <p class="bp-desc">
+          One saves you more money. The other gets more people to the finish line. The real
+          math on both — and why you don't have to pick a team.
+        </p>
+        <div class="bp-meta">6 min read · July 2026</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .bp-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;margin-top:32px;
+  }
+  .bp-card{
+    display:block;text-decoration:none;
+    border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.02);
+    border-radius:14px;padding:26px 24px;
+    transition:border-color .2s,transform .2s,background .2s;
+  }
+  .bp-card:hover{
+    border-color:rgba(245,197,32,.45);
+    background:rgba(245,197,32,.04);
+    transform:translateY(-3px);
+  }
+  .bp-tag{
+    font-family:var(--f-body);font-size:.64rem;font-weight:800;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--amber);
+    margin-bottom:12px;
+  }
+  .bp-title{
+    font-family:var(--f-body);font-size:1.12rem;font-weight:800;
+    color:#fff;margin:0 0 10px;line-height:1.34;letter-spacing:-.01em;
+  }
+  .bp-desc{
+    font-family:var(--f-body);font-size:.9rem;line-height:1.65;
+    color:rgba(255,255,255,.5);margin:0 0 16px;
+  }
+  .bp-meta{
+    font-family:var(--f-mono,'Space Mono',monospace);
+    font-size:.7rem;color:rgba(255,255,255,.3);
+  }
+</style>
+
 <!-- FOLLOW -->
 <div class="follow-bar">
   <span class="follow-bar-lbl">Follow Us</span>
@@ -308,7 +429,7 @@
       <div class="hfy-ft-col-title">Courses</div>
       <div class="hfy-ft-links">
         <a href="financial-literacy.html">Financial Literacy — Free</a>
-        <a href="learn.html?course=dwg&amp;stage=1">Disability Wealth Guide</a>
+        <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="markets.html">Markets</a>
         <a href="technical-analysis.html">Technical Analysis — $27.95</a>
         <a href="fundamental-analysis.html">Fundamental Analysis — Coming Soon</a>
@@ -323,6 +444,7 @@
       <div class="hfy-ft-links">
         <a href="index.html">Home</a>
         <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
         <a href="financial-literacy.html">Financial Literacy</a>
         <a href="work-with-us.html">Work With Us</a>
         <a href="privacy-policy.html">Privacy Policy</a>
@@ -361,7 +483,7 @@
   </div>
 </footer>
 
-<script src="app.js?v=202607271654"></script>
+<script src="app.js?v=202607271731"></script>
 <script>
 HFY.initNavOnly();
 
