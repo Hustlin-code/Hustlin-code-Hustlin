@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607262139">
+<link rel="stylesheet" href="styles.css?v=202607262152">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -570,7 +570,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
 
     <!-- Brand -->
     <div class="hfy-ft-brand">
-      <img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'">
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
       <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
     </div>
 
@@ -632,7 +632,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
   </div>
 </footer>
 
-<script src="app.js?v=202607262139"></script>
+<script src="app.js?v=202607262152"></script>
 <script>
 // Render nav stage states + roadmap cards
 HFY.initNavOnly();
@@ -684,13 +684,32 @@ async function flSubscribe() {
   const email = input.value.trim();
   if (!email || !email.includes('@')) { input.focus(); return; }
   const btn = input.nextElementSibling;
+  const original = btn.textContent;
   btn.textContent = 'JOINING...'; btn.disabled = true;
+
+  // Formspree, the same endpoint work-with-us.html posts to. This used to hit
+  // https://api.convertkit.com/v3/forms/YOUR_CONVERTKIT_FORM_ID/subscribe - a
+  // placeholder that was never filled in, so every request 404'd. The error was
+  // swallowed by an empty catch and the success panel shown regardless, which
+  // meant every address typed into this box was silently thrown away.
+  const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/xvzeknrv';
   try {
-    await fetch('https://api.convertkit.com/v3/forms/YOUR_CONVERTKIT_FORM_ID/subscribe', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ api_key: 'YOUR_CONVERTKIT_PUBLIC_API_KEY', email })
+    const body = new FormData();
+    body.append('email', email);
+    body.append('_subject', 'Newsletter signup - Financial Literacy');
+    body.append('source', 'financial-literacy');
+    const res = await fetch(NEWSLETTER_ENDPOINT, {
+      method: 'POST', headers: { 'Accept': 'application/json' }, body
     });
-  } catch(e) {}
+    if (!res.ok) throw new Error('Subscribe failed (' + res.status + ')');
+  } catch (e) {
+    // Tell the truth instead of showing a success panel for a failed signup.
+    console.error('newsletter signup failed', e);
+    btn.textContent = original; btn.disabled = false;
+    input.style.borderColor = '#EF4444';
+    alert("Sorry - that didn't go through. Please try again in a moment.");
+    return;
+  }
   document.querySelector('.email-row').style.display = 'none';
   document.getElementById('fl-ok').style.display = 'block';
 }

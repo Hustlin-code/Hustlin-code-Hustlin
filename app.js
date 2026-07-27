@@ -303,6 +303,28 @@ window.HFY = (function(){
     });
   }
 
+  // ─── FOOTER LOGO → HOME LINK ─────────────────
+  // The footer brand logo is now a real <a> in every page's markup. This is a
+  // backstop for pages that miss it: footers are hard-coded per file with no
+  // shared template, so a page added later will not inherit the anchor.
+  //
+  // Runs after swapNavLogo() so any <img> that function just created from a
+  // CSS badge gets wrapped too. Idempotent — an already-linked logo is left
+  // alone, so it never double-wraps the pages that ship the anchor.
+  function linkFooterLogo(){
+    document.querySelectorAll('footer img, .hfy-footer img, .footer img').forEach(img=>{
+      if(!/hustlin-logo/i.test(img.getAttribute('src') || '')) return;
+      if(img.closest('a')) return;                   // already clickable
+
+      const a = document.createElement('a');
+      a.href = homeHref('index.html');
+      a.setAttribute('aria-label', "Hustlin' - back to home");
+      a.style.display = 'inline-block';
+      img.parentNode.insertBefore(a, img);
+      a.appendChild(img);
+    });
+  }
+
   // ─── ADSENSE ─────────────────────────────────
   // ─────────────────────────────────────────────
   // SETUP INSTRUCTIONS:
@@ -413,6 +435,7 @@ window.HFY = (function(){
   // Runs automatically on every page that loads app.js
   function init(){
     swapNavLogo();
+    linkFooterLogo();   // after swapNavLogo, so badge-derived imgs get wrapped too
     loadAdSense();
     insertModuleAds();
   }

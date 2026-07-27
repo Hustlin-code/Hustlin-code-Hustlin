@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607262139">
+<link rel="stylesheet" href="styles.css?v=202607262152">
 <style>
 /* Cleaner headline — swap the heavy embossed "Impact" poster font (the
    shared .hero-h1 default) for the site's normal clean display font,
@@ -134,21 +134,21 @@
         <div class="bud-grid">
           <div class="bud-col" style="flex:1">
             <div class="f-grp">
-              <label class="f-lbl">Organization name</label>
+              <label class="f-lbl" for="pf-org">Organization name</label>
               <input class="f-inp" type="text" name="organization" id="pf-org" required>
             </div>
             <div class="f-grp">
-              <label class="f-lbl">Your name</label>
+              <label class="f-lbl" for="pf-name">Your name</label>
               <input class="f-inp" type="text" name="contact_name" id="pf-name" required>
             </div>
             <div class="f-grp">
-              <label class="f-lbl">Email</label>
+              <label class="f-lbl" for="pf-email">Email</label>
               <input class="f-inp" type="email" name="email" id="pf-email" required>
             </div>
           </div>
           <div class="bud-col" style="flex:1">
             <div class="f-grp">
-              <label class="f-lbl">What kind of organization is this?</label>
+              <label class="f-lbl" for="pf-type">What kind of organization is this?</label>
               <select class="f-inp" name="org_type" id="pf-type">
                 <option>Reentry / Reintegration Program</option>
                 <option>Credit Union / Community Bank</option>
@@ -161,7 +161,7 @@
           </div>
         </div>
         <div class="f-grp">
-          <label class="f-lbl">Anything else we should know?</label>
+          <label class="f-lbl" for="pf-message">Anything else we should know?</label>
           <textarea class="f-inp" name="message" id="pf-message" rows="4" style="resize:vertical;font-family:var(--f-body)"></textarea>
         </div>
         <button class="btn-a" type="submit" onclick="submitPartnerForm()" style="margin-top:8px">Send Inquiry <span>→</span></button>
@@ -200,7 +200,7 @@
   </div>
 </footer>
 
-<script src="app.js?v=202607262139"></script>
+<script src="app.js?v=202607262152"></script>
 <script>
 const PARTNER_FORM_ENDPOINT = 'https://formspree.io/f/xvzeknrv';
 
