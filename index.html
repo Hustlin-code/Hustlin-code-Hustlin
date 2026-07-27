@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607262152">
+<link rel="stylesheet" href="styles.css?v=202607262201">
 <style>
 /* ── INDEX PAGE ONLY ── */
 
@@ -225,7 +225,10 @@
 }
 .ix-grid {
   display: grid; gap: 12px;
-  grid-template-columns: repeat(4, 1fr);
+  /* auto-fit rather than a fixed 4, so adding a course doesn't strand the last
+     card alone on a second row. Cards never go narrower than 200px; below that
+     the media queries drop to 2 columns and then 1. */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 .ix-card {
   border-radius: var(--r-md); overflow: hidden;
@@ -587,6 +590,18 @@
           <div class="ix-card-go">In Development</div>
         </div>
       </div>
+      <div class="ix-card ix-free live" onclick="location.href='learn.html?course=dwg&amp;stage=1'">
+        <div class="ix-card-body">
+          <div class="ix-card-ico">♿</div>
+          <div class="ix-pill pill-free">Free · No Account</div>
+          <div class="ix-card-title">Disability Wealth Guide</div>
+          <div class="ix-card-desc">SSDI, SSI, ABLE accounts and Special Needs Trusts — how to save and invest without losing your benefits.</div>
+        </div>
+        <div class="ix-card-foot">
+          <div class="ix-card-note">Standalone guide</div>
+          <div class="ix-card-go">Read Free →</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -700,7 +715,7 @@
   <div class="ix-footer-disc">Educational content only. Not financial, investment, tax, or legal advice. Always conduct your own research before making financial decisions.</div>
 </footer>
 
-<script src="app.js?v=202607262152"></script>
+<script src="app.js?v=202607262201"></script>
 
 </body>
 </html>
