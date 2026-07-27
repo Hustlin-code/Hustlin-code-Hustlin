@@ -541,28 +541,22 @@
     x.strokeStyle = 'rgba(255,255,255,.09)'; x.lineWidth = 1;
     x.beginPath(); x.moveTo(180, 648); x.lineTo(W - 180, 648); x.stroke();
 
-    // Two columns, symmetric about the centre line. There was a third
-    // ("CREDENTIAL ID") but the number verified nothing — no page looked it
-    // up and it was never stored, so it was decoration pretending to be a
-    // credential. Removed rather than left as a hollow trust signal.
+    // Date only, centred. This band previously carried three columns — a
+    // "CREDENTIAL ID" that verified nothing (never stored, no page looked it
+    // up) and a "PRESENTED BY / Hustlin.org" that simply repeated the logo
+    // at the top and the tagline below it. Both removed.
     var d = new Date();
-    var cols = [
-      { cx: W / 2 - 190, label: 'DATE ISSUED',  value: d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }) },
-      { cx: W / 2 + 190, label: 'PRESENTED BY', value: 'Hustlin.org' }
-    ];
 
-    cols.forEach(function (col) {
-      x.fillStyle = 'rgba(240,192,48,.60)';
-      x.font = '700 10px ' + BRAND.mono;
-      tracked(x, col.label, col.cx, 700, 3);
+    x.fillStyle = 'rgba(240,192,48,.60)';
+    x.font = '700 10px ' + BRAND.mono;
+    tracked(x, 'DATE ISSUED', W / 2, 700, 3);
 
-      x.fillStyle = 'rgba(255,255,255,.72)';
-      x.font = '600 16px ' + BRAND.body;
-      x.fillText(col.value, col.cx, 736);
+    x.fillStyle = 'rgba(255,255,255,.72)';
+    x.font = '600 16px ' + BRAND.body;
+    x.fillText(d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }), W / 2, 736);
 
-      x.strokeStyle = 'rgba(240,192,48,.30)'; x.lineWidth = 1;
-      x.beginPath(); x.moveTo(col.cx - 84, 752); x.lineTo(col.cx + 84, 752); x.stroke();
-    });
+    x.strokeStyle = 'rgba(240,192,48,.30)'; x.lineWidth = 1;
+    x.beginPath(); x.moveTo(W / 2 - 84, 752); x.lineTo(W / 2 + 84, 752); x.stroke();
 
     // ── mark ──
     // The wordmark used to repeat "HUSTLIN.ORG" here, but the footer column
