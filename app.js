@@ -112,14 +112,90 @@ window.HFY = (function(){
     return Math.round((done/boxes.length)*100);
   }
 
+  // ─── COMPLETION DETECTION ───────────────────
+  // Every action step in a lesson calls HFY.check(), so this is the one place
+  // that sees progress happen. Detecting completion here means the reward
+  // system needs no changes to any lesson file — those live in Supabase
+  // Storage and would each need re-uploading.
+  //
+  // A module counts as complete when every real action step inside it is
+  // ticked. Modules with no action steps can't be completed this way; they're
+  // marked done when the reader advances past them (see markModuleSeen).
+  function moduleBoxes(mod){
+    return Array.from(mod.querySelectorAll('.act-box')).filter(isRealCheckbox);
+  }
+  function isModuleComplete(mod){
+    const boxes = moduleBoxes(mod);
+    return boxes.length > 0 && boxes.every(b => b.classList.contains('done'));
+  }
+
+  // Listeners registered by rewards.js. Kept as a plain array so app.js has no
+  // dependency on it — if rewards.js never loads, this is simply inert.
+  const completionListeners = [];
+  function onCompletion(fn){ if(typeof fn === 'function') completionListeners.push(fn); }
+  function emitCompletion(evt){
+    completionListeners.forEach(fn => {
+      try { fn(evt); } catch(e){ console.error('completion listener failed', e); }
+    });
+  }
+
   function check(el){
     el.classList.toggle('done');
     el.textContent = el.classList.contains('done') ? '✓' : '';
+
+    const mod = el.closest('.module');
+    const wasComplete = mod ? mod.dataset.hfyComplete === '1' : false;
+
     if(currentStage){
       progress[currentStage].checks[checkboxKey(el)] = el.classList.contains('done');
       saveProgress();
     }
     updateProgRing();
+
+    if(mod){
+      const nowComplete = isModuleComplete(mod);
+      mod.dataset.hfyComplete = nowComplete ? '1' : '0';
+      // Only announce the transition into completeness, and only forwards —
+      // unticking a box must not fire a second celebration when it's re-ticked
+      // is handled by the achievement store, which records each win once.
+      if(nowComplete && !wasComplete){
+        emitCompletion({
+          type: 'module',
+          stageKey: currentStage,
+          moduleId: mod.id,
+          title: moduleTitle(mod),
+          stagePct: getPct(currentStage)
+        });
+      }
+    }
+
+    // A stage is done when every action step across every module is ticked.
+    if(currentStage && getPct(currentStage) >= 100 && !stageAnnounced){
+      stageAnnounced = true;
+      const meta = STAGE_META[currentStage] || {};
+      emitCompletion({
+        type: 'stage',
+        stageKey: currentStage,
+        course: meta.course,
+        stageNum: meta.num,
+        title: meta.name,
+        courseComplete: isCourseComplete(meta.course)
+      });
+    }
+  }
+
+  let stageAnnounced = false;
+
+  function moduleTitle(mod){
+    const item = document.querySelector('.cs-item[data-cs="' + mod.id + '"] .cs-txt');
+    if(item) return item.textContent.trim();
+    const h = mod.querySelector('h2, h3, .mod-title');
+    return h ? h.textContent.trim() : 'Module';
+  }
+
+  function isCourseComplete(courseKey){
+    const list = COURSE_STAGE_LISTS[courseKey];
+    return !!list && list.every(k => getPct(k) >= 100);
   }
 
   function toggleMs(row){
@@ -245,8 +321,20 @@ window.HFY = (function(){
         if(box) box.textContent = '✓';
       }
     });
+    // Seed each module's completion flag from restored state BEFORE any
+    // clicking happens. Without this, the first tick after a reload would look
+    // like a fresh transition into "complete" and replay a celebration the
+    // reader already earned last session.
+    document.querySelectorAll('.module').forEach(mod=>{
+      mod.dataset.hfyComplete = isModuleComplete(mod) ? '1' : '0';
+    });
+    // Same reasoning at stage level: if they arrive already finished, don't
+    // re-announce it — but leave it armed if they're still mid-stage.
+    stageAnnounced = getPct(stageKey) >= 100;
+
     updateProgRing();
     updateMilestones();
+    emitCompletion({ type: 'restored', stageKey: stageKey, stagePct: getPct(stageKey) });
   }
 
   function resetStageProgress(stageKey){
@@ -454,6 +542,30 @@ window.HFY = (function(){
     restoreStage, resetStageProgress, initNavOnly,
     saveToolData, loadToolData, escapeAttr,
     scrollTo, fmt, fmtDec,
-    getProgress: ()=>progress
+    getProgress: ()=>progress,
+
+    // ─── Rewards integration ───
+    // rewards.js subscribes here; app.js knows nothing about it in return.
+    onCompletion, isModuleComplete, isCourseComplete,
+    COURSE_STAGE_LISTS,
+    currentStageKey: ()=>currentStage,
+    // Lets rewards.js write server-fetched progress back in, then re-render.
+    mergeProgress(incoming){
+      if(!incoming || typeof incoming !== 'object') return;
+      Object.keys(incoming).forEach(k=>{
+        if(!progress[k]) progress[k] = { checks:{}, milestones:{}, pct:0 };
+        const src = incoming[k] || {};
+        // Ticks only ever move forwards on merge: a step done on any device
+        // stays done. Prevents an older device overwriting newer progress.
+        Object.keys(src.checks || {}).forEach(ck=>{
+          if(src.checks[ck]) progress[k].checks[ck] = true;
+        });
+        Object.keys(src.milestones || {}).forEach(mk=>{
+          if(src.milestones[mk]) progress[k].milestones[mk] = true;
+        });
+        progress[k].pct = Math.max(progress[k].pct || 0, src.pct || 0);
+      });
+      saveProgress();
+    }
   };
 })();
