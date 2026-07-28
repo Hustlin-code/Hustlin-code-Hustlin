@@ -116,11 +116,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607272119">
+<link rel="stylesheet" href="styles.css?v=202607272121">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 
 <style>from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}from{box-shadow:0 0 0 1px #8a6a00,0 0 18px rgba(240,192,48,.55),0 0 36px rgba(240,192,48,.25),inset 0 2px 4px rgba(255,255,255,.15)}to{box-shadow:0 0 0 1px #c9a84c,0 0 34px rgba(255,220,60,.85),0 0 64px rgba(240,192,48,.4),inset 0 2px 4px rgba(255,255,255,.25)}0%{left:-80%;opacity:0}5%{opacity:1}40%{left:140%;opacity:1}41%{opacity:0}100%{left:140%;opacity:0}
+
+/* Hero chrome. .hero / .hero-wrap / .hero-h1 / .hero-sub / .cta-row /
+   .hero-stats / .stat-val / .stat-lbl all live in styles.css already — only
+   the breadcrumb and the free pill are page-local across this site, so they
+   are duplicated here the same way financial-literacy.html and
+   technical-analysis.html carry them. Restored with the hero. */
+.breadcrumb{font-size:.78rem;color:rgba(255,255,255,.32);display:flex;align-items:center;gap:7px;margin-bottom:18px}
+.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
+.free-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);color:var(--green-lt);padding:5px 14px;border-radius:20px;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px}
+.free-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green-lt);box-shadow:0 0 6px var(--green-lt);animation:fpdot 2s ease-in-out infinite alternate}
+@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}}
+.hero-h1{font-size:clamp(2.1rem,3vw,2.8rem);margin-bottom:12px}
+.hero-sub{font-size:1rem;line-height:1.55;margin-bottom:18px}
+/* "SSDI + SSI" is text where the other three stats are numerals — the default
+   stat-val size overflows the column on narrow screens. */
+.dwg-stat-txt{font-size:1.15rem!important}
 
 /* Top disclaimer strip */
 .disc-top{max-width:900px;margin:0 auto 0;padding:16px 22px;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.06);border-radius:var(--r-md);font-size:.83rem;line-height:1.7;color:#2a1414 !important}
@@ -194,6 +212,47 @@
 </nav>
 
 <!-- HERO -->
+<!-- Rebuilt 2026-07-27. This block was deleted at some point before any local
+     backup was taken and survived only in Cloudflare's cache of an old deploy.
+     Copy is verbatim from that cached render; markup mirrors the hero in
+     financial-literacy.html so it uses the same styles.css classes. -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="financial-literacy.html">Financial Literacy Course</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Disability Wealth Guide</span>
+      </div>
+      <div class="free-pill">
+        <span class="free-pill-dot"></span>
+        100% Free · Figures Verified for 2026
+      </div>
+      <h1 class="hero-h1">
+        Building Wealth<br>
+        <em>With a Disability.</em>
+      </h1>
+      <p class="hero-sub">
+        You can save. You can invest. You can build a retirement — on SSDI, on SSI, or both.
+        The rules are real, but so are the legal tools built specifically to work around them:
+        ABLE accounts, Special Needs Trusts, and work incentives nobody explains clearly.
+        This guide breaks down exactly how, using the current 2026 federal numbers.
+      </p>
+      <div class="cta-row">
+        <a class="btn-a" href="#guide">Start Reading — Free <span>→</span></a>
+        <a class="btn-b" href="financial-literacy.html">← Back to the full course</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">$<span>0</span></div><div class="stat-lbl">To start</div></div>
+        <div><div class="stat-val"><span>8</span></div><div class="stat-lbl">Sections</div></div>
+        <div><div class="stat-val"><span>~18</span>min</div><div class="stat-lbl">Read time</div></div>
+        <div><div class="stat-val dwg-stat-txt">SSDI + SSI</div><div class="stat-lbl">Both covered</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- GUIDE -->
 <section class="sec stage-content" id="guide">
@@ -201,7 +260,7 @@
     <div class="stage-banner">
       <div>
         <div class="s-badge">● The Lie Nobody Told You</div>
-        <h1>You Were Never Meant to Stay Broke.</h1>
+        <h2>You Were Never Meant to Stay Broke.</h2>
         <p>Somewhere along the way — a caseworker, fear, or just the sheer complexity of the system — you probably absorbed the message that saving money is dangerous, and the best you can do is survive month to month. That message is wrong. ABLE accounts, Special Needs Trusts, and work incentives are federal law, built specifically so disabled people can build wealth without losing benefits. They're not loopholes. They're yours to use. This guide shows you how, section by section.</p>
       </div>
     </div>
@@ -665,13 +724,13 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=202607272119"></script>
+<script src="app.js?v=202607272121"></script>
 <script>
   /* Page config for course-shell.js — module nav lives there, not here. */
   window.HFY_COURSE = {
       "doneText": "That's the full guide. Nice work."
   };
 </script>
-<script src="course-shell.js?v=202607272119"></script>
+<script src="course-shell.js?v=202607272121"></script>
 </body>
 </html>
