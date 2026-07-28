@@ -7,7 +7,8 @@
     · login / signup / forgot-password / reset-password / auth-callback  (noindex)
     · learn.html and checkout-success.html                              (noindex)
     · UnderConstruction.html                                            (placeholder)
-    · economics / fundamental-analysis / trading-psychology             (noindex — not on sale yet)
+    · economics / trading-psychology                                    (noindex — not on sale yet)
+      fundamental-analysis.html went on sale 2026-07-28 and is now listed below.
     · Financial Literacy Course/, TA Course/, EconomicsCourse/,
       Fundemental Course/, TradingPsycologycourse/                      (private lesson
       fragments fetched by learn.js — not standalone pages)
@@ -55,6 +56,13 @@
   <url>
     <loc>https://hustlin.org/technical-analysis.html</loc>
     <lastmod>2026-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/fundamental-analysis.html</loc>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -1,959 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
-    <title>Fundamental Analysis Mastery Course | hustlin.org</title>
-    <meta name="description" content="Learn to analyze stocks like a professional. Master financial statements, valuation models, earnings analysis, competitive moats, and how to find undervalued stocks." />
-    <meta name="keywords" content="fundamental analysis, stock analysis, financial statements, P/E ratio, DCF valuation, earnings analysis, value investing, stock valuation, how to analyze stocks, balance sheet analysis" />
-    <link rel="canonical" href="https://hustlin.org/fundamental-analysis.html" />
-    <!-- Not on sale yet (courses.active = false). Keep out of the index so
-         Google does not surface a $27.95 price for something nobody can buy.
-         Flip to "index, follow" on the day the course goes live. -->
-    <meta name="robots" content="noindex, follow" />
-    <meta property="og:title" content="Fundamental Analysis Mastery Course | hustlin.org" />
-    <meta property="og:description" content="Learn to analyze stocks like a professional. Master financial statements, valuation models, earnings analysis, competitive moats, and how to find undervalued stocks." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hustlin.org/fundamental-analysis.html" />
-    <meta property="og:image" content="https://hustlin.org/assets/social-preview.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Fundamental Analysis Mastery Course | hustlin.org" />
-    <meta name="twitter:description" content="Learn to analyze stocks like a professional. Master financial statements, valuation models, earnings analysis, competitive moats, and how to find undervalued stocks." />
-    <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Fundamental Analysis Mastery: Value, Growth, and the Art of Finding Great Stocks",
-      "description": "A comprehensive 9-module course covering financial statements, valuation models, competitive moats, management analysis, and building a professional stock research process.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Hustlin.org",
-        "url": "https://hustlin.org"
-      },
-      "numberOfCredits": "50 lessons",
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "Self-paced"
-      }
-    }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              deepest: '#0A0A0A',
-              dark: '#141414',
-              mid: '#1B1B1B',
-              card: '#141414',
-              cardHover: '#1B1B1B',
-              border: '#2a2a2a',
-              accent: '#F0C030',
-              accentHover: '#D9A020',
-              accentLight: '#FFE668',
-              accentGlow: 'rgba(240,192,48,0.15)',
-              gold: '#f59e0b',
-              green: '#10b981',
-              muted: '#a1a1b5',
-              textLight: '#e2e2f0',
-              white: '#f8f8ff',
-            }
-          },
-          fontFamily: {
-            sans: ['Plus Jakarta Sans','system-ui','sans-serif'],
-          }
-        }
-      }
-    }
-    </script>
-    <script src="https://unpkg.com/lucide@1.17.0" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --brand-deepest: #0A0A0A;
-        --brand-dark: #141414;
-        --brand-mid: #1B1B1B;
-        --brand-card: #141414;
-        --brand-card-hover: #1B1B1B;
-        --brand-border: #2a2a2a;
-        --brand-accent: #F0C030;
-        --brand-accent-hover: #D9A020;
-        --brand-accent-light: #FFE668;
-        --brand-accent-glow: rgba(240,192,48,0.15);
-        --brand-gold: #f59e0b;
-        --brand-green: #10b981;
-        --brand-muted: #a1a1b5;
-        --brand-text-light: #e2e2f0;
-        --brand-white: #f8f8ff;
-      }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-        background-color: var(--brand-dark);
-        color: var(--brand-text-light);
-        margin: 0;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-      .hero-gradient {
-        background: linear-gradient(165deg, #141414 0%, #1a0545 30%, #0f0628 60%, #141414 100%);
-        position: relative;
-        overflow: hidden;
-      }
-      .hero-gradient::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -30%;
-        width: 80%;
-        height: 120%;
-        background: radial-gradient(ellipse, rgba(240,192,48,0.06) 0%, transparent 70%);
-        pointer-events: none;
-      }
-      .hero-gradient::after {
-        content: '';
-        position: absolute;
-        bottom: -20%;
-        left: -20%;
-        width: 60%;
-        height: 80%;
-        background: radial-gradient(ellipse, rgba(139,92,246,0.05) 0%, transparent 70%);
-        pointer-events: none;
-      }
-      .module-card {
-        background: var(--brand-card);
-        border: 1px solid var(--brand-border);
-        border-radius: 16px;
-        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-      }
-      .module-card::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--brand-accent), #8b5cf6);
-        opacity: 0;
-        transition: opacity 0.35s ease;
-      }
-      .module-card:hover {
-        background: var(--brand-card-hover);
-        border-color: var(--brand-accent);
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(240,192,48,0.12), 0 4px 16px rgba(0,0,0,0.3);
-      }
-      .module-card:hover::before { opacity: 1; }
-      .lesson-item {
-        padding: 6px 0;
-        color: var(--brand-muted);
-        font-size: 0.875rem;
-        transition: color 0.2s ease, padding-left 0.2s ease;
-        cursor: default;
-      }
-      .lesson-item:hover {
-        color: var(--brand-accent-light);
-        padding-left: 4px;
-      }
-      .cta-btn {
-        background: linear-gradient(135deg, #F0C030 0%, #D9A020 50%, #1d4ed8 100%);
-        color: #fff;
-        font-weight: 700;
-        border: none;
-        border-radius: 12px;
-        padding: 18px 48px;
-        font-size: 1.125rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(240,192,48,0.35);
-        text-decoration: none;
-        display: inline-block;
-        letter-spacing: 0.02em;
-      }
-      .cta-btn:hover {
-        transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 8px 32px rgba(240,192,48,0.5);
-        background: linear-gradient(135deg, #FFE668 0%, #F0C030 50%, #D9A020 100%);
-      }
-      .stats-bar {
-        background: linear-gradient(90deg, rgba(240,192,48,0.08) 0%, rgba(139,92,246,0.08) 100%);
-        border-top: 1px solid var(--brand-border);
-        border-bottom: 1px solid var(--brand-border);
-      }
-      .ratio-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-      }
-      .ratio-table thead th {
-        background: rgba(240,192,48,0.12);
-        color: var(--brand-accent-light);
-        font-weight: 600;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        padding: 14px 16px;
-        text-align: left;
-        border-bottom: 2px solid var(--brand-border);
-      }
-      .ratio-table thead th:first-child { border-radius: 10px 0 0 0; }
-      .ratio-table thead th:last-child { border-radius: 0 10px 0 0; }
-      .ratio-table tbody td {
-        padding: 12px 16px;
-        border-bottom: 1px solid rgba(45,22,84,0.6);
-        font-size: 0.875rem;
-        color: var(--brand-text-light);
-        vertical-align: top;
-      }
-      .ratio-table tbody tr { transition: background 0.2s ease; }
-      .ratio-table tbody tr:hover { background: rgba(240,192,48,0.05); }
-      .ratio-table tbody tr:last-child td { border-bottom: none; }
-      .ratio-table tbody tr:last-child td:first-child { border-radius: 0 0 0 10px; }
-      .ratio-table tbody tr:last-child td:last-child { border-radius: 0 0 10px 0; }
-      .badge-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        background: rgba(240,192,48,0.1);
-        border: 1px solid rgba(240,192,48,0.25);
-        color: var(--brand-accent-light);
-      }
-      .section-label {
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--brand-accent);
-        margin-bottom: 12px;
-      }
-      .glow-line {
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, var(--brand-accent), transparent);
-        border-radius: 2px;
-        margin-top: 12px;
-      }
-      .module-num {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        font-size: 0.8rem;
-        font-weight: 800;
-        flex-shrink: 0;
-      }
-      .profile-card {
-        background: var(--brand-card);
-        border: 1px solid var(--brand-border);
-        border-radius: 16px;
-        padding: 28px;
-        transition: all 0.3s ease;
-      }
-      .profile-card:hover {
-        border-color: rgba(240,192,48,0.4);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      }
-      .learn-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 10px 0;
-      }
-      .learn-check {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: rgba(16,185,129,0.15);
-        border: 1.5px solid var(--brand-green);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-      .mobile-menu-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(10,0,24,0.97);
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        padding: 24px;
-        transition: opacity 0.3s ease;
-      }
-      .module-toggle { cursor: pointer; }
-      .module-lessons { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-      .module-lessons.open { max-height: 800px; }
-      @media (min-width: 768px) {
-        .module-lessons { max-height: none !important; overflow: visible; }
-      }
-    </style>
-  <link rel="stylesheet" href="styles.css?v=202607272134">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Hustlin' Fundamental Analysis Course — the complete five-stage course, $27.95 one-time. Read a 10-K, take apart the three financial statements, value a business, and judge the people running it. Forty modules, three downloadable templates.">
+<meta name="keywords" content="fundamental analysis course, how to read a 10-K, financial statement analysis, DCF valuation, P/E ratio, EV/EBITDA, return on invested capital, economic moat, SEC EDGAR">
+<title>Fundamental Analysis Course | Hustlin'</title>
+
+<!-- Social Preview -->
+<meta property="og:title" content="Fundamental Analysis Course | Hustlin'">
+<meta property="og:description" content="The Hustlin' Fundamental Analysis Course — the complete five-stage course, $27.95 one-time. Read a 10-K, value a business, and judge the people running it.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/fundamental-analysis.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fundamental Analysis Course | Hustlin'">
+<meta name="twitter:description" content="The Hustlin' Fundamental Analysis Course — the complete five-stage course, $27.95 one-time. Read a 10-K, value a business, and judge the people running it.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/fundamental-analysis.html">
+<!-- Course schema. Fundamental Analysis is a single one-time $27.95 purchase
+     unlocking all five stages (courses.price_cents = 2795, free_stages = 0).
+     Price must stay in step with public.courses — that table is the
+     source of truth the Edge Function actually charges from. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Fundamental Analysis",
+  "description": "A five-stage fundamental analysis course. Find and read SEC filings on EDGAR, take apart the income statement, balance sheet and cash flow statement, calculate every major valuation ratio and build a discounted cash flow model, then assess economic moats, return on invested capital, executive incentives and capital allocation. Forty modules ending in a written investment thesis.",
+  "url": "https://hustlin.org/fundamental-analysis.html",
+  "provider": { "@type": "Organization", "name": "Hustlin'", "url": "https://hustlin.org/" },
+  "inLanguage": "en-US",
+  "isAccessibleForFree": false,
+  "educationalLevel": "Beginner to Advanced",
+  "teaches": [
+    "Finding and reading 10-K, 10-Q, 8-K and proxy filings on SEC EDGAR",
+    "How the three financial statements connect",
+    "Revenue quality, margin analysis and non-GAAP adjustments",
+    "Working capital, leverage and solvency ratios",
+    "Free cash flow and earnings quality red flags",
+    "P/E, PEG, price-to-book, price-to-sales and EV/EBITDA",
+    "Discounted cash flow modelling, WACC and terminal value",
+    "Economic moats and return on invested capital",
+    "Reading the proxy statement and grading capital allocation",
+    "Writing a one-page investment thesis"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "27.95",
+    "priceCurrency": "USD",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://hustlin.org/fundamental-analysis.html"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT20H"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=202607280910">
+<style>
+/* ─ Page-specific additions only ─ */
+
+/* FA course accent: brand green (site = gold, TA = blue) */
+:root{ --amber: #2DA02D; --amber-lt: #6EDB72; }
+.nav{border-bottom-color:rgba(45,160,45,.45)}
+.hfy-account-btn:hover{border-color:rgba(45,160,45,.4)}
+.btn-a:hover{box-shadow:0 8px 24px rgba(45,160,45,.38)}
+.hero-h1 em{text-shadow:1px 1px 0 #1f7a1f,2px 2px 0 #175c17,3px 3px 0 #0f3d0f,4px 4px 0 #082408,5px 6px 3px rgba(0,0,0,.75),0 0 26px rgba(45,160,45,.55),0 0 50px rgba(45,160,45,.25)}
+.callout-sec::before{background:radial-gradient(ellipse at 50% 0%,rgba(45,160,45,.08) 0%,transparent 60%)}
+
+/* Breadcrumb */
+.breadcrumb{
+  font-size:.78rem;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:7px;margin-bottom:18px;
+}
+.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
+
+/* Price badge pill */
+.free-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);
+  color:var(--green-lt);padding:5px 14px;border-radius:20px;
+  font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.free-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green-lt);
+  box-shadow:0 0 6px var(--green-lt);animation:fpdot 2s ease-in-out infinite alternate}
+@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}}
+
+/* Text stage nav pills — FA has no custom PNG button set */
+.fa-pill{display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  text-decoration:none;padding:11px 16px;min-width:142px;flex-shrink:0;border-radius:10px;
+  border:1px solid rgba(45,160,45,.32);background:rgba(45,160,45,.07);
+  font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:#c9f2cb;line-height:1.25;transition:border-color .18s,background .18s,color .18s}
+.fa-pill:hover{border-color:rgba(45,160,45,.7);background:rgba(45,160,45,.14);color:#eafaea}
+.fa-pill .fa-pill-n{display:block;font-size:.6rem;opacity:.6;letter-spacing:.12em;margin-bottom:3px}
+@media(max-width:640px){.fa-pill{min-width:112px;padding:9px 11px;font-size:.64rem}}
+
+/* Stage cards (extends styles.css .s-card) — text-only, no custom PNGs */
+.s-card[data-stage-card]{cursor:pointer}
+.s-card[data-stage-card].live:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(45,160,45,.15)}
+.s-name-txt{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.06rem;
+  color:#fff;letter-spacing:.01em;margin:6px 0 10px;line-height:1.25}
+
+/* Hero progress stat */
+.stat-highlight{background:rgba(45,160,45,.08);border:1px solid rgba(45,160,45,.4);border-radius:12px;padding:10px 16px 12px;position:relative;box-shadow:0 0 20px rgba(45,160,45,.1)}
+.stat-highlight .stat-val,.stat-highlight .stat-val span{color:var(--amber)}
+.stat-highlight .stat-lbl{color:rgba(45,160,45,.75);font-weight:700}
+.stat-bar-track{width:100%;height:4px;background:rgba(45,160,45,.15);border-radius:4px;margin-top:8px;overflow:hidden}
+.stat-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#1f7a1f,var(--amber));border-radius:4px;transition:width .6s ease}
+@media(max-width:600px){.stat-highlight{padding:8px 12px 10px}}
+
+/* What you'll be able to do — checklist grid */
+.able-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:34px}
+.able{display:flex;gap:12px;align-items:flex-start;background:#fffdf7;border:1px solid #e6dcc6;
+  border-radius:12px;padding:16px 18px}
+.able-dot{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(45,160,45,.14);
+  color:#1a7a34;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem}
+.able-txt{font-size:.88rem;color:#33302a;line-height:1.6}
+.able-txt strong{color:#1c1c1c}
+
+/* Ratio preview table */
+.ratio-tbl{width:100%;border-collapse:collapse;margin-top:30px;font-size:.85rem;background:#fffdf7}
+.ratio-tbl th{text-align:left;background:#1c1c1c;color:#fff;padding:11px 13px;font-size:.75rem;
+  font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.ratio-tbl td{padding:10px 13px;border-bottom:1px solid #e6dcc6;color:#33302a;vertical-align:top}
+.ratio-tbl td:first-child{font-weight:700;color:#1c1c1c;white-space:nowrap}
+.ratio-tbl td.mono{font-family:'Space Mono',ui-monospace,monospace;font-size:.79rem;color:#5a544a}
+.ratio-tbl tr:last-child td{border-bottom:0}
+@media(max-width:640px){
+  .ratio-tbl{font-size:.76rem}
+  .ratio-tbl td,.ratio-tbl th{padding:8px 7px}
+  .ratio-tbl td.mono{font-size:.7rem}
+  .ratio-tbl td:first-child{white-space:normal}
+}
+
+/* Template cards */
+.tpl-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:34px}
+.tpl{background:#fffdf7;border:1px solid #e6dcc6;border-radius:14px;padding:22px}
+.tpl-ico{font-size:1.7rem;margin-bottom:8px;display:block}
+.tpl h3{font-size:1rem;font-weight:800;color:#1c1c1c;margin-bottom:6px}
+.tpl p{font-size:.84rem;color:#5a544a;line-height:1.65}
+.tpl-fmt{display:inline-block;margin-top:11px;font-family:'Space Mono',monospace;font-size:.7rem;
+  background:rgba(45,160,45,.1);color:#1a7a34;padding:3px 9px;border-radius:5px;font-weight:700}
+
+/* Buy panel */
+.buy-panel{max-width:440px;margin:0 auto;background:rgba(255,255,255,.04);
+  border:1px solid rgba(45,160,45,.3);border-radius:16px;padding:30px 26px;text-align:center}
+.buy-price{font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--amber);line-height:1}
+.buy-sub{font-size:.8rem;color:rgba(255,255,255,.4);margin:6px 0 20px}
+.buy-btn{display:inline-block;width:100%;background:var(--amber);color:#06170a;font-weight:800;
+  font-size:.92rem;letter-spacing:.04em;text-transform:uppercase;padding:15px 20px;border-radius:10px;
+  text-decoration:none;transition:.2s;border:0;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.buy-btn:hover{background:#6EDB72;transform:translateY(-1px)}
+.buy-list{list-style:none;padding:0;margin:20px 0 0;text-align:left}
+.buy-list li{font-size:.84rem;color:rgba(255,255,255,.55);padding:6px 0 6px 24px;position:relative}
+.buy-list li::before{content:'✓';position:absolute;left:0;color:var(--amber);font-weight:800}
+
+/* FAQ */
+.faq{max-width:800px;margin:34px auto 0}
+.faq details{background:#fffdf7;border:1px solid #e6dcc6;border-radius:12px;margin-bottom:11px;padding:0}
+.faq summary{cursor:pointer;padding:16px 20px;font-weight:700;color:#1c1c1c;font-size:.93rem;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:#1a7a34;font-size:1.3rem;font-weight:400;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq-body{padding:0 20px 18px;font-size:.87rem;color:#5a544a;line-height:1.75}
+.faq-body a{color:#1a7a34;text-decoration:underline}
+
+/* Email row */
+.email-row{
+  display:flex;gap:8px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.11);border-radius:var(--r-sm);
+  padding:6px 6px 6px 16px;transition:all .2s;max-width:480px;margin:0 auto;
+}
+.email-row:focus-within{border-color:rgba(45,160,45,.35);background:rgba(45,160,45,.03);box-shadow:0 0 16px rgba(45,160,45,.1)}
+.email-row input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:.93rem;font-family:var(--f-body);min-width:0}
+.email-row input::placeholder{color:rgba(255,255,255,.25)}
+.email-row .nav-cta{flex-shrink:0;padding:10px 18px;font-size:.82rem}
+.email-ok{display:none;background:rgba(45,160,45,.1);border:1px solid rgba(45,160,45,.25);border-radius:var(--r-sm);padding:10px;color:var(--green-lt);font-weight:600;font-size:.85rem;margin-top:8px;text-align:center}
+
+@media(max-width:768px){
+  .email-row{flex-direction:column;padding:10px;gap:8px}
+  .email-row .nav-cta{width:100%;padding:12px;text-align:center}
+}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
 </head>
-<body data-id="0" class="bg-brand-dark min-h-screen">
-    <app-icon data-id="1" hidden data-icon="trending-up" data-palette="Blue"></app-icon>
-    <app-disclaimer data-id="2" intent="financial"></app-disclaimer>
+<body>
 
-    <!-- NAVIGATION -->
-    <nav data-id="3" id="navbar-g8k2" class="fixed top-0 left-0 right-0 z-50 bg-brand-deepest/80 backdrop-blur-xl border-b border-brand-border/50">
-        <div data-id="4" class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-            <a data-id="5" href="#" class="flex items-center gap-2 text-brand-white font-bold text-lg tracking-tight no-underline">
-                <span data-id="6" class="text-brand-accent">hustlin</span><span data-id="7" class="text-brand-muted">.org</span>
-            </a>
-            <div data-id="8" class="hidden md:flex items-center gap-8">
-                <a data-id="9" href="#modules-section" class="text-sm text-brand-muted hover:text-brand-accent transition-colors no-underline">Curriculum</a>
-                <a data-id="10" href="#ratios-section" class="text-sm text-brand-muted hover:text-brand-accent transition-colors no-underline">Ratio Guide</a>
-                <a data-id="11" href="#who-section" class="text-sm text-brand-muted hover:text-brand-accent transition-colors no-underline">Who It's For</a>
-                <a data-id="12" href="#enroll" class="cta-btn !py-2.5 !px-6 !text-sm !rounded-lg">Enroll Now</a>
-            </div>
-            <button data-id="13" id="mobile-menu-btn-x9r4" class="md:hidden p-2 text-brand-muted hover:text-brand-accent" aria-label="Open menu">
-                <i data-id="14" data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-    </nav>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:70px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))">
+  </a>
+  <div class="nav-stages">
+    <a class="fa-pill" href="learn.html?course=fund&amp;stage=1" data-nav-stage="fa1"><span><span class="fa-pill-n">Stage 1</span>Foundations</span></a>
+    <a class="fa-pill" href="learn.html?course=fund&amp;stage=2" data-nav-stage="fa2"><span><span class="fa-pill-n">Stage 2</span>Income Statement</span></a>
+    <a class="fa-pill" href="learn.html?course=fund&amp;stage=3" data-nav-stage="fa3"><span><span class="fa-pill-n">Stage 3</span>Balance Sheet &amp; Cash Flow</span></a>
+    <a class="fa-pill" href="learn.html?course=fund&amp;stage=4" data-nav-stage="fa4"><span><span class="fa-pill-n">Stage 4</span>Valuation</span></a>
+    <a class="fa-pill" href="learn.html?course=fund&amp;stage=5" data-nav-stage="fa5"><span><span class="fa-pill-n">Stage 5</span>Moats &amp; Process</span></a>
+  </div>
+</nav>
 
-    <!-- MOBILE MENU -->
-    <div data-id="15" id="mobile-menu-q3w7" class="mobile-menu-overlay hidden">
-        <div data-id="16" class="flex items-center justify-between mb-8">
-            <span data-id="17" class="text-brand-white font-bold text-lg"><span data-id="18" class="text-brand-accent">hustlin</span><span data-id="19" class="text-brand-muted">.org</span></span>
-            <button data-id="20" id="mobile-menu-close-p1k8" class="p-2 text-brand-muted hover:text-brand-accent" aria-label="Close menu">
-                <i data-id="21" data-lucide="x" class="w-6 h-6"></i>
-            </button>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Fundamental Analysis Course</span>
+      </div>
+      <div class="free-pill">
+        <span class="free-pill-dot"></span>
+        All 5 Stages · <span class="lock-price" style="color:inherit">$27.95</span> one-time
+      </div>
+      <h1 class="hero-h1">
+        The Numbers Are Public.<br>
+        <em>Learn To Read Them.</em>
+      </h1>
+      <p class="hero-sub">
+        Every public company is legally required to publish its full financials,
+        for free, where anyone can read them. Almost nobody does. Five stages and
+        forty modules that take you from opening your first 10-K to writing a
+        valuation you'd defend out loud.
+      </p>
+      <div class="cta-row">
+        <a class="btn-a" href="learn.html?course=fund&amp;stage=1" data-hfy-buy="fund">Get the Course — $27.95</a>
+        <a class="btn-b" href="#roadmap">See all 5 stages ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">$<span>27.95</span></div><div class="stat-lbl">One-time</div></div>
+        <div><div class="stat-val"><span>40</span></div><div class="stat-lbl">Modules</div></div>
+        <div class="stat-highlight">
+          <div class="stat-val"><span id="hero-pct">0</span>%</div>
+          <div class="stat-lbl">Your progress</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" id="hero-pct-bar"></div></div>
         </div>
-        <div data-id="22" class="flex flex-col gap-6">
-            <a data-id="23" href="#modules-section" class="text-lg text-brand-textLight hover:text-brand-accent transition-colors no-underline mobile-nav-link">Curriculum</a>
-            <a data-id="24" href="#ratios-section" class="text-lg text-brand-textLight hover:text-brand-accent transition-colors no-underline mobile-nav-link">Ratio Guide</a>
-            <a data-id="25" href="#who-section" class="text-lg text-brand-textLight hover:text-brand-accent transition-colors no-underline mobile-nav-link">Who It's For</a>
-            <a data-id="26" href="#enroll" class="cta-btn text-center mt-4 mobile-nav-link">Enroll Now</a>
-        </div>
+        <div><div class="stat-val"><span>3</span></div><div class="stat-lbl">Templates</div></div>
+      </div>
     </div>
 
-    <main data-id="27">
-        <!-- HERO SECTION -->
-        <section data-id="28" id="hero-a4j1" class="hero-gradient pt-28 pb-20 md:pt-36 md:pb-28 px-4 md:px-8 relative">
-            <div data-id="29" class="max-w-5xl mx-auto text-center relative z-10">
-                <div data-id="30" class="flex items-center justify-center gap-3 flex-wrap mb-6">
-                    <span data-id="31" class="badge-pill"><i data-id="32" data-lucide="shield-check" class="w-3.5 h-3.5"></i> Self-Paced</span>
-                    <span data-id="33" class="badge-pill"><i data-id="34" data-lucide="award" class="w-3.5 h-3.5"></i> Professional Grade</span>
-                    <span data-id="35" class="badge-pill"><i data-id="36" data-lucide="infinity" class="w-3.5 h-3.5"></i> Lifetime Access</span>
-                </div>
-                <h1 data-id="37" id="hero-title-b2m5" class="text-3xl md:text-5xl lg:text-6xl font-black text-brand-white leading-tight mb-6 tracking-tight">
-                    Fundamental Analysis Mastery
-                    <span data-id="38" class="block text-brand-accent mt-2 text-2xl md:text-3xl lg:text-4xl font-bold">Value, Growth &amp; the Art of Finding Great Stocks</span>
-                </h1>
-                <p data-id="39" id="hero-sub-c3n6" class="text-brand-muted text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Stop guessing. Start analyzing. A comprehensive 50-lesson course that teaches you to read financial statements, value companies like a professional, identify competitive moats, and build a repeatable stock research process that actually works.
-                </p>
-                <div data-id="40" class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a data-id="41" href="#enroll" class="cta-btn text-center w-full sm:w-auto">
-                        Enroll Now — Start Learning Today
-                    </a>
-                    <a data-id="42" href="#modules-section" class="text-brand-muted hover:text-brand-accent text-sm font-medium transition-colors flex items-center gap-2 no-underline py-3">
-                        <i data-id="43" data-lucide="arrow-down" class="w-4 h-4"></i> View Full Curriculum
-                    </a>
-                </div>
-            </div>
-        </section>
+    <!-- Journey / progress card -->
+    <div class="journey-card" id="progress-card">
+      <div class="journey-card-title">Your Fundamental Analysis Journey</div>
+      <div class="j-step">
+        <div class="j-num now" id="jn1">1</div>
+        <div class="j-info">
+          <div class="j-name">Foundations</div>
+          <div class="j-desc">Price vs. value, SEC filings, EDGAR, how the statements connect</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn2">2</div>
+        <div class="j-info">
+          <div class="j-name">The Income Statement</div>
+          <div class="j-desc">Revenue quality, margins, dilution, non-GAAP adjustments</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn3">3</div>
+        <div class="j-info">
+          <div class="j-name">Balance Sheet &amp; Cash Flow</div>
+          <div class="j-desc">Working capital, leverage, free cash flow, earnings quality</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn4">4</div>
+        <div class="j-info">
+          <div class="j-name">Valuation</div>
+          <div class="j-desc">P/E, EV/EBITDA, discounted cash flow, comparables</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn5">5</div>
+        <div class="j-info">
+          <div class="j-name">Moats, Management &amp; Process</div>
+          <div class="j-desc">Economic moats, ROIC, the proxy statement, your thesis</div>
+        </div>
+      </div>
+      <a class="btn-a" style="margin-top:22px;display:block;text-align:center" href="learn.html?course=fund&amp;stage=1" data-hfy-buy="fund">Get the Course — $27.95</a>
+    </div>
+  </div>
+</section>
 
-        <!-- STATS BAR -->
-        <section data-id="44" id="stats-d4o7" class="stats-bar py-5 px-4 md:px-8">
-            <div data-id="45" class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-6 md:gap-12 text-center">
-                <div data-id="46" class="flex items-center gap-2">
-                    <i data-id="47" data-lucide="layers" class="w-5 h-5 text-brand-accent"></i>
-                    <span data-id="48" class="text-brand-white font-bold text-sm">9 Modules</span>
-                </div>
-                <div data-id="49" class="hidden sm:block w-px h-5 bg-brand-border"></div>
-                <div data-id="50" class="flex items-center gap-2">
-                    <i data-id="51" data-lucide="book-open" class="w-5 h-5 text-brand-accent"></i>
-                    <span data-id="52" class="text-brand-white font-bold text-sm">50 Lessons</span>
-                </div>
-                <div data-id="53" class="hidden sm:block w-px h-5 bg-brand-border"></div>
-                <div data-id="54" class="flex items-center gap-2">
-                    <i data-id="55" data-lucide="infinity" class="w-5 h-5 text-brand-accent"></i>
-                    <span data-id="56" class="text-brand-white font-bold text-sm">Lifetime Access</span>
-                </div>
-                <div data-id="57" class="hidden sm:block w-px h-5 bg-brand-border"></div>
-                <div data-id="58" class="flex items-center gap-2">
-                    <i data-id="59" data-lucide="file-spreadsheet" class="w-5 h-5 text-brand-gold"></i>
-                    <span data-id="60" class="text-brand-white font-bold text-sm">Ratio Cheat Sheet + Stock Scorecard</span>
-                </div>
-            </div>
-        </section>
+<!-- ROADMAP -->
+<section style="background:#060606;padding:26px 40px 0">
+  <div data-hfy-progress="fund"></div>
+</section>
 
-        <!-- WHAT YOU'LL LEARN -->
-        <section data-id="61" id="learn-e5p8" class="py-16 md:py-24 px-4 md:px-8">
-            <div data-id="62" class="max-w-5xl mx-auto">
-                <div data-id="63" class="text-center mb-14">
-                    <span data-id="64" class="section-label">Course Outcomes</span>
-                    <h2 data-id="65" id="learn-title-f6q9" class="text-2xl md:text-4xl font-extrabold text-brand-white">What You'll Learn</h2>
-                    <div data-id="66" class="glow-line mx-auto mt-3"></div>
-                </div>
-                <div data-id="67" class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-1 max-w-4xl mx-auto">
-                    <div data-id="68" class="learn-item">
-                        <div data-id="69" class="learn-check"><i data-id="70" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="71" class="text-brand-textLight text-sm md:text-base">Read and interpret all three core financial statements — income statement, balance sheet, and cash flow statement — with confidence</p>
-                    </div>
-                    <div data-id="72" class="learn-item">
-                        <div data-id="73" class="learn-check"><i data-id="74" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="75" class="text-brand-textLight text-sm md:text-base">Calculate and apply every major valuation ratio including P/E, PEG, EV/EBITDA, DCF, and price-to-book in real investment scenarios</p>
-                    </div>
-                    <div data-id="76" class="learn-item">
-                        <div data-id="77" class="learn-check"><i data-id="78" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="79" class="text-brand-textLight text-sm md:text-base">Identify companies with sustainable competitive moats — network effects, brand strength, cost advantages, and regulatory barriers</p>
-                    </div>
-                    <div data-id="80" class="learn-item">
-                        <div data-id="81" class="learn-check"><i data-id="82" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="83" class="text-brand-textLight text-sm md:text-base">Analyze free cash flow to distinguish genuinely profitable businesses from companies that only look profitable on paper</p>
-                    </div>
-                    <div data-id="84" class="learn-item">
-                        <div data-id="85" class="learn-check"><i data-id="86" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="87" class="text-brand-textLight text-sm md:text-base">Evaluate management quality by reading CEO letters, earnings calls, insider transactions, and capital allocation decisions</p>
-                    </div>
-                    <div data-id="88" class="learn-item">
-                        <div data-id="89" class="learn-check"><i data-id="90" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="91" class="text-brand-textLight text-sm md:text-base">Build a complete Discounted Cash Flow (DCF) model from scratch and calculate intrinsic value with a margin of safety</p>
-                    </div>
-                    <div data-id="92" class="learn-item">
-                        <div data-id="93" class="learn-check"><i data-id="94" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="95" class="text-brand-textLight text-sm md:text-base">Spot accounting red flags, earnings manipulation, and financial statement warning signs before the market does</p>
-                    </div>
-                    <div data-id="96" class="learn-item">
-                        <div data-id="97" class="learn-check"><i data-id="98" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="99" class="text-brand-textLight text-sm md:text-base">Conduct industry analysis using Porter's Five Forces, market sizing (TAM/SAM/SOM), and competitive positioning frameworks</p>
-                    </div>
-                    <div data-id="100" class="learn-item">
-                        <div data-id="101" class="learn-check"><i data-id="102" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="103" class="text-brand-textLight text-sm md:text-base">Create a 1-page investment thesis and a fundamental scorecard you can use to evaluate any stock systematically</p>
-                    </div>
-                    <div data-id="104" class="learn-item">
-                        <div data-id="105" class="learn-check"><i data-id="106" data-lucide="check" class="w-3 h-3 text-brand-green"></i></div>
-                        <p data-id="107" class="text-brand-textLight text-sm md:text-base">Build a rules-based process for when to buy, add, hold, and sell positions based on fundamental data — not emotion</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="sec roadmap" id="roadmap">
+  <div class="sec-inner">
+    <p class="sec-eye">The Full Course</p>
+    <h2 class="sec-h2">Five Stages. Forty Modules. One Filing at a Time.</h2>
+    <p class="sec-sub">All five stages unlock with a single one-time $27.95 payment. One account, no subscription, no renewal.</p>
+    <div class="stages" style="margin-top:44px">
+      <a class="s-card" data-stage-card="fa1" href="learn.html?course=fund&amp;stage=1">
+        <div class="s-num">STAGE 1</div>
+        <div class="s-name-txt">Foundations</div>
+        <div class="s-tag">What fundamental analysis is, price vs. value, the 10-K/10-Q/8-K/proxy, using SEC EDGAR, how the three statements connect, accrual accounting, comparability traps, your research workflow</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="fa2" href="learn.html?course=fund&amp;stage=2">
+        <div class="s-num">STAGE 2</div>
+        <div class="s-name-txt">The Income Statement</div>
+        <div class="s-tag">Revenue quality and recognition, gross profit, operating expenses and operating leverage, EBIT, interest and taxes, EPS and dilution, common-size margin analysis, non-GAAP and adjusted EBITDA</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="fa3" href="learn.html?course=fund&amp;stage=3">
+        <div class="s-num">STAGE 3</div>
+        <div class="s-name-txt">Balance Sheet &amp; Cash Flow</div>
+        <div class="s-tag">Reading a balance sheet, working capital and the cash conversion cycle, PP&amp;E, goodwill and impairment, deferred revenue, leverage and solvency ratios, buybacks and book value, free cash flow, earnings quality red flags</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="fa4" href="learn.html?course=fund&amp;stage=4">
+        <div class="s-num">STAGE 4</div>
+        <div class="s-name-txt">Valuation</div>
+        <div class="s-tag">P/E, forward P/E and PEG, price-to-book and price-to-sales, enterprise value and EV/EBITDA, discounted cash flow mechanics, WACC and terminal value, comparable company analysis, dividends and total return</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="fa5" href="learn.html?course=fund&amp;stage=5">
+        <div class="s-num">STAGE 5</div>
+        <div class="s-name-txt">Moats, Management &amp; Process</div>
+        <div class="s-tag">The five sources of economic moat, return on invested capital, industry structure, reading the proxy statement, capital allocation, fraud and accounting red flags, building your thesis, position sizing and review discipline</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-        <!-- MODULES / CURRICULUM -->
-        <section data-id="108" id="modules-section" class="py-16 md:py-24 px-4 md:px-8 bg-brand-deepest/50">
-            <div data-id="109" class="max-w-5xl mx-auto">
-                <div data-id="110" class="text-center mb-14">
-                    <span data-id="111" class="section-label">Full Curriculum</span>
-                    <h2 data-id="112" id="modules-title-g7r0" class="text-2xl md:text-4xl font-extrabold text-brand-white">9 Modules. 50 Lessons. Zero Fluff.</h2>
-                    <p data-id="113" class="text-brand-muted mt-3 max-w-xl mx-auto text-sm md:text-base">Every lesson is designed to build on the last — taking you from financial statement fundamentals all the way to a complete, repeatable stock research workflow.</p>
-                    <div data-id="114" class="glow-line mx-auto mt-3"></div>
-                </div>
+<!-- WHAT YOU'LL BE ABLE TO DO -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">What You'll Be Able To Do</p>
+    <h2 class="sec-h2">Skills, Not Stock Tips.</h2>
+    <p class="sec-sub">This course does not tell you what to buy. It teaches you a method for working that out yourself — and for recognising when the honest answer is "I don't know."</p>
+    <div class="able-grid">
+      <div class="able"><div class="able-dot">1</div><div class="able-txt"><strong>Find and read any company's filings.</strong> Pull a 10-K off EDGAR, navigate to the section you need, and export the financials to a spreadsheet without retyping a number.</div></div>
+      <div class="able"><div class="able-dot">2</div><div class="able-txt"><strong>Take apart an income statement.</strong> Separate real revenue growth from acquisitions and price increases, and see exactly where a margin move started.</div></div>
+      <div class="able"><div class="able-dot">3</div><div class="able-txt"><strong>Tell profit from cash.</strong> Compare operating cash flow to net income, calculate free cash flow, and spot the divergence that shows up before trouble does.</div></div>
+      <div class="able"><div class="able-dot">4</div><div class="able-txt"><strong>Judge financial strength.</strong> Work out whether a company's debt is proportionate to its cash flows, and when the next big maturity lands.</div></div>
+      <div class="able"><div class="able-dot">5</div><div class="able-txt"><strong>Value a business three ways.</strong> Build a discounted cash flow model, run comparables, and use enterprise multiples — then reconcile when they disagree.</div></div>
+      <div class="able"><div class="able-dot">6</div><div class="able-txt"><strong>Measure a moat.</strong> Calculate return on invested capital, compare it to the cost of capital, and see whether an advantage actually persists.</div></div>
+      <div class="able"><div class="able-dot">7</div><div class="able-txt"><strong>Read the proxy.</strong> Find out what management is paid on — because that's what management will optimise for.</div></div>
+      <div class="able"><div class="able-dot">8</div><div class="able-txt"><strong>Write a thesis you'd defend.</strong> One page: what you believe, why the market disagrees, and the three specific things that would prove you wrong.</div></div>
+    </div>
+  </div>
+</section>
 
-                <div data-id="115" class="grid grid-cols-1 gap-6">
+<!-- RATIOS -->
+<section class="sec" style="background:#f8f3e7">
+  <div class="sec-inner">
+    <p class="sec-eye">A Sample of What's Inside</p>
+    <h2 class="sec-h2">Every Formula, and What It Actually Tells You.</h2>
+    <p class="sec-sub">Nine of the forty-plus ratios covered across the course. Each one comes with where the inputs live in the filings, a worked example, and an honest note on where it breaks.</p>
+    <table class="ratio-tbl">
+      <thead><tr><th>Ratio</th><th>Formula</th><th>What it tells you</th></tr></thead>
+      <tbody>
+        <tr><td>Gross margin</td><td class="mono">(Revenue − Cost of revenue) ÷ Revenue</td><td>Product economics before any overhead — the most structural line on the income statement</td></tr>
+        <tr><td>Free cash flow</td><td class="mono">Cash from operations − Capital expenditures</td><td>Cash actually available to pay dividends, buy back shares, or repay debt</td></tr>
+        <tr><td>FCF conversion</td><td class="mono">Free cash flow ÷ Net income</td><td>How much reported profit becomes real money — the core earnings-quality check</td></tr>
+        <tr><td>Cash conversion cycle</td><td class="mono">DSO + DIO − DPO</td><td>Days your cash is tied up between paying suppliers and collecting from customers</td></tr>
+        <tr><td>Net debt / EBITDA</td><td class="mono">(Total debt − Cash) ÷ EBITDA</td><td>Leverage expressed as years of earnings needed to repay it</td></tr>
+        <tr><td>Enterprise value</td><td class="mono">Market cap + Debt + Preferred + Minority − Cash</td><td>What it would cost to own the whole operating business, free of debt</td></tr>
+        <tr><td>ROIC</td><td class="mono">NOPAT ÷ (Debt + Equity − Cash)</td><td>Return on every dollar of capital employed — the closest thing to a moat detector</td></tr>
+        <tr><td>WACC</td><td class="mono">(E/V × Re) + (D/V × Rd × (1 − tax))</td><td>The blended cost of a company's capital, and the discount rate in your DCF</td></tr>
+        <tr><td>Terminal value</td><td class="mono">FCF × (1 + g) ÷ (r − g)</td><td>Everything beyond your forecast — usually 60–80% of a DCF's total answer</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-                    <!-- MODULE 1 -->
-                    <div data-id="116" class="module-card p-6 md:p-8" id="mod1-h8s1">
-                        <div data-id="117" class="flex items-start gap-4 module-toggle">
-                            <div data-id="118" class="module-num bg-brand-accent/15 text-brand-accent">01</div>
-                            <div data-id="119" class="flex-1">
-                                <div data-id="120" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="121" class="text-lg md:text-xl font-bold text-brand-white">The Foundation — What Fundamental Analysis Really Is</h3>
-                                    <span data-id="122" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">5 Lessons</span>
-                                    <i data-id="123" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="124" class="module-lessons mt-4">
-                                    <div data-id="125" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="126" class="lesson-item flex items-start gap-2"><i data-id="127" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="128">1.1: Fundamental vs. Technical Analysis — When to Use Each</span></div>
-                                        <div data-id="129" class="lesson-item flex items-start gap-2"><i data-id="130" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="131">1.2: The Philosophy of Value Investing (Beyond Buffett Quotes)</span></div>
-                                        <div data-id="132" class="lesson-item flex items-start gap-2"><i data-id="133" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="134">1.3: How Fundamental Analysts Think About Stocks</span></div>
-                                        <div data-id="135" class="lesson-item flex items-start gap-2"><i data-id="136" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="137">1.4: The Three Core Financial Statements Overview</span></div>
-                                        <div data-id="138" class="lesson-item flex items-start gap-2"><i data-id="139" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="140">1.5: Where to Find Financial Data (SEC, Earnings Reports, Screeners)</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- TEMPLATES -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">Included With the Course</p>
+    <h2 class="sec-h2">Three Templates You'll Actually Reuse.</h2>
+    <p class="sec-sub">Downloadable inside Stage 5. Built for the method taught in the course, not generic filler.</p>
+    <div class="tpl-grid">
+      <div class="tpl">
+        <span class="tpl-ico">📊</span>
+        <h3>Stock Scorecard</h3>
+        <p>A weighted 20-criterion scorecard across business quality, financial strength, competitive position, management and valuation — each criterion cross-referenced to the module that teaches it. Plus a five-year data sheet with every ratio pre-built as a formula.</p>
+        <span class="tpl-fmt">.XLSX · 2 SHEETS</span>
+      </div>
+      <div class="tpl">
+        <span class="tpl-ico">📐</span>
+        <h3>Financial Ratio Cheat Sheet</h3>
+        <p>Every formula used across all five stages, grouped by category, with where each input lives in the filings, what the number is telling you, and how to orient on it. The reference you keep open while you work.</p>
+        <span class="tpl-fmt">.XLSX · 43 RATIOS</span>
+      </div>
+      <div class="tpl">
+        <span class="tpl-ico">📝</span>
+        <h3>1-Page Investment Thesis</h3>
+        <p>A printable one-page structure covering the business, the disagreement, the numbers, the risks and the position — including space for the three falsifiable things that would prove you wrong. If it doesn't fit on the page, the thesis isn't clear enough yet.</p>
+        <span class="tpl-fmt">.PDF · PRINTABLE</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <!-- MODULE 2 -->
-                    <div data-id="141" class="module-card p-6 md:p-8" id="mod2-i9t2">
-                        <div data-id="142" class="flex items-start gap-4 module-toggle">
-                            <div data-id="143" class="module-num bg-green-500/15 text-brand-green">02</div>
-                            <div data-id="144" class="flex-1">
-                                <div data-id="145" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="146" class="text-lg md:text-xl font-bold text-brand-white">Mastering the Income Statement</h3>
-                                    <span data-id="147" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">6 Lessons</span>
-                                    <i data-id="148" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="149" class="module-lessons mt-4">
-                                    <div data-id="150" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="151" class="lesson-item flex items-start gap-2"><i data-id="152" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="153">2.1: Revenue — What It Is and What It Reveals</span></div>
-                                        <div data-id="154" class="lesson-item flex items-start gap-2"><i data-id="155" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="156">2.2: Gross Profit and Gross Margin Analysis</span></div>
-                                        <div data-id="157" class="lesson-item flex items-start gap-2"><i data-id="158" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="159">2.3: Operating Income vs. Net Income — What Actually Matters</span></div>
-                                        <div data-id="160" class="lesson-item flex items-start gap-2"><i data-id="161" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="162">2.4: EPS (Earnings Per Share) — Diluted, Basic, and Adjusted</span></div>
-                                        <div data-id="163" class="lesson-item flex items-start gap-2"><i data-id="164" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="165">2.5: Revenue Growth Rate Analysis Across Quarters and Years</span></div>
-                                        <div data-id="166" class="lesson-item flex items-start gap-2"><i data-id="167" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="168">2.6: Reading Between the Lines — Earnings Quality</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- FOR WHO -->
+<section class="sec for-who">
+  <div class="sec-inner">
+    <div class="fw-grid">
+      <div class="fw-cards">
+        <p class="sec-eye">Who This Is For</p>
+        <h2 class="sec-h2">The Filings Are Free. The Skill To Read Them Usually Isn't.</h2>
+        <p class="sec-sub" style="margin-bottom:28px">This is the substance, at a one-time $27.95, written for someone who has never opened a 10-K.</p>
+        <div class="persona">
+          <div class="p-icon">🆕</div>
+          <div><div class="p-name">Never Read a Financial Statement</div><div class="p-desc">Stage 1 assumes zero prior knowledge. We start with what a 10-K even is and where to find one.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='technical-analysis.html'">
+          <div class="p-icon">📈</div>
+          <div><div class="p-name">The Chart Reader Going Deeper</div><div class="p-desc">You've done Technical Analysis and want to know what's behind the ticker, not just what price is doing. <strong style="color:var(--amber)">See the TA course →</strong></div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🧱</div>
+          <div><div class="p-name">Long-Term Business Owner Mindset</div><div class="p-desc">You're not day trading. You want to identify quality businesses, work out a fair price, and hold with a reason you can articulate.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='financial-literacy.html'">
+          <div class="p-icon">🎓</div>
+          <div><div class="p-name">Coming From the Financial Literacy Course</div><div class="p-desc">Finished Stage 4: Invest and want to go deeper on how to evaluate an individual company? This is the natural next step. <strong style="color:var(--amber)">Start there first →</strong></div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🧭</div>
+          <div><div class="p-name">Skeptical of "Gurus"</div><div class="p-desc">No stock picks, no signals for sale, no Discord upsell, no screenshots of anyone's account. A method, and honest limits on what it can do.</div></div>
+        </div>
+      </div>
+      <div class="fw-panel">
+        <div class="fw-quote">
+          "The arithmetic in a valuation is easy enough to learn in an afternoon.
+          The hard part is the <em>judgment</em> feeding it — and that's what
+          forty modules are actually for."
+        </div>
+        <p class="fw-body">Fundamental analysis can't tell you when a stock will move, and it won't protect you from being wrong about the future. What it does is give you a defensible estimate of what a business is worth, with an honest range around it, so you can act when the market price sits far outside that range and do nothing the rest of the time. Every module is built on documents any public company must publish, and points you at the primary source rather than at somebody's opinion about it.</p>
+        <div class="fw-checks">
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Built on SEC filings and primary sources you can verify yourself</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">40 modules with worked examples, formulas and action steps</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Honest about what fundamental analysis can't do — including detecting fraud</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Three reusable templates and a repeatable research process</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <!-- MODULE 3 -->
-                    <div data-id="169" class="module-card p-6 md:p-8" id="mod3-j0u3">
-                        <div data-id="170" class="flex items-start gap-4 module-toggle">
-                            <div data-id="171" class="module-num bg-purple-500/15 text-purple-400">03</div>
-                            <div data-id="172" class="flex-1">
-                                <div data-id="173" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="174" class="text-lg md:text-xl font-bold text-brand-white">The Balance Sheet Decoded</h3>
-                                    <span data-id="175" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">6 Lessons</span>
-                                    <i data-id="176" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="177" class="module-lessons mt-4">
-                                    <div data-id="178" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="179" class="lesson-item flex items-start gap-2"><i data-id="180" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="181">3.1: Assets — Current vs. Non-Current and What They Mean</span></div>
-                                        <div data-id="182" class="lesson-item flex items-start gap-2"><i data-id="183" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="184">3.2: Liabilities — Debt Structure and Financial Risk</span></div>
-                                        <div data-id="185" class="lesson-item flex items-start gap-2"><i data-id="186" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="187">3.3: Stockholders' Equity and Book Value Per Share</span></div>
-                                        <div data-id="188" class="lesson-item flex items-start gap-2"><i data-id="189" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="190">3.4: Working Capital and Liquidity Analysis</span></div>
-                                        <div data-id="191" class="lesson-item flex items-start gap-2"><i data-id="192" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="193">3.5: Debt-to-Equity Ratio and Leverage Risk</span></div>
-                                        <div data-id="194" class="lesson-item flex items-start gap-2"><i data-id="195" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="196">3.6: Goodwill and Intangible Assets — Hidden Risks</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- CALLOUT -->
+<section class="callout-sec">
+  <div class="callout-txt">
+    <span class="callout-soft">The mission</span>
+    Every number you need is published for free by law — and the skill to read it
+    has been priced like a secret <em>on purpose.</em>
+    We built this to change that.
+  </div>
+</section>
 
-                    <!-- MODULE 4 -->
-                    <div data-id="197" class="module-card p-6 md:p-8" id="mod4-k1v4">
-                        <div data-id="198" class="flex items-start gap-4 module-toggle">
-                            <div data-id="199" class="module-num bg-yellow-500/15 text-brand-gold">04</div>
-                            <div data-id="200" class="flex-1">
-                                <div data-id="201" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="202" class="text-lg md:text-xl font-bold text-brand-white">Cash Flow Statement — The Truth Teller</h3>
-                                    <span data-id="203" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">6 Lessons</span>
-                                    <i data-id="204" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="205" class="module-lessons mt-4">
-                                    <div data-id="206" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="207" class="lesson-item flex items-start gap-2"><i data-id="208" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="209">4.1: Why Cash Flow Is More Important Than Net Income</span></div>
-                                        <div data-id="210" class="lesson-item flex items-start gap-2"><i data-id="211" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="212">4.2: Operating Cash Flow — The Engine of the Business</span></div>
-                                        <div data-id="213" class="lesson-item flex items-start gap-2"><i data-id="214" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="215">4.3: Free Cash Flow (FCF) — The Holy Grail Metric</span></div>
-                                        <div data-id="216" class="lesson-item flex items-start gap-2"><i data-id="217" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="218">4.4: Investing Activities — How Companies Allocate Capital</span></div>
-                                        <div data-id="219" class="lesson-item flex items-start gap-2"><i data-id="220" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="221">4.5: Financing Activities — Dividends, Buybacks, and Debt</span></div>
-                                        <div data-id="222" class="lesson-item flex items-start gap-2"><i data-id="223" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="224">4.6: Cash Flow Red Flags That Predict Stock Crashes</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- BUY -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Get Started</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:26px">Read the Filings <span style="color:var(--amber)">Yourself.</span></h2>
+    <div class="buy-panel">
+      <div class="buy-price">$27.95</div>
+      <div class="buy-sub">One-time payment · no subscription · no renewal</div>
+      <a class="buy-btn" href="learn.html?course=fund&amp;stage=1" data-hfy-buy="fund">Get the Course</a>
+      <ul class="buy-list">
+        <li>All 5 stages, 40 modules, unlocked immediately</li>
+        <li>Stock Scorecard and Ratio Cheat Sheet (.xlsx)</li>
+        <li>1-Page Investment Thesis template (.pdf)</li>
+        <li>Progress saved to your account across devices</li>
+        <li>Free updates as modules are revised</li>
+      </ul>
+    </div>
+    <p style="color:rgba(255,255,255,.28);font-size:.78rem;margin-top:18px">
+      Educational content only. Not financial, investment, tax, or legal advice.
+      All sales are final — see our <a href="terms-of-service.html" style="color:rgba(255,255,255,.45);text-decoration:underline">Terms of Service</a>.
+    </p>
+  </div>
+</section>
 
-                    <!-- MODULE 5 -->
-                    <div data-id="225" class="module-card p-6 md:p-8" id="mod5-l2w5">
-                        <div data-id="226" class="flex items-start gap-4 module-toggle">
-                            <div data-id="227" class="module-num bg-brand-accent/15 text-brand-accent">05</div>
-                            <div data-id="228" class="flex-1">
-                                <div data-id="229" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="230" class="text-lg md:text-xl font-bold text-brand-white">Valuation — What Is This Stock Really Worth?</h3>
-                                    <span data-id="231" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">8 Lessons</span>
-                                    <i data-id="232" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="233" class="module-lessons mt-4">
-                                    <div data-id="234" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="235" class="lesson-item flex items-start gap-2"><i data-id="236" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="237">5.1: P/E Ratio — Price-to-Earnings Deep Dive</span></div>
-                                        <div data-id="238" class="lesson-item flex items-start gap-2"><i data-id="239" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="240">5.2: Forward P/E vs. Trailing P/E — Which to Use</span></div>
-                                        <div data-id="241" class="lesson-item flex items-start gap-2"><i data-id="242" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="243">5.3: PEG Ratio — Growth-Adjusted Valuation</span></div>
-                                        <div data-id="244" class="lesson-item flex items-start gap-2"><i data-id="245" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="246">5.4: Price-to-Book (P/B) and Price-to-Sales (P/S)</span></div>
-                                        <div data-id="247" class="lesson-item flex items-start gap-2"><i data-id="248" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="249">5.5: EV/EBITDA — The Professional's Valuation Tool</span></div>
-                                        <div data-id="250" class="lesson-item flex items-start gap-2"><i data-id="251" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="252">5.6: Discounted Cash Flow (DCF) Analysis Step-by-Step</span></div>
-                                        <div data-id="253" class="lesson-item flex items-start gap-2"><i data-id="254" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="255">5.7: Comparable Company Analysis (Comps)</span></div>
-                                        <div data-id="256" class="lesson-item flex items-start gap-2"><i data-id="257" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="258">5.8: Margin of Safety — Buying Below Intrinsic Value</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- FAQ -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">Questions</p>
+    <h2 class="sec-h2">Straight Answers.</h2>
+    <div class="faq">
+      <details>
+        <summary>Do I need any background in finance or accounting?</summary>
+        <div class="faq-body">No. Stage 1 starts with what a price is, what a company filing is, and where to find one. Accounting concepts are introduced as they become necessary rather than assumed. If you can read a bank statement, you can start here.</div>
+      </details>
+      <details>
+        <summary>Is this the same thing as the Technical Analysis course?</summary>
+        <div class="faq-body">No — they answer different questions. Technical analysis studies price and volume to ask what price is doing. Fundamental analysis studies the business to ask what it's worth. Plenty of investors use both, and the two courses are designed to complement each other, but neither requires the other.</div>
+      </details>
+      <details>
+        <summary>Will this tell me which stocks to buy?</summary>
+        <div class="faq-body">No, and that's deliberate. This course teaches a method for analysing a business yourself. It contains no stock recommendations, no watchlist, no signals, and no picks. Hustlin' is not a registered investment adviser and nothing in the course is personalised advice.</div>
+      </details>
+      <details>
+        <summary>What software do I need?</summary>
+        <div class="faq-body">A spreadsheet and a web browser. Every filing used in the course is free on SEC EDGAR, and the templates are standard .xlsx and .pdf files that open in Excel, Google Sheets, LibreOffice, or Numbers. There is nothing to subscribe to and no data terminal required.</div>
+      </details>
+      <details>
+        <summary>Does the course use real companies?</summary>
+        <div class="faq-body">The worked examples use illustrative figures rather than named companies, so the arithmetic stays clean and the numbers never go stale. The action steps at the end of every module send you to real filings on EDGAR to apply it — which is where the learning actually happens.</div>
+      </details>
+      <details>
+        <summary>How long does it take?</summary>
+        <div class="faq-body">Around twenty hours of reading across forty modules, though most people spread it over several weeks and do the action steps as they go. There's no schedule to keep up with, and your progress saves to your account.</div>
+      </details>
+      <details>
+        <summary>Is it a subscription?</summary>
+        <div class="faq-body">No. $27.95 once, all five stages. No renewal, no upsell, no tier above this one. Revisions and additions to the existing modules are included at no extra cost.</div>
+      </details>
+      <details>
+        <summary>Can I get a refund?</summary>
+        <div class="faq-body"><strong>No — all sales are final.</strong> The complete course is delivered in full the moment you pay, so we don't offer refunds or exchanges. That's why the entire stage-by-stage curriculum, the module count and the price are all set out on this page before you buy — please read them and make sure the course is right for you. See our <a href="terms-of-service.html">Terms of Service</a> for the full policy. If something is technically broken, email <a href="mailto:admin@hustlin.org">admin@hustlin.org</a> and we'll fix it.</div>
+      </details>
+    </div>
+  </div>
+</section>
 
-                    <!-- MODULE 6 -->
-                    <div data-id="259" class="module-card p-6 md:p-8" id="mod6-m3x6">
-                        <div data-id="260" class="flex items-start gap-4 module-toggle">
-                            <div data-id="261" class="module-num bg-green-500/15 text-brand-green">06</div>
-                            <div data-id="262" class="flex-1">
-                                <div data-id="263" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="264" class="text-lg md:text-xl font-bold text-brand-white">Competitive Advantage — Finding Companies With Moats</h3>
-                                    <span data-id="265" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">6 Lessons</span>
-                                    <i data-id="266" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="267" class="module-lessons mt-4">
-                                    <div data-id="268" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="269" class="lesson-item flex items-start gap-2"><i data-id="270" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="271">6.1: What Is an Economic Moat?</span></div>
-                                        <div data-id="272" class="lesson-item flex items-start gap-2"><i data-id="273" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="274">6.2: Network Effects — The Most Powerful Moat</span></div>
-                                        <div data-id="275" class="lesson-item flex items-start gap-2"><i data-id="276" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="277">6.3: Cost Advantages and Economies of Scale</span></div>
-                                        <div data-id="278" class="lesson-item flex items-start gap-2"><i data-id="279" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="280">6.4: Brand Moats and Switching Costs</span></div>
-                                        <div data-id="281" class="lesson-item flex items-start gap-2"><i data-id="282" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="283">6.5: Patent Protection and Regulatory Moats</span></div>
-                                        <div data-id="284" class="lesson-item flex items-start gap-2"><i data-id="285" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="286">6.6: Assessing Moat Durability Over Time</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- EMAIL -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Stay Updated</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:8px">New Modules. <span style="color:var(--amber)">First to Know.</span></h2>
+    <p style="color:rgba(255,255,255,.38);font-size:.93rem;margin-bottom:26px">Get notified when new modules go live. That's it — no noise.</p>
+    <div class="email-row">
+      <input type="email" id="fa-email" placeholder="your@email.com" autocomplete="email">
+      <button class="nav-cta" onclick="faSubscribe()">GET UPDATES</button>
+    </div>
+    <div class="email-ok" id="fa-ok">✓ You're in. Welcome to Hustlin'.</div>
+  </div>
+</section>
 
-                    <!-- MODULE 7 -->
-                    <div data-id="287" class="module-card p-6 md:p-8" id="mod7-n4y7">
-                        <div data-id="288" class="flex items-start gap-4 module-toggle">
-                            <div data-id="289" class="module-num bg-purple-500/15 text-purple-400">07</div>
-                            <div data-id="290" class="flex-1">
-                                <div data-id="291" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="292" class="text-lg md:text-xl font-bold text-brand-white">Management Quality and Corporate Governance</h3>
-                                    <span data-id="293" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">6 Lessons</span>
-                                    <i data-id="294" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="295" class="module-lessons mt-4">
-                                    <div data-id="296" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="297" class="lesson-item flex items-start gap-2"><i data-id="298" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="299">7.1: Why Management Is Your Most Important Variable</span></div>
-                                        <div data-id="300" class="lesson-item flex items-start gap-2"><i data-id="301" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="302">7.2: Reading CEO Letters and Earnings Call Transcripts</span></div>
-                                        <div data-id="303" class="lesson-item flex items-start gap-2"><i data-id="304" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="305">7.3: Insider Buying and Selling as Signals</span></div>
-                                        <div data-id="306" class="lesson-item flex items-start gap-2"><i data-id="307" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="308">7.4: Capital Allocation — The CEO's Most Important Job</span></div>
-                                        <div data-id="309" class="lesson-item flex items-start gap-2"><i data-id="310" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="311">7.5: Red Flags: Accounting Irregularities and Corporate Misconduct</span></div>
-                                        <div data-id="312" class="lesson-item flex items-start gap-2"><i data-id="313" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="314">7.6: Share Buybacks and Dividends — Returning Value or Destroying It?</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MODULE 8 -->
-                    <div data-id="315" class="module-card p-6 md:p-8" id="mod8-o5z8">
-                        <div data-id="316" class="flex items-start gap-4 module-toggle">
-                            <div data-id="317" class="module-num bg-yellow-500/15 text-brand-gold">08</div>
-                            <div data-id="318" class="flex-1">
-                                <div data-id="319" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="320" class="text-lg md:text-xl font-bold text-brand-white">Industry and Competitive Analysis</h3>
-                                    <span data-id="321" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">6 Lessons</span>
-                                    <i data-id="322" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="323" class="module-lessons mt-4">
-                                    <div data-id="324" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="325" class="lesson-item flex items-start gap-2"><i data-id="326" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="327">8.1: Porter's Five Forces — Industry Profitability Analysis</span></div>
-                                        <div data-id="328" class="lesson-item flex items-start gap-2"><i data-id="329" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="330">8.2: TAM, SAM, SOM — Sizing the Market Opportunity</span></div>
-                                        <div data-id="331" class="lesson-item flex items-start gap-2"><i data-id="332" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="333">8.3: Industry Life Cycle and Where to Invest</span></div>
-                                        <div data-id="334" class="lesson-item flex items-start gap-2"><i data-id="335" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="336">8.4: Competitive Positioning and Market Share Trends</span></div>
-                                        <div data-id="337" class="lesson-item flex items-start gap-2"><i data-id="338" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="339">8.5: SWOT Analysis Applied to Stock Research</span></div>
-                                        <div data-id="340" class="lesson-item flex items-start gap-2"><i data-id="341" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="342">8.6: Reading Competitor Filings to Understand Your Stock Better</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- MODULE 9 -->
-                    <div data-id="343" class="module-card p-6 md:p-8" id="mod9-p6a9">
-                        <div data-id="344" class="flex items-start gap-4 module-toggle">
-                            <div data-id="345" class="module-num bg-brand-accent/15 text-brand-accent">09</div>
-                            <div data-id="346" class="flex-1">
-                                <div data-id="347" class="flex items-center gap-3 flex-wrap">
-                                    <h3 data-id="348" class="text-lg md:text-xl font-bold text-brand-white">Building Your Stock Research Process</h3>
-                                    <span data-id="349" class="text-xs text-brand-muted bg-brand-mid px-2.5 py-1 rounded-full">6 Lessons</span>
-                                    <i data-id="350" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted md:hidden ml-auto toggle-icon transition-transform"></i>
-                                </div>
-                                <div data-id="351" class="module-lessons mt-4">
-                                    <div data-id="352" class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                                        <div data-id="353" class="lesson-item flex items-start gap-2"><i data-id="354" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="355">9.1: The Complete Stock Screening Workflow</span></div>
-                                        <div data-id="356" class="lesson-item flex items-start gap-2"><i data-id="357" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="358">9.2: Building a Fundamental Scorecard</span></div>
-                                        <div data-id="359" class="lesson-item flex items-start gap-2"><i data-id="360" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="361">9.3: Creating a 1-Page Investment Thesis</span></div>
-                                        <div data-id="362" class="lesson-item flex items-start gap-2"><i data-id="363" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="364">9.4: When to Buy, Add, Hold, and Sell Based on Fundamentals</span></div>
-                                        <div data-id="365" class="lesson-item flex items-start gap-2"><i data-id="366" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="367">9.5: Portfolio Construction Using Fundamental Analysis</span></div>
-                                        <div data-id="368" class="lesson-item flex items-start gap-2"><i data-id="369" data-lucide="play-circle" class="w-3.5 h-3.5 text-brand-accent mt-1 flex-shrink-0"></i><span data-id="370">9.6: Tracking Your Holdings and Updating Your Thesis</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- FINANCIAL RATIOS TABLE -->
-        <section data-id="371" id="ratios-section" class="py-16 md:py-24 px-4 md:px-8">
-            <div data-id="372" class="max-w-5xl mx-auto">
-                <div data-id="373" class="text-center mb-14">
-                    <span data-id="374" class="section-label">Quick Reference</span>
-                    <h2 data-id="375" id="ratios-title-q7b0" class="text-2xl md:text-4xl font-extrabold text-brand-white">Key Financial Ratios at a Glance</h2>
-                    <p data-id="376" class="text-brand-muted mt-3 max-w-xl mx-auto text-sm md:text-base">These are the ratios you'll master in this course. Bookmark this table — you'll use it every time you analyze a stock.</p>
-                    <div data-id="377" class="glow-line mx-auto mt-3"></div>
-                </div>
-                <div data-id="378" class="overflow-x-auto rounded-xl border border-brand-border bg-brand-card">
-                    <table data-id="379" class="ratio-table" id="ratio-table-r8c1">
-                        <thead data-id="380">
-                            <tr data-id="381">
-                                <th data-id="382">Ratio</th>
-                                <th data-id="383">Formula</th>
-                                <th data-id="384">What It Measures</th>
-                                <th data-id="385">Favorable Range</th>
-                            </tr>
-                        </thead>
-                        <tbody data-id="386">
-                            <tr data-id="387">
-                                <td data-id="388" class="font-semibold text-brand-white whitespace-nowrap">P/E Ratio</td>
-                                <td data-id="389" class="font-mono text-xs text-brand-accentLight">Price ÷ EPS</td>
-                                <td data-id="390">How much investors pay per dollar of earnings</td>
-                                <td data-id="391"><span data-id="392" class="text-brand-green">15–25</span> (varies by sector)</td>
-                            </tr>
-                            <tr data-id="393">
-                                <td data-id="394" class="font-semibold text-brand-white whitespace-nowrap">PEG Ratio</td>
-                                <td data-id="395" class="font-mono text-xs text-brand-accentLight">P/E ÷ EPS Growth Rate</td>
-                                <td data-id="396">Valuation adjusted for earnings growth</td>
-                                <td data-id="397"><span data-id="398" class="text-brand-green">&lt; 1.0</span> = undervalued</td>
-                            </tr>
-                            <tr data-id="399">
-                                <td data-id="400" class="font-semibold text-brand-white whitespace-nowrap">P/B Ratio</td>
-                                <td data-id="401" class="font-mono text-xs text-brand-accentLight">Price ÷ Book Value/Share</td>
-                                <td data-id="402">Price relative to net asset value</td>
-                                <td data-id="403"><span data-id="404" class="text-brand-green">&lt; 1.5</span> (value stocks)</td>
-                            </tr>
-                            <tr data-id="405">
-                                <td data-id="406" class="font-semibold text-brand-white whitespace-nowrap">P/S Ratio</td>
-                                <td data-id="407" class="font-mono text-xs text-brand-accentLight">Market Cap ÷ Revenue</td>
-                                <td data-id="408">Valuation relative to sales (useful pre-profit)</td>
-                                <td data-id="409"><span data-id="410" class="text-brand-green">&lt; 2.0</span> (sector-dependent)</td>
-                            </tr>
-                            <tr data-id="411">
-                                <td data-id="412" class="font-semibold text-brand-white whitespace-nowrap">EV/EBITDA</td>
-                                <td data-id="413" class="font-mono text-xs text-brand-accentLight">Enterprise Value ÷ EBITDA</td>
-                                <td data-id="414">Capital-structure-neutral valuation</td>
-                                <td data-id="415"><span data-id="416" class="text-brand-green">8–15×</span></td>
-                            </tr>
-                            <tr data-id="417">
-                                <td data-id="418" class="font-semibold text-brand-white whitespace-nowrap">ROE</td>
-                                <td data-id="419" class="font-mono text-xs text-brand-accentLight">Net Income ÷ Equity</td>
-                                <td data-id="420">Return generated on shareholder equity</td>
-                                <td data-id="421"><span data-id="422" class="text-brand-green">&gt; 15%</span></td>
-                            </tr>
-                            <tr data-id="423">
-                                <td data-id="424" class="font-semibold text-brand-white whitespace-nowrap">ROA</td>
-                                <td data-id="425" class="font-mono text-xs text-brand-accentLight">Net Income ÷ Total Assets</td>
-                                <td data-id="426">How efficiently assets generate profit</td>
-                                <td data-id="427"><span data-id="428" class="text-brand-green">&gt; 5%</span></td>
-                            </tr>
-                            <tr data-id="429">
-                                <td data-id="430" class="font-semibold text-brand-white whitespace-nowrap">Debt/Equity</td>
-                                <td data-id="431" class="font-mono text-xs text-brand-accentLight">Total Debt ÷ Equity</td>
-                                <td data-id="432">Financial leverage and risk level</td>
-                                <td data-id="433"><span data-id="434" class="text-brand-green">&lt; 1.0</span> (lower = safer)</td>
-                            </tr>
-                            <tr data-id="435">
-                                <td data-id="436" class="font-semibold text-brand-white whitespace-nowrap">Current Ratio</td>
-                                <td data-id="437" class="font-mono text-xs text-brand-accentLight">Current Assets ÷ Current Liabilities</td>
-                                <td data-id="438">Short-term liquidity and solvency</td>
-                                <td data-id="439"><span data-id="440" class="text-brand-green">1.5–3.0</span></td>
-                            </tr>
-                            <tr data-id="441">
-                                <td data-id="442" class="font-semibold text-brand-white whitespace-nowrap">FCF Yield</td>
-                                <td data-id="443" class="font-mono text-xs text-brand-accentLight">FCF/Share ÷ Share Price</td>
-                                <td data-id="444">Free cash flow return relative to price</td>
-                                <td data-id="445"><span data-id="446" class="text-brand-green">&gt; 5%</span></td>
-                            </tr>
-                            <tr data-id="447">
-                                <td data-id="448" class="font-semibold text-brand-white whitespace-nowrap">Gross Margin</td>
-                                <td data-id="449" class="font-mono text-xs text-brand-accentLight">Gross Profit ÷ Revenue</td>
-                                <td data-id="450">Pricing power and cost efficiency</td>
-                                <td data-id="451"><span data-id="452" class="text-brand-green">&gt; 40%</span> (high quality)</td>
-                            </tr>
-                            <tr data-id="453">
-                                <td data-id="454" class="font-semibold text-brand-white whitespace-nowrap">Net Margin</td>
-                                <td data-id="455" class="font-mono text-xs text-brand-accentLight">Net Income ÷ Revenue</td>
-                                <td data-id="456">Bottom-line profitability</td>
-                                <td data-id="457"><span data-id="458" class="text-brand-green">&gt; 10%</span> (healthy)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHO THIS IS FOR -->
-        <section data-id="459" id="who-section" class="py-16 md:py-24 px-4 md:px-8 bg-brand-deepest/50">
-            <div data-id="460" class="max-w-5xl mx-auto">
-                <div data-id="461" class="text-center mb-14">
-                    <span data-id="462" class="section-label">Perfect Fit</span>
-                    <h2 data-id="463" id="who-title-s9d2" class="text-2xl md:text-4xl font-extrabold text-brand-white">Who This Course Is For</h2>
-                    <div data-id="464" class="glow-line mx-auto mt-3"></div>
-                </div>
-                <div data-id="465" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div data-id="466" class="profile-card" id="profile1-t0e3">
-                        <div data-id="467" class="flex items-center gap-3 mb-4">
-                            <div data-id="468" class="w-12 h-12 rounded-xl bg-brand-accent/15 flex items-center justify-center">
-                                <i data-id="469" data-lucide="user" class="w-6 h-6 text-brand-accent"></i>
-                            </div>
-                            <div data-id="470">
-                                <h3 data-id="471" class="font-bold text-brand-white text-base">The Aspiring Investor</h3>
-                                <span data-id="472" class="text-xs text-brand-muted">New to stock analysis</span>
-                            </div>
-                        </div>
-                        <p data-id="473" class="text-sm text-brand-muted leading-relaxed">You've been buying stocks based on tips, headlines, or gut feelings — and you know that's not sustainable. You want a real framework for evaluating companies so you can invest with conviction instead of hope. This course gives you that foundation from scratch.</p>
-                    </div>
-                    <div data-id="474" class="profile-card" id="profile2-u1f4">
-                        <div data-id="475" class="flex items-center gap-3 mb-4">
-                            <div data-id="476" class="w-12 h-12 rounded-xl bg-green-500/15 flex items-center justify-center">
-                                <i data-id="477" data-lucide="bar-chart-3" class="w-6 h-6 text-brand-green"></i>
-                            </div>
-                            <div data-id="478">
-                                <h3 data-id="479" class="font-bold text-brand-white text-base">The Technical Trader Going Deeper</h3>
-                                <span data-id="480" class="text-xs text-brand-muted">Chart-first, adding fundamentals</span>
-                            </div>
-                        </div>
-                        <p data-id="481" class="text-sm text-brand-muted leading-relaxed">You can read charts, but you know you're missing half the picture. Adding fundamental analysis to your toolkit means you'll know <em data-id="482">why</em> a stock is moving — not just <em data-id="483">that</em> it's moving. This course bridges that gap with a structured, no-nonsense approach.</p>
-                    </div>
-                    <div data-id="484" class="profile-card" id="profile3-v2g5">
-                        <div data-id="485" class="flex items-center gap-3 mb-4">
-                            <div data-id="486" class="w-12 h-12 rounded-xl bg-purple-500/15 flex items-center justify-center">
-                                <i data-id="487" data-lucide="briefcase" class="w-6 h-6 text-purple-400"></i>
-                            </div>
-                            <div data-id="488">
-                                <h3 data-id="489" class="font-bold text-brand-white text-base">The Finance Professional</h3>
-                                <span data-id="490" class="text-xs text-brand-muted">Sharpening the edge</span>
-                            </div>
-                        </div>
-                        <p data-id="491" class="text-sm text-brand-muted leading-relaxed">Maybe you work in banking, consulting, or corporate finance and want a concentrated refresher on equity analysis. Or maybe you're preparing for an analyst role. This course consolidates the frameworks professionals use daily into one structured program.</p>
-                    </div>
-                    <div data-id="492" class="profile-card" id="profile4-w3h6">
-                        <div data-id="493" class="flex items-center gap-3 mb-4">
-                            <div data-id="494" class="w-12 h-12 rounded-xl bg-yellow-500/15 flex items-center justify-center">
-                                <i data-id="495" data-lucide="target" class="w-6 h-6 text-brand-gold"></i>
-                            </div>
-                            <div data-id="496">
-                                <h3 data-id="497" class="font-bold text-brand-white text-base">The Long-Term Wealth Builder</h3>
-                                <span data-id="498" class="text-xs text-brand-muted">Compounding with conviction</span>
-                            </div>
-                        </div>
-                        <p data-id="499" class="text-sm text-brand-muted leading-relaxed">You're not interested in day trading or meme stocks. You want to find quality businesses, buy them at fair prices, and hold them for years. This course teaches you the Warren Buffett–style approach — updated for today's markets — so you can compound wealth with discipline.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BONUS MATERIALS -->
-        <section data-id="500" id="bonuses-x4i7" class="py-16 md:py-24 px-4 md:px-8">
-            <div data-id="501" class="max-w-5xl mx-auto">
-                <div data-id="502" class="text-center mb-14">
-                    <span data-id="503" class="section-label">Included Bonuses</span>
-                    <h2 data-id="504" id="bonus-title-y5j8" class="text-2xl md:text-4xl font-extrabold text-brand-white">Premium Resources &amp; Templates</h2>
-                    <div data-id="505" class="glow-line mx-auto mt-3"></div>
-                </div>
-                <div data-id="506" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div data-id="507" class="profile-card text-center" id="bonus1-z6k9">
-                        <div data-id="508" class="w-14 h-14 rounded-2xl bg-brand-accent/15 flex items-center justify-center mx-auto mb-4">
-                            <i data-id="509" data-lucide="file-spreadsheet" class="w-7 h-7 text-brand-accent"></i>
-                        </div>
-                        <h3 data-id="510" class="font-bold text-brand-white text-base mb-2">Stock Scorecard Template</h3>
-                        <p data-id="511" class="text-sm text-brand-muted leading-relaxed">A ready-to-use scoring framework to systematically evaluate any stock across financials, valuation, moat strength, and management quality. Fill it in, get a score, make a decision.</p>
-                    </div>
-                    <div data-id="512" class="profile-card text-center" id="bonus2-a7l0">
-                        <div data-id="513" class="w-14 h-14 rounded-2xl bg-green-500/15 flex items-center justify-center mx-auto mb-4">
-                            <i data-id="514" data-lucide="calculator" class="w-7 h-7 text-brand-green"></i>
-                        </div>
-                        <h3 data-id="515" class="font-bold text-brand-white text-base mb-2">Financial Ratio Cheat Sheet</h3>
-                        <p data-id="516" class="text-sm text-brand-muted leading-relaxed">A printable quick-reference card with every major ratio, formula, interpretation guide, and sector-specific benchmarks covered in this course. Keep it beside your screen.</p>
-                    </div>
-                    <div data-id="517" class="profile-card text-center" id="bonus3-b8m1">
-                        <div data-id="518" class="w-14 h-14 rounded-2xl bg-purple-500/15 flex items-center justify-center mx-auto mb-4">
-                            <i data-id="519" data-lucide="file-text" class="w-7 h-7 text-purple-400"></i>
-                        </div>
-                        <h3 data-id="520" class="font-bold text-brand-white text-base mb-2">1-Page Investment Thesis Template</h3>
-                        <p data-id="521" class="text-sm text-brand-muted leading-relaxed">The same single-page thesis format used by professional fund managers. Forces you to crystallize your bull case, key risks, and decision triggers before committing capital.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA / ENROLL -->
-        <section data-id="522" id="enroll" class="py-20 md:py-28 px-4 md:px-8 relative overflow-hidden">
-            <div data-id="523" class="absolute inset-0 bg-gradient-to-br from-brand-accent/5 via-transparent to-purple-600/5 pointer-events-none"></div>
-            <div data-id="524" class="max-w-3xl mx-auto text-center relative z-10">
-                <span data-id="525" class="section-label">Limited Enrollment</span>
-                <h2 data-id="526" id="cta-title-c9n2" class="text-2xl md:text-4xl font-extrabold text-brand-white mb-4">Ready to Analyze Stocks Like a Professional?</h2>
-                <p data-id="527" class="text-brand-muted text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">Join thousands of investors who've transformed the way they evaluate companies. Nine modules. Fifty lessons. One complete system for finding great stocks.</p>
-                <div data-id="528" class="mb-8">
-                    <div data-id="529" class="flex items-baseline justify-center gap-2 mb-2">
-                        <span data-id="530" class="text-4xl md:text-5xl font-black text-brand-white">$997</span>
-                        <span data-id="531" class="text-brand-muted text-sm">one-time payment</span>
-                    </div>
-                    <p data-id="532" class="text-brand-green text-sm font-medium">Lifetime access · All future updates included · No subscriptions</p>
-                </div>
-                <div style="font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;color:#F0C030;margin-bottom:4px">$27.95</div>
-                <div style="font-size:.85rem;color:#a1a1b5;margin-bottom:26px">One-time payment · lifetime access</div>
-                <a data-id="533" href="#" data-hfy-buy="fund" class="cta-btn text-center inline-block text-lg px-12 py-5">
-                    Enroll Now — Instant Access
-                </a>
-                <div data-id="534" class="flex items-center justify-center gap-6 mt-8 flex-wrap">
-                    <span data-id="535" class="flex items-center gap-2 text-brand-muted text-xs"><i data-id="536" data-lucide="shield-check" class="w-4 h-4 text-brand-green"></i> Lifetime Access</span>
-                    <span data-id="537" class="flex items-center gap-2 text-brand-muted text-xs"><i data-id="538" data-lucide="lock" class="w-4 h-4 text-brand-green"></i> Secure Checkout</span>
-                    <span data-id="539" class="flex items-center gap-2 text-brand-muted text-xs"><i data-id="540" data-lucide="zap" class="w-4 h-4 text-brand-green"></i> Instant Access</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section data-id="541" id="faq-d0o3" class="py-16 md:py-24 px-4 md:px-8 bg-brand-deepest/50">
-            <div data-id="542" class="max-w-3xl mx-auto">
-                <div data-id="543" class="text-center mb-14">
-                    <span data-id="544" class="section-label">Questions</span>
-                    <h2 data-id="545" id="faq-title-e1p4" class="text-2xl md:text-4xl font-extrabold text-brand-white">Frequently Asked Questions</h2>
-                    <div data-id="546" class="glow-line mx-auto mt-3"></div>
-                </div>
-                <div data-id="547" class="space-y-4">
-                    <div data-id="548" class="faq-item bg-brand-card border border-brand-border rounded-xl overflow-hidden" id="faq1-f2q5">
-                        <button data-id="549" class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between gap-4">
-                            <span data-id="550" class="font-semibold text-brand-white text-sm md:text-base">Do I need prior investing experience?</span>
-                            <i data-id="551" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted flex-shrink-0 faq-icon transition-transform"></i>
-                        </button>
-                        <div data-id="552" class="faq-answer hidden px-6 pb-5">
-                            <p data-id="553" class="text-brand-muted text-sm leading-relaxed">No. Module 1 starts from the very beginning — what fundamental analysis is, how to think about stocks, and where to find data. If you know what a stock is, you have enough background to begin. Each module builds on the last, so you'll develop skill progressively.</p>
-                        </div>
-                    </div>
-                    <div data-id="554" class="faq-item bg-brand-card border border-brand-border rounded-xl overflow-hidden" id="faq2-g3r6">
-                        <button data-id="555" class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between gap-4">
-                            <span data-id="556" class="font-semibold text-brand-white text-sm md:text-base">How is this different from free YouTube tutorials?</span>
-                            <i data-id="557" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted flex-shrink-0 faq-icon transition-transform"></i>
-                        </button>
-                        <div data-id="558" class="faq-answer hidden px-6 pb-5">
-                            <p data-id="559" class="text-brand-muted text-sm leading-relaxed">This course is a structured, end-to-end system — not scattered videos. Each of the 50 lessons builds on the previous one, and by Module 9 you'll have a complete, repeatable stock analysis process. You also get professional templates (scorecard, thesis, ratio cheat sheet) that you won't find in free content.</p>
-                        </div>
-                    </div>
-                    <div data-id="560" class="faq-item bg-brand-card border border-brand-border rounded-xl overflow-hidden" id="faq3-h4s7">
-                        <button data-id="561" class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between gap-4">
-                            <span data-id="562" class="font-semibold text-brand-white text-sm md:text-base">Can I try before I buy?</span>
-                            <i data-id="563" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted flex-shrink-0 faq-icon transition-transform"></i>
-                        </button>
-                        <div data-id="564" class="faq-answer hidden px-6 pb-5">
-                            <p data-id="565" class="text-brand-muted text-sm leading-relaxed">Yes — Stage 1 is free with a Hustlin' account, so you can read a full stage before spending anything. Because the course unlocks instantly and in full, purchases are final and we don't offer refunds. Try the free stage first and buy only if it's a fit.</p>
-                        </div>
-                    </div>
-                    <div data-id="566" class="faq-item bg-brand-card border border-brand-border rounded-xl overflow-hidden" id="faq4-i5t8">
-                        <button data-id="567" class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between gap-4">
-                            <span data-id="568" class="font-semibold text-brand-white text-sm md:text-base">How long do I have access to the material?</span>
-                            <i data-id="569" data-lucide="chevron-down" class="w-5 h-5 text-brand-muted flex-shrink-0 faq-icon transition-transform"></i>
-                        </button>
-                        <div data-id="570" class="faq-answer hidden px-6 pb-5">
-                            <p data-id="571" class="text-brand-muted text-sm leading-relaxed">Lifetime. Once you enroll, you own the course forever. That includes all current content and any future updates or bonus modules we add. You can revisit any lesson any time, on any device.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<!-- FOOTER -->
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
 <footer class="hfy-footer">
   <div class="hfy-ft-top">
 
@@ -971,7 +567,7 @@
         <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="markets.html">Markets</a>
         <a href="technical-analysis.html">Technical Analysis — $27.95</a>
-        <a href="fundamental-analysis.html">Fundamental Analysis — Coming Soon</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis — $27.95</a>
         <a href="trading-psychology.html">Trading Psychology — Coming Soon</a>
         <a href="economics.html">Economics for Traders — Coming Soon</a>
       </div>
@@ -1023,105 +619,5 @@
   </div>
 </footer>
 <!-- FOOTER:END -->
-
-    <script>
-        // Progressive enhancement — guard Lucide
-        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
-            lucide.createIcons();
-        }
-
-        // Mobile menu
-        var mobileMenuBtn = document.getElementById('mobile-menu-btn-x9r4');
-        var mobileMenu = document.getElementById('mobile-menu-q3w7');
-        var mobileMenuClose = document.getElementById('mobile-menu-close-p1k8');
-
-        if (mobileMenuBtn && mobileMenu && mobileMenuClose) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            });
-            mobileMenuClose.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-                document.body.style.overflow = '';
-            });
-            // Close menu on nav link click
-            document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
-        // Module lesson toggle (mobile only)
-        document.querySelectorAll('.module-toggle').forEach(function(toggle) {
-            toggle.addEventListener('click', function() {
-                // Only toggle on mobile
-                if (window.innerWidth >= 768) return;
-                var card = toggle.closest('.module-card');
-                var lessons = card.querySelector('.module-lessons');
-                var icon = toggle.querySelector('.toggle-icon');
-                if (lessons) {
-                    lessons.classList.toggle('open');
-                    if (icon) {
-                        icon.style.transform = lessons.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
-                    }
-                }
-            });
-        });
-
-        // FAQ toggles
-        document.querySelectorAll('.faq-toggle').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var item = btn.closest('.faq-item');
-                var answer = item.querySelector('.faq-answer');
-                var icon = btn.querySelector('.faq-icon');
-                var isOpen = !answer.classList.contains('hidden');
-                // Close all
-                document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.add('hidden'); });
-                document.querySelectorAll('.faq-icon').forEach(function(i) { i.style.transform = 'rotate(0deg)'; });
-                // Toggle current
-                if (!isOpen) {
-                    answer.classList.remove('hidden');
-                    if (icon) icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        var navbar = document.getElementById('navbar-g8k2');
-        if (navbar) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 40) {
-                    navbar.style.borderBottomColor = 'rgba(240,192,48,0.15)';
-                    navbar.style.background = 'rgba(10,0,24,0.95)';
-                } else {
-                    navbar.style.borderBottomColor = '';
-                    navbar.style.background = '';
-                }
-            });
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                var targetId = this.getAttribute('href');
-                if (targetId === '#' || targetId === '#enroll') return;
-                var target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
-
-<!-- Hustlin' auth + checkout -->
-<script src="app.js?v=202607272134"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607272134"></script>
-<script src="auth.js?v=202607272134"></script>
-<script src="course-access.js?v=202607272134"></script>
-<script src="course-buy.js?v=202607272134"></script>
 </body>
 </html>

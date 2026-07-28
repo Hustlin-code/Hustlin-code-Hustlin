@@ -21,8 +21,9 @@ window.HFY = (function(){
   // collides between courses, but they share one progress/nav engine below.
   const FL_STAGES = ['stage1','stage2','stage3','stage4','stage5'];
   const TA_STAGES = ['ta1','ta2','ta3','ta4','ta5'];
-  const STAGES = FL_STAGES.concat(TA_STAGES);
-  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES };
+  const FA_STAGES = ['fa1','fa2','fa3','fa4','fa5'];
+  const STAGES = FL_STAGES.concat(TA_STAGES, FA_STAGES);
+  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES, fund: FA_STAGES };
   const STAGE_META = {
     stage1: { num:1, name:'Survive',      file:'stage-1-survive.html',   course:'fl' },
     stage2: { num:2, name:'Stabilize',    file:'stage-2-stabilize.html', course:'fl' },
@@ -33,7 +34,12 @@ window.HFY = (function(){
     ta2: { num:2, name:'Trend & Volume',      file:'stage-2-trend-volume.html',     course:'ta' },
     ta3: { num:3, name:'Chart Patterns',      file:'stage-3-chart-patterns.html',   course:'ta' },
     ta4: { num:4, name:'Indicators & Signals',file:'stage-4-indicators-signals.html', course:'ta' },
-    ta5: { num:5, name:'Advanced Methods',    file:'stage-5-advanced-methods.html', course:'ta' }
+    ta5: { num:5, name:'Advanced Methods',    file:'stage-5-advanced-methods.html', course:'ta' },
+    fa1: { num:1, name:'Foundations',              file:'stage-1-foundations.html',                course:'fund' },
+    fa2: { num:2, name:'The Income Statement',     file:'stage-2-income-statement.html',           course:'fund' },
+    fa3: { num:3, name:'Balance Sheet & Cash Flow',file:'stage-3-balance-sheet-cash-flow.html',    course:'fund' },
+    fa4: { num:4, name:'Valuation',                file:'stage-4-valuation.html',                  course:'fund' },
+    fa5: { num:5, name:'Moats, Management & Process', file:'stage-5-moats-management-process.html',course:'fund' }
   };
 
   let currentStage = null;
