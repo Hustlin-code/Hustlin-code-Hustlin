@@ -63,7 +63,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607280910">
+<link rel="stylesheet" href="styles.css?v=202607280937">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -304,7 +304,7 @@
   <div class="sec-inner">
     <p class="sec-eye">The Full Course</p>
     <h2 class="sec-h2">Five Stages. Forty Modules. One Filing at a Time.</h2>
-    <p class="sec-sub">All five stages unlock with a single one-time $27.95 payment. One account, no subscription, no renewal.</p>
+    <p class="sec-sub">All five stages unlock with a single one-time $27.95 payment. One account, lifetime access, no subscription.</p>
     <div class="stages" style="margin-top:44px">
       <a class="s-card" data-stage-card="fa1" href="learn.html?course=fund&amp;stage=1">
         <div class="s-num">STAGE 1</div>
@@ -475,19 +475,21 @@
     <h2 class="sec-h2" style="color:#fff;margin-bottom:26px">Read the Filings <span style="color:var(--amber)">Yourself.</span></h2>
     <div class="buy-panel">
       <div class="buy-price">$27.95</div>
-      <div class="buy-sub">One-time payment · no subscription · no renewal</div>
+      <div class="buy-sub">One-time · lifetime access · tax included</div>
       <a class="buy-btn" href="learn.html?course=fund&amp;stage=1" data-hfy-buy="fund">Get the Course</a>
       <ul class="buy-list">
         <li>All 5 stages, 40 modules, unlocked immediately</li>
+        <li><a href="terms-of-service.html" style="color:inherit;text-decoration:underline">Lifetime access</a> — for as long as we run the site</li>
         <li>Stock Scorecard and Ratio Cheat Sheet (.xlsx)</li>
         <li>1-Page Investment Thesis template (.pdf)</li>
         <li>Progress saved to your account across devices</li>
-        <li>Free updates as modules are revised</li>
+        <li>Free lifetime updates as modules are revised</li>
+        <li>Price includes VAT / sales tax — no surprises at checkout</li>
       </ul>
     </div>
     <p style="color:rgba(255,255,255,.28);font-size:.78rem;margin-top:18px">
       Educational content only. Not financial, investment, tax, or legal advice.
-      All sales are final — see our <a href="terms-of-service.html" style="color:rgba(255,255,255,.45);text-decoration:underline">Terms of Service</a>.
+      Price includes all tax — nothing is added at checkout. We don't offer discretionary refunds; Stripe handles the payment as seller of record and applies your local cancellation rights. See our <a href="terms-of-service.html" style="color:rgba(255,255,255,.45);text-decoration:underline">Terms of Service</a>.
     </p>
   </div>
 </section>
@@ -520,15 +522,19 @@
       </details>
       <details>
         <summary>How long does it take?</summary>
-        <div class="faq-body">Around twenty hours of reading across forty modules, though most people spread it over several weeks and do the action steps as they go. There's no schedule to keep up with, and your progress saves to your account.</div>
+        <div class="faq-body">Around twenty hours of reading across forty modules, though most people spread it over several weeks and do the action steps as they go. Access is lifetime, progress saves to your account, and there's no schedule to keep up with.</div>
+      </details>
+      <details>
+        <summary>Will I be charged tax on top?</summary>
+        <div class="faq-body">No. $27.95 is the total. Prices include any sales tax, VAT or GST due in your country — Stripe calculates and remits it, and nothing is added at checkout. If you're outside the US, Stripe may show you the equivalent amount in your local currency.</div>
       </details>
       <details>
         <summary>Is it a subscription?</summary>
-        <div class="faq-body">No. $27.95 once, all five stages. No renewal, no upsell, no tier above this one. Revisions and additions to the existing modules are included at no extra cost.</div>
+        <div class="faq-body">No. $27.95 once, all five stages, for as long as we run the site. No renewal, no upsell, no tier above this one. Revisions and additions to the existing modules are included at no extra cost.</div>
       </details>
       <details>
         <summary>Can I get a refund?</summary>
-        <div class="faq-body"><strong>No — all sales are final.</strong> The complete course is delivered in full the moment you pay, so we don't offer refunds or exchanges. That's why the entire stage-by-stage curriculum, the module count and the price are all set out on this page before you buy — please read them and make sure the course is right for you. See our <a href="terms-of-service.html">Terms of Service</a> for the full policy. If something is technically broken, email <a href="mailto:admin@hustlin.org">admin@hustlin.org</a> and we'll fix it.</div>
+        <div class="faq-body"><strong>We don't offer discretionary refunds</strong> — the complete course is delivered in full the moment you pay, which is why the entire stage-by-stage curriculum, the module count and the price are all on this page before you buy. Please read them first.<br><br>That said, Stripe handles the payment as seller of record, and Stripe may issue a refund within 60 days and applies whatever statutory cancellation rights apply where you live. You don't have to waive anything to buy. Full detail in our <a href="terms-of-service.html">Terms of Service</a>. If something is technically broken, email <a href="mailto:admin@hustlin.org">admin@hustlin.org</a> and we'll fix it.</div>
       </details>
     </div>
   </div>
@@ -619,5 +625,94 @@
   </div>
 </footer>
 <!-- FOOTER:END -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
+<script src="supabase-config.js?v=202607280937"></script>
+<script src="app.js?v=202607280937"></script>
+<script src="rewards.js?v=202607280937"></script>
+<script src="auth.js?v=202607280937"></script>
+<script src="course-access.js?v=202607280937"></script>
+<script src="course-buy.js?v=202607280937"></script>
+<script>
+// Render nav stage states + roadmap cards
+HFY.initNavOnly();
+
+const faKeys = ['fa1','fa2','fa3','fa4','fa5'];
+
+// Update hero progress stat
+const totalPct = Math.round(
+  faKeys.reduce(function (sum, k) { return sum + HFY.getPct(k); }, 0) / faKeys.length
+);
+document.getElementById('hero-pct').textContent = totalPct;
+document.getElementById('hero-pct-bar').style.width = totalPct + '%';
+
+// Update journey card to show completed stages
+faKeys.forEach(function (key, i) {
+  const pct = HFY.getPct(key);
+  const jn = document.getElementById('jn' + (i + 1));
+  if (!jn) return;
+  if (pct >= 100) {
+    jn.className = 'j-num';
+    jn.style.background = 'var(--green)';
+    jn.style.color = '#fff';
+    jn.textContent = '✓';
+  } else if (HFY.isUnlocked(key) && i > 0 && HFY.getPct(faKeys[i - 1]) >= 100) {
+    jn.className = 'j-num now';
+  }
+});
+
+async function faSubscribe() {
+  const input = document.getElementById('fa-email');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) { input.focus(); return; }
+  const btn = input.nextElementSibling;
+  const original = btn.textContent;
+  btn.textContent = 'JOINING...'; btn.disabled = true;
+
+  const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/xvzeknrv';
+  try {
+    const body = new FormData();
+    body.append('email', email);
+    body.append('_subject', 'Newsletter signup - Fundamental Analysis');
+    body.append('source', 'fundamental-analysis');
+    const res = await fetch(NEWSLETTER_ENDPOINT, {
+      method: 'POST', headers: { 'Accept': 'application/json' }, body
+    });
+    if (!res.ok) throw new Error('Subscribe failed (' + res.status + ')');
+  } catch (e) {
+    console.error('newsletter signup failed', e);
+    btn.textContent = original; btn.disabled = false;
+    input.style.borderColor = '#EF4444';
+    alert("Sorry - that didn't go through. Please try again in a moment.");
+    return;
+  }
+  document.querySelector('.email-row').style.display = 'none';
+  document.getElementById('fa-ok').style.display = 'block';
+}
+document.getElementById('fa-email').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') faSubscribe();
+});
+
+// Every stage is paid — Fundamental Analysis has free_stages = 0, same as TA.
+// This only corrects the roadmap card labels/lock icons to reflect real
+// purchase status. Actual access is enforced by the course-content Edge
+// Function, not by anything on this page.
+(async function () {
+  let hasAccess = false;
+  try { hasAccess = await HFY.access.checkCourseAccess('fund'); } catch (e) { hasAccess = false; }
+  faKeys.forEach(function (key) {
+    const card = document.querySelector('[data-stage-card="' + key + '"]');
+    if (!card) return;
+    const cap = card.querySelector('.s-lock-caption');
+    if (hasAccess) {
+      card.classList.add('live');
+      if (cap) cap.textContent = 'Unlocked · continue where you left off';
+    } else {
+      card.classList.remove('live');
+      if (cap) cap.textContent = '$27.95 one-time · sign-in required';
+    }
+  });
+})();
+</script>
 </body>
 </html>
