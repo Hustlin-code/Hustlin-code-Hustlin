@@ -392,9 +392,10 @@ window.HFY = (function(){
   }
 
   // ─── FOOTER LOGO → HOME LINK ─────────────────
-  // The footer brand logo is now a real <a> in every page's markup. This is a
-  // backstop for pages that miss it: footers are hard-coded per file with no
-  // shared template, so a page added later will not inherit the anchor.
+  // The footer brand logo ships as a real <a> in footer.template.html, so every
+  // stamped page already has it. This is a backstop for the narrow case where a
+  // page carries a footer the stamper never touched — e.g. one injected at
+  // runtime by site-footer.js, or legacy markup in a file outside the walk.
   //
   // Runs after swapNavLogo() so any <img> that function just created from a
   // CSS badge gets wrapped too. Idempotent — an already-linked logo is left
