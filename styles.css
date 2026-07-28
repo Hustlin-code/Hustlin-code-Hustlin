@@ -380,9 +380,19 @@ a{text-decoration:none}
   color:var(--amber);padding:5px 12px;border-radius:20px;
   font-size:.74rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px;
 }
-.stage-banner h2{
+/* h1 and h2 both listed: the stage banner title is the page's <h1> on the
+   public pages (disability-wealth-guide, stage-1-survive) and stays an <h2>
+   on the gated stage pages, which sit under learn.html's own heading. Same
+   rule serves both so the two never drift apart visually.
+
+   margin is pinned to .83em — the browser default for <h2>, which is what this
+   rule relied on before the h1 existed. <h1> defaults to .67em instead, so
+   without this the promoted heading would sit tighter against the badge above
+   and the paragraph below. Stated explicitly rather than inherited so the two
+   tags render identically. */
+.stage-banner h1,.stage-banner h2{
   font-family:var(--f-body);font-size:2.6rem;font-weight:800;letter-spacing:-.03em;
-  color:#fff;letter-spacing:-.02em;line-height:1.05;
+  color:#fff;letter-spacing:-.02em;line-height:1.05;margin:.83em 0;
 }
 .stage-banner p{color:rgba(255,255,255,.46);margin-top:10px;font-size:.96rem;max-width:460px}
 .prog-wrap{text-align:right;flex-shrink:0}
@@ -572,7 +582,18 @@ a{text-decoration:none}
 .icon-budget{background:rgba(99,102,241,.09)}
 .icon-trap{background:rgba(239,68,68,.08)}
 .mod-num{font-family:var(--f-mono);font-size:.68rem;color:var(--text-muted);margin-bottom:2px}
-.mod-title{font-size:1rem;font-weight:700;color:var(--text-dark)}
+/* Renders as <h2> on the public course pages so the 8 module titles are real
+   headings rather than styled divs, which crawlers cannot see as structure.
+
+   Every property below exists to reproduce the <div> this replaced exactly.
+   The base h1-h6 rule sets line-height:1.25 and letter-spacing:-.01em, and the
+   browser adds a default h2 margin — a div had none of those, it just inherited
+   body's line-height:1.7. Left alone, all 8 module titles would shift and drag
+   .mod-sub with them. Change these only if you also change body's line-height. */
+.mod-title{
+  font-size:1rem;font-weight:700;color:var(--text-dark);
+  margin:0;line-height:1.7;letter-spacing:normal;
+}
 .mod-sub{font-size:.79rem;color:var(--text-muted);margin-top:2px}
 .mod-toggle{
   width:30px;height:30px;border-radius:50%;background:var(--cream);
@@ -954,7 +975,7 @@ a{text-decoration:none}
   .hero{padding:96px 18px 60px;min-height:auto;align-items:flex-start}
   .stage-banner{padding:22px 18px;flex-direction:column;gap:14px;align-items:flex-start}
   .stage-banner::before{display:none}
-  .stage-banner h2{font-size:1.6rem!important}
+  .stage-banner h1,.stage-banner h2{font-size:1.6rem!important}
   .stage-banner > div:first-child > p{font-size:.85rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .prog-wrap{display:flex;flex-direction:row;align-items:center;gap:12px;width:100%}
   .prog-ring{width:44px;height:44px}
