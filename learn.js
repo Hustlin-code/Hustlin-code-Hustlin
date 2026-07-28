@@ -19,6 +19,14 @@
   var FN_URL = window.HFY_CONFIG.SUPABASE_URL + '/functions/v1/course-content';
 
   // Nav button art per course, so each course keeps its own look.
+  //
+  // A stage entry may be either {n, img, alt} for a course that has button art,
+  // or {n, alt} for one that doesn't — renderNav() draws a text pill in that
+  // case. Fundamental Analysis and Trading Psychology shipped without artwork,
+  // and leaving them out of this map entirely made renderNav() bail early, so
+  // those two courses were the only ones with a completely empty nav rail.
+  // A labelled pill is not as pretty as a painted button, but every course
+  // having the same navigation matters more than that.
   var COURSE_NAV = {
     ta: {
       logo: 'assets/TA Buttons/BlueHustlinLogo-cropped.png',
@@ -38,6 +46,26 @@
         { n: 3, img: 'assets/buttons/Rebuild.png',     alt: 'Rebuild' },
         { n: 4, img: 'assets/buttons/Invest.png',      alt: 'Invest' },
         { n: 5, img: 'assets/buttons/BuildWealth.png', alt: 'Build Wealth' }
+      ]
+    },
+    fund: {
+      logo: 'assets/hustlin-logo.png',
+      stages: [
+        { n: 1, alt: 'Foundations' },
+        { n: 2, alt: 'Income Statement' },
+        { n: 3, alt: 'Balance Sheet & Cash Flow' },
+        { n: 4, alt: 'Valuation' },
+        { n: 5, alt: 'Moats & Management' }
+      ]
+    },
+    psych: {
+      logo: 'assets/hustlin-logo.png',
+      stages: [
+        { n: 1, alt: 'The Inner Game' },
+        { n: 2, alt: 'Bias & Belief' },
+        { n: 3, alt: 'Risk & Loss' },
+        { n: 4, alt: 'Emotion Under Fire' },
+        { n: 5, alt: 'The Repeatable Process' }
       ]
     }
   };
@@ -99,10 +127,25 @@
     var html = '';
     conf.stages.forEach(function (s) {
       if (s.n > count) return;
-      html += '<a href="' + href(course, s.n) + '" style="display:inline-flex;align-items:center;' +
-        'justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;">' +
-        '<img src="' + s.img + '" alt="' + s.alt + '" style="max-height:78px;height:auto;width:auto;' +
-        'max-width:100%;display:block;margin:0 auto;"></a>';
+      var current = s.n === stage;
+      if (s.img) {
+        html += '<a href="' + href(course, s.n) + '" style="display:inline-flex;align-items:center;' +
+          'justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;">' +
+          '<img src="' + s.img + '" alt="' + s.alt + '" style="max-height:78px;height:auto;width:auto;' +
+          'max-width:100%;display:block;margin:0 auto;"></a>';
+      } else {
+        // Text pill for courses with no button art. Styled inline rather than
+        // in styles.css so a new course needs no stylesheet edit to get a nav.
+        html += '<a href="' + href(course, s.n) + '" style="display:inline-flex;flex-direction:column;' +
+          'align-items:center;justify-content:center;text-decoration:none;padding:8px 14px;' +
+          'margin:4px;min-width:120px;flex-shrink:0;border-radius:12px;line-height:1.25;' +
+          'border:1px solid ' + (current ? 'var(--amber,#f0c030)' : 'rgba(255,255,255,.14)') + ';' +
+          'background:' + (current ? 'var(--amber,#f0c030)' : 'rgba(255,255,255,.02)') + ';' +
+          'color:' + (current ? '#000' : 'rgba(255,255,255,.72)') + ';">' +
+          '<span style="font-family:\'Space Mono\',monospace;font-size:.62rem;letter-spacing:.09em;' +
+          'text-transform:uppercase;opacity:.72">Stage ' + s.n + '</span>' +
+          '<span style="font-size:.82rem;font-weight:600;text-align:center">' + s.alt + '</span></a>';
+      }
     });
     // Insert before the account menu auth.js appends, so Account stays last.
     var account = document.getElementById('hfy-account');
@@ -238,10 +281,22 @@
     try {
       // Deliberately not innerHTML — injected <script> never executes that way.
       var s = document.createElement('script');
-      // Same stage-link rewrite the HTML gets: the lesson script builds the
-      // "Next Stage" button from a template literal, so its URLs need fixing
-      // before the code ever runs.
-      s.textContent = rewriteStageLinks(code);
+      // The FULL rewrite, not just rewriteStageLinks().
+      //
+      // The lesson's URLs are not confined to its markup. Every stage page
+      // declares its onward navigation as data in an inline script:
+      //
+      //   window.HFY_COURSE = { next: { href: "stage-2-stabilize.html",
+      //                                 img:  "../assets/buttons/Stabilize.png" } }
+      //
+      // course-shell.js turns that into the Next Stage button. Rewriting only
+      // the stage href left `img` pointing one directory above the site root,
+      // so the button rendered as a broken image, and TA Stage 5's
+      // "../technical-analysis.html" course-complete link 404'd. Running the
+      // same rewrite the HTML gets fixes assets, cross-course folder links and
+      // stage links in one pass — and rewrite() ends by calling
+      // rewriteStageLinks(), so nothing that used to be handled is lost.
+      s.textContent = rewrite(code);
       document.body.appendChild(s);
     } catch (e) {
       console.error('lesson script failed', e);
@@ -262,17 +317,43 @@
     window.location.href = href(course, parseInt(m[1], 10)) + (m[2] || '');
   }, true);
 
-  // Lessons show one module at a time: the sidebar toggles a `cs-visible`
-  // class, and the lesson's own script adds it to module 1 on load. That
-  // single statement is the LAST line of a long script that also boots the
-  // page's interactive calculators — so any error in those (a tool element
-  // that didn't survive extraction, a stale ID) stops execution before it and
-  // leaves the reader staring at a blank pane next to a working sidebar.
+  // Boot the shared course shell against the lesson we just injected.
   //
-  // Function declarations hoist, so the sidebar keeps working and clicking any
-  // module recovers — which is exactly why this failed quietly. Cheap
-  // insurance: if the lesson defines modules and none ended up visible, show
-  // the first one.
+  // course-shell.js owns everything that turns lesson markup into a course:
+  // revealing the opening module, the sidebar's done-ticks, the "Next Module"
+  // button at the foot of each module, the "Next Stage" card at the end, and
+  // the HFY.restoreStage() call that replays saved progress and arms rewards.js.
+  //
+  // A directly-served stage page gets all of that for free, because it carries
+  // <script src="../course-shell.js"> and runs it on DOMContentLoaded. The
+  // viewer gets neither half: the Edge Function strips <script src> tags out of
+  // the stored lesson, and DOM ready fired long before this fetch returned. So
+  // every course reachable only through learn.html lost its navigation and its
+  // wins the moment that logic moved out of the stage files and into
+  // course-shell.js — while stage-1-survive.html and disability-wealth-guide.html,
+  // which are still real pages at the site root, kept working. That asymmetry
+  // is the whole bug.
+  //
+  // Called AFTER runLessonScript() so window.HFY_COURSE (set by the lesson's
+  // own inline script) is populated, and so onReady can reach the calculator
+  // functions that script defines.
+  function bootCourseShell() {
+    try {
+      if (window.HFY_COURSE_SHELL && typeof window.HFY_COURSE_SHELL.init === 'function') {
+        window.HFY_COURSE_SHELL.init();
+      } else {
+        console.error('learn.js: course-shell.js did not load — module navigation is unavailable');
+      }
+    } catch (e) {
+      console.error('course shell init failed', e);
+    }
+  }
+
+  // Belt and braces behind bootCourseShell(). If the lesson's inline script
+  // throws before it finishes, HFY_COURSE may be missing or malformed and the
+  // shell can come up with nothing revealed — a blank pane beside a working
+  // sidebar, which is how this failed quietly before. If the lesson defines
+  // modules and none ended up visible, show the first one.
   function ensureModuleVisible() {
     try {
       var modules = elLesson.querySelectorAll('.course-main .module, .module');
@@ -323,6 +404,7 @@
       : data.course_name + " | Hustlin'";
     renderTabs(data);
     runLessonScript(data.script);
+    bootCourseShell();
     ensureModuleVisible();
     renderNextStepPrompt(data);
     window.scrollTo(0, 0);

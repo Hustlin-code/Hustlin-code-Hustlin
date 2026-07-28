@@ -53,12 +53,45 @@
  *
  *  Init is deferred to DOMContentLoaded so onReady can safely call functions
  *  defined in inline <script> blocks further down the page.
+ *
+ *  TWO WAYS IN
+ *  -----------
+ *  1. A directly-served stage page (stage-1-survive.html, disability-wealth-
+ *     guide.html): the page sets HFY_COURSE, loads this file, and init() runs
+ *     itself on DOMContentLoaded. Unchanged.
+ *
+ *  2. learn.html, the gated viewer: the lesson arrives from the course-content
+ *     Edge Function LONG after DOMContentLoaded, and that function strips every
+ *     <script src=...> tag — so this file is never carried in with the lesson
+ *     and DOMContentLoaded has already fired by the time the modules exist.
+ *     The viewer therefore loads this file up front and calls
+ *     HFY_COURSE_SHELL.init() itself once the lesson is in the DOM.
+ *
+ *  This is what broke every course except the two that are still served as real
+ *  pages: the viewer got the lesson markup but none of the behaviour that turns
+ *  it into a course — no restoreStage (so no progress and no rewards), no
+ *  visible first module, no Next Module buttons, no Next Stage CTA.
+ *
+ *  Two consequences for the code below:
+ *    - CFG must be read INSIDE init(), not at IIFE time. In the viewer the
+ *      lesson's inline script sets window.HFY_COURSE after this file has
+ *      already been parsed, so a module-level snapshot is always {}.
+ *    - init() must be idempotent and safe to call more than once, since the
+ *      viewer may re-run it after a late progress sync.
  * =============================================================================
  */
 (function () {
   'use strict';
 
-  var CFG = window.HFY_COURSE || {};
+  // Read at call time, never cached at parse time — see header.
+  function cfg() { return window.HFY_COURSE || {}; }
+
+  // True on learn.html, where the server has already decided access and the
+  // lesson is injected asynchronously. Checked by filename AND by the presence
+  // of the viewer's lesson mount point, so a clean-URL or index-style rewrite
+  // of learn.html can't quietly turn the auto-init back on and race the fetch.
+  var IN_VIEWER = /(^|\/)learn(\.html)?$/i.test(window.location.pathname) ||
+                  !!document.getElementById('hfy-lesson');
 
   /* ------------------------------------------------------------ navigation */
 
@@ -132,6 +165,7 @@
 
   /** Build the markup that closes out the last module of a stage. */
   function finalCta() {
+    var CFG = cfg();
     var done = CFG.doneText || "That's the last module in this stage. Nice work.";
     var head = '<div class="next-mod-done">🎉 ' + done + '</div>';
     var next = CFG.next;
@@ -146,10 +180,14 @@
         '\n          <img src="' + next.img + '" alt="' + (next.alt || '') + '">' +
         '\n        </a>';
     }
+    // `alt` is the last fallback for the title. The Fundamental Analysis and
+    // Trading Psychology pages were generated with {href, alt} and no image,
+    // which lands here — without this they rendered a bare "Next" with an empty
+    // title, so the reader got an unlabelled button at the end of every stage.
     return head +
       '\n        <a href="' + next.href + '" class="next-stage-btn">' +
-      '\n          <span><span class="next-stage-btn-label">' + (next.label || 'Next') + '</span>' +
-      '<span class="next-stage-btn-title">' + (next.title || '') + '</span></span>' +
+      '\n          <span><span class="next-stage-btn-label">' + (next.label || 'Next Stage') + '</span>' +
+      '<span class="next-stage-btn-title">' + (next.title || next.alt || '') + '</span></span>' +
       '<span class="next-stage-btn-arrow">→</span>' +
       '\n        </a>';
   }
@@ -189,9 +227,21 @@
 
   /* -------------------------------------------------------------------- init */
 
+  var observing = false;
+
   function init() {
-    // Paid stages: show the gate and stop before any progress is restored.
-    if (CFG.gate) {
+    var CFG = cfg();
+
+    // Legacy client-side gate. Only meaningful on a directly-served stage page.
+    //
+    // Inside the viewer the course-content Edge Function has already made the
+    // real access decision server-side — if we're rendering a lesson at all,
+    // this reader is entitled to it. Honouring `gate` here would let a stale
+    // localStorage progress value hide content the server just approved, so
+    // the viewer skips it entirely. (HFY.isUnlocked currently returns true
+    // unconditionally anyway; this keeps that from silently mattering again if
+    // FORCE_UNLOCK_ALL is ever turned off.)
+    if (CFG.gate && !IN_VIEWER) {
       var gate = document.getElementById('lockedGate');
       var content = document.getElementById('stageContent');
       var unlocked = window.HFY && HFY.isUnlocked ? HFY.isUnlocked(CFG.gate) : true;
@@ -201,21 +251,36 @@
       if (!unlocked) return;
     }
 
+    // Restores ticked boxes and milestones, and emits the 'restored'
+    // completion event that rewards.js listens for. This is the single line
+    // whose absence took the wins system down inside the viewer.
     if (CFG.stage && window.HFY && HFY.restoreStage) HFY.restoreStage(CFG.stage);
 
-    var first = document.getElementById(CFG.first || 'm1');
-    if (first) first.classList.add('cs-visible');
+    // Reveal the opening module — unless a module is already showing, which is
+    // the case when init() runs a second time after a progress sync.
+    if (!document.querySelector('.module.cs-visible')) {
+      var first = document.getElementById(CFG.first || 'm1') ||
+                  document.querySelector('.course-main .module') ||
+                  document.querySelector('.module');
+      if (first) first.classList.add('cs-visible');
+    }
 
     syncSidebar();
-    addNextButtons();
+    addNextButtons();   // idempotent: skips any .mod-body already carrying a wrap
 
     // Keep the sidebar honest when activity boxes are ticked anywhere on the
     // page — those toggle a class rather than firing an event we could listen
-    // for directly.
-    new MutationObserver(function () { syncSidebar(); })
-      .observe(document.body, { attributes: true, attributeFilter: ['class'], subtree: true });
+    // for directly. Guarded so repeat init() calls don't stack observers.
+    if (!observing) {
+      observing = true;
+      new MutationObserver(function () { syncSidebar(); })
+        .observe(document.body, { attributes: true, attributeFilter: ['class'], subtree: true });
+    }
 
-    if (typeof CFG.onReady === 'function') CFG.onReady();
+    if (typeof CFG.onReady === 'function') {
+      try { CFG.onReady(); }
+      catch (e) { console.error('HFY_COURSE.onReady failed', e); }
+    }
   }
 
   /* Exposed globally: inline onclick="selectModule('m3')" attributes in the
@@ -224,6 +289,14 @@
   window.syncSidebar = syncSidebar;
   window.goToNextModule = goToNextModule;
   window.addNextButtons = addNextButtons;
+
+  /* The viewer's entry point. learn.js calls this once the lesson markup and
+     the lesson's own inline script are both in the document. */
+  window.HFY_COURSE_SHELL = { init: init, selectModule: selectModule };
+
+  // On learn.html there is nothing to initialise at DOM ready — the lesson
+  // hasn't been fetched yet, and HFY_COURSE doesn't exist. Wait to be called.
+  if (IN_VIEWER) return;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

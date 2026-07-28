@@ -23,8 +23,13 @@ window.HFY = (function(){
   const TA_STAGES = ['ta1','ta2','ta3','ta4','ta5'];
   const FA_STAGES = ['fa1','fa2','fa3','fa4','fa5'];
   const PS_STAGES = ['ps1','ps2','ps3','ps4','ps5'];
-  const STAGES = FL_STAGES.concat(TA_STAGES, FA_STAGES, PS_STAGES);
-  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES, fund: FA_STAGES, psych: PS_STAGES };
+  // The Disability Wealth Guide is a single-stage course, but it still needs a
+  // key here. Without one its HFY_COURSE carried no `stage`, so restoreStage()
+  // was never called for it — ticked boxes never came back and no win ever
+  // fired. It read as "working" only because its navigation is self-contained.
+  const DWG_STAGES = ['dwg1'];
+  const STAGES = FL_STAGES.concat(TA_STAGES, FA_STAGES, PS_STAGES, DWG_STAGES);
+  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES, fund: FA_STAGES, psych: PS_STAGES, dwg: DWG_STAGES };
   const STAGE_META = {
     stage1: { num:1, name:'Survive',      file:'stage-1-survive.html',   course:'fl' },
     stage2: { num:2, name:'Stabilize',    file:'stage-2-stabilize.html', course:'fl' },
@@ -45,7 +50,8 @@ window.HFY = (function(){
     ps2: { num:2, name:'Bias & Belief',            file:'stage-2-bias-and-belief.html',            course:'psych' },
     ps3: { num:3, name:'Risk & Loss',              file:'stage-3-risk-and-loss.html',              course:'psych' },
     ps4: { num:4, name:'Emotion Under Fire',       file:'stage-4-emotion-under-fire.html',         course:'psych' },
-    ps5: { num:5, name:'The Repeatable Process',   file:'stage-5-the-repeatable-process.html',     course:'psych' }
+    ps5: { num:5, name:'The Repeatable Process',   file:'stage-5-the-repeatable-process.html',     course:'psych' },
+    dwg1:{ num:1, name:'Disability Wealth Guide',  file:'disability-wealth-guide.html',            course:'dwg' }
   };
 
   let currentStage = null;
