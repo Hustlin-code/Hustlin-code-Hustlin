@@ -22,8 +22,9 @@ window.HFY = (function(){
   const FL_STAGES = ['stage1','stage2','stage3','stage4','stage5'];
   const TA_STAGES = ['ta1','ta2','ta3','ta4','ta5'];
   const FA_STAGES = ['fa1','fa2','fa3','fa4','fa5'];
-  const STAGES = FL_STAGES.concat(TA_STAGES, FA_STAGES);
-  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES, fund: FA_STAGES };
+  const PS_STAGES = ['ps1','ps2','ps3','ps4','ps5'];
+  const STAGES = FL_STAGES.concat(TA_STAGES, FA_STAGES, PS_STAGES);
+  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES, fund: FA_STAGES, psych: PS_STAGES };
   const STAGE_META = {
     stage1: { num:1, name:'Survive',      file:'stage-1-survive.html',   course:'fl' },
     stage2: { num:2, name:'Stabilize',    file:'stage-2-stabilize.html', course:'fl' },
@@ -39,7 +40,12 @@ window.HFY = (function(){
     fa2: { num:2, name:'The Income Statement',     file:'stage-2-income-statement.html',           course:'fund' },
     fa3: { num:3, name:'Balance Sheet & Cash Flow',file:'stage-3-balance-sheet-cash-flow.html',    course:'fund' },
     fa4: { num:4, name:'Valuation',                file:'stage-4-valuation.html',                  course:'fund' },
-    fa5: { num:5, name:'Moats, Management & Process', file:'stage-5-moats-management-process.html',course:'fund' }
+    fa5: { num:5, name:'Moats, Management & Process', file:'stage-5-moats-management-process.html',course:'fund' },
+    ps1: { num:1, name:'The Inner Game',           file:'stage-1-the-inner-game.html',             course:'psych' },
+    ps2: { num:2, name:'Bias & Belief',            file:'stage-2-bias-and-belief.html',            course:'psych' },
+    ps3: { num:3, name:'Risk & Loss',              file:'stage-3-risk-and-loss.html',              course:'psych' },
+    ps4: { num:4, name:'Emotion Under Fire',       file:'stage-4-emotion-under-fire.html',         course:'psych' },
+    ps5: { num:5, name:'The Repeatable Process',   file:'stage-5-the-repeatable-process.html',     course:'psych' }
   };
 
   let currentStage = null;

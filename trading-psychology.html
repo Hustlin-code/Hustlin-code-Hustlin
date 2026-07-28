@@ -1,673 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
-    <title>Trading Psychology Mastery Course | hustlin.org</title>
-    <meta name="description" content="Master the mental game of trading. Learn discipline, emotional control, risk mindset, and the psychological habits of elite traders. A comprehensive course by Hustlin.org." />
-    <meta name="keywords" content="trading psychology, trading mindset, trading discipline, emotional trading, fear and greed trading, trader psychology, stock market psychology, trading course, mental edge trading" />
-    <link rel="canonical" href="https://hustlin.org/trading-psychology.html" />
-    <!-- Not on sale yet (courses.active = false). Keep out of the index so
-         Google does not surface a $27.95 price for something nobody can buy.
-         Flip to "index, follow" on the day the course goes live. -->
-    <meta name="robots" content="noindex, follow" />
-    <meta property="og:title" content="Trading Psychology Mastery: The Mental Edge That Separates Winners from Losers" />
-    <meta property="og:description" content="Master the mental game of trading. Learn discipline, emotional control, risk mindset, and the psychological habits of elite traders. A comprehensive course by Hustlin.org." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hustlin.org/trading-psychology.html" />
-    <meta property="og:image" content="https://hustlin.org/assets/social-preview.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Trading Psychology Mastery: The Mental Edge That Separates Winners from Losers" />
-    <meta name="twitter:description" content="Master the mental game of trading. Learn discipline, emotional control, risk mindset, and the psychological habits of elite traders. A comprehensive course by Hustlin.org." />
-    <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png" />
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Trading Psychology Mastery: The Mental Edge That Separates Winners from Losers",
-        "description": "Master the mental game of trading. Learn discipline, emotional control, risk mindset, and the psychological habits of elite traders.",
-        "provider": {
-            "@type": "Organization",
-            "name": "Hustlin.org",
-            "url": "https://hustlin.org"
-        },
-        "numberOfCredits": "35 Lessons",
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "7 Modules, 35 Lessons"
-        }
-    }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    navy: {
-                        900: '#0A0A0A',
-                        800: '#141414',
-                        700: '#1B1B1B',
-                        600: '#222222',
-                        500: '#2a2a2a'
-                    },
-                    gold: {
-                        400: '#FFE668',
-                        500: '#F0C030',
-                        600: '#D9A020',
-                        700: '#B8871A'
-                    },
-                    slate: {
-                        300: '#cbd5e1',
-                        400: '#94a3b8',
-                        500: '#64748b'
-                    }
-                }
-            }
-        }
-    };
-    </script>
-    <script src="https://unpkg.com/lucide@1.17.0" defer></script>
-    <style>
-        :root {
-            --bg-primary: #0A0A0A;
-            --bg-card: #141414;
-            --bg-card-hover: #1B1B1B;
-            --gold: #F0C030;
-            --gold-light: #FFE668;
-            --gold-dark: #D9A020;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border-subtle: rgba(240,192,48, 0.12);
-            --shadow-gold: rgba(240,192,48, 0.08);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Hustlin' Trading Psychology Course — the complete five-stage course, $27.95 one-time. Loss aversion, position sizing, tilt, drawdown and the review process that makes discipline repeatable. Forty modules, three downloadable templates.">
+<meta name="keywords" content="trading psychology course, loss aversion, disposition effect, position sizing, risk of ruin, revenge trading, trading discipline, trading journal, trading tilt, behavioural finance">
+<title>Trading Psychology Course | Hustlin'</title>
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<!-- Social Preview -->
+<meta property="og:title" content="Trading Psychology Course | Hustlin'">
+<meta property="og:description" content="The Hustlin' Trading Psychology Course — the complete five-stage course, $27.95 one-time. Why two people running the same strategy get different results, and what to do about it.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/trading-psychology.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trading Psychology Course | Hustlin'">
+<meta name="twitter:description" content="The Hustlin' Trading Psychology Course — the complete five-stage course, $27.95 one-time. Why two people running the same strategy get different results, and what to do about it.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/trading-psychology.html">
+<!-- Course schema. Trading Psychology is a single one-time $27.95 purchase
+     unlocking all five stages (courses.price_cents = 2795, free_stages = 0).
+     Price must stay in step with public.courses — that table is the
+     source of truth the Edge Function actually charges from. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Trading Psychology",
+  "description": "A five-stage trading psychology course. Understand what a trader's job actually is and why outcomes are a noisy way to grade it, work through the documented cognitive biases that cost money, size positions so a normal losing streak stays survivable, recognise and interrupt your own emotional states in real time, and build the journal, metrics and review cycle that turn all of it into repeatable behaviour. Forty modules ending in a working process.",
+  "url": "https://hustlin.org/trading-psychology.html",
+  "provider": { "@type": "Organization", "name": "Hustlin'", "url": "https://hustlin.org/" },
+  "inLanguage": "en-US",
+  "isAccessibleForFree": false,
+  "educationalLevel": "Beginner to Advanced",
+  "teaches": [
+    "Separating decision quality from outcome in a noisy environment",
+    "Expectancy, variance and why win rate alone means little",
+    "Loss aversion, prospect theory and the disposition effect",
+    "Overconfidence, confirmation bias, anchoring and hindsight bias",
+    "Risk tolerance versus risk capacity",
+    "Position sizing as a form of emotional regulation",
+    "Risk of ruin and the arithmetic of drawdown recovery",
+    "Recognising and interrupting tilt in real time",
+    "Building a trading journal that changes behaviour",
+    "Discipline metrics, review cadence and rule-violation tracking"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "27.95",
+    "priceCurrency": "USD",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://hustlin.org/trading-psychology.html"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT20H"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=202607281420">
+<style>
+/* ─ Page-specific additions only ─ */
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+/* Psych course accent: violet (site = gold, TA = blue, FA = green) */
+:root{ --amber: #7C5CE6; --amber-lt: #A78BFA; }
+.nav{border-bottom-color:rgba(124,92,230,.45)}
+.hfy-account-btn:hover{border-color:rgba(124,92,230,.4)}
+.btn-a:hover{box-shadow:0 8px 24px rgba(124,92,230,.38)}
+.hero-h1 em{text-shadow:1px 1px 0 #5b3fb8,2px 2px 0 #452e8c,3px 3px 0 #2e1f5e,4px 4px 0 #1a1235,5px 6px 3px rgba(0,0,0,.75),0 0 26px rgba(124,92,230,.55),0 0 50px rgba(124,92,230,.25)}
+.callout-sec::before{background:radial-gradient(ellipse at 50% 0%,rgba(124,92,230,.08) 0%,transparent 60%)}
 
-        .gradient-gold-text {
-            background: linear-gradient(135deg, #FFE668, #F0C030, #D9A020);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+/* Breadcrumb */
+.breadcrumb{
+  font-size:.78rem;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:7px;margin-bottom:18px;
+}
+.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
 
-        .module-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-        }
+/* Price badge pill */
+.free-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(124,92,230,.12);border:1px solid rgba(124,92,230,.28);
+  color:var(--amber-lt);padding:5px 14px;border-radius:20px;
+  font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.free-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--amber-lt);
+  box-shadow:0 0 6px var(--amber-lt);animation:fpdot 2s ease-in-out infinite alternate}
+@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--amber-lt)}}
 
-        .module-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(240,192,48, 0.3);
-            box-shadow: 0 20px 40px -12px var(--shadow-gold), 0 0 0 1px rgba(240,192,48, 0.15);
-        }
+/* Text stage nav pills — psych has no custom PNG button set */
+.ps-pill{display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  text-decoration:none;padding:11px 16px;min-width:142px;flex-shrink:0;border-radius:10px;
+  border:1px solid rgba(124,92,230,.32);background:rgba(124,92,230,.07);
+  font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:#d8ccf7;line-height:1.25;transition:border-color .18s,background .18s,color .18s}
+.ps-pill:hover{border-color:rgba(124,92,230,.7);background:rgba(124,92,230,.14);color:#f1ebff}
+.ps-pill .ps-pill-n{display:block;font-size:.6rem;opacity:.6;letter-spacing:.12em;margin-bottom:3px}
+@media(max-width:640px){.ps-pill{min-width:112px;padding:9px 11px;font-size:.64rem}}
 
-        .module-header {
-            background: linear-gradient(135deg, rgba(240,192,48, 0.08), rgba(240,192,48, 0.03));
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 1.5rem;
-        }
+/* Stage cards (extends styles.css .s-card) — text-only, no custom PNGs */
+.s-card[data-stage-card]{cursor:pointer}
+.s-card[data-stage-card].live:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(124,92,230,.15)}
+.s-name-txt{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.06rem;
+  color:#fff;letter-spacing:.01em;margin:6px 0 10px;line-height:1.25}
 
-        .lesson-item {
-            padding: 0.75rem 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.25s ease;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+/* Hero progress stat */
+.stat-highlight{background:rgba(124,92,230,.08);border:1px solid rgba(124,92,230,.4);border-radius:12px;padding:10px 16px 12px;position:relative;box-shadow:0 0 20px rgba(124,92,230,.1)}
+.stat-highlight .stat-val,.stat-highlight .stat-val span{color:var(--amber)}
+.stat-highlight .stat-lbl{color:rgba(124,92,230,.75);font-weight:700}
+.stat-bar-track{width:100%;height:4px;background:rgba(124,92,230,.15);border-radius:4px;margin-top:8px;overflow:hidden}
+.stat-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#5b3fb8,var(--amber));border-radius:4px;transition:width .6s ease}
+@media(max-width:600px){.stat-highlight{padding:8px 12px 10px}}
 
-        .lesson-item:hover {
-            background: rgba(240,192,48, 0.06);
-            padding-left: 2rem;
-        }
+/* What you'll be able to do — checklist grid */
+.able-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:34px}
+.able{display:flex;gap:12px;align-items:flex-start;background:#fffdf7;border:1px solid #e6dcc6;
+  border-radius:12px;padding:16px 18px}
+.able-dot{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(124,92,230,.14);
+  color:#5b3fb8;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem}
+.able-txt{font-size:.88rem;color:#33302a;line-height:1.6}
+.able-txt strong{color:#1c1c1c}
 
-        .lesson-item:last-child {
-            border-bottom: none;
-        }
+/* Concept preview table */
+.ratio-tbl{width:100%;border-collapse:collapse;margin-top:30px;font-size:.85rem;background:#fffdf7}
+.ratio-tbl th{text-align:left;background:#1c1c1c;color:#fff;padding:11px 13px;font-size:.75rem;
+  font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.ratio-tbl td{padding:10px 13px;border-bottom:1px solid #e6dcc6;color:#33302a;vertical-align:top}
+.ratio-tbl td:first-child{font-weight:700;color:#1c1c1c;white-space:nowrap}
+.ratio-tbl td.mono{font-family:'Space Mono',ui-monospace,monospace;font-size:.79rem;color:#5a544a}
+.ratio-tbl tr:last-child td{border-bottom:0}
+@media(max-width:640px){
+  .ratio-tbl{font-size:.76rem}
+  .ratio-tbl td,.ratio-tbl th{padding:8px 7px}
+  .ratio-tbl td.mono{font-size:.7rem}
+  .ratio-tbl td:first-child{white-space:normal}
+}
 
-        .lesson-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold);
-            opacity: 0.5;
-            flex-shrink: 0;
-            transition: all 0.25s ease;
-        }
+/* Template cards */
+.tpl-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:34px}
+.tpl{background:#fffdf7;border:1px solid #e6dcc6;border-radius:14px;padding:22px}
+.tpl-ico{font-size:1.7rem;margin-bottom:8px;display:block}
+.tpl h3{font-size:1rem;font-weight:800;color:#1c1c1c;margin-bottom:6px}
+.tpl p{font-size:.84rem;color:#5a544a;line-height:1.65}
+.tpl-fmt{display:inline-block;margin-top:11px;font-family:'Space Mono',monospace;font-size:.7rem;
+  background:rgba(124,92,230,.1);color:#5b3fb8;padding:3px 9px;border-radius:5px;font-weight:700}
 
-        .lesson-item:hover .lesson-dot {
-            opacity: 1;
-            transform: scale(1.5);
-        }
+/* Buy panel */
+.buy-panel{max-width:440px;margin:0 auto;background:rgba(255,255,255,.04);
+  border:1px solid rgba(124,92,230,.3);border-radius:16px;padding:30px 26px;text-align:center}
+.buy-price{font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--amber);line-height:1}
+.buy-sub{font-size:.8rem;color:rgba(255,255,255,.4);margin:6px 0 20px}
+.buy-btn{display:inline-block;width:100%;background:var(--amber);color:#0d0820;font-weight:800;
+  font-size:.92rem;letter-spacing:.04em;text-transform:uppercase;padding:15px 20px;border-radius:10px;
+  text-decoration:none;transition:.2s;border:0;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.buy-btn:hover{background:#A78BFA;transform:translateY(-1px)}
+.buy-list{list-style:none;padding:0;margin:20px 0 0;text-align:left}
+.buy-list li{font-size:.84rem;color:rgba(255,255,255,.55);padding:6px 0 6px 24px;position:relative}
+.buy-list li::before{content:'✓';position:absolute;left:0;color:var(--amber);font-weight:800}
 
-        .btn-gold {
-            background: linear-gradient(135deg, #FFE668, #F0C030, #D9A020);
-            color: #0A0A0A;
-            font-weight: 700;
-            border: none;
-            border-radius: 12px;
-            padding: 1rem 2.5rem;
-            font-size: 1.125rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            letter-spacing: 0.02em;
-        }
+/* Support notice — psychology-specific, sits above the footer disclaimer */
+.support-note{max-width:800px;margin:34px auto 0;background:rgba(124,92,230,.06);
+  border:1px solid rgba(124,92,230,.22);border-radius:12px;padding:18px 22px}
+.support-note h3{font-size:.82rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:#5b3fb8;margin-bottom:8px}
+.support-note p{font-size:.85rem;color:#5a544a;line-height:1.7}
+.support-note a{color:#5b3fb8;text-decoration:underline}
 
-        .btn-gold:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px -8px rgba(240,192,48, 0.5);
-        }
+/* FAQ */
+.faq{max-width:800px;margin:34px auto 0}
+.faq details{background:#fffdf7;border:1px solid #e6dcc6;border-radius:12px;margin-bottom:11px;padding:0}
+.faq summary{cursor:pointer;padding:16px 20px;font-weight:700;color:#1c1c1c;font-size:.93rem;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:#5b3fb8;font-size:1.3rem;font-weight:400;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq-body{padding:0 20px 18px;font-size:.87rem;color:#5a544a;line-height:1.75}
+.faq-body a{color:#5b3fb8;text-decoration:underline}
 
-        .stats-bar {
-            background: linear-gradient(135deg, rgba(240,192,48, 0.1), rgba(240,192,48, 0.05));
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
+/* Email row */
+.email-row{
+  display:flex;gap:8px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.11);border-radius:var(--r-sm);
+  padding:6px 6px 6px 16px;transition:all .2s;max-width:480px;margin:0 auto;
+}
+.email-row:focus-within{border-color:rgba(124,92,230,.35);background:rgba(124,92,230,.03);box-shadow:0 0 16px rgba(124,92,230,.1)}
+.email-row input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:.93rem;font-family:var(--f-body);min-width:0}
+.email-row input::placeholder{color:rgba(255,255,255,.25)}
+.email-row .nav-cta{flex-shrink:0;padding:10px 18px;font-size:.82rem}
+.email-ok{display:none;background:rgba(124,92,230,.1);border:1px solid rgba(124,92,230,.25);border-radius:var(--r-sm);padding:10px;color:var(--amber-lt);font-weight:600;font-size:.85rem;margin-top:8px;text-align:center}
 
-        .profile-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .profile-card:hover {
-            border-color: rgba(240,192,48, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .learn-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .learn-check {
-            color: var(--gold);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .hero-glow {
-            position: absolute;
-            top: -120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
-            background: radial-gradient(ellipse, rgba(240,192,48, 0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .badge {
-            background: rgba(240,192,48, 0.15);
-            color: var(--gold);
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            letter-spacing: 0.04em;
-        }
-
-        .module-number {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--gold);
-            opacity: 0.8;
-        }
-
-        .cta-section {
-            background: linear-gradient(180deg, var(--bg-primary) 0%, #0d1326 50%, var(--bg-primary) 100%);
-            position: relative;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
-        }
-
-        @media (max-width: 767px) {
-            .module-header { padding: 1.25rem; }
-            .lesson-item { padding: 0.65rem 1.25rem; font-size: 0.9rem; }
-            .lesson-item:hover { padding-left: 1.5rem; }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-  <link rel="stylesheet" href="styles.css?v=202607280949">
+@media(max-width:768px){
+  .email-row{flex-direction:column;padding:10px;gap:8px}
+  .email-row .nav-cta{width:100%;padding:12px;text-align:center}
+}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
 </head>
-<body data-id="0" class="min-h-screen">
-    <app-icon data-id="1" hidden data-icon="trending-up" data-palette="Yellow"></app-icon>
-    <app-disclaimer data-id="2" intent="financial"></app-disclaimer>
+<body>
 
-    <!-- Navigation -->
-    <nav data-id="3" id="navbar-x8k2" class="fixed top-0 left-0 right-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-white/5">
-        <div data-id="4" class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-            <div data-id="5" class="flex items-center gap-2">
-                <span data-id="6" class="text-gold-500 font-bold text-xl tracking-tight">hustlin</span><span data-id="7" class="text-white/40">.org</span>
-            </div>
-            <div data-id="8" class="hidden md:flex items-center gap-8">
-                <a data-id="9" href="#modules" class="text-sm text-slate-400 hover:text-gold-500 transition-colors">Modules</a>
-                <a data-id="10" href="#learn" class="text-sm text-slate-400 hover:text-gold-500 transition-colors">What You'll Learn</a>
-                <a data-id="11" href="#who" class="text-sm text-slate-400 hover:text-gold-500 transition-colors">Who It's For</a>
-                <a data-id="12" href="#enroll" class="btn-gold text-sm !py-2 !px-5 !rounded-lg">Enroll Now</a>
-            </div>
-            <button data-id="13" id="mobile-menu-btn-j4m1" class="md:hidden p-2 text-slate-400 hover:text-gold-500 transition-colors" aria-label="Open menu">
-                <i data-id="14" data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:70px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))">
+  </a>
+  <div class="nav-stages">
+    <a class="ps-pill" href="learn.html?course=psych&amp;stage=1" data-nav-stage="ps1"><span><span class="ps-pill-n">Stage 1</span>The Inner Game</span></a>
+    <a class="ps-pill" href="learn.html?course=psych&amp;stage=2" data-nav-stage="ps2"><span><span class="ps-pill-n">Stage 2</span>Bias &amp; Belief</span></a>
+    <a class="ps-pill" href="learn.html?course=psych&amp;stage=3" data-nav-stage="ps3"><span><span class="ps-pill-n">Stage 3</span>Risk &amp; Loss</span></a>
+    <a class="ps-pill" href="learn.html?course=psych&amp;stage=4" data-nav-stage="ps4"><span><span class="ps-pill-n">Stage 4</span>Emotion Under Fire</span></a>
+    <a class="ps-pill" href="learn.html?course=psych&amp;stage=5" data-nav-stage="ps5"><span><span class="ps-pill-n">Stage 5</span>Repeatable Process</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Trading Psychology Course</span>
+      </div>
+      <div class="free-pill">
+        <span class="free-pill-dot"></span>
+        All 5 Stages · <span class="lock-price" style="color:inherit">$27.95</span> one-time
+      </div>
+      <h1 class="hero-h1">
+        Same Strategy.<br>
+        <em>Different Results.</em>
+      </h1>
+      <p class="hero-sub">
+        Hand two people identical rules and they will not end the year in the same
+        place. The gap is not information — it is what each of them did at the
+        moments the rules felt wrong. Five stages and forty modules on the part of
+        trading that decides the outcome.
+      </p>
+      <div class="cta-row">
+        <a class="btn-a" href="learn.html?course=psych&amp;stage=1" data-hfy-buy="psych">Get the Course — $27.95</a>
+        <a class="btn-b" href="#roadmap">See all 5 stages ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">$<span>27.95</span></div><div class="stat-lbl">One-time</div></div>
+        <div><div class="stat-val"><span>40</span></div><div class="stat-lbl">Modules</div></div>
+        <div class="stat-highlight">
+          <div class="stat-val"><span id="hero-pct">0</span>%</div>
+          <div class="stat-lbl">Your progress</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" id="hero-pct-bar"></div></div>
         </div>
-    </nav>
+        <div><div class="stat-val"><span>3</span></div><div class="stat-lbl">Templates</div></div>
+      </div>
+    </div>
 
-    <!-- Mobile Menu -->
-    <nav data-id="15" id="mobile-menu-r7p3" class="hidden fixed inset-0 bg-navy-900/98 z-[60] flex flex-col p-6" aria-label="Mobile navigation">
-        <div data-id="16" class="flex justify-between items-center mb-10">
-            <span data-id="17" class="text-gold-500 font-bold text-xl">hustlin<span data-id="18" class="text-white/40">.org</span></span>
-            <button data-id="19" id="mobile-menu-close-u2q5" class="p-2 text-slate-400 hover:text-gold-500" aria-label="Close menu">
-                <i data-id="20" data-lucide="x" class="w-6 h-6"></i>
-            </button>
+    <!-- Journey / progress card -->
+    <div class="journey-card" id="progress-card">
+      <div class="journey-card-title">Your Trading Psychology Journey</div>
+      <div class="j-step">
+        <div class="j-num now" id="jn1">1</div>
+        <div class="j-info">
+          <div class="j-name">The Inner Game</div>
+          <div class="j-desc">Process vs. outcome, expectancy, randomness, the written plan</div>
         </div>
-        <div data-id="21" class="flex flex-col gap-6">
-            <a data-id="22" href="#modules" class="text-lg text-slate-300 hover:text-gold-500 transition-colors mobile-nav-link">Modules</a>
-            <a data-id="23" href="#learn" class="text-lg text-slate-300 hover:text-gold-500 transition-colors mobile-nav-link">What You'll Learn</a>
-            <a data-id="24" href="#who" class="text-lg text-slate-300 hover:text-gold-500 transition-colors mobile-nav-link">Who It's For</a>
-            <a data-id="25" href="#enroll" class="btn-gold text-center mt-4 mobile-nav-link">Enroll Now</a>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn2">2</div>
+        <div class="j-info">
+          <div class="j-name">Bias &amp; Belief</div>
+          <div class="j-desc">Loss aversion, overconfidence, anchoring, hindsight, herding</div>
         </div>
-    </nav>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn3">3</div>
+        <div class="j-info">
+          <div class="j-name">Risk &amp; Loss</div>
+          <div class="j-desc">Position sizing, risk of ruin, drawdown, revenge trading</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn4">4</div>
+        <div class="j-info">
+          <div class="j-name">Emotion Under Fire</div>
+          <div class="j-desc">Tilt, pre-market routine, the pause protocol, decision fatigue</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn5">5</div>
+        <div class="j-info">
+          <div class="j-name">The Repeatable Process</div>
+          <div class="j-desc">Rules, journal, discipline metrics, the review cycle</div>
+        </div>
+      </div>
+      <a class="btn-a" style="margin-top:22px;display:block;text-align:center" href="learn.html?course=psych&amp;stage=1" data-hfy-buy="psych">Get the Course — $27.95</a>
+    </div>
+  </div>
+</section>
 
-    <main data-id="26">
-        <!-- Hero Section -->
-        <section data-id="27" id="hero-s3v9" class="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-8 overflow-hidden">
-            <div data-id="28" class="hero-glow"></div>
-            <div data-id="29" class="max-w-4xl mx-auto text-center relative z-10">
-                <div data-id="30" class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20">
-                    <i data-id="31" data-lucide="award" class="w-4 h-4 text-gold-500"></i>
-                    <span data-id="32" class="text-gold-500 text-sm font-semibold tracking-wide">PREMIUM COURSE BY HUSTLIN.ORG</span>
-                </div>
-                <h1 data-id="33" id="hero-title-m8n4" class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-                    Trading Psychology Mastery: <br data-id="34" class="hidden md:block" />
-                    <span data-id="35" class="gradient-gold-text">The Mental Edge That Separates Winners from Losers</span>
-                </h1>
-                <p data-id="36" id="hero-subtitle-k2j7" class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-                    Strategy alone doesn't make profitable traders — psychology does. This comprehensive course arms you with the mental frameworks, emotional discipline, and behavioral insights used by elite traders to consistently outperform. Transform the way you think, react, and execute in the markets.
-                </p>
-                <div data-id="37" class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a data-id="38" href="#enroll" class="btn-gold text-base">
-                        Start Your Transformation
-                    </a>
-                    <a data-id="39" href="#modules" class="text-slate-400 hover:text-gold-500 transition-colors text-sm flex items-center gap-2">
-                        Explore the Curriculum
-                        <i data-id="40" data-lucide="arrow-down" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
+<!-- ROADMAP -->
+<section style="background:#060606;padding:26px 40px 0">
+  <div data-hfy-progress="psych"></div>
+</section>
 
-        <!-- Stats Bar -->
-        <section data-id="41" id="stats-bar-p9w2" class="stats-bar py-5 px-4 md:px-8">
-            <div data-id="42" class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
-                <div data-id="43" class="flex flex-col items-center">
-                    <div data-id="44" class="flex items-center gap-2 mb-1">
-                        <i data-id="45" data-lucide="layers" class="w-5 h-5 text-gold-500"></i>
-                        <span data-id="46" class="text-xl md:text-2xl font-bold text-white">7</span>
-                    </div>
-                    <span data-id="47" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Modules</span>
-                </div>
-                <div data-id="48" class="flex flex-col items-center">
-                    <div data-id="49" class="flex items-center gap-2 mb-1">
-                        <i data-id="50" data-lucide="book-open" class="w-5 h-5 text-gold-500"></i>
-                        <span data-id="51" class="text-xl md:text-2xl font-bold text-white">35</span>
-                    </div>
-                    <span data-id="52" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Lessons</span>
-                </div>
-                <div data-id="53" class="flex flex-col items-center">
-                    <div data-id="54" class="flex items-center gap-2 mb-1">
-                        <i data-id="55" data-lucide="infinity" class="w-5 h-5 text-gold-500"></i>
-                        <span data-id="56" class="text-xl md:text-2xl font-bold text-white">Lifetime</span>
-                    </div>
-                    <span data-id="57" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Access</span>
-                </div>
-                <div data-id="58" class="flex flex-col items-center">
-                    <div data-id="59" class="flex items-center gap-2 mb-1">
-                        <i data-id="60" data-lucide="badge-check" class="w-5 h-5 text-gold-500"></i>
-                        <span data-id="61" class="text-xl md:text-2xl font-bold text-white">Certificate</span>
-                    </div>
-                    <span data-id="62" class="text-xs md:text-sm text-slate-500 uppercase tracking-wider font-medium">Of Completion</span>
-                </div>
-            </div>
-        </section>
+<section class="sec roadmap" id="roadmap">
+  <div class="sec-inner">
+    <p class="sec-eye">The Full Course</p>
+    <h2 class="sec-h2">Five Stages. Forty Modules. One Decision at a Time.</h2>
+    <p class="sec-sub">All five stages unlock with a single one-time $27.95 payment. One account, lifetime access, no subscription.</p>
+    <div class="stages" style="margin-top:44px">
+      <a class="s-card" data-stage-card="ps1" href="learn.html?course=psych&amp;stage=1">
+        <div class="s-num">STAGE 1</div>
+        <div class="s-name-txt">The Inner Game</div>
+        <div class="s-tag">Why the mental game decides the outcome, what a trader's job actually is, judging process separately from result, fast and slow thinking, expectancy, randomness and streaks, an honest trader profile, the written plan as a commitment device</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ps2" href="learn.html?course=psych&amp;stage=2">
+        <div class="s-num">STAGE 2</div>
+        <div class="s-name-txt">Bias &amp; Belief</div>
+        <div class="s-tag">Loss aversion and prospect theory, the disposition effect, overconfidence and the skill/luck confusion, confirmation bias, anchoring on entry price, recency and availability, hindsight bias, herding and FOMO</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ps3" href="learn.html?course=psych&amp;stage=3">
+        <div class="s-num">STAGE 3</div>
+        <div class="s-name-txt">Risk &amp; Loss</div>
+        <div class="s-tag">Risk tolerance versus risk capacity, position sizing as emotional regulation, risk of ruin and drawdown recovery, the stop as a commitment, sunk cost and averaging down, living through a drawdown, revenge trading, sizing down as a circuit breaker</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ps4" href="learn.html?course=psych&amp;stage=4">
+        <div class="s-num">STAGE 4</div>
+        <div class="s-name-txt">Emotion Under Fire</div>
+        <div class="s-tag">Fear, greed, hope and regret, the physiology of pressure, recognising tilt early, the pre-market routine, the five-step pause protocol, boredom and overtrading, euphoria as a risk event, sleep and decision fatigue</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ps5" href="learn.html?course=psych&amp;stage=5">
+        <div class="s-num">STAGE 5</div>
+        <div class="s-name-txt">The Repeatable Process</div>
+        <div class="s-tag">Rules that survive a live market, a journal that changes behaviour, discipline metrics beyond P&amp;L, the weekly and monthly review cycle, deliberate practice, tracking rule violations, the downloadable toolkit, sustaining it</div>
+        <div class="s-lock-caption">$27.95 one-time · sign-in required</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-        <!-- What You'll Learn -->
-        <section data-id="63" id="learn" class="py-16 md:py-24 px-4 md:px-8">
-            <div data-id="64" class="max-w-5xl mx-auto">
-                <div data-id="65" class="text-center mb-12">
-                    <h2 data-id="66" id="learn-title-q4r8" class="text-2xl md:text-3xl font-bold mb-4">What You'll Learn</h2>
-                    <p data-id="67" class="text-slate-400 max-w-xl mx-auto">A deep, practical toolkit for mastering the mental side of trading — the factor that determines 80% of your results.</p>
-                </div>
-                <div data-id="68" class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
-                    <div data-id="69" class="learn-item">
-                        <i data-id="70" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="71" class="text-slate-300">Identify and neutralize the cognitive biases that cause impulsive, account-draining decisions</span>
-                    </div>
-                    <div data-id="72" class="learn-item">
-                        <i data-id="73" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="74" class="text-slate-300">Build ironclad discipline to follow your trading plan under emotional pressure</span>
-                    </div>
-                    <div data-id="75" class="learn-item">
-                        <i data-id="76" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="77" class="text-slate-300">Develop a healthy relationship with risk and loss so they no longer paralyze you</span>
-                    </div>
-                    <div data-id="78" class="learn-item">
-                        <i data-id="79" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="80" class="text-slate-300">Understand how fear, greed, and FOMO hijack your brain — and how to reclaim control</span>
-                    </div>
-                    <div data-id="81" class="learn-item">
-                        <i data-id="82" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="83" class="text-slate-300">Use journaling, routines, and mindfulness to sharpen focus and consistency</span>
-                    </div>
-                    <div data-id="84" class="learn-item">
-                        <i data-id="85" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="86" class="text-slate-300">Read crowd psychology and institutional behavior to anticipate market moves</span>
-                    </div>
-                    <div data-id="87" class="learn-item">
-                        <i data-id="88" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="89" class="text-slate-300">Build genuine, process-based confidence that survives losing streaks</span>
-                    </div>
-                    <div data-id="90" class="learn-item">
-                        <i data-id="91" data-lucide="check-circle-2" class="w-5 h-5 learn-check"></i>
-                        <span data-id="92" class="text-slate-300">Create a personal psychological trading system you can rely on for years</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- WHAT YOU'LL BE ABLE TO DO -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">What You'll Be Able To Do</p>
+    <h2 class="sec-h2">Behaviour, Not Affirmations.</h2>
+    <p class="sec-sub">This course does not tell you to stay calm and trust the process. It gives you measurable procedures, written in advance, that work when your judgement is already compromised — because that is when they are needed.</p>
+    <div class="able-grid">
+      <div class="able"><div class="able-dot">1</div><div class="able-txt"><strong>Grade a decision separately from its result.</strong> Score your own compliance weekly, so a profitable mistake stops looking like a good week.</div></div>
+      <div class="able"><div class="able-dot">2</div><div class="able-txt"><strong>Calculate your real expectancy.</strong> Work out whether your method makes money after costs, and how long a losing streak it should be expected to produce.</div></div>
+      <div class="able"><div class="able-dot">3</div><div class="able-txt"><strong>Measure your own disposition effect.</strong> Compare how long you hold winners against losers and turn a vague suspicion into a number.</div></div>
+      <div class="able"><div class="able-dot">4</div><div class="able-txt"><strong>Size a position so you can still think.</strong> Derive size from stop distance rather than conviction, and model what a twelve-loss streak actually costs.</div></div>
+      <div class="able"><div class="able-dot">5</div><div class="able-txt"><strong>Build a drawdown response ladder.</strong> Decide in advance what triggers a size reduction, what triggers a stop, and what may never change.</div></div>
+      <div class="able"><div class="able-dot">6</div><div class="able-txt"><strong>Catch tilt from a checklist, not a feeling.</strong> Use observable behavioural tells, because self-assessment fails precisely when you need it.</div></div>
+      <div class="able"><div class="able-dot">7</div><div class="able-txt"><strong>Run a sixty-second pause protocol.</strong> A rehearsed sequence for the moment before an impulsive click, designed to work without good judgement.</div></div>
+      <div class="able"><div class="able-dot">8</div><div class="able-txt"><strong>Keep a journal that changes what you do.</strong> Pre-entry fields filled before the order, a confidence log that tests your calibration, and a violation record you can total.</div></div>
+    </div>
+  </div>
+</section>
 
-        <!-- Course Modules -->
-        <section data-id="93" id="modules" class="py-16 md:py-24 px-4 md:px-8">
-            <div data-id="94" class="max-w-5xl mx-auto">
-                <div data-id="95" class="text-center mb-14">
-                    <h2 data-id="96" id="modules-title-w5t3" class="text-2xl md:text-3xl font-bold mb-4">Course Curriculum</h2>
-                    <p data-id="97" class="text-slate-400 max-w-xl mx-auto">Seven meticulously crafted modules that take you from understanding your own wiring to building a complete psychological trading system.</p>
-                </div>
+<!-- CONCEPTS -->
+<section class="sec" style="background:#f8f3e7">
+  <div class="sec-inner">
+    <p class="sec-eye">A Sample of What's Inside</p>
+    <h2 class="sec-h2">The Arithmetic Behind the Feeling.</h2>
+    <p class="sec-sub">Nine of the ideas worked through across the course. Each one comes with the numbers, a worked example, and a countermeasure you can actually run.</p>
+    <table class="ratio-tbl">
+      <thead><tr><th>Concept</th><th>The number</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Expectancy</td><td class="mono">(Win% × Avg Win) − (Loss% × Avg Loss)</td><td>A 70% win rate can lose money and a 35% win rate can be excellent — win rate alone tells you almost nothing</td></tr>
+        <tr><td>Loss aversion</td><td class="mono">Pain of loss ≈ 2 × pleasure of equal gain</td><td>The asymmetry underneath cutting winners short and letting losers run</td></tr>
+        <tr><td>Disposition ratio</td><td class="mono">PGR − PLR</td><td>Measures, in your own account, whether you realise gains faster than losses</td></tr>
+        <tr><td>Position size</td><td class="mono">(Equity × Risk%) ÷ Stop distance</td><td>The stop determines the size — reversing that order is the most common sizing error</td></tr>
+        <tr><td>Drawdown recovery</td><td class="mono">(1 ÷ (1 − Drawdown)) − 1</td><td>A 50% fall needs a 100% gain; an 80% fall needs 400%</td></tr>
+        <tr><td>Ten-loss streak</td><td class="mono">1 − (1 − Risk%)¹⁰</td><td>At 1% risk that streak costs 9.6% of the account; at 10% it costs 65%</td></tr>
+        <tr><td>Streak probability</td><td class="mono">Loss rate ⁿ</td><td>A healthy 65%-loss-rate method should produce roughly six 8-loss runs per 200 trades</td></tr>
+        <tr><td>Daily loss limit</td><td class="mono">≈ 2–3 × per-trade risk</td><td>The circuit breaker that ends a revenge spiral, because the spiral has no natural exit</td></tr>
+        <tr><td>Compliance score</td><td class="mono">Rules followed ÷ rules applicable</td><td>The one weekly number that responds to behaviour rather than to luck</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-                <div data-id="98" class="space-y-6">
-                    <!-- Module 1 -->
-                    <div data-id="99" class="module-card fade-in">
-                        <div data-id="100" class="module-header">
-                            <div data-id="101" class="flex items-start justify-between">
-                                <div data-id="102" class="flex items-start gap-4">
-                                    <span data-id="103" class="text-3xl">🧠</span>
-                                    <div data-id="104">
-                                        <span data-id="105" class="module-number">Module 1</span>
-                                        <h3 data-id="106" id="mod1-title-a3b6" class="text-lg md:text-xl font-bold text-white mt-1">The Trader's Mind — Understanding Your Psychological Wiring</h3>
-                                    </div>
-                                </div>
-                                <span data-id="107" class="badge whitespace-nowrap">5 Lessons</span>
-                            </div>
-                        </div>
-                        <div data-id="108" id="mod1-lessons-c4d8" class="module-lessons">
-                            <div data-id="109" class="lesson-item"><span data-id="110" class="lesson-dot"></span><span data-id="111" class="text-slate-300 text-sm">1.1 — Why 90% of Traders Fail (And It's Not Strategy)</span><i data-id="112" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="113" class="lesson-item"><span data-id="114" class="lesson-dot"></span><span data-id="115" class="text-slate-300 text-sm">1.2 — The Neuroscience of Financial Decision-Making</span><i data-id="116" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="117" class="lesson-item"><span data-id="118" class="lesson-dot"></span><span data-id="119" class="text-slate-300 text-sm">1.3 — Cognitive Biases That Destroy Trading Accounts</span><i data-id="120" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="121" class="lesson-item"><span data-id="122" class="lesson-dot"></span><span data-id="123" class="text-slate-300 text-sm">1.4 — How Your Brain Processes Wins and Losses Differently</span><i data-id="124" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="125" class="lesson-item"><span data-id="126" class="lesson-dot"></span><span data-id="127" class="text-slate-300 text-sm">1.5 — Developing a Self-Awareness Practice for Traders</span><i data-id="128" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                        </div>
-                    </div>
+<!-- TEMPLATES -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">Included With the Course</p>
+    <h2 class="sec-h2">Three Templates You'll Actually Reuse.</h2>
+    <p class="sec-sub">Downloadable inside Stage 5. Built for the process taught in the course, not generic filler.</p>
+    <div class="tpl-grid">
+      <div class="tpl">
+        <span class="tpl-ico">📓</span>
+        <h3>Trading Journal</h3>
+        <p>Four sheets. The main journal separates pre-entry columns — thesis, falsifier, confidence, size — from post-exit columns, with P&amp;L deliberately last. Plus a trades-not-taken log, a rule-violation log, and notes explaining why it is built that way.</p>
+        <span class="tpl-fmt">.XLSX · 4 SHEETS</span>
+      </div>
+      <div class="tpl">
+        <span class="tpl-ico">📊</span>
+        <h3>Discipline Scorecard</h3>
+        <p>Eighteen weekly behaviour checks that compute a compliance percentage per day and for the week, plus a monthly roll-up tracking violations, no-trade days and size level. It scores what you did, not what the market did.</p>
+        <span class="tpl-fmt">.XLSX · 2 SHEETS</span>
+      </div>
+      <div class="tpl">
+        <span class="tpl-ico">✅</span>
+        <h3>Pre-Trade Checklist</h3>
+        <p>One printable page covering state, setup, thesis, risk, exit and limits, with the five-step pause protocol at the foot. Designed to sit on paper next to the screen, because a checklist in a browser tab competes with the chart.</p>
+        <span class="tpl-fmt">.PDF · PRINTABLE</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <!-- Module 2 -->
-                    <div data-id="129" class="module-card fade-in">
-                        <div data-id="130" class="module-header">
-                            <div data-id="131" class="flex items-start justify-between">
-                                <div data-id="132" class="flex items-start gap-4">
-                                    <span data-id="133" class="text-3xl">🎭</span>
-                                    <div data-id="134">
-                                        <span data-id="135" class="module-number">Module 2</span>
-                                        <h3 data-id="136" id="mod2-title-e5f9" class="text-lg md:text-xl font-bold text-white mt-1">Fear, Greed, and the Emotional Cycle of Markets</h3>
-                                    </div>
-                                </div>
-                                <span data-id="137" class="badge whitespace-nowrap">5 Lessons</span>
-                            </div>
-                        </div>
-                        <div data-id="138" id="mod2-lessons-g6h1">
-                            <div data-id="139" class="lesson-item"><span data-id="140" class="lesson-dot"></span><span data-id="141" class="text-slate-300 text-sm">2.1 — Understanding Market Emotions at a Macro Level</span><i data-id="142" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="143" class="lesson-item"><span data-id="144" class="lesson-dot"></span><span data-id="145" class="text-slate-300 text-sm">2.2 — The Fear of Missing Out (FOMO) and How It Destroys Discipline</span><i data-id="146" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="147" class="lesson-item"><span data-id="148" class="lesson-dot"></span><span data-id="149" class="text-slate-300 text-sm">2.3 — Panic Selling vs. Strategic Exits</span><i data-id="150" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="151" class="lesson-item"><span data-id="152" class="lesson-dot"></span><span data-id="153" class="text-slate-300 text-sm">2.4 — Greed and Overconfidence: The Silent Account Killers</span><i data-id="154" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="155" class="lesson-item"><span data-id="156" class="lesson-dot"></span><span data-id="157" class="text-slate-300 text-sm">2.5 — The Emotional Cycle of a Trade — Entry to Exit</span><i data-id="158" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                        </div>
-                    </div>
+<!-- FOR WHO -->
+<section class="sec for-who">
+  <div class="sec-inner">
+    <div class="fw-grid">
+      <div class="fw-cards">
+        <p class="sec-eye">Who This Is For</p>
+        <h2 class="sec-h2">You Probably Already Know What To Do.</h2>
+        <p class="sec-sub" style="margin-bottom:28px">Most traders can describe good practice accurately. The gap between describing it and doing it is what this course is about — at a one-time $27.95.</p>
+        <div class="persona">
+          <div class="p-icon">🔁</div>
+          <div><div class="p-name">Keeps Breaking Their Own Rules</div><div class="p-desc">You have a plan. You do not follow it under pressure. Stage 5 is a system for making that measurable instead of mysterious.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='technical-analysis.html'">
+          <div class="p-icon">📈</div>
+          <div><div class="p-name">Has a Method, Not the Discipline</div><div class="p-desc">Your setups are fine and your execution is not. Method lives in the TA course; this one is the other half. <strong style="color:var(--amber)">See the TA course →</strong></div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">📉</div>
+          <div><div class="p-name">Sitting in a Drawdown Right Now</div><div class="p-desc">Stage 3 covers the response ladder, why sizing down beats stopping, and why redesigning your method mid-drawdown is the worst available move.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='fundamental-analysis.html'">
+          <div class="p-icon">🧱</div>
+          <div><div class="p-name">Long-Term Investor, Not a Day Trader</div><div class="p-desc">Sunk cost, anchoring on entry price and averaging down cost long-horizon investors just as much. <strong style="color:var(--amber)">See the Fundamental course →</strong></div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🧭</div>
+          <div><div class="p-name">Skeptical of "Mindset" Content</div><div class="p-desc">No affirmations, no visualisation, no manifesting. Documented findings from behavioural research, arithmetic, and procedures you can audit.</div></div>
+        </div>
+      </div>
+      <div class="fw-panel">
+        <div class="fw-quote">
+          "Awareness of a bias does not remove it. Every distortion in this
+          course persists in people who can define it — including the
+          researchers who <em>documented</em> it."
+        </div>
+        <p class="fw-body">That is why this course is built around structure rather than willpower. Resting stop orders instead of resolving not to move a stop. A written falsifier set as a platform alert instead of intending to stay objective. A numeric daily loss limit instead of promising to know when to walk away. Every technique here is designed to be executed by someone whose judgement is already degraded, because that is the only condition under which it matters. The course is also explicit about its limits: it is educational material, not therapy, and Stage 5 says so plainly and points to real support.</p>
+        <div class="fw-checks">
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Grounded in documented behavioural research, not motivational slogans</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">40 modules with worked examples, arithmetic and action steps</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Honest about its limits — including when the issue is not a skills problem</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Three reusable templates and a weekly review process</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <!-- Module 3 -->
-                    <div data-id="159" class="module-card fade-in">
-                        <div data-id="160" class="module-header">
-                            <div data-id="161" class="flex items-start justify-between">
-                                <div data-id="162" class="flex items-start gap-4">
-                                    <span data-id="163" class="text-3xl">⚔️</span>
-                                    <div data-id="164">
-                                        <span data-id="165" class="module-number">Module 3</span>
-                                        <h3 data-id="166" id="mod3-title-i7j2" class="text-lg md:text-xl font-bold text-white mt-1">Discipline and the Professional Trading Mindset</h3>
-                                    </div>
-                                </div>
-                                <span data-id="167" class="badge whitespace-nowrap">5 Lessons</span>
-                            </div>
-                        </div>
-                        <div data-id="168" id="mod3-lessons-k8l3">
-                            <div data-id="169" class="lesson-item"><span data-id="170" class="lesson-dot"></span><span data-id="171" class="text-slate-300 text-sm">3.1 — What Discipline Actually Looks Like in Real Trading</span><i data-id="172" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="173" class="lesson-item"><span data-id="174" class="lesson-dot"></span><span data-id="175" class="text-slate-300 text-sm">3.2 — Building Pre-Trade Routines That Lock In Focus</span><i data-id="176" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="177" class="lesson-item"><span data-id="178" class="lesson-dot"></span><span data-id="179" class="text-slate-300 text-sm">3.3 — How to Stick to Your Trading Plan When It Hurts</span><i data-id="180" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="181" class="lesson-item"><span data-id="182" class="lesson-dot"></span><span data-id="183" class="text-slate-300 text-sm">3.4 — The Role of Patience in High-Probability Setups</span><i data-id="184" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="185" class="lesson-item"><span data-id="186" class="lesson-dot"></span><span data-id="187" class="text-slate-300 text-sm">3.5 — Eliminating Impulsive Trades Forever</span><i data-id="188" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                        </div>
-                    </div>
+<!-- CALLOUT -->
+<section class="callout-sec">
+  <div class="callout-txt">
+    <span class="callout-soft">The mission</span>
+    Nobody loses money because they didn't know the rules.
+    They lose it in the ten minutes when the rules <em>felt wrong.</em>
+    That's the part worth teaching.
+  </div>
+</section>
 
-                    <!-- Module 4 -->
-                    <div data-id="189" class="module-card fade-in">
-                        <div data-id="190" class="module-header">
-                            <div data-id="191" class="flex items-start justify-between">
-                                <div data-id="192" class="flex items-start gap-4">
-                                    <span data-id="193" class="text-3xl">🛡️</span>
-                                    <div data-id="194">
-                                        <span data-id="195" class="module-number">Module 4</span>
-                                        <h3 data-id="196" id="mod4-title-m9n4" class="text-lg md:text-xl font-bold text-white mt-1">Risk Psychology — Making Peace With Loss</h3>
-                                    </div>
-                                </div>
-                                <span data-id="197" class="badge whitespace-nowrap">5 Lessons</span>
-                            </div>
-                        </div>
-                        <div data-id="198" id="mod4-lessons-o1p5">
-                            <div data-id="199" class="lesson-item"><span data-id="200" class="lesson-dot"></span><span data-id="201" class="text-slate-300 text-sm">4.1 — Reframing Loss as the Cost of Doing Business</span><i data-id="202" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="203" class="lesson-item"><span data-id="204" class="lesson-dot"></span><span data-id="205" class="text-slate-300 text-sm">4.2 — Position Sizing and Its Psychological Impact</span><i data-id="206" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="207" class="lesson-item"><span data-id="208" class="lesson-dot"></span><span data-id="209" class="text-slate-300 text-sm">4.3 — The Danger of Revenge Trading</span><i data-id="210" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="211" class="lesson-item"><span data-id="212" class="lesson-dot"></span><span data-id="213" class="text-slate-300 text-sm">4.4 — How to Cut Losses Without Emotional Conflict</span><i data-id="214" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="215" class="lesson-item"><span data-id="216" class="lesson-dot"></span><span data-id="217" class="text-slate-300 text-sm">4.5 — Managing Drawdown Periods Mentally</span><i data-id="218" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                        </div>
-                    </div>
+<!-- BUY -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Get Started</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:26px">Close the Gap <span style="color:var(--amber)">Yourself.</span></h2>
+    <div class="buy-panel">
+      <div class="buy-price">$27.95</div>
+      <div class="buy-sub">One-time · lifetime access · tax included</div>
+      <a class="buy-btn" href="learn.html?course=psych&amp;stage=1" data-hfy-buy="psych">Get the Course</a>
+      <ul class="buy-list">
+        <li>All 5 stages, 40 modules, unlocked immediately</li>
+        <li><a href="terms-of-service.html" style="color:inherit;text-decoration:underline">Lifetime access</a> — for as long as we run the site</li>
+        <li>Trading Journal and Discipline Scorecard (.xlsx)</li>
+        <li>Pre-Trade Checklist (.pdf, printable)</li>
+        <li>Progress saved to your account across devices</li>
+        <li>Free lifetime updates as modules are revised</li>
+        <li>Price includes VAT / sales tax — no surprises at checkout</li>
+      </ul>
+    </div>
+    <p style="color:rgba(255,255,255,.28);font-size:.78rem;margin-top:18px">
+      Educational content only. Not financial, investment, tax, or legal advice, and not therapy or clinical treatment.
+      Price includes all tax — nothing is added at checkout. We don't offer discretionary refunds; Stripe handles the payment as seller of record and applies your local cancellation rights. See our <a href="terms-of-service.html" style="color:rgba(255,255,255,.45);text-decoration:underline">Terms of Service</a>.
+    </p>
+  </div>
+</section>
 
-                    <!-- Module 5 -->
-                    <div data-id="219" class="module-card fade-in">
-                        <div data-id="220" class="module-header">
-                            <div data-id="221" class="flex items-start justify-between">
-                                <div data-id="222" class="flex items-start gap-4">
-                                    <span data-id="223" class="text-3xl">🏆</span>
-                                    <div data-id="224">
-                                        <span data-id="225" class="module-number">Module 5</span>
-                                        <h3 data-id="226" id="mod5-title-q2r6" class="text-lg md:text-xl font-bold text-white mt-1">Developing Elite-Level Confidence</h3>
-                                    </div>
-                                </div>
-                                <span data-id="227" class="badge whitespace-nowrap">5 Lessons</span>
-                            </div>
-                        </div>
-                        <div data-id="228" id="mod5-lessons-s3t7">
-                            <div data-id="229" class="lesson-item"><span data-id="230" class="lesson-dot"></span><span data-id="231" class="text-slate-300 text-sm">5.1 — Confidence vs. Arrogance in Trading</span><i data-id="232" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="233" class="lesson-item"><span data-id="234" class="lesson-dot"></span><span data-id="235" class="text-slate-300 text-sm">5.2 — Building Confidence Through Process, Not Profits</span><i data-id="236" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="237" class="lesson-item"><span data-id="238" class="lesson-dot"></span><span data-id="239" class="text-slate-300 text-sm">5.3 — Journaling as a Confidence and Performance Tool</span><i data-id="240" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="241" class="lesson-item"><span data-id="242" class="lesson-dot"></span><span data-id="243" class="text-slate-300 text-sm">5.4 — How to Trade Through a Losing Streak</span><i data-id="244" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="245" class="lesson-item"><span data-id="246" class="lesson-dot"></span><span data-id="247" class="text-slate-300 text-sm">5.5 — The Compound Effect of Small Daily Disciplines</span><i data-id="248" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                        </div>
-                    </div>
+<!-- FAQ -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">Questions</p>
+    <h2 class="sec-h2">Straight Answers.</h2>
+    <div class="faq">
+      <details>
+        <summary>Do I need to have been trading already?</summary>
+        <div class="faq-body">It helps, but it isn't required. Several exercises ask you to look at your own trade history — if you have none, you can complete those later or work through them with a simulated record. Stage 1 assumes no prior knowledge of behavioural finance, and the arithmetic never goes beyond percentages and averages.</div>
+      </details>
+      <details>
+        <summary>Is this a strategy course? Will it tell me what to trade?</summary>
+        <div class="faq-body">No. This course contains no setups, no signals, no watchlist and no stock picks. It teaches decision-making and self-management around whatever method you already use. If you want method, the <a href="technical-analysis.html">Technical Analysis</a> and <a href="fundamental-analysis.html">Fundamental Analysis</a> courses cover that. Hustlin' is not a registered investment adviser and nothing here is personalised advice.</div>
+      </details>
+      <details>
+        <summary>Is this therapy, or a substitute for it?</summary>
+        <div class="faq-body"><strong>No.</strong> This is educational material about decision-making under uncertainty. It is not therapy, counselling or clinical treatment, and it is not written or reviewed by a licensed clinician. If trading is affecting your sleep, your relationships or your work, or if you find you cannot stop, that sits outside what any course can address — Stage 5 Module 8 covers this directly and points to professional resources, including the National Council on Problem Gambling helpline.</div>
+      </details>
+      <details>
+        <summary>Isn't trading psychology just "be disciplined"?</summary>
+        <div class="faq-body">That advice is accurate and useless, because discipline is the thing that fails rather than the thing that fixes it. This course is built the other way round: structural countermeasures that work without requiring good judgement in the moment. Resting stop orders rather than resolving not to move a stop. A numeric loss limit rather than knowing when to walk away. A written falsifier set as a platform alert rather than intending to stay objective.</div>
+      </details>
+      <details>
+        <summary>Does it use real traders or real companies as examples?</summary>
+        <div class="faq-body">No. Every worked example uses illustrative figures and unnamed traders. That keeps the arithmetic clean, means no number can go stale, and avoids implying that any real person's results are typical or repeatable. There are no testimonials and no account screenshots anywhere in the course.</div>
+      </details>
+      <details>
+        <summary>How long does it take?</summary>
+        <div class="faq-body">Around twenty hours of reading across forty modules, though the course is designed to be worked rather than read — several exercises run for two to four weeks alongside your actual trading. Access is lifetime, progress saves to your account, and there's no schedule to keep up with.</div>
+      </details>
+      <details>
+        <summary>Will I be charged tax on top?</summary>
+        <div class="faq-body">No. $27.95 is the total. Prices include any sales tax, VAT or GST due in your country — Stripe calculates and remits it, and nothing is added at checkout. If you're outside the US, Stripe may show you the equivalent amount in your local currency.</div>
+      </details>
+      <details>
+        <summary>Is it a subscription?</summary>
+        <div class="faq-body">No. $27.95 once, all five stages, for as long as we run the site. No renewal, no upsell, no tier above this one. Revisions and additions to the existing modules are included at no extra cost.</div>
+      </details>
+      <details>
+        <summary>Can I get a refund?</summary>
+        <div class="faq-body"><strong>We don't offer discretionary refunds</strong> — the complete course is delivered in full the moment you pay, which is why the entire stage-by-stage curriculum, the module count and the price are all on this page before you buy. Please read them first.<br><br>That said, Stripe handles the payment as seller of record, and Stripe may issue a refund within 60 days and applies whatever statutory cancellation rights apply where you live. You don't have to waive anything to buy. Full detail in our <a href="terms-of-service.html">Terms of Service</a>. If something is technically broken, email <a href="mailto:admin@hustlin.org">admin@hustlin.org</a> and we'll fix it.</div>
+      </details>
+    </div>
 
-                    <!-- Module 6 -->
-                    <div data-id="249" class="module-card fade-in">
-                        <div data-id="250" class="module-header">
-                            <div data-id="251" class="flex items-start justify-between">
-                                <div data-id="252" class="flex items-start gap-4">
-                                    <span data-id="253" class="text-3xl">📊</span>
-                                    <div data-id="254">
-                                        <span data-id="255" class="module-number">Module 6</span>
-                                        <h3 data-id="256" id="mod6-title-u4v8" class="text-lg md:text-xl font-bold text-white mt-1">Behavioral Finance and Market Crowd Psychology</h3>
-                                    </div>
-                                </div>
-                                <span data-id="257" class="badge whitespace-nowrap">5 Lessons</span>
-                            </div>
-                        </div>
-                        <div data-id="258" id="mod6-lessons-w5x9">
-                            <div data-id="259" class="lesson-item"><span data-id="260" class="lesson-dot"></span><span data-id="261" class="text-slate-300 text-sm">6.1 — How Market Professionals Exploit Retail Psychology</span><i data-id="262" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="263" class="lesson-item"><span data-id="264" class="lesson-dot"></span><span data-id="265" class="text-slate-300 text-sm">6.2 — Herd Behavior and Contrarian Thinking</span><i data-id="266" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="267" class="lesson-item"><span data-id="268" class="lesson-dot"></span><span data-id="269" class="text-slate-300 text-sm">6.3 — Smart Money vs. Dumb Money — Reading the Crowd</span><i data-id="270" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="271" class="lesson-item"><span data-id="272" class="lesson-dot"></span><span data-id="273" class="text-slate-300 text-sm">6.4 — Supply, Demand, and the Psychology Behind Price Action</span><i data-id="274" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="275" class="lesson-item"><span data-id="276" class="lesson-dot"></span><span data-id="277" class="text-slate-300 text-sm">6.5 — How Volume Reveals Institutional Intent</span><i data-id="278" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                        </div>
-                    </div>
+    <div class="support-note">
+      <h3>If it has stopped being a skills problem</h3>
+      <p>This course covers decision-making for people who have chosen to participate in markets. Some difficulties sit outside that, and no journal or rule set addresses them: repeatedly risking more than you planned and being unable to stop, chasing losses beyond your limits, trading money meant for rent or bills, hiding your trading, or continuing despite clear harm to your finances, work or relationships.<br><br>In the US, the <a href="https://www.ncpgambling.org/help-treatment/" target="_blank" rel="noopener">National Council on Problem Gambling</a> operates a confidential helpline on <strong>1-800-MY-RESET</strong> (1-800-697-3738, call or text) which covers financial-market speculation, and <a href="https://www.samhsa.gov/find-help/helplines/national-helpline" target="_blank" rel="noopener">SAMHSA's National Helpline</a> is <strong>1-800-662-4357</strong>. Outside the US, your national equivalent will offer similar services. There is nothing unusual about needing them.</p>
+    </div>
+  </div>
+</section>
 
-                    <!-- Module 7 -->
-                    <div data-id="279" class="module-card fade-in">
-                        <div data-id="280" class="module-header">
-                            <div data-id="281" class="flex items-start justify-between">
-                                <div data-id="282" class="flex items-start gap-4">
-                                    <span data-id="283" class="text-3xl">🧩</span>
-                                    <div data-id="284">
-                                        <span data-id="285" class="module-number">Module 7</span>
-                                        <h3 data-id="286" id="mod7-title-y6z1" class="text-lg md:text-xl font-bold text-white mt-1">Building Your Psychological Trading System</h3>
-                                    </div>
-                                </div>
-                                <span data-id="287" class="badge whitespace-nowrap">5 Lessons</span>
-                            </div>
-                        </div>
-                        <div data-id="288" id="mod7-lessons-a7b2">
-                            <div data-id="289" class="lesson-item"><span data-id="290" class="lesson-dot"></span><span data-id="291" class="text-slate-300 text-sm">7.1 — Creating a Personal Trading Manifesto</span><i data-id="292" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="293" class="lesson-item"><span data-id="294" class="lesson-dot"></span><span data-id="295" class="text-slate-300 text-sm">7.2 — Your Daily Mental Performance Checklist</span><i data-id="296" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="297" class="lesson-item"><span data-id="298" class="lesson-dot"></span><span data-id="299" class="text-slate-300 text-sm">7.3 — Meditation, Mindfulness, and Mental Recovery</span><i data-id="300" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="301" class="lesson-item"><span data-id="302" class="lesson-dot"></span><span data-id="303" class="text-slate-300 text-sm">7.4 — Long-Term Psychological Health as a Trader</span><i data-id="304" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                            <div data-id="305" class="lesson-item"><span data-id="306" class="lesson-dot"></span><span data-id="307" class="text-slate-300 text-sm">7.5 — Putting It All Together — Your Edge Is Your Mind</span><i data-id="308" data-lucide="chevron-right" class="w-4 h-4 text-slate-600 ml-auto flex-shrink-0"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- EMAIL -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Stay Updated</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:8px">New Modules. <span style="color:var(--amber)">First to Know.</span></h2>
+    <p style="color:rgba(255,255,255,.38);font-size:.93rem;margin-bottom:26px">Get notified when new modules go live. That's it — no noise.</p>
+    <div class="email-row">
+      <input type="email" id="ps-email" placeholder="your@email.com" autocomplete="email">
+      <button class="nav-cta" onclick="psSubscribe()">GET UPDATES</button>
+    </div>
+    <div class="email-ok" id="ps-ok">✓ You're in. Welcome to Hustlin'.</div>
+  </div>
+</section>
 
-        <!-- Who This Course Is For -->
-        <section data-id="309" id="who" class="py-16 md:py-24 px-4 md:px-8">
-            <div data-id="310" class="max-w-5xl mx-auto">
-                <div data-id="311" class="text-center mb-12">
-                    <h2 data-id="312" id="who-title-c8d3" class="text-2xl md:text-3xl font-bold mb-4">Who This Course Is For</h2>
-                    <p data-id="313" class="text-slate-400 max-w-xl mx-auto">Whether you're just starting or have years in the markets, your psychology is your most powerful — or most dangerous — asset.</p>
-                </div>
-                <div data-id="314" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div data-id="315" class="profile-card">
-                        <div data-id="316" class="flex items-center gap-3 mb-4">
-                            <div data-id="317" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
-                                <i data-id="318" data-lucide="sprout" class="w-6 h-6 text-gold-500"></i>
-                            </div>
-                            <h3 data-id="319" class="font-bold text-lg text-white">The Beginner Trader</h3>
-                        </div>
-                        <p data-id="320" class="text-slate-400 text-sm leading-relaxed">You're learning the markets and want to build on the right mental foundation from day one. Most beginners skip psychology and pay dearly. You won't make that mistake.</p>
-                    </div>
-                    <div data-id="321" class="profile-card">
-                        <div data-id="322" class="flex items-center gap-3 mb-4">
-                            <div data-id="323" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
-                                <i data-id="324" data-lucide="flame" class="w-6 h-6 text-gold-500"></i>
-                            </div>
-                            <h3 data-id="325" class="font-bold text-lg text-white">The Struggling Trader</h3>
-                        </div>
-                        <p data-id="326" class="text-slate-400 text-sm leading-relaxed">You know your strategy works on paper, but you keep breaking your own rules. Revenge trades, FOMO entries, early exits — this course was built for you.</p>
-                    </div>
-                    <div data-id="327" class="profile-card">
-                        <div data-id="328" class="flex items-center gap-3 mb-4">
-                            <div data-id="329" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
-                                <i data-id="330" data-lucide="target" class="w-6 h-6 text-gold-500"></i>
-                            </div>
-                            <h3 data-id="331" class="font-bold text-lg text-white">The Experienced Trader</h3>
-                        </div>
-                        <p data-id="332" class="text-slate-400 text-sm leading-relaxed">You're profitable but know there's another level. You want the mental edge to scale your performance, handle larger positions, and trade with unshakable composure.</p>
-                    </div>
-                    <div data-id="333" class="profile-card">
-                        <div data-id="334" class="flex items-center gap-3 mb-4">
-                            <div data-id="335" class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center">
-                                <i data-id="336" data-lucide="line-chart" class="w-6 h-6 text-gold-500"></i>
-                            </div>
-                            <h3 data-id="337" class="font-bold text-lg text-white">The Long-Term Investor</h3>
-                        </div>
-                        <p data-id="338" class="text-slate-400 text-sm leading-relaxed">You invest for the long haul but catch yourself panic-selling in drawdowns or chasing hot tips. This course gives you the emotional anchor to stay the course.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section data-id="339" id="enroll" class="cta-section py-20 md:py-28 px-4 md:px-8">
-            <div data-id="340" class="max-w-3xl mx-auto text-center">
-                <div data-id="341" class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20">
-                    <i data-id="342" data-lucide="zap" class="w-4 h-4 text-gold-500"></i>
-                    <span data-id="343" class="text-gold-500 text-sm font-semibold">TRANSFORM YOUR TRADING</span>
-                </div>
-                <h2 data-id="344" id="cta-title-e9f4" class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
-                    Your Edge Is <span data-id="345" class="gradient-gold-text">Your Mind</span>
-                </h2>
-                <p data-id="346" class="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-                    The market doesn't care about your feelings — but your profitability depends on how well you manage them. Join the traders who've decided to master the one variable they can actually control: themselves.
-                </p>
-                <div style="font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;color:#F0C030;margin-bottom:4px">$27.95</div>
-<div style="font-size:.85rem;color:#94a3b8;margin-bottom:26px">One-time payment · lifetime access</div>
-<div data-id="347" class="flex flex-col items-center gap-5">
-                    <a data-id="348" href="#" data-hfy-buy="psych" class="btn-gold text-lg px-10 py-4">
-                        Enroll Now
-                    </a>
-                    <div data-id="349" class="flex flex-wrap items-center justify-center gap-6 mt-4 text-sm text-slate-500">
-                        <span data-id="350" class="flex items-center gap-2"><i data-id="351" data-lucide="shield-check" class="w-4 h-4 text-gold-500/60"></i>Lifetime Access</span>
-                        <span data-id="352" class="flex items-center gap-2"><i data-id="353" data-lucide="refresh-cw" class="w-4 h-4 text-gold-500/60"></i>Free Updates</span>
-                        <span data-id="354" class="flex items-center gap-2"><i data-id="355" data-lucide="award" class="w-4 h-4 text-gold-500/60"></i>Certificate Included</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<!-- FOOTER -->
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
 <footer class="hfy-footer">
   <div class="hfy-ft-top">
 
@@ -686,7 +587,7 @@
         <a href="markets.html">Markets</a>
         <a href="technical-analysis.html">Technical Analysis — $27.95</a>
         <a href="fundamental-analysis.html">Fundamental Analysis — $27.95</a>
-        <a href="trading-psychology.html">Trading Psychology — Coming Soon</a>
+        <a href="trading-psychology.html">Trading Psychology — $27.95</a>
         <a href="economics.html">Economics for Traders — Coming Soon</a>
       </div>
     </div>
@@ -738,123 +639,93 @@
 </footer>
 <!-- FOOTER:END -->
 
-    <script>
-        // Icons — progressive enhancement
-        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
-            lucide.createIcons();
-        }
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn-j4m1');
-        const mobileMenu = document.getElementById('mobile-menu-r7p3');
-        const mobileMenuClose = document.getElementById('mobile-menu-close-u2q5');
-
-        if (mobileMenuBtn && mobileMenu && mobileMenuClose) {
-            mobileMenuBtn.addEventListener('click', function () {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            });
-
-            mobileMenuClose.addEventListener('click', function () {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-                document.body.style.overflow = '';
-            });
-
-            // Close on nav link click
-            document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Navbar background on scroll
-        const navbar = document.getElementById('navbar-x8k2');
-        if (navbar) {
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 40) {
-                    navbar.style.borderBottomColor = 'rgba(240,192,48, 0.1)';
-                    navbar.style.backgroundColor = 'rgba(10, 15, 30, 0.98)';
-                } else {
-                    navbar.style.borderBottomColor = 'rgba(255,255,255,0.05)';
-                    navbar.style.backgroundColor = 'rgba(10, 15, 30, 0.95)';
-                }
-            });
-        }
-
-        // Module card expand/collapse
-        document.querySelectorAll('.module-header').forEach(function (header) {
-            header.style.cursor = 'pointer';
-            header.addEventListener('click', function () {
-                const card = this.closest('.module-card');
-                const lessons = card.querySelector('[id^="mod"][id*="-lessons-"]');
-                if (!lessons) return;
-
-                const isHidden = lessons.style.display === 'none';
-                lessons.style.display = isHidden ? '' : 'none';
-
-                // Rotate chevrons or toggle indicator
-                const chevrons = lessons.querySelectorAll('[data-lucide="chevron-right"]');
-                // No special animation needed — simple toggle
-            });
-        });
-
-        // Fade-in on scroll (Intersection Observer)
-        const fadeEls = document.querySelectorAll('.fade-in');
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-            fadeEls.forEach(function (el) {
-                observer.observe(el);
-            });
-        } else {
-            // Fallback: show all
-            fadeEls.forEach(function (el) {
-                el.classList.add('visible');
-            });
-        }
-
-        // Lesson item hover ripple effect
-        document.querySelectorAll('.lesson-item').forEach(function (item) {
-            item.addEventListener('mouseenter', function () {
-                this.querySelector('.lesson-dot').style.boxShadow = '0 0 8px rgba(240,192,48, 0.6)';
-            });
-            item.addEventListener('mouseleave', function () {
-                this.querySelector('.lesson-dot').style.boxShadow = 'none';
-            });
-        });
-    </script>
-
-<!-- Hustlin' auth + checkout -->
-<script src="app.js?v=202607280949"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607280949"></script>
-<script src="auth.js?v=202607280949"></script>
-<script src="course-access.js?v=202607280949"></script>
-<script src="course-buy.js?v=202607280949"></script>
+<script src="supabase-config.js?v=202607281420"></script>
+<script src="app.js?v=202607281420"></script>
+<script src="rewards.js?v=202607281420"></script>
+<script src="auth.js?v=202607281420"></script>
+<script src="course-access.js?v=202607281420"></script>
+<script src="course-buy.js?v=202607281420"></script>
+<script>
+// Render nav stage states + roadmap cards
+HFY.initNavOnly();
+
+const psKeys = ['ps1','ps2','ps3','ps4','ps5'];
+
+// Update hero progress stat
+const totalPct = Math.round(
+  psKeys.reduce(function (sum, k) { return sum + HFY.getPct(k); }, 0) / psKeys.length
+);
+document.getElementById('hero-pct').textContent = totalPct;
+document.getElementById('hero-pct-bar').style.width = totalPct + '%';
+
+// Update journey card to show completed stages
+psKeys.forEach(function (key, i) {
+  const pct = HFY.getPct(key);
+  const jn = document.getElementById('jn' + (i + 1));
+  if (!jn) return;
+  if (pct >= 100) {
+    jn.className = 'j-num';
+    jn.style.background = 'var(--green)';
+    jn.style.color = '#fff';
+    jn.textContent = '✓';
+  } else if (HFY.isUnlocked(key) && i > 0 && HFY.getPct(psKeys[i - 1]) >= 100) {
+    jn.className = 'j-num now';
+  }
+});
+
+async function psSubscribe() {
+  const input = document.getElementById('ps-email');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) { input.focus(); return; }
+  const btn = input.nextElementSibling;
+  const original = btn.textContent;
+  btn.textContent = 'JOINING...'; btn.disabled = true;
+
+  const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/xvzeknrv';
+  try {
+    const body = new FormData();
+    body.append('email', email);
+    body.append('_subject', 'Newsletter signup - Trading Psychology');
+    body.append('source', 'trading-psychology');
+    const res = await fetch(NEWSLETTER_ENDPOINT, {
+      method: 'POST', headers: { 'Accept': 'application/json' }, body
+    });
+    if (!res.ok) throw new Error('Subscribe failed (' + res.status + ')');
+  } catch (e) {
+    console.error('newsletter signup failed', e);
+    btn.textContent = original; btn.disabled = false;
+    input.style.borderColor = '#EF4444';
+    alert("Sorry - that didn't go through. Please try again in a moment.");
+    return;
+  }
+  document.querySelector('.email-row').style.display = 'none';
+  document.getElementById('ps-ok').style.display = 'block';
+}
+document.getElementById('ps-email').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') psSubscribe();
+});
+
+// Every stage is paid — Trading Psychology has free_stages = 0, same as TA and FA.
+// This only corrects the roadmap card labels/lock icons to reflect real
+// purchase status. Actual access is enforced by the course-content Edge
+// Function, not by anything on this page.
+(async function () {
+  let hasAccess = false;
+  try { hasAccess = await HFY.access.checkCourseAccess('psych'); } catch (e) { hasAccess = false; }
+  psKeys.forEach(function (key) {
+    const card = document.querySelector('[data-stage-card="' + key + '"]');
+    if (!card) return;
+    const cap = card.querySelector('.s-lock-caption');
+    if (hasAccess) {
+      card.classList.add('live');
+      if (cap) cap.textContent = 'Unlocked · continue where you left off';
+    } else {
+      card.classList.remove('live');
+      if (cap) cap.textContent = '$27.95 one-time · sign-in required';
+    }
+  });
+})();
+</script>
 </body>
 </html>
