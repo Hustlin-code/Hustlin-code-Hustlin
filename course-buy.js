@@ -27,8 +27,15 @@
     else fn();
   }
 
+  // The all-access bundle has no stages of its own, so "Go to Course" for it
+  // has to land on the Learn hub rather than learn.html?course=all&stage=1,
+  // which would resolve to nothing.
+  var BUNDLE_KEY = 'all';
+
   function learnHref(course) {
-    return 'learn.html?course=' + encodeURIComponent(course) + '&stage=1';
+    return course === BUNDLE_KEY
+      ? 'learn.html'
+      : 'learn.html?course=' + encodeURIComponent(course) + '&stage=1';
   }
 
   function setLabel(el, text) {

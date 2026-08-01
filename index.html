@@ -8,13 +8,13 @@
 
 <!-- Social Preview -->
 <meta property="og:title" content="Hustlin'">
-<meta property="og:description" content="Free financial literacy course. Stage 1 needs no account at all. Banking, credit, budgeting, debt, investing — for people starting wherever they actually are.">
+<meta property="og:description" content="Free financial literacy course. Stages 1-3 need no account at all. Banking, credit, budgeting, debt, investing — for people starting wherever they actually are.">
 <meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
 <meta property="og:url" content="https://hustlin.org/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Hustlin'">
-<meta name="twitter:description" content="Free financial literacy course. Stage 1 needs no account at all. Banking, credit, budgeting, debt, investing — for people starting wherever they actually are.">
+<meta name="twitter:description" content="Free financial literacy course. Stages 1-3 need no account at all. Banking, credit, budgeting, debt, investing — for people starting wherever they actually are.">
 <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
 <link rel="canonical" href="https://hustlin.org/">
 <!-- Organization + WebSite schema. Gives Google an entity to attach the brand,
@@ -53,7 +53,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607281457">
+<link rel="stylesheet" href="styles.css?v=202607312132">
 <style>
 /* ── INDEX PAGE ONLY ── */
 
@@ -382,6 +382,28 @@
   
   
 }
+
+/* ─ All-access bundle band (index) ─ */
+.ix-bundle{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
+  margin-top:40px;padding:32px 36px;border-radius:18px;
+  background:linear-gradient(135deg,rgba(245,197,32,.10),rgba(245,197,32,.03));
+  border:1px solid rgba(245,197,32,.32)}
+.ix-bundle-label{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#f5c520;margin-bottom:10px}
+.ix-bundle-h{font-family:var(--f-display,inherit);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:800;
+  color:#fff;margin:0 0 10px;line-height:1.15}
+.ix-bundle-h em{font-style:normal;color:#f5c520}
+.ix-bundle-p{font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.62);margin:0;max-width:60ch}
+.ix-bundle-buy{text-align:center;flex-shrink:0}
+.ix-bundle-was{font-size:.78rem;color:rgba(255,255,255,.38);text-decoration:line-through;margin-bottom:2px}
+.ix-bundle-price{font-family:'Space Mono',ui-monospace,monospace;font-size:2.4rem;font-weight:700;
+  color:#f5c520;line-height:1}
+.ix-bundle-note{font-size:.72rem;color:rgba(255,255,255,.45);margin:4px 0 14px}
+.ix-bundle-btn{display:inline-flex;justify-content:center;width:100%;min-width:200px}
+@media(max-width:760px){
+  .ix-bundle{grid-template-columns:1fr;gap:22px;padding:26px 22px;text-align:center}
+  .ix-bundle-p{margin-inline:auto}
+}
 </style>
 </head>
 <body>
@@ -451,7 +473,7 @@
       <div class="ix-card ix-free live" onclick="location.href='financial-literacy.html'">
         <div class="ix-card-body">
           <div class="ix-card-ico">🏦</div>
-          <div class="ix-pill pill-free">Free · Stage 1 No Account</div>
+          <div class="ix-pill pill-free">Free · Stages 1-3 No Account</div>
           <div class="ix-card-title">Financial Literacy</div>
           <div class="ix-card-desc">Banking through building wealth. Starts from zero. No jargon, no judgment.</div>
         </div>
@@ -463,7 +485,7 @@
       <div class="ix-card ix-free ix-ta live" onclick="location.href='technical-analysis.html'">
         <div class="ix-card-body">
           <div class="ix-card-ico">📈</div>
-          <div class="ix-pill pill-free">$27.95 · One-Time</div>
+          <div class="ix-pill pill-free">$37.95 · One-Time</div>
           <div class="ix-card-title">Technical Analysis</div>
           <div class="ix-card-desc">Charts, indicators, patterns, and a complete trading system with defined rules.</div>
         </div>
@@ -472,28 +494,59 @@
           <div class="ix-card-go">View Course →</div>
         </div>
       </div>
-      <div class="ix-card ix-soon">
+      <div class="ix-card ix-free live" onclick="location.href='fundamental-analysis.html'">
         <div class="ix-card-body">
           <div class="ix-card-ico">📊</div>
-          <div class="ix-pill pill-soon">Coming Soon</div>
+          <div class="ix-pill pill-free">$37.95 · One-Time</div>
           <div class="ix-card-title">Fundamental Analysis</div>
           <div class="ix-card-desc">Financial statements, business quality, and calculating intrinsic value.</div>
         </div>
         <div class="ix-card-foot">
-          <div class="ix-card-note">Sign up below ↓</div>
-          <div class="ix-card-go">In Development</div>
+          <div class="ix-card-note">5 Stages · 40 Modules</div>
+          <div class="ix-card-go">View Course →</div>
         </div>
       </div>
-      <div class="ix-card ix-soon">
+      <div class="ix-card ix-free live" onclick="location.href='trading-psychology.html'">
         <div class="ix-card-body">
           <div class="ix-card-ico">🧠</div>
-          <div class="ix-pill pill-soon">Coming Soon</div>
+          <div class="ix-pill pill-free">$37.95 · One-Time</div>
           <div class="ix-card-title">Trading Psychology</div>
           <div class="ix-card-desc">Cognitive biases, emotional discipline, and the mental game of money.</div>
         </div>
         <div class="ix-card-foot">
-          <div class="ix-card-note">Sign up below ↓</div>
+          <div class="ix-card-note">5 Stages · 40 Modules</div>
+          <div class="ix-card-go">View Course →</div>
+        </div>
+      </div>
+      <div class="ix-card ix-soon">
+        <div class="ix-card-body">
+          <div class="ix-card-ico">🌍</div>
+          <div class="ix-pill pill-soon">Coming Soon</div>
+          <div class="ix-card-title">Economics for Traders</div>
+          <div class="ix-card-desc">Growth, inflation, interest rates and the indicators that actually move markets.</div>
+        </div>
+        <div class="ix-card-foot">
+          <div class="ix-card-note">5 Stages · 40 Modules</div>
           <div class="ix-card-go">In Development</div>
+        </div>
+      </div>
+
+      <!-- ─ ALL-ACCESS BUNDLE ─
+           Price and entitlement both come from the 'all' row in public.courses.
+           The button is wired by course-buy.js via data-hfy-buy, exactly like
+           every single-course button, so it inherits the same signed-out /
+           already-owned handling for free. -->
+      <div class="ix-bundle">
+        <div class="ix-bundle-copy">
+          <div class="ix-bundle-label">Best Value</div>
+          <h3 class="ix-bundle-h">Every Paid Course. <em>One Payment.</em></h3>
+          <p class="ix-bundle-p">Technical Analysis, Fundamental Analysis, Trading Psychology and Economics for Traders — four complete courses, 160 modules, all the downloadable templates. Bought separately that&rsquo;s $151.80.</p>
+        </div>
+        <div class="ix-bundle-buy">
+          <div class="ix-bundle-was">$151.80 separately</div>
+          <div class="ix-bundle-price">$127.95</div>
+          <div class="ix-bundle-note">One-time · lifetime access</div>
+          <a class="btn-a ix-bundle-btn" href="#" data-hfy-buy="all">Get All-Access</a>
         </div>
       </div>
     </div>
@@ -504,11 +557,11 @@
 <section class="ix-featured">
   <div class="ix-featured-inner">
     <div>
-      <div class="ix-feat-label"><div class="ix-feat-dot"></div>Free · Stage 1 Needs No Account</div>
+      <div class="ix-feat-label"><div class="ix-feat-dot"></div>Free · Stages 1-3 Need No Account</div>
       <h2 class="ix-feat-h">The Financial Foundation<br><em>Nobody Taught You.</em></h2>
       <p class="ix-feat-p">Five stages from banking basics to building wealth. Starts from absolute zero. Built for people who were never given a roadmap — until now.</p>
       <div class="cta-row" style="margin-top:0">
-        <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Stage 1 Free" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
+        <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Stage 1 Free — no account needed" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
       </div>
     </div>
     <div class="ix-stages">
@@ -606,10 +659,11 @@
         <a href="financial-literacy.html">Financial Literacy — Free</a>
         <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="markets.html">Markets</a>
-        <a href="technical-analysis.html">Technical Analysis — $27.95</a>
-        <a href="fundamental-analysis.html">Fundamental Analysis — $27.95</a>
-        <a href="trading-psychology.html">Trading Psychology — $27.95</a>
+        <a href="technical-analysis.html">Technical Analysis — $37.95</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis — $37.95</a>
+        <a href="trading-psychology.html">Trading Psychology — $37.95</a>
         <a href="economics.html">Economics for Traders — Coming Soon</a>
+        <a href="index.html#courses"><strong>All-Access Bundle — $127.95</strong></a>
       </div>
     </div>
 
@@ -649,7 +703,7 @@
   </div>
 
   <div class="hfy-ft-bottom">
-    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    <div class="hfy-ft-copy">© 2026 Hustlin', a Lakeview Capital LLC brand · hustlin.org · All rights reserved</div>
     
   </div>
 
@@ -660,7 +714,16 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=202607281457"></script>
+<!-- The all-access bundle button uses data-hfy-buy, which course-buy.js wires
+     up. That needs the same stack the course sales pages load: supabase-js,
+     config, auth, then the access/buy helpers. Order matters — course-buy.js
+     bails with a console error if HFY.auth and HFY.access aren't defined yet. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
+<script src="supabase-config.js?v=202607312132"></script>
+<script src="app.js?v=202607312132"></script>
+<script src="auth.js?v=202607312132"></script>
+<script src="course-access.js?v=202607312132"></script>
+<script src="course-buy.js?v=202607312132"></script>
 
 </body>
 </html>

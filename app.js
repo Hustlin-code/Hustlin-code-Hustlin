@@ -28,8 +28,9 @@ window.HFY = (function(){
   // was never called for it — ticked boxes never came back and no win ever
   // fired. It read as "working" only because its navigation is self-contained.
   const DWG_STAGES = ['dwg1'];
-  const STAGES = FL_STAGES.concat(TA_STAGES, FA_STAGES, PS_STAGES, DWG_STAGES);
-  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES, fund: FA_STAGES, psych: PS_STAGES, dwg: DWG_STAGES };
+  const EC_STAGES = ['ec1','ec2','ec3','ec4','ec5'];
+  const STAGES = FL_STAGES.concat(TA_STAGES, FA_STAGES, PS_STAGES, EC_STAGES, DWG_STAGES);
+  const COURSE_STAGE_LISTS = { fl: FL_STAGES, ta: TA_STAGES, fund: FA_STAGES, psych: PS_STAGES, econ: EC_STAGES, dwg: DWG_STAGES };
   const STAGE_META = {
     stage1: { num:1, name:'Survive',      file:'stage-1-survive.html',   course:'fl' },
     stage2: { num:2, name:'Stabilize',    file:'stage-2-stabilize.html', course:'fl' },
@@ -51,6 +52,11 @@ window.HFY = (function(){
     ps3: { num:3, name:'Risk & Loss',              file:'stage-3-risk-and-loss.html',              course:'psych' },
     ps4: { num:4, name:'Emotion Under Fire',       file:'stage-4-emotion-under-fire.html',         course:'psych' },
     ps5: { num:5, name:'The Repeatable Process',   file:'stage-5-the-repeatable-process.html',     course:'psych' },
+    ec1: { num:1, name:'Economics 101',                file:'stage-1-economics-101.html',              course:'econ' },
+    ec2: { num:2, name:'Inflation',                    file:'stage-2-inflation.html',                  course:'econ' },
+    ec3: { num:3, name:'Rates, Central Banks & Bonds', file:'stage-3-rates-central-banks-bonds.html',  course:'econ' },
+    ec4: { num:4, name:'Indicators & the Global Economy', file:'stage-4-indicators-global.html',       course:'econ' },
+    ec5: { num:5, name:'Sectors & Strategy',           file:'stage-5-sectors-strategy.html',           course:'econ' },
     dwg1:{ num:1, name:'Disability Wealth Guide',  file:'disability-wealth-guide.html',            course:'dwg' }
   };
 

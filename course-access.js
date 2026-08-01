@@ -17,13 +17,19 @@
   // Returns true if the currently signed-in user has a paid purchase row
   // for this course. Relies on Supabase RLS to only ever return the
   // caller's own rows (see supabase/schema.sql — "select own purchases").
+  // The all-access bundle. Mirrors BUNDLE_KEY in the Edge Functions.
+  const BUNDLE_KEY = 'all';
+
   async function checkCourseAccess(course){
     const user = await window.HFY.auth.getUser();
     if(!user) return false;
+    // Either a purchase of this course, or of the bundle that contains it.
+    // Same rule the course-content function enforces server-side — this copy
+    // exists only so buttons render correctly, and cannot grant anything.
     const { data, error } = await window.HFY_SUPABASE
       .from('purchases')
       .select('id')
-      .eq('course', course)
+      .in('course', course === BUNDLE_KEY ? [BUNDLE_KEY] : [course, BUNDLE_KEY])
       .eq('status', 'paid')
       .limit(1);
     if(error){ console.error('checkCourseAccess error', error); return false; }

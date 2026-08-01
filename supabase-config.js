@@ -24,10 +24,13 @@ window.HFY_CONFIG = {
   // what they're charged or what they can open.
   COURSES: {
     fl:    { name: 'Financial Literacy',           price: 0,     free: true  },
-    ta:    { name: 'Technical Analysis',           price: 27.95, free: false },
-    econ:  { name: 'Economics for Traders',        price: 27.95, free: false },
-    fund:  { name: 'Fundamental Analysis Mastery', price: 27.95, free: false },
-    psych: { name: 'Trading Psychology Mastery',   price: 27.95, free: false },
-    dwg:   { name: 'Disability Wealth Guide',      price: 0,     free: true  }
+    ta:    { name: 'Technical Analysis',           price: 37.95, free: false },
+    econ:  { name: 'Economics for Traders',        price: 37.95, free: false },
+    fund:  { name: 'Fundamental Analysis Mastery', price: 37.95, free: false },
+    psych: { name: 'Trading Psychology Mastery',   price: 37.95, free: false },
+    dwg:   { name: 'Disability Wealth Guide',      price: 0,     free: true  },
+    // Not a course — the all-access bundle SKU. Entitles the buyer to every
+    // paid course; see BUNDLE_KEY in the course-content Edge Function.
+    all:   { name: 'All-Access Bundle',            price: 127.95, free: false }
   }
 };

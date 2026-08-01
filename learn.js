@@ -67,6 +67,16 @@
         { n: 4, alt: 'Emotion Under Fire' },
         { n: 5, alt: 'The Repeatable Process' }
       ]
+    },
+    econ: {
+      logo: 'assets/hustlin-logo.png',
+      stages: [
+        { n: 1, alt: 'Economics 101' },
+        { n: 2, alt: 'Inflation' },
+        { n: 3, alt: 'Rates, Banks & Bonds' },
+        { n: 4, alt: 'Indicators & Global' },
+        { n: 5, alt: 'Sectors & Strategy' }
+      ]
     }
   };
 
@@ -87,7 +97,10 @@
   // tabs and the error card in one move, for every stage of the course. Add
   // a key here when a future course gets its own colour.
   var COURSE_THEMES = {
-    ta: { '--amber': '#2FA7FF', '--amber-lt': '#7DD8FF' }
+    ta:    { '--amber': '#2FA7FF', '--amber-lt': '#7DD8FF' },
+    fund:  { '--amber': '#2DA02D', '--amber-lt': '#6EDB72' },
+    psych: { '--amber': '#7C5CE6', '--amber-lt': '#A98FF3' },
+    econ:  { '--amber': '#E07B39', '--amber-lt': '#F2A76B' }
   };
   (function applyCourseTheme() {
     var t = COURSE_THEMES[course];
@@ -374,19 +387,38 @@
   // Appended under a lesson that a signed-out visitor just read for free.
   // This is the only place the free stage asks for anything: they've already
   // got the whole lesson, so the pitch is "keep going", not "pay a toll".
+  // End-of-stage signup prompt for signed-out readers.
+  //
+  // This fires on the LAST anonymously-readable stage only, not after every
+  // free one. With Financial Literacy open through Stage 3, prompting at the
+  // end of 1 and 2 would be asking for an account the reader doesn't need
+  // yet — three interruptions for a gate that only exists once, on a course
+  // advertised as free. Asking at the end of Stage 3, where the next click
+  // genuinely requires an account, is both honest and better timed: the
+  // reader has finished three stages and is invested.
   function renderNextStepPrompt(data) {
     if (signedIn) return;
-    if (stage >= (data.stage_count || 1)) return;
 
+    var total = num(data.stage_count) || 1;
+    var anon = num(data.anon_stages);
+    if (stage >= total) return;   // nothing after the final stage
+    if (stage !== anon) return;   // only on the LAST anonymously-open stage.
+                                  // anon = 0 means a signed-out reader never
+                                  // reaches a lesson at all, so this never
+                                  // fires for the paid courses.
+
+    var remaining = total - stage;
     var back = encodeURIComponent(window.location.href);
     var box = document.createElement('div');
     box.className = 'hfy-learn-card';
     box.style.cssText = 'max-width:560px;margin:40px auto 0;text-align:center';
     box.innerHTML =
       '<h3>That\'s Stage ' + stage + ' done.</h3>' +
-      '<p>Stage ' + (stage + 1) + ' picks up right where this left off. Create a free ' +
-      'account to keep going and to save your progress across the rest of ' +
-      (data.course_name || 'the course') + ' — it\'s free, all the way through.</p>' +
+      '<p>You\'ve read ' + (stage > 1 ? 'the first ' + stage + ' stages' : 'Stage 1') +
+      ' without an account. Stage ' + (stage + 1) +
+      (remaining > 1 ? '–' + total : '') + ' need' + (remaining > 1 ? '' : 's') +
+      ' a free one — it takes about twenty seconds, costs nothing, and saves your ' +
+      'progress across the rest of ' + (data.course_name || 'the course') + '.</p>' +
       '<a class="btn-a" href="signup.html?redirect=' + back +
       '" style="width:100%;justify-content:center">Create Free Account</a>' +
       '<div class="hfy-learn-alt">Already have one? <a href="login.html?redirect=' + back +

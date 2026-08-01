@@ -682,6 +682,11 @@
         var owned = await client.from('purchases').select('course').eq('status', 'paid');
         if (!owned.error && owned.data) {
           var mine = owned.data.map(function (p) { return p.course; });
+          // Owning the all-access bundle means owning every paid course, so
+          // there is nothing honest left to pitch. Without this a bundle
+          // buyer gets sold a course they already paid for, which is the
+          // fastest way to turn a happy customer into a refund request.
+          if (mine.indexOf('all') !== -1) return null;
           candidates = candidates.filter(function (c) { return mine.indexOf(c.key) === -1; });
         }
       }
