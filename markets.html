@@ -438,6 +438,252 @@
      build time by tools/inject-market-data.mjs, so a crawler reads real
      text instead of an empty iframe. Do not hand-edit inside the markers.
      =================================================================== -->
+
+<style>
+/* Dashboard / motivation / news / disciplines — all mkt- prefixed, additive */
+.mkt-dash{background:#060606;padding:56px 22px}
+.mkt-dash-in{max-width:1060px;margin:0 auto}
+.mkt-dash .eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#F5C520;margin:0 0 12px}
+.mkt-dash h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24px,4vw,36px);color:#fff;margin:0 0 26px;letter-spacing:-.015em}
+.mkt-quote-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.mkt-quote{background:#111;border:1px solid #262626;border-radius:12px;padding:16px}
+.mkt-quote-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9a9488;margin:0 0 8px}
+.mkt-quote-px{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:#fff;margin:0 0 4px;line-height:1}
+.mkt-quote-chg{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;margin:0 0 8px}
+.mkt-quote.up .mkt-quote-chg{color:#2DA02D}.mkt-quote.down .mkt-quote-chg{color:#EF4444}
+.mkt-quote-sym{font-size:11px;color:#6b665c;margin:0}
+.mkt-quote-note{font-size:12px;color:#6b665c;margin:16px 0 0;line-height:1.6}
+
+.mkt-mot{background:radial-gradient(ellipse at 50% 0%,#1a1a1a 0%,#060606 70%);padding:52px 22px;text-align:center;border-top:1px solid #1c1c1c}
+.mkt-mot-in{max-width:720px;margin:0 auto}
+.mkt-mot .eye{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C520;margin:0 0 16px}
+#mkt-quote-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(20px,3.4vw,30px);line-height:1.35;color:#fff;margin:0;letter-spacing:-.01em}
+
+.mkt-news-wrap{background:#FAF7F0;padding:56px 22px}
+.mkt-news-in{max-width:1060px;margin:0 auto}
+.mkt-news-in h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,3.6vw,32px);color:#060606;margin:0 0 8px}
+.mkt-news-in .lede{font-size:15px;color:#5c574c;margin:0 0 26px;line-height:1.6}
+.mkt-news{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.mkt-news-item{background:#fff;border:1px solid #E4DFD3;border-radius:12px;padding:16px}
+.mkt-news-item a{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;line-height:1.4;color:#060606;text-decoration:none}
+.mkt-news-item a:hover{color:#8A6D08}
+.mkt-news-sum{font-size:13px;line-height:1.5;color:#5c574c;margin:8px 0 6px}
+.mkt-news-src{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8b8577;margin:0}
+
+.mkt-disc{background:#fff;padding:56px 22px;border-top:1px solid #E4DFD3}
+.mkt-disc-in{max-width:1060px;margin:0 auto}
+.mkt-disc-in h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,3.6vw,32px);color:#060606;margin:0 0 10px}
+.mkt-disc-in .lede{font-size:15px;line-height:1.65;color:#5c574c;max-width:660px;margin:0 0 28px}
+.mkt-disc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.mkt-disc-card{border:1px solid #E4DFD3;border-radius:14px;padding:20px;background:#FAF7F0}
+.mkt-disc-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:#060606;margin:0 0 8px}
+.mkt-disc-card p{font-size:13px;line-height:1.6;color:#5c574c;margin:0 0 12px}
+.mkt-disc-card a{display:inline-block;font-size:13px;font-weight:700;color:#8A6D08;text-decoration:none}
+.mkt-disc-card a:hover{text-decoration:underline}
+.mkt-disc-card .free{color:#2DA02D}
+@media(max-width:600px){.mkt-dash,.mkt-news-wrap,.mkt-disc{padding:40px 16px}}
+</style>
+
+<!-- ============ DAILY DASHBOARD ============ -->
+<section class="mkt-dash" id="dashboard">
+  <div class="mkt-dash-in">
+    <p class="eye">Today's Tape</p>
+    <h2>Where the market actually closed.</h2>
+    <!-- MKT:quotes:START -->
+    <div class="mkt-quote-row">
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">S&amp;P 500</h3>
+        <p class="mkt-quote-px" data-fill="q-SPY">$747.03</p>
+        <p class="mkt-quote-chg">+0.72%</p>
+        <p class="mkt-quote-sym">SPY · day range 737.68–748.89</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Dow Jones</h3>
+        <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
+        <p class="mkt-quote-chg">+0.54%</p>
+        <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Nasdaq 100</h3>
+        <p class="mkt-quote-px" data-fill="q-QQQ">$687.99</p>
+        <p class="mkt-quote-chg">+0.65%</p>
+        <p class="mkt-quote-sym">QQQ · day range 680.05–695.77</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Russell 2000</h3>
+        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
+        <p class="mkt-quote-chg">-0.48%</p>
+        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Gold</h3>
+        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
+        <p class="mkt-quote-chg">-1.49%</p>
+        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>
+        <p class="mkt-quote-px" data-fill="q-TLT">$82.25</p>
+        <p class="mkt-quote-chg">-0.66%</p>
+        <p class="mkt-quote-sym">TLT · day range 81.89–82.45</p>
+      </article>
+</div>
+    <!-- MKT:quotes:END -->
+    <p class="mkt-quote-note">
+      These are the ETFs, not the indexes &mdash; SPY rather than the S&amp;P 500 itself.
+      That is deliberate: an index is a number you cannot buy, an ETF is the thing you
+      would actually own. Prices are last close, refreshed each build.
+    </p>
+  </div>
+</section>
+
+<!-- ============ DAILY MOTIVATION — rotates by day of year, no backend ============ -->
+<section class="mkt-mot" id="daily">
+  <div class="mkt-mot-in">
+    <p class="eye">Today's Reminder</p>
+    <p id="mkt-quote-text">Time in the market beats timing the market.</p>
+  </div>
+</section>
+<script>
+/* Day-of-year rotation. No backend, no storage, no maintenance: the same line
+   shows for everyone all day and changes at midnight. Deterministic on purpose —
+   a random quote per page-load makes the page feel broken on refresh. */
+(function () {
+  var lines = [
+    "Time in the market beats timing the market.",
+    "The best day to start was ten years ago. The second best is today.",
+    "You do not need to be right often. You need to be right about size.",
+    "Boring compounds. Exciting usually does not.",
+    "A budget is telling your money where to go instead of wondering where it went.",
+    "The market can stay irrational longer than you can stay leveraged.",
+    "Every expert was once a beginner who did not quit.",
+    "Risk is what is left over when you think you have thought of everything.",
+    "Your savings rate matters more than your returns for the first ten years.",
+    "Cutting an expense is a raise you do not have to ask for.",
+    "Nobody ever went broke taking a profit is a lie. People go broke taking small profits and large losses.",
+    "The goal is not to never lose. It is to never lose big.",
+    "Debt at 22% is a guaranteed negative return. Pay it before you invest.",
+    "You cannot control returns. You can control fees, taxes, and how often you touch it.",
+    "An emergency fund is not an investment. It is what stops you selling investments at the worst moment.",
+    "Diversification is admitting you do not know which one wins.",
+    "The plan you can stick to beats the optimal plan you abandon.",
+    "Compounding is quiet for years, then loud all at once.",
+    "If you cannot explain why you own it, you do not own it — it owns you.",
+    "Most financial mistakes are behavioural, not mathematical.",
+    "Price is what you pay. Value is what you get.",
+    "A 50% loss needs a 100% gain to break even. Protect the downside.",
+    "Being early and being wrong feel identical at the time.",
+    "The market pays you for patience, not for effort.",
+    "Automate the decision once so you do not have to make it every month.",
+    "Your first $1,000 saved changes more in your life than your first $100,000 invested.",
+    "Nobody is coming. That is the bad news and the good news.",
+    "Small, boring, repeated. That is the whole strategy.",
+    "You are allowed to start over. You are not allowed to stop.",
+    "Broke is a moment. Poor is a mindset. You are working on the moment."
+  ];
+  var now = new Date();
+  var day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+  var el = document.getElementById('mkt-quote-text');
+  if (el) el.textContent = lines[day % lines.length];
+})();
+</script>
+
+<!-- ============ NEWS ============ -->
+<section class="mkt-news-wrap" id="news">
+  <div class="mkt-news-in">
+    <h2>What moved, and why</h2>
+    <p class="lede">Headlines only, linked to the source. We do not republish other people's reporting.</p>
+    <!-- MKT:news:START -->
+    <ul class="mkt-news">
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/08/01/traders-go-full-time-on-prediction-markets-using-ai-bots-and-antennas.html" target="_blank" rel="noopener nofollow">Looking at just the odds isn’t enough. How traders gain an edge on prediction markets</a>
+        <p class="mkt-news-sum">Gaining an edge on prediction markets requires speed and skills beyond just reading the odds on platforms like Kalshi and Polymarket.</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/08/01/open-ai-hugging-face-hack-cyber-warnings.html" target="_blank" rel="noopener nofollow">OpenAI's Hugging Face hack confirmed months of AI cyber warnings: 'Pandora's box is open'</a>
+        <p class="mkt-news-sum">The wake-up call to the cyber industry comes as industry experts descend on Black Hat, a major cybersecurity conference.</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/07/31/andy-jassy-soothed-concerns-over-amazons-massive-ai-spending-heres-how-he-did-it-.html" target="_blank" rel="noopener nofollow">Andy Jassy soothed concerns over Amazon's massive AI spending. Here's how he did it</a>
+        <p class="mkt-news-sum">Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/07/31/clear-street-pre-ipo-platform-databricks.html" target="_blank" rel="noopener nofollow">Fintech broker Clear Street offers investors pre-IPO access to $188 billion AI giant Databricks</a>
+        <p class="mkt-news-sum">Fintech brokerage Clear Street is launching a private markets platform, beginning with Databricks stakes, to give investors more access to late-stage…</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/07/31/the-sp-500-is-stuck-this-obscure-index-could-determine-the-markets-next-move.html" target="_blank" rel="noopener nofollow">The S&amp;P 500 is stuck at a key battleground level. This obscure index could determine the market’s next move</a>
+        <p class="mkt-news-sum">Options traders and market makers in Chicago were quick to buy dips below 7,500 in the benchmark index Friday, but almost as quick to sell rallies…</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/07/31/spider-man-brand-new-day-box-office-preview-sales.html" target="_blank" rel="noopener nofollow">‘Spider-Man: Brand New Day’ sets domestic box office preview record with $72 million</a>
+        <p class="mkt-news-sum">Sony and Marvel's &quot;Spider-Man: Brave New Day&quot; is expected to haul in around $270 million domestically over its debut weekend.</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/07/31/jim-cramer-buy-this-industrial-stock-on-the-dip-if-you-dont-own-it-already.html" target="_blank" rel="noopener nofollow">Jim Cramer: Buy this industrial stock on the dip if you don't own it already</a>
+        <p class="mkt-news-sum">The Investing Club holds its &quot;Morning Meeting&quot; every weekday at 10:20 a.m. ET.</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+      <li class="mkt-news-item">
+        <a href="https://www.cnbc.com/2026/07/31/fifa-world-cup-private-equity-sports.html" target="_blank" rel="noopener nofollow">FIFA tests the limits of private equity in sports with World Cup subsidiary sale</a>
+        <p class="mkt-news-sum">UEFA and Concacaf's rejection of FIFA's plan to sell a 20% stake in the World Cup's commercial operations highlights uneasiness with private equity in…</p>
+        <p class="mkt-news-src">CNBC</p>
+      </li>
+</ul>
+    <!-- MKT:news:END -->
+  </div>
+</section>
+
+<!-- ============ THE FOUR DISCIPLINES ============ -->
+<section class="mkt-disc" id="disciplines">
+  <div class="mkt-disc-in">
+    <h2>Four ways to read the same market</h2>
+    <p class="lede">
+      Every number on this page is evidence for one of four questions. Nobody uses all four
+      equally, and anyone claiming one is sufficient is selling something. The data is free
+      here; the reasoning is what the courses teach.
+    </p>
+    <div class="mkt-disc-grid">
+      <article class="mkt-disc-card">
+        <h3>Economic</h3>
+        <p>Inflation, rates, employment, the yield curve. The tide every other boat sits on. Start here &mdash; it explains more of the move than anything else on this page.</p>
+        <a href="economics.html">Economics for Traders &rarr;</a>
+      </article>
+      <article class="mkt-disc-card">
+        <h3>Fundamental</h3>
+        <p>What a business earns, owns and owes. Whether the price you would pay is defensible against the cash the company actually produces.</p>
+        <a href="fundamental-analysis.html">Fundamental Analysis &rarr;</a>
+      </article>
+      <article class="mkt-disc-card">
+        <h3>Technical</h3>
+        <p>What price and volume are doing right now. Not prediction &mdash; a record of what buyers and sellers have already agreed on.</p>
+        <a href="technical-analysis.html">Technical Analysis &rarr;</a>
+      </article>
+      <article class="mkt-disc-card">
+        <h3>Behavioural</h3>
+        <p>The one that decides outcomes. Most losses are not analytical failures; they are a good plan abandoned at the worst moment.</p>
+        <a href="trading-psychology.html">Trading Psychology &rarr;</a>
+      </article>
+      <article class="mkt-disc-card">
+        <h3>Not investing yet?</h3>
+        <p>None of the above matters until banking, debt and an emergency fund are handled. That course is free, all five stages, no account.</p>
+        <a class="free" href="financial-literacy.html">Start free &rarr;</a>
+      </article>
+      <article class="mkt-disc-card">
+        <h3>Run your own numbers</h3>
+        <p>Eleven calculators &mdash; compound growth, debt payoff, net worth, your financial freedom number. Free, nothing saved to a server.</p>
+        <a class="free" href="calculate-your-hustle.html">Calculate Your Hustle &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="mkt-econ" id="economic-analysis">
   <div class="mkt-econ-in">
     <p class="eye">Economic Analysis</p>
