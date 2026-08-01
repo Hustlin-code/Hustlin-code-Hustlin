@@ -3,23 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Live market data from Hustlin' — indices, crypto, and forex, with plain-English context. Watch the market while you learn what you're actually looking at.">
-<title>Markets | Hustlin'</title>
+<meta name="description" content="Current US inflation, Fed funds rate, unemployment, GDP and the 10y-2y yield curve, explained in plain English — plus sector performance and market headlines. Free, sourced from the Federal Reserve.">
+<title>Live Economic Data — Inflation, Fed Rate, Yield Curve | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Markets | Hustlin'">
-<meta property="og:description" content="Live market data with plain-English context. Watch the market while you learn what you're actually looking at.">
+<meta property="og:title" content="Live Economic Data — Inflation, Fed Rate, Yield Curve | Hustlin\'">
+<meta property="og:description" content="Inflation, rates, unemployment and the yield curve — the numbers that move everything else, explained without jargon.">
 <meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
 <meta property="og:url" content="https://hustlin.org/markets.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Markets | Hustlin'">
-<meta name="twitter:description" content="Live market data with plain-English context. Watch the market while you learn what you're actually looking at.">
+<meta name="twitter:title" content="Live Economic Data — Inflation, Fed Rate, Yield Curve | Hustlin\'">
+<meta name="twitter:description" content="Inflation, rates, unemployment and the yield curve, explained without jargon. Free.">
 <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
 <link rel="canonical" href="https://hustlin.org/markets.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Dataset",
+      "name": "US Economic Indicators — Hustlin' Markets",
+      "description": "Current US inflation (CPI and core CPI), Fed funds rate, unemployment, GDP growth, personal savings rate, Treasury yields and the 10-year minus 2-year spread, with plain-English explanation of each.",
+      "url": "https://hustlin.org/markets.html",
+      "isAccessibleForFree": true,
+      "creator": { "@id": "https://hustlin.org/#organization" },
+      "license": "https://fred.stlouisfed.org/legal/",
+      "isBasedOn": "https://fred.stlouisfed.org/",
+      "variableMeasured": [
+        "Consumer Price Index (CPIAUCSL)", "Core CPI (CPILFESL)",
+        "Unemployment Rate (UNRATE)", "Federal Funds Rate (FEDFUNDS)",
+        "Real GDP Growth", "Personal Savings Rate (PSAVERT)",
+        "10-Year Treasury (DGS10)", "2-Year Treasury (DGS2)", "30-Year Mortgage Rate"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://hustlin.org/markets.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the current US inflation rate?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Inflation is measured by the Consumer Price Index, reported as the percent change from a year ago. This page shows the latest CPI and core CPI figures from the Federal Reserve, each stamped with its reference month. Core CPI strips out food and energy because those two categories swing hardest month to month, which is why the Fed watches it more closely than headline CPI." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does an inverted yield curve mean?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The curve is inverted when short-term Treasuries yield more than long-term ones — normally the reverse is true, because investors expect compensation for tying money up longer. Inversion has preceded most modern US recessions, but the lead time has ranged from a few months to over two years, so it is a signal rather than a timer." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Fed funds rate affect me?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is the rate banks charge each other overnight, and almost every other rate moves off it. When it rises, credit card APRs, car loans and mortgages follow within weeks; savings account and CD yields follow too, usually more slowly. It is the single number with the widest reach into an ordinary household budget." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does this economic data come from?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every economic figure comes from FRED, the Federal Reserve Bank of St. Louis, which republishes official Bureau of Labor Statistics and Bureau of Economic Analysis series. Each number links to its own FRED series page and shows its reference month. Market quotes come from Finnhub. Nothing here is estimated or modelled." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="styles.css?v=20260801">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
