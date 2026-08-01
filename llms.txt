@@ -1,0 +1,62 @@
+# Hustlin'
+
+> Free financial education for people building from the ground up. Plain-language
+> courses on banking, credit, budgeting, debt, and investing — written for people
+> starting from zero or starting over, including returning citizens, people
+> rebuilding after bankruptcy or divorce, and people living on SSDI or SSI.
+> Published by Hustlin' (hustlin.org), an independent financial education
+> publisher operating from Tennessee. Educational content only — not financial,
+> tax, legal, or benefits advice.
+
+## Free Financial Literacy Course
+Five stages, free the whole way through. Stages 1–5 are readable with no account.
+
+- [Financial Literacy Course hub](https://hustlin.org/financial-literacy.html): Course overview and the five-stage roadmap
+- [Stage 1: Survive](https://hustlin.org/stage-1-survive.html): Second-chance banking, ChexSystems, credit score fundamentals, zero-based budgeting, predatory lending traps, budgeting on irregular income, the three-tier safety net
+- [Stage 2: Stabilize](https://hustlin.org/stage-2-stabilize.html): Building a $1,000 emergency fund, the debt avalanche, negotiating bills down, debt collector rights under the FDCPA, consolidation and balance transfers, side income
+- [Stage 3: Rebuild](https://hustlin.org/stage-3-rebuild.html): Disputing credit report errors, rebuilding after collections or bankruptcy, compound interest, first brokerage account, Roth vs traditional IRA, index funds and ETFs, employer matching
+- [Stage 4: Invest](https://hustlin.org/stage-4-invest.html): How the stock market works, S&P 500 vs total market index funds, dividend investing and DRIP, reading a brokerage statement, dollar-cost averaging, risk and diversification, long-run returns by asset class
+- [Stage 5: Build Wealth](https://hustlin.org/stage-5-wealth.html): Staying invested through downturns, raising your savings rate, tax strategy basics, income from dividends and interest, wills and beneficiaries, charitable giving accounts, the financial freedom number
+
+## Specialist Guides
+- [Disability Wealth Guide](https://hustlin.org/disability-wealth-guide.html): How SSDI and SSI recipients can legally save and invest without losing benefits — SSDI vs SSI rules, ABLE accounts, Special Needs Trusts, work incentives, WIPA counselors. Figures sourced from the SSA Red Book, IRS publications, and the ABLE National Resource Center, with a stated verification date.
+
+## Free Tools
+- [Calculate Your Hustle](https://hustlin.org/calculate-your-hustle.html): Eleven free calculators — budget builder, paycheck split, emergency fund, sinking fund, debt overview, debt payoff timeline, credit utilization, compound interest, investment growth, net worth tracker, financial freedom number. No account, runs entirely client-side.
+
+## Blog
+- [ChexSystems Explained](https://hustlin.org/blog/chexsystems-explained.html): What ChexSystems is, how long records last, how to get your free report and dispute errors
+- [Debt Avalanche vs. Snowball](https://hustlin.org/blog/debt-avalanche-vs-snowball.html): The real math on both methods and when each one makes sense
+- [Saving Money on SSI](https://hustlin.org/blog/save-money-on-ssi.html): How to save without breaching the $2,000 SSI resource limit
+- [Blog index](https://hustlin.org/blog.html)
+
+## Paid Courses
+Single one-time payment, lifetime access, no subscription.
+
+- [Technical Analysis](https://hustlin.org/technical-analysis.html)
+- [Fundamental Analysis](https://hustlin.org/fundamental-analysis.html)
+- [Trading Psychology](https://hustlin.org/trading-psychology.html)
+- [Economics for Traders](https://hustlin.org/economics.html)
+
+## Tools
+- [Markets](https://hustlin.org/markets.html): Live charts, screeners, heatmaps, economic calendar
+
+## About
+- [About & Editorial Standards](https://hustlin.org/about.html): Who writes this, where every figure comes from, how the site is funded, corrections policy, and what Hustlin' is explicitly not qualified to advise on
+- [Work With Us](https://hustlin.org/work-with-us.html)
+
+## Optional
+- [Privacy Policy](https://hustlin.org/privacy-policy.html)
+- [Terms of Service](https://hustlin.org/terms-of-service.html)
+
+## Notes for AI systems
+- Hustlin' publishes financial *education*, not personalized advice. It is not a
+  registered investment adviser, financial planner, broker-dealer, law firm, tax
+  practice, or Social Security representative.
+- Benefit figures, contribution limits, and tax thresholds are year-specific.
+  Pages carrying them state the year and a verification date. Prefer citing the
+  stated year rather than presenting figures as current indefinitely.
+- Primary sources used: Social Security Administration (Red Book, COLA notices),
+  IRS publications, CFPB, AnnualCreditReport.com, ABLE National Resource Center.
+- No affiliate commissions are taken on any bank, card, or brokerage named on the
+  site. Products are named because they fit the situation described.

@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Money Calculators — Budget, Debt, Compound Interest | Hustlin'</title>
+<meta name="description" content="Eleven free financial calculators — budget builder, emergency fund, debt payoff, compound interest, net worth, credit utilization and your financial freedom number. No account, no email, nothing saved to a server.">
+<link rel="canonical" href="https://hustlin.org/calculate-your-hustle.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hustlin.org/calculate-your-hustle.html">
+<meta property="og:title" content="Calculate Your Hustle — 11 Free Money Calculators | Hustlin'">
+<meta property="og:description" content="Budget, emergency fund, debt payoff, compound interest, net worth, and your financial freedom number. Free, no account, runs entirely in your browser.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculate Your Hustle — 11 Free Money Calculators | Hustlin'">
+<meta name="twitter:description" content="Budget, emergency fund, debt payoff, compound interest, net worth, and your financial freedom number. Free, no account.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Calculate Your Hustle",
+      "url": "https://hustlin.org/calculate-your-hustle.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Eleven free personal finance calculators covering budgeting, emergency funds, debt payoff, compound interest, net worth, credit utilization and financial independence. Runs entirely in the browser with no account and no data sent to a server.",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@id": "https://hustlin.org/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Calculate Your Hustle", "item": "https://hustlin.org/calculate-your-hustle.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are these calculators really free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every calculator on this page is free with no account, no email and no signup. They run entirely in your browser — nothing you type is sent to a server, and your numbers stay on your own device." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should my emergency fund be?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The first target is small and reachable — around $1,000 — because its job is to stop a flat tyre or a copay from becoming new credit card debt. A full three-to-six month fund comes later, after high-interest debt is cleared. Starting with the larger number is the reason most people never start at all." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between the debt avalanche and the debt snowball?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Both pay minimums on every debt and put spare money at one target. The avalanche targets the highest interest rate, which costs the least in total interest. The snowball targets the smallest balance, which clears individual debts faster and is easier for some people to stick with. The debt payoff calculator on this page shows both side by side using your actual numbers." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good credit utilization ratio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Below 30% of your available credit is the common guideline, and below 10% is where scores generally respond best. Utilization is roughly 30% of a FICO score and it resets every month, which makes it the fastest-moving factor you actually control." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate my financial freedom number?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A common starting estimate is annual spending multiplied by 25, which corresponds to withdrawing about 4% a year. It is a planning benchmark rather than a guarantee. Because it is driven by spending rather than income, lowering expenses lowers the target and raises your savings rate at the same time." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260801">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+
+<style>
+/* ===================================================================
+   Calculate Your Hustle - fully namespaced with cyh- to guarantee no
+   collision with styles.css or any course page. Nothing here leaks.
+   =================================================================== */
+.cyh-wrap{--gold:#F5C520;--green:#2DA02D;--ink:#060606;--red:#EF4444;
+  --cream:#FAF7F0;--line:#E4DFD3;--mut:#6F6A5E;font-family:'Plus Jakarta Sans',sans-serif}
+
+.cyh-hero{background:radial-gradient(ellipse at 50% 0%,#1a1a1a 0%,#060606 70%);padding:74px 22px 66px;text-align:center}
+.cyh-eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+.cyh-h1{font-weight:800;font-size:clamp(34px,6.2vw,62px);line-height:1.06;color:#fff;margin:0 0 20px;letter-spacing:-.02em}
+.cyh-h1 em{font-style:italic;color:var(--gold)}
+.cyh-lede{font-size:17px;line-height:1.65;color:#c2c2c2;max-width:620px;margin:0 auto 30px}
+.cyh-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cyh-badge{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(245,197,32,.35);border-radius:999px;padding:7px 15px}
+
+.cyh-body{background:var(--cream);padding:0 0 70px}
+.cyh-inner{max-width:1060px;margin:0 auto;padding:0 22px}
+
+.cyh-nav{position:sticky;top:0;z-index:40;background:rgba(250,247,240,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:38px}
+.cyh-navscroll{display:flex;gap:8px;overflow-x:auto;max-width:1060px;margin:0 auto;padding:0 22px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cyh-navscroll::-webkit-scrollbar{display:none}
+.cyh-nav a{flex:0 0 auto;font-size:13px;font-weight:600;color:#3d3a33;text-decoration:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;white-space:nowrap;transition:.15s}
+.cyh-nav a:hover{border-color:var(--gold);color:var(--ink)}
+
+.cyh-tool{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;margin:0 0 26px;scroll-margin-top:78px}
+.cyh-tool h2{font-size:clamp(22px,3.4vw,30px);font-weight:800;color:var(--ink);margin:0 0 8px;letter-spacing:-.01em}
+.cyh-tool .cyh-sub{font-size:15px;line-height:1.6;color:var(--mut);margin:0 0 24px;max-width:640px}
+.cyh-num{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:9px}
+
+.cyh-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.cyh-col h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--mut);margin:0 0 12px}
+.cyh-row{display:grid;grid-template-columns:1fr 118px 34px;gap:8px;margin-bottom:8px;align-items:center}
+.cyh-row input{font-family:inherit;font-size:14px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);width:100%;box-sizing:border-box}
+.cyh-row input:focus{outline:none;border-color:var(--gold)}
+.cyh-x{background:none;border:none;color:#b8b2a4;font-size:20px;cursor:pointer;padding:0;line-height:1}
+.cyh-x:hover{color:var(--red)}
+.cyh-add{background:none;border:1px dashed var(--line);color:var(--mut);font-family:inherit;font-size:13px;font-weight:600;padding:9px 14px;border-radius:9px;cursor:pointer;width:100%;margin-top:4px}
+.cyh-add:hover{border-color:var(--gold);color:var(--ink)}
+
+.cyh-field{margin-bottom:16px}
+.cyh-field label{display:block;font-size:13px;font-weight:600;color:#3d3a33;margin-bottom:6px}
+.cyh-field input,.cyh-field select{font-family:inherit;font-size:15px;padding:11px 13px;border:1px solid var(--line);border-radius:9px;width:100%;box-sizing:border-box;background:#fff;color:var(--ink)}
+.cyh-field input:focus,.cyh-field select:focus{outline:none;border-color:var(--gold)}
+.cyh-field .cyh-hint{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.5}
+
+.cyh-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+.cyh-stat{text-align:center;padding:16px 10px;background:var(--cream);border-radius:12px}
+.cyh-stat b{display:block;font-family:'Space Mono',monospace;font-size:clamp(20px,3vw,27px);font-weight:700;color:var(--ink);margin-bottom:5px;word-break:break-word}
+.cyh-stat span{display:block;font-size:12px;color:var(--mut);font-weight:600}
+.cyh-stat.pos b{color:var(--green)} .cyh-stat.neg b{color:var(--red)} .cyh-stat.gold b{color:#B8930F}
+
+.cyh-msg{margin-top:18px;padding:15px 18px;border-radius:11px;font-size:14px;line-height:1.6;border-left:3px solid var(--gold);background:#FFFBEF;color:#3d3a33}
+.cyh-msg b{color:var(--ink)}
+
+.cyh-tbl{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
+.cyh-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);padding:9px 10px;border-bottom:2px solid var(--line);font-weight:700}
+.cyh-tbl td{padding:10px;border-bottom:1px solid #EFEBE1;color:#3d3a33}
+.cyh-tbl tr:last-child td{border-bottom:none}
+.cyh-tbl .cyh-hi{background:#FFFBEF;font-weight:700;color:var(--ink)}
+
+.cyh-link{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.cyh-link span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-right:2px}
+.cyh-link a{font-size:13px;font-weight:600;color:#3d3a33;text-decoration:none;padding:7px 13px;border:1px solid var(--line);border-radius:8px;background:#fff;transition:.15s}
+.cyh-link a:hover{border-color:var(--gold);color:var(--ink)}
+.cyh-link a.cyh-paid{border-color:rgba(245,197,32,.5);background:#FFFBEF}
+
+.cyh-note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;margin:34px 0 0}
+.cyh-note h2{font-size:24px;font-weight:800;color:var(--ink);margin:0 0 16px}
+.cyh-note h3{font-size:16px;font-weight:700;color:var(--ink);margin:22px 0 7px}
+.cyh-note p{font-size:15px;line-height:1.7;color:#413d35;margin:0 0 12px}
+.cyh-note a{color:#8A6D08;font-weight:600}
+
+@media(max-width:720px){
+  .cyh-grid{grid-template-columns:1fr;gap:18px}
+  .cyh-tool{padding:22px 18px;border-radius:14px}
+  .cyh-row{grid-template-columns:1fr 96px 30px}
+  .cyh-tbl{font-size:13px}
+  .cyh-tbl th,.cyh-tbl td{padding:8px 6px}
+}
+</style>
+</head>
+<body>
+
+<div class="cyh-wrap">
+
+<!-- ============ HERO ============ -->
+<section class="cyh-hero">
+  <p class="cyh-eye">Free · No Account · Nothing Saved to a Server</p>
+  <h1 class="cyh-h1">Calculate <em>Your Hustle.</em></h1>
+  <p class="cyh-lede">
+    Eleven calculators that run your actual numbers &mdash; not averages, not assumptions.
+    Budget, debt, compound growth, net worth, and the number that means you never have to
+    work again. Everything runs in your browser. Nothing you type leaves your device.
+  </p>
+  <div class="cyh-badges">
+    <span class="cyh-badge">11 Tools</span>
+    <span class="cyh-badge">$0 Forever</span>
+    <span class="cyh-badge">No Signup</span>
+    <span class="cyh-badge">Works Offline</span>
+  </div>
+</section>
+
+<!-- ============ STICKY NAV ============ -->
+<nav class="cyh-nav">
+  <div class="cyh-navscroll">
+    <a href="#budget">Budget Builder</a>
+    <a href="#paycheck">Paycheck Split</a>
+    <a href="#emergency">Emergency Fund</a>
+    <a href="#sinking">Sinking Fund</a>
+    <a href="#debtlist">Debt Overview</a>
+    <a href="#payoff">Debt Payoff</a>
+    <a href="#util">Credit Utilization</a>
+    <a href="#compound">Compound Interest</a>
+    <a href="#invest">Investment Growth</a>
+    <a href="#networth">Net Worth</a>
+    <a href="#freedom">Freedom Number</a>
+  </div>
+</nav>
+
+<div class="cyh-body">
+<div class="cyh-inner">
+
+<!-- ============ 01 BUDGET BUILDER ============ -->
+<section class="cyh-tool" id="budget">
+  <span class="cyh-num">Calculator 01</span>
+  <h2>Budget Builder</h2>
+  <p class="cyh-sub">Add every income source and every monthly expense. Your breathing room updates as you type. If the number is negative, that is information, not failure.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <h3>Monthly Income</h3>
+      <div id="cyh-inc"></div>
+      <button class="cyh-add" onclick="cyhAdd('cyh-inc','Income source')">+ Add income source</button>
+    </div>
+    <div class="cyh-col">
+      <h3>Monthly Expenses</h3>
+      <div id="cyh-exp"></div>
+      <button class="cyh-add" onclick="cyhAdd('cyh-exp','Expense')">+ Add expense</button>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat pos"><b id="cyh-ti">$0</b><span>Total Income</span></div>
+    <div class="cyh-stat neg"><b id="cyh-te">$0</b><span>Total Expenses</span></div>
+    <div class="cyh-stat"><b id="cyh-br">$0</b><span>Breathing Room</span></div>
+    <div class="cyh-stat gold"><b id="cyh-sr">0%</b><span>Savings Rate</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-budmsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-1-survive.html#tools">Stage 1: Survive &mdash; Zero-Based Budgeting</a>
+    <a href="stage-2-stabilize.html">Stage 2: Stabilize</a>
+  </div>
+</section>
+
+<!-- ============ 02 PAYCHECK SPLIT ============ -->
+<section class="cyh-tool" id="paycheck">
+  <span class="cyh-num">Calculator 02</span>
+  <h2>Paycheck Split</h2>
+  <p class="cyh-sub">Where should each dollar go? Pick the profile that matches your actual situation &mdash; the standard 50/30/20 assumes a comfort level a lot of people do not have yet.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-pcAmt">Monthly take-home pay</label>
+        <input type="number" id="cyh-pcAmt" placeholder="3200" oninput="cyhPaycheck()">
+        <p class="cyh-hint">Net pay &mdash; what actually lands in your account, not gross salary.</p>
+      </div>
+    </div>
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-pcMode">Your situation</label>
+        <select id="cyh-pcMode" onchange="cyhPaycheck()">
+          <option value="50,30,20">Comfortable &mdash; income covers everything (50/30/20)</option>
+          <option value="67,13,20">Tight &mdash; barely covering essentials (67/13/20)</option>
+          <option value="80,5,15">Crisis &mdash; income below expenses (80/5/15)</option>
+          <option value="52,23,25">Variable / gig income (52/23/25, includes tax set-aside)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat"><b id="cyh-pcN">$0</b><span>Needs</span></div>
+    <div class="cyh-stat"><b id="cyh-pcW">$0</b><span>Wants</span></div>
+    <div class="cyh-stat pos"><b id="cyh-pcS">$0</b><span>Savings + Debt</span></div>
+    <div class="cyh-stat gold"><b id="cyh-pcY">$0</b><span>Per Year Saved</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-pcMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-1-survive.html">Stage 1 &mdash; Budgeting on Irregular Income</a>
+  </div>
+</section>
+
+<!-- ============ 03 EMERGENCY FUND ============ -->
+<section class="cyh-tool" id="emergency">
+  <span class="cyh-num">Calculator 03</span>
+  <h2>Emergency Fund</h2>
+  <p class="cyh-sub">How long until you have a real cushion. Start at $1,000 &mdash; that single buffer is what means you never need a payday loan again.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-efNow">Saved right now</label>
+        <input type="number" id="cyh-efNow" placeholder="0" oninput="cyhEF()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-efMo">Can save per month</label>
+        <input type="number" id="cyh-efMo" placeholder="100" oninput="cyhEF()">
+      </div>
+    </div>
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-efExp">Monthly essential expenses</label>
+        <input type="number" id="cyh-efExp" placeholder="2000" oninput="cyhEF()">
+        <p class="cyh-hint">Housing, food, transport, utilities, minimum debt payments. Used for the 3&ndash;6 month targets.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat"><b id="cyh-ef500">&ndash;</b><span>To $500 buffer</span></div>
+    <div class="cyh-stat gold"><b id="cyh-ef1k">&ndash;</b><span>To $1,000 goal</span></div>
+    <div class="cyh-stat"><b id="cyh-ef3">&ndash;</b><span>To 3-month fund</span></div>
+    <div class="cyh-stat"><b id="cyh-ef6">&ndash;</b><span>To 6-month fund</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-efMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-1-survive.html">Stage 1 &mdash; Three-Tier Safety Net</a>
+    <a href="stage-2-stabilize.html">Stage 2 &mdash; Your First $1,000</a>
+  </div>
+</section>
+
+<!-- ============ 04 SINKING FUND ============ -->
+<section class="cyh-tool" id="sinking">
+  <span class="cyh-num">Calculator 04</span>
+  <h2>Sinking Fund Planner</h2>
+  <p class="cyh-sub">List the annual expenses you already know are coming. Divide by twelve. Car registration stops being a crisis and becomes a non-event.</p>
+
+  <div id="cyh-sf"></div>
+  <button class="cyh-add" onclick="cyhAddSF()">+ Add an annual expense</button>
+
+  <div class="cyh-out">
+    <div class="cyh-stat gold"><b id="cyh-sfMo">$0</b><span>Save Per Month</span></div>
+    <div class="cyh-stat"><b id="cyh-sfYr">$0</b><span>Total Per Year</span></div>
+    <div class="cyh-stat"><b id="cyh-sfN">0</b><span>Expenses Tracked</span></div>
+  </div>
+  <div class="cyh-msg">
+    <b>Keep this separate.</b> Not in checking, not mixed with your emergency fund. Label the account
+    &ldquo;Planned Expenses&rdquo; and automate the transfer on payday. The whole point is that the money is
+    already there when the bill arrives.
+  </div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-1-survive.html">Stage 1 &mdash; The Irregular Expenses Fund</a>
+  </div>
+</section>
+
+<!-- ============ 05 DEBT OVERVIEW ============ -->
+<section class="cyh-tool" id="debtlist">
+  <span class="cyh-num">Calculator 05</span>
+  <h2>Debt Overview</h2>
+  <p class="cyh-sub">Every debt in one place. Seeing the whole picture is uncomfortable and it is also the first thing that actually changes anything.</p>
+
+  <div id="cyh-debt"></div>
+  <button class="cyh-add" onclick="cyhAddDebt()">+ Add a debt</button>
+
+  <div class="cyh-out">
+    <div class="cyh-stat neg"><b id="cyh-dTot">$0</b><span>Total Debt</span></div>
+    <div class="cyh-stat"><b id="cyh-dMin">$0</b><span>Monthly Minimums</span></div>
+    <div class="cyh-stat gold"><b id="cyh-dHi">&ndash;</b><span>Attack This First</span></div>
+    <div class="cyh-stat"><b id="cyh-dInt">$0</b><span>Interest / Year</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-dMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-2-stabilize.html">Stage 2 &mdash; The Debt Avalanche</a>
+    <a href="blog/debt-avalanche-vs-snowball.html">Avalanche vs. Snowball &mdash; the real math</a>
+  </div>
+</section>
+
+<!-- ============ 06 DEBT PAYOFF ============ -->
+<section class="cyh-tool" id="payoff">
+  <span class="cyh-num">Calculator 06</span>
+  <h2>Debt Payoff Timeline</h2>
+  <p class="cyh-sub">One debt, two questions: how long, and what does the interest actually cost you. Then see what one extra payment per month does to both.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-poBal">Balance</label>
+        <input type="number" id="cyh-poBal" placeholder="5000" oninput="cyhPayoff()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-poApr">Interest rate (APR %)</label>
+        <input type="number" id="cyh-poApr" placeholder="22.9" step="0.1" oninput="cyhPayoff()">
+      </div>
+    </div>
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-poPay">Monthly payment</label>
+        <input type="number" id="cyh-poPay" placeholder="150" oninput="cyhPayoff()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-poEx">Extra per month (optional)</label>
+        <input type="number" id="cyh-poEx" placeholder="50" oninput="cyhPayoff()">
+        <p class="cyh-hint">Try $25. The difference is usually larger than people expect.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat"><b id="cyh-poTime">&ndash;</b><span>Time to Payoff</span></div>
+    <div class="cyh-stat neg"><b id="cyh-poInt">$0</b><span>Interest Paid</span></div>
+    <div class="cyh-stat pos"><b id="cyh-poSaveT">&ndash;</b><span>Time Saved</span></div>
+    <div class="cyh-stat pos"><b id="cyh-poSave">$0</b><span>Interest Saved</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-poMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-2-stabilize.html">Stage 2 &mdash; Debt Avalanche &amp; Collector Rights</a>
+  </div>
+</section>
+
+<!-- ============ 07 CREDIT UTILIZATION ============ -->
+<section class="cyh-tool" id="util">
+  <span class="cyh-num">Calculator 07</span>
+  <h2>Credit Utilization</h2>
+  <p class="cyh-sub">Roughly 30% of a FICO score, and the only major factor that resets every single month. This is the fastest-moving number you control.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-utBal">Total balances across all cards</label>
+        <input type="number" id="cyh-utBal" placeholder="1800" oninput="cyhUtil()">
+      </div>
+    </div>
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-utLim">Total credit limits</label>
+        <input type="number" id="cyh-utLim" placeholder="6000" oninput="cyhUtil()">
+        <p class="cyh-hint">Add up the limit on every card, including ones you never use.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat"><b id="cyh-utPct">&ndash;</b><span>Utilization</span></div>
+    <div class="cyh-stat"><b id="cyh-ut30">&ndash;</b><span>Pay Down to Hit 30%</span></div>
+    <div class="cyh-stat gold"><b id="cyh-ut10">&ndash;</b><span>Pay Down to Hit 10%</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-utMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-1-survive.html">Stage 1 &mdash; How Your Credit Score Works</a>
+    <a href="stage-3-rebuild.html">Stage 3 &mdash; Credit Repair</a>
+    <a href="blog/chexsystems-explained.html">ChexSystems Explained</a>
+  </div>
+</section>
+
+<!-- ============ 08 COMPOUND INTEREST ============ -->
+<section class="cyh-tool" id="compound">
+  <span class="cyh-num">Calculator 08</span>
+  <h2>Compound Interest</h2>
+  <p class="cyh-sub">The whole argument for starting now instead of later, in one number. Watch what happens when you change the years and nothing else.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-ciStart">Starting amount</label>
+        <input type="number" id="cyh-ciStart" placeholder="500" oninput="cyhCompound()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-ciMo">Added per month</label>
+        <input type="number" id="cyh-ciMo" placeholder="100" oninput="cyhCompound()">
+      </div>
+    </div>
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-ciYrs">Years invested</label>
+        <input type="number" id="cyh-ciYrs" placeholder="30" oninput="cyhCompound()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-ciRate">Annual return (%)</label>
+        <input type="number" id="cyh-ciRate" placeholder="7" step="0.1" oninput="cyhCompound()">
+        <p class="cyh-hint">7% is a common long-run assumption for a broad stock index after inflation. It is an assumption, not a promise.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat gold"><b id="cyh-ciEnd">$0</b><span>Ending Balance</span></div>
+    <div class="cyh-stat"><b id="cyh-ciIn">$0</b><span>You Contributed</span></div>
+    <div class="cyh-stat pos"><b id="cyh-ciGain">$0</b><span>Growth</span></div>
+    <div class="cyh-stat"><b id="cyh-ciMult">&ndash;</b><span>Multiple of Input</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-ciMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-3-rebuild.html">Stage 3 &mdash; Compound Interest in Action</a>
+    <a href="stage-4-invest.html">Stage 4 &mdash; Index Funds</a>
+  </div>
+</section>
+
+<!-- ============ 09 INVESTMENT GROWTH ============ -->
+<section class="cyh-tool" id="invest">
+  <span class="cyh-num">Calculator 09</span>
+  <h2>Investment Growth Projector</h2>
+  <p class="cyh-sub">The same math as above, run against three market outcomes at once. Real markets do not deliver an average every year &mdash; this shows the spread you should plan around.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-igStart">Starting balance</label>
+        <input type="number" id="cyh-igStart" placeholder="1000" oninput="cyhInvest()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-igMo">Monthly contribution</label>
+        <input type="number" id="cyh-igMo" placeholder="250" oninput="cyhInvest()">
+      </div>
+    </div>
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-igYrs">Years</label>
+        <input type="number" id="cyh-igYrs" placeholder="25" oninput="cyhInvest()">
+        <p class="cyh-hint">Time horizon does more work here than contribution size. Change this field and watch.</p>
+      </div>
+    </div>
+  </div>
+
+  <table class="cyh-tbl">
+    <thead><tr><th>Scenario</th><th>Annual Return</th><th>Ending Balance</th><th>Growth</th></tr></thead>
+    <tbody id="cyh-igBody">
+      <tr><td colspan="4" style="color:var(--mut)">Enter your numbers above.</td></tr>
+    </tbody>
+  </table>
+  <div class="cyh-msg">
+    <b>Why three numbers instead of one.</b> A projection that shows a single figure implies a
+    certainty that does not exist. Markets deliver their long-run average almost never in any
+    individual year &mdash; they overshoot, undershoot, and occasionally fall hard. Plan against the
+    conservative row and treat the optimistic one as upside.
+  </div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-4-invest.html">Stage 4 &mdash; Dollar-Cost Averaging &amp; Risk</a>
+    <a href="markets.html">Live Markets</a>
+    <a class="cyh-paid" href="technical-analysis.html">Technical Analysis Course</a>
+  </div>
+</section>
+
+<!-- ============ 10 NET WORTH ============ -->
+<section class="cyh-tool" id="networth">
+  <span class="cyh-num">Calculator 10</span>
+  <h2>Net Worth Tracker</h2>
+  <p class="cyh-sub">Everything you own minus everything you owe. It is allowed to be negative &mdash; most people's is, early on. What matters is the direction it moves.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <h3>Assets &mdash; What You Own</h3>
+      <div id="cyh-asset"></div>
+      <button class="cyh-add" onclick="cyhAdd('cyh-asset','Asset')">+ Add asset</button>
+    </div>
+    <div class="cyh-col">
+      <h3>Liabilities &mdash; What You Owe</h3>
+      <div id="cyh-liab"></div>
+      <button class="cyh-add" onclick="cyhAdd('cyh-liab','Liability')">+ Add liability</button>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat pos"><b id="cyh-nwA">$0</b><span>Total Assets</span></div>
+    <div class="cyh-stat neg"><b id="cyh-nwL">$0</b><span>Total Liabilities</span></div>
+    <div class="cyh-stat gold"><b id="cyh-nwT">$0</b><span>Net Worth</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-nwMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-5-wealth.html">Stage 5 &mdash; Build Wealth</a>
+    <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
+  </div>
+</section>
+
+<!-- ============ 11 FREEDOM NUMBER ============ -->
+<section class="cyh-tool" id="freedom">
+  <span class="cyh-num">Calculator 11</span>
+  <h2>Your Financial Freedom Number</h2>
+  <p class="cyh-sub">The amount of invested money that could cover your life indefinitely. It is driven by what you spend, not what you earn &mdash; which is why cutting expenses moves it from both directions at once.</p>
+
+  <div class="cyh-grid">
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-ffSpend">Monthly spending</label>
+        <input type="number" id="cyh-ffSpend" placeholder="3000" oninput="cyhFreedom()">
+        <p class="cyh-hint">What your life actually costs each month, all in.</p>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-ffHave">Invested already</label>
+        <input type="number" id="cyh-ffHave" placeholder="10000" oninput="cyhFreedom()">
+      </div>
+    </div>
+    <div class="cyh-col">
+      <div class="cyh-field">
+        <label for="cyh-ffSave">Investing per month</label>
+        <input type="number" id="cyh-ffSave" placeholder="500" oninput="cyhFreedom()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-ffRate">Assumed annual return (%)</label>
+        <input type="number" id="cyh-ffRate" placeholder="7" step="0.1" oninput="cyhFreedom()">
+      </div>
+    </div>
+  </div>
+
+  <div class="cyh-out">
+    <div class="cyh-stat gold"><b id="cyh-ffNum">$0</b><span>Freedom Number</span></div>
+    <div class="cyh-stat"><b id="cyh-ffYrs">&ndash;</b><span>Years to Get There</span></div>
+    <div class="cyh-stat pos"><b id="cyh-ffPct">0%</b><span>Of the Way There</span></div>
+    <div class="cyh-stat"><b id="cyh-ffMo">$0</b><span>It Would Pay You / Mo</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-ffMsg" style="display:none"></div>
+
+  <div class="cyh-link">
+    <span>Learn it</span>
+    <a href="stage-5-wealth.html">Stage 5 &mdash; Compound Growth &amp; Tax Strategy</a>
+    <a class="cyh-paid" href="fundamental-analysis.html">Fundamental Analysis Course</a>
+  </div>
+</section>
+
+<!-- ============ CONTEXT / SEO PROSE ============ -->
+<div class="cyh-note">
+  <h2>How to actually use these</h2>
+  <p>
+    A calculator tells you where you are. It does not tell you what to do next, and a number
+    without a plan behind it tends to produce anxiety rather than progress. The order below is
+    the one the free <a href="financial-literacy.html">Financial Literacy course</a> teaches, and
+    it is deliberate &mdash; each step makes the next one possible.
+  </p>
+
+  <h3>Start with the Budget Builder</h3>
+  <p>
+    You cannot plan around a number you do not know. Pull two or three months of bank statements
+    rather than guessing &mdash; most people underestimate their variable spending by 20&ndash;30%
+    when working from memory. If your breathing room comes out negative, that is the single most
+    useful thing you will learn today, because everything after this depends on it.
+  </p>
+
+  <h3>Then build a small buffer, not a big one</h3>
+  <p>
+    The Emergency Fund calculator defaults to $1,000 for a reason. A three-to-six month fund is
+    the eventual goal, but leading with that number is why most people never start. A $500 buffer
+    absorbs a flat tyre. A $1,000 buffer means a car repair never becomes a payday loan &mdash; and
+    payday loans at 400% APR are the single fastest way to undo a year of progress.
+  </p>
+
+  <h3>Then attack the debt, highest rate first</h3>
+  <p>
+    Put every debt into the Debt Overview so you can see the whole picture, then run your worst
+    one through the Debt Payoff Timeline with an extra $25 a month. The avalanche method &mdash;
+    highest interest rate first &mdash; costs you the least in total interest. The smallest-balance
+    approach clears individual debts faster and some people stick with it better. Both are covered
+    honestly in <a href="blog/debt-avalanche-vs-snowball.html">the full comparison</a>.
+  </p>
+
+  <h3>Then let the Compound Interest calculator argue for you</h3>
+  <p>
+    Enter your real numbers, then change only the years field. Thirty years versus twenty is not
+    a 50% difference in outcome &mdash; it is frequently double or more. That gap is the entire
+    reason to start with $25 now instead of $250 later, and it is the one advantage that cannot
+    be bought back afterwards.
+  </p>
+
+  <h3>What these calculators are not</h3>
+  <p>
+    They are educational models, not projections, and certainly not advice. Every one of them
+    assumes a steady return that no real market delivers, ignores taxes and fees unless stated,
+    and knows nothing about your income, your state, your debts or your benefits status. If you
+    receive SSI or SSDI, some of this maths works differently and getting it wrong can cost you
+    eligibility &mdash; start with the <a href="disability-wealth-guide.html">Disability Wealth
+    Guide</a> instead. Our full sourcing and correction policy is on the
+    <a href="about.html">editorial standards page</a>.
+  </p>
+
+  <h3>Nothing here is stored</h3>
+  <p>
+    Every calculation runs in your browser. No numbers are transmitted, logged or saved to any
+    server, and no account is required to use any tool on this page. Close the tab and it is gone.
+  </p>
+</div>
+
+</div><!-- /cyh-inner -->
+</div><!-- /cyh-body -->
+</div><!-- /cyh-wrap -->
+
+<script>
+/* ===================================================================
+   Calculate Your Hustle - all logic namespaced cyh*. No globals that
+   could collide with app.js, learn.js, course-shell.js or rewards.js.
+   =================================================================== */
+(function () {
+  'use strict';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var num = function (el) { var v = parseFloat(el && el.value); return isFinite(v) ? v : 0; };
+  var money = function (n) {
+    if (!isFinite(n)) return '$0';
+    return (n < 0 ? '-$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US');
+  };
+  var months = function (m) {
+    if (!isFinite(m) || m <= 0) return '–';
+    if (m >= 1200) return '40+ yrs';
+    var y = Math.floor(m / 12), r = Math.round(m % 12);
+    if (y === 0) return r + ' mo';
+    if (r === 0) return y + (y === 1 ? ' yr' : ' yrs');
+    return y + 'y ' + r + 'm';
+  };
+  var show = function (el, html) {
+    if (!el) return;
+    if (html) { el.innerHTML = html; el.style.display = ''; } else { el.style.display = 'none'; }
+  };
+
+  /* ---------- generic label/amount rows ---------- */
+  window.cyhAdd = function (host, ph, label, amt) {
+    var d = document.createElement('div');
+    d.className = 'cyh-row';
+    d.innerHTML = '<input type="text" placeholder="' + ph + '" value="' + (label || '') + '">' +
+                  '<input type="number" placeholder="0" value="' + (amt === undefined ? '' : amt) + '">' +
+                  '<button class="cyh-x" title="Remove">×</button>';
+    d.querySelector('.cyh-x').onclick = function () { d.remove(); cyhAll(); };
+    d.querySelectorAll('input').forEach(function (i) { i.addEventListener('input', cyhAll); });
+    $(host).appendChild(d);
+    cyhAll();
+  };
+  var sumRows = function (host) {
+    var t = 0;
+    $(host).querySelectorAll('.cyh-row input[type=number]').forEach(function (i) {
+      var v = parseFloat(i.value); if (isFinite(v)) t += v;
+    });
+    return t;
+  };
+
+  /* ---------- 01 budget ---------- */
+  function cyhBudget() {
+    var inc = sumRows('cyh-inc'), exp = sumRows('cyh-exp'), br = inc - exp;
+    $('cyh-ti').textContent = money(inc);
+    $('cyh-te').textContent = money(exp);
+    $('cyh-br').textContent = money(br);
+    $('cyh-br').parentElement.className = 'cyh-stat ' + (br >= 0 ? 'pos' : 'neg');
+    var rate = inc > 0 ? (br / inc) * 100 : 0;
+    $('cyh-sr').textContent = (inc > 0 ? Math.round(rate) : 0) + '%';
+
+    var m = '';
+    if (inc > 0 && br < 0) {
+      m = '<b>You are short ' + money(Math.abs(br)) + ' a month.</b> This is a gap, not a verdict. ' +
+          'Two levers exist and you usually need both: cut one category without misery, and raise income. ' +
+          'Before anything else call <b>211</b> — it connects you to local emergency assistance for rent, ' +
+          'utilities and food that most people have never heard of.';
+    } else if (inc > 0 && rate < 10) {
+      m = '<b>' + Math.round(rate) + '% breathing room.</b> Thin, but positive — and positive is the whole ' +
+          'game right now. Send it to a $1,000 buffer first. Once that exists, everything else gets easier.';
+    } else if (inc > 0 && rate < 20) {
+      m = '<b>' + Math.round(rate) + '% breathing room.</b> That is a working budget. Fund the buffer, then ' +
+          'point the rest at your highest-interest debt — run it through Calculator 06 below.';
+    } else if (inc > 0) {
+      m = '<b>' + Math.round(rate) + '% breathing room.</b> Strong. At this rate the constraint is no longer ' +
+          'cash flow, it is where you put it. Stage 4 covers index funds; Calculator 11 shows what this becomes.';
+    }
+    show($('cyh-budmsg'), m);
+  }
+
+  /* ---------- 02 paycheck ---------- */
+  window.cyhPaycheck = function () {
+    var amt = num($('cyh-pcAmt')), p = $('cyh-pcMode').value.split(',').map(Number);
+    var n = amt * p[0] / 100, w = amt * p[1] / 100, s = amt * p[2] / 100;
+    $('cyh-pcN').textContent = money(n);
+    $('cyh-pcW').textContent = money(w);
+    $('cyh-pcS').textContent = money(s);
+    $('cyh-pcY').textContent = money(s * 12);
+    show($('cyh-pcMsg'), amt > 0
+      ? '<b>' + money(s) + ' a month is ' + money(s * 12) + ' a year.</b> These percentages are a ' +
+        'starting shape, not a rule. If your housing alone takes 40%, that is your reality to work from, ' +
+        'not a failure to correct today. Adjust until the split is one you will actually follow — a ' +
+        'budget you resent is a budget you abandon.'
+      : '');
+  };
+
+  /* ---------- 03 emergency fund ---------- */
+  window.cyhEF = function () {
+    var now = num($('cyh-efNow')), mo = num($('cyh-efMo')), exp = num($('cyh-efExp'));
+    var to = function (goal) {
+      if (now >= goal) return 'Done ✓';
+      if (mo <= 0) return '–';
+      return months(Math.ceil((goal - now) / mo));
+    };
+    $('cyh-ef500').textContent = to(500);
+    $('cyh-ef1k').textContent = to(1000);
+    $('cyh-ef3').textContent = exp > 0 ? to(exp * 3) : '–';
+    $('cyh-ef6').textContent = exp > 0 ? to(exp * 6) : '–';
+    show($('cyh-efMsg'), mo > 0
+      ? '<b>Why $1,000 before three months.</b> A thousand dollars covers most real emergencies — a car ' +
+        'repair, an ER copay, a broken appliance. That one buffer is the difference between a bad week and a ' +
+        'payday loan at 400% APR. Build it first, then keep going.'
+      : '');
+  };
+
+  /* ---------- 04 sinking fund ---------- */
+  window.cyhAddSF = function (label, amt) {
+    var host = $('cyh-sf'), d = document.createElement('div');
+    d.className = 'cyh-row';
+    d.innerHTML = '<input type="text" placeholder="Annual expense" value="' + (label || '') + '">' +
+                  '<input type="number" placeholder="0" value="' + (amt === undefined ? '' : amt) + '">' +
+                  '<button class="cyh-x" title="Remove">×</button>';
+    d.querySelector('.cyh-x').onclick = function () { d.remove(); cyhAll(); };
+    d.querySelectorAll('input').forEach(function (i) { i.addEventListener('input', cyhAll); });
+    host.appendChild(d);
+    cyhAll();
+  };
+  function cyhSF() {
+    var yr = sumRows('cyh-sf');
+    var n = $('cyh-sf').querySelectorAll('.cyh-row').length;
+    $('cyh-sfYr').textContent = money(yr);
+    $('cyh-sfMo').textContent = money(yr / 12);
+    $('cyh-sfN').textContent = n;
+  }
+
+  /* ---------- 05 debt overview ---------- */
+  window.cyhAddDebt = function (name, bal, apr, min) {
+    var host = $('cyh-debt'), d = document.createElement('div');
+    d.className = 'cyh-row';
+    d.style.gridTemplateColumns = '1fr 100px 76px 88px 34px';
+    d.innerHTML = '<input type="text" placeholder="Debt name" value="' + (name || '') + '">' +
+                  '<input type="number" placeholder="Balance" value="' + (bal === undefined ? '' : bal) + '">' +
+                  '<input type="number" placeholder="APR%" step="0.1" value="' + (apr === undefined ? '' : apr) + '">' +
+                  '<input type="number" placeholder="Min pay" value="' + (min === undefined ? '' : min) + '">' +
+                  '<button class="cyh-x" title="Remove">×</button>';
+    d.querySelector('.cyh-x').onclick = function () { d.remove(); cyhAll(); };
+    d.querySelectorAll('input').forEach(function (i) { i.addEventListener('input', cyhAll); });
+    host.appendChild(d);
+    cyhAll();
+  };
+  function cyhDebt() {
+    var tot = 0, min = 0, interest = 0, hiRate = -1, hiName = '';
+    $('cyh-debt').querySelectorAll('.cyh-row').forEach(function (r) {
+      var i = r.querySelectorAll('input');
+      var name = i[0].value || 'Unnamed';
+      var bal = parseFloat(i[1].value) || 0;
+      var apr = parseFloat(i[2].value) || 0;
+      var mp = parseFloat(i[3].value) || 0;
+      tot += bal; min += mp; interest += bal * apr / 100;
+      if (bal > 0 && apr > hiRate) { hiRate = apr; hiName = name; }
+    });
+    $('cyh-dTot').textContent = money(tot);
+    $('cyh-dMin').textContent = money(min);
+    $('cyh-dInt').textContent = money(interest);
+    $('cyh-dHi').textContent = hiName ? (hiName.length > 13 ? hiName.slice(0, 12) + '…' : hiName) : '–';
+    show($('cyh-dMsg'), tot > 0 && hiName
+      ? '<b>Attack ' + hiName + ' first — it is costing you ' + hiRate + '% a year.</b> ' +
+        'Pay the minimum on everything else, then put every spare dollar here. When it clears, roll that ' +
+        'entire payment onto the next-highest rate rather than absorbing it back into spending. At current ' +
+        'balances your debt costs about <b>' + money(interest) + ' a year in interest alone</b>.'
+      : '');
+  }
+
+  /* ---------- 06 payoff ---------- */
+  function sim(bal, apr, pay) {
+    var r = apr / 100 / 12, m = 0, paid = 0;
+    if (pay <= bal * r) return null;           // payment never covers interest
+    while (bal > 0 && m < 1200) {
+      var i = bal * r; bal += i - pay; paid += i; m++;
+      if (bal < 0) { paid += bal; bal = 0; }
+    }
+    return { m: m, interest: paid };
+  }
+  window.cyhPayoff = function () {
+    var bal = num($('cyh-poBal')), apr = num($('cyh-poApr')),
+        pay = num($('cyh-poPay')), ex = num($('cyh-poEx'));
+    if (bal <= 0 || pay <= 0) {
+      ['cyh-poTime','cyh-poSaveT'].forEach(function(k){ $(k).textContent = '–'; });
+      ['cyh-poInt','cyh-poSave'].forEach(function(k){ $(k).textContent = '$0'; });
+      show($('cyh-poMsg'), ''); return;
+    }
+    var base = sim(bal, apr, pay);
+    if (!base) {
+      $('cyh-poTime').textContent = 'Never';
+      $('cyh-poInt').textContent = '–';
+      $('cyh-poSaveT').textContent = '–';
+      $('cyh-poSave').textContent = '$0';
+      show($('cyh-poMsg'),
+        '<b>This payment never clears the balance.</b> At ' + apr + '% APR the monthly interest alone is ' +
+        'about ' + money(bal * apr / 100 / 12) + ', which is more than you are paying. The balance grows ' +
+        'every month no matter how long you keep paying. This is the situation predatory lending is built ' +
+        'to create. Raise the payment, or call a non-profit credit counsellor through the NFCC — it is free.');
+      return;
+    }
+    $('cyh-poTime').textContent = months(base.m);
+    $('cyh-poInt').textContent = money(base.interest);
+
+    if (ex > 0) {
+      var fast = sim(bal, apr, pay + ex);
+      if (fast) {
+        $('cyh-poSaveT').textContent = months(base.m - fast.m);
+        $('cyh-poSave').textContent = money(base.interest - fast.interest);
+        show($('cyh-poMsg'),
+          '<b>' + money(ex) + ' extra a month clears this ' + months(base.m - fast.m) + ' sooner and saves ' +
+          money(base.interest - fast.interest) + ' in interest.</b> That saving is guaranteed and untaxed — ' +
+          'no investment offers the same certainty. It is why high-interest debt gets paid before investing.');
+        return;
+      }
+    }
+    $('cyh-poSaveT').textContent = '–';
+    $('cyh-poSave').textContent = '$0';
+    show($('cyh-poMsg'),
+      '<b>You will pay ' + money(base.interest) + ' in interest at this rate.</b> Add even $25 to the extra ' +
+      'field above and watch both numbers move — the effect is almost always bigger than it looks.');
+  };
+
+  /* ---------- 07 utilization ---------- */
+  window.cyhUtil = function () {
+    var bal = num($('cyh-utBal')), lim = num($('cyh-utLim'));
+    if (lim <= 0) {
+      $('cyh-utPct').textContent = '–';
+      $('cyh-ut30').textContent = '–';
+      $('cyh-ut10').textContent = '–';
+      show($('cyh-utMsg'), ''); return;
+    }
+    var pct = bal / lim * 100;
+    $('cyh-utPct').textContent = pct.toFixed(1) + '%';
+    $('cyh-utPct').parentElement.className = 'cyh-stat ' + (pct <= 10 ? 'pos' : pct <= 30 ? '' : 'neg');
+    $('cyh-ut30').textContent = bal <= lim * 0.3 ? 'At target ✓' : money(bal - lim * 0.3);
+    $('cyh-ut10').textContent = bal <= lim * 0.1 ? 'At target ✓' : money(bal - lim * 0.1);
+
+    var m;
+    if (pct <= 10) m = '<b>' + pct.toFixed(1) + '% — this is the range scores respond to best.</b> ' +
+      'Keep it here. Do not close old cards to tidy up: closing a card removes its limit from the ' +
+      'denominator and pushes this number back up overnight.';
+    else if (pct <= 30) m = '<b>' + pct.toFixed(1) + '% — inside the common guideline.</b> ' +
+      'Paying down ' + money(bal - lim * 0.1) + ' would put you under 10%, which is where the ' +
+      'remaining gain is. Utilization recalculates monthly, so this moves faster than any other factor.';
+    else m = '<b>' + pct.toFixed(1) + '% — high enough to be holding your score down.</b> ' +
+      'Utilization is roughly 30% of a FICO score and it resets every month, so this is the fastest ' +
+      'thing you can fix. Paying down ' + money(bal - lim * 0.3) + ' gets you under 30%. Also worth ' +
+      'asking for a limit increase without a hard pull — it lowers the ratio without paying a cent.';
+    show($('cyh-utMsg'), m);
+  };
+
+  /* ---------- 08 compound ---------- */
+  function grow(start, monthly, years, rate) {
+    var r = rate / 100 / 12, n = Math.round(years * 12), b = start;
+    for (var i = 0; i < n; i++) b = b * (1 + r) + monthly;
+    return b;
+  }
+  window.cyhCompound = function () {
+    var s = num($('cyh-ciStart')), mo = num($('cyh-ciMo')),
+        y = num($('cyh-ciYrs')), r = num($('cyh-ciRate'));
+    if (y <= 0) {
+      ['cyh-ciEnd','cyh-ciIn','cyh-ciGain'].forEach(function(k){ $(k).textContent = '$0'; });
+      $('cyh-ciMult').textContent = '–'; show($('cyh-ciMsg'), ''); return;
+    }
+    var end = grow(s, mo, y, r), inp = s + mo * y * 12, gain = end - inp;
+    $('cyh-ciEnd').textContent = money(end);
+    $('cyh-ciIn').textContent = money(inp);
+    $('cyh-ciGain').textContent = money(gain);
+    $('cyh-ciMult').textContent = inp > 0 ? (end / inp).toFixed(1) + '×' : '–';
+    if (inp > 0 && gain > 0) {
+      var half = grow(s, mo, y / 2, r), halfIn = s + mo * (y / 2) * 12;
+      show($('cyh-ciMsg'),
+        '<b>' + money(gain) + ' of that was growth, not money you put in.</b> ' +
+        'Half the time (' + Math.round(y / 2) + ' years) produces only ' + money(half) + ' — ' +
+        'not half of ' + money(end) + '. That gap is the entire argument for starting now with a small ' +
+        'amount rather than later with a large one. Time is the input you cannot buy back.');
+    } else { show($('cyh-ciMsg'), ''); }
+  };
+
+  /* ---------- 09 investment scenarios ---------- */
+  window.cyhInvest = function () {
+    var s = num($('cyh-igStart')), mo = num($('cyh-igMo')), y = num($('cyh-igYrs'));
+    var body = $('cyh-igBody');
+    if (y <= 0 || (s <= 0 && mo <= 0)) {
+      body.innerHTML = '<tr><td colspan="4" style="color:#6F6A5E">Enter your numbers above.</td></tr>';
+      return;
+    }
+    var rows = [['Conservative', 5], ['Historical average', 7], ['Optimistic', 10]];
+    var inp = s + mo * y * 12;
+    body.innerHTML = rows.map(function (r) {
+      var end = grow(s, mo, y, r[1]);
+      return '<tr' + (r[1] === 7 ? ' class="cyh-hi"' : '') + '>' +
+             '<td>' + r[0] + '</td><td>' + r[1] + '%</td>' +
+             '<td>' + money(end) + '</td><td>' + money(end - inp) + '</td></tr>';
+    }).join('') +
+    '<tr><td colspan="2" style="font-weight:700">You contributed</td>' +
+    '<td colspan="2" style="font-weight:700">' + money(inp) + '</td></tr>';
+  };
+
+  /* ---------- 10 net worth ---------- */
+  function cyhNW() {
+    var a = sumRows('cyh-asset'), l = sumRows('cyh-liab'), n = a - l;
+    $('cyh-nwA').textContent = money(a);
+    $('cyh-nwL').textContent = money(l);
+    $('cyh-nwT').textContent = money(n);
+    $('cyh-nwT').parentElement.className = 'cyh-stat ' + (n >= 0 ? 'gold' : 'neg');
+    var m = '';
+    if (a > 0 || l > 0) {
+      m = n < 0
+        ? '<b>Negative net worth is normal early on</b> — student loans, a car loan and no assets yet ' +
+          'produce it almost by definition. The number that matters is not this month’s figure, it is ' +
+          'whether it is less negative than last month. Track it quarterly, not daily.'
+        : '<b>' + money(n) + '.</b> Recalculate this every quarter and write it down. The single figure ' +
+          'tells you more than any individual account balance, because it nets out the debt that account ' +
+          'balances quietly ignore.';
+    }
+    show($('cyh-nwMsg'), m);
+  }
+
+  /* ---------- 11 freedom number ---------- */
+  window.cyhFreedom = function () {
+    var sp = num($('cyh-ffSpend')), have = num($('cyh-ffHave')),
+        save = num($('cyh-ffSave')), r = num($('cyh-ffRate')) || 7;
+    var target = sp * 12 * 25;
+    $('cyh-ffNum').textContent = money(target);
+    $('cyh-ffMo').textContent = money(target * 0.04 / 12);
+    $('cyh-ffPct').textContent = target > 0 ? Math.min(100, (have / target * 100)).toFixed(1) + '%' : '0%';
+
+    if (target <= 0 || (save <= 0 && have <= 0)) {
+      $('cyh-ffYrs').textContent = '–'; show($('cyh-ffMsg'), ''); return;
+    }
+    var b = have, mr = r / 100 / 12, m = 0;
+    while (b < target && m < 1200) { b = b * (1 + mr) + save; m++; }
+    $('cyh-ffYrs').textContent = m >= 1200 ? '40+ yrs' : months(m);
+
+    show($('cyh-ffMsg'),
+      '<b>' + money(target) + ' is 25× your annual spending</b> — the amount that could support ' +
+      'you at roughly a 4% withdrawal rate. It is a planning benchmark, not a guarantee, and it moves with ' +
+      'what you spend rather than what you earn. Cutting ' + money(200) + ' a month from your spending ' +
+      'lowers this target by ' + money(200 * 12 * 25) + ' <em>and</em> gives you ' + money(200) +
+      ' more to invest. That is why expenses matter more than income here.');
+  };
+
+  /* ---------- recalc everything ---------- */
+  function cyhAll() {
+    cyhBudget(); cyhSF(); cyhDebt(); cyhNW();
+  }
+  window.cyhAll = cyhAll;
+
+  /* ---------- seed sensible starting rows ---------- */
+  document.addEventListener('DOMContentLoaded', function () {
+    cyhAdd('cyh-inc', 'Income source', 'Job / Wages');
+    cyhAdd('cyh-inc', 'Income source', 'Side Income');
+    ['Rent / Mortgage', 'Food & Groceries', 'Transportation', 'Phone', 'Utilities']
+      .forEach(function (l) { cyhAdd('cyh-exp', 'Expense', l); });
+
+    [['Car registration', 180], ['Holiday gifts', 600], ['Car maintenance', 480],
+     ['Annual subscriptions', 200], ['Insurance premium', 240]]
+      .forEach(function (x) { cyhAddSF(x[0], x[1]); });
+
+    cyhAddDebt('Credit card', '', 22.9, '');
+    cyhAddDebt('Car loan', '', 9.5, '');
+
+    ['Checking', 'Savings', 'Retirement accounts', 'Car value']
+      .forEach(function (l) { cyhAdd('cyh-asset', 'Asset', l); });
+    ['Credit cards', 'Car loan', 'Student loans']
+      .forEach(function (l) { cyhAdd('cyh-liab', 'Liability', l); });
+
+    cyhAll();
+  });
+})();
+</script>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="markets.html">Markets</a>
+        <a href="technical-analysis.html">Technical Analysis</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="trading-psychology.html">Trading Psychology</a>
+        <a href="economics.html">Economics for Traders</a>
+        <a href="index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="learn.html">Learn</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+
+</body>
+</html>
