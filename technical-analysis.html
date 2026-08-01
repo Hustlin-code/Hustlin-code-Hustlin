@@ -60,7 +60,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607312219">
+<link rel="stylesheet" href="styles.css?v=202607312222">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -159,7 +159,7 @@
         telling you, and build a repeatable process you can trust.
       </p>
       <div class="cta-row">
-        <a href="learn.html?course=ta&amp;stage=1" id="hero-cta" style="display:inline-flex;align-items:center;text-decoration:none;"><img id="hero-cta-img" src="assets/TA Buttons/Begin-cropped.png" alt="Get the Technical Analysis Course" style="height:52px;width:auto;display:block;"></a>
+        <a href="learn.html?course=ta&amp;stage=1" id="hero-cta" data-hfy-buy="ta" style="display:inline-flex;align-items:center;text-decoration:none;"><img id="hero-cta-img" src="assets/TA Buttons/Begin-cropped.png" alt="Get the Technical Analysis Course" style="height:52px;width:auto;display:block;"></a>
         <a class="btn-b" href="#roadmap">See all 5 stages ↓</a>
       </div>
       <div class="hero-stats">
@@ -221,7 +221,7 @@
           <div class="j-desc">Point &amp; Figure, Elliott Wave, your own routine</div>
         </div>
       </div>
-      <a href="learn.html?course=ta&amp;stage=1" id="card-cta" style="display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:22px;"><img id="card-cta-img" src="assets/TA Buttons/Begin-cropped.png" alt="Begin Stage 1 Now" style="height:52px;width:auto;display:block;"></a>
+      <a href="learn.html?course=ta&amp;stage=1" id="card-cta" data-hfy-buy="ta" style="display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:22px;"><img id="card-cta-img" src="assets/TA Buttons/Begin-cropped.png" alt="Begin Stage 1 Now" style="height:52px;width:auto;display:block;"></a>
     </div>
   </div>
 </section>
@@ -418,11 +418,12 @@
 <!-- FOOTER:END -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607312219"></script>
-<script src="app.js?v=202607312219"></script>
-<script src="rewards.js?v=202607312219"></script>
-<script src="auth.js?v=202607312219"></script>
-<script src="course-access.js?v=202607312219"></script>
+<script src="supabase-config.js?v=202607312222"></script>
+<script src="app.js?v=202607312222"></script>
+<script src="rewards.js?v=202607312222"></script>
+<script src="auth.js?v=202607312222"></script>
+<script src="course-access.js?v=202607312222"></script>
+<script src="course-buy.js?v=202607312222"></script>
 <script>
 // Render nav stage states + roadmap cards
 HFY.initNavOnly();
@@ -505,6 +506,11 @@ document.getElementById('ta-email').addEventListener('keydown', e => {
   if (e.key === 'Enter') taSubscribe();
 });
 
+// Roadmap card presentation only. The buy buttons themselves are wired by
+// course-buy.js via data-hfy-buy="ta", exactly like every other course page —
+// this used to hand-roll its own checkout because course-buy.js clobbered the
+// image CTAs, which setLabel() now handles.
+//
 // Stages 2–5 are paywalled ($37.95, one account unlocks all four). The
 // FORCE_UNLOCK_ALL flag in app.js only governs the free progression
 // display above — it does not grant real access, which the course-gate
@@ -538,56 +544,6 @@ document.getElementById('ta-email').addEventListener('keydown', e => {
     }
   });
 
-  // ── Hero / card CTA → real checkout ────────────────────────────────
-  // These two buttons used to link straight to learn.html?course=ta&stage=1.
-  // With free_stages = 0 that always answers 402, so the only sellable
-  // course sent buyers to a paywall interstitial instead of to Stripe.
-  //
-  // Deliberately NOT using course-buy.js here. That helper assumes a text
-  // label: setLabel() falls back to el.textContent when it finds no text
-  // node, and these CTAs contain nothing but an <img>, so it would replace
-  // the artwork with a bare string. It would also overwrite the href that
-  // the resume logic above sets for owners. Wiring it here reuses the
-  // checkCourseAccess call already made and leaves the owner path alone.
-  if(hasAccess) return; // owner: resume logic above already set the hrefs
-
-  const buyCtas = ['hero-cta','card-cta']
-    .map(function(id){ return document.getElementById(id); })
-    .filter(Boolean);
-  if(!buyCtas.length) return;
-
-  let signedIn = false;
-  try{ signedIn = !!(await HFY.auth.getUser()); }catch(e){ signedIn = false; }
-
-  buyCtas.forEach(function(cta){
-    const img = cta.querySelector('img');
-    if(img) img.alt = signedIn
-      ? 'Buy the Technical Analysis Course — $37.95 one-time'
-      : 'Create a free account to get the Technical Analysis Course';
-
-    cta.addEventListener('click', async function(e){
-      e.preventDefault();
-      if(cta.dataset.busy === '1') return;
-
-      if(!signedIn){
-        window.location.href = 'signup.html?redirect=' + encodeURIComponent(window.location.href);
-        return;
-      }
-
-      cta.dataset.busy = '1';
-      cta.style.opacity = '.6';
-      cta.style.pointerEvents = 'none';
-      try{
-        await HFY.access.startCheckout('ta');
-      }catch(err){
-        console.error('TA checkout failed', err);
-        cta.dataset.busy = '';
-        cta.style.opacity = '';
-        cta.style.pointerEvents = '';
-        alert(err.message || 'Could not start checkout. Please try again.');
-      }
-    });
-  });
 })();
 </script>
 

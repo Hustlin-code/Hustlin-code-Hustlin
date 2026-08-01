@@ -39,6 +39,19 @@
   }
 
   function setLabel(el, text) {
+    // Image-only buttons: the Technical Analysis CTAs are a single <img> of
+    // branded artwork with no text node at all. The old `else` branch below
+    // ran el.textContent = text on those, which deleted the artwork and left
+    // a bare string — which is exactly why that page carried its own bespoke
+    // checkout wiring instead of using this helper. Update the alt text
+    // instead: it is the accessible label, so it is the right thing to
+    // change, and the button keeps looking like a button.
+    var img = el.querySelector('img');
+    if (img && !el.textContent.trim()) {
+      img.alt = text;
+      return;
+    }
+
     // These buttons wrap their label in icons/spans, so replace only the
     // deepest text node rather than blowing away the markup.
     var node = null;
@@ -111,14 +124,25 @@
         }
 
         btn.dataset.busy = '1';
-        var original = btn.textContent;
+        // Read the label the same way setLabel writes it, so an image-only
+        // button restores its real alt text rather than falling back to a
+        // generic string.
+        var img = btn.querySelector('img');
+        var original = (img && !btn.textContent.trim()) ? img.alt : btn.textContent;
+        // Text buttons signal "working" by changing their label. Image buttons
+        // can't, so dim them instead — otherwise a slow checkout looks like a
+        // dead click and gets clicked again.
+        btn.style.opacity = '.6';
+        btn.style.pointerEvents = 'none';
         setLabel(btn, 'Redirecting to checkout…');
         try {
           await window.HFY.access.startCheckout(key);
         } catch (err) {
           console.error(err);
           btn.dataset.busy = '';
-          setLabel(btn, original.trim() || 'Enroll Now');
+          btn.style.opacity = '';
+          btn.style.pointerEvents = '';
+          setLabel(btn, (original || '').trim() || 'Enroll Now');
           alert(err.message || 'Could not start checkout. Please try again.');
         }
       });
