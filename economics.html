@@ -1,762 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
-    <title>Economics for Traders Course | hustlin.org</title>
-    <meta name="description" content="Learn how macroeconomics, economic indicators, GDP, inflation, interest rates, and global events move financial markets. A comprehensive trader's economics course." />
-    <meta name="keywords" content="economics for traders, macroeconomics trading, economic indicators, GDP investing, inflation trading, interest rates markets, Federal Reserve trading, economic calendar" />
-    <link rel="canonical" href="https://hustlin.org/economics.html" />
-    <meta property="og:title" content="Economics for Traders: How the Economy Moves Markets — And Your Money" />
-    <meta property="og:description" content="Learn how macroeconomics, economic indicators, GDP, inflation, interest rates, and global events move financial markets. A comprehensive trader's economics course." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hustlin.org/economics.html" />
-    <meta property="og:image" content="https://hustlin.org/assets/social-preview.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Economics for Traders: How the Economy Moves Markets — And Your Money" />
-    <meta name="twitter:description" content="Learn how macroeconomics, economic indicators, GDP, inflation, interest rates, and global events move financial markets. A comprehensive trader's economics course." />
-    <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Economics for Traders: How the Economy Moves Markets — And Your Money",
-      "description": "A comprehensive course teaching traders how macroeconomics, economic indicators, GDP, inflation, interest rates, and global events move financial markets.",
-      "provider": {
-        "@type": "Organization",
-        "name": "hustlin.org",
-        "url": "https://hustlin.org"
-      },
-      "url": "https://hustlin.org/economics.html",
-      "inLanguage": "en-US",
-      "isAccessibleForFree": false,
-      "educationalLevel": "Beginner to Advanced",
-      "numberOfCredits": 40,
-      "teaches": [
-        "Why economic data moves markets \u2014 growth, inflation and policy",
-        "Supply, demand, elasticity and price discovery",
-        "Reading GDP, its components and its revisions",
-        "The business cycle and leading versus lagging indicators",
-        "Fiscal policy, deficits and debt",
-        "How CPI and PCE are built and why they disagree",
-        "Inflation expectations, breakevens and real versus nominal returns",
-        "Central banks, the FOMC, bond pricing, duration and the yield curve",
-        "Credit spreads, quantitative easing and currency effects",
-        "Sector economics, rotation and building a written macro process"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "37.95",
-        "priceCurrency": "USD",
-        "category": "Paid",
-        "availability": "https://schema.org/InStock",
-        "url": "https://hustlin.org/economics.html"
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "PT20H"
-      }
-    }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@1.17.0" defer></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              base: { 900: '#0A0A0A', 800: '#141414', 700: '#1B1B1B', 600: '#222222', 500: '#2a2a2a' },
-              surface: { 900: '#141414', 800: '#1B1B1B', 700: '#222222', 600: '#282828', 500: '#333333' },
-              emerald: { 50: '#FFFBEF', 100: '#FFF3D0', 200: '#FFE9A8', 300: '#FFE668', 400: '#FFE668', 500: '#F0C030', 600: '#D9A020', 700: '#B8871A', 800: '#8A6413', 900: '#5C420D' },
-              text: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b' },
-              gold: { 400: '#fbbf24', 500: '#f59e0b' }
-            },
-            fontFamily: {
-              sans: ['Plus Jakarta Sans','system-ui','sans-serif']
-            },
-            borderRadius: {
-              '3xl': '1.25rem',
-              '4xl': '1.5rem'
-            }
-          }
-        }
-      };
-    </script>
-    <style>
-      :root {
-        --bg-primary: #0A0A0A;
-        --bg-card: #141414;
-        --bg-card-hover: #1B1B1B;
-        --emerald: #F0C030;
-        --emerald-dark: #D9A020;
-        --text-primary: #f1f5f9;
-        --text-secondary: #94a3b8;
-      }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body { background-color: var(--bg-primary); color: var(--text-primary); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Hustlin' Economics for Traders Course — the complete five-stage course, $37.95 one-time. Growth, inflation, interest rates, the bond market and the indicators that actually move markets. Forty modules across five stages.">
+<meta name="keywords" content="economics for traders, macroeconomics course, GDP, inflation, CPI, PCE, interest rates, federal reserve, FOMC, yield curve, bond market, credit spreads, economic indicators, sector rotation">
+<title>Economics for Traders Course — $37.95 One-Time | Hustlin'</title>
 
-      .gradient-border {
-        position: relative;
-        background: linear-gradient(135deg, rgba(240,192,48,0.08), rgba(240,192,48,0.02));
-        border: 1px solid rgba(240,192,48,0.15);
-      }
-      .gradient-border:hover {
-        border-color: rgba(240,192,48,0.35);
-        background: linear-gradient(135deg, rgba(240,192,48,0.12), rgba(240,192,48,0.04));
-      }
+<!-- Social Preview -->
+<meta property="og:title" content="Economics for Traders Course | Hustlin'">
+<meta property="og:description" content="The Hustlin' Economics for Traders Course — the complete five-stage course, $37.95 one-time. Growth, inflation, interest rates, the bond market and the indicators that actually move markets. Forty modules across five stages.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/economics.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Economics for Traders Course | Hustlin'">
+<meta name="twitter:description" content="The Hustlin' Economics for Traders Course — the complete five-stage course, $37.95 one-time. Growth, inflation, interest rates, the bond market and the indicators that actually move markets. Forty modules across five stages.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/economics.html">
+<!-- Course schema. Economics for Traders is a single one-time $37.95 purchase
+     unlocking all five stages (courses.price_cents = 3795, free_stages = 0).
+     Price must stay in step with public.courses — that table is the
+     source of truth the Edge Function actually charges from. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Economics for Traders",
+  "description": "A five-stage macroeconomics course for market participants \u2014 why economic data moves markets, GDP and the business cycle, how CPI and PCE are built, inflation expectations and real returns, central banks and the FOMC, bond pricing, duration and the yield curve, credit spreads, currencies, leading indicators, global transmission, and turning a macro read into sector positioning.",
+  "url": "https://hustlin.org/economics.html",
+  "provider": { "@type": "Organization", "name": "Hustlin'", "url": "https://hustlin.org/" },
+  "inLanguage": "en-US",
+  "isAccessibleForFree": false,
+  "educationalLevel": "Beginner to Advanced",
+  "numberOfCredits": 40,
+  "teaches": [
+    "Why economic data moves markets \u2014 growth, inflation and policy",
+    "Supply, demand, elasticity and price discovery",
+    "Reading GDP, its components and its revisions",
+    "The business cycle and leading versus lagging indicators",
+    "Fiscal policy, deficits and debt",
+    "How CPI and PCE are built and why they disagree",
+    "Inflation expectations, breakevens and real versus nominal returns",
+    "Central banks, the FOMC, bond pricing, duration and the yield curve",
+    "Credit spreads, quantitative easing and currency effects",
+    "Sector economics, rotation and building a written macro process"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "37.95",
+    "priceCurrency": "USD",
+    "category": "Paid",
+    "availability": "https://schema.org/InStock",
+    "url": "https://hustlin.org/economics.html"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT20H"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=202607312219">
+<style>
+/* ─ Page-specific additions only ─ */
 
-      .lesson-item {
-        transition: all 0.2s ease;
-        padding: 8px 12px;
-        border-radius: 8px;
-      }
-      .lesson-item:hover {
-        background: rgba(240,192,48,0.08);
-        padding-left: 18px;
-      }
+/* Econ course accent: copper (site = gold, TA = blue, FA = green, psych = violet) */
+:root{ --amber: #E8935A; --amber-lt: #F2A76B; }
+.nav{border-bottom-color:rgba(232,147,90,.45)}
+.hfy-account-btn:hover{border-color:rgba(232,147,90,.4)}
+.btn-a:hover{box-shadow:0 8px 24px rgba(232,147,90,.38)}
+.hero-h1 em{text-shadow:1px 1px 0 #b45f26,2px 2px 0 #8f4a1d,3px 3px 0 #5e3113,4px 4px 0 #3a1e0b,5px 6px 3px rgba(0,0,0,.75),0 0 26px rgba(232,147,90,.55),0 0 50px rgba(232,147,90,.25)}
+.callout-sec::before{background:radial-gradient(ellipse at 50% 0%,rgba(232,147,90,.08) 0%,transparent 60%)}
 
-      .module-card {
-        transition: all 0.3s ease;
-      }
-      .module-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(240,192,48,0.08);
-      }
+/* Breadcrumb */
+.breadcrumb{
+  font-size:.78rem;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:7px;margin-bottom:18px;
+}
+.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
 
-      .cta-btn {
-        background: linear-gradient(135deg, #F0C030, #D9A020);
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(240,192,48,0.3);
-      }
-      .cta-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(240,192,48,0.4);
-        background: linear-gradient(135deg, #FFE668, #F0C030);
-      }
+/* Price badge pill */
+.free-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(232,147,90,.12);border:1px solid rgba(232,147,90,.28);
+  color:var(--amber-lt);padding:5px 14px;border-radius:20px;
+  font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.free-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--amber-lt);
+  box-shadow:0 0 6px var(--amber-lt);animation:fpdot 2s ease-in-out infinite alternate}
+@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--amber-lt)}}
 
-      .hero-glow {
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(240,192,48,0.08) 0%, transparent 70%);
-        border-radius: 50%;
-        top: -200px;
-        right: -100px;
-        pointer-events: none;
-      }
+/* Text stage nav pills — econ has no custom PNG button set */
+.ec-pill{display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  text-decoration:none;padding:11px 16px;min-width:142px;flex-shrink:0;border-radius:10px;
+  border:1px solid rgba(232,147,90,.32);background:rgba(232,147,90,.07);
+  font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:#d8ccf7;line-height:1.25;transition:border-color .18s,background .18s,color .18s}
+.ec-pill:hover{border-color:rgba(232,147,90,.7);background:rgba(232,147,90,.14);color:#f1ebff}
+.ec-pill .ec-pill-n{display:block;font-size:.6rem;opacity:.6;letter-spacing:.12em;margin-bottom:3px}
+@media(max-width:640px){.ec-pill{min-width:112px;padding:9px 11px;font-size:.64rem}}
 
-      .stat-divider {
-        width: 1px;
-        height: 40px;
-        background: linear-gradient(to bottom, transparent, rgba(240,192,48,0.3), transparent);
-      }
+/* Stage cards (extends styles.css .s-card) — text-only, no custom PNGs */
+.s-card[data-stage-card]{cursor:pointer}
+.s-card[data-stage-card].live:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(232,147,90,.15)}
+.s-name-txt{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.06rem;
+  color:#fff;letter-spacing:.01em;margin:6px 0 10px;line-height:1.25}
 
-      .table-row:hover { background: rgba(240,192,48,0.05); }
+/* Hero progress stat */
+.stat-highlight{background:rgba(232,147,90,.08);border:1px solid rgba(232,147,90,.4);border-radius:12px;padding:10px 16px 12px;position:relative;box-shadow:0 0 20px rgba(232,147,90,.1)}
+.stat-highlight .stat-val,.stat-highlight .stat-val span{color:var(--amber)}
+.stat-highlight .stat-lbl{color:rgba(232,147,90,.75);font-weight:700}
+.stat-bar-track{width:100%;height:4px;background:rgba(232,147,90,.15);border-radius:4px;margin-top:8px;overflow:hidden}
+.stat-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,#b45f26,var(--amber));border-radius:4px;transition:width .6s ease}
+@media(max-width:600px){.stat-highlight{padding:8px 12px 10px}}
 
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+/* What you'll be able to do — checklist grid */
+.able-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:34px}
+.able{display:flex;gap:12px;align-items:flex-start;background:#fffdf7;border:1px solid #e6dcc6;
+  border-radius:12px;padding:16px 18px}
+.able-dot{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(232,147,90,.14);
+  color:#b45f26;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem}
+.able-txt{font-size:.88rem;color:#33302a;line-height:1.6}
+.able-txt strong{color:#1c1c1c}
 
-      @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 20px rgba(240,192,48,0.2); }
-        50% { box-shadow: 0 0 35px rgba(240,192,48,0.35); }
-      }
-      .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+/* Concept preview table */
+.ratio-tbl{width:100%;border-collapse:collapse;margin-top:30px;font-size:.85rem;background:#fffdf7}
+.ratio-tbl th{text-align:left;background:#1c1c1c;color:#fff;padding:11px 13px;font-size:.75rem;
+  font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.ratio-tbl td{padding:10px 13px;border-bottom:1px solid #e6dcc6;color:#33302a;vertical-align:top}
+.ratio-tbl td:first-child{font-weight:700;color:#1c1c1c;white-space:nowrap}
+.ratio-tbl td.mono{font-family:'Space Mono',ui-monospace,monospace;font-size:.79rem;color:#5a544a}
+.ratio-tbl tr:last-child td{border-bottom:0}
+@media(max-width:640px){
+  .ratio-tbl{font-size:.76rem}
+  .ratio-tbl td,.ratio-tbl th{padding:8px 7px}
+  .ratio-tbl td.mono{font-size:.7rem}
+  .ratio-tbl td:first-child{white-space:normal}
+}
 
-      .icon-container {
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        background: linear-gradient(135deg, rgba(240,192,48,0.15), rgba(240,192,48,0.05));
-        border: 1px solid rgba(240,192,48,0.2);
-        flex-shrink: 0;
-      }
+/* Template cards */
+.tpl-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:34px}
+.tpl{background:#fffdf7;border:1px solid #e6dcc6;border-radius:14px;padding:22px}
+.tpl-ico{font-size:1.7rem;margin-bottom:8px;display:block}
+.tpl h3{font-size:1rem;font-weight:800;color:#1c1c1c;margin-bottom:6px}
+.tpl p{font-size:.84rem;color:#5a544a;line-height:1.65}
+.tpl-fmt{display:inline-block;margin-top:11px;font-family:'Space Mono',monospace;font-size:.7rem;
+  background:rgba(232,147,90,.1);color:#b45f26;padding:3px 9px;border-radius:5px;font-weight:700}
 
-      .nav-link {
-        position: relative;
-        transition: color 0.2s ease;
-      }
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #F0C030;
-        transition: width 0.3s ease;
-      }
-      .nav-link:hover::after { width: 100%; }
-      .nav-link:hover { color: #F0C030; }
+/* Buy panel */
+.buy-panel{max-width:440px;margin:0 auto;background:rgba(255,255,255,.04);
+  border:1px solid rgba(232,147,90,.3);border-radius:16px;padding:30px 26px;text-align:center}
+.buy-price{font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;color:var(--amber);line-height:1}
+.buy-sub{font-size:.8rem;color:rgba(255,255,255,.4);margin:6px 0 20px}
+.buy-btn{display:inline-block;width:100%;background:var(--amber);color:#0d0820;font-weight:800;
+  font-size:.92rem;letter-spacing:.04em;text-transform:uppercase;padding:15px 20px;border-radius:10px;
+  text-decoration:none;transition:.2s;border:0;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif}
+.buy-btn:hover{background:#A78BFA;transform:translateY(-1px)}
+.buy-list{list-style:none;padding:0;margin:20px 0 0;text-align:left}
+.buy-list li{font-size:.84rem;color:rgba(255,255,255,.55);padding:6px 0 6px 24px;position:relative}
+.buy-list li::before{content:'✓';position:absolute;left:0;color:var(--amber);font-weight:800}
 
-      .indicator-badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 2px 10px;
-        border-radius: 9999px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
+/* (support notice styles unused on this page) */
+.support-note{max-width:800px;margin:34px auto 0;background:rgba(232,147,90,.06);
+  border:1px solid rgba(232,147,90,.22);border-radius:12px;padding:18px 22px}
+.support-note h3{font-size:.82rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:#b45f26;margin-bottom:8px}
+.support-note p{font-size:.85rem;color:#5a544a;line-height:1.7}
+.support-note a{color:#b45f26;text-decoration:underline}
 
-      .scrollbar-hide::-webkit-scrollbar { display: none; }
-      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
-  <link rel="stylesheet" href="styles.css?v=202607312209">
+/* FAQ */
+.faq{max-width:800px;margin:34px auto 0}
+.faq details{background:#fffdf7;border:1px solid #e6dcc6;border-radius:12px;margin-bottom:11px;padding:0}
+.faq summary{cursor:pointer;padding:16px 20px;font-weight:700;color:#1c1c1c;font-size:.93rem;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:#b45f26;font-size:1.3rem;font-weight:400;flex-shrink:0}
+.faq details[open] summary::after{content:'−'}
+.faq-body{padding:0 20px 18px;font-size:.87rem;color:#5a544a;line-height:1.75}
+.faq-body a{color:#b45f26;text-decoration:underline}
+
+/* Email row */
+.email-row{
+  display:flex;gap:8px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.11);border-radius:var(--r-sm);
+  padding:6px 6px 6px 16px;transition:all .2s;max-width:480px;margin:0 auto;
+}
+.email-row:focus-within{border-color:rgba(232,147,90,.35);background:rgba(232,147,90,.03);box-shadow:0 0 16px rgba(232,147,90,.1)}
+.email-row input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:.93rem;font-family:var(--f-body);min-width:0}
+.email-row input::placeholder{color:rgba(255,255,255,.25)}
+.email-row .nav-cta{flex-shrink:0;padding:10px 18px;font-size:.82rem}
+.email-ok{display:none;background:rgba(232,147,90,.1);border:1px solid rgba(232,147,90,.25);border-radius:var(--r-sm);padding:10px;color:var(--amber-lt);font-weight:600;font-size:.85rem;margin-top:8px;text-align:center}
+
+@media(max-width:768px){
+  .email-row{flex-direction:column;padding:10px;gap:8px}
+  .email-row .nav-cta{width:100%;padding:12px;text-align:center}
+}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
 </head>
-<body data-id="0" class="bg-base-900 text-text-100 min-h-screen">
-    <app-icon data-id="1" hidden data-icon="trending-up" data-palette="Green"></app-icon>
-    <app-disclaimer data-id="2" intent="financial"></app-disclaimer>
+<body>
 
-    <!-- Navigation -->
-    <nav data-id="3" id="navbar-x8k2" class="fixed top-0 left-0 right-0 z-50 bg-base-900/90 backdrop-blur-md border-b border-emerald-500/10">
-        <div data-id="4" class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 flex items-center justify-between">
-            <div data-id="5" class="flex items-center gap-3">
-                <div data-id="6" class="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center">
-                    <i data-id="7" data-lucide="trending-up" class="w-5 h-5 text-emerald-400"></i>
-                </div>
-                <div data-id="8">
-                    <span data-id="9" class="text-base font-bold text-text-50 tracking-tight">hustlin.org</span>
-                </div>
-            </div>
-            <div data-id="10" class="hidden md:flex items-center gap-8">
-                <a data-id="11" href="#modules" class="nav-link text-sm font-medium text-text-300">Modules</a>
-                <a data-id="12" href="#learn" class="nav-link text-sm font-medium text-text-300">What You'll Learn</a>
-                <a data-id="13" href="#indicators" class="nav-link text-sm font-medium text-text-300">Indicators</a>
-                <a data-id="14" href="#audience" class="nav-link text-sm font-medium text-text-300">Who It's For</a>
-                <a data-id="15" href="#enroll" class="cta-btn text-sm font-semibold text-base-900 px-5 py-2.5 rounded-xl inline-block">Enroll Now</a>
-            </div>
-            <button data-id="16" id="mobile-menu-btn-q3r7" class="md:hidden p-2 text-text-300 hover:text-emerald-400 transition-colors">
-                <i data-id="17" data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-    </nav>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:70px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))">
+  </a>
+  <div class="nav-stages">
+    <a class="ec-pill" href="learn.html?course=econ&amp;stage=1" data-nav-stage="ec1"><span><span class="ec-pill-n">Stage 1</span>Economics 101</span></a>
+    <a class="ec-pill" href="learn.html?course=econ&amp;stage=2" data-nav-stage="ec2"><span><span class="ec-pill-n">Stage 2</span>Inflation</span></a>
+    <a class="ec-pill" href="learn.html?course=econ&amp;stage=3" data-nav-stage="ec3"><span><span class="ec-pill-n">Stage 3</span>Rates, Banks &amp; Bonds</span></a>
+    <a class="ec-pill" href="learn.html?course=econ&amp;stage=4" data-nav-stage="ec4"><span><span class="ec-pill-n">Stage 4</span>Indicators &amp; Global</span></a>
+    <a class="ec-pill" href="learn.html?course=econ&amp;stage=5" data-nav-stage="ec5"><span><span class="ec-pill-n">Stage 5</span>Sectors &amp; Strategy</span></a>
+  </div>
+</nav>
 
-    <!-- Mobile Menu -->
-    <div data-id="18" id="mobile-menu-m4k9" class="hidden fixed inset-0 bg-base-900/98 z-50 flex flex-col p-6 pt-4">
-        <div data-id="19" class="flex justify-between items-center mb-8">
-            <span data-id="20" class="text-lg font-bold text-text-50">hustlin.org</span>
-            <button data-id="21" id="mobile-menu-close-p2w5" class="p-2 text-text-300 hover:text-emerald-400">
-                <i data-id="22" data-lucide="x" class="w-6 h-6"></i>
-            </button>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Economics for Traders Course</span>
+      </div>
+      <div class="free-pill">
+        <span class="free-pill-dot"></span>
+        All 5 Stages · <span class="lock-price" style="color:inherit">$37.95</span> one-time
+      </div>
+      <h1 class="hero-h1">
+        The Economy Moves First.<br>
+        <em>Then the Price.</em>
+      </h1>
+      <p class="hero-sub">
+        Every price on your screen is downstream of an economy. Most traders never
+        learn the machinery underneath it, then wonder why the tape stops behaving
+        at 8:30. Five stages and forty modules on what the big numbers actually
+        measure, and how they reach the thing you own.
+      </p>
+      <div class="cta-row">
+        <a class="btn-a" href="learn.html?course=econ&amp;stage=1" data-hfy-buy="econ">Get the Course — $37.95</a>
+        <a class="btn-b" href="#roadmap">See all 5 stages ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">$<span>37.95</span></div><div class="stat-lbl">One-time</div></div>
+        <div><div class="stat-val"><span>40</span></div><div class="stat-lbl">Modules</div></div>
+        <div class="stat-highlight">
+          <div class="stat-val"><span id="hero-pct">0</span>%</div>
+          <div class="stat-lbl">Your progress</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" id="hero-pct-bar"></div></div>
         </div>
-        <div data-id="23" class="flex flex-col gap-1">
-            <a data-id="24" href="#modules" class="mobile-nav-link text-lg font-medium text-text-200 py-3 px-4 rounded-xl hover:bg-emerald-500/10 transition-colors">Modules</a>
-            <a data-id="25" href="#learn" class="mobile-nav-link text-lg font-medium text-text-200 py-3 px-4 rounded-xl hover:bg-emerald-500/10 transition-colors">What You'll Learn</a>
-            <a data-id="26" href="#indicators" class="mobile-nav-link text-lg font-medium text-text-200 py-3 px-4 rounded-xl hover:bg-emerald-500/10 transition-colors">Indicators</a>
-            <a data-id="27" href="#audience" class="mobile-nav-link text-lg font-medium text-text-200 py-3 px-4 rounded-xl hover:bg-emerald-500/10 transition-colors">Who It's For</a>
-            <a data-id="28" href="#enroll" class="cta-btn text-center text-lg font-semibold text-base-900 px-6 py-3.5 rounded-xl mt-4 block">Enroll Now</a>
-        </div>
+        <div><div class="stat-val"><span>40</span></div><div class="stat-lbl">Modules</div></div>
+      </div>
     </div>
 
-    <main data-id="29">
-        <!-- Hero Section -->
-        <section data-id="30" id="hero-v2m8" class="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-6 lg:px-8">
-            <div data-id="31" class="hero-glow"></div>
-            <div data-id="32" class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M0 30h60M30 0v60&quot; stroke=&quot;%2322c55e&quot; stroke-width=&quot;0.5&quot; fill=&quot;none&quot;/%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
-            <div data-id="33" class="max-w-5xl mx-auto text-center relative z-10">
-                <div data-id="34" class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 mb-6">
-                    <span data-id="35" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span data-id="36" class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Premium Course · 42 Lessons</span>
-                </div>
-                <h1 data-id="37" id="hero-title-a3b5" class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-text-50 leading-tight mb-6 tracking-tight">
-                    Economics for Traders
-                </h1>
-                <p data-id="38" id="hero-subtitle-c7d9" class="text-lg md:text-2xl font-medium text-emerald-400 mb-6">
-                    How the Economy Moves Markets — And Your Money
-                </p>
-                <p data-id="39" id="hero-desc-e1f3" class="text-base md:text-lg text-text-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-                    Master the macroeconomic forces that drive stocks, bonds, commodities, and currencies. From GDP reports to Fed decisions, learn to read the economy like a professional trader and position your portfolio ahead of the crowd.
-                </p>
-                <div data-id="40" class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a data-id="41" href="#enroll" class="cta-btn text-base font-bold text-base-900 px-8 py-4 rounded-xl pulse-glow inline-flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <i data-id="42" data-lucide="rocket" class="w-5 h-5"></i>
-                        Enroll Now — Start Learning
-                    </a>
-                    <a data-id="43" href="#modules" class="text-base font-medium text-text-300 px-8 py-4 rounded-xl border border-text-500/20 hover:border-emerald-500/30 hover:text-emerald-400 transition-all inline-flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <i data-id="44" data-lucide="book-open" class="w-5 h-5"></i>
-                        View Curriculum
-                    </a>
-                </div>
-            </div>
-        </section>
+    <!-- Journey / progress card -->
+    <div class="journey-card" id="progress-card">
+      <div class="journey-card-title">Your Economics Journey</div>
+      <div class="j-step">
+        <div class="j-num now" id="jn1">1</div>
+        <div class="j-info">
+          <div class="j-name">Economics 101</div>
+          <div class="j-desc">Growth, GDP, the business cycle, fiscal and monetary policy</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn2">2</div>
+        <div class="j-info">
+          <div class="j-name">Inflation</div>
+          <div class="j-desc">CPI vs PCE, core, expectations, real versus nominal returns</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn3">3</div>
+        <div class="j-info">
+          <div class="j-name">Rates, Banks &amp; Bonds</div>
+          <div class="j-desc">The FOMC, bond pricing, duration, the yield curve, credit spreads</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn4">4</div>
+        <div class="j-info">
+          <div class="j-name">Indicators &amp; Global</div>
+          <div class="j-desc">Leading vs lagging, PMIs, housing, trade, emerging markets</div>
+        </div>
+      </div>
+      <div class="j-step">
+        <div class="j-num later" id="jn5">5</div>
+        <div class="j-info">
+          <div class="j-name">Sectors &amp; Strategy</div>
+          <div class="j-desc">Cyclicals, rate-sensitives, rotation, a written macro process</div>
+        </div>
+      </div>
+      <a class="btn-a" style="margin-top:22px;display:block;text-align:center" href="learn.html?course=econ&amp;stage=1" data-hfy-buy="econ">Get the Course — $37.95</a>
+    </div>
+  </div>
+</section>
 
-        <!-- Stats Bar -->
-        <section data-id="45" id="stats-g5h7" class="border-y border-emerald-500/10 bg-surface-900/50">
-            <div data-id="46" class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8 py-6 flex flex-wrap items-center justify-center gap-6 md:gap-0">
-                <div data-id="47" class="flex items-center gap-2.5 px-4 md:px-6">
-                    <i data-id="48" data-lucide="layers" class="w-5 h-5 text-emerald-400"></i>
-                    <span data-id="49" class="text-sm font-semibold text-text-100">8 Modules</span>
-                </div>
-                <div data-id="50" class="stat-divider hidden md:block"></div>
-                <div data-id="51" class="flex items-center gap-2.5 px-4 md:px-6">
-                    <i data-id="52" data-lucide="play-circle" class="w-5 h-5 text-emerald-400"></i>
-                    <span data-id="53" class="text-sm font-semibold text-text-100">42 Lessons</span>
-                </div>
-                <div data-id="54" class="stat-divider hidden md:block"></div>
-                <div data-id="55" class="flex items-center gap-2.5 px-4 md:px-6">
-                    <i data-id="56" data-lucide="infinity" class="w-5 h-5 text-emerald-400"></i>
-                    <span data-id="57" class="text-sm font-semibold text-text-100">Lifetime Access</span>
-                </div>
-                <div data-id="58" class="stat-divider hidden md:block"></div>
-                <div data-id="59" class="flex items-center gap-2.5 px-4 md:px-6">
-                    <i data-id="60" data-lucide="calendar-check" class="w-5 h-5 text-emerald-400"></i>
-                    <span data-id="61" class="text-sm font-semibold text-text-100">Economic Calendar Cheat Sheet Included</span>
-                </div>
-            </div>
-        </section>
+<!-- ROADMAP -->
+<section style="background:#060606;padding:26px 40px 0">
+  <div data-hfy-progress="econ"></div>
+</section>
 
-        <!-- What You'll Learn -->
-        <section data-id="62" id="learn" class="py-16 md:py-24 px-4 md:px-6 lg:px-8">
-            <div data-id="63" class="max-w-6xl mx-auto">
-                <div data-id="64" class="text-center mb-12 fade-in">
-                    <span data-id="65" class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3 block">Course Outcomes</span>
-                    <h2 data-id="66" id="learn-title-i9j1" class="text-2xl md:text-4xl font-bold text-text-50 mb-4">What You'll Learn</h2>
-                    <p data-id="67" class="text-text-400 max-w-2xl mx-auto">Every concept is taught through the lens of actionable trading insight — not academic theory.</p>
-                </div>
-                <div data-id="68" class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 fade-in">
-                    <div data-id="69" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="70" data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="71">
-                            <p data-id="72" class="text-sm font-medium text-text-100">Interpret GDP, CPI, PPI, and NFP reports and know exactly how markets will react before the crowd does</p>
-                        </div>
-                    </div>
-                    <div data-id="73" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="74" data-lucide="landmark" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="75">
-                            <p data-id="76" class="text-sm font-medium text-text-100">Decode Federal Reserve policy decisions, FOMC statements, and dot plots to anticipate rate moves</p>
-                        </div>
-                    </div>
-                    <div data-id="77" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="78" data-lucide="trending-up" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="79">
-                            <p data-id="80" class="text-sm font-medium text-text-100">Read the yield curve, credit spreads, and Treasury signals that institutional traders rely on daily</p>
-                        </div>
-                    </div>
-                    <div data-id="81" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="82" data-lucide="globe" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="83">
-                            <p data-id="84" class="text-sm font-medium text-text-100">Understand how global currencies, geopolitical events, and commodity prices create ripple effects across U.S. equities</p>
-                        </div>
-                    </div>
-                    <div data-id="85" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="86" data-lucide="pie-chart" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="87">
-                            <p data-id="88" class="text-sm font-medium text-text-100">Identify which sectors outperform during expansion, contraction, and every phase of the business cycle</p>
-                        </div>
-                    </div>
-                    <div data-id="89" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="90" data-lucide="shield" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="91">
-                            <p data-id="92" class="text-sm font-medium text-text-100">Build recession-proof portfolio strategies using top-down macroeconomic analysis</p>
-                        </div>
-                    </div>
-                    <div data-id="93" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="94" data-lucide="calendar" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="95">
-                            <p data-id="96" class="text-sm font-medium text-text-100">Master the economic calendar so you never get blindsided by a data release or Fed announcement again</p>
-                        </div>
-                    </div>
-                    <div data-id="97" class="flex items-start gap-4 p-5 rounded-2xl gradient-border transition-all">
-                        <i data-id="98" data-lucide="target" class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                        <div data-id="99">
-                            <p data-id="100" class="text-sm font-medium text-text-100">Construct a personal economic monitoring dashboard that gives you an institutional-grade information edge</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="sec roadmap" id="roadmap">
+  <div class="sec-inner">
+    <p class="sec-eye">The Full Course</p>
+    <h2 class="sec-h2">Five Stages. Forty Modules. From First Principles.</h2>
+    <p class="sec-sub">All five stages unlock with a single one-time $37.95 payment. One account, lifetime access, no subscription.</p>
+    <div class="stages" style="margin-top:44px">
+      <a class="s-card" data-stage-card="ec1" href="learn.html?course=econ&amp;stage=1">
+        <div class="s-num">STAGE 1</div>
+        <div class="s-name-txt">Economics 101</div>
+        <div class="s-tag">Why economic data moves markets through growth, inflation and policy, supply and demand and elasticity, what GDP measures and misses, the business cycle and who dates a recession, fiscal policy and the deficit-versus-debt distinction, a first look at central banks, the two surveys behind the jobs report, and how to read a release without getting fooled</div>
+        <div class="s-lock-caption">$37.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ec2" href="learn.html?course=econ&amp;stage=2">
+        <div class="s-num">STAGE 2</div>
+        <div class="s-name-txt">Inflation</div>
+        <div class="s-tag">What inflation actually is, how the CPI basket and its weights are built, why CPI and PCE disagree and which one the Fed targets, core versus headline and the other core measures, demand-pull versus cost-push, inflation expectations and breakevens, real versus nominal returns and the real interest rate, and what inflation does to each asset class</div>
+        <div class="s-lock-caption">$37.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ec3" href="learn.html?course=econ&amp;stage=3">
+        <div class="s-num">STAGE 3</div>
+        <div class="s-name-txt">Rates, Central Banks &amp; Bonds</div>
+        <div class="s-tag">How a central bank actually works, reading an FOMC statement, dot plot and press conference, why bond prices and yields move inversely, duration and interest-rate risk, the yield curve and its recession record stated honestly, credit spreads as the market's fear gauge, quantitative easing and tightening, rates and currencies, and reading the bond market as a forecast</div>
+        <div class="s-lock-caption">$37.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ec4" href="learn.html?course=econ&amp;stage=4">
+        <div class="s-num">STAGE 4</div>
+        <div class="s-name-txt">Indicators &amp; the Global Economy</div>
+        <div class="s-tag">Leading, coincident and lagging indicators, PMIs and how a diffusion index works, the consumer through retail sales and the saving rate, housing as the most rate-sensitive sector, trade balances and the current account identity, the four channels that transmit a shock between economies, emerging market vulnerability, and building a release calendar you will actually use</div>
+        <div class="s-lock-caption">$37.95 one-time · sign-in required</div>
+      </a>
+      <a class="s-card" data-stage-card="ec5" href="learn.html?course=econ&amp;stage=5">
+        <div class="s-num">STAGE 5</div>
+        <div class="s-name-txt">Sectors &amp; Strategy</div>
+        <div class="s-tag">Why sectors respond differently to the same economy, cyclicals versus defensives and the low-P/E trap, rate-sensitive sectors and why banks and utilities move opposite ways, commodity producers versus consumers, sector rotation and its honest limits, turning a macro view into position size, the written macro process, and your eleven-series dashboard</div>
+        <div class="s-lock-caption">$37.95 one-time · sign-in required</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-        <!-- Course Modules -->
-        <section data-id="101" id="modules" class="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-surface-900/30">
-            <div data-id="102" class="max-w-6xl mx-auto">
-                <div data-id="103" class="text-center mb-14 fade-in">
-                    <span data-id="104" class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3 block">Full Curriculum</span>
-                    <h2 data-id="105" id="modules-title-k3l5" class="text-2xl md:text-4xl font-bold text-text-50 mb-4">5 Stages, 40 Modules</h2>
-                    <p data-id="106" class="text-text-400 max-w-2xl mx-auto">Five stages, eight modules each. From foundational economics to sector positioning — a complete macro education built for active market participants.</p>
-                </div>
+<!-- WHAT YOU'LL BE ABLE TO DO -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">What You'll Be Able To Do</p>
+    <h2 class="sec-h2">Context, Not Predictions.</h2>
+    <p class="sec-sub">This course will not tell you what happens next week — nobody can, and the people who claim otherwise have a poor record. It gives you the thing that actually compounds: knowing which regime you are in, what the market has already priced, and which risks your positions genuinely carry.</p>
+    <div class="able-grid">
+      <div class="able"><div class="able-dot">1</div><div class="able-txt"><strong>Read a release before the headline reads you.</strong> Consensus first, revisions second, composition third, headline last — a four-step routine that regularly produces a different conclusion from the coverage.</div></div>
+      <div class="able"><div class="able-dot">2</div><div class="able-txt"><strong>Tell a surprise from a number.</strong> Markets trade the gap between the print and what was expected. Learn to find the consensus first, so you can measure it.</div></div>
+      <div class="able"><div class="able-dot">3</div><div class="able-txt"><strong>Convert every return into what it is worth.</strong> Subtract inflation from every rate you are quoted, and work out whether the real policy rate makes conditions tight or loose.</div></div>
+      <div class="able"><div class="able-dot">4</div><div class="able-txt"><strong>Read the yield curve and know its limits.</strong> What inversion encodes, why the un-inversion matters more, and why the sample is too small for the confidence people place on it.</div></div>
+      <div class="able"><div class="able-dot">5</div><div class="able-txt"><strong>Decompose a yield move.</strong> A 40bp rise means one thing if it was all breakevens and the opposite if it was all real yields — same headline, opposite implication for equities.</div></div>
+      <div class="able"><div class="able-dot">6</div><div class="able-txt"><strong>Use credit spreads as a second opinion.</strong> Watch high yield spreads next to your equity index. When they disagree, the credit market has historically been the one worth hearing.</div></div>
+      <div class="able"><div class="able-dot">7</div><div class="able-txt"><strong>Diagnose inflation before positioning for it.</strong> Broad and wage-driven, or narrow and supply-driven? The two demand opposite policy responses and opposite trades.</div></div>
+      <div class="able"><div class="able-dot">8</div><div class="able-txt"><strong>Score a company on four macro sensitivities.</strong> Demand elasticity, operating leverage, financing need and cash-flow duration — enough to reason about any sector rather than memorising a list.</div></div>
+    </div>
+  </div>
+</section>
 
-                <div data-id="107" class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+<!-- CONCEPTS -->
+<section class="sec" style="background:#f8f3e7">
+  <div class="sec-inner">
+    <p class="sec-eye">A Sample of What's Inside</p>
+    <h2 class="sec-h2">The Arithmetic Behind the Headlines.</h2>
+    <p class="sec-sub">Nine of the relationships worked through across the course. Each one comes with the arithmetic, a worked example, and the free data series where you can watch it move.</p>
+    <table class="ratio-tbl">
+      <thead><tr><th>Concept</th><th>The number</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Real return</td><td class="mono">Nominal return − Inflation</td><td>4% in a savings account with 6% inflation is a 2% annual loss of purchasing power</td></tr>
+        <tr><td>Real policy rate</td><td class="mono">Policy rate − Inflation</td><td>A 5% rate with 7% inflation is stimulative; 2% with 0% inflation is restrictive</td></tr>
+        <tr><td>GDP</td><td class="mono">C + I + G + (X − M)</td><td>Which component moved matters far more than the headline — inventories flatter a quarter and borrow from the next</td></tr>
+        <tr><td>Breakeven inflation</td><td class="mono">Nominal yield − TIPS yield</td><td>What the bond market expects inflation to average, updated daily rather than monthly</td></tr>
+        <tr><td>Nominal yield</td><td class="mono">≈ Real yield + Breakeven</td><td>Decomposing a yield move tells you whether it was a growth story or an inflation story</td></tr>
+        <tr><td>Bond duration</td><td class="mono">≈ % price fall per 1% yield rise</td><td>A 10-year at duration 8.5 loses about 8.5% when yields rise a point</td></tr>
+        <tr><td>Diffusion index (PMI)</td><td class="mono">%better + (0.5 × %same)</td><td>Above 50 is expansion — 48 does not mean the sector shrank 2%</td></tr>
+        <tr><td>Credit spread</td><td class="mono">Corporate yield − Government yield</td><td>Widens in days, narrows over months; widening while equities rally is the classic warning</td></tr>
+        <tr><td>Balance of payments</td><td class="mono">Current account + Capital account ≈ 0</td><td>A trade deficit is necessarily matched by capital flowing in — they are one transaction, described twice</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-                    <!-- Stage 1 -->
-                    <div class="module-card gradient-border rounded-3xl p-6 md:p-8 fade-in">
-                        <div class="flex items-start gap-4 mb-5">
-                            <div class="icon-container">
-                                <i data-lucide="book-open" class="w-5 h-5 text-emerald-400"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                    <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Stage 1</span>
-                                    <span class="indicator-badge bg-emerald-500/15 text-emerald-400">8 Modules</span>
-                                </div>
-                                <h3 class="text-lg font-bold text-text-50">Economics 101 — The Trader's Foundation</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-1 text-sm text-text-300">
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.1: Why Economics Moves Markets</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.2: Supply, Demand and Price Discovery</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.3: GDP — What It Measures, and What It Misses</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.4: The Business Cycle — Expansion, Peak, Contraction, Trough</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.5: Fiscal Policy — Government Spending, Taxes and Debt</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.6: Monetary Policy — A First Look</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.7: Employment and the Labor Market</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 1.8: Reading an Economic Release Without Getting Fooled</li>
-                        </ul>
-                    </div>
 
-                    <!-- Stage 2 -->
-                    <div class="module-card gradient-border rounded-3xl p-6 md:p-8 fade-in">
-                        <div class="flex items-start gap-4 mb-5">
-                            <div class="icon-container">
-                                <i data-lucide="flame" class="w-5 h-5 text-emerald-400"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                    <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Stage 2</span>
-                                    <span class="indicator-badge bg-emerald-500/15 text-emerald-400">8 Modules</span>
-                                </div>
-                                <h3 class="text-lg font-bold text-text-50">Inflation — The Silent Force Behind Every Market</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-1 text-sm text-text-300">
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.1: What Inflation Actually Is</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.2: CPI — How the Basket Is Actually Built</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.3: CPI vs. PCE — Two Official Measures That Disagree</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.4: Core vs. Headline — Why Anyone Strips Out Food and Energy</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.5: What Actually Causes Inflation</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.6: Inflation Expectations — The Self-Fulfilling Variable</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.7: Real vs. Nominal — What Your Return Is Really Worth</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 2.8: What Inflation Does to Each Asset Class</li>
-                        </ul>
-                    </div>
 
-                    <!-- Stage 3 -->
-                    <div class="module-card gradient-border rounded-3xl p-6 md:p-8 fade-in">
-                        <div class="flex items-start gap-4 mb-5">
-                            <div class="icon-container">
-                                <i data-lucide="landmark" class="w-5 h-5 text-emerald-400"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                    <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Stage 3</span>
-                                    <span class="indicator-badge bg-emerald-500/15 text-emerald-400">8 Modules</span>
-                                </div>
-                                <h3 class="text-lg font-bold text-text-50">Interest Rates, Central Banks and the Bond Market</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-1 text-sm text-text-300">
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.1: How a Central Bank Actually Works</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.2: Reading an FOMC Decision — Statement, Projections, Press Conference</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.3: How Bonds Are Priced — Why Yields and Prices Move Inversely</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.4: The Yield Curve — The Market's Own Economic Forecast</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.5: Credit Spreads — The Market's Fear Gauge</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.6: Quantitative Easing, Tightening and the Balance Sheet</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.7: Rates and Currencies — Why Money Chases Yield</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 3.8: Reading the Bond Market as an Economic Forecast</li>
-                        </ul>
-                    </div>
+<!-- FOR WHO -->
+<section class="sec for-who">
+  <div class="sec-inner">
+    <div class="fw-grid">
+      <div class="fw-cards">
+        <p class="sec-eye">Who This Is For</p>
+        <h2 class="sec-h2">You Read the News. It Still Surprises You.</h2>
+        <p class="sec-sub" style="margin-bottom:28px">Following the headlines is not the same as understanding the machinery underneath them. Closing that gap is what this course is about — at a one-time $37.95.</p>
+        <div class="persona">
+          <div class="p-icon">📅</div>
+          <div><div class="p-name">Blindsided by Scheduled Events</div><div class="p-desc">Your setup stops working at 8:30 and you did not know a release was due. Stage 1 ends with a tiered calendar and a four-step routine for reading one.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='technical-analysis.html'">
+          <div class="p-icon">📈</div>
+          <div><div class="p-name">Trades Charts, Ignores the Calendar</div><div class="p-desc">Technical work tells you what price is doing; macro tells you what is about to be repriced. Method lives in the TA course; this is the other half. <strong style="color:var(--amber)">See the TA course →</strong></div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🏦</div>
+          <div><div class="p-name">Holds Bonds or Rate-Sensitive Stocks</div><div class="p-desc">If you own long bonds, utilities, property or unprofitable growth, you hold one concentrated bet on interest rates. Stage 3 explains why, and Stage 5 covers what to do about it.</div></div>
+        </div>
+        <div class="persona" style="cursor:pointer" onclick="location.href='fundamental-analysis.html'">
+          <div class="p-icon">🧱</div>
+          <div><div class="p-name">Long-Term Investor, Not a Day Trader</div><div class="p-desc">Real returns, the real policy rate and the inflation regime decide decade-long outcomes far more than any entry price. <strong style="color:var(--amber)">See the Fundamental course →</strong></div></div>
+        </div>
+        <div class="persona">
+          <div class="p-icon">🌍</div>
+          <div><div class="p-name">Tired of Confident Macro Commentary</div><div class="p-desc">No predictions, no cycle theories, no gold-standard polemics. Public data, stated mechanisms, and explicit limits on what any of it can tell you.</div></div>
+        </div>
+      </div>
+      <div class="fw-panel">
+        <div class="fw-quote">
+          "Macro literacy is a context and risk tool, not a timing tool. It will
+          not tell you what happens next week — and anyone selling you that
+          <em>certainty</em> is selling you something else."
+        </div>
+        <p class="fw-body">Everything in this course is public, released on a schedule, and read within milliseconds by institutions with far more resources than you. You are not going to out-react them on the print, and the course says so rather than pretending otherwise. What macro literacy gives you instead is durable: you understand why markets moved rather than being surprised by scheduled events, you can see which risks your positions actually carry, and you can read financial media critically instead of absorbing it. That is a risk-management edge, not a speed edge.</p>
+        <div class="fw-checks">
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Built on free public data — FRED, BLS, BEA, the Fed. No paid terminal, ever</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">40 modules with worked examples, arithmetic and action steps</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Honest about its limits — small samples, false signals and failed indicators are named</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">An eleven-series dashboard and a written process you build in Stage 5</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <!-- Stage 4 -->
-                    <div class="module-card gradient-border rounded-3xl p-6 md:p-8 fade-in">
-                        <div class="flex items-start gap-4 mb-5">
-                            <div class="icon-container">
-                                <i data-lucide="gauge" class="w-5 h-5 text-emerald-400"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                    <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Stage 4</span>
-                                    <span class="indicator-badge bg-emerald-500/15 text-emerald-400">8 Modules</span>
-                                </div>
-                                <h3 class="text-lg font-bold text-text-50">Key Indicators and the Global Economy</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-1 text-sm text-text-300">
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.1: Leading, Coincident and Lagging Indicators</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.2: PMIs and Survey Data</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.3: The Consumer — Retail Sales, Income and Savings</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.4: Housing — Where Interest Rates Hit First</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.5: Trade Balances and the Current Account</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.6: How a Shock in One Economy Reaches Another</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.7: Emerging Markets — Higher Growth, Different Risks</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 4.8: Building an Economic Calendar You Will Actually Use</li>
-                        </ul>
-                    </div>
+<!-- CALLOUT -->
+<section class="callout-sec">
+  <div class="callout-txt">
+    <span class="callout-soft">The mission</span>
+    Markets don't move on the news.
+    They move on the gap between the news and <em>what was already expected.</em>
+    That gap is learnable.
+  </div>
+</section>
 
-                    <!-- Stage 5 -->
-                    <div class="module-card gradient-border rounded-3xl p-6 md:p-8 fade-in">
-                        <div class="flex items-start gap-4 mb-5">
-                            <div class="icon-container">
-                                <i data-lucide="target" class="w-5 h-5 text-emerald-400"></i>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                    <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Stage 5</span>
-                                    <span class="indicator-badge bg-emerald-500/15 text-emerald-400">8 Modules</span>
-                                </div>
-                                <h3 class="text-lg font-bold text-text-50">Sector Economics and Building the Strategy</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-1 text-sm text-text-300">
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.1: Why Sectors Respond Differently to the Same Economy</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.2: Cyclicals and Defensives — The Core Split</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.3: Rate-Sensitive Sectors — Banks, Real Estate and Utilities</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.4: Commodity-Linked Sectors — Where Input Costs Become the Story</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.5: Sector Rotation — The Theory and Its Honest Limits</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.6: From a Macro View to an Actual Position</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.7: The Written Macro Process</li>
-                            <li class="lesson-item flex items-center gap-2"><i data-lucide="play" class="w-3.5 h-3.5 text-emerald-500 flex-shrink-0"></i> 5.8: Your Dashboard and Toolkit</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- BUY -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Get Started</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:26px">Stop Guessing. <span style="color:var(--amber)">Start Reading.</span></h2>
+    <div class="buy-panel">
+      <div class="buy-price">$37.95</div>
+      <div class="buy-sub">One-time · lifetime access · tax included</div>
+      <a class="buy-btn" href="learn.html?course=econ&amp;stage=1" data-hfy-buy="econ">Get the Course</a>
+      <ul class="buy-list">
+        <li>All 5 stages, 40 modules, unlocked immediately</li>
+        <li><a href="terms-of-service.html" style="color:inherit;text-decoration:underline">Lifetime access</a> — for as long as we run the site</li>
+        <li>An eleven-series macro dashboard you build in Stage 5</li>
+        <li>Progress saved to your account across devices</li>
+        <li>Free lifetime updates as modules are revised</li>
+        <li>Price includes VAT / sales tax — no surprises at checkout</li>
+      </ul>
+    </div>
+    <p style="color:rgba(255,255,255,.28);font-size:.78rem;margin-top:18px">
+      Educational content only. Not financial, investment, tax, or legal advice.
+      Price includes all tax — nothing is added at checkout. We don't offer discretionary refunds; Stripe handles the payment as seller of record and applies your local cancellation rights. See our <a href="terms-of-service.html" style="color:rgba(255,255,255,.45);text-decoration:underline">Terms of Service</a>.
+    </p>
+  </div>
+</section>
 
-        <!-- Economic Indicators Quick Reference -->
-        <section data-id="276" id="indicators" class="py-16 md:py-24 px-4 md:px-6 lg:px-8">
-            <div data-id="277" class="max-w-6xl mx-auto">
-                <div data-id="278" class="text-center mb-12 fade-in">
-                    <span data-id="279" class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3 block">Quick Reference</span>
-                    <h2 data-id="280" id="indicators-title-m5n7" class="text-2xl md:text-4xl font-bold text-text-50 mb-4">Key Economic Indicators Cheat Sheet</h2>
-                    <p data-id="281" class="text-text-400 max-w-2xl mx-auto">The most market-moving data releases you'll track every week and month as an informed trader.</p>
-                </div>
-                <div data-id="282" class="overflow-x-auto rounded-2xl gradient-border fade-in scrollbar-hide">
-                    <table data-id="283" class="w-full text-left min-w-[700px]">
-                        <thead data-id="284">
-                            <tr data-id="285" class="border-b border-emerald-500/15">
-                                <th data-id="286" class="px-5 py-4 text-xs font-bold text-emerald-400 uppercase tracking-wider">Indicator</th>
-                                <th data-id="287" class="px-5 py-4 text-xs font-bold text-emerald-400 uppercase tracking-wider">Frequency</th>
-                                <th data-id="288" class="px-5 py-4 text-xs font-bold text-emerald-400 uppercase tracking-wider">What It Measures</th>
-                                <th data-id="289" class="px-5 py-4 text-xs font-bold text-emerald-400 uppercase tracking-wider">Market Impact</th>
-                            </tr>
-                        </thead>
-                        <tbody data-id="290" class="text-sm">
-                            <tr data-id="291" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="292" class="px-5 py-3.5 font-semibold text-text-100">Non-Farm Payrolls (NFP)</td>
-                                <td data-id="293" class="px-5 py-3.5 text-text-400">Monthly</td>
-                                <td data-id="294" class="px-5 py-3.5 text-text-300">Jobs added/lost in the economy, excluding farm workers</td>
-                                <td data-id="295" class="px-5 py-3.5"><span data-id="296" class="indicator-badge bg-red-500/15 text-red-400">🔴 Very High</span></td>
-                            </tr>
-                            <tr data-id="297" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="298" class="px-5 py-3.5 font-semibold text-text-100">CPI (Consumer Price Index)</td>
-                                <td data-id="299" class="px-5 py-3.5 text-text-400">Monthly</td>
-                                <td data-id="300" class="px-5 py-3.5 text-text-300">Consumer-level inflation across a basket of goods and services</td>
-                                <td data-id="301" class="px-5 py-3.5"><span data-id="302" class="indicator-badge bg-red-500/15 text-red-400">🔴 Very High</span></td>
-                            </tr>
-                            <tr data-id="303" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="304" class="px-5 py-3.5 font-semibold text-text-100">FOMC Rate Decision</td>
-                                <td data-id="305" class="px-5 py-3.5 text-text-400">8x/Year</td>
-                                <td data-id="306" class="px-5 py-3.5 text-text-300">Federal funds target rate and forward policy guidance</td>
-                                <td data-id="307" class="px-5 py-3.5"><span data-id="308" class="indicator-badge bg-red-500/15 text-red-400">🔴 Very High</span></td>
-                            </tr>
-                            <tr data-id="309" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="310" class="px-5 py-3.5 font-semibold text-text-100">GDP (Gross Domestic Product)</td>
-                                <td data-id="311" class="px-5 py-3.5 text-text-400">Quarterly</td>
-                                <td data-id="312" class="px-5 py-3.5 text-text-300">Total economic output — the broadest measure of economic health</td>
-                                <td data-id="313" class="px-5 py-3.5"><span data-id="314" class="indicator-badge bg-orange-500/15 text-orange-400">🟠 High</span></td>
-                            </tr>
-                            <tr data-id="315" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="316" class="px-5 py-3.5 font-semibold text-text-100">PPI (Producer Price Index)</td>
-                                <td data-id="317" class="px-5 py-3.5 text-text-400">Monthly</td>
-                                <td data-id="318" class="px-5 py-3.5 text-text-300">Wholesale-level price changes; a leading indicator for CPI</td>
-                                <td data-id="319" class="px-5 py-3.5"><span data-id="320" class="indicator-badge bg-orange-500/15 text-orange-400">🟠 High</span></td>
-                            </tr>
-                            <tr data-id="321" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="322" class="px-5 py-3.5 font-semibold text-text-100">Initial Jobless Claims</td>
-                                <td data-id="323" class="px-5 py-3.5 text-text-400">Weekly</td>
-                                <td data-id="324" class="px-5 py-3.5 text-text-300">New unemployment insurance filings — real-time labor market pulse</td>
-                                <td data-id="325" class="px-5 py-3.5"><span data-id="326" class="indicator-badge bg-yellow-500/15 text-yellow-400">🟡 Medium</span></td>
-                            </tr>
-                            <tr data-id="327" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="328" class="px-5 py-3.5 font-semibold text-text-100">Retail Sales</td>
-                                <td data-id="329" class="px-5 py-3.5 text-text-400">Monthly</td>
-                                <td data-id="330" class="px-5 py-3.5 text-text-300">Consumer spending levels across retail and food categories</td>
-                                <td data-id="331" class="px-5 py-3.5"><span data-id="332" class="indicator-badge bg-orange-500/15 text-orange-400">🟠 High</span></td>
-                            </tr>
-                            <tr data-id="333" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="334" class="px-5 py-3.5 font-semibold text-text-100">ISM Manufacturing PMI</td>
-                                <td data-id="335" class="px-5 py-3.5 text-text-400">Monthly</td>
-                                <td data-id="336" class="px-5 py-3.5 text-text-300">Factory activity levels; above 50 = expansion, below 50 = contraction</td>
-                                <td data-id="337" class="px-5 py-3.5"><span data-id="338" class="indicator-badge bg-orange-500/15 text-orange-400">🟠 High</span></td>
-                            </tr>
-                            <tr data-id="339" class="table-row border-b border-white/5 transition-colors">
-                                <td data-id="340" class="px-5 py-3.5 font-semibold text-text-100">Consumer Confidence</td>
-                                <td data-id="341" class="px-5 py-3.5 text-text-400">Monthly</td>
-                                <td data-id="342" class="px-5 py-3.5 text-text-300">Consumer sentiment and expectations about economic conditions</td>
-                                <td data-id="343" class="px-5 py-3.5"><span data-id="344" class="indicator-badge bg-yellow-500/15 text-yellow-400">🟡 Medium</span></td>
-                            </tr>
-                            <tr data-id="345" class="table-row transition-colors">
-                                <td data-id="346" class="px-5 py-3.5 font-semibold text-text-100">Housing Starts</td>
-                                <td data-id="347" class="px-5 py-3.5 text-text-400">Monthly</td>
-                                <td data-id="348" class="px-5 py-3.5 text-text-300">New residential construction; reflects builder confidence and demand</td>
-                                <td data-id="349" class="px-5 py-3.5"><span data-id="350" class="indicator-badge bg-yellow-500/15 text-yellow-400">🟡 Medium</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+<!-- FAQ -->
+<section class="sec">
+  <div class="sec-inner">
+    <p class="sec-eye">Questions</p>
+    <h2 class="sec-h2">Straight Answers.</h2>
+    <div class="faq">
+      <details>
+        <summary>Do I need an economics background?</summary>
+        <div class="faq-body">No. Stage 1 starts from supply and demand and assumes nothing. The arithmetic never goes beyond percentages, ratios and simple averages — there is no calculus and no formal modelling anywhere in the course. If you can read a percentage change you can do all of it.</div>
+      </details>
+      <details>
+        <summary>Is this a strategy course? Will it tell me what to trade?</summary>
+        <div class="faq-body">No. There are no setups, no signals, no watchlist and no stock picks. It teaches you to read the economic environment your method already operates in. If you want method, the <a href="technical-analysis.html">Technical Analysis</a> and <a href="fundamental-analysis.html">Fundamental Analysis</a> courses cover that. Hustlin' is not a registered investment adviser and nothing here is personalised advice.</div>
+      </details>
+      <details>
+        <summary>Will this let me predict the market?</summary>
+        <div class="faq-body"><strong>No, and the course says so repeatedly.</strong> Professional macro forecasters with far greater resources have a poor record at short-horizon prediction. What this gives you is context and risk framing: which regime you are in, what is already priced, and what would count as a genuine surprise. Any course promising more than that is overselling.</div>
+      </details>
+      <details>
+        <summary>Is it US-focused?</summary>
+        <div class="faq-body">The worked examples use US data because it is the most detailed and freely available, and because US monetary policy transmits globally whether you trade there or not. The mechanisms are general, and Stage 4 covers trade balances, capital flows, emerging markets and the four channels through which a shock in one economy reaches another.</div>
+      </details>
+      <details>
+        <summary>Do I need paid data or a terminal?</summary>
+        <div class="faq-body">No. Every series used in the course is free — FRED, the BLS, the BEA, the Treasury and the Federal Reserve. Stage 5 ends with an eleven-series dashboard built entirely from free sources. There is nothing to subscribe to.</div>
+      </details>
+      <details>
+        <summary>How current will the numbers stay?</summary>
+        <div class="faq-body">The course deliberately teaches mechanisms rather than current figures, and worked examples use illustrative numbers so nothing goes stale. Where a real level matters, it points you at the live series rather than quoting a value that would be wrong within a month.</div>
+      </details>
+      <details>
+        <summary>How long does it take?</summary>
+        <div class="faq-body">Around twenty hours of reading across forty modules, though it is designed to be worked rather than read — the release log and dashboard run alongside real market weeks. Access is lifetime, progress saves to your account, and there is no schedule to keep up with.</div>
+      </details>
+      <details>
+        <summary>Will I be charged tax on top?</summary>
+        <div class="faq-body">No. $37.95 is the total. Prices include any sales tax, VAT or GST due in your country — Stripe calculates and remits it, and nothing is added at checkout. If you're outside the US, Stripe may show you the equivalent amount in your local currency.</div>
+      </details>
+      <details>
+        <summary>Is it a subscription?</summary>
+        <div class="faq-body">No. $37.95 once, all five stages, for as long as we run the site. No renewal, no upsell, no tier above this one. Revisions and additions to the existing modules are included at no extra cost.</div>
+      </details>
+      <details>
+        <summary>Can I get a refund?</summary>
+        <div class="faq-body"><strong>We don't offer discretionary refunds</strong> — the complete course is delivered in full the moment you pay, which is why the entire stage-by-stage curriculum, the module count and the price are all on this page before you buy. Please read them first.<br><br>That said, Stripe handles the payment as seller of record, and Stripe may issue a refund within 60 days and applies whatever statutory cancellation rights apply where you live. You don't have to waive anything to buy. Full detail in our <a href="terms-of-service.html">Terms of Service</a>. If something is technically broken, email <a href="mailto:admin@hustlin.org">admin@hustlin.org</a> and we'll fix it.</div>
+      </details>
+    </div>
 
-        <!-- Who This Course Is For -->
-        <section data-id="351" id="audience" class="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-surface-900/30">
-            <div data-id="352" class="max-w-6xl mx-auto">
-                <div data-id="353" class="text-center mb-12 fade-in">
-                    <span data-id="354" class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3 block">Is This For You?</span>
-                    <h2 data-id="355" id="audience-title-o1p3" class="text-2xl md:text-4xl font-bold text-text-50 mb-4">Who This Course Is For</h2>
-                </div>
-                <div data-id="356" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 fade-in">
-                    <div data-id="357" class="gradient-border rounded-2xl p-6 text-center transition-all hover:border-emerald-500/35">
-                        <div data-id="358" class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
-                            <i data-id="359" data-lucide="candlestick-chart" class="w-7 h-7 text-emerald-400"></i>
-                        </div>
-                        <h3 data-id="360" class="text-base font-bold text-text-50 mb-2">Active Day Traders</h3>
-                        <p data-id="361" class="text-sm text-text-400 leading-relaxed">You trade daily but get blindsided by economic data releases. You want to anticipate moves, not react to them.</p>
-                    </div>
-                    <div data-id="362" class="gradient-border rounded-2xl p-6 text-center transition-all hover:border-emerald-500/35">
-                        <div data-id="363" class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
-                            <i data-id="364" data-lucide="briefcase" class="w-7 h-7 text-emerald-400"></i>
-                        </div>
-                        <h3 data-id="365" class="text-base font-bold text-text-50 mb-2">Swing & Position Traders</h3>
-                        <p data-id="366" class="text-sm text-text-400 leading-relaxed">You hold positions for weeks or months and need to understand the macro backdrop driving sector rotation and trends.</p>
-                    </div>
-                    <div data-id="367" class="gradient-border rounded-2xl p-6 text-center transition-all hover:border-emerald-500/35">
-                        <div data-id="368" class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
-                            <i data-id="369" data-lucide="graduation-cap" class="w-7 h-7 text-emerald-400"></i>
-                        </div>
-                        <h3 data-id="370" class="text-base font-bold text-text-50 mb-2">Aspiring Traders</h3>
-                        <p data-id="371" class="text-sm text-text-400 leading-relaxed">You're building your trading education and want to understand the economic engine that powers every financial market.</p>
-                    </div>
-                    <div data-id="372" class="gradient-border rounded-2xl p-6 text-center transition-all hover:border-emerald-500/35">
-                        <div data-id="373" class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
-                            <i data-id="374" data-lucide="wallet" class="w-7 h-7 text-emerald-400"></i>
-                        </div>
-                        <h3 data-id="375" class="text-base font-bold text-text-50 mb-2">Self-Directed Investors</h3>
-                        <p data-id="376" class="text-sm text-text-400 leading-relaxed">You manage your own portfolio and want the macroeconomic literacy to make smarter allocation and timing decisions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
+  </div>
+</section>
 
-        <!-- What's Included -->
-        <section data-id="377" id="included-q3r5" class="py-16 md:py-24 px-4 md:px-6 lg:px-8">
-            <div data-id="378" class="max-w-5xl mx-auto">
-                <div data-id="379" class="text-center mb-12 fade-in">
-                    <span data-id="380" class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3 block">Everything Included</span>
-                    <h2 data-id="381" class="text-2xl md:text-4xl font-bold text-text-50 mb-4">What You Get</h2>
-                </div>
-                <div data-id="382" class="grid grid-cols-1 md:grid-cols-3 gap-5 fade-in">
-                    <div data-id="383" class="gradient-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-id="384" data-lucide="book-open" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                        <div data-id="385">
-                            <h4 data-id="386" class="text-base font-bold text-text-50 mb-1">40 In-Depth Modules</h4>
-                            <p data-id="387" class="text-sm text-text-400">Structured, original curriculum across five stages — from supply and demand through inflation, rates, indicators and sector strategy.</p>
-                        </div>
-                    </div>
-                    <div data-id="388" class="gradient-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-id="389" data-lucide="calendar-check" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                        <div data-id="390">
-                            <h4 data-id="391" class="text-base font-bold text-text-50 mb-1">Economic Calendar Cheat Sheet</h4>
-                            <p data-id="392" class="text-sm text-text-400">A downloadable reference card with every major indicator, its release schedule, and expected market impact.</p>
-                        </div>
-                    </div>
-                    <div data-id="393" class="gradient-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-id="394" data-lucide="infinity" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                        <div data-id="395">
-                            <h4 data-id="396" class="text-base font-bold text-text-50 mb-1">Lifetime Access</h4>
-                            <p data-id="397" class="text-sm text-text-400">Enroll once, learn forever. All future updates and additional content are included at no extra cost.</p>
-                        </div>
-                    </div>
-                    <div data-id="398" class="gradient-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-id="399" data-lucide="layout-dashboard" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                        <div data-id="400">
-                            <h4 data-id="401" class="text-base font-bold text-text-50 mb-1">Dashboard Blueprint</h4>
-                            <p data-id="402" class="text-sm text-text-400">Step-by-step guide to building your own economic monitoring dashboard for daily trading preparation.</p>
-                        </div>
-                    </div>
-                    <div data-id="403" class="gradient-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-id="404" data-lucide="check-circle" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                        <div data-id="405">
-                            <h4 data-id="406" class="text-base font-bold text-text-50 mb-1">Self-Paced Learning</h4>
-                            <p data-id="407" class="text-sm text-text-400">Learn on your schedule. No deadlines, no pressure — revisit any lesson as many times as you need.</p>
-                        </div>
-                    </div>
-                    <div data-id="408" class="gradient-border rounded-2xl p-6 flex items-start gap-4">
-                        <i data-id="409" data-lucide="smartphone" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                        <div data-id="410">
-                            <h4 data-id="411" class="text-base font-bold text-text-50 mb-1">Mobile-Friendly</h4>
-                            <p data-id="412" class="text-sm text-text-400">Access your coursework from any device — desktop, tablet, or phone. Learn between trades or on the go.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- EMAIL -->
+<section class="sec" style="background:var(--dark)">
+  <div class="sec-inner" style="text-align:center">
+    <p class="sec-eye" style="color:var(--amber)">Stay Updated</p>
+    <h2 class="sec-h2" style="color:#fff;margin-bottom:8px">New Modules. <span style="color:var(--amber)">First to Know.</span></h2>
+    <p style="color:rgba(255,255,255,.38);font-size:.93rem;margin-bottom:26px">Get notified when new modules go live. That's it — no noise.</p>
+    <div class="email-row">
+      <input type="email" id="ec-email" placeholder="your@email.com" autocomplete="email">
+      <button class="nav-cta" onclick="ecSubscribe()">GET UPDATES</button>
+    </div>
+    <div class="email-ok" id="ec-ok">✓ You're in. Welcome to Hustlin'.</div>
+  </div>
+</section>
 
-        <!-- CTA Section -->
-        <section data-id="413" id="enroll" class="py-20 md:py-28 px-4 md:px-6 lg:px-8 relative overflow-hidden">
-            <div data-id="414" class="absolute inset-0 bg-gradient-to-b from-emerald-500/5 via-emerald-500/10 to-emerald-500/5 pointer-events-none"></div>
-            <div data-id="415" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-emerald-500/5 blur-3xl pointer-events-none"></div>
-            <div data-id="416" class="max-w-3xl mx-auto text-center relative z-10 fade-in">
-                <div data-id="417" class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 mb-6">
-                    <i data-id="418" data-lucide="zap" class="w-3.5 h-3.5 text-emerald-400"></i>
-                    <span data-id="419" class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Start Building Your Edge</span>
-                </div>
-                <h2 data-id="420" id="cta-title-s5t7" class="text-3xl md:text-5xl font-extrabold text-text-50 mb-6 leading-tight">
-                    Stop Guessing.<br data-id="421"/>Start Understanding the Economy.
-                </h2>
-                <p data-id="422" class="text-base md:text-lg text-text-300 mb-4 max-w-2xl mx-auto leading-relaxed">
-                    The best traders don't just read charts — they read the economy. This course gives you the macro foundation that separates informed traders from everyone else.
-                </p>
-                <p data-id="423" class="text-sm text-text-500 mb-10">
-                    8 Modules · 42 Lessons · Lifetime Access · Economic Calendar Cheat Sheet Included
-                </p>
-                <div style="font-family:'Space Mono',monospace;font-size:2.6rem;font-weight:700;color:#F0C030;margin-bottom:4px">$37.95</div>
-<div style="font-size:.85rem;color:#94a3b8;margin-bottom:26px">One-time payment · lifetime access</div>
-<div data-id="424" class="flex flex-col items-center gap-5">
-                    <a data-id="425" href="#" data-hfy-buy="econ" class="cta-btn text-lg font-bold text-base-900 px-10 py-5 rounded-xl inline-flex items-center gap-3 pulse-glow">
-                        <i data-id="426" data-lucide="lock" class="w-5 h-5"></i>
-                        Enroll Now
-                    </a>
-                    <div data-id="427" class="flex items-center gap-6 text-sm text-text-500">
-                        <span data-id="428" class="flex items-center gap-1.5"><i data-id="429" data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i> Secure Checkout</span>
-                        <span data-id="430" class="flex items-center gap-1.5"><i data-id="431" data-lucide="refresh-cw" class="w-4 h-4 text-emerald-500"></i> Instant Access</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Instructor / Brand Strip -->
-        <section data-id="432" id="brand-u7v9" class="py-12 px-4 md:px-6 lg:px-8 border-t border-emerald-500/10">
-            <div data-id="433" class="max-w-4xl mx-auto text-center fade-in">
-                <div data-id="434" class="flex items-center justify-center gap-3 mb-4">
-                    <div data-id="435" class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center">
-                        <i data-id="436" data-lucide="trending-up" class="w-5 h-5 text-emerald-400"></i>
-                    </div>
-                    <span data-id="437" class="text-xl font-bold text-text-50 tracking-tight">hustlin.org</span>
-                </div>
-                <p data-id="438" class="text-sm text-text-400 max-w-xl mx-auto leading-relaxed">
-                    Real-world trading education built by traders, for traders. No fluff, no filler — just the knowledge and frameworks you need to trade with confidence and conviction.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<!-- FOOTER -->
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
 <footer class="hfy-footer">
   <div class="hfy-ft-top">
 
@@ -828,136 +614,93 @@
 </footer>
 <!-- FOOTER:END -->
 
-    <script>
-        // Icons — progressive enhancement guard
-        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
-            lucide.createIcons();
-        }
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn-q3r7');
-        const mobileMenu = document.getElementById('mobile-menu-m4k9');
-        const mobileMenuClose = document.getElementById('mobile-menu-close-p2w5');
-
-        if (mobileMenuBtn && mobileMenu && mobileMenuClose) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenu.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            });
-            mobileMenuClose.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-                document.body.style.overflow = '';
-            });
-            // Close mobile menu on link click
-            const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link, .cta-btn');
-            mobileNavLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
-        // Navbar shrink on scroll
-        const navbar = document.getElementById('navbar-x8k2');
-        if (navbar) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navbar.style.borderBottomColor = 'rgba(240,192,48,0.15)';
-                    navbar.style.backdropFilter = 'blur(16px)';
-                } else {
-                    navbar.style.borderBottomColor = 'rgba(240,192,48,0.1)';
-                    navbar.style.backdropFilter = 'blur(12px)';
-                }
-            });
-        }
-
-        // Intersection Observer for fade-in animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-        if (fadeElements.length > 0 && 'IntersectionObserver' in window) {
-            const fadeObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        fadeObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-            fadeElements.forEach(function(el) {
-                fadeObserver.observe(el);
-            });
-        } else {
-            // Fallback — show everything immediately
-            fadeElements.forEach(function(el) {
-                el.classList.add('visible');
-            });
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId && targetId.length > 1) {
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        e.preventDefault();
-                        const navHeight = navbar ? navbar.offsetHeight : 0;
-                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
-                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-
-        // Module card expand/collapse on mobile
-        const moduleCards = document.querySelectorAll('.module-card');
-        moduleCards.forEach(function(card) {
-            const lessonList = card.querySelector('ul');
-            if (lessonList && window.innerWidth < 768) {
-                lessonList.style.maxHeight = '0';
-                lessonList.style.overflow = 'hidden';
-                lessonList.style.transition = 'max-height 0.4s ease, opacity 0.3s ease';
-                lessonList.style.opacity = '0';
-
-                const header = card.querySelector('.flex.items-start');
-                if (header) {
-                    header.style.cursor = 'pointer';
-                    header.addEventListener('click', function() {
-                        const isOpen = lessonList.style.maxHeight !== '0px' && lessonList.style.maxHeight !== '0';
-                        if (isOpen) {
-                            lessonList.style.maxHeight = '0';
-                            lessonList.style.opacity = '0';
-                        } else {
-                            lessonList.style.maxHeight = lessonList.scrollHeight + 'px';
-                            lessonList.style.opacity = '1';
-                        }
-                    });
-                }
-            }
-        });
-
-        // Handle resize — re-enable lesson lists on desktop
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) {
-                moduleCards.forEach(function(card) {
-                    const lessonList = card.querySelector('ul');
-                    if (lessonList) {
-                        lessonList.style.maxHeight = 'none';
-                        lessonList.style.opacity = '1';
-                        lessonList.style.overflow = 'visible';
-                    }
-                });
-            }
-        });
-    </script>
-
-<!-- Hustlin' auth + checkout -->
-<script src="app.js?v=202607312209"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607312209"></script>
-<script src="auth.js?v=202607312209"></script>
-<script src="course-access.js?v=202607312209"></script>
-<script src="course-buy.js?v=202607312209"></script>
+<script src="supabase-config.js?v=202607312219"></script>
+<script src="app.js?v=202607312219"></script>
+<script src="rewards.js?v=202607312219"></script>
+<script src="auth.js?v=202607312219"></script>
+<script src="course-access.js?v=202607312219"></script>
+<script src="course-buy.js?v=202607312219"></script>
+<script>
+// Render nav stage states + roadmap cards
+HFY.initNavOnly();
+
+const ecKeys = ['ec1','ec2','ec3','ec4','ec5'];
+
+// Update hero progress stat
+const totalPct = Math.round(
+  ecKeys.reduce(function (sum, k) { return sum + HFY.getPct(k); }, 0) / ecKeys.length
+);
+document.getElementById('hero-pct').textContent = totalPct;
+document.getElementById('hero-pct-bar').style.width = totalPct + '%';
+
+// Update journey card to show completed stages
+ecKeys.forEach(function (key, i) {
+  const pct = HFY.getPct(key);
+  const jn = document.getElementById('jn' + (i + 1));
+  if (!jn) return;
+  if (pct >= 100) {
+    jn.className = 'j-num';
+    jn.style.background = 'var(--green)';
+    jn.style.color = '#fff';
+    jn.textContent = '✓';
+  } else if (HFY.isUnlocked(key) && i > 0 && HFY.getPct(ecKeys[i - 1]) >= 100) {
+    jn.className = 'j-num now';
+  }
+});
+
+async function ecSubscribe() {
+  const input = document.getElementById('ec-email');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) { input.focus(); return; }
+  const btn = input.nextElementSibling;
+  const original = btn.textContent;
+  btn.textContent = 'JOINING...'; btn.disabled = true;
+
+  const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/xvzeknrv';
+  try {
+    const body = new FormData();
+    body.append('email', email);
+    body.append('_subject', 'Newsletter signup - Economics for Traders');
+    body.append('source', 'economics');
+    const res = await fetch(NEWSLETTER_ENDPOINT, {
+      method: 'POST', headers: { 'Accept': 'application/json' }, body
+    });
+    if (!res.ok) throw new Error('Subscribe failed (' + res.status + ')');
+  } catch (e) {
+    console.error('newsletter signup failed', e);
+    btn.textContent = original; btn.disabled = false;
+    input.style.borderColor = '#EF4444';
+    alert("Sorry - that didn't go through. Please try again in a moment.");
+    return;
+  }
+  document.querySelector('.email-row').style.display = 'none';
+  document.getElementById('ec-ok').style.display = 'block';
+}
+document.getElementById('ec-email').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') ecSubscribe();
+});
+
+// Every stage is paid — Economics for Traders has free_stages = 0, same as TA and FA.
+// This only corrects the roadmap card labels/lock icons to reflect real
+// purchase status. Actual access is enforced by the course-content Edge
+// Function, not by anything on this page.
+(async function () {
+  let hasAccess = false;
+  try { hasAccess = await HFY.access.checkCourseAccess('econ'); } catch (e) { hasAccess = false; }
+  ecKeys.forEach(function (key) {
+    const card = document.querySelector('[data-stage-card="' + key + '"]');
+    if (!card) return;
+    const cap = card.querySelector('.s-lock-caption');
+    if (hasAccess) {
+      card.classList.add('live');
+      if (cap) cap.textContent = 'Unlocked · continue where you left off';
+    } else {
+      card.classList.remove('live');
+      if (cap) cap.textContent = '$37.95 one-time · sign-in required';
+    }
+  });
+})();
+</script>
 </body>
 </html>
