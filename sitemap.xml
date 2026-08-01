@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Hustlin' — sitemap
-  Updated 2026-07-27
+  Updated 2026-08-01
 
   Only indexable, canonical pages belong here. Deliberately excluded:
     · login / signup / forgot-password / reset-password / auth-callback  (noindex)
     · learn.html and checkout-success.html                              (noindex)
     · UnderConstruction.html                                            (placeholder)
-    · economics                                                         (noindex — not on sale yet)
-      fundamental-analysis.html went on sale 2026-07-28 and is now listed below.
-      trading-psychology.html went on sale 2026-07-28 and is now listed below.
-      Its robots meta must be flipped to "index, follow" on the day courses.active
-      is set true — listing it here while it is still noindex achieves nothing.
+
     · Financial Literacy Course/, TA Course/, EconomicsCourse/,
       Fundemental Course/, TradingPsycologycourse/                      (private lesson
       fragments fetched by learn.js — not standalone pages)
 
-  ADDED this revision:
+  ADDED 2026-08-01:
+    · economics.html — all four paid course pages are now on sale and listed.
+      fundamental-analysis.html and trading-psychology.html went on sale
+      2026-07-28 and were added then; economics.html was missed. courses.active
+      was already true, price_cents already 3795, the page carried no noindex
+      meta and every footer linked it at $37.95 — but with no sitemap entry the
+      course with the least inbound linking also had no discovery path. The
+      comment here still read "economics — noindex, not on sale yet", and that
+      stale note is what hid the gap. When a course goes on sale, add it here
+      in the same change that flips courses.active.
+
+  ADDED 2026-07-27:
     · disability-wealth-guide.html — was live but orphaned and unlisted.
       Free, ungated, in-depth: the strongest indexable asset on the site.
     · about.html — editorial standards / E-E-A-T
@@ -24,20 +31,22 @@
       since every course lesson sits behind an authenticated Edge Function.
 
   Keep the <lastmod> dates current when a page's content actually changes.
+  They are set from each file's local-time mtime. Deriving them with
+  toISOString() post-dates any file touched after 20:00 EDT by a day.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- ─── Core ─────────────────────────────────────────── -->
   <url>
     <loc>https://hustlin.org/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/financial-literacy.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -65,35 +74,42 @@
 
   <url>
     <loc>https://hustlin.org/disability-wealth-guide.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/technical-analysis.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/fundamental-analysis.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/trading-psychology.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/economics.html</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/markets.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -101,28 +117,28 @@
   <!-- ─── Blog ─────────────────────────────────────────── -->
   <url>
     <loc>https://hustlin.org/blog.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/blog/chexsystems-explained.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/blog/save-money-on-ssi.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/blog/debt-avalanche-vs-snowball.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -130,14 +146,14 @@
   <!-- ─── Company ──────────────────────────────────────── -->
   <url>
     <loc>https://hustlin.org/about.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/work-with-us.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -145,14 +161,14 @@
   <!-- ─── Legal ────────────────────────────────────────── -->
   <url>
     <loc>https://hustlin.org/privacy-policy.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://hustlin.org/terms-of-service.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
