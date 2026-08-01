@@ -400,6 +400,164 @@
 </section>
 
 <!-- WHAT AM I LOOKING AT -->
+
+<style>
+/* Economic Analysis — namespaced mkt-econ*/ /* additive; touches nothing existing */
+.mkt-econ{background:#FAF7F0;padding:64px 22px}
+.mkt-econ-in{max-width:1060px;margin:0 auto}
+.mkt-econ .eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#B8930F;margin:0 0 14px}
+.mkt-econ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,4.4vw,40px);color:#060606;margin:0 0 12px;letter-spacing:-.015em}
+.mkt-econ .lede{font-size:16px;line-height:1.65;color:#5c574c;max-width:640px;margin:0 0 32px}
+.mkt-econ h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;color:#060606;margin:38px 0 14px}
+.mkt-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.mkt-stat{background:#fff;border:1px solid #E4DFD3;border-radius:14px;padding:20px}
+.mkt-stat-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6F6A5E;margin:0 0 8px}
+.mkt-stat-value{font-family:'Space Mono',monospace;font-size:32px;font-weight:700;color:#060606;margin:0 0 6px;line-height:1}
+.mkt-stat-trend{font-size:13px;font-weight:600;margin:0 0 10px}
+.mkt-stat-trend.good{color:#2DA02D}.mkt-stat-trend.bad{color:#C4381F}.mkt-stat-trend.flat{color:#6F6A5E}
+.mkt-stat-blurb{font-size:13px;line-height:1.55;color:#5c574c;margin:0 0 10px}
+.mkt-stat-src{font-size:11px;color:#8b8577;margin:0}
+.mkt-stat-src a{color:#8b8577}
+.mkt-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E4DFD3;border-radius:14px;overflow:hidden;font-size:14px}
+.mkt-table-cap{caption-side:top;text-align:left;font-size:13px;color:#5c574c;padding:0 0 10px;line-height:1.5}
+.mkt-table th[scope=col]{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#6F6A5E;padding:12px;border-bottom:2px solid #E4DFD3}
+.mkt-table td,.mkt-table th[scope=row]{padding:11px 12px;border-bottom:1px solid #EFEBE1;color:#3d3a33;text-align:left;font-weight:400}
+.mkt-table th[scope=row]{font-weight:600}
+.mkt-table tr:last-child td,.mkt-table tr:last-child th{border-bottom:none}
+.mkt-table td.up{color:#2DA02D;font-weight:700}.mkt-table td.down{color:#C4381F;font-weight:700}
+.mkt-spread{margin:16px 0 0;padding:15px 18px;border-radius:11px;font-size:14px;line-height:1.6;border-left:3px solid #F5C520;background:#FFFBEF;color:#3d3a33}
+.mkt-spread.inverted{border-left-color:#C4381F;background:#FDF1EE}
+.mkt-econ-foot{margin-top:34px;padding-top:22px;border-top:1px solid #E4DFD3;font-size:13px;line-height:1.65;color:#5c574c}
+.mkt-econ-foot a{color:#8A6D08;font-weight:600}
+@media(max-width:600px){.mkt-econ{padding:44px 16px}.mkt-table{font-size:13px}.mkt-table td,.mkt-table th{padding:9px 8px}}
+</style>
+
+<!-- ===================================================================
+     ECONOMIC ANALYSIS — server-baked, not a widget.
+     The numbers between the MKT: markers are written into this file at
+     build time by tools/inject-market-data.mjs, so a crawler reads real
+     text instead of an empty iframe. Do not hand-edit inside the markers.
+     =================================================================== -->
+<section class="mkt-econ" id="economic-analysis">
+  <div class="mkt-econ-in">
+    <p class="eye">Economic Analysis</p>
+    <h2>The numbers that move everything else.</h2>
+    <p class="lede">
+      Before any chart pattern or earnings report matters, these do. Inflation sets what
+      your money is worth, the Fed funds rate sets what borrowing costs, and the gap
+      between short and long bonds has front-run most modern recessions. Updated from the
+      Federal Reserve's own data, with the source date on every figure.
+    </p>
+
+    <!-- MKT:macro:START -->
+    <div class="mkt-stat-grid">
+      <article class="mkt-stat" data-series="CPIAUCSL">
+        <h3 class="mkt-stat-label">Inflation (CPI, YoY)</h3>
+        <p class="mkt-stat-value" data-fill="inflation">3.5%</p>
+        <p class="mkt-stat-trend bad"><span aria-hidden="true">↑</span> up 1.1 pts vs a year ago</p>
+        <p class="mkt-stat-blurb">How much more the same basket of goods costs than a year ago.</p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener">FRED</a></p>
+      </article>
+      <article class="mkt-stat" data-series="CPILFESL">
+        <h3 class="mkt-stat-label">Core Inflation (ex food &amp; energy)</h3>
+        <p class="mkt-stat-value" data-fill="coreInflation">2.6%</p>
+        <p class="mkt-stat-trend good"><span aria-hidden="true">↓</span> down 0.2 pts vs a year ago</p>
+        <p class="mkt-stat-blurb">Inflation with the two most volatile categories stripped out. The Fed watches this one.</p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/CPILFESL" target="_blank" rel="noopener">FRED</a></p>
+      </article>
+      <article class="mkt-stat" data-series="UNRATE">
+        <h3 class="mkt-stat-label">Unemployment Rate</h3>
+        <p class="mkt-stat-value" data-fill="unemployment">4.2%</p>
+        <p class="mkt-stat-trend good"><span aria-hidden="true">↓</span> down 0.1 pts vs a year ago</p>
+        <p class="mkt-stat-blurb">Share of people who want work and cannot find it.</p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/UNRATE" target="_blank" rel="noopener">FRED</a></p>
+      </article>
+      <article class="mkt-stat" data-series="FEDFUNDS">
+        <h3 class="mkt-stat-label">Fed Funds Rate</h3>
+        <p class="mkt-stat-value" data-fill="fedFunds">3.6%</p>
+        <p class="mkt-stat-trend good"><span aria-hidden="true">↓</span> down 0.7 pts vs a year ago</p>
+        <p class="mkt-stat-blurb">The rate the Fed sets. Mortgages, card APRs and savings yields all move off it.</p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">FRED</a></p>
+      </article>
+      <article class="mkt-stat" data-series="A191RL1Q225SBEA">
+        <h3 class="mkt-stat-label">GDP Growth (annualised)</h3>
+        <p class="mkt-stat-value" data-fill="gdp">1.5%</p>
+        <p class="mkt-stat-trend bad"><span aria-hidden="true">↓</span> down 1.0 pts vs a year ago</p>
+        <p class="mkt-stat-blurb">How fast the whole economy grew last quarter.</p>
+        <p class="mkt-stat-src">Apr 2026 · <a href="https://fred.stlouisfed.org/series/A191RL1Q225SBEA" target="_blank" rel="noopener">FRED</a></p>
+      </article>
+      <article class="mkt-stat" data-series="PSAVERT">
+        <h3 class="mkt-stat-label">Personal Savings Rate</h3>
+        <p class="mkt-stat-value" data-fill="savingsRate">2.7%</p>
+        <p class="mkt-stat-trend bad"><span aria-hidden="true">↓</span> down 1.9 pts vs a year ago</p>
+        <p class="mkt-stat-blurb">Share of after-tax income Americans are saving.</p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener">FRED</a></p>
+      </article>
+</div>
+    <!-- MKT:macro:END -->
+
+    <h3>Rates and the yield curve</h3>
+    <!-- MKT:yields:START -->
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Rates, and what the gap between them is saying</caption>
+      <thead><tr><th scope="col">Rate</th><th scope="col">Now</th><th scope="col">As of</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">2-Year Treasury</th><td data-fill="twoYear">4.2%</td><td>Jul 2026</td></tr>
+        <tr><th scope="row">10-Year Treasury</th><td data-fill="tenYear">4.7%</td><td>Jul 2026</td></tr>
+        <tr><th scope="row">30-Year Mortgage</th><td data-fill="mortgage30">6.7%</td><td>Jul 2026</td></tr>
+      </tbody>
+    </table>
+    <p class="mkt-spread normal">
+      <strong>10-year minus 2-year: <span data-fill="spread">+0.45%</span></strong><br>
+      The curve is normal — longer bonds pay more than shorter ones, which is what you would expect when investors are compensated for tying money up.
+    </p>
+    <!-- MKT:yields:END -->
+
+    <h3>Where the money went today</h3>
+    <!-- MKT:sectors:START -->
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.</caption>
+      <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Consumer Discretionary</th><td>XLY</td><td class="up" data-fill="sector-XLY">+3.29%</td></tr>
+        <tr><th scope="row">Energy</th><td>XLE</td><td class="up" data-fill="sector-XLE">+1.00%</td></tr>
+        <tr><th scope="row">Industrials</th><td>XLI</td><td class="up" data-fill="sector-XLI">+0.81%</td></tr>
+        <tr><th scope="row">Financials</th><td>XLF</td><td class="down" data-fill="sector-XLF">-0.11%</td></tr>
+        <tr><th scope="row">Technology</th><td>XLK</td><td class="down" data-fill="sector-XLK">-0.22%</td></tr>
+        <tr><th scope="row">Consumer Staples</th><td>XLP</td><td class="down" data-fill="sector-XLP">-0.49%</td></tr>
+        <tr><th scope="row">Real Estate</th><td>XLRE</td><td class="down" data-fill="sector-XLRE">-0.51%</td></tr>
+        <tr><th scope="row">Healthcare</th><td>XLV</td><td class="down" data-fill="sector-XLV">-0.59%</td></tr>
+        <tr><th scope="row">Utilities</th><td>XLU</td><td class="down" data-fill="sector-XLU">-0.69%</td></tr>
+      </tbody>
+    </table>
+    <!-- MKT:sectors:END -->
+
+    <div class="mkt-econ-foot">
+      <p>
+        <strong>How to read this.</strong> One month is noise. The year-over-year column is
+        the one worth watching, because it strips out seasonal swings. A single figure moving
+        the "wrong" way means very little on its own — inflation, employment and rates move
+        together, and the story is in the combination.
+      </p>
+      <p>
+        Data last baked into this page on <!-- MKT:stamp:START -->
+    <time datetime="2026-08-01">2026-08-01</time>
+    <!-- MKT:stamp:END -->.
+        Series are revised after first publication; each figure shows its own reference month.
+        Sources: <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED,
+        Federal Reserve Bank of St. Louis</a> for economic series, Finnhub for market quotes.
+      </p>
+      <p>
+        Want to understand <em>why</em> these move? That is
+        <a href="economics.html">Economics for Traders</a>. To learn what to actually do with
+        the information, start with the free
+        <a href="stage-4-invest.html">Stage 4: Invest</a>, or run your own numbers in
+        <a href="calculate-your-hustle.html">Calculate Your Hustle</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="sec-inner">
     <p class="sec-eye">Quick Reference</p>
