@@ -3,10 +3,11 @@
 <head>
 <!-- ===================================================================
      PUBLIC COPY - generated from "Financial Literacy Course/stage-1-survive.html"
-     Stage 1 is free to anonymous users, so this ships as a static,
-     indexable page. Paths de-nested to root, stages 2-5 routed to the
-     gated shell, canonical + Article schema added.
-     EDIT THE MASTER IN THE COURSE FOLDER, then regenerate this file.
+     Stages 1-3 are free to anonymous users, so this ships as a static,
+     indexable page. Paths de-nested to root, gated stages routed to the
+     gated shell, canonical + Article/FAQ schema added.
+     EDIT THE MASTER IN THE COURSE FOLDER, then regenerate this file:
+       node tools/build-public-stages.mjs
      =================================================================== -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,11 +34,11 @@
     {
       "@type": "Article",
       "headline": "Stage 1: Survive - Banking, Credit, and Your First Budget",
-      "description": "Eight free modules covering second-chance banking, ChexSystems, credit score fundamentals, zero-based budgeting, predatory lending traps, variable-income budgeting, and the three-tier safety net.",
+      "description": "Free modules covering second-chance banking, ChexSystems, credit score fundamentals, zero-based budgeting, predatory lending traps, variable-income budgeting, and the three-tier safety net.",
       "url": "https://hustlin.org/stage-1-survive.html",
       "image": "https://hustlin.org/assets/social-preview.png",
       "datePublished": "2026-01-01",
-      "dateModified": "2026-07-27",
+      "dateModified": "2026-07-31",
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
       "author":    { "@id": "https://hustlin.org/#organization" },
@@ -56,7 +57,32 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Hustlin'",           "item": "https://hustlin.org/" },
         { "@type": "ListItem", "position": 2, "name": "Financial Literacy", "item": "https://hustlin.org/financial-literacy.html" },
-        { "@type": "ListItem", "position": 3, "name": "Stage 1: Survive",   "item": "https://hustlin.org/stage-1-survive.html" }
+        { "@type": "ListItem", "position": 3, "name": "Stage 1: Survive", "item": "https://hustlin.org/stage-1-survive.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I open a bank account if I have been denied before?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Being reported to ChexSystems does not lock you out of banking permanently. Second-chance checking accounts exist specifically for this, and many credit unions and online banks do not screen through ChexSystems at all. Stage 1 walks through the specific options and what each one costs." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is ChexSystems and how long does a record last?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ChexSystems is a reporting agency banks use to screen new account applications, mostly for unpaid overdrafts and accounts closed for cause. Records generally stay for five years. You are entitled to a free report and can dispute entries that are wrong." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I start building credit from zero?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The usual routes are a secured credit card backed by a deposit, a credit-builder loan, or being added as an authorized user on someone else’s account. What matters most afterwards is paying on time every time and keeping balances low relative to the limit." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is zero-based budgeting?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Zero-based budgeting means giving every dollar of income a job until nothing is unassigned — income minus all allocations equals zero. It is not about spending everything; savings and debt payments are jobs too. It works well on an irregular income because you budget the money you actually have rather than money you expect." }
+        }
       ]
     }
   ]
@@ -66,7 +92,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607312143">
+<link rel="stylesheet" href="styles.css?v=202607312155">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -82,8 +108,8 @@
   </a>
   <div class="nav-stages">
     <a href="stage-1-survive.html" data-nav-stage="stage1" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Survive.png" alt="Survive" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
-    <a href="learn.html?course=fl&amp;stage=2" data-nav-stage="stage2" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Stabilize.png" alt="Stabilize" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
-    <a href="learn.html?course=fl&amp;stage=3" data-nav-stage="stage3" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Rebuild.png" alt="Rebuild" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="stage-2-stabilize.html" data-nav-stage="stage2" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Stabilize.png" alt="Stabilize" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
+    <a href="stage-3-rebuild.html" data-nav-stage="stage3" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Rebuild.png" alt="Rebuild" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
     <a href="learn.html?course=fl&amp;stage=4" data-nav-stage="stage4" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Invest.png" alt="Invest" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
     <a href="learn.html?course=fl&amp;stage=5" data-nav-stage="stage5" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/BuildWealth.png" alt="Build Wealth" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
   </div>
@@ -121,7 +147,7 @@
 
     <div class="stage-complete-banner" id="stageCompleteBanner" style="display:none">
       <div class="scb-text"><strong>✓ Stage 1 complete</strong>You've built your foundation. Stage 2: Stabilize is ready when you are.</div>
-      <a class="scb-next" href="learn.html?course=fl&amp;stage=2">Start Stage 2: Stabilize →</a>
+      <a class="scb-next" href="stage-2-stabilize.html">Start Stage 2: Stabilize →</a>
     </div>
 
     <!-- MODULE 1 -->
@@ -956,13 +982,13 @@
   window.HFY_COURSE = {
       "stage": "stage1",
       "next": {
-          "href": "learn.html?course=fl&stage=2",
+          "href": "stage-2-stabilize.html",
           "img": "assets/buttons/Stabilize.png",
           "alt": "Stage 2: Stabilize"
       }
   };
 </script>
-<script src="course-shell.js?v=202607312143"></script>
+<script src="course-shell.js?v=202607312155"></script>
 <script>
 
 // ─── NEXT MODULE BUTTON (auto-injected, no HTML editing needed) ───
