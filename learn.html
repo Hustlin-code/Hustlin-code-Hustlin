@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- FL-REDIRECT -->
+<script>
+/* Financial Literacy is served ONLY by the static /stage-N-*.html pages.
+   Removing the links to ?course=fl was not enough: the ROUTE still worked, so
+   the URL stayed reachable from bookmarks, old shares, and anything Google had
+   already crawled. That left two live URLs for identical content - one of them
+   noindex and carrying no ad tag, so every visitor arriving that way earned
+   nothing and split the ranking signal.
+
+   This runs before any other script so the swap is instant and no gated shell
+   ever paints. replace() rather than assign() keeps the dead URL out of the
+   back-button history. */
+(function () {
+  var p = new URLSearchParams(location.search);
+  if (p.get('course') !== 'fl') return;
+  var pages = {
+    '1': 'stage-1-survive.html',   '2': 'stage-2-stabilize.html',
+    '3': 'stage-3-rebuild.html',   '4': 'stage-4-invest.html',
+    '5': 'stage-5-wealth.html'
+  };
+  var target = pages[p.get('stage')] || 'financial-literacy.html';
+  location.replace(target + location.hash);
+})();
+</script>
+
 <!-- FL-ROUTING-NOTE -->
 <!--
   SCOPE: this shell now serves the FOUR PAID COURSES ONLY (ta, fund, psych, econ).
