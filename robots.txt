@@ -24,6 +24,11 @@ Allow: /
 # from an authenticated Edge Function. Crawling it wastes budget on a spinner.
 Disallow: /learn.html
 
+# Market viewer sub-pages. Each is a TradingView iframe with ~200 words of
+# chrome. Thin by any measure, and the widget content is not ours to rank for.
+# The main markets.html carries the real written analysis and stays indexed.
+Disallow: /Markets/
+
 # Account flows — no reason to crawl, already noindex
 Disallow: /login.html
 Disallow: /signup.html

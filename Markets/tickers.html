@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<!-- noindex 2026-08-01 — AdSense "low value content" remediation.
+     This page is a viewer: ~200 words of chrome around a TradingView iframe.
+     Iframe content is not ours and is invisible to crawlers, so to Google this
+     was a near-empty page. Nine of these made up 29% of the crawlable site,
+     which is what triggered the policy violation.
+     "follow" is deliberate: the links still pass authority, we are only asking
+     Google not to index the page itself. Fully usable for visitors either way.
+     To re-index one: write 800+ words of original analysis around the widget
+     the way calculate-your-hustle.html does, THEN remove this tag. -->
 <meta name="description" content="Stripped-down quote formats — a single symbol badge, and a compact multi-symbol row. Part of Hustlin's free live market data hub.">
 <title>Tickers | Markets | Hustlin'</title>
 
