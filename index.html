@@ -53,7 +53,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202607312155">
+<link rel="stylesheet" href="styles.css?v=202607312203">
 <style>
 /* ── INDEX PAGE ONLY ── */
 
@@ -383,26 +383,79 @@
   
 }
 
-/* ─ All-access bundle band (index) ─ */
-.ix-bundle{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
-  margin-top:40px;padding:32px 36px;border-radius:18px;
-  background:linear-gradient(135deg,rgba(245,197,32,.10),rgba(245,197,32,.03));
-  border:1px solid rgba(245,197,32,.32)}
-.ix-bundle-label{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-  color:#f5c520;margin-bottom:10px}
-.ix-bundle-h{font-family:var(--f-display,inherit);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:800;
-  color:#fff;margin:0 0 10px;line-height:1.15}
+/* ─ All-access bundle band (index) ─
+   Full-width band BELOW .ix-grid, never inside it. minmax(0,1fr) on the copy
+   column matters: a bare 1fr lets long words force the column wider than its
+   share and the whole band overflows. */
+.ix-bundle{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center;
+  margin-top:44px;padding:40px 44px;border-radius:20px;
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(245,197,32,.14) 0%,transparent 55%),
+    linear-gradient(135deg,rgba(245,197,32,.07),rgba(245,197,32,.02));
+  border:1px solid rgba(245,197,32,.3);
+}
+.ix-bundle-label{
+  font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:#f5c520;margin-bottom:14px;
+}
+.ix-bundle-h{
+  font-family:var(--f-body);font-size:clamp(1.6rem,3vw,2.5rem);font-weight:800;
+  color:#fff;margin:0 0 14px;line-height:1.1;letter-spacing:-.02em;text-wrap:balance;
+}
 .ix-bundle-h em{font-style:normal;color:#f5c520}
-.ix-bundle-p{font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.62);margin:0;max-width:60ch}
-.ix-bundle-buy{text-align:center;flex-shrink:0}
-.ix-bundle-was{font-size:.78rem;color:rgba(255,255,255,.38);text-decoration:line-through;margin-bottom:2px}
-.ix-bundle-price{font-family:'Space Mono',ui-monospace,monospace;font-size:2.4rem;font-weight:700;
-  color:#f5c520;line-height:1}
-.ix-bundle-note{font-size:.72rem;color:rgba(255,255,255,.45);margin:4px 0 14px}
-.ix-bundle-btn{display:inline-flex;justify-content:center;width:100%;min-width:200px}
-@media(max-width:760px){
-  .ix-bundle{grid-template-columns:1fr;gap:22px;padding:26px 22px;text-align:center}
-  .ix-bundle-p{margin-inline:auto}
+.ix-bundle-p{
+  font-size:1rem;line-height:1.7;color:rgba(255,255,255,.62);margin:0 0 20px;max-width:46ch;
+}
+.ix-bundle-list{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 26px;
+}
+.ix-bundle-list li{
+  font-size:.92rem;font-weight:600;color:rgba(255,255,255,.82);
+  display:flex;align-items:center;gap:9px;
+}
+.ix-bundle-list li::before{
+  /* Plain U+2713. The course sidebar already uses this glyph, so it is known
+     to render on the site's font stack — safer than drawing a tick out of
+     layered gradients, which drifts a pixel at every zoom level. */
+  content:"\2713";flex-shrink:0;
+  width:17px;height:17px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:.62rem;font-weight:800;line-height:1;
+  color:#3ec83e;background:rgba(62,200,62,.15);border:1px solid rgba(62,200,62,.45);
+}
+
+.ix-bundle-buy{
+  text-align:center;flex-shrink:0;min-width:250px;
+  padding:26px 28px;border-radius:16px;
+  background:rgba(0,0,0,.42);border:1px solid rgba(245,197,32,.22);
+}
+.ix-bundle-save{
+  display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:#0a0a0a;background:#3ec83e;
+  padding:4px 11px;border-radius:100px;margin-bottom:12px;
+}
+.ix-bundle-was{
+  font-size:.8rem;color:rgba(255,255,255,.36);text-decoration:line-through;margin-bottom:4px;
+}
+.ix-bundle-price{
+  font-family:'Space Mono',ui-monospace,monospace;font-size:2.7rem;font-weight:700;
+  color:#f5c520;line-height:1;letter-spacing:-.03em;
+}
+.ix-bundle-note{font-size:.74rem;color:rgba(255,255,255,.5);margin:8px 0 18px}
+.ix-bundle-btn{display:inline-flex;justify-content:center;width:100%}
+.ix-bundle-fine{font-size:.7rem;color:rgba(255,255,255,.32);margin-top:11px}
+
+@media(max-width:900px){
+  .ix-bundle{grid-template-columns:1fr;gap:28px;padding:32px 26px}
+  .ix-bundle-p{max-width:none}
+  .ix-bundle-buy{min-width:0}
+}
+@media(max-width:520px){
+  .ix-bundle{padding:26px 20px}
+  .ix-bundle-list{grid-template-columns:1fr}
+  .ix-bundle-price{font-size:2.3rem}
 }
 </style>
 </head>
@@ -530,24 +583,38 @@
           <div class="ix-card-go">View Course →</div>
         </div>
       </div>
+    </div>
 
-      <!-- ─ ALL-ACCESS BUNDLE ─
-           Price and entitlement both come from the 'all' row in public.courses.
-           The button is wired by course-buy.js via data-hfy-buy, exactly like
-           every single-course button, so it inherits the same signed-out /
-           already-owned handling for free. -->
-      <div class="ix-bundle">
-        <div class="ix-bundle-copy">
-          <div class="ix-bundle-label">Best Value</div>
-          <h3 class="ix-bundle-h">Every Paid Course. <em>One Payment.</em></h3>
-          <p class="ix-bundle-p">Technical Analysis, Fundamental Analysis, Trading Psychology and Economics for Traders — four complete courses, 160 modules, all the downloadable templates. Bought separately that&rsquo;s $151.80.</p>
-        </div>
-        <div class="ix-bundle-buy">
-          <div class="ix-bundle-was">$151.80 separately</div>
-          <div class="ix-bundle-price">$127.95</div>
-          <div class="ix-bundle-note">One-time · lifetime access</div>
-          <a class="btn-a ix-bundle-btn" href="#" data-hfy-buy="all">Get All-Access</a>
-        </div>
+    <!-- ─ ALL-ACCESS BUNDLE ─
+         Sits OUTSIDE .ix-grid on purpose. It was inside it once, which made it
+         a grid item constrained to a single card column — the headline broke
+         one word per line. It is a full-width band under the grid, not a card
+         in it.
+
+         Price and entitlement both come from the 'all' row in public.courses.
+         The button is wired by course-buy.js via data-hfy-buy, exactly like
+         every single-course button, so it inherits the same signed-out /
+         already-owned handling for free. -->
+    <div class="ix-bundle">
+      <div class="ix-bundle-copy">
+        <div class="ix-bundle-label">Best Value</div>
+        <h2 class="ix-bundle-h">Every paid course.<br><em>One payment.</em></h2>
+        <p class="ix-bundle-p">Four complete courses, 160 modules, and every downloadable template &mdash; for less than the price of three.</p>
+        <ul class="ix-bundle-list">
+          <li>Technical Analysis</li>
+          <li>Fundamental Analysis</li>
+          <li>Trading Psychology</li>
+          <li>Economics for Traders</li>
+        </ul>
+      </div>
+
+      <div class="ix-bundle-buy">
+        <div class="ix-bundle-save">Save $23.85</div>
+        <div class="ix-bundle-was">$151.80 bought separately</div>
+        <div class="ix-bundle-price">$127.95</div>
+        <div class="ix-bundle-note">One-time payment &middot; lifetime access</div>
+        <a class="btn-a ix-bundle-btn" href="#" data-hfy-buy="all">Get All-Access</a>
+        <div class="ix-bundle-fine">No subscription. No renewal.</div>
       </div>
     </div>
   </div>
@@ -719,11 +786,11 @@
      config, auth, then the access/buy helpers. Order matters — course-buy.js
      bails with a console error if HFY.auth and HFY.access aren't defined yet. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=202607312155"></script>
-<script src="app.js?v=202607312155"></script>
-<script src="auth.js?v=202607312155"></script>
-<script src="course-access.js?v=202607312155"></script>
-<script src="course-buy.js?v=202607312155"></script>
+<script src="supabase-config.js?v=202607312203"></script>
+<script src="app.js?v=202607312203"></script>
+<script src="auth.js?v=202607312203"></script>
+<script src="course-access.js?v=202607312203"></script>
+<script src="course-buy.js?v=202607312203"></script>
 
 </body>
 </html>
