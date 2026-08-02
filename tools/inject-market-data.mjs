@@ -487,8 +487,16 @@ ${rows.map(r => `        <tr>
    wrong in a way worth remembering: a grocery chain books enormous revenue on
    thin margins and a software company books little on fat ones, so a revenue
    floor quietly deleted the large-cap tech names a reader most wants. */
-function renderEarnings(rows) {
-  if (!rows?.length) return ''
+function renderEarnings(input) {
+  /* Accepts either the v3 shape { upcoming, reported } or a bare array, which
+     is what market-data's fallback calendar still returns. Normalising here
+     means the fallback path renders an upcoming-only table rather than
+     throwing, which is the behaviour that keeps a build green during an
+     upstream wobble. */
+  const today = new Date().toISOString().slice(0, 10)
+  const upcoming = Array.isArray(input) ? input.filter(r => String(r.date) >= today) : (input?.upcoming ?? [])
+  const reported = Array.isArray(input) ? input.filter(r => String(r.date) <  today) : (input?.reported ?? [])
+  if (!upcoming.length && !reported.length) return ''
 
   const when = { bmo: 'Before open', amc: 'After close', dmh: 'During hours' }
   const cap = (v) => {
@@ -502,62 +510,106 @@ function renderEarnings(rows) {
     const b = v / 1e9
     return b >= 1 ? '$' + b.toFixed(2) + 'B' : '$' + (v / 1e6).toFixed(0) + 'M'
   }
+  const eps = (v) => (typeof v === 'number' ? '$' + v.toFixed(2) : '—')
   const day = (iso) => {
     if (!iso) return '—'
     const [y, m, d] = iso.split('-')
     const names = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
     return `${Number(d)} ${names[Number(m) - 1] ?? ''}`
   }
+
+  /* Beat or miss, in dollars per share rather than a percentage.
+     A percentage surprise explodes toward infinity as the estimate approaches
+     zero — a company expected to earn $0.01 that earns $0.05 is "up 400%",
+     which is arithmetic rather than news. The dollar gap stays readable. */
+  const surprise = (r) => {
+    if (typeof r.epsActual !== 'number' || typeof r.epsEstimate !== 'number') {
+      return { txt: '—', cls: '' }
+    }
+    const d = r.epsActual - r.epsEstimate
+    if (Math.abs(d) < 0.005) return { txt: 'In line', cls: '' }
+    return { txt: (d > 0 ? '+' : '−') + '$' + Math.abs(d).toFixed(2), cls: d > 0 ? 'up' : 'down' }
+  }
+
   /* Two links per company, because they answer different questions.
-
-     PRESS RELEASE (Yahoo Finance). The company's own announcement, in full, as
-     it went out on the wire — the headline numbers, the quotes from management,
-     the guidance. This is what a reader actually wants and it is free with no
-     account.
-
-     Not Seeking Alpha, which was the original request: SA now puts most symbol
-     pages behind a registration wall, and shipping a link a reader cannot open
-     is the exact thing that got Bloomberg dropped from the news feed. Not a
-     newswire either — Business Wire, PR Newswire and GlobeNewswire each carry
-     only their own clients, so no single wire covers every ticker. Verified
-     while building this: GlobeNewswire has no Apple releases at all, because
-     Apple uses Business Wire.
-
-     SEC 8-K. The same release as filed with the regulator, where it is attached
-     as Exhibit 99.1. Uglier to read and slower to appear, but it is the legal
-     document rather than a portal's copy of it, it is never going to paywall,
-     and it sits next to every other filing the company has made. Kept as the
-     second link for anyone who wants the primary source. */
+     PRESS RELEASE (Yahoo Finance) — the company's own announcement in full,
+     free and unwalled. Not Seeking Alpha, which now registration-walls most
+     symbol pages; shipping a link a reader cannot open is the exact thing that
+     got Bloomberg dropped from the news feed.
+     SEC 8-K — the same release as filed with the regulator, attached as
+     Exhibit 99.1. Uglier, slower to appear, never going to paywall. */
   const presser = (sym) =>
     'https://finance.yahoo.com/quote/' + encodeURIComponent(sym) + '/press-releases/'
-
   const edgar = (sym) =>
     'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=' +
     encodeURIComponent(sym) + '&type=8-K&dateb=&owner=include&count=40'
 
-  /* The filter explanation is a <p> BEFORE the table, not a <caption>.
-     A caption is sized against the table box rather than the page, and a long
-     one collapses into a narrow column of clipped text — which is exactly what
-     it did on 2026-08-02. Captions are for a line or two; this is a paragraph,
-     so it lives outside the table where normal block layout applies. */
-  return `<div class="mkt-filter-note">
-      <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. This shows only those worth more than $2 billion, soonest first and largest first within a day &mdash; because a company below that size can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
-      <p>That is an editorial choice rather than a judgement about those businesses, and it does mean genuinely interesting small companies are missing from this table. The estimates are what analysts expect: a forecast, not a target the company agreed to. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
-    </div>
-    <table class="mkt-table">
+  const readCell = (sym) =>
+    `<td class="mkt-rel"><a href="${esc(presser(sym))}" target="_blank" rel="noopener nofollow">Release &rarr;</a>` +
+    `<a class="sec" href="${esc(edgar(sym))}" target="_blank" rel="noopener">SEC</a></td>`
+
+  const nameCell = (r) =>
+    `<th scope="row">${esc(r.symbol)}${r.name && r.name !== r.symbol ? `<span class="mkt-co">${esc(r.name)}</span>` : ''}</th>`
+
+  const upcomingTable = `<table class="mkt-table">
       <thead><tr><th scope="col">Company</th><th scope="col">Date</th><th scope="col">When</th><th scope="col">Market cap</th><th scope="col">EPS est.</th><th scope="col">Revenue est.</th><th scope="col">Read it</th></tr></thead>
       <tbody>
-${rows.slice(0, 25).map(r => `        <tr>
-          <th scope="row">${esc(r.symbol)}${r.name && r.name !== r.symbol ? `<span class="mkt-co">${esc(r.name)}</span>` : ''}</th>
+${upcoming.slice(0, 25).map(r => `        <tr>
+          ${nameCell(r)}
           <td>${esc(day(r.date))}</td>
           <td>${esc(when[r.hour] ?? '—')}</td>
           <td>${esc(cap(r.marketCap))}</td>
-          <td>${typeof r.epsEstimate === 'number' ? esc('$' + r.epsEstimate.toFixed(2)) : '—'}</td>
+          <td>${esc(eps(r.epsEstimate))}</td>
           <td>${esc(money(r.revenueEstimate))}</td>
-          <td class="mkt-rel"><a href="${esc(presser(r.symbol))}" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="${esc(edgar(r.symbol))}" target="_blank" rel="noopener">SEC</a></td>
+          ${readCell(r.symbol)}
         </tr>`).join('\n')}
       </tbody>
     </table>`
+
+  const reportedTable = reported.length ? `<table class="mkt-table">
+      <thead><tr><th scope="col">Company</th><th scope="col">Date</th><th scope="col">Market cap</th><th scope="col">EPS est.</th><th scope="col">EPS actual</th><th scope="col">Surprise</th><th scope="col">Revenue</th><th scope="col">Read it</th></tr></thead>
+      <tbody>
+${reported.slice(0, 25).map(r => {
+    const s = surprise(r)
+    return `        <tr>
+          ${nameCell(r)}
+          <td>${esc(day(r.date))}</td>
+          <td>${esc(cap(r.marketCap))}</td>
+          <td>${esc(eps(r.epsEstimate))}</td>
+          <td>${esc(eps(r.epsActual))}</td>
+          <td class="${s.cls}">${esc(s.txt)}</td>
+          <td>${esc(money(typeof r.revenueActual === 'number' ? r.revenueActual : r.revenueEstimate))}</td>
+          ${readCell(r.symbol)}
+        </tr>`
+  }).join('\n')}
+      </tbody>
+    </table>` : `<p class="mkt-empty">No companies above the size floor reported in the last seven days.</p>`
+
+  /* Tabs are two radio inputs and a sibling selector — no JavaScript.
+     That matters for more than elegance: BOTH tables ship in the HTML and are
+     only hidden with CSS, so a crawler reads every row of both. Building the
+     panels with JS would have hidden half this table from Google, which is the
+     exact mistake these pages were rewritten to stop making.
+     "Upcoming" is checked by default because the forward week is the reason
+     most people open the page. */
+  return `<div class="mkt-filter-note">
+      <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. This shows only those worth more than $2 billion &mdash; because a company below that size can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
+      <p>That is an editorial choice rather than a judgement about those businesses, and it does mean genuinely interesting small companies are missing. <strong>Estimates</strong> are what analysts expect: a forecast, not a target the company agreed to. <strong>Surprise</strong> is actual EPS minus estimate, in dollars per share. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
+    </div>
+    <div class="mkt-tabs">
+      <input type="radio" name="earnwin" id="earnwin-upcoming" class="mkt-tab-in" checked>
+      <input type="radio" name="earnwin" id="earnwin-reported" class="mkt-tab-in">
+      <div class="mkt-tab-btns">
+        <label for="earnwin-upcoming">Reporting next &nbsp;<span>${upcoming.length}</span></label>
+        <label for="earnwin-reported">Just reported &nbsp;<span>${reported.length}</span></label>
+      </div>
+      <div class="mkt-tab-panel" data-win="upcoming">
+        ${upcomingTable}
+      </div>
+      <div class="mkt-tab-panel" data-win="reported">
+        ${reportedTable}
+      </div>
+    </div>`
 }
 
 /* -------------------------------------------------------- sector returns --- */
@@ -841,6 +893,45 @@ const PAGES = [
       behavQuotes: { set: 'quotes', render: renderQuotes },
     },
   },
+
+  // ---------------------------------------------------------------------
+  //  The three viewer pages, added 2026-08-02.
+  //
+  //  These came off noindex the same day, having been rewritten from ~200
+  //  words of chrome into 1,150-1,780 words each. Their widgets are live in
+  //  the visitor's browser but live inside an iframe, so a crawler saw only
+  //  the prose — permanently static text on pages that are supposed to be
+  //  about current markets.
+  //
+  //  Every set below is ALREADY FETCHED for another page. Sets are requested
+  //  once and shared across all markers that name them, so these three pages
+  //  cost zero additional API calls. Adding a marker that names a NEW set
+  //  would not be free; adding one that reuses an existing set is.
+  // ---------------------------------------------------------------------
+  {
+    // Cross-asset tape under the chart: what moved, before you go chart it.
+    // Same set as markets.html quotes and markets-technical techQuotes.
+    file: 'Markets/chart.html',
+    sections: {
+      chartQuotes: { set: 'quotes', render: renderQuotes },
+    },
+  },
+  {
+    // Sector fundamentals. Sits directly beneath the section arguing that
+    // ratio norms are industry-specific, because it is the evidence for it.
+    file: 'Markets/screeners.html',
+    sections: {
+      screenSectors: { set: 'sectors', render: renderSectors },
+    },
+  },
+  {
+    // Upcoming earnings. Follows the year-over-year section, which is the
+    // method this table is meant to be read with.
+    file: 'Markets/spotlight.html',
+    sections: {
+      spotEarnings: { set: 'earnings', render: renderEarnings },
+    },
+  },
 ]
 
 function replaceBlock(html, name, inner) {
@@ -958,14 +1049,28 @@ async function main() {
      build over it. */
   if (sets.includes('earnings')) {
     try {
-      const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}`,
+      /* back=7 asks market-earnings v3 for the week BEHIND today as well as
+         the week ahead, so the page can show reported results next to upcoming
+         ones. A reported quarter carries epsActual/revenueActual; an upcoming
+         one carries estimates only. v2 ignored the past entirely.
+         Older deployments of the function ignore `back` and simply return the
+         forward window, which renders as an upcoming-only table — degraded,
+         not broken. */
+      const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}&back=7&days=7`,
         { signal: AbortSignal.timeout(45000) })
       if (!r.ok) throw new Error(`HTTP ${r.status}`)
       const ed = await r.json()
       if (Array.isArray(ed.earnings) && ed.earnings.length) {
-        data.earnings = ed.earnings
+        /* Prefer the split arrays from v3; derive them if we are talking to an
+           older function so the renderer never has to care which it got. */
+        const today = ed.today ?? new Date().toISOString().slice(0, 10)
+        data.earnings = {
+          upcoming: ed.upcoming ?? ed.earnings.filter(x => String(x.date) >= today),
+          reported: ed.reported ?? ed.earnings.filter(x => String(x.date) < today),
+        }
         console.log(`  earnings: ${ed.kept} companies over $${EARNINGS_MIN_CAP_M}M ` +
-                    `(checked ${ed.checked} of ${ed.considered} reporting ${ed.from} → ${ed.to})`)
+                    `(${data.earnings.upcoming.length} upcoming, ${data.earnings.reported.length} reported, ` +
+                    `checked ${ed.checked} of ${ed.considered} across ${ed.from} → ${ed.to})`)
       } else {
         console.log('  WARN market-earnings returned nothing — keeping market-data earnings.')
       }

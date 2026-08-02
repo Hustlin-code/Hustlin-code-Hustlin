@@ -246,6 +246,48 @@
   .cht-sec{padding:44px 16px}
   .cht-sec h2{font-size:24px}
 }
+/* ─ Injected market-data blocks (added 2026-08-02) ─
+   These classes are emitted by tools/inject-market-data.mjs. They live here,
+   not in styles.css, because every Markets page defines its own. If a table
+   ever renders unstyled, this block went missing.
+   .mkt-table is built for LIGHT sections; .mkt-quote for DARK ones. */
+.mkt-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E4DFD3;
+  border-radius:14px;overflow:hidden;font-size:14px}
+.mkt-table-cap{caption-side:top;text-align:left;font-size:13px;color:#5c574c;padding:0 0 10px;line-height:1.5}
+.mkt-table th[scope=col]{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;
+  color:#6F6A5E;padding:12px;border-bottom:2px solid #E4DFD3}
+.mkt-table td,.mkt-table th[scope=row]{padding:11px 12px;border-bottom:1px solid #EFEBE1;
+  color:#3d3a33;text-align:left;font-weight:400}
+.mkt-table th[scope=row]{font-weight:600}
+.mkt-table tr:last-child td,.mkt-table tr:last-child th{border-bottom:none}
+.mkt-table td.up{color:#2DA02D;font-weight:700}
+.mkt-table td.down{color:#C4381F;font-weight:700}
+.mkt-table td a{color:#8A6D08;font-weight:600;white-space:nowrap}
+.mkt-table td a:hover{text-decoration:underline}
+.mkt-table th[scope=row] .mkt-co{display:block;font-size:12px;font-weight:400;color:#6F6A5E;
+  margin-top:2px;line-height:1.35}
+.mkt-table td.mkt-rel{white-space:nowrap}
+.mkt-table td.mkt-rel a.sec{margin-left:10px;font-size:11.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.05em;color:#8b8577}
+.mkt-table td.mkt-rel a.sec:hover{color:#8A6D08}
+.mkt-filter-note{max-width:760px;margin:0 0 18px}
+.mkt-filter-note p{font-size:13.5px;line-height:1.7;color:#5c574c;margin:0 0 10px}
+.mkt-filter-note p:last-child{margin-bottom:0}
+.mkt-filter-note strong{color:#060606;font-weight:700}
+.mkt-quote-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.mkt-quote{background:#111;border:1px solid #262626;border-radius:12px;padding:16px}
+.mkt-quote-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  color:#9a9488;margin:0 0 8px}
+.mkt-quote-px{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:#fff;margin:0 0 4px;line-height:1}
+.mkt-quote-chg{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;margin:0 0 8px}
+.mkt-quote.up .mkt-quote-chg{color:#2DA02D}
+.mkt-quote.down .mkt-quote-chg{color:#EF4444}
+.mkt-quote-sym{font-size:11px;color:#6b665c;margin:0}
+.mkt-quote-note{font-size:12px;color:#6b665c;margin:16px 0 0;line-height:1.6}
+@media(max-width:640px){
+  .mkt-table{font-size:13px}
+  .mkt-table td,.mkt-table th{padding:9px 8px}
+}
 </style>
 </head>
 <body>
@@ -351,6 +393,33 @@
       <span class="cht-call-h">Watch it happen</span>
       <p>Our <a href="../markets-fundamental.html">free Fundamentals page</a> shows current P/E, EPS growth, revenue growth and debt-to-equity by sector, so you can see how differently these numbers behave from one industry to the next.</p>
     </div>
+  </div>
+</section>
+
+<!-- LIVE SECTOR TABLE — refreshed daily by tools/inject-market-data.mjs.
+     Placed immediately after the three-filter-trap section on purpose: it is
+     the evidence for the claim that ratio norms differ by industry. -->
+<section class="cht-sec white" id="sector-ratios">
+  <div class="cht-in">
+    <span class="cht-num">Proof, in today's numbers</span>
+    <h2>The same ratios, sector by sector.</h2>
+    <p class="lede">This is the argument above, in current data. Look at how far apart the valuation and debt figures sit across sectors — then reread your screen's filters and ask which of these you were really selecting for.</p>
+    <!-- MKT:screenSectors:START -->
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.</caption>
+      <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Communication Services</th><td>XLC</td><td class="up" data-fill="sector-XLC">+1.56%</td></tr>
+        <tr><th scope="row">Energy</th><td>XLE</td><td class="up" data-fill="sector-XLE">+1.00%</td></tr>
+        <tr><th scope="row">Industrials</th><td>XLI</td><td class="up" data-fill="sector-XLI">+0.81%</td></tr>
+        <tr><th scope="row">Financials</th><td>XLF</td><td class="down" data-fill="sector-XLF">-0.11%</td></tr>
+        <tr><th scope="row">Consumer Staples</th><td>XLP</td><td class="down" data-fill="sector-XLP">-0.49%</td></tr>
+        <tr><th scope="row">Real Estate</th><td>XLRE</td><td class="down" data-fill="sector-XLRE">-0.51%</td></tr>
+        <tr><th scope="row">Utilities</th><td>XLU</td><td class="down" data-fill="sector-XLU">-0.69%</td></tr>
+        <tr><th scope="row">Materials</th><td>XLB</td><td class="down" data-fill="sector-XLB">-2.34%</td></tr>
+      </tbody>
+    </table>
+    <!-- MKT:screenSectors:END -->
   </div>
 </section>
 
