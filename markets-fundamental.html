@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How to value a business — read an income statement, balance sheet and cash flow, then judge P/E, margins and debt. Free stock screener, earnings calendar and sector table, with plain-English explanation of every metric.">
+<title>Fundamental Analysis — Screener, Earnings &amp; Valuation | Hustlin'</title>
+
+<!-- Social Preview -->
+<meta property="og:title" content="Fundamental Analysis — Screener, Earnings &amp; Valuation | Hustlin'">
+<meta property="og:description" content="What a business earns, owns and owes — and whether the price in front of you is defensible. Free screener, earnings calendar and the metrics that matter.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/markets-fundamental.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fundamental Analysis — Screener, Earnings &amp; Valuation | Hustlin'">
+<meta name="twitter:description" content="What a business earns, owns and owes. Free screener, earnings calendar, and every metric explained.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/markets-fundamental.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Fundamental Analysis — how to value a business from its own numbers",
+      "description": "A plain-English walkthrough of the income statement, balance sheet, cash flow statement and the valuation ratios built on them, with a free stock screener and live earnings calendar.",
+      "url": "https://hustlin.org/markets-fundamental.html",
+      "isAccessibleForFree": true,
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "about": ["Fundamental analysis", "Stock valuation", "Financial statements", "Price-to-earnings ratio"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://hustlin.org/markets.html" },
+        { "@type": "ListItem", "position": 3, "name": "Fundamental Analysis", "item": "https://hustlin.org/markets-fundamental.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a good P/E ratio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no universal good number, and treating one as a threshold is the most common beginner mistake. P/E is price divided by earnings per share, so it tells you how many years of current profit you are paying for. A utility at 15 and a software company at 40 can both be reasonably priced, because the software company is expected to grow earnings much faster. P/E is only meaningful compared against the same company's history, its direct competitors, and its growth rate. A low P/E often means the market expects earnings to fall, not that the stock is cheap." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between fundamental and technical analysis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fundamental analysis asks what a business is worth by examining what it earns, owns and owes, then compares that to the price. Technical analysis ignores the business entirely and studies what price and volume are doing. They answer different questions: fundamentals suggest what to buy, technicals suggest when, and neither reliably does the other's job. Most durable approaches use fundamentals to choose and technicals for timing and risk control." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which financial statement matters most?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The cash flow statement, though the income statement gets far more attention. Net income involves estimates and timing choices about when to recognise revenue and how to spread costs over time, so it can be legally shaped in ways that flatter a quarter. Cash is harder to manipulate — it either arrived or it did not. A company reporting rising profits while operating cash flow falls is the single most reliable warning sign available in public filings." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I read an earnings report?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Start with revenue and operating cash flow, not the headline earnings-per-share number, and compare each against the same quarter a year earlier rather than the previous quarter, which removes seasonality. Then read the guidance — what management says about the next quarter usually moves the stock more than the results just reported, because markets price expectations rather than history. Beating an estimate tells you about the estimate more than the business." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a high dividend yield good?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not on its own, and an unusually high yield relative to a company's peers is more often a warning than a bargain. Yield is dividend divided by price, so it rises when the price falls — a yield that has spiked usually means the market expects the dividend to be cut. Check the payout ratio, which is the share of earnings being paid out: consistently above roughly 80% for a non-utility means little room for error if profits dip." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="styles.css?v=202608012033">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+<style>
+/* =============================================================================
+   markets-fundamental.html — clones the .eco* system from markets-economic.html
+   so the four pillars stay one visual language. Explicit hex only, never a CSS
+   variable name: a variable that does not exist fails silently and renders
+   invisible text. Brand: gold #F5C520, green #2DA02D, near-black #060606.
+   ========================================================================== */
+
+.eco-quicknav{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  padding:12px 40px;background:#060606;
+  border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);
+  position:sticky;top:108px;z-index:40;margin-top:108px;
+}
+.eco-quicknav a{
+  font-size:.74rem;font-weight:700;letter-spacing:.03em;
+  color:rgba(255,255,255,.5);background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);padding:7px 14px;border-radius:20px;
+  transition:all .2s;white-space:nowrap;text-decoration:none;
+}
+.eco-quicknav a:hover{color:#F5C520;border-color:rgba(245,197,32,.4);background:rgba(245,197,32,.08)}
+.eco-quicknav a.active{color:#F5C520;border-color:rgba(245,197,32,.45);background:rgba(245,197,32,.1)}
+@media(max-width:900px){
+  .eco-quicknav{top:76px;margin-top:76px;padding:12px 16px;flex-wrap:nowrap;
+    justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .eco-quicknav::-webkit-scrollbar{display:none}
+  .eco-quicknav a{flex-shrink:0}
+}
+@media(max-width:480px){.eco-quicknav{top:64px;margin-top:64px;padding:10px 14px;gap:6px}}
+
+.eco-hero{background:#060606;padding:56px 22px 48px;
+  background-image:radial-gradient(ellipse at 20% 0%,rgba(45,160,45,.10),transparent 60%)}
+.eco-in{max-width:1060px;margin:0 auto}
+.eco-crumb{font-size:.78rem;color:rgba(255,255,255,.34);margin:0 0 18px}
+.eco-crumb a{color:rgba(255,255,255,.34);text-decoration:none}
+.eco-crumb a:hover{color:#F5C520}
+.eco-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:clamp(30px,5vw,52px);color:#fff;margin:0 0 16px;letter-spacing:-.02em;line-height:1.08}
+.eco-hero h1 em{font-style:normal;color:#F5C520}
+.eco-hero .lede{font-size:17px;line-height:1.7;color:rgba(255,255,255,.62);max-width:680px;margin:0 0 26px}
+.eco-eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;color:#F5C520;margin:0 0 14px}
+.eco-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(45,160,45,.12);
+  border:1px solid rgba(45,160,45,.3);color:#5FD35F;padding:5px 14px;border-radius:20px;
+  font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin:0 0 22px}
+.eco-pill span{width:7px;height:7px;border-radius:50%;background:#5FD35F;animation:ecoPulse 1.6s infinite}
+@keyframes ecoPulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.eco-sec{padding:64px 22px}
+.eco-sec.cream{background:#FAF7F0}
+.eco-sec.white{background:#FFFDF8}
+.eco-sec.dark{background:#060606}
+.eco-sec h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:clamp(25px,4.2vw,38px);color:#060606;margin:0 0 14px;letter-spacing:-.015em;line-height:1.15}
+.eco-sec.dark h2{color:#fff}
+.eco-sec h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
+  color:#060606;margin:38px 0 14px}
+.eco-sec.dark h3{color:#fff}
+.eco-sec p{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
+.eco-sec.dark p{color:rgba(255,255,255,.62)}
+.eco-sec .lede{font-size:17px;color:#5c574c;max-width:720px}
+.eco-num{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#B8930F;margin:0 0 10px}
+.eco-sec.dark .eco-num{color:#F5C520}
+
+.mkt-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E4DFD3;
+  border-radius:14px;overflow:hidden;font-size:14px;margin-top:6px}
+.mkt-table-cap{caption-side:top;text-align:left;font-size:13px;color:#5c574c;padding:0 0 12px;line-height:1.6;max-width:720px}
+.mkt-table th[scope=col]{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;
+  color:#6F6A5E;padding:12px;border-bottom:2px solid #E4DFD3}
+.mkt-table td,.mkt-table th[scope=row]{padding:11px 12px;border-bottom:1px solid #EFEBE1;color:#3d3a33;text-align:left;font-weight:400}
+.mkt-table th[scope=row]{font-weight:700;font-family:'Space Mono',monospace}
+.mkt-table th[scope=row] a{color:#3d3a33;text-decoration:none;border-bottom:1px dotted #C9C2B2}
+.mkt-table tr:last-child td,.mkt-table tr:last-child th{border-bottom:none}
+.mkt-table td.up{color:#2DA02D;font-weight:700}.mkt-table td.down{color:#C4381F;font-weight:700}
+
+/* metric reference cards */
+.fun-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px}
+.fun-card{background:#fff;border:1px solid #E4DFD3;border-radius:14px;padding:22px;border-top:4px solid #F5C520}
+.fun-card h3{margin:0 0 4px;font-size:16px;font-weight:800;color:#060606}
+.fun-card .formula{font-family:'Space Mono',monospace;font-size:12.5px;color:#8A6D08;
+  background:#FFFBEF;border-radius:7px;padding:7px 10px;margin:0 0 12px;display:inline-block}
+.fun-card p{font-size:13.5px;line-height:1.62;color:#4a463d;margin:0 0 10px}
+.fun-card .trap{font-size:12.5px;line-height:1.6;color:#6F6A5E;margin:0;
+  padding-top:10px;border-top:1px solid #EFEBE1}
+.fun-card .trap strong{color:#C4381F}
+
+.eco-call{margin:26px 0 0;padding:20px 22px;border-radius:13px;background:#FFFBEF;
+  border:1px solid #EFE2B8;border-left:4px solid #F5C520;max-width:760px}
+.eco-call p{margin:0;font-size:14.5px;line-height:1.68;color:#3d3a33}
+.eco-call a{color:#8A6D08;font-weight:700}
+.eco-call .eco-call-h{display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
+  letter-spacing:.05em;text-transform:uppercase}
+
+.eco-buy{background:#060606;padding:64px 22px;
+  background-image:radial-gradient(ellipse at 80% 0%,rgba(45,160,45,.12),transparent 60%)}
+.eco-buy h2{color:#fff}
+.eco-buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+@media(max-width:800px){.eco-buy-grid{grid-template-columns:1fr}}
+.eco-buy-card{background:#111;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px}
+.eco-buy-card.feature{border-color:rgba(245,197,32,.42);background:#141005}
+.eco-buy-card h3{color:#fff;margin:0 0 6px;font-size:20px}
+.eco-buy-price{font-family:'Space Mono',monospace;font-size:30px;font-weight:700;color:#F5C520;margin:0 0 4px}
+.eco-buy-tax{font-size:12px;color:rgba(255,255,255,.42);margin:0 0 16px}
+.eco-buy-card ul{list-style:none;margin:0 0 22px;padding:0}
+.eco-buy-card li{font-size:14px;line-height:1.6;color:rgba(255,255,255,.62);
+  padding-left:22px;position:relative;margin-bottom:9px}
+.eco-buy-card li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;
+  border-radius:50%;background:#2DA02D}
+.eco-btn{display:inline-block;background:#F5C520;color:#060606;font-weight:800;font-size:15px;
+  padding:13px 26px;border-radius:11px;text-decoration:none;transition:.2s}
+.eco-btn:hover{background:#ffd94a;transform:translateY(-1px)}
+.eco-btn.ghost{background:transparent;color:#F5C520;border:1px solid rgba(245,197,32,.45)}
+.eco-btn.ghost:hover{background:rgba(245,197,32,.1)}
+
+.eco-steps{list-style:none;counter-reset:eco;margin:26px 0 0;padding:0;display:grid;gap:14px;max-width:820px}
+.eco-steps li{counter-increment:eco;position:relative;padding:16px 18px 16px 60px;
+  background:#fff;border:1px solid #E4DFD3;border-radius:13px;font-size:15px;line-height:1.65;color:#4a463d}
+.eco-steps li::before{content:counter(eco);position:absolute;left:18px;top:16px;
+  width:28px;height:28px;border-radius:8px;background:#060606;color:#F5C520;
+  font-family:'Space Mono',monospace;font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center}
+.eco-steps strong{color:#060606}
+
+.eco-widget{background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
+  border-radius:16px;padding:6px;overflow:hidden;margin-top:8px}
+.eco-widget-note{font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.65;margin:14px 0 0;max-width:720px}
+
+.eco-faq{display:grid;gap:12px;margin-top:26px;max-width:820px}
+.eco-faq details{background:#fff;border:1px solid #E4DFD3;border-radius:13px;padding:0}
+.eco-faq summary{cursor:pointer;padding:17px 20px;font-weight:700;font-size:15.5px;color:#060606;list-style:none}
+.eco-faq summary::-webkit-details-marker{display:none}
+.eco-faq summary::after{content:'+';float:right;color:#B8930F;font-weight:800;font-size:19px;line-height:1}
+.eco-faq details[open] summary::after{content:'\2212'}
+.eco-faq details p{padding:0 20px 18px;margin:0;font-size:14.5px;line-height:1.72;color:#4a463d}
+
+.eco-rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:28px}
+.eco-rel{display:block;background:#111;border:1px solid rgba(255,255,255,.1);border-radius:14px;
+  padding:22px;text-decoration:none;transition:.2s}
+.eco-rel:hover{border-color:rgba(245,197,32,.4);transform:translateY(-3px)}
+.eco-rel h3{font-size:16px;color:#fff;margin:0 0 7px}
+.eco-rel p{font-size:13.5px;color:rgba(255,255,255,.5);margin:0 0 12px;line-height:1.6}
+.eco-rel span{font-size:13px;font-weight:700;color:#F5C520}
+
+.eco-src{margin-top:34px;padding-top:24px;border-top:1px solid #E4DFD3;
+  font-size:13.5px;line-height:1.72;color:#5c574c;max-width:760px}
+.eco-src a{color:#8A6D08;font-weight:600}
+
+.eco-focus{background:#141005;border:1px solid rgba(245,197,32,.28);border-radius:16px;
+  padding:26px 24px;max-width:820px}
+.eco-focus p.q{font-size:19px;line-height:1.55;color:#fff;margin:0 0 8px;font-weight:700}
+.eco-focus p.a{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.58);margin:0}
+
+@media(max-width:600px){
+  .eco-sec{padding:44px 16px}
+  .eco-hero{padding:36px 16px 34px}
+  .mkt-table{font-size:13px}
+  .mkt-table td,.mkt-table th{padding:9px 8px}
+  .eco-steps li{padding:14px 15px 14px 54px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:96px;width:auto;display:block;mix-blend-mode:screen">
+  </a>
+</nav>
+
+<div class="eco-quicknav">
+  <a href="markets.html">&larr; Markets</a>
+  <a href="markets-economic.html">Economic</a>
+  <a href="markets-fundamental.html" class="active">Fundamental</a>
+  <a href="technical-analysis.html">Technical</a>
+  <a href="trading-psychology.html">Behaviour</a>
+  <a href="Markets/screeners.html">Screeners</a>
+  <a href="Markets/spotlight.html">Spotlight</a>
+</div>
+
+<header class="eco-hero">
+  <div class="eco-in">
+    <p class="eco-crumb">
+      <a href="index.html">Hustlin'</a> / <a href="markets.html">Markets</a> / Fundamental Analysis
+    </p>
+    <div class="eco-pill"><span></span> Free screener &amp; live earnings</div>
+    <h1>What it earns,<br>what it owns,<br><em>what it owes.</em></h1>
+    <p class="lede">
+      A share price is an opinion. A financial statement is a record. Fundamental analysis is
+      the discipline of comparing the two &mdash; working out what a business is actually worth
+      from its own filings, then asking whether the price in front of you is defensible. This
+      page is the toolkit and the reasoning, in the order you would actually use them.
+    </p>
+    <p class="lede" style="color:rgba(255,255,255,.44);font-size:15px">
+      Free, no account, no email. Nothing on this page is investment advice.
+    </p>
+  </div>
+</header>
+
+<!-- TODAY'S FOCUS -->
+<section class="eco-sec dark" id="focus">
+  <div class="eco-in">
+    <div class="eco-focus">
+      <p class="eco-num" style="margin-bottom:12px">Today's focus</p>
+      <p class="q" id="fun-focus-q">Cash flow is harder to fake than profit.</p>
+      <p class="a" id="fun-focus-a">Net income involves estimates and timing choices. Cash either arrived or it did not. When the two disagree for more than a quarter or two, believe the cash.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE METHOD -->
+<section class="eco-sec cream" id="method">
+  <div class="eco-in">
+    <p class="eco-num">The method</p>
+    <h2>Four questions, in this order.</h2>
+    <p class="lede">
+      Most people start at valuation &mdash; they look up a P/E, compare it to a number they
+      half-remember, and decide. That is starting at the end. Valuation is the last question,
+      not the first, because a ratio is meaningless until you know what is underneath it.
+    </p>
+    <ol class="eco-steps">
+      <li><strong>Do I understand how it makes money?</strong> If you cannot explain the business to someone in two sentences, no amount of ratio analysis will save you. This filter alone removes most bad decisions.</li>
+      <li><strong>Is it profitable, and is the profit real?</strong> The income statement says what it earned. The cash flow statement says whether the money actually arrived. Read both, in that order, every time.</li>
+      <li><strong>Can it survive a bad year?</strong> The balance sheet. Debt levels, cash on hand, what is owed and when. Good companies go under because of the balance sheet, not the income statement.</li>
+      <li><strong>Is the price defensible?</strong> Only now. Valuation compares what you have just learned to what the market is charging, and the answer is always relative &mdash; to its own history, its competitors, and its growth rate.</li>
+    </ol>
+    <div class="eco-call">
+      <p>
+        <span class="eco-call-h">Why this order</span>
+        Those four questions are the five stages of
+        <a href="fundamental-analysis.html">Fundamental Analysis</a> &mdash; Foundations, the
+        Income Statement, Balance Sheet &amp; Cash Flow, Valuation, then Moats, Management &amp;
+        Process. The course is the reasoning; everything on this page is free and always will be.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 1. THE SCREENER -->
+<section class="eco-sec dark" id="screener">
+  <div class="eco-in">
+    <p class="eco-num">Step 1 &mdash; Narrow the field</p>
+    <h2>The screener.</h2>
+    <p>
+      There are roughly four thousand listed US companies. A screener's job is to get that down
+      to a number a human can actually read &mdash; twenty or thirty &mdash; so you can do real
+      work on each. It is a filter, not an oracle. Nothing that comes out the other end is a
+      recommendation; it is a list of companies that happen to match arithmetic you chose.
+    </p>
+    <div class="eco-widget">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+        {
+          "width": "100%", "height": "560", "defaultColumn": "fundamental",
+          "defaultScreen": "most_capitalized", "market": "america",
+          "showToolbar": true, "colorTheme": "dark", "locale": "en", "isTransparent": true
+        }
+        </script>
+      </div>
+    </div>
+    <p class="eco-widget-note">
+      Set the column view to Fundamental and you get market cap, P/E, EPS growth, revenue growth,
+      debt-to-equity and dividend yield in one table. Sort by any of them. Data from TradingView
+      and may be delayed.
+    </p>
+
+    <h3>Where screening goes wrong</h3>
+    <p>
+      Every filter you add encodes an assumption, and stacking them silently narrows you to a
+      single kind of company. Screen for low P/E, high dividend and low debt and you will get a
+      list of mature, slow-growing businesses &mdash; not because those are the best investments,
+      but because that is what those three filters describe. The screen did not find value; it
+      found the shape you asked for.
+    </p>
+    <p>
+      Two guardrails worth adopting. First, screen on no more than three or four criteria at
+      once, or you will filter down to almost nothing and conclude the market is expensive.
+      Second, always check what got excluded: if a company you already respect fails your screen,
+      the screen is probably wrong rather than the company.
+    </p>
+    <div class="eco-call">
+      <p>
+        <span class="eco-call-h">A starting screen</span>
+        If you want somewhere to begin: market cap above $2B (avoids the thinly traded end),
+        P/E between 5 and 30 (excludes both distress and pure speculation), debt-to-equity under
+        1.0, and positive revenue growth. That is a "reasonable ordinary businesses" screen, not
+        a "best stocks" screen &mdash; there is no such thing as the latter.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. THE METRICS -->
+<section class="eco-sec white" id="metrics">
+  <div class="eco-in">
+    <p class="eco-num">Step 2 &mdash; Know what you are reading</p>
+    <h2>The nine numbers that carry the weight.</h2>
+    <p class="lede">
+      Each of these appears in your screener columns. Each has a formula, a use, and a way it
+      misleads &mdash; and the third one is the part usually left out.
+    </p>
+    <div class="fun-grid">
+      <article class="fun-card">
+        <h3>P/E Ratio</h3>
+        <p class="formula">price &divide; earnings per share</p>
+        <p>How many years of current profit you are paying for. The most quoted valuation metric there is.</p>
+        <p class="trap"><strong>The trap:</strong> a low P/E usually means the market expects earnings to fall, not that the stock is cheap. Cheap and falling look identical on a screener.</p>
+      </article>
+      <article class="fun-card">
+        <h3>PEG Ratio</h3>
+        <p class="formula">P/E &divide; earnings growth rate</p>
+        <p>P/E adjusted for how fast earnings are growing. Below 1 is the conventional "reasonable" marker.</p>
+        <p class="trap"><strong>The trap:</strong> entirely dependent on a growth forecast, and forecasts are wrong. Garbage in, confident-looking number out.</p>
+      </article>
+      <article class="fun-card">
+        <h3>Gross Margin</h3>
+        <p class="formula">(revenue &minus; cost of goods) &divide; revenue</p>
+        <p>What is left after making the product. The cleanest single read on pricing power.</p>
+        <p class="trap"><strong>The trap:</strong> only comparable within an industry. A supermarket at 25% may be excellent; software at 25% is in trouble.</p>
+      </article>
+      <article class="fun-card">
+        <h3>Operating Margin</h3>
+        <p class="formula">operating income &divide; revenue</p>
+        <p>What survives running the whole business. Harder to flatter than gross margin.</p>
+        <p class="trap"><strong>The trap:</strong> a company can lift it by cutting research and marketing &mdash; which improves this year and damages the next three.</p>
+      </article>
+      <article class="fun-card">
+        <h3>Debt-to-Equity</h3>
+        <p class="formula">total debt &divide; shareholder equity</p>
+        <p>How much of the business is borrowed. The main determinant of whether a bad year is survivable.</p>
+        <p class="trap"><strong>The trap:</strong> the right level varies enormously by sector. Utilities and banks run high by design; that is not a red flag there.</p>
+      </article>
+      <article class="fun-card">
+        <h3>Current Ratio</h3>
+        <p class="formula">current assets &divide; current liabilities</p>
+        <p>Can it cover the next twelve months from what it already holds? Below 1 deserves a look.</p>
+        <p class="trap"><strong>The trap:</strong> a high ratio can mean unsold inventory or uncollected invoices, which is not the same as strength.</p>
+      </article>
+      <article class="fun-card">
+        <h3>Return on Equity</h3>
+        <p class="formula">net income &divide; shareholder equity</p>
+        <p>How efficiently the company turns shareholders' money into profit. Consistency matters more than the level.</p>
+        <p class="trap"><strong>The trap:</strong> borrowing shrinks equity, which inflates ROE. A rising ROE with rising debt is leverage, not skill.</p>
+      </article>
+      <article class="fun-card">
+        <h3>Free Cash Flow</h3>
+        <p class="formula">operating cash flow &minus; capital spending</p>
+        <p>Cash left after keeping the lights on. What actually funds dividends, buybacks and debt repayment.</p>
+        <p class="trap"><strong>The trap:</strong> can be boosted for a year by deferring necessary maintenance. Read it over three years, never one.</p>
+      </article>
+      <article class="fun-card">
+        <h3>Payout Ratio</h3>
+        <p class="formula">dividends &divide; net income</p>
+        <p>The share of profit being handed out. The best single check on whether a dividend is safe.</p>
+        <p class="trap"><strong>The trap:</strong> consistently above ~80% for a non-utility leaves no room for a bad year. That is when dividends get cut.</p>
+      </article>
+    </div>
+    <div class="eco-call">
+      <p>
+        <span class="eco-call-h">Go deeper</span>
+        Stages 2 and 3 of <a href="fundamental-analysis.html">Fundamental Analysis</a> work
+        through real statements line by line &mdash; where each of these numbers comes from,
+        which ones management has latitude over, and how the three statements connect to each
+        other. That connection is the part almost nobody teaches and the part that makes the
+        rest make sense.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ONE COMPANY -->
+<section class="eco-sec dark" id="company">
+  <div class="eco-in">
+    <p class="eco-num">Step 3 &mdash; Look at one</p>
+    <h2>The single-company view.</h2>
+    <p>
+      A screen produces a list. This is where you stop looking at lists. Type any symbol below
+      for price, market cap, P/E, EPS, dividend, the 52-week range and the full financial
+      statements &mdash; the same figures you would pull from a filing, in one place.
+    </p>
+    <div class="eco-widget">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+        {
+          "symbol": "NASDAQ:AAPL", "width": "100%", "height": "420",
+          "colorTheme": "dark", "isTransparent": true, "locale": "en"
+        }
+        </script>
+      </div>
+    </div>
+    <div class="eco-widget" style="margin-top:20px">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+        {
+          "symbol": "NASDAQ:AAPL", "width": "100%", "height": "500",
+          "colorTheme": "dark", "isTransparent": true, "displayMode": "regular", "locale": "en"
+        }
+        </script>
+      </div>
+    </div>
+    <p class="eco-widget-note">
+      Apple is shown as an example because it is familiar, not as a recommendation. Change the
+      symbol to whatever you are researching. Data from TradingView and may be delayed; always
+      check a filing before acting on anything.
+    </p>
+
+    <h3>Read it in this order</h3>
+    <p>
+      Revenue first &mdash; is the business getting bigger? Then gross margin, which tells you
+      whether it can charge what it wants. Then operating cash flow, compared against net income:
+      if profit is rising while cash is not, something in the accounting is doing work the
+      business is not. Then the debt line. Only after all of that, the P/E.
+    </p>
+    <p>
+      Always compare against the same quarter a year earlier rather than the previous quarter.
+      Almost every business is seasonal, and quarter-on-quarter comparisons mostly measure the
+      calendar. This is the single most common way people misread an earnings report.
+    </p>
+  </div>
+</section>
+
+<!-- 4. EARNINGS CALENDAR -->
+<section class="eco-sec cream" id="earnings">
+  <div class="eco-in">
+    <p class="eco-num">Step 4 &mdash; What is about to change</p>
+    <h2>Who reports next.</h2>
+    <p class="lede">
+      Everything above is based on the last set of filings. Earnings season is when those filings
+      get replaced, and it is the one scheduled moment when fundamentals and price collide.
+    </p>
+    <!-- MKT:fundEarnings:START -->
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Companies reporting over the next seven days, with the consensus estimate analysts are expecting. An estimate is a forecast, not a target the company agreed to.</caption>
+      <thead><tr><th scope="col">Symbol</th><th scope="col">Date</th><th scope="col">When</th><th scope="col">EPS est.</th><th scope="col">Revenue est.</th></tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">ACMR</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.34</td>
+          <td>$275M</td>
+        </tr>
+        <tr>
+          <th scope="row">AD</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$0.64</td>
+          <td>$54M</td>
+        </tr>
+        <tr>
+          <th scope="row">AIRS</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.01</td>
+          <td>$45M</td>
+        </tr>
+        <tr>
+          <th scope="row">ANIP</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$2.09</td>
+          <td>$265M</td>
+        </tr>
+        <tr>
+          <th scope="row">ARKO</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.15</td>
+          <td>$2.03B</td>
+        </tr>
+        <tr>
+          <th scope="row">ASIX</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.57</td>
+          <td>$461M</td>
+        </tr>
+        <tr>
+          <th scope="row">ATMU</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.79</td>
+          <td>$515M</td>
+        </tr>
+        <tr>
+          <th scope="row">AUUD</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.81</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <th scope="row">BTDR</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.37</td>
+          <td>$239M</td>
+        </tr>
+        <tr>
+          <th scope="row">CGON</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.68</td>
+          <td>$0M</td>
+        </tr>
+        <tr>
+          <th scope="row">CLMT</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-0.13</td>
+          <td>$1.10B</td>
+        </tr>
+        <tr>
+          <th scope="row">CNTY</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-0.34</td>
+          <td>$157M</td>
+        </tr>
+        <tr>
+          <th scope="row">CTEV</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-4.21</td>
+          <td>$250M</td>
+        </tr>
+        <tr>
+          <th scope="row">CWAN</th>
+          <td>7 Aug</td>
+          <td>After close</td>
+          <td>$0.17</td>
+          <td>$234M</td>
+        </tr>
+        <tr>
+          <th scope="row">DCH</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.18</td>
+          <td>$2.84B</td>
+        </tr>
+        <tr>
+          <th scope="row">DTI</th>
+          <td>7 Aug</td>
+          <td>After close</td>
+          <td>$-0.04</td>
+          <td>$39M</td>
+        </tr>
+        <tr>
+          <th scope="row">EMBC</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.27</td>
+          <td>$260M</td>
+        </tr>
+        <tr>
+          <th scope="row">ENTX</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.08</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <th scope="row">ESNT</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$1.81</td>
+          <td>$333M</td>
+        </tr>
+        <tr>
+          <th scope="row">FLR</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.71</td>
+          <td>$3.96B</td>
+        </tr>
+        <tr>
+          <th scope="row">GLP</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$1.25</td>
+          <td>$7.58B</td>
+        </tr>
+        <tr>
+          <th scope="row">GTN</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-0.11</td>
+          <td>$802M</td>
+        </tr>
+        <tr>
+          <th scope="row">HE</th>
+          <td>7 Aug</td>
+          <td>After close</td>
+          <td>$0.18</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <th scope="row">JOUT</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.69</td>
+          <td>$190M</td>
+        </tr>
+        <tr>
+          <th scope="row">KRP</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.23</td>
+          <td>$96M</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- MKT:fundEarnings:END -->
+
+    <h3>"Beat" and "miss" are the wrong words</h3>
+    <p>
+      A company beating its estimate tells you about the estimate. Analysts set those forecasts,
+      companies guide analysts toward them, and the incentive on both sides is a number that gets
+      cleared. Roughly three quarters of S&amp;P 500 companies beat consensus in a typical
+      quarter, which should tell you how much information a beat carries.
+    </p>
+    <p>
+      What actually moves the stock is guidance &mdash; what management says about next quarter.
+      Markets price expectations, so a strong quarter with weak guidance frequently sells off
+      hard, and that surprises people every single earnings season. If you read one part of a
+      release, read the outlook, not the headline.
+    </p>
+    <div class="eco-call">
+      <p>
+        <span class="eco-call-h">The behavioural half</span>
+        Earnings are also where fundamental investors do their worst trading &mdash; holding
+        through a print "to see what happens" is a decision to accept a large random outcome for
+        no analytical reason. That is a
+        <a href="trading-psychology.html">Trading Psychology</a> problem, and it costs more than
+        most valuation errors.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SECTOR CONTEXT -->
+<section class="eco-sec white" id="sectors">
+  <div class="eco-in">
+    <p class="eco-num">Step 5 &mdash; Compare like with like</p>
+    <h2>Every ratio is relative.</h2>
+    <p class="lede">
+      There is no absolute good P/E, good margin or good debt level &mdash; only better or worse
+      than comparable businesses. Sector is the first comparison that matters, because business
+      models differ far more across sectors than companies differ within one.
+    </p>
+    <!-- MKT:fundSectors:START -->
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.</caption>
+      <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Consumer Discretionary</th><td>XLY</td><td class="up" data-fill="sector-XLY">+3.29%</td></tr>
+        <tr><th scope="row">Energy</th><td>XLE</td><td class="up" data-fill="sector-XLE">+1.00%</td></tr>
+        <tr><th scope="row">Industrials</th><td>XLI</td><td class="up" data-fill="sector-XLI">+0.81%</td></tr>
+        <tr><th scope="row">Financials</th><td>XLF</td><td class="down" data-fill="sector-XLF">-0.11%</td></tr>
+        <tr><th scope="row">Technology</th><td>XLK</td><td class="down" data-fill="sector-XLK">-0.22%</td></tr>
+        <tr><th scope="row">Consumer Staples</th><td>XLP</td><td class="down" data-fill="sector-XLP">-0.49%</td></tr>
+        <tr><th scope="row">Real Estate</th><td>XLRE</td><td class="down" data-fill="sector-XLRE">-0.51%</td></tr>
+        <tr><th scope="row">Healthcare</th><td>XLV</td><td class="down" data-fill="sector-XLV">-0.59%</td></tr>
+        <tr><th scope="row">Utilities</th><td>XLU</td><td class="down" data-fill="sector-XLU">-0.69%</td></tr>
+      </tbody>
+    </table>
+    <!-- MKT:fundSectors:END -->
+
+    <h3>What this changes about your analysis</h3>
+    <p>
+      A software company with 80% gross margins and a utility with 20% are not comparable, and
+      neither is "better" &mdash; they are different machines. Software has near-zero cost per
+      additional customer; a utility has to build physical infrastructure. The same logic applies
+      to debt: a utility running high leverage is doing what utilities do, funding long-lived
+      assets against predictable regulated revenue. A software company at the same leverage would
+      be alarming.
+    </p>
+    <p>
+      So before you judge any number, find three or four direct competitors and put the same
+      metric side by side. This single habit prevents more bad conclusions than any other in
+      fundamental analysis, and it costs about ten minutes.
+    </p>
+
+    <h3>Rates are part of valuation, not a separate topic</h3>
+    <p>
+      One more comparison people skip. A stock is a claim on future cash, and the discount rate
+      applied to that cash is anchored to Treasury yields. When the 10-year moves, every
+      valuation on earth moves with it &mdash; which is why the same P/E can be reasonable in one
+      rate environment and expensive in another.
+    </p>
+    <!-- MKT:fundRates:START -->
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Every rate below is published by the Federal Reserve. Read down the column: the shape of the ladder matters more than any single rung.</caption>
+      <thead><tr><th scope="col">Rate</th><th scope="col">Now</th><th scope="col">Vs a year ago</th><th scope="col">As of</th></tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">Fed Funds Rate</a></th>
+          <td data-fill="fedFunds"><strong>3.63%</strong></td>
+          <td class="up">down 0.7 pts</td>
+          <td>Jun 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/DGS3MO" target="_blank" rel="noopener">3-Month Treasury</a></th>
+          <td data-fill="threeMonth"><strong>3.82%</strong></td>
+          <td class="up">down 0.6 pts</td>
+          <td>30 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/DGS2" target="_blank" rel="noopener">2-Year Treasury</a></th>
+          <td data-fill="twoYear"><strong>4.23%</strong></td>
+          <td class="down">up 0.3 pts</td>
+          <td>30 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" rel="noopener">10-Year Treasury</a></th>
+          <td data-fill="tenYear"><strong>4.68%</strong></td>
+          <td class="down">up 0.3 pts</td>
+          <td>30 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/DGS30" target="_blank" rel="noopener">30-Year Treasury</a></th>
+          <td data-fill="thirtyYear"><strong>5.21%</strong></td>
+          <td class="down">up 0.3 pts</td>
+          <td>30 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/DFII10" target="_blank" rel="noopener">10-Year Real Yield (TIPS)</a></th>
+          <td data-fill="realTenYear"><strong>2.41%</strong></td>
+          <td class="down">up 0.5 pts</td>
+          <td>30 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener">30-Year Mortgage</a></th>
+          <td data-fill="mortgage30"><strong>6.66%</strong></td>
+          <td class="up">down 0.1 pts</td>
+          <td>30 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/T10Y2Y" target="_blank" rel="noopener">10-Year minus 2-Year</a></th>
+          <td data-fill="curve10y2y"><strong>0.47%</strong></td>
+          <td class="up">up 0.0 pts</td>
+          <td>31 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/T10Y3M" target="_blank" rel="noopener">10-Year minus 3-Month</a></th>
+          <td data-fill="curve10y3m"><strong>0.92%</strong></td>
+          <td class="up">up 1.0 pts</td>
+          <td>31 Jul 2026</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://fred.stlouisfed.org/series/BAMLH0A0HYM2" target="_blank" rel="noopener">High Yield Spread</a></th>
+          <td data-fill="hySpread"><strong>2.84%</strong></td>
+          <td class="up">down 0.1 pts</td>
+          <td>30 Jul 2026</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- MKT:fundRates:END -->
+    <div class="eco-call">
+      <p>
+        <span class="eco-call-h">Where this connects</span>
+        The full version of that argument &mdash; why rates set the floor under every valuation
+        &mdash; is on the free <a href="markets-economic.html">Economic Analysis</a> page, and in
+        Stage 3 of <a href="economics.html">Economics for Traders</a>. Valuation without a rate
+        context is arithmetic without a denominator.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- UPSELL -->
+<section class="eco-buy" id="learn">
+  <div class="eco-in">
+    <p class="eco-num">Learn the reasoning</p>
+    <h2>The data is free. The course shows you how to use it.</h2>
+    <p style="color:rgba(255,255,255,.62);max-width:700px">
+      A screener and a statement viewer will hand you every number on this page. What they will
+      not do is tell you which ones matter for the business in front of you, where management has
+      latitude to shape them, or what a defensible price actually looks like.
+    </p>
+    <div class="eco-buy-grid">
+      <article class="eco-buy-card feature">
+        <h3>Fundamental Analysis</h3>
+        <p class="eco-buy-price">$37.95</p>
+        <p class="eco-buy-tax">One-time. Lifetime access. Price includes tax &mdash; nothing is added at checkout.</p>
+        <ul>
+          <li>Five stages, built in the same order as this page</li>
+          <li>Foundations &mdash; what a share actually is, and what you are buying</li>
+          <li>The Income Statement &mdash; line by line, and where the latitude is</li>
+          <li>Balance Sheet &amp; Cash Flow &mdash; how the three statements connect</li>
+          <li>Valuation &mdash; multiples, discounted cash flow, and their limits</li>
+          <li>Moats, Management &amp; Process &mdash; the qualitative half that decides outcomes</li>
+        </ul>
+        <a class="eco-btn" href="fundamental-analysis.html">See the course &rarr;</a>
+      </article>
+      <article class="eco-buy-card">
+        <h3>All-Access Bundle</h3>
+        <p class="eco-buy-price">$127.95</p>
+        <p class="eco-buy-tax">All four paid courses. One-time, lifetime access, tax included.</p>
+        <ul>
+          <li>Fundamental Analysis &mdash; this page, explained</li>
+          <li>Economics for Traders &mdash; the rate environment underneath every valuation</li>
+          <li>Technical Analysis &mdash; what price and volume are doing now</li>
+          <li>Trading Psychology &mdash; the one that decides outcomes</li>
+          <li>Cheaper than buying three of the four separately</li>
+        </ul>
+        <a class="eco-btn ghost" href="index.html#courses">See the bundle &rarr;</a>
+      </article>
+    </div>
+    <p style="color:rgba(255,255,255,.4);font-size:13.5px;margin-top:24px;max-width:700px">
+      Not investing yet? Do not buy any of these. The free
+      <a href="financial-literacy.html" style="color:#5FD35F;font-weight:700">Financial Literacy
+      course</a> covers banking, debt and an emergency fund first, and none of the above matters
+      until those are handled.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="eco-sec cream" id="faq">
+  <div class="eco-in">
+    <p class="eco-num">Common questions</p>
+    <h2>Things people ask about valuing a business.</h2>
+    <div class="eco-faq">
+      <details open>
+        <summary>What is a good P/E ratio?</summary>
+        <p>There is no universal good number, and treating one as a threshold is the most common beginner mistake. P/E is price divided by earnings per share, so it tells you how many years of current profit you are paying for. A utility at 15 and a software company at 40 can both be reasonably priced, because the software company is expected to grow earnings much faster. P/E is only meaningful compared against the same company's history, its direct competitors, and its growth rate. A low P/E often means the market expects earnings to fall, not that the stock is cheap.</p>
+      </details>
+      <details>
+        <summary>What is the difference between fundamental and technical analysis?</summary>
+        <p>Fundamental analysis asks what a business is worth by examining what it earns, owns and owes, then compares that to the price. Technical analysis ignores the business entirely and studies what price and volume are doing. They answer different questions: fundamentals suggest what to buy, technicals suggest when, and neither reliably does the other's job. Most durable approaches use fundamentals to choose and technicals for timing and risk control.</p>
+      </details>
+      <details>
+        <summary>Which financial statement matters most?</summary>
+        <p>The cash flow statement, though the income statement gets far more attention. Net income involves estimates and timing choices about when to recognise revenue and how to spread costs over time, so it can be legally shaped in ways that flatter a quarter. Cash is harder to manipulate &mdash; it either arrived or it did not. A company reporting rising profits while operating cash flow falls is the single most reliable warning sign available in public filings.</p>
+      </details>
+      <details>
+        <summary>How do I read an earnings report?</summary>
+        <p>Start with revenue and operating cash flow, not the headline earnings-per-share number, and compare each against the same quarter a year earlier rather than the previous quarter, which removes seasonality. Then read the guidance &mdash; what management says about the next quarter usually moves the stock more than the results just reported, because markets price expectations rather than history. Beating an estimate tells you about the estimate more than the business.</p>
+      </details>
+      <details>
+        <summary>Is a high dividend yield good?</summary>
+        <p>Not on its own, and an unusually high yield relative to a company's peers is more often a warning than a bargain. Yield is dividend divided by price, so it rises when the price falls &mdash; a yield that has spiked usually means the market expects the dividend to be cut. Check the payout ratio, which is the share of earnings being paid out: consistently above roughly 80% for a non-utility means little room for error if profits dip.</p>
+      </details>
+    </div>
+
+    <div class="eco-src">
+      <p>
+        <strong>Sources and method.</strong> The earnings calendar and sector quotes come from
+        Finnhub and are written into this page when the site is rebuilt. Treasury yields come from
+        <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED, Federal Reserve
+        Bank of St. Louis</a>. The screener, company profile and financial statements are supplied
+        by TradingView and may be delayed. Figures reported by companies are restated more often
+        than people expect &mdash; always check a filing at
+        <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a>
+        before acting on any number.
+      </p>
+      <p>
+        <strong>This is not investment advice.</strong> Hustlin' is educational and entertainment
+        content. No company named on this page is a recommendation, and every metric described has
+        limits that are stated alongside it. See <a href="about.html">our editorial standards</a>
+        for how figures are sourced and verified.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="eco-sec dark" id="related">
+  <div class="eco-in">
+    <p class="eco-num">The other three</p>
+    <h2>Four ways to read the same market.</h2>
+    <p>
+      Fundamentals tell you what to buy. They are close to useless at telling you when, and they
+      say nothing at all about whether you will hold on when it drops 30%.
+    </p>
+    <div class="eco-rel-grid">
+      <a class="eco-rel" href="markets-economic.html">
+        <h3>Economic</h3>
+        <p>Inflation, rates, jobs and growth &mdash; the tide every valuation floats on. Thirty live indicators, free.</p>
+        <span>Open Economic Analysis &rarr;</span>
+      </a>
+      <a class="eco-rel" href="technical-analysis.html">
+        <h3>Technical</h3>
+        <p>What price and volume are doing right now. The record of what buyers and sellers have already agreed on.</p>
+        <span>Technical Analysis &rarr;</span>
+      </a>
+      <a class="eco-rel" href="trading-psychology.html">
+        <h3>Behaviour</h3>
+        <p>The one that decides outcomes. Most losses are not analytical failures &mdash; they are a good plan abandoned.</p>
+        <span>Trading Psychology &rarr;</span>
+      </a>
+      <a class="eco-rel" href="markets.html">
+        <h3>Markets home</h3>
+        <p>Today's tape, headlines, and the fastest route to whichever of the four you need right now.</p>
+        <span>Back to Markets &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="markets.html">Markets</a>
+        <a href="technical-analysis.html">Technical Analysis</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="trading-psychology.html">Trading Psychology</a>
+        <a href="economics.html">Economics for Traders</a>
+        <a href="index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="learn.html">Learn</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>
+/* Today's focus — day-of-year rotation, no backend. Deterministic on purpose:
+   the same prompt for everyone all day, changing at midnight. This is the piece
+   that changes daily WITHOUT a deploy; the baked figures only change on rebuild. */
+(function () {
+  var items = [
+    ["Cash flow is harder to fake than profit.", "Net income involves estimates and timing choices. Cash either arrived or it did not. When the two disagree for more than a quarter or two, believe the cash."],
+    ["A low P/E is usually a forecast, not a discount.", "It normally means the market expects earnings to fall. Cheap and falling look identical on a screener."],
+    ["Compare to the same quarter last year, not last quarter.", "Almost every business is seasonal. Quarter-on-quarter mostly measures the calendar."],
+    ["Guidance moves the stock more than results.", "Markets price expectations. A strong quarter with weak guidance sells off, and it surprises people every season."],
+    ["Three quarters of companies beat estimates.", "Which tells you roughly how much information a beat contains."],
+    ["Every ratio is relative or it is nothing.", "Against its own history, its competitors, and its growth rate. An absolute threshold is not analysis."],
+    ["Read free cash flow over three years, never one.", "A single year can be flattered by deferring maintenance that still has to happen."],
+    ["Rising ROE with rising debt is leverage, not skill.", "Borrowing shrinks equity, which inflates the ratio without the business improving."],
+    ["If you cannot explain it in two sentences, stop.", "This filter alone removes most bad decisions, and it costs nothing."],
+    ["Good companies fail on the balance sheet.", "Not the income statement. Profitable businesses go under when debt comes due and cash is not there."],
+    ["A spiking dividend yield is a warning.", "Yield rises when price falls. The market is usually pricing a cut."],
+    ["Check the payout ratio before trusting a dividend.", "Consistently above 80% for a non-utility leaves no room for a bad year."],
+    ["Gross margin is pricing power.", "It is what is left after making the thing. Only comparable within an industry."],
+    ["Operating margin can be bought with next year's growth.", "Cut research and marketing and this year improves while the next three suffer."],
+    ["Screen on three criteria, not eight.", "Stack enough filters and you conclude the whole market is expensive. You filtered it out."],
+    ["Check what your screen excluded.", "If a company you respect fails it, the screen is probably wrong rather than the company."],
+    ["Debt-to-equity has no universal right level.", "Utilities and banks run high by design. Context is the whole answer."],
+    ["A high current ratio can be unsold inventory.", "Assets you cannot convert are not the same as strength."],
+    ["PEG is only as good as the growth forecast.", "And forecasts are wrong. Garbage in, confident-looking number out."],
+    ["Valuation is the last question, not the first.", "A ratio means nothing until you know what is underneath it."],
+    ["Rates are part of valuation.", "A stock is a claim on future cash. Move the discount rate and every valuation moves."],
+    ["Profits up, operating cash down, is the warning.", "It is the most reliable red flag available in public filings."],
+    ["Put four competitors side by side.", "Ten minutes of this prevents more bad conclusions than any other habit."],
+    ["Software at 25% gross margin is in trouble.", "A supermarket at 25% may be excellent. The number is meaningless without the industry."],
+    ["Buybacks flatter earnings per share.", "Fewer shares raises EPS without the business earning more. Check share count."],
+    ["Management latitude is largest in the income statement.", "Revenue recognition and cost timing are estimates. The cash flow statement has less room."],
+    ["A moat is why margins survive competition.", "Without one, high margins invite the competitors that remove them."],
+    ["Restatements are common.", "Check the filing at EDGAR before acting on a number you read on a chart."],
+    ["Holding through earnings is a decision.", "Usually one to accept a large random outcome for no analytical reason. Make it on purpose or not at all."],
+    ["The screener finds the shape you asked for.", "It does not find value. It finds arithmetic you chose, and it has no opinion."]
+  ];
+  var now = new Date();
+  var day = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+  var pick = items[day % items.length];
+  var q = document.getElementById('fun-focus-q');
+  var a = document.getElementById('fun-focus-a');
+  if (q && pick) q.textContent = pick[0];
+  if (a && pick) a.textContent = pick[1];
+})();
+</script>
+<script src="app.js?v=202608012033"></script>
+<script>
+HFY.initNavOnly();
+</script>
+</body>
+</html>
