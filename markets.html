@@ -3,18 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Free live market data explained — today's tape, headlines, US economic indicators and charts, organised into the four disciplines that decide outcomes.">
-<title>Markets — Free Live Data, Explained Four Ways | Hustlin'</title>
+<!-- Metadata rewritten 2026-08-02 to describe what the page now actually is.
+     It previously promised "four disciplines" and economic indicators; the page
+     now leads with the tape, market news, an earnings calendar and heatmaps.
+     Metadata that oversells is worse than metadata that undersells: Google
+     measures the gap as a bounce. -->
+<meta name="description" content="Free live market data — today's tape across stocks, bonds, gold, oil and bitcoin, market news from seven sources, this week's earnings calendar with the actual releases, and stock, crypto and forex heatmaps. No account, no email.">
+<title>Markets — Live Tape, Earnings Calendar &amp; Heatmaps, Free | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Markets — Free Live Data, Explained Four Ways | Hustlin\'">
-<meta property="og:description" content="Today's tape, the headlines behind it, and live US economic data — organised the way an analyst actually reads a market. Free, no account.">
+<!-- The escaped \' in these two tags was a literal backslash in the rendered
+     preview card, not an apostrophe. Fixed 2026-08-02. -->
+<meta property="og:title" content="Markets — Live Tape, Earnings Calendar &amp; Heatmaps, Free | Hustlin'">
+<meta property="og:description" content="Today's tape, the headlines behind it, who reports this week and where to read what they said. Free, no account, no email.">
 <meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
 <meta property="og:url" content="https://hustlin.org/markets.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Markets — Free Live Data, Explained Four Ways | Hustlin\'">
-<meta name="twitter:description" content="Today's tape, the headlines behind it, and live US economic data. Free, no account.">
+<meta name="twitter:title" content="Markets — Live Tape, Earnings Calendar &amp; Heatmaps, Free | Hustlin'">
+<meta name="twitter:description" content="Today's tape, market news, this week's earnings and the releases themselves. Free, no account.">
 <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
 <link rel="canonical" href="https://hustlin.org/markets.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +33,17 @@
   "@graph": [
     {
       "@type": "Dataset",
-      "name": "US Economic Indicators — Hustlin' Markets",
-      "description": "Current US inflation (CPI and core CPI), Fed funds rate, unemployment, GDP growth, personal savings rate, Treasury yields and the 10-year minus 2-year spread, with plain-English explanation of each.",
+      "name": "US Market Data and Economic Indicators — Hustlin' Markets",
+      "description": "Daily closing prices for US equity indexes, Treasuries, gold, oil, copper and bitcoin; the week's earnings calendar for companies above $2 billion in market value with links to each release; and current US inflation, Fed funds rate, unemployment, GDP growth, savings rate and Treasury yields, with plain-English explanation of each.",
       "url": "https://hustlin.org/markets.html",
       "isAccessibleForFree": true,
       "creator": { "@id": "https://hustlin.org/#organization" },
       "license": "https://fred.stlouisfed.org/legal/",
-      "isBasedOn": "https://fred.stlouisfed.org/",
+      "isBasedOn": ["https://fred.stlouisfed.org/", "https://finnhub.io/"],
       "variableMeasured": [
+        "S&P 500 (SPY)", "Dow Jones (DIA)", "Nasdaq 100 (QQQ)", "Russell 2000 (IWM)",
+        "10-Year Treasury (IEF)", "Gold (GLD)", "Crude Oil (USO)", "Copper (CPER)", "Bitcoin (IBIT)",
+        "Quarterly earnings dates and consensus EPS and revenue estimates",
         "Consumer Price Index (CPIAUCSL)", "Core CPI (CPILFESL)",
         "Unemployment Rate (UNRATE)", "Federal Funds Rate (FEDFUNDS)",
         "Real GDP Growth", "Personal Savings Rate (PSAVERT)",
@@ -281,12 +291,9 @@
     <div class="mkt-side-nav-title" style="margin-top:18px">Tools</div>
     <a href="#news">News</a>
     <a href="#calendar">Earnings</a>
-    <a href="#heatmaps">Heatmaps</a>
     <a href="markets-economic.html#calendar">Econ Calendar</a>
     <a href="Markets/chart.html">Chart</a>
-    <a href="Markets/compare.html">Compare</a>
-    <a href="Markets/watchlists.html">Watchlists</a>
-    <a href="Markets/tickers.html">Tickers</a>
+    <a href="Markets/compare.html">Sector Compare</a>
     <a href="Markets/screeners.html">Screeners</a>
     <a href="Markets/spotlight.html">Symbol Lookup</a>
   </aside>
@@ -319,7 +326,11 @@
 <section class="mkt-intro">
   <div class="mkt-intro-in">
     <p class="crumb"><a href="index.html">Hustlin'</a><span>/</span>Markets</p>
-    <h1>A reason to <em>come back tomorrow.</em></h1>
+    <!-- The h1 carries the page's subject as well as its pitch. "A reason to
+         come back tomorrow" alone is a good line and a useless heading — it
+         tells a search engine nothing about what the page contains, and it is
+         the single strongest on-page signal there is. -->
+    <h1>Free live market data, and <em>a reason to come back tomorrow.</em></h1>
     <p>
       That is the whole goal of the Hustlin' Markets page. Today's tape, the headlines
       behind it, who reports this week, and live US economic data &mdash; one page, free,
@@ -342,24 +353,53 @@
     <h2>Where the market actually closed.</h2>
     <!-- MKT:quotes:START -->
     <div class="mkt-quote-row">
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">Dow Jones</h3>
-        <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
-        <p class="mkt-quote-chg">+0.54%</p>
-        <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Russell 2000</h3>
+        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
+        <p class="mkt-quote-chg">-0.48%</p>
+        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
       </article>
       <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>
-        <p class="mkt-quote-px" data-fill="q-TLT">$82.25</p>
-        <p class="mkt-quote-chg">-0.66%</p>
-        <p class="mkt-quote-sym">TLT · day range 81.89–82.45</p>
+        <h3 class="mkt-quote-name">10-Year Treasury</h3>
+        <p class="mkt-quote-px" data-fill="q-IEF">$92.95</p>
+        <p class="mkt-quote-chg">-0.28%</p>
+        <p class="mkt-quote-sym">IEF · day range 92.73–92.98</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Gold</h3>
+        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
+        <p class="mkt-quote-chg">-1.49%</p>
+        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Oil</h3>
+        <p class="mkt-quote-px" data-fill="q-USO">$129.17</p>
+        <p class="mkt-quote-chg">+1.33%</p>
+        <p class="mkt-quote-sym">USO · day range 127.95–130.98</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Copper</h3>
+        <p class="mkt-quote-px" data-fill="q-CPER">$39.56</p>
+        <p class="mkt-quote-chg">+0.56%</p>
+        <p class="mkt-quote-sym">CPER · day range 38.95–39.61</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Bitcoin</h3>
+        <p class="mkt-quote-px" data-fill="q-IBIT">$35.64</p>
+        <p class="mkt-quote-chg">-2.89%</p>
+        <p class="mkt-quote-sym">IBIT · day range 35.29–36.12</p>
       </article>
 </div>
     <!-- MKT:quotes:END -->
     <p class="mkt-quote-note">
-      These are the ETFs, not the indexes &mdash; SPY rather than the S&amp;P 500 itself.
-      That is deliberate: an index is a number you cannot buy, an ETF is the thing you
-      would actually own. Prices are last close, refreshed each build.
+      These are ETFs, not the indexes and commodities themselves &mdash; SPY rather than the
+      S&amp;P 500, GLD rather than an ounce of gold. That is deliberate: an index is a number you
+      cannot buy and a barrel of oil is not something you want delivered, while an ETF is the
+      thing you would actually own. Two honest caveats. The commodity funds hold futures, not the
+      physical goods, so they track the price approximately rather than exactly &mdash; USO in
+      particular can drift a long way from spot crude over months. And IEF holds Treasuries
+      maturing in seven to ten years, so it moves opposite to yields: when it falls, rates rose.
+      Prices are last close, refreshed each build.
     </p>
   </div>
 </section>
@@ -374,68 +414,176 @@
      Do not hand-edit between the MKT: markers. -->
 <section class="mkt-news-wrap" id="news">
   <div class="mkt-news-in">
-    <h2>What moved, and why</h2>
+    <h2>What they say matters</h2>
     <p class="lede">Headlines only, linked to the source. We do not republish other people's reporting.</p>
     <!-- MKT:news:START -->
     <ul class="mkt-news">
       <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/here-are-the-2-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Here are the 2 big things we're watching in the stock market in the week ahead</span>
-          <span class="mkt-news-sum">Four more Club holdings report earnings. Plus, it's a loaded week of jobs data.</span>
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/astrazeneca-and-bristol-myers-squibb-mull-400-billion-deal-report-.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">AstraZeneca in talks with Bristol Myers Squibb on $400 billion megadeal, FT reports</span>
+          <span class="mkt-news-sum">U.K. pharmaceutical giant AstraZeneca is considering a deal to merge with its U.S. rival Bristol Myers Squibb.</span>
           <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
       <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/why-people-are-dropping-out-of-the-workforce-and-not-looking-for-new-jobs-the-market-wore-me-down.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Why people are dropping out of the workforce and not looking for new jobs: 'The market wore me down'</span>
-          <span class="mkt-news-sum">Candidates giving up in the face of relentless job searches could be part of the reason behind recent declines in the labor force participation rate.</span>
+        <a class="mkt-news-card" href="https://finance.yahoo.com/healthcare/articles/why-billionaire-stanley-druckenmiller-wall-200500016.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Why Billionaire Stanley Druckenmiller and Wall Street Analysts Love This Biotech Stock</span>
+          <span class="mkt-news-src">Yahoo Finance <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.npr.org/2026/08/02/g-s1-136834/capital-one-trump-bank-anti-money-laundering" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Capital One says it closed Trump Organization accounts over money-laundering concerns</span>
+          <span class="mkt-news-sum">The bank is asking a judge to permanently dismiss a lawsuit from Trump-affiliated businesses, arguing a monthslong internal review — not the Jan. 6…</span>
+          <span class="mkt-news-src">NPR <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.theguardian.com/business/2026/aug/02/john-healey-profiteering-warning-retailers-backlash" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Healey’s profiteering warning on food and fuel risks row with retailers</span>
+          <span class="mkt-news-sum">Chancellor says the government wants to prevent shoppers being ‘taken for a ride’ at the pump or till The chancellor, John Healey , has said the…</span>
+          <span class="mkt-news-src">The Guardian <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.marketwatch.com/story/we-already-have-wills-were-in-our-60s-with-1-5-million-how-do-we-prevent-family-drama-among-our-heirs-bf7b0eb1?mod=mw_rss_topstories" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">We’re in our 60s with $1.5 million. Would a trust be more effective than a will to prevent conflict among our…</span>
+          <span class="mkt-news-sum">“I realize that probate can be lengthy, public and expensive.”</span>
+          <span class="mkt-news-src">MarketWatch <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.bbc.co.uk/news/articles/cz05yrv4el5o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Parents save on school uniforms at city swap shop</span>
+          <span class="mkt-news-sum">Parents take home school uniform for free at a pop-up that organisers hope can become a regular event.</span>
+          <span class="mkt-news-src">BBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/bernie-moreno-max-miller-house-psychological-help-emily-moreno.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">GOP Sen. Moreno says ex-son-in-law Max Miller shouldn't serve in House, needs 'serious psychological help'</span>
+          <span class="mkt-news-sum">Miller has denied the allegations made against him by his ex-wife Emily Moreno, daughter of Ohio Sen. Bernie Moreno.</span>
           <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://finance.yahoo.com/economy/policy/articles/gen-x-retiring-backwards-trend-200329580.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">The Gen X “Retiring Backwards” Trend Has a Social Security Catch: They’re the First Generation Whose Full…</span>
+          <span class="mkt-news-src">Yahoo Finance <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.theguardian.com/environment/2026/aug/02/britain-food-shortages-drought-continues-farmers" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Britain could face food shortages as drought continues, farmers warn</span>
+          <span class="mkt-news-sum">Farmers battle to salvage what they can of their crops as heatwave set to continue Britain could face shortages of certain foods after punishing…</span>
+          <span class="mkt-news-src">The Guardian <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.marketwatch.com/story/my-girlfriend-is-62-can-she-claim-her-late-husbands-full-social-security-benefit-or-does-she-have-to-wait-315c0fa1?mod=mw_rss_topstories" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">My girlfriend is 62. Can she claim her late husband’s full Social Security benefit — or does she have to wait?</span>
+          <span class="mkt-news-sum">“Her husband passed away 10 years ago. They had been married for more than 20 years.”</span>
+          <span class="mkt-news-src">MarketWatch <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.bbc.co.uk/news/articles/clyvd8363wlo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Faisal Islam: Four reasons why Fifa's World Cup plan never stacked up</span>
+          <span class="mkt-news-sum">The actual presentation of FIFA's plan to part-privatise the World Cup raises many more questions than it answers.</span>
+          <span class="mkt-news-src">BBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
       <li class="mkt-news-item">
         <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/ai-model-competition-us-china.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Op-ed: The U.S. lead over China in AI is all but gone</span>
+          <span class="mkt-news-hd">Op-ed: The U.S. lead over China in AI is all but gone. We need a change in national strategy</span>
           <span class="mkt-news-sum">AI debate in recent years has centered on whether the U.S. can develop a strategy capable of preserving an edge over China. The answer isn't looking…</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/flights-are-getting-even-more-expensive-as-fuel-prices-rise.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Why flights are so expensive and will likely stay that way</span>
-          <span class="mkt-news-sum">Airlines are paying billions of dollars more in fuel costs this year</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/01/traders-go-full-time-on-prediction-markets-using-ai-bots-and-antennas.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Looking at just the odds isn’t enough. How traders gain an edge on prediction markets</span>
-          <span class="mkt-news-sum">Gaining an edge on prediction markets requires speed and skills beyond just reading the odds on platforms like Kalshi and Polymarket.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/01/open-ai-hugging-face-hack-cyber-warnings.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">OpenAI's Hugging Face hack confirmed months of AI cyber warnings: 'Pandora's box is open'</span>
-          <span class="mkt-news-sum">The wake-up call to the cyber industry comes as industry experts descend on Black Hat, a major cybersecurity conference.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/andy-jassy-soothed-concerns-over-amazons-massive-ai-spending-heres-how-he-did-it-.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Andy Jassy soothed concerns over Amazon's massive AI spending. Here's how he did it</span>
-          <span class="mkt-news-sum">Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/clear-street-pre-ipo-platform-databricks.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Fintech broker Clear Street offers investors pre-IPO access to $188 billion AI giant Databricks</span>
-          <span class="mkt-news-sum">Fintech brokerage Clear Street is launching a private markets platform, beginning with Databricks stakes, to give investors more access to late-stage…</span>
           <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
 </ul>
     <!-- MKT:news:END -->
+  </div>
+</section>
+
+<style>
+/* Follow strip. Deliberately NOT an embedded X timeline: that is an iframe, so
+   a crawler sees an empty box, it sets third-party cookies on a page that also
+   runs AdSense, and it renders as a blank rectangle for the large number of
+   readers whose blocker eats x.com. Hand-built links cost nothing, load
+   instantly, and get the same click. Namespaced mkt-soc*, additive. */
+.mkt-soc{background:#0B0B0B;padding:52px 22px;border-top:1px solid rgba(255,255,255,.06)}
+.mkt-soc-in{max-width:1060px;margin:0 auto}
+.mkt-soc .eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;color:#F5C520;margin:0 0 12px}
+.mkt-soc h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:clamp(22px,3.6vw,32px);color:#fff;margin:0 0 12px;letter-spacing:-.015em}
+.mkt-soc .lede{font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.5);max-width:660px;margin:0 0 26px}
+.mkt-soc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.mkt-soc-card{display:flex;align-items:center;gap:14px;background:#111;
+  border:1px solid #262626;border-radius:14px;padding:18px 20px;
+  transition:border-color .18s,transform .18s,box-shadow .18s}
+.mkt-soc-card:hover{border-color:rgba(245,197,32,.45);transform:translateY(-2px);
+  box-shadow:0 10px 26px rgba(0,0,0,.4)}
+.mkt-soc-ico{width:34px;height:34px;flex-shrink:0;border-radius:9px;display:flex;
+  align-items:center;justify-content:center;background:rgba(255,255,255,.07)}
+.mkt-soc-ico svg{width:18px;height:18px;fill:#fff}
+.mkt-soc-card:hover .mkt-soc-ico{background:rgba(245,197,32,.14)}
+.mkt-soc-card:hover .mkt-soc-ico svg{fill:#F5C520}
+.mkt-soc-txt{min-width:0}
+.mkt-soc-net{display:block;font-size:15px;font-weight:700;color:#fff;line-height:1.3}
+.mkt-soc-card:hover .mkt-soc-net{color:#F5C520}
+.mkt-soc-hand{display:block;font-family:'Space Mono',monospace;font-size:12px;
+  color:rgba(255,255,255,.38);margin-top:3px}
+.mkt-soc-note{font-size:12.5px;color:rgba(255,255,255,.34);line-height:1.65;margin:20px 0 0;max-width:720px}
+@media(max-width:600px){.mkt-soc{padding:40px 16px}}
+</style>
+
+<!-- ============ FOLLOW ============ -->
+<section class="mkt-soc" id="follow">
+  <div class="mkt-soc-in">
+    <p class="eye">Follow along</p>
+    <h2>The curated version.</h2>
+    <p class="lede">
+      This page is the raw data. What we post is the part that needed a second look &mdash; the
+      number worth knowing this week, the headline that says less than it appears to, and the
+      occasional reminder that doing nothing is a position. No signals, no calls, no tips.
+    </p>
+
+    <div class="mkt-soc-grid">
+      <a class="mkt-soc-card" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+        <span class="mkt-soc-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </span>
+        <span class="mkt-soc-txt">
+          <span class="mkt-soc-net">X</span>
+          <span class="mkt-soc-hand">@hustlin_org</span>
+        </span>
+      </a>
+      <a class="mkt-soc-card" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+        <span class="mkt-soc-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </span>
+        <span class="mkt-soc-txt">
+          <span class="mkt-soc-net">Instagram</span>
+          <span class="mkt-soc-hand">@hustlin_org</span>
+        </span>
+      </a>
+      <a class="mkt-soc-card" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+        <span class="mkt-soc-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </span>
+        <span class="mkt-soc-txt">
+          <span class="mkt-soc-net">YouTube</span>
+          <span class="mkt-soc-hand">Hustlin'</span>
+        </span>
+      </a>
+    </div>
+
+    <p class="mkt-soc-note">
+      Nothing posted on any of these is investment advice, and none of it is worth acting on
+      before you have read the thing it is describing. Everything on this page stays free and
+      stays here whether you follow or not.
+    </p>
   </div>
 </section>
 
@@ -462,188 +610,282 @@
     </p>
 
     <!-- MKT:earnings:START -->
+    <div class="mkt-filter-note">
+      <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. This shows only those worth more than $2 billion, soonest first and largest first within a day &mdash; because a company below that size can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
+      <p>That is an editorial choice rather than a judgement about those businesses, and it does mean genuinely interesting small companies are missing from this table. The estimates are what analysts expect: a forecast, not a target the company agreed to. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
+    </div>
     <table class="mkt-table">
-      <caption class="mkt-table-cap">Companies reporting over the next seven days, with the consensus estimate analysts are expecting. An estimate is a forecast, not a target the company agreed to.</caption>
-      <thead><tr><th scope="col">Symbol</th><th scope="col">Date</th><th scope="col">When</th><th scope="col">EPS est.</th><th scope="col">Revenue est.</th></tr></thead>
+      <thead><tr><th scope="col">Company</th><th scope="col">Date</th><th scope="col">When</th><th scope="col">Market cap</th><th scope="col">EPS est.</th><th scope="col">Revenue est.</th><th scope="col">Read it</th></tr></thead>
       <tbody>
         <tr>
-          <th scope="row">ACMR</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$0.34</td>
-          <td>$275M</td>
-        </tr>
-        <tr>
-          <th scope="row">AD</th>
-          <td>7 Aug</td>
-          <td>—</td>
-          <td>$0.64</td>
-          <td>$54M</td>
-        </tr>
-        <tr>
-          <th scope="row">AIRS</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$0.01</td>
-          <td>$45M</td>
-        </tr>
-        <tr>
-          <th scope="row">ANIP</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$2.09</td>
-          <td>$265M</td>
-        </tr>
-        <tr>
-          <th scope="row">ARKO</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$0.15</td>
-          <td>$2.03B</td>
-        </tr>
-        <tr>
-          <th scope="row">ASIX</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$0.57</td>
-          <td>$461M</td>
-        </tr>
-        <tr>
-          <th scope="row">ATMU</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$0.79</td>
-          <td>$515M</td>
-        </tr>
-        <tr>
-          <th scope="row">AUUD</th>
-          <td>7 Aug</td>
-          <td>—</td>
-          <td>$-0.81</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <th scope="row">BTDR</th>
-          <td>7 Aug</td>
-          <td>—</td>
-          <td>$-0.37</td>
-          <td>$239M</td>
-        </tr>
-        <tr>
-          <th scope="row">CGON</th>
-          <td>7 Aug</td>
-          <td>—</td>
-          <td>$-0.68</td>
-          <td>$0M</td>
-        </tr>
-        <tr>
-          <th scope="row">CLMT</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$-0.13</td>
-          <td>$1.10B</td>
-        </tr>
-        <tr>
-          <th scope="row">CNTY</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$-0.34</td>
-          <td>$157M</td>
-        </tr>
-        <tr>
-          <th scope="row">CTEV</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$-4.21</td>
-          <td>$250M</td>
-        </tr>
-        <tr>
-          <th scope="row">CWAN</th>
-          <td>7 Aug</td>
+          <th scope="row">AMD<span class="mkt-co">Advanced Micro Devices Inc</span></th>
+          <td>4 Aug</td>
           <td>After close</td>
-          <td>$0.17</td>
-          <td>$234M</td>
+          <td>$776.4B</td>
+          <td>$1.63</td>
+          <td>$11.40B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AMD/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AMD&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row">DCH</th>
-          <td>7 Aug</td>
+          <th scope="row">CAT<span class="mkt-co">Caterpillar Inc</span></th>
+          <td>4 Aug</td>
           <td>Before open</td>
-          <td>$0.18</td>
-          <td>$2.84B</td>
+          <td>$375.3B</td>
+          <td>$6.26</td>
+          <td>$19.53B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CAT/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CAT&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row">DTI</th>
-          <td>7 Aug</td>
+          <th scope="row">MRK<span class="mkt-co">Merck &amp; Co Inc</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$321.6B</td>
+          <td>$-0.27</td>
+          <td>$16.53B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MRK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MRK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">AMGN<span class="mkt-co">Amgen Inc</span></th>
+          <td>4 Aug</td>
           <td>After close</td>
-          <td>$-0.04</td>
-          <td>$39M</td>
+          <td>$207.9B</td>
+          <td>$5.73</td>
+          <td>$9.61B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AMGN/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AMGN&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row">EMBC</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$0.27</td>
-          <td>$260M</td>
-        </tr>
-        <tr>
-          <th scope="row">ENTX</th>
-          <td>7 Aug</td>
-          <td>—</td>
-          <td>$-0.08</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <th scope="row">ESNT</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$1.81</td>
-          <td>$333M</td>
-        </tr>
-        <tr>
-          <th scope="row">FLR</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$0.71</td>
-          <td>$3.96B</td>
-        </tr>
-        <tr>
-          <th scope="row">GLP</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$1.25</td>
-          <td>$7.58B</td>
-        </tr>
-        <tr>
-          <th scope="row">GTN</th>
-          <td>7 Aug</td>
-          <td>Before open</td>
-          <td>$-0.11</td>
-          <td>$802M</td>
-        </tr>
-        <tr>
-          <th scope="row">HE</th>
-          <td>7 Aug</td>
+          <th scope="row">GILD<span class="mkt-co">Gilead Sciences, Inc</span></th>
+          <td>4 Aug</td>
           <td>After close</td>
-          <td>$0.18</td>
-          <td>—</td>
+          <td>$161.7B</td>
+          <td>$-7.38</td>
+          <td>$7.55B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/GILD/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=GILD&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row">JOUT</th>
-          <td>7 Aug</td>
+          <th scope="row">PFE<span class="mkt-co">Pfizer Inc</span></th>
+          <td>4 Aug</td>
           <td>Before open</td>
+          <td>$142.5B</td>
           <td>$0.69</td>
-          <td>$190M</td>
+          <td>$14.55B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/PFE/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=PFE&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row">KRP</th>
-          <td>7 Aug</td>
+          <th scope="row">DUK<span class="mkt-co">Duke Energy Corp</span></th>
+          <td>4 Aug</td>
           <td>Before open</td>
-          <td>$0.23</td>
-          <td>$96M</td>
+          <td>$97.8B</td>
+          <td>$1.32</td>
+          <td>$7.76B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/DUK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=DUK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">MPC<span class="mkt-co">Marathon Petroleum Corp</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$92.4B</td>
+          <td>$13.86</td>
+          <td>$42.50B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MPC/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MPC&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">CMI<span class="mkt-co">Cummins Inc</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$87.5B</td>
+          <td>$7.30</td>
+          <td>$9.42B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CMI/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CMI&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">EOG<span class="mkt-co">EOG Resources Inc</span></th>
+          <td>4 Aug</td>
+          <td>After close</td>
+          <td>$79.2B</td>
+          <td>$5.06</td>
+          <td>$7.87B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/EOG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=EOG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">ET<span class="mkt-co">Energy Transfer LP</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$70.1B</td>
+          <td>$0.39</td>
+          <td>$29.09B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/ET/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=ET&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">PRU<span class="mkt-co">Prudential Financial Inc</span></th>
+          <td>4 Aug</td>
+          <td>After close</td>
+          <td>$42.4B</td>
+          <td>$3.54</td>
+          <td>$14.53B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/PRU/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=PRU&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">SYY<span class="mkt-co">Sysco Corp</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$40.8B</td>
+          <td>$1.53</td>
+          <td>$22.16B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SYY/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SYY&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">ADM<span class="mkt-co">Archer-Daniels-Midland Co</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$38.2B</td>
+          <td>$1.46</td>
+          <td>$22.12B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/ADM/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=ADM&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">CPNG<span class="mkt-co">Coupang Inc</span></th>
+          <td>4 Aug</td>
+          <td>After close</td>
+          <td>$29.3B</td>
+          <td>$-0.07</td>
+          <td>$9.10B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CPNG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CPNG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">NRG<span class="mkt-co">NRG Energy Inc</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$28.3B</td>
+          <td>$1.74</td>
+          <td>$7.42B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/NRG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=NRG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">SUN<span class="mkt-co">Sunoco LP</span></th>
+          <td>4 Aug</td>
+          <td>Before open</td>
+          <td>$15.7B</td>
+          <td>$2.22</td>
+          <td>$11.12B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SUN/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SUN&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">LLY<span class="mkt-co">Eli Lilly and Co</span></th>
+          <td>5 Aug</td>
+          <td>Before open</td>
+          <td>$1.08T</td>
+          <td>$6.07</td>
+          <td>$20.93B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/LLY/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=LLY&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">SNDK<span class="mkt-co">Sandisk Corp</span></th>
+          <td>5 Aug</td>
+          <td>After close</td>
+          <td>$179.9B</td>
+          <td>$35.14</td>
+          <td>$8.56B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SNDK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SNDK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">DIS<span class="mkt-co">Walt Disney Co</span></th>
+          <td>5 Aug</td>
+          <td>Before open</td>
+          <td>$167.0B</td>
+          <td>$1.88</td>
+          <td>$25.66B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/DIS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=DIS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">UBER<span class="mkt-co">Uber Technologies Inc</span></th>
+          <td>5 Aug</td>
+          <td>Before open</td>
+          <td>$143.2B</td>
+          <td>$0.83</td>
+          <td>$14.52B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/UBER/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=UBER&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">CVS<span class="mkt-co">CVS Health Corp</span></th>
+          <td>5 Aug</td>
+          <td>Before open</td>
+          <td>$133.2B</td>
+          <td>$1.87</td>
+          <td>$101.12B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CVS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CVS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">MCK<span class="mkt-co">McKesson Corp</span></th>
+          <td>5 Aug</td>
+          <td>After close</td>
+          <td>$100.2B</td>
+          <td>$9.63</td>
+          <td>$104.78B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MCK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MCK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">MELI<span class="mkt-co">MercadoLibre Inc</span></th>
+          <td>5 Aug</td>
+          <td>After close</td>
+          <td>$95.2B</td>
+          <td>$8.83</td>
+          <td>$9.86B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MELI/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MELI&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row">PSX<span class="mkt-co">Phillips 66</span></th>
+          <td>5 Aug</td>
+          <td>Before open</td>
+          <td>$84.9B</td>
+          <td>$7.51</td>
+          <td>$44.15B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/PSX/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=PSX&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
       </tbody>
     </table>
     <!-- MKT:earnings:END -->
+
+    <h3>Reporting season, as it happens</h3>
+    <p class="mkt-erel-lede">
+      Coverage of results already out, from the same free sources as the news block above. This is
+      what reporters made of it. For what the company itself said &mdash; the full announcement,
+      the guidance, the quotes from management &mdash; use the Release link in the table.
+    </p>
+    <!-- MKT:earningsNews:START -->
+    <ul class="mkt-erel">
+      <li class="mkt-erel-item">
+        <a href="https://finance.yahoo.com/markets/stocks/articles/arm-holdings-stock-buy-bullish-193500134.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-erel-hd">Is Arm Holdings Stock a Buy on the Bullish CPU Outlook?</span>
+          <span class="mkt-erel-src">Yahoo Finance</span>
+        </a>
+      </li>
+      <li class="mkt-erel-item">
+        <a href="https://www.cnbc.com/2026/08/02/here-are-the-2-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-erel-hd">Here are the 2 big things we're watching in the stock market in the week ahead</span>
+          <span class="mkt-erel-src">CNBC</span>
+        </a>
+      </li>
+      <li class="mkt-erel-item">
+        <a href="https://www.marketwatch.com/story/s-p-500-profit-growth-is-getting-even-wilder-as-amazon-makes-its-mark-5ddf2082?mod=mw_rss_topstories" target="_blank" rel="noopener nofollow">
+          <span class="mkt-erel-hd">S&amp;P 500 profit growth is getting even wilder as Amazon makes its mark</span>
+          <span class="mkt-erel-src">MarketWatch</span>
+        </a>
+      </li>
+      <li class="mkt-erel-item">
+        <a href="https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-spacex-amd-sandisk-eli-lilly-earnings-loom/?src=A00220&amp;yptr=yahoo" target="_blank" rel="noopener nofollow">
+          <span class="mkt-erel-hd">Dow Jones Futures Due As Trump Shifts On Iran; SpaceX, AMD, Sandisk, Eli Lilly Earnings Loom</span>
+          <span class="mkt-erel-src">Yahoo Finance</span>
+        </a>
+      </li>
+      <li class="mkt-erel-item">
+        <a href="https://www.marketwatch.com/story/financial-stocks-are-crushing-it-these-charts-show-why-the-breakout-rally-may-have-just-begun-6db3cc12?mod=mw_rss_topstories" target="_blank" rel="noopener nofollow">
+          <span class="mkt-erel-hd">Financial stocks are crushing it. These charts show why the ‘breakout’ rally may have just begun.</span>
+          <span class="mkt-erel-src">MarketWatch</span>
+        </a>
+      </li>
+</ul>
+    <!-- MKT:earningsNews:END -->
 
     <div class="mkt-econ-foot">
       <p>
@@ -772,19 +1014,9 @@
         <div class="mkt-nav-card-go">Open Chart <span>→</span></div>
       </a>
       <a class="mkt-nav-card" href="Markets/compare.html">
-        <div class="mkt-nav-card-title">Compare</div>
-        <div class="mkt-nav-card-desc">S&amp;P 500, Nasdaq 100, and Dow 30 layered on one chart, plus quick mini-charts for names people ask about most.</div>
-        <div class="mkt-nav-card-go">Open Compare <span>→</span></div>
-      </a>
-      <a class="mkt-nav-card" href="Markets/watchlists.html">
-        <div class="mkt-nav-card-title">Watchlists</div>
-        <div class="mkt-nav-card-desc">A tabbed overview, today's biggest movers, and a straight quotes table.</div>
-        <div class="mkt-nav-card-go">Open Watchlists <span>→</span></div>
-      </a>
-      <a class="mkt-nav-card" href="Markets/tickers.html">
-        <div class="mkt-nav-card-title">Tickers</div>
-        <div class="mkt-nav-card-desc">A single symbol badge and a compact multi-symbol row.</div>
-        <div class="mkt-nav-card-go">Open Tickers <span>→</span></div>
+        <div class="mkt-nav-card-title">Sector Compare</div>
+        <div class="mkt-nav-card-desc">All eleven S&amp;P 500 sectors on one chart, and their total returns over 3 months to 10 years against the index itself.</div>
+        <div class="mkt-nav-card-go">Open Sector Compare <span>→</span></div>
       </a>
       <a class="mkt-nav-card" href="Markets/screeners.html">
         <div class="mkt-nav-card-title">Screeners</div>
@@ -830,6 +1062,51 @@
 .mkt-table td.up{color:#2DA02D;font-weight:700}.mkt-table td.down{color:#C4381F;font-weight:700}
 .mkt-spread{margin:16px 0 0;padding:15px 18px;border-radius:11px;font-size:14px;line-height:1.6;border-left:3px solid #F5C520;background:#FFFBEF;color:#3d3a33}
 .mkt-spread.inverted{border-left-color:#C4381F;background:#FDF1EE}
+/* Earnings release feed — sits under the earnings table on the light section,
+   so it is styled for a cream background, not the dark ones. */
+.mkt-erel-lede{font-size:14px;line-height:1.65;color:#5c574c;max-width:680px;margin:0 0 16px}
+.mkt-erel{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.mkt-erel-item{background:#fff;border:1px solid #E4DFD3;border-radius:11px;
+  transition:border-color .18s,box-shadow .18s,transform .18s}
+.mkt-erel-item:hover{border-color:#F5C520;box-shadow:0 5px 15px rgba(0,0,0,.06);transform:translateY(-1px)}
+.mkt-erel-item a{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding:14px 16px;text-decoration:none}
+.mkt-erel-hd{font-size:14.5px;font-weight:600;line-height:1.45;color:#060606}
+.mkt-erel-item:hover .mkt-erel-hd{color:#8A6D08}
+.mkt-erel-src{flex-shrink:0;font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;color:#8b8577;white-space:nowrap}
+@media(max-width:600px){
+  .mkt-erel-item a{flex-direction:column;gap:7px}
+  .mkt-erel-src{align-self:flex-start}
+}
+.mkt-table td a{color:#8A6D08;font-weight:600;white-space:nowrap}
+.mkt-table td a:hover{text-decoration:underline}
+/* Two links in one cell: the press release is the one people want, the SEC
+   filing is the primary source for the minority who want that instead. Sized
+   to match that split rather than giving them equal billing. */
+/* Filter explanation above the earnings table. Deliberately a block element and
+   not a <caption>: a caption is sized against the table box, and a paragraph of
+   this length collapses into a narrow strip of clipped text. */
+.mkt-filter-note{max-width:760px;margin:0 0 18px}
+.mkt-filter-note p{font-size:13.5px;line-height:1.7;color:#5c574c;margin:0 0 10px}
+.mkt-filter-note p:last-child{margin-bottom:0}
+.mkt-filter-note strong{color:#060606;font-weight:700}
+
+/* The earnings table has seven columns and will not compress below its content
+   on a phone. Let it scroll sideways instead of forcing unreadable wrapping. */
+.mkt-econ .mkt-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  white-space:nowrap;width:100%}
+@media(min-width:900px){.mkt-econ .mkt-table{display:table;white-space:normal}}
+
+/* Ticker on top, company name under it — the ticker is what people scan for,
+   the name is what tells them whether they have heard of it. */
+.mkt-table th[scope=row] .mkt-co{display:block;font-size:12px;font-weight:400;
+  color:#6F6A5E;margin-top:2px;line-height:1.35}
+.mkt-table td.mkt-rel{white-space:nowrap}
+.mkt-table td.mkt-rel a.sec{margin-left:10px;font-size:11.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;color:#8b8577}
+.mkt-table td.mkt-rel a.sec:hover{color:#8A6D08}
+
 .mkt-econ-foot{margin-top:34px;padding-top:22px;border-top:1px solid #E4DFD3;font-size:13px;line-height:1.65;color:#5c574c}
 .mkt-econ-foot a{color:#8A6D08;font-weight:600}
 @media(max-width:600px){.mkt-econ{padding:44px 16px}.mkt-table{font-size:13px}.mkt-table td,.mkt-table th{padding:9px 8px}}
@@ -882,6 +1159,11 @@
 .mkt-news-hd{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:19px;line-height:1.35;color:#060606;letter-spacing:-.01em}
 .mkt-news-item:hover .mkt-news-hd{color:#8A6D08}
 .mkt-news-sum{display:block;font-size:15px;line-height:1.6;color:#5c574c;margin:12px 0 16px;flex:1 1 auto}
+/* Cards whose feed gave no summary have no .mkt-news-sum at all, so nothing is
+   left to push the source line to the bottom. This does that job instead and
+   keeps the source rows aligned across a row of mixed cards. */
+.mkt-news-src{margin-top:auto}
+.mkt-news-hd + .mkt-news-src{padding-top:14px}
 .mkt-news-src{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:#8b8577;margin:0}
 .mkt-news-go{color:#B8930F;font-weight:700;transition:transform .18s;display:inline-block}
 .mkt-news-item:hover .mkt-news-go{transform:translateX(3px)}
@@ -1267,8 +1549,17 @@
       <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.</caption>
       <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th></tr></thead>
       <tbody>
+        <tr><th scope="row">Consumer Discretionary</th><td>XLY</td><td class="up" data-fill="sector-XLY">+3.29%</td></tr>
+        <tr><th scope="row">Communication Services</th><td>XLC</td><td class="up" data-fill="sector-XLC">+1.56%</td></tr>
+        <tr><th scope="row">Energy</th><td>XLE</td><td class="up" data-fill="sector-XLE">+1.00%</td></tr>
+        <tr><th scope="row">Industrials</th><td>XLI</td><td class="up" data-fill="sector-XLI">+0.81%</td></tr>
+        <tr><th scope="row">Financials</th><td>XLF</td><td class="down" data-fill="sector-XLF">-0.11%</td></tr>
         <tr><th scope="row">Technology</th><td>XLK</td><td class="down" data-fill="sector-XLK">-0.22%</td></tr>
+        <tr><th scope="row">Consumer Staples</th><td>XLP</td><td class="down" data-fill="sector-XLP">-0.49%</td></tr>
         <tr><th scope="row">Real Estate</th><td>XLRE</td><td class="down" data-fill="sector-XLRE">-0.51%</td></tr>
+        <tr><th scope="row">Healthcare</th><td>XLV</td><td class="down" data-fill="sector-XLV">-0.59%</td></tr>
+        <tr><th scope="row">Utilities</th><td>XLU</td><td class="down" data-fill="sector-XLU">-0.69%</td></tr>
+        <tr><th scope="row">Materials</th><td>XLB</td><td class="down" data-fill="sector-XLB">-2.34%</td></tr>
       </tbody>
     </table>
     <!-- MKT:sectors:END -->

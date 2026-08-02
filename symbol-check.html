@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- =============================================================================
+     symbol-check.html — a bench, not a page.
+
+     WHY THIS EXISTS
+     TradingView's free widget tier does not carry exchange-licensed index data.
+     SP:SPX, XETR:DAX, ASX:XJO and friends all render a UFO and "this symbol is
+     only available on TradingView". There is no API and no published list that
+     tells you which symbols are included, and the symbol search on
+     tradingview.com shows symbols that exist on the PLATFORM, which is a
+     different question from what a free embedded widget will draw.
+
+     So the only reliable test is: load the widget and look. This page does that
+     for many symbols at once so you are not checking them one at a time by
+     editing a live page.
+
+     HOW TO USE
+       1. Open it locally (127.0.0.1:5500/symbol-check.html) and wait a few
+          seconds for every tile to settle.
+       2. A tile with a chart = usable in a widget. A tile with a flying saucer,
+          "invalid symbol", or a permanently empty box = not usable.
+       3. Paste extra symbols into the box at the top to test candidates.
+
+     NOT DEPLOYED. noindex, and deploy-site.ps1 only copies root *.html into
+     _deploy/ — so if you want it kept out of the published site, either delete
+     it before a build or leave it and accept a noindex dev page shipping. It is
+     listed nowhere and linked from nothing.
+     ============================================================================= -->
+<meta name="robots" content="noindex, nofollow">
+<title>Symbol check — TradingView free-tier availability</title>
+<style>
+  body{margin:0;background:#060606;color:#fff;
+    font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,sans-serif;padding:28px 22px 60px}
+  .in{max-width:1500px;margin:0 auto}
+  h1{font-size:26px;font-weight:800;margin:0 0 8px;letter-spacing:-.02em}
+  p.lede{color:rgba(255,255,255,.55);font-size:15px;line-height:1.6;max-width:760px;margin:0 0 6px}
+  p.key{color:rgba(255,255,255,.4);font-size:13.5px;line-height:1.6;max-width:760px;margin:0 0 22px}
+  .key b{color:#F5C520}
+  .add{display:flex;gap:10px;flex-wrap:wrap;max-width:760px;margin:0 0 26px}
+  .add input{flex:1 1 320px;min-width:0;background:#0D0D0D;border:1px solid rgba(255,255,255,.16);
+    border-radius:10px;color:#fff;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;
+    padding:12px 14px}
+  .add input:focus{outline:none;border-color:#F5C520}
+  .add button{background:#F5C520;color:#060606;border:none;border-radius:10px;font-family:inherit;
+    font-weight:800;font-size:14px;padding:12px 22px;cursor:pointer}
+  h2{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#F5C520;
+    margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .cell{background:#0D0D0D;border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:8px}
+  .sym{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;font-weight:700;
+    color:#F5C520;padding:2px 4px 1px}
+  .note{font-size:11.5px;color:rgba(255,255,255,.35);padding:0 4px 7px}
+</style>
+  <link rel="stylesheet" href="styles.css?v=20260802">
+</head>
+<body>
+<div class="in">
+  <h1>Symbol check</h1>
+  <p class="lede">
+    Every symbol below is rendered in the same free TradingView widget the site uses. This is the
+    only reliable way to find out whether a symbol works &mdash; there is no list to look it up in,
+    and the symbol search on tradingview.com answers a different question.
+  </p>
+  <p class="key">
+    <b>Chart drawn</b> = safe to use. <b>Flying saucer, "invalid symbol", or an empty box that never
+    fills</b> = not available on the free tier, find a substitute. Give the page a few seconds.
+  </p>
+
+  <div class="add">
+    <input id="add-in" type="text" spellcheck="false"
+           placeholder="EXCHANGE:SYMBOL, comma separated — e.g. TVC:NI225, AMEX:EWU">
+    <button id="add-go" type="button">Test these</button>
+  </div>
+
+  <div id="custom-wrap" style="display:none">
+    <h2>Your symbols</h2>
+    <div class="grid" id="custom"></div>
+  </div>
+
+  <h2>In use on the site — these must keep working</h2>
+  <div class="grid" id="live"></div>
+
+  <h2>Index ETFs — the global chart picker</h2>
+  <div class="grid" id="etfs"></div>
+
+  <h2>Raw indexes — mostly NOT on the free tier, shown so you can see the failure</h2>
+  <div class="grid" id="raw"></div>
+</div>
+
+<script>
+/* One mini-chart per symbol. The mini widget is the lightest embed TradingView
+   publishes, which matters when the page renders forty of them at once, and it
+   fails visibly in exactly the same way the full chart does. */
+function tile(container, symbol, note) {
+  var cell = document.createElement('div');
+  cell.className = 'cell';
+
+  var lbl = document.createElement('div');
+  lbl.className = 'sym';
+  lbl.textContent = symbol;
+  cell.appendChild(lbl);
+
+  if (note) {
+    var n = document.createElement('div');
+    n.className = 'note';
+    n.textContent = note;
+    cell.appendChild(n);
+  }
+
+  var box = document.createElement('div');
+  box.className = 'tradingview-widget-container';
+  var inner = document.createElement('div');
+  inner.className = 'tradingview-widget-container__widget';
+  box.appendChild(inner);
+
+  var sc = document.createElement('script');
+  sc.type = 'text/javascript';
+  sc.async = true;
+  sc.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+  sc.text = JSON.stringify({
+    symbol: symbol, width: '100%', height: 180, locale: 'en',
+    dateRange: '12M', colorTheme: 'dark', isTransparent: true,
+    autosize: false, largeChartUrl: ''
+  });
+  box.appendChild(sc);
+  cell.appendChild(box);
+  container.appendChild(cell);
+}
+
+function fill(id, list) {
+  var host = document.getElementById(id);
+  list.forEach(function (row) { tile(host, row[0], row[1]); });
+}
+
+/* Symbols this site already depends on. If one of these ever shows a saucer,
+   a live page is broken right now. */
+fill('live', [
+  ['AMEX:SPY',        'markets.html ticker + Today’s Tape'],
+  ['AMEX:DIA',        'ticker tape'],
+  ['FOREXCOM:NSXUSD', 'ticker tape — Nasdaq 100'],
+  ['FOREXCOM:DJI',    'ticker tape — Dow 30'],
+  ['TVC:US10Y',       'ticker tape — 10-year'],
+  ['TVC:GOLD',        'ticker tape — gold'],
+  ['BITSTAMP:BTCUSD', 'ticker tape — bitcoin'],
+  ['INDEX:S5TW',      'technical — 20-day breadth'],
+  ['INDEX:S5FI',      'technical — 50-day breadth'],
+  ['INDEX:S5TH',      'technical — 200-day breadth']
+]);
+
+/* The global index picker. All ordinary US-listed ETFs. */
+fill('etfs', [
+  ['AMEX:SPY',   'S&P 500'],
+  ['NASDAQ:QQQ', 'Nasdaq 100'],
+  ['AMEX:DIA',   'Dow 30'],
+  ['AMEX:IWM',   'Russell 2000'],
+  ['AMEX:EWU',   'UK'],
+  ['AMEX:EWG',   'Germany'],
+  ['AMEX:EWQ',   'France'],
+  ['AMEX:FEZ',   'Euro Stoxx 50'],
+  ['AMEX:EWJ',   'Japan'],
+  ['AMEX:EWH',   'Hong Kong'],
+  ['AMEX:FXI',   'China large-cap'],
+  ['AMEX:EWY',   'South Korea'],
+  ['AMEX:EWA',   'Australia']
+]);
+
+/* Kept deliberately. These are the symbols that failed on the first build of
+   the global charts — worth being able to see the failure mode on demand, and
+   worth re-testing occasionally in case TradingView ever opens them up. */
+fill('raw', [
+  ['SP:SPX',       'failed 2026-08-02'],
+  ['NASDAQ:NDX',   ''],
+  ['DJ:DJI',       'failed 2026-08-02'],
+  ['TVC:RUT',      ''],
+  ['FTSE:UKX',     'failed 2026-08-02'],
+  ['XETR:DAX',     'failed 2026-08-02'],
+  ['EURONEXT:PX1', 'failed 2026-08-02'],
+  ['TVC:SX5E',     ''],
+  ['TVC:NI225',    ''],
+  ['TVC:HSI',      ''],
+  ['SSE:000001',   'failed 2026-08-02'],
+  ['TVC:KOSPI',    ''],
+  ['ASX:XJO',      'failed 2026-08-02'],
+  ['TVC:DAX',      'alternate prefix worth testing'],
+  ['TVC:UKX',      'alternate prefix worth testing']
+]);
+
+/* Ad-hoc testing. Same whitelist as the live page uses. */
+document.getElementById('add-go').addEventListener('click', function () {
+  var raw = document.getElementById('add-in').value || '';
+  var host = document.getElementById('custom');
+  var syms = raw.split(',')
+    .map(function (s) { return s.toUpperCase().replace(/[^A-Z0-9:.\-]/g, ''); })
+    .filter(Boolean);
+  if (!syms.length) return;
+  document.getElementById('custom-wrap').style.display = '';
+  syms.forEach(function (s) { tile(host, s, ''); });
+  document.getElementById('add-in').value = '';
+});
+</script>
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="markets.html">Markets</a>
+        <a href="technical-analysis.html">Technical Analysis</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="trading-psychology.html">Trading Psychology</a>
+        <a href="economics.html">Economics for Traders</a>
+        <a href="index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="learn.html">Learn</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

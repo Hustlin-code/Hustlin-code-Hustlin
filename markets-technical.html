@@ -350,7 +350,6 @@
   <a href="markets-behavior.html">Behaviour</a>
   <a href="Markets/chart.html">Chart</a>
   <a href="#global">Global Indexes</a>
-  <a href="markets.html#heatmaps">Heatmaps</a>
 </div>
 
 <header class="eco-hero">
@@ -396,17 +395,41 @@
     </p>
     <!-- MKT:techQuotes:START -->
     <div class="mkt-quote-row">
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">Dow Jones</h3>
-        <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
-        <p class="mkt-quote-chg">+0.54%</p>
-        <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Russell 2000</h3>
+        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
+        <p class="mkt-quote-chg">-0.48%</p>
+        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
       </article>
       <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>
-        <p class="mkt-quote-px" data-fill="q-TLT">$82.25</p>
-        <p class="mkt-quote-chg">-0.66%</p>
-        <p class="mkt-quote-sym">TLT · day range 81.89–82.45</p>
+        <h3 class="mkt-quote-name">10-Year Treasury</h3>
+        <p class="mkt-quote-px" data-fill="q-IEF">$92.95</p>
+        <p class="mkt-quote-chg">-0.28%</p>
+        <p class="mkt-quote-sym">IEF · day range 92.73–92.98</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Gold</h3>
+        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
+        <p class="mkt-quote-chg">-1.49%</p>
+        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Oil</h3>
+        <p class="mkt-quote-px" data-fill="q-USO">$129.17</p>
+        <p class="mkt-quote-chg">+1.33%</p>
+        <p class="mkt-quote-sym">USO · day range 127.95–130.98</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Copper</h3>
+        <p class="mkt-quote-px" data-fill="q-CPER">$39.56</p>
+        <p class="mkt-quote-chg">+0.56%</p>
+        <p class="mkt-quote-sym">CPER · day range 38.95–39.61</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Bitcoin</h3>
+        <p class="mkt-quote-px" data-fill="q-IBIT">$35.64</p>
+        <p class="mkt-quote-chg">-2.89%</p>
+        <p class="mkt-quote-sym">IBIT · day range 35.29–36.12</p>
       </article>
 </div>
     <!-- MKT:techQuotes:END -->
@@ -713,56 +736,73 @@
       problem with different consequences for what you own.
     </p>
     <p>
-      Pick an index. The left chart is one year of daily bars &mdash; the move you are actually
+      Pick a market. The left chart is one year of daily bars &mdash; the move you are actually
       living through. The right is five years of weekly bars, which is the one people skip and
       the one that supplies the scale: a drop that dominates the daily chart often turns out to
       be an ordinary wobble on the weekly, and occasionally it turns out not to be.
     </p>
+    <p>
+      These are US-listed ETFs rather than the indexes themselves &mdash; SPY, not the S&amp;P
+      500; EWJ, not the Nikkei. Two reasons. The index is a number you cannot buy, and the ETF
+      is the thing a US reader would actually own. More importantly for a page about comparing
+      markets, every one of these is priced in dollars, so the comparison is like-for-like. A
+      chart of the Nikkei in yen can rise while a dollar investor in Japan loses money; EWJ
+      shows you the version that includes the currency, because you cannot own the other one.
+    </p>
 
+    <!-- ETFs, not the indexes themselves. Exchange-licensed index symbols
+         (SP:SPX, XETR:DAX, ASX:XJO and the rest) are not carried on the free
+         widget tier — they render a UFO and "this symbol is only available on
+         TradingView", which is what these buttons did on the first pass. Every
+         symbol below is an ordinary US-listed ETF, which the free tier does
+         carry, and which is also what a US reader could actually buy. Same
+         reasoning as the Today's Tape block on markets.html.
+         Before changing any of these, check it in symbol-check.html. -->
     <div class="tec-idx-groups" role="group" aria-label="Choose an index">
       <div class="tec-idx-row">
         <span class="tec-idx-region">United States</span>
-        <button class="tec-idx-btn" type="button" aria-pressed="true"  data-sym="SP:SPX"        data-name="S&amp;P 500">S&amp;P 500</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="NASDAQ:NDX"    data-name="Nasdaq 100">Nasdaq 100</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="DJ:DJI"        data-name="Dow 30">Dow 30</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:RUT"       data-name="Russell 2000">Russell 2000</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="true"  data-sym="AMEX:SPY"    data-name="S&amp;P 500 (SPY)">S&amp;P 500</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="NASDAQ:QQQ"  data-name="Nasdaq 100 (QQQ)">Nasdaq 100</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:DIA"    data-name="Dow 30 (DIA)">Dow 30</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:IWM"    data-name="Russell 2000 (IWM)">Russell 2000</button>
       </div>
       <div class="tec-idx-row">
         <span class="tec-idx-region">Europe</span>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="FTSE:UKX"      data-name="FTSE 100">FTSE 100</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="XETR:DAX"      data-name="DAX">DAX</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="EURONEXT:PX1"  data-name="CAC 40">CAC 40</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:SX5E"      data-name="Euro Stoxx 50">Euro Stoxx 50</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:EWU"    data-name="UK (EWU)">UK</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:EWG"    data-name="Germany (EWG)">Germany</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:EWQ"    data-name="France (EWQ)">France</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:FEZ"    data-name="Euro Stoxx 50 (FEZ)">Euro Stoxx 50</button>
       </div>
       <div class="tec-idx-row">
         <span class="tec-idx-region">Asia-Pacific</span>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:NI225"     data-name="Nikkei 225">Nikkei 225</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:HSI"       data-name="Hang Seng">Hang Seng</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="SSE:000001"    data-name="Shanghai Composite">Shanghai</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:KOSPI"     data-name="KOSPI">KOSPI</button>
-        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="ASX:XJO"       data-name="ASX 200">ASX 200</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:EWJ"    data-name="Japan (EWJ)">Japan</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:EWH"    data-name="Hong Kong (EWH)">Hong Kong</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:FXI"    data-name="China large-cap (FXI)">China</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:EWY"    data-name="South Korea (EWY)">South Korea</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="AMEX:EWA"    data-name="Australia (EWA)">Australia</button>
       </div>
     </div>
 
     <div class="tec-idx-grid">
       <div>
-        <p class="tec-idx-cap" id="tec-idx-lbl-1">S&amp;P 500 &mdash; 1 year, daily</p>
+        <p class="tec-idx-cap" id="tec-idx-lbl-1">S&amp;P 500 (SPY) &mdash; 1 year, daily</p>
         <p class="tec-idx-sub">Every trading day for the last twelve months. Close enough to see individual sessions.</p>
         <div class="tec-idx-chart"><div id="tec-idx-chart-1"></div></div>
       </div>
       <div>
-        <p class="tec-idx-cap" id="tec-idx-lbl-2">S&amp;P 500 &mdash; 5 years, weekly</p>
+        <p class="tec-idx-cap" id="tec-idx-lbl-2">S&amp;P 500 (SPY) &mdash; 5 years, weekly</p>
         <p class="tec-idx-sub">One bar per week for five years. Same index, enough distance to judge whether a move is big.</p>
         <div class="tec-idx-chart"><div id="tec-idx-chart-2"></div></div>
       </div>
     </div>
 
     <p class="eco-widget-note">
-      Charts by TradingView and may be delayed. Index coverage and history vary by exchange, and
-      a few of these are quoted from a data feed rather than the exchange itself. Note that none
-      of these are adjusted for currency: an index can rise in its home currency while a dollar
-      investor in it loses money, which is why a foreign index chart answers "what happened
-      there", not "what would I have made".
+      Charts by TradingView and may be delayed. The country funds track broad MSCI indexes for
+      each market rather than the headline index a newspaper quotes &mdash; EWU is not literally
+      the FTSE 100, and FXI holds large Chinese companies listed in Hong Kong rather than the
+      Shanghai Composite. Direction and magnitude track closely; the exact number will not
+      match. Nothing here is investment advice, and naming an ETF is not a recommendation to
+      buy it &mdash; it is the most honest chart available on a free data tier.
     </p>
 
     <h3>What to actually look for</h3>

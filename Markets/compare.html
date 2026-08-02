@@ -13,18 +13,18 @@
      Google not to index the page itself. Fully usable for visitors either way.
      To re-index one: write 800+ words of original analysis around the widget
      the way calculate-your-hustle.html does, THEN remove this tag. -->
-<meta name="description" content="Compare the S&P 500, Nasdaq 100, and Dow 30 on one chart, plus quick mini-charts for the names people ask about most. Part of Hustlin's free live market data hub.">
-<title>Compare | Markets | Hustlin'</title>
+<meta name="description" content="All eleven S&P 500 sectors on one chart, plus total returns at 3 months, 6 months, 1, 3, 5 and 10 years against the index itself. Free, no account.">
+<title>Sector Compare — 11 Sectors, Six Timeframes | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Compare | Markets | Hustlin'">
-<meta property="og:description" content="S&P 500, Nasdaq 100, and Dow 30 layered on one chart, plus quick mini-charts for a handful of names people ask about most.">
+<meta property="og:title" content="Sector Compare — 11 Sectors, Six Timeframes | Hustlin'">
+<meta property="og:description" content="Which part of the market is actually working. Every S&P 500 sector charted and ranked against the index over six timeframes, dividends included.">
 <meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
 <meta property="og:url" content="https://www.hustlin.org/Markets/compare.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Compare | Markets | Hustlin'">
-<meta name="twitter:description" content="S&P 500, Nasdaq 100, and Dow 30 layered on one chart, plus quick mini-charts for a handful of names people ask about most.">
+<meta name="twitter:title" content="Sector Compare — 11 Sectors, Six Timeframes | Hustlin'">
+<meta name="twitter:description" content="Every S&P 500 sector charted and ranked against the index over six timeframes, dividends included.">
 <meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,6 +95,83 @@
   color:rgba(255,255,255,.4);padding:14px 18px 0;
 }
 
+/* ── Sector overlay chart (added 2026-08-02) ──────────────────────
+   Drawn with Lightweight Charts rather than TradingView's Advanced Chart
+   widget. The widget could overlay eleven sectors but had no parameter for
+   per-series colour, so every line rendered the same blue and the chart could
+   not be read. This is TradingView's own open-source library, so we keep their
+   rendering and get full control of colour and legend. */
+.sec-chart-wrap{background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
+  border-radius:16px;padding:16px 16px 10px;margin-top:24px}
+#sec-chart{width:100%;height:520px}
+@media(max-width:700px){#sec-chart{height:400px}}
+.sec-chart-msg{font-size:13px;color:rgba(255,255,255,.4);padding:36px 4px;text-align:center}
+.sec-chart-msg.err{color:#E4634A}
+
+/* Legend doubles as the on/off control. Twelve lines is a lot; being able to
+   isolate three is what makes the chart answer a question. */
+.sec-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.sec-key{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:5px 11px;
+  font-family:inherit;font-size:12px;font-weight:600;color:rgba(255,255,255,.72);
+  cursor:pointer;transition:.15s}
+.sec-key:hover{border-color:rgba(255,255,255,.28);color:#fff}
+.sec-key[aria-pressed="false"]{opacity:.35}
+.sec-key .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.sec-key .val{font-family:'Space Mono',monospace;font-size:11.5px;font-weight:700;
+  color:rgba(255,255,255,.5)}
+.sec-key.is-bench{border-color:rgba(245,197,32,.5);background:rgba(245,197,32,.09)}
+.sec-chart-note{font-size:12px;color:rgba(255,255,255,.32);margin:12px 0 0;line-height:1.6}
+
+/* The colour swatch on each table row is the whole point of drawing our own
+   chart — it ties a line to its row, which an iframe never could. */
+.sec-table th[scope=row] .sec-swatch{display:inline-block;width:9px;height:9px;
+  border-radius:50%;margin-right:8px;vertical-align:baseline}
+
+/* ── Sector returns table (added 2026-08-02) ──────────────────────
+   Lives on a dark section, so it is styled dark rather than inheriting the
+   cream .mkt-table used on the light sections of markets.html. */
+/* Compact by design. The first pass gave the sector name a whole column of
+   slack and put the ticker on its own line, so each row was ~68px tall and the
+   numbers ended up stranded at the far right of a very wide gap. Fixed layout
+   pins the name column and shares the rest evenly, and the ticker sits inline
+   with the name — which halves the row height and puts the six numbers close
+   enough together to actually compare by eye. */
+.sec-table{width:100%;max-width:1000px;table-layout:fixed;border-collapse:collapse;
+  background:#0D0D0D;border:1px solid rgba(255,255,255,.09);border-radius:14px;
+  overflow:hidden;font-size:13px;margin-top:20px}
+.sec-table col.sec-name{width:27%}
+.sec-table th[scope=col]{text-align:right;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.06em;color:rgba(255,255,255,.4);padding:10px 10px;
+  border-bottom:1px solid rgba(255,255,255,.14);white-space:nowrap}
+.sec-table th[scope=col]:first-child{text-align:left}
+.sec-table td,.sec-table th[scope=row]{padding:8px 10px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  text-align:right;font-family:'Space Mono',monospace;font-size:12.5px;font-weight:700}
+.sec-table th[scope=row]{text-align:left;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+/* Inline, not on its own line — this is the single biggest space saving. */
+.sec-table .sec-etf{display:inline;font-family:'Space Mono',monospace;font-size:11px;
+  font-weight:400;color:rgba(255,255,255,.32);margin-left:7px}
+/* Banding does the work the removed row padding used to do: it keeps the eye on
+   one row across six columns without needing space between them. */
+.sec-table tbody tr:nth-child(odd){background:rgba(255,255,255,.018)}
+.sec-table tbody tr:hover{background:rgba(245,197,32,.06)}
+.sec-table td.up{color:#3FBF3F}
+.sec-table td.down{color:#EF4444}
+.sec-table td.sec-na{color:rgba(255,255,255,.22)}
+.sec-table tr:last-child td,.sec-table tr:last-child th{border-bottom:none}
+/* The benchmark is the row every other row should be read against, so it is
+   pinned visually rather than sorted in among the sectors. */
+.sec-table tr.sec-bench{background:rgba(245,197,32,.07)}
+.sec-table tr.sec-bench th[scope=row]{color:#F5C520;font-weight:800}
+.sec-table tr.sec-bench td{border-top:2px solid rgba(245,197,32,.3)}
+.sec-src{font-size:12.5px;color:rgba(255,255,255,.35);line-height:1.65;margin:14px 0 0;max-width:760px}
+@media(max-width:760px){
+  .sec-table{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+}
+
 /* Spotlight symbol pill */
 .mkt-symbol-pill{
   display:inline-flex;align-items:center;gap:8px;
@@ -115,10 +192,7 @@
 <div class="mkt-quicknav">
   <a href="../markets.html">← Markets</a>
   <a href="chart.html">Chart</a>
-  <a href="compare.html" class="active">Compare</a>
-  <a href="watchlists.html">Watchlists</a>
-  <a href="tickers.html">Tickers</a>
-  <a href="../markets.html#heatmaps">Heatmaps</a>
+  <a href="compare.html" class="active">Sector Compare</a>
   <a href="screeners.html">Screeners</a>
   <a href="spotlight.html">Symbol Lookup</a>
   <a href="../markets.html#news">News</a>
@@ -134,103 +208,156 @@
       <span class="breadcrumb-sep">/</span>
       <a href="../markets.html">Markets</a>
       <span class="breadcrumb-sep">/</span>
-      <span>Compare</span>
+      <span>Sector Compare</span>
     </div>
-    <p class="mkt-eyebrow">Charts</p>
-    <h1 class="sec-h2" style="color:#fff">Compare the big three, at a glance.</h1>
-    <p class="sec-sub" style="color:rgba(255,255,255,.45)">S&amp;P 500, Nasdaq 100, and Dow 30 layered on one chart — plus quick mini-charts for a handful of names people ask about most.</p>
+    <p class="mkt-eyebrow">Sectors</p>
+    <h1 class="sec-h2" style="color:#fff">Which part of the market is actually working.</h1>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45)">The S&amp;P 500 is eleven sectors in a trenchcoat. "The market is up" can mean everything rose together, or that technology carried a tape where most sectors fell. Those are different markets and they call for different decisions.</p>
 
-    <div class="mkt-widget-card" style="margin-top:36px">
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-        {
-          "symbols": [
-            ["S&P 500", "FOREXCOM:SPXUSD|1D"],
-            ["Nasdaq 100", "FOREXCOM:NSXUSD|1D"],
-            ["Dow 30", "FOREXCOM:DJI|1D"]
-          ],
-          "chartOnly": false,
-          "width": "100%",
-          "height": "400",
-          "locale": "en",
-          "colorTheme": "dark",
-          "autosize": true,
-          "showVolume": false,
-          "showMA": false,
-          "hideDateRanges": false,
-          "hideMarketStatus": false,
-          "hideSymbolLogo": false,
-          "scalePosition": "right",
-          "scaleMode": "Normal",
-          "fontFamily": "Plus Jakarta Sans, sans-serif",
-          "fontSize": "10",
-          "noTimeScale": false,
-          "valuesTracking": "1",
-          "changeMode": "price-and-percent",
-          "chartType": "area",
-          "maLineColor": "#F0C030",
-          "maLineWidth": 1,
-          "maLength": 9,
-          "headerFontSize": "medium",
-          "lineWidth": 2,
-          "lineType": 0,
-          "dateRanges": ["1d|1","1m|30","3m|60","12m|1D","60m|1W","all|1M"]
-        }
-        </script>
-      </div>
+    <!-- Our own chart, not a TradingView embed. See the .sec-chart-wrap comment
+         in the stylesheet for why. Data comes from the market-sectors edge
+         function already rebased to percent, so every line starts at zero
+         together rather than each rebasing off its own first datapoint. -->
+    <div class="sec-chart-wrap" style="margin-top:36px">
+      <div id="sec-chart"></div>
+      <div class="sec-chart-msg" id="sec-chart-msg">Loading a year of sector data…</div>
+      <div class="sec-legend" id="sec-legend"></div>
+      <p class="sec-chart-note">
+        Click any sector to hide it. Total return including dividends, from Yahoo Finance daily
+        closes. Chart by <a href="https://www.tradingview.com/lightweight-charts/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5)">Lightweight Charts</a>.
+      </p>
     </div>
 
-    <div class="mkt-grid-3">
-      <div class="mkt-widget-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          { "symbol": "AMEX:SPY", "width": "100%", "height": "220", "locale": "en", "dateRange": "12M", "colorTheme": "dark", "isTransparent": true, "autosize": true, "largeChartUrl": "" }
-          </script>
-        </div>
-      </div>
-      <div class="mkt-widget-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          { "symbol": "BITSTAMP:BTCUSD", "width": "100%", "height": "220", "locale": "en", "dateRange": "12M", "colorTheme": "dark", "isTransparent": true, "autosize": true, "largeChartUrl": "" }
-          </script>
-        </div>
-      </div>
-      <div class="mkt-widget-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          { "symbol": "NASDAQ:AAPL", "width": "100%", "height": "220", "locale": "en", "dateRange": "12M", "colorTheme": "dark", "isTransparent": true, "autosize": true, "largeChartUrl": "" }
-          </script>
-        </div>
-      </div>
-      <div class="mkt-widget-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          { "symbol": "NASDAQ:MSFT", "width": "100%", "height": "220", "locale": "en", "dateRange": "12M", "colorTheme": "dark", "isTransparent": true, "autosize": true, "largeChartUrl": "" }
-          </script>
-        </div>
-      </div>
-      <div class="mkt-widget-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          { "symbol": "NASDAQ:TSLA", "width": "100%", "height": "220", "locale": "en", "dateRange": "12M", "colorTheme": "dark", "isTransparent": true, "autosize": true, "largeChartUrl": "" }
-          </script>
-        </div>
-      </div>
-      <div class="mkt-widget-card">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          { "symbol": "NASDAQ:QQQ", "width": "100%", "height": "220", "locale": "en", "dateRange": "12M", "colorTheme": "dark", "isTransparent": true, "autosize": true, "largeChartUrl": "" }
-          </script>
-        </div>
-      </div>
-    </div>
+    <p class="mkt-caption" style="max-width:760px;margin-left:0;text-align:left">
+      All eleven sectors and the S&amp;P 500 over one year, every line normalised to percentage
+      change so they start together at zero and can be compared directly. Click a name in the
+      legend to hide it &mdash; with twelve lines drawn, isolating three or four is usually how
+      you get an answer out of it.
+    </p>
+    <p class="mkt-caption" style="max-width:760px;margin-left:0;text-align:left;margin-top:10px">
+      The question worth asking is not which line ends highest. It is <em>how many finish above
+      the S&amp;P 500 line</em>. When only one or two do, the index's gain belongs to a handful of
+      companies and "the market went up" is describing something much narrower than it sounds.
+    </p>
+
+    <h2 class="sec-h2" style="color:#fff;font-size:clamp(20px,3vw,28px);margin-top:52px">The same question over six timeframes.</h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45);max-width:760px">
+      A sector leading over three months and a sector leading over ten years are telling you
+      completely different things. The first is rotation, and it reverses. The second is
+      structural, and it is most of what determines a long-term outcome. Reading them side by
+      side is the point of this table.
+    </p>
+
+    <!-- MKT:sectorReturns:START -->
+    <table class="mkt-table sec-table">
+      <colgroup><col class="sec-name"><col span="6"></colgroup>
+      <thead><tr>
+        <th scope="col">Sector</th>
+        <th scope="col">3M</th><th scope="col">6M</th><th scope="col">1Y</th>
+        <th scope="col">3Y</th><th scope="col">5Y</th><th scope="col">10Y</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">Energy<span class="sec-etf">XLE</span></th>
+          <td class="up">+6.6%</td><td class="up">+8.0%</td><td class="up">+35.9%</td>
+          <td class="up">+47.4%</td><td class="up">+195.2%</td><td class="up">+161.0%</td>
+        </tr>
+        <tr>
+          <th scope="row">Technology<span class="sec-etf">XLK</span></th>
+          <td class="down">-8.1%</td><td class="up">+26.7%</td><td class="up">+34.3%</td>
+          <td class="up">+103.6%</td><td class="up">+129.2%</td><td class="up">+729.1%</td>
+        </tr>
+        <tr>
+          <th scope="row">Healthcare<span class="sec-etf">XLV</span></th>
+          <td class="up">+9.2%</td><td class="up">+2.3%</td><td class="up">+20.3%</td>
+          <td class="up">+28.3%</td><td class="up">+30.4%</td><td class="up">+164.1%</td>
+        </tr>
+        <tr>
+          <th scope="row">Industrials<span class="sec-etf">XLI</span></th>
+          <td class="up">+4.1%</td><td class="up">+2.1%</td><td class="up">+19.8%</td>
+          <td class="up">+73.5%</td><td class="up">+85.6%</td><td class="up">+264.6%</td>
+        </tr>
+        <tr>
+          <th scope="row">Materials<span class="sec-etf">XLB</span></th>
+          <td class="down">-1.0%</td><td class="down">-4.8%</td><td class="up">+11.3%</td>
+          <td class="up">+28.9%</td><td class="up">+30.1%</td><td class="up">+153.6%</td>
+        </tr>
+        <tr>
+          <th scope="row">Real Estate<span class="sec-etf">XLRE</span></th>
+          <td class="up">+3.4%</td><td class="up">+4.4%</td><td class="up">+10.2%</td>
+          <td class="up">+34.9%</td><td class="up">+11.7%</td><td class="up">+90.0%</td>
+        </tr>
+        <tr>
+          <th scope="row">Consumer Staples<span class="sec-etf">XLP</span></th>
+          <td class="up">+3.3%</td><td class="down">-4.3%</td><td class="up">+8.2%</td>
+          <td class="up">+26.8%</td><td class="up">+34.3%</td><td class="up">+104.6%</td>
+        </tr>
+        <tr>
+          <th scope="row">Utilities<span class="sec-etf">XLU</span></th>
+          <td class="up">+0.5%</td><td class="down">-5.8%</td><td class="up">+8.1%</td>
+          <td class="up">+54.2%</td><td class="up">+50.4%</td><td class="up">+147.2%</td>
+        </tr>
+        <tr>
+          <th scope="row">Financials<span class="sec-etf">XLF</span></th>
+          <td class="up">+10.8%</td><td class="up">+11.7%</td><td class="up">+7.1%</td>
+          <td class="up">+73.7%</td><td class="up">+61.7%</td><td class="up">+243.4%</td>
+        </tr>
+        <tr>
+          <th scope="row">Consumer Discretionary<span class="sec-etf">XLY</span></th>
+          <td class="down">-3.8%</td><td class="down">-0.3%</td><td class="up">+1.0%</td>
+          <td class="up">+39.4%</td><td class="up">+31.7%</td><td class="up">+219.8%</td>
+        </tr>
+        <tr>
+          <th scope="row">Communication Services<span class="sec-etf">XLC</span></th>
+          <td class="down">-6.2%</td><td class="down">-7.8%</td><td class="down">-1.6%</td>
+          <td class="up">+65.3%</td><td class="up">+33.1%</td><td class="sec-na">&mdash;</td>
+        </tr>
+        <tr class="sec-bench">
+          <th scope="row">S&amp;P 500<span class="sec-etf">SPY</span></th>
+          <td class="down">-1.0%</td><td class="up">+9.5%</td><td class="up">+17.1%</td>
+          <td class="up">+72.2%</td><td class="up">+77.0%</td><td class="up">+303.4%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="sec-src">Total return including dividends, from Yahoo Finance adjusted closes. Priced 2026-07-31. A dash means the fund did not exist for that whole period &mdash; Real Estate launched in 2015 and Communication Services in 2018.</p>
+    <!-- MKT:sectorReturns:END -->
+
+    <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;color:#fff;margin:38px 0 14px">How to read it without fooling yourself</h3>
+    <p class="sec-sub" style="color:rgba(255,255,255,.5);max-width:760px">
+      <strong style="color:#fff">Do the subtraction.</strong> Find the S&amp;P 500 row at the
+      bottom of the table, pick a column, and take the index number away from the sector number.
+      That gap &mdash; in percentage points &mdash; is the entire result of having chosen a sector
+      instead of just buying the index. If Technology shows +34% over one year and the S&amp;P
+      shows +17%, technology beat the index by 17 points. If Consumer Discretionary shows +1% in
+      that same year, it trailed by 16.
+    </p>
+    <p class="sec-sub" style="color:rgba(255,255,255,.5);max-width:760px">
+      Trailing the index is not the same as losing money, and it is worth being precise about
+      that. A sector up 1% in a year the index rose 17% still made you 1% &mdash; you did not lose
+      anything. What you gave up is the extra 16 points you would have had by owning the whole
+      market and thinking about it less. That is a real cost, but it is a cost of opportunity, not
+      a loss, and treating the two as identical is how people talk themselves into selling
+      something that is working perfectly well.
+    </p>
+    <p class="sec-sub" style="color:rgba(255,255,255,.5);max-width:760px">
+      Do that subtraction across all six columns before drawing any conclusion. A sector ahead of
+      the index over three months and behind it over five years has told you something quite
+      different from one that is ahead in every column, and the second is far rarer than people
+      expect. For most people, most of the time, the honest reading of this table is that the
+      index row was hard to beat and picking between the rows was not worth the effort.
+    </p>
+    <p class="sec-sub" style="color:rgba(255,255,255,.5);max-width:760px">
+      Be careful with the ten-year column in particular. It covers one specific decade with one
+      specific interest-rate regime, and the sector at the top of it is there partly because money
+      was cheap for most of that period. A ten-year return is evidence about the past, not a
+      forecast, and the sectors that led the 2010s were not the ones that led the 2000s.
+    </p>
+
+    <!-- The six sector mini-charts that used to sit here were removed on
+         2026-08-02. The overlay chart above shows the same eleven sectors on one
+         axis and answers the comparison question properly; six thumbnails of a
+         subset of them repeated the information at lower resolution and cost
+         another six TradingView iframes. -->
 
     <p class="mkt-caption">Market data provided by TradingView and may be delayed. Shown for educational purposes only — nothing on this page is investment advice, and past performance doesn't guarantee future results.</p>
 
@@ -314,6 +441,169 @@
 </footer>
 <!-- FOOTER:END -->
 
+<!-- Lightweight Charts — TradingView's open-source library, ~45KB, no key.
+     Deferred and loaded before our own script so the callback below can assume
+     window.LightweightCharts exists. -->
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<script>
+/* =============================================================================
+   Sector overlay chart.
+   =============================================================================
+
+   WHY THIS IS HAND-DRAWN AND NOT A TRADINGVIEW WIDGET
+   The Advanced Chart widget will overlay eleven sectors via compareSymbols, but
+   its embed API exposes no per-series colour. Every line came out the same blue
+   and the chart could not be read at all. This uses TradingView's own
+   open-source library instead, which keeps their rendering and gives us the
+   colours — and, more usefully, lets each line's colour match its row in the
+   returns table below. An iframe could never do that.
+
+   COLOURS ARE ASSIGNED, NOT GENERATED
+   Twelve auto-generated hues include several nobody can tell apart on a dark
+   background. These are picked by hand for separation, with the S&P benchmark
+   deliberately the site's amber so it reads as the reference line rather than
+   as a twelfth sector.
+
+   The data arrives already rebased to percent by the edge function, so nothing
+   here recalculates it — one definition of "the start" for every series.
+   ========================================================================== */
+(function () {
+  var ENDPOINT = 'https://zddtobudaxyrndjgvhfd.supabase.co/functions/v1/market-sectors?series=1';
+
+  var COLORS = {
+    XLK:  '#4DA3FF',  // technology      — blue
+    XLF:  '#3FBF7F',  // financials      — green
+    XLV:  '#E05C8A',  // healthcare      — pink
+    XLY:  '#B984FF',  // discretionary   — violet
+    XLP:  '#7FD4C1',  // staples         — teal
+    XLE:  '#FF8A3D',  // energy          — orange
+    XLI:  '#9AA6B2',  // industrials     — slate
+    XLB:  '#C2A25A',  // materials       — bronze
+    XLU:  '#5FD35F',  // utilities       — bright green
+    XLRE: '#E4634A',  // real estate     — red
+    XLC:  '#00CFD1',  // communications  — cyan
+    SPY:  '#F5C520'   // benchmark       — site amber
+  };
+
+  var host = document.getElementById('sec-chart');
+  var msg = document.getElementById('sec-chart-msg');
+  var legend = document.getElementById('sec-legend');
+  if (!host || !msg || !legend) return;
+
+  function fail(text) {
+    msg.className = 'sec-chart-msg err';
+    msg.textContent = text;
+  }
+
+  if (!window.LightweightCharts) {
+    fail('Chart library did not load. The returns table below is unaffected.');
+    return;
+  }
+
+  fetch(ENDPOINT, { headers: { 'Accept': 'application/json' } })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
+    .then(function (d) {
+      if (!d || !d.ok || !Array.isArray(d.sectors)) throw new Error('unexpected response');
+
+      // Benchmark last so it draws on top of the sector lines.
+      var rows = d.sectors.slice();
+      if (d.benchmark) rows.push(d.benchmark);
+      rows = rows.filter(function (r) { return r.series && r.series.length; });
+      if (!rows.length) throw new Error('no series returned');
+
+      msg.style.display = 'none';
+
+      var chart = LightweightCharts.createChart(host, {
+        layout: { background: { color: 'transparent' }, textColor: 'rgba(255,255,255,0.55)', fontSize: 11 },
+        grid: {
+          vertLines: { color: 'rgba(255,255,255,0.04)' },
+          horzLines: { color: 'rgba(255,255,255,0.06)' }
+        },
+        rightPriceScale: { borderColor: 'rgba(255,255,255,0.1)' },
+        timeScale: { borderColor: 'rgba(255,255,255,0.1)' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        localization: {
+          priceFormatter: function (v) { return (v >= 0 ? '+' : '') + v.toFixed(1) + '%'; }
+        },
+        handleScale: false,
+        handleScroll: false
+      });
+
+      var series = {};
+
+      rows.forEach(function (row) {
+        var isBench = d.benchmark && row.etf === d.benchmark.etf;
+        var color = COLORS[row.etf] || '#8892A0';
+
+        var s = chart.addLineSeries({
+          color: color,
+          // The benchmark is the reference, so it gets extra weight.
+          lineWidth: isBench ? 3 : 2,
+          priceLineVisible: false,
+          lastValueVisible: false,
+          crosshairMarkerRadius: 3
+        });
+        s.setData(row.series.map(function (p) { return { time: p.t, value: p.v }; }));
+        series[row.etf] = s;
+
+        var last = row.series[row.series.length - 1].v;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'sec-key' + (isBench ? ' is-bench' : '');
+        btn.setAttribute('aria-pressed', 'true');
+        btn.setAttribute('data-etf', row.etf);
+
+        var dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.style.background = color;
+        btn.appendChild(dot);
+
+        // textContent throughout — company names come from an upstream API.
+        var label = document.createElement('span');
+        label.textContent = row.name;
+        btn.appendChild(label);
+
+        var val = document.createElement('span');
+        val.className = 'val';
+        val.textContent = (last >= 0 ? '+' : '') + last.toFixed(1) + '%';
+        btn.appendChild(val);
+
+        btn.addEventListener('click', function () {
+          var on = btn.getAttribute('aria-pressed') === 'true';
+          btn.setAttribute('aria-pressed', String(!on));
+          series[row.etf].applyOptions({ visible: !on });
+        });
+
+        legend.appendChild(btn);
+      });
+
+      chart.timeScale().fitContent();
+
+      new ResizeObserver(function () {
+        chart.applyOptions({ width: host.clientWidth });
+      }).observe(host);
+      chart.applyOptions({ width: host.clientWidth });
+
+      /* Paint a matching swatch onto each row of the baked returns table. The
+         table is generated at build time and knows nothing about these colours,
+         so the link between line and row is made here, once the palette is
+         known. */
+      document.querySelectorAll('.sec-table th[scope=row]').forEach(function (th) {
+        var m = th.textContent.match(/\b(XL[A-Z]{1,2}|SPY)\b/);
+        var key = m ? m[1] : null;
+        var c = key && COLORS[key];
+        if (!c || th.querySelector('.sec-swatch')) return;
+        var sw = document.createElement('span');
+        sw.className = 'sec-swatch';
+        sw.style.background = c;
+        th.insertBefore(sw, th.firstChild);
+      });
+    })
+    .catch(function (e) {
+      fail('Could not load sector data (' + e.message + '). The returns table below is unaffected.');
+    });
+})();
+</script>
 <script src="../app.js?v=DEPLOYSTAMP"></script>
 <script>
 HFY.initNavOnly();
