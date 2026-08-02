@@ -177,6 +177,20 @@
   border-left:3px solid #F5C520;font-size:14px;line-height:1.65;color:#3d3a33;max-width:760px}
 .beh-na{color:#8b8577;font-size:12.5px}
 
+/* SPECIFICITY FIX (2026-08-02).
+   `.eco-sec.dark p` is two classes plus an element (0,2,1). `.beh-cash` is a
+   single class (0,1,0) and `.eco-call p` is (0,1,1), so both LOSE to it. Inside
+   a dark section these cream callout boxes were therefore being painted
+   rgba(255,255,255,.62) — near-white text on a #FFFBEF background. The text was
+   still there and still in the DOM; it was just invisible, which reads as the
+   box being cut off mid-sentence.
+   Match the dark rule's specificity so a box that brings its own background
+   also keeps its own text colour. The dark-variant .eco-call further down sets
+   its colours inline, and inline beats all of this, so it is unaffected. */
+.eco-sec.dark .beh-cash{color:#3d3a33}
+.eco-sec.dark .eco-call p{color:#3d3a33}
+.eco-sec.dark .eco-call .eco-call-h{color:#060606}
+
 .mkt-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E4DFD3;
   border-radius:14px;overflow:hidden;font-size:14px;margin-top:6px}
 .mkt-table-cap{caption-side:top;text-align:left;font-size:13px;color:#5c574c;padding:0 0 12px;line-height:1.6;max-width:720px}
@@ -455,34 +469,10 @@
     <!-- MKT:behavQuotes:START -->
     <div class="mkt-quote-row">
       <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">S&amp;P 500</h3>
-        <p class="mkt-quote-px" data-fill="q-SPY">$747.03</p>
-        <p class="mkt-quote-chg">+0.72%</p>
-        <p class="mkt-quote-sym">SPY · day range 737.68–748.89</p>
-      </article>
-      <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Dow Jones</h3>
         <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
         <p class="mkt-quote-chg">+0.54%</p>
         <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
-      </article>
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">Nasdaq 100</h3>
-        <p class="mkt-quote-px" data-fill="q-QQQ">$687.99</p>
-        <p class="mkt-quote-chg">+0.65%</p>
-        <p class="mkt-quote-sym">QQQ · day range 680.05–695.77</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Russell 2000</h3>
-        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
-        <p class="mkt-quote-chg">-0.48%</p>
-        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Gold</h3>
-        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
-        <p class="mkt-quote-chg">-1.49%</p>
-        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
       </article>
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>

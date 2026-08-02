@@ -108,22 +108,8 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
-/* Cleaner headline — swap the heavy embossed "Impact" poster font (the
-   shared .hero-h1 default) for the site's normal clean display font,
-   dropping the thick outline/drop-shadow stack. */
-.mkt-hero .hero-h1{
-  font-family:var(--f-body);
-  font-weight:800;
-  letter-spacing:-.01em;
-  -webkit-text-stroke:0;
-  text-shadow:none;
-}
-.mkt-hero .hero-h1 em{
-  font-style:normal;
-  color:var(--amber);
-  -webkit-text-stroke:0;
-  text-shadow:none;
-}
+/* The .mkt-hero overrides that used to live here went with the hero itself on
+   2026-08-02 — see the .mkt-intro block further down, which replaced it. */
 
 
 
@@ -153,31 +139,9 @@
 <style>
 /* ─ Page-specific additions only ─ */
 
-/* Breadcrumb */
-.breadcrumb{
-  font-size:.78rem;color:rgba(255,255,255,.32);
-  display:flex;align-items:center;gap:7px;margin-bottom:18px;
-}
-.breadcrumb a{color:rgba(255,255,255,.32);transition:.2s}
-.breadcrumb a:hover{color:var(--amber)}
-.breadcrumb-sep{color:rgba(255,255,255,.15)}
-
-/* Static hero note (non-interactive, replaces the old "See live data" link) */
-.mkt-hero-note{
-  color:var(--green-lt);font-size:.94rem;font-weight:700;
-  display:inline-flex;align-items:center;gap:6px;letter-spacing:.01em;
-}
-
-/* Live pill */
-.live-pill{
-  display:inline-flex;align-items:center;gap:7px;
-  background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);
-  color:var(--green-lt);padding:5px 14px;border-radius:20px;
-  font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
-  margin-bottom:26px;
-}
-.live-pill-dot{width:7px;height:7px;border-radius:50%;background:var(--green-lt);animation:hfyPulse 1.6s infinite}
-@keyframes hfyPulse{0%,100%{opacity:1}50%{opacity:.3}}
+/* The breadcrumb, live pill and hero-note rules that sat here were only ever
+   used by the hero, which was removed on 2026-08-02. The replacement strip
+   carries its own breadcrumb styling — see .mkt-intro further down. */
 
 /* Widget shells */
 .mkt-section{background:var(--dark)}
@@ -236,23 +200,9 @@
 }
 @media(max-width:480px){.mkt-layout{margin-top:64px}.mkt-side-nav{top:64px;padding:10px 14px;gap:6px}}
 
-/* Hero — the 52vh min-height (set below) is desktop-only. On mobile it
-   fights the site's flex-start override in styles.css because inline
-   styles beat media-query rules, forcing a huge centered empty gap
-   above the page content. Moved to a class so the mobile override wins. */
-.mkt-hero{min-height:52vh}
-@media(max-width:1024px){.mkt-hero{min-height:auto;align-items:flex-start}}
-@media(max-width:600px){.mkt-hero{padding-top:28px}}
-/* Desktop — the site-wide .hero padding (60px 40px 120px) plus a tall
-   forced min-height push the CTA button below the fold on markets.html,
-   since this page's hero is single-column (no side image to balance it).
-   Trim the padding and inter-element spacing so more is visible without
-   scrolling, without touching .hero on other pages. */
-@media(min-width:1025px){
-  .mkt-hero{min-height:44vh;padding-top:44px;padding-bottom:56px}
-  .mkt-hero .hero-sub{margin-bottom:24px}
-  .mkt-hero .cta-row{margin-top:0}
-}
+/* The .mkt-hero min-height and padding overrides that lived here existed to
+   stop the hero eating the fold. The hero is gone as of 2026-08-02 and so are
+   they — .mkt-intro replaces it and is sized in px, not vh. */
 
 /* Ticker tape strip */
 .mkt-ticker-section{padding:18px 40px}
@@ -343,6 +293,42 @@
 
   <div class="mkt-main">
 
+<style>
+/* Intro strip — replaced the full-height hero on 2026-08-02. The hero ate most
+   of a screen and pushed every actual number below the fold, which is backwards
+   for a page whose entire pitch is "check this daily." This says what the page
+   is for, carries the h1 the page still needs for search, and is done in
+   roughly 200px. Namespaced mkt-intro*, additive. */
+.mkt-intro{background:#060606;padding:44px 22px 34px;border-bottom:1px solid rgba(255,255,255,.06)}
+.mkt-intro-in{max-width:1060px;margin:0 auto}
+.mkt-intro .crumb{font-size:.78rem;color:rgba(255,255,255,.32);margin:0 0 16px}
+.mkt-intro .crumb a{color:rgba(255,255,255,.32);transition:.2s}
+.mkt-intro .crumb a:hover{color:#F5C520}
+.mkt-intro .crumb span{color:rgba(255,255,255,.15);margin:0 6px}
+.mkt-intro h1{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:clamp(26px,4.2vw,40px);line-height:1.15;color:#fff;
+  margin:0 0 14px;letter-spacing:-.02em;
+}
+.mkt-intro h1 em{font-style:normal;color:#F5C520}
+.mkt-intro p{font-size:16px;line-height:1.7;color:rgba(255,255,255,.55);max-width:720px;margin:0}
+.mkt-intro strong{color:#F5C520;font-weight:700}
+@media(max-width:600px){.mkt-intro{padding:32px 16px 26px}.mkt-intro p{font-size:15px}}
+</style>
+
+<section class="mkt-intro">
+  <div class="mkt-intro-in">
+    <p class="crumb"><a href="index.html">Hustlin'</a><span>/</span>Markets</p>
+    <h1>A reason to <em>come back tomorrow.</em></h1>
+    <p>
+      That is the whole goal of the Hustlin' Markets page. Today's tape, the headlines
+      behind it, who reports this week, and live US economic data &mdash; one page, free,
+      no account, updated every build. We are still building this out and new tools land
+      here regularly. <strong>Perfecting that hustle, 100%.</strong>
+    </p>
+  </div>
+</section>
+
 <!-- ============ DAILY DASHBOARD — "Today's Tape" ============
      This replaced the scrolling TradingView ticker tape at the top of the page
      (removed 2026-08-02). The tape was an iframe, so a crawler saw an empty box
@@ -357,34 +343,10 @@
     <!-- MKT:quotes:START -->
     <div class="mkt-quote-row">
       <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">S&amp;P 500</h3>
-        <p class="mkt-quote-px" data-fill="q-SPY">$747.03</p>
-        <p class="mkt-quote-chg">+0.72%</p>
-        <p class="mkt-quote-sym">SPY · day range 737.68–748.89</p>
-      </article>
-      <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Dow Jones</h3>
         <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
         <p class="mkt-quote-chg">+0.54%</p>
         <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
-      </article>
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">Nasdaq 100</h3>
-        <p class="mkt-quote-px" data-fill="q-QQQ">$687.99</p>
-        <p class="mkt-quote-chg">+0.65%</p>
-        <p class="mkt-quote-sym">QQQ · day range 680.05–695.77</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Russell 2000</h3>
-        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
-        <p class="mkt-quote-chg">-0.48%</p>
-        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Gold</h3>
-        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
-        <p class="mkt-quote-chg">-1.49%</p>
-        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
       </article>
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>
@@ -399,36 +361,6 @@
       That is deliberate: an index is a number you cannot buy, an ETF is the thing you
       would actually own. Prices are last close, refreshed each build.
     </p>
-  </div>
-</section>
-
-<!-- HERO -->
-<section class="hero mkt-hero">
-  <div class="hero-wrap" style="grid-template-columns:1fr">
-    <div>
-      <div class="breadcrumb">
-        <a href="index.html">Hustlin'</a>
-        <span class="breadcrumb-sep">/</span>
-        <span>Markets</span>
-      </div>
-      <div class="live-pill">
-        <span class="live-pill-dot"></span>
-        Live Market Data
-      </div>
-      <h1 class="hero-h1" style="font-size:clamp(2.2rem,4vw,3.6rem)">
-        Watch The Market.<br>
-        <em>Learn What You're Seeing.</em>
-      </h1>
-      <p class="hero-sub" style="max-width:660px">
-        Today's tape, the headlines behind it, and live US economic data — organised into the
-        four questions that actually decide outcomes, instead of a wall of charts with no
-        opinion about what matters. Free, no account, no email.
-      </p>
-      <div class="cta-row">
-        <a class="btn-a" href="markets-economic.html">Start with the economy <span>→</span></a>
-        <span class="mkt-hero-note">Today's numbers ↓</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -454,24 +386,10 @@
         </a>
       </li>
       <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/bloomberg-defers-inclusion-of-indian-bonds-in-global-index-ms8wqbxp" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Bloomberg puts off adding Indian bonds to its global index</span>
-          <span class="mkt-news-sum">Bloomberg delays adding Indian bonds to its global index, disappointing traders and prompting expected selling in the bond market.</span>
-          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
         <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/why-people-are-dropping-out-of-the-workforce-and-not-looking-for-new-jobs-the-market-wore-me-down.html" target="_blank" rel="noopener nofollow">
           <span class="mkt-news-hd">Why people are dropping out of the workforce and not looking for new jobs: 'The market wore me down'</span>
           <span class="mkt-news-sum">Candidates giving up in the face of relentless job searches could be part of the reason behind recent declines in the labor force participation rate.</span>
           <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/data-center-boom-fueling-demand-for-workforce-housing" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Data centre boom fuels demand for workforce housing</span>
-          <span class="mkt-news-sum">A typical 100-megawatt data centre employs hundreds of workers to build it, although it needs only dozens to eventually operate it, according to a…</span>
-          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
       <li class="mkt-news-item">
@@ -482,24 +400,10 @@
         </a>
       </li>
       <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/dollar-heads-for-worst-week-in-three-months-as-fed-doubts-grow" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Dollar logs its worst week in over 3 months amid Fed doubts</span>
-          <span class="mkt-news-sum">Traders boosted their bullish dollar bets ahead of the Fed meeting, turning the most upbeat since 2014 as of Tuesday, according to Commodity Futures…</span>
-          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
         <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/flights-are-getting-even-more-expensive-as-fuel-prices-rise.html" target="_blank" rel="noopener nofollow">
           <span class="mkt-news-hd">Why flights are so expensive and will likely stay that way</span>
           <span class="mkt-news-sum">Airlines are paying billions of dollars more in fuel costs this year</span>
           <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/indian-firms-plan-fresh-price-hikes-testing-inflation-outlook" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Indian companies plan for fresh price hikes, testing inflation outlook</span>
-          <span class="mkt-news-sum">Consumer prices rose above the Reserve Bank of India’s 4% target for the first time in nearly a year and a half in June as food and fuel costs climbed</span>
-          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
         </a>
       </li>
       <li class="mkt-news-item">
@@ -1363,17 +1267,8 @@
       <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.</caption>
       <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Consumer Discretionary</th><td>XLY</td><td class="up" data-fill="sector-XLY">+3.29%</td></tr>
-        <tr><th scope="row">Communication Services</th><td>XLC</td><td class="up" data-fill="sector-XLC">+1.56%</td></tr>
-        <tr><th scope="row">Energy</th><td>XLE</td><td class="up" data-fill="sector-XLE">+1.00%</td></tr>
-        <tr><th scope="row">Industrials</th><td>XLI</td><td class="up" data-fill="sector-XLI">+0.81%</td></tr>
-        <tr><th scope="row">Financials</th><td>XLF</td><td class="down" data-fill="sector-XLF">-0.11%</td></tr>
         <tr><th scope="row">Technology</th><td>XLK</td><td class="down" data-fill="sector-XLK">-0.22%</td></tr>
-        <tr><th scope="row">Consumer Staples</th><td>XLP</td><td class="down" data-fill="sector-XLP">-0.49%</td></tr>
         <tr><th scope="row">Real Estate</th><td>XLRE</td><td class="down" data-fill="sector-XLRE">-0.51%</td></tr>
-        <tr><th scope="row">Healthcare</th><td>XLV</td><td class="down" data-fill="sector-XLV">-0.59%</td></tr>
-        <tr><th scope="row">Utilities</th><td>XLU</td><td class="down" data-fill="sector-XLU">-0.69%</td></tr>
-        <tr><th scope="row">Materials</th><td>XLB</td><td class="down" data-fill="sector-XLB">-2.34%</td></tr>
       </tbody>
     </table>
     <!-- MKT:sectors:END -->

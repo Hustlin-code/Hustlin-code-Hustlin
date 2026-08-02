@@ -188,6 +188,13 @@
 .eco-call{margin:26px 0 0;padding:20px 22px;border-radius:13px;background:#FFFBEF;
   border:1px solid #EFE2B8;border-left:4px solid #F5C520;max-width:760px}
 .eco-call p{margin:0;font-size:14.5px;line-height:1.68;color:#3d3a33}
+/* `.eco-sec.dark p` is (0,2,1) and beats `.eco-call p` at (0,1,1), so a plain
+   cream callout inside a dark section was rendering near-white text on a
+   near-white background — invisible, and it reads as the box being cut off.
+   Match specificity. The dark-variant callouts set colour inline, which beats
+   both rules, so they are unaffected. */
+.eco-sec.dark .eco-call p{color:#3d3a33}
+.eco-sec.dark .eco-call .eco-call-h{color:#060606}
 .eco-call a{color:#8A6D08;font-weight:700}
 .eco-call .eco-call-h{display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
   letter-spacing:.05em;text-transform:uppercase}
@@ -267,6 +274,33 @@
   color:#F5C520;padding:12px 14px 0;margin:0}
 .tec-breadth-sub{font-size:12px;color:rgba(255,255,255,.4);padding:2px 14px 8px;margin:0;line-height:1.5}
 
+/* ── Global index charts (added 2026-08-02) ───────────────────────
+   A picker rather than a grid of every index at every timeframe. Thirteen
+   indexes across two timeframes would be twenty-six TradingView iframes on
+   one page; each one is a full embedded app, and the page already carries
+   six. Two iframes that swap on click give the same coverage at full chart
+   size for a fraction of the weight. */
+.tec-idx-groups{display:flex;flex-direction:column;gap:12px;margin:22px 0 20px}
+.tec-idx-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tec-idx-region{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);min-width:104px;flex-shrink:0}
+@media(max-width:600px){.tec-idx-region{min-width:0;width:100%;margin-bottom:2px}}
+.tec-idx-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.62);border-radius:18px;padding:7px 15px;
+  font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:.15s;white-space:nowrap}
+.tec-idx-btn:hover{border-color:rgba(245,197,32,.45);color:#F5C520;background:rgba(245,197,32,.08)}
+.tec-idx-btn[aria-pressed="true"]{background:#F5C520;border-color:#F5C520;color:#060606;font-weight:800}
+.tec-idx-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px;align-items:stretch}
+@media(max-width:1000px){.tec-idx-grid{grid-template-columns:1fr}}
+.tec-idx-grid > div{display:flex;flex-direction:column}
+.tec-idx-cap{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:#F5C520;padding:0 2px 3px;margin:0}
+.tec-idx-sub{font-size:12.5px;color:rgba(255,255,255,.4);padding:0 2px 9px;margin:0;line-height:1.5;
+  min-height:2.9em}
+@media(max-width:1000px){.tec-idx-sub{min-height:0}}
+.tec-idx-chart{background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
+  border-radius:16px;padding:6px;overflow:hidden;margin-top:auto}
+
 .eco-faq{display:grid;gap:12px;margin-top:26px;max-width:820px}
 .eco-faq details{background:#fff;border:1px solid #E4DFD3;border-radius:13px;padding:0}
 .eco-faq summary{cursor:pointer;padding:17px 20px;font-weight:700;font-size:15.5px;color:#060606;list-style:none}
@@ -315,6 +349,7 @@
   <a href="markets-technical.html" class="active">Technical</a>
   <a href="markets-behavior.html">Behaviour</a>
   <a href="Markets/chart.html">Chart</a>
+  <a href="#global">Global Indexes</a>
   <a href="markets.html#heatmaps">Heatmaps</a>
 </div>
 
@@ -362,34 +397,10 @@
     <!-- MKT:techQuotes:START -->
     <div class="mkt-quote-row">
       <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">S&amp;P 500</h3>
-        <p class="mkt-quote-px" data-fill="q-SPY">$747.03</p>
-        <p class="mkt-quote-chg">+0.72%</p>
-        <p class="mkt-quote-sym">SPY · day range 737.68–748.89</p>
-      </article>
-      <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Dow Jones</h3>
         <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
         <p class="mkt-quote-chg">+0.54%</p>
         <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
-      </article>
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">Nasdaq 100</h3>
-        <p class="mkt-quote-px" data-fill="q-QQQ">$687.99</p>
-        <p class="mkt-quote-chg">+0.65%</p>
-        <p class="mkt-quote-sym">QQQ · day range 680.05–695.77</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Russell 2000</h3>
-        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
-        <p class="mkt-quote-chg">-0.48%</p>
-        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Gold</h3>
-        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
-        <p class="mkt-quote-chg">-1.49%</p>
-        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
       </article>
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>
@@ -677,6 +688,98 @@
         almost everything else on this page.
       </p>
     </div>
+  </div>
+</section>
+
+<!-- ============ GLOBAL INDEX CHARTS ============
+     Sits with internals deliberately. Breadth asks what the S&P 500 is hiding
+     inside itself; this asks the same question one level up — whether a US move
+     is a US story or a global one. Both are "the index level is not the whole
+     picture" checks, so they belong together.
+
+     Two timeframes because they answer different questions and people
+     habitually look at only the first: a year of daily bars shows the move you
+     are living through, five years of weekly bars shows whether that move is
+     large or ordinary. -->
+<section class="eco-sec dark" id="global">
+  <div class="eco-in">
+    <p class="eco-num">Layer 5 &mdash; Global context</p>
+    <h2>Is it just us, or is it everywhere?</h2>
+    <p>
+      Breadth asks what the S&amp;P 500 is hiding inside itself. This asks the same question a
+      level up. When US indexes fall, the first useful check is whether Europe and Asia fell
+      too. If they did, it is a global repricing &mdash; rates, the dollar, oil, risk appetite.
+      If they did not, it is something about the US specifically, and that is a different
+      problem with different consequences for what you own.
+    </p>
+    <p>
+      Pick an index. The left chart is one year of daily bars &mdash; the move you are actually
+      living through. The right is five years of weekly bars, which is the one people skip and
+      the one that supplies the scale: a drop that dominates the daily chart often turns out to
+      be an ordinary wobble on the weekly, and occasionally it turns out not to be.
+    </p>
+
+    <div class="tec-idx-groups" role="group" aria-label="Choose an index">
+      <div class="tec-idx-row">
+        <span class="tec-idx-region">United States</span>
+        <button class="tec-idx-btn" type="button" aria-pressed="true"  data-sym="SP:SPX"        data-name="S&amp;P 500">S&amp;P 500</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="NASDAQ:NDX"    data-name="Nasdaq 100">Nasdaq 100</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="DJ:DJI"        data-name="Dow 30">Dow 30</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:RUT"       data-name="Russell 2000">Russell 2000</button>
+      </div>
+      <div class="tec-idx-row">
+        <span class="tec-idx-region">Europe</span>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="FTSE:UKX"      data-name="FTSE 100">FTSE 100</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="XETR:DAX"      data-name="DAX">DAX</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="EURONEXT:PX1"  data-name="CAC 40">CAC 40</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:SX5E"      data-name="Euro Stoxx 50">Euro Stoxx 50</button>
+      </div>
+      <div class="tec-idx-row">
+        <span class="tec-idx-region">Asia-Pacific</span>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:NI225"     data-name="Nikkei 225">Nikkei 225</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:HSI"       data-name="Hang Seng">Hang Seng</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="SSE:000001"    data-name="Shanghai Composite">Shanghai</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="TVC:KOSPI"     data-name="KOSPI">KOSPI</button>
+        <button class="tec-idx-btn" type="button" aria-pressed="false" data-sym="ASX:XJO"       data-name="ASX 200">ASX 200</button>
+      </div>
+    </div>
+
+    <div class="tec-idx-grid">
+      <div>
+        <p class="tec-idx-cap" id="tec-idx-lbl-1">S&amp;P 500 &mdash; 1 year, daily</p>
+        <p class="tec-idx-sub">Every trading day for the last twelve months. Close enough to see individual sessions.</p>
+        <div class="tec-idx-chart"><div id="tec-idx-chart-1"></div></div>
+      </div>
+      <div>
+        <p class="tec-idx-cap" id="tec-idx-lbl-2">S&amp;P 500 &mdash; 5 years, weekly</p>
+        <p class="tec-idx-sub">One bar per week for five years. Same index, enough distance to judge whether a move is big.</p>
+        <div class="tec-idx-chart"><div id="tec-idx-chart-2"></div></div>
+      </div>
+    </div>
+
+    <p class="eco-widget-note">
+      Charts by TradingView and may be delayed. Index coverage and history vary by exchange, and
+      a few of these are quoted from a data feed rather than the exchange itself. Note that none
+      of these are adjusted for currency: an index can rise in its home currency while a dollar
+      investor in it loses money, which is why a foreign index chart answers "what happened
+      there", not "what would I have made".
+    </p>
+
+    <h3>What to actually look for</h3>
+    <p>
+      Direction agreement is the whole exercise. If the Nikkei, the DAX and the S&amp;P are all
+      turning at the same time, whatever is happening is bigger than any one economy and the
+      cause is usually macro &mdash; rates, the dollar, energy. When one market diverges and
+      keeps diverging, that is domestic: policy, currency, or a sector that dominates that
+      index. The Nikkei and the Hang Seng have both spent long stretches disconnected from the
+      US, and Hong Kong in particular trades on mainland China policy far more than on anything
+      happening in New York.
+    </p>
+    <p>
+      The honest limit, same as everywhere else on this page: agreement across markets tells you
+      the move is broad, not that it will continue. Every global sell-off in history looked
+      exactly like this on the way down, including the ones that recovered within weeks.
+    </p>
   </div>
 </section>
 
@@ -1203,6 +1306,93 @@
   var a = document.getElementById('tec-focus-a');
   if (q && pick) q.textContent = pick[0];
   if (a && pick) a.textContent = pick[1];
+})();
+</script>
+<script>
+/* =============================================================================
+   Global index charts — one picker, two timeframes.
+   =============================================================================
+
+   WHY A PICKER. Thirteen indexes at two timeframes is twenty-six TradingView
+   embeds, and each one is a full application in an iframe. This page already
+   carries six. Rebuilding two on click costs a fraction of that and gives each
+   chart the full column width instead of a thumbnail.
+
+   The symbol never comes from user input — it is read from data-sym on our own
+   buttons, so there is no injection surface here the way there is on the
+   markets.html ticker lookup. It is still written through a whitelist before it
+   reaches a widget config, because that assumption is one careless edit away
+   from being false.
+
+   Charts are built by injecting a <script> with the config as its text body,
+   which is TradingView's documented embed contract — not a string of HTML.
+   ========================================================================== */
+(function () {
+  var groups = document.querySelector('.tec-idx-groups');
+  var host1 = document.getElementById('tec-idx-chart-1');
+  var host2 = document.getElementById('tec-idx-chart-2');
+  if (!groups || !host1 || !host2) return;
+
+  var buttons = Array.prototype.slice.call(groups.querySelectorAll('.tec-idx-btn'));
+
+  // Exchange-prefixed TradingView symbols: letters, digits, colon, dot, dash.
+  function cleanSymbol(v) {
+    return String(v || '').toUpperCase().replace(/[^A-Z0-9:.\-]/g, '').slice(0, 32);
+  }
+
+  function draw(host, symbol, interval, range, height) {
+    host.innerHTML = '';
+    var box = document.createElement('div');
+    box.className = 'tradingview-widget-container';
+    var inner = document.createElement('div');
+    inner.className = 'tradingview-widget-container__widget';
+    box.appendChild(inner);
+
+    var sc = document.createElement('script');
+    sc.type = 'text/javascript';
+    sc.async = true;
+    sc.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    sc.text = JSON.stringify({
+      width: '100%', height: height, symbol: symbol,
+      interval: interval, range: range,
+      timezone: 'Etc/UTC', theme: 'dark', style: '1', locale: 'en',
+      hide_side_toolbar: true, hide_top_toolbar: false, hide_volume: true,
+      allow_symbol_change: false, save_image: false, enable_publishing: false,
+      withdateranges: true,
+      backgroundColor: 'rgba(13,13,13,1)', gridColor: 'rgba(255,255,255,0.06)',
+      support_host: 'https://www.tradingview.com'
+    });
+    box.appendChild(sc);
+    host.appendChild(box);
+  }
+
+  function select(btn) {
+    var symbol = cleanSymbol(btn.getAttribute('data-sym'));
+    var name = btn.getAttribute('data-name') || btn.textContent.trim();
+    if (!symbol) return;
+
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+
+    var l1 = document.getElementById('tec-idx-lbl-1');
+    var l2 = document.getElementById('tec-idx-lbl-2');
+    // textContent, not innerHTML — data-name carries entities like S&P 500.
+    if (l1) l1.textContent = name + ' — 1 year, daily';
+    if (l2) l2.textContent = name + ' — 5 years, weekly';
+
+    // 'D' = one bar per day over 12 months. 'W' = one bar per week over 60.
+    draw(host1, symbol, 'D', '12M', 460);
+    draw(host2, symbol, 'W', '60M', 460);
+  }
+
+  groups.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.tec-idx-btn') : null;
+    if (btn && groups.contains(btn)) select(btn);
+  });
+
+  // Render whichever button ships marked as pressed, falling back to the first.
+  var start = buttons.filter(function (b) { return b.getAttribute('aria-pressed') === 'true'; })[0]
+           || buttons[0];
+  if (start) select(start);
 })();
 </script>
 <script src="app.js?v=DEPLOYSTAMP"></script>
