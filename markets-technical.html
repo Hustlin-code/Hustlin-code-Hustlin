@@ -83,7 +83,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=202608012040">
+<link rel="stylesheet" href="styles.css?v=20260801">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -222,6 +222,42 @@
   display:flex;align-items:center;justify-content:center}
 .eco-steps strong{color:#060606}
 
+/* breadth configurations */
+.tec-config{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin:8px 0 0}
+.tec-conf{background:#111;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;border-top:4px solid #6F6A5E}
+.tec-conf.good{border-top-color:#2DA02D}
+.tec-conf.warn{border-top-color:#E0A800}
+.tec-conf.bad{border-top-color:#C4381F}
+.tec-conf-tag{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin:0 0 8px;color:rgba(255,255,255,.45)}
+.tec-conf.good .tec-conf-tag{color:#5FD35F}
+.tec-conf.warn .tec-conf-tag{color:#E0A800}
+.tec-conf.bad .tec-conf-tag{color:#E4634A}
+.tec-conf h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:15.5px;font-weight:800;color:#fff;margin:0 0 8px;line-height:1.35}
+.tec-conf p{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.58);margin:0 0 10px;max-width:none}
+.tec-conf .tec-conf-note{font-size:12.5px;color:rgba(255,255,255,.4);margin:0;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
+
+/* wide sector breadth table */
+.tec-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:6px}
+.tec-scroll::-webkit-scrollbar{height:8px}
+.tec-scroll::-webkit-scrollbar-thumb{background:#D9D3C4;border-radius:4px}
+.tec-wide{min-width:860px}
+.tec-wide th[scope=col]{white-space:nowrap}
+.tec-wide td{white-space:nowrap;font-family:'Space Mono',monospace;font-size:13px}
+.tec-wide th[scope=row]{white-space:nowrap;font-weight:700}
+.tec-sym{color:#8b8577!important}
+.tec-wide .up{color:#2DA02D;font-weight:700}
+.tec-wide .down{color:#C4381F;font-weight:700}
+.tec-na{color:#B8B2A3}
+.tec-rangecell{min-width:110px}
+.tec-range{display:inline-block;width:64px;height:8px;border-radius:5px;background:#EFEBE1;
+  overflow:hidden;vertical-align:middle;margin-right:8px}
+.tec-range-bar{display:block;height:100%;border-radius:5px}
+.tec-range-bar.hot{background:#2DA02D}
+.tec-range-bar.warm{background:#8CC63F}
+.tec-range-bar.cool{background:#E0A800}
+.tec-range-bar.cold{background:#C4381F}
+.tec-range-n{font-size:12px;color:#6F6A5E}
+
 .eco-widget{background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
   border-radius:16px;padding:6px;overflow:hidden;margin-top:8px}
 .eco-widget-note{font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.65;margin:14px 0 0;max-width:720px}
@@ -277,7 +313,7 @@
   <a href="markets-economic.html">Economic</a>
   <a href="markets-fundamental.html">Fundamental</a>
   <a href="markets-technical.html" class="active">Technical</a>
-  <a href="trading-psychology.html">Behaviour</a>
+  <a href="markets-behavior.html">Behaviour</a>
   <a href="Markets/chart.html">Chart</a>
   <a href="Markets/heatmaps.html">Heatmaps</a>
 </div>
@@ -570,27 +606,77 @@
       The 50-day and 200-day cover the same intermediate and long-term ground.
     </p>
 
-    <h3>How to actually read these</h3>
+    <h3>Read the three together, not one at a time</h3>
     <p>
-      The level matters less than the direction and the disagreement. Three situations are worth
-      recognising, and none of them is a trigger.
+      Each chart on its own is close to useless. The information is in how they line up, because
+      the three lookbacks are effectively three different time horizons of the same question and
+      disagreement between them is the signal. Five configurations cover almost everything you
+      will see.
+    </p>
+    <div class="tec-config">
+      <article class="tec-conf good">
+        <p class="tec-conf-tag">Healthy</p>
+        <h4>All three high, index rising</h4>
+        <p>Broad participation across every horizon. Most companies are above most of their averages and the index reflects that honestly.</p>
+        <p class="tec-conf-note">Tells you the current move is real. Tells you nothing about tomorrow &mdash; this configuration has persisted for years and has also ended abruptly.</p>
+      </article>
+      <article class="tec-conf warn">
+        <p class="tec-conf-tag">Narrowing</p>
+        <h4>Index at a high, 200-day falling</h4>
+        <p>The classic divergence. The index is being carried by fewer and fewer names while the average company is already rolling over.</p>
+        <p class="tec-conf-note">Has often preceded weakness. Has also run for over a year without any &mdash; which is why acting on it alone has cost people enormous upside.</p>
+      </article>
+      <article class="tec-conf warn">
+        <p class="tec-conf-tag">Churn</p>
+        <h4>20-day whipsawing, 200-day flat</h4>
+        <p>Short-term breadth swinging between extremes while the long-term read barely moves. A range, not a trend.</p>
+        <p class="tec-conf-note">The environment where trend-following performs worst and generates the most false signals. Worth recognising precisely so you expect less from your indicators.</p>
+      </article>
+      <article class="tec-conf good">
+        <p class="tec-conf-tag">Thrust</p>
+        <h4>20-day spiking from very low to very high</h4>
+        <p>A rapid move from almost nothing participating to almost everything, usually over days rather than weeks, off a low.</p>
+        <p class="tec-conf-note">Among the better-documented breadth configurations. It is rare, and rarity is exactly why you should not wait for one.</p>
+      </article>
+      <article class="tec-conf bad">
+        <p class="tec-conf-tag">Washout</p>
+        <h4>20-day in single digits</h4>
+        <p>Almost every company below its short-term average at once. This happens near panic lows and it does not happen often.</p>
+        <p class="tec-conf-note">The least unreliable configuration on this list, and "least unreliable" is genuinely the strongest claim available here.</p>
+      </article>
+      <article class="tec-conf bad">
+        <p class="tec-conf-tag">Deterioration</p>
+        <h4>All three falling together</h4>
+        <p>Short, medium and long-term participation all declining. No disagreement between horizons &mdash; everything is getting worse in step.</p>
+        <p class="tec-conf-note">Unambiguous about the present and silent about the future. Most declines look like this, and so do most pullbacks that recover in a fortnight.</p>
+      </article>
+    </div>
+
+    <h3>A worked example of the divergence everyone quotes</h3>
+    <p>
+      Say the S&amp;P 500 sets a record high, and the percentage of its members above their
+      200-day average has fallen from 70% to 45% over the same three months. Those two facts are
+      not in conflict &mdash; they are describing different things. The index is capitalisation
+      weighted, so a handful of the largest companies rising can outweigh several hundred
+      smaller ones falling. Breadth counts companies; the index counts dollars.
     </p>
     <p>
-      <strong>Broad strength:</strong> the index rising with a high and rising percentage above
-      the 200-day. Most companies are participating. This is the healthiest configuration and it
-      tells you nothing about tomorrow.
+      What you have learned is concrete: the move is narrow. What you have <em>not</em> learned is
+      what happens next, and this is where almost everyone overreaches. Narrow markets have
+      broadened out and kept rising. They have also rolled over. The useful response is not to
+      sell &mdash; it is to notice that an index fund now has more of its outcome tied to fewer
+      companies than it did three months ago, and to decide whether you are comfortable with that
+      concentration. That is a portfolio question, not a timing one.
     </p>
-    <p>
-      <strong>Narrowing:</strong> the index at or near a high while the 200-day percentage falls.
-      Fewer names are carrying it. Historically this has often preceded weakness &mdash; and has
-      also persisted for a year or more without any, which is why acting on it alone has cost
-      people a great deal of upside.
-    </p>
-    <p>
-      <strong>Washout:</strong> the 20-day percentage collapsing toward single digits. Almost
-      everything is below its short-term average, which happens near panic lows. It is the least
-      unreliable of the three, and "least unreliable" is the strongest claim available here.
-    </p>
+    <div class="eco-call" style="background:#141005;border-color:rgba(245,197,32,.28)">
+      <p style="color:rgba(255,255,255,.66)">
+        <span class="eco-call-h" style="color:#fff">Where breadth actually earns its keep</span>
+        Not as a signal. As a check on the story you are being told. When a headline says
+        "markets hit record high", breadth tells you whether that describes the market or five
+        companies in it &mdash; and that is a factual question with a factual answer, unlike
+        almost everything else on this page.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -608,29 +694,30 @@
     <div class="eco-widget" style="background:#0D0D0D">
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
         {
-          "symbols": [
-            ["Dow Industrials", "DJ:DJI|12M"],
-            ["Dow Transports", "DJ:DJT|12M"]
-          ],
-          "chartOnly": false, "width": "100%", "height": "460", "locale": "en",
-          "colorTheme": "dark", "isTransparent": true, "autosize": false,
-          "showVolume": false, "showMA": false, "hideDateRanges": false,
-          "scalePosition": "right", "scaleMode": "Percentage",
-          "fontColor": "rgba(255,255,255,0.6)", "gridLineColor": "rgba(255,255,255,0.06)",
-          "lineWidth": 2,
-          "chartType": "line",
-          "color": "#F5C520", "lineColor": "#F5C520",
-          "bottomColor": "rgba(245,197,32,0)", "topColor": "rgba(245,197,32,0.2)"
+          "width": "100%", "height": "520", "symbol": "AMEX:DIA", "interval": "D",
+          "range": "12M", "timezone": "Etc/UTC", "theme": "dark", "style": "2",
+          "locale": "en", "hide_side_toolbar": true, "hide_volume": true, "allow_symbol_change": false,
+          "save_image": false, "enable_publishing": false, "withdateranges": true,
+          "compareSymbols": [{ "symbol": "AMEX:IYT", "position": "SameScale" }],
+          "backgroundColor": "rgba(6,6,6,1)", "gridColor": "rgba(255,255,255,0.06)",
+          "support_host": "https://www.tradingview.com"
         }
         </script>
       </div>
     </div>
     <p class="eco-widget-note" style="color:#6F6A5E">
-      Industrials in gold, transports on the second tab. Scaled as a percentage so the two are
-      comparable &mdash; they trade at very different absolute levels, and comparing raw index
-      points would be meaningless. Supplied by TradingView and may be delayed.
+      Both lines on one scale &mdash; that overlay <em>is</em> the analysis, because Dow Theory is
+      entirely about whether the two agree. Where they track together, the move has participation
+      behind it. Where transports flatten while industrials climb, that gap is the
+      non-confirmation.
+      <br><br>
+      These are the <strong>ETFs</strong>, not the averages themselves &mdash; DIA for the
+      industrials, IYT for transports. Two reasons: the raw Dow Jones averages are licensed and
+      will not render in a free embed, and an ETF is the thing a reader could actually buy.
+      Normalised to percentage change so the two are comparable, since they trade at very
+      different absolute levels. Supplied by TradingView and may be delayed.
     </p>
 
     <h3>What confirmation and divergence mean</h3>
@@ -663,36 +750,191 @@
 <section class="eco-sec white" id="sectors">
   <div class="eco-in">
     <p class="eco-num">Participation</p>
-    <h2>Which parts of the market are moving.</h2>
+    <h2>Sector breadth, across six horizons.</h2>
     <p class="lede">
-      A second read on the same question breadth answers. If one or two sectors are doing all the
-      work, the index is less healthy than its level suggests.
+      The same question breadth answers, asked of all eleven sectors at once. A single day tells
+      you almost nothing &mdash; sector moves are close to noise over one session. Persistence is
+      the whole point, so this reads across six timeframes plus where each sector sits inside its
+      own 52-week range.
     </p>
     <!-- MKT:techSectors:START -->
-    <table class="mkt-table">
-      <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.</caption>
-      <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th></tr></thead>
+    <div class="tec-scroll">
+    <table class="mkt-table tec-wide">
+      <caption class="mkt-table-cap">All eleven S&amp;P 500 sectors, ranked by three-month return. <strong>Range</strong> is where the sector sits between its 52-week low and high (0 = at the low, 100 = at the high). <strong>Off high</strong> is how far below the 52-week high it trades. Read across a row for persistence; read down the range column for participation.</caption>
+      <thead><tr>
+        <th scope="col">Sector</th><th scope="col">ETF</th>
+        <th scope="col">Today</th><th scope="col">1W</th><th scope="col">3M</th>
+        <th scope="col">6M</th><th scope="col">YTD</th><th scope="col">1Y</th>
+        <th scope="col">52w range</th><th scope="col">Off high</th>
+      </tr></thead>
       <tbody>
-        <tr><th scope="row">Consumer Discretionary</th><td>XLY</td><td class="up" data-fill="sector-XLY">+3.29%</td></tr>
-        <tr><th scope="row">Energy</th><td>XLE</td><td class="up" data-fill="sector-XLE">+1.00%</td></tr>
-        <tr><th scope="row">Industrials</th><td>XLI</td><td class="up" data-fill="sector-XLI">+0.81%</td></tr>
-        <tr><th scope="row">Financials</th><td>XLF</td><td class="down" data-fill="sector-XLF">-0.11%</td></tr>
-        <tr><th scope="row">Technology</th><td>XLK</td><td class="down" data-fill="sector-XLK">-0.22%</td></tr>
-        <tr><th scope="row">Consumer Staples</th><td>XLP</td><td class="down" data-fill="sector-XLP">-0.49%</td></tr>
-        <tr><th scope="row">Real Estate</th><td>XLRE</td><td class="down" data-fill="sector-XLRE">-0.51%</td></tr>
-        <tr><th scope="row">Healthcare</th><td>XLV</td><td class="down" data-fill="sector-XLV">-0.59%</td></tr>
-        <tr><th scope="row">Utilities</th><td>XLU</td><td class="down" data-fill="sector-XLU">-0.69%</td></tr>
+        <tr>
+          <th scope="row">Healthcare</th>
+          <td class="tec-sym">XLV</td>
+          <td><span class="down">-0.6%</span></td>
+          <td><span class="down">-0.5%</span></td>
+          <td><strong><span class="up">+13.8%</span></strong></td>
+          <td><span class="up">+2.8%</span></td>
+          <td><span class="up">+5.0%</span></td>
+          <td><span class="up">+24.6%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar hot" style="width:85%"></span></span><span class="tec-range-n">85</span></td>
+          <td><span class="down">-3.5%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Technology</th>
+          <td class="tec-sym">XLK</td>
+          <td><span class="down">-0.2%</span></td>
+          <td><span class="up">+0.6%</span></td>
+          <td><strong><span class="up">+10.2%</span></strong></td>
+          <td><span class="up">+20.0%</span></td>
+          <td><span class="up">+21.8%</span></td>
+          <td><span class="up">+33.5%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar warm" style="width:68%"></span></span><span class="tec-range-n">68</span></td>
+          <td><span class="down">-11.8%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Financials</th>
+          <td class="tec-sym">XLF</td>
+          <td><span class="down">-0.1%</span></td>
+          <td><span class="up">+0.1%</span></td>
+          <td><strong><span class="up">+9.7%</span></strong></td>
+          <td><span class="up">+6.6%</span></td>
+          <td><span class="up">+4.0%</span></td>
+          <td><span class="up">+8.7%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar hot" style="width:93%"></span></span><span class="tec-range-n">93</span></td>
+          <td><span class="down">-1.1%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Industrials</th>
+          <td class="tec-sym">XLI</td>
+          <td><span class="up">+0.8%</span></td>
+          <td><span class="down">-1.8%</span></td>
+          <td><strong><span class="up">+5.8%</span></strong></td>
+          <td><span class="up">+9.4%</span></td>
+          <td><span class="up">+15.9%</span></td>
+          <td><span class="up">+18.3%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar hot" style="width:83%"></span></span><span class="tec-range-n">83</span></td>
+          <td><span class="down">-3.5%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Real Estate</th>
+          <td class="tec-sym">XLRE</td>
+          <td><span class="down">-0.5%</span></td>
+          <td><span class="down">-1.5%</span></td>
+          <td><strong><span class="up">+3.3%</span></strong></td>
+          <td><span class="up">+9.3%</span></td>
+          <td><span class="up">+11.7%</span></td>
+          <td><span class="up">+8.8%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar warm" style="width:79%"></span></span><span class="tec-range-n">79</span></td>
+          <td><span class="down">-3.0%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Consumer Staples</th>
+          <td class="tec-sym">XLP</td>
+          <td><span class="down">-0.5%</span></td>
+          <td><span class="down">-0.4%</span></td>
+          <td><strong><span class="up">+2.6%</span></strong></td>
+          <td><span class="up">+2.7%</span></td>
+          <td><span class="up">+9.5%</span></td>
+          <td><span class="up">+6.6%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar warm" style="width:66%"></span></span><span class="tec-range-n">66</span></td>
+          <td><span class="down">-5.7%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Energy</th>
+          <td class="tec-sym">XLE</td>
+          <td><span class="up">+1.0%</span></td>
+          <td><span class="up">+2.0%</span></td>
+          <td><strong><span class="up">+0.9%</span></strong></td>
+          <td><span class="up">+21.0%</span></td>
+          <td><span class="up">+33.2%</span></td>
+          <td><span class="up">+36.6%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar hot" style="width:82%"></span></span><span class="tec-range-n">82</span></td>
+          <td><span class="down">-6.2%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Consumer Discretionary</th>
+          <td class="tec-sym">XLY</td>
+          <td><span class="up">+3.3%</span></td>
+          <td><span class="up">+4.7%</span></td>
+          <td><strong><span class="down">-0.6%</span></strong></td>
+          <td><span class="down">-5.1%</span></td>
+          <td><span class="down">-2.8%</span></td>
+          <td><span class="up">+4.9%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar warm" style="width:55%"></span></span><span class="tec-range-n">55</span></td>
+          <td><span class="down">-7.1%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Materials</th>
+          <td class="tec-sym">XLB</td>
+          <td><span class="down">-2.3%</span></td>
+          <td><span class="down">-1.9%</span></td>
+          <td><strong><span class="down">-1.0%</span></strong></td>
+          <td><span class="up">+0.8%</span></td>
+          <td><span class="up">+11.2%</span></td>
+          <td><span class="up">+15.0%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar warm" style="width:69%"></span></span><span class="tec-range-n">69</span></td>
+          <td><span class="down">-6.8%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Utilities</th>
+          <td class="tec-sym">XLU</td>
+          <td><span class="down">-0.7%</span></td>
+          <td><span class="down">-2.9%</span></td>
+          <td><strong><span class="down">-2.9%</span></strong></td>
+          <td><span class="up">+3.5%</span></td>
+          <td><span class="up">+3.9%</span></td>
+          <td><span class="up">+3.5%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar cool" style="width:48%"></span></span><span class="tec-range-n">48</span></td>
+          <td><span class="down">-7.2%</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Communication Services</th>
+          <td class="tec-sym">XLC</td>
+          <td><span class="up">+1.6%</span></td>
+          <td><span class="up">+0.5%</span></td>
+          <td><strong><span class="down">-6.1%</span></strong></td>
+          <td><span class="down">-8.1%</span></td>
+          <td><span class="down">-8.1%</span></td>
+          <td><span class="up">+0.8%</span></td>
+          <td class="tec-rangecell"><span class="tec-range"><span class="tec-range-bar cool" style="width:21%"></span></span><span class="tec-range-n">21</span></td>
+          <td><span class="down">-10.1%</span></td>
+        </tr>
       </tbody>
     </table>
+  </div>
     <!-- MKT:techSectors:END -->
-    <p style="margin-top:20px">
-      One day means very little &mdash; this is a snapshot, and sector moves are noisy day to day.
-      What is worth watching is persistence: the same sectors leading for weeks says something
-      about where money is being committed. Whether that continues is exactly the question nobody
-      can answer, including the people who say they can.
+    <h3>How to read across a row</h3>
+    <p>
+      Three patterns are worth naming. <strong>Consistent leadership</strong> &mdash; green across
+      3M, 6M and 1Y with the range column high &mdash; is a sector genuinely being accumulated,
+      and it is the only pattern here with any staying power. <strong>Fresh reversal</strong>
+      &mdash; red on the year but green on the week and three months, range still low &mdash; is
+      either a bottom or a bounce, and the table cannot tell you which. <strong>Fading
+      leadership</strong> &mdash; strong on the year, weak on the week and month, well off the
+      high &mdash; is money leaving something that used to work, and it is usually visible here
+      before it is visible in commentary.
+    </p>
+    <p>
+      The <strong>range</strong> column is the breadth part, and it is the one most people skip.
+      A sector can be up 2% today and still sit 25% below its 52-week high. Those two facts
+      together describe something a daily change completely hides: participation. A row that is
+      green today with a range reading of 15 is a bounce inside a downtrend, not leadership.
+    </p>
+    <p>
+      What none of this does is tell you what happens next. Rotation is a real long-run pattern
+      and a hopeless schedule &mdash; sectors lead out of turn constantly, and the phase of a
+      cycle is only identifiable afterwards. Use the table to describe the present accurately,
+      which is genuinely hard and genuinely useful, and stop there.
     </p>
 
-    <h3>The heatmap view</h3>
+    <h3>The same picture, sized by company</h3>
+    <p>
+      The table treats every sector equally. The heatmap does not &mdash; it sizes each company by
+      market value, so it shows where the weight actually sits. If a handful of blocks dominate
+      the screen, that is concentration risk rendered visually, and it is the same story the
+      breadth charts tell in numbers.
+    </p>
     <p>
       For the same information at company level, the heatmap shows every S&amp;P 500 member sized
       by market value and coloured by today's move &mdash; which makes concentration obvious at a
@@ -831,10 +1073,10 @@
         <p>What a business earns, owns and owes. Free screener, live earnings calendar, and the nine metrics that carry the weight.</p>
         <span>Open Fundamental Analysis &rarr;</span>
       </a>
-      <a class="eco-rel" href="trading-psychology.html">
+      <a class="eco-rel" href="markets-behavior.html">
         <h3>Behaviour</h3>
-        <p>The one that decides outcomes. Most losses are not analytical failures &mdash; they are a good plan abandoned at the worst moment.</p>
-        <span>Trading Psychology &rarr;</span>
+        <p>The one that decides outcomes. Sentiment in dollars, the costly biases, and a free pre-trade checklist.</p>
+        <span>Open Behaviour &rarr;</span>
       </a>
       <a class="eco-rel" href="markets.html">
         <h3>Markets home</h3>
@@ -963,7 +1205,7 @@
   if (a && pick) a.textContent = pick[1];
 })();
 </script>
-<script src="app.js?v=202608012040"></script>
+<script src="app.js?v=DEPLOYSTAMP"></script>
 <script>
 HFY.initNavOnly();
 </script>

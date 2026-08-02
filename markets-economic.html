@@ -104,7 +104,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=202608012040">
+<link rel="stylesheet" href="styles.css?v=20260801">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -310,6 +310,31 @@
   padding:26px 24px;max-width:820px}
 .eco-focus p.q{font-size:19px;line-height:1.55;color:#fff;margin:0 0 8px;font-weight:700}
 .eco-focus p.a{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.58);margin:0}
+/* ── Cross-asset comparison (added 2026-08-02) ── */
+.xa-chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}
+.xa-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.6);border-radius:20px;padding:8px 15px;font-family:'Space Mono',monospace;
+  font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:7px}
+.xa-chip:hover{border-color:rgba(245,197,32,.45);color:#F5C520}
+.xa-chip[aria-pressed="true"]{background:rgba(245,197,32,.14);border-color:#F5C520;color:#F5C520}
+.xa-chip .dot{width:9px;height:9px;border-radius:50%;background:currentColor;opacity:.5}
+.xa-chip[aria-pressed="true"] .dot{opacity:1}
+.xa-chip.base{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.28);color:#fff;cursor:default}
+.xa-chip.base:hover{border-color:rgba(255,255,255,.28);color:#fff}
+.xa-note{font-size:12.5px;color:rgba(255,255,255,.34);line-height:1.65;margin:14px 0 0;max-width:760px}
+.xa-warn{font-size:13px;color:#E0A800;margin:10px 0 0;min-height:1.1em}
+.xa-table{width:100%;border-collapse:collapse;background:#111;border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;overflow:hidden;font-size:14px;margin-top:8px}
+.xa-table caption{caption-side:top;text-align:left;font-size:13px;color:rgba(255,255,255,.45);
+  padding:0 0 12px;line-height:1.6;max-width:760px}
+.xa-table th[scope=col]{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;
+  color:rgba(255,255,255,.4);padding:12px;border-bottom:2px solid rgba(255,255,255,.1)}
+.xa-table td,.xa-table th[scope=row]{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.06);
+  color:rgba(255,255,255,.62);text-align:left;font-weight:400;vertical-align:top}
+.xa-table th[scope=row]{font-weight:700;color:#fff;white-space:nowrap}
+.xa-table td.sym{font-family:'Space Mono',monospace;color:#F5C520;white-space:nowrap}
+.xa-table tr:last-child td,.xa-table tr:last-child th{border-bottom:none}
+
 
 @media(max-width:600px){
   .eco-sec{padding:44px 16px}
@@ -333,7 +358,7 @@
   <a href="markets-economic.html" class="active">Economic</a>
   <a href="markets-fundamental.html">Fundamental</a>
   <a href="markets-technical.html">Technical</a>
-  <a href="trading-psychology.html">Behaviour</a>
+  <a href="markets-behavior.html">Behaviour</a>
   <a href="Markets/calendar.html">Calendar</a>
   <a href="Markets/screeners.html">Screeners</a>
   <a href="Markets/heatmaps.html">Heatmaps</a>
@@ -972,7 +997,7 @@
     <div class="eco-call">
       <p>
         <span class="eco-call-h">The version you control</span>
-        Stages 1 to 3 of the free <a href="financial-literacy.html">Financial Literacy course</a>
+        The free <a href="financial-literacy.html">Financial Literacy course</a>
         are this block applied to one household &mdash; banking, debt and an emergency fund, in
         that order, with no account required. Or run your own numbers in
         <a href="calculate-your-hustle.html">Calculate Your Hustle</a>.
@@ -997,6 +1022,7 @@
       <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th><th scope="col">Historically leads</th></tr></thead>
       <tbody>
         <tr><th scope="row">Consumer Discretionary</th><td>XLY</td><td class="up" data-fill="sector-XLY">+3.29%</td><td>Early expansion</td></tr>
+        <tr><th scope="row">Communication Services</th><td>XLC</td><td class="up" data-fill="sector-XLC">+1.56%</td><td>Early expansion</td></tr>
         <tr><th scope="row">Energy</th><td>XLE</td><td class="up" data-fill="sector-XLE">+1.00%</td><td>Late cycle</td></tr>
         <tr><th scope="row">Industrials</th><td>XLI</td><td class="up" data-fill="sector-XLI">+0.81%</td><td>Mid cycle</td></tr>
         <tr><th scope="row">Financials</th><td>XLF</td><td class="down" data-fill="sector-XLF">-0.11%</td><td>Early expansion</td></tr>
@@ -1005,6 +1031,7 @@
         <tr><th scope="row">Real Estate</th><td>XLRE</td><td class="down" data-fill="sector-XLRE">-0.51%</td><td>Mid cycle</td></tr>
         <tr><th scope="row">Healthcare</th><td>XLV</td><td class="down" data-fill="sector-XLV">-0.59%</td><td>Late cycle</td></tr>
         <tr><th scope="row">Utilities</th><td>XLU</td><td class="down" data-fill="sector-XLU">-0.69%</td><td>Defensive</td></tr>
+        <tr><th scope="row">Materials</th><td>XLB</td><td class="down" data-fill="sector-XLB">-2.34%</td><td>Mid cycle</td></tr>
       </tbody>
     </table>
     <!-- MKT:econSectors:END -->
@@ -1032,6 +1059,122 @@
         position without over-committing to a forecast. For screening individual names inside a
         sector, the free <a href="markets-fundamental.html">Fundamental Analysis</a> page has the
         screener and every metric explained.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- CROSS-ASSET -->
+<section class="eco-sec dark" id="crossasset">
+  <div class="eco-in">
+    <p class="eco-num">Block 7 &mdash; Cross-asset</p>
+    <h2>Stocks versus everything else.</h2>
+    <p>
+      Every block above describes one economy. This is what that economy does to the different
+      places you can put money. Growth, inflation and rates do not affect all assets the same way
+      &mdash; they affect them in roughly opposite ways, which is the entire mechanical argument
+      for owning more than one thing.
+    </p>
+    <p>
+      Stocks are the baseline. Toggle any asset class to overlay it, all normalised to percentage
+      change so things trading at wildly different prices can be compared honestly.
+    </p>
+
+    <div class="xa-chips" id="xa-chips">
+      <span class="xa-chip base"><span class="dot"></span>SPY &middot; US stocks</span>
+      <button class="xa-chip" type="button" data-sym="AMEX:GLD" aria-pressed="true"><span class="dot"></span>GLD &middot; Gold</button>
+      <button class="xa-chip" type="button" data-sym="NASDAQ:TLT" aria-pressed="true"><span class="dot"></span>TLT &middot; Long Treasuries</button>
+      <button class="xa-chip" type="button" data-sym="AMEX:VNQ" aria-pressed="false"><span class="dot"></span>VNQ &middot; Real estate</button>
+      <button class="xa-chip" type="button" data-sym="AMEX:DBC" aria-pressed="false"><span class="dot"></span>DBC &middot; Commodities</button>
+      <button class="xa-chip" type="button" data-sym="AMEX:EFA" aria-pressed="false"><span class="dot"></span>EFA &middot; Intl. stocks</button>
+      <button class="xa-chip" type="button" data-sym="BITSTAMP:BTCUSD" aria-pressed="false"><span class="dot"></span>BTC &middot; Bitcoin</button>
+      <button class="xa-chip" type="button" data-sym="AMEX:BIL" aria-pressed="false"><span class="dot"></span>BIL &middot; Cash</button>
+    </div>
+    <p class="xa-warn" id="xa-warn"></p>
+
+    <div class="eco-widget"><div id="xa-chart"></div></div>
+    <p class="xa-note">
+      Charts by TradingView, one year, normalised to percentage change. These are the most widely
+      held fund for each asset class, not recommendations &mdash; they are used because they are
+      liquid, cheap and what most people actually own. Bitcoin is priced on a spot exchange rather
+      than an ETF so the history goes back further.
+    </p>
+
+    <h3>What each one actually responds to</h3>
+    <table class="xa-table">
+      <caption>The mechanism, not the correlation. Correlations shift; the reason each asset moves is more stable and more useful to know.</caption>
+      <thead><tr><th scope="col">Asset class</th><th scope="col">Proxy</th><th scope="col">What drives it</th><th scope="col">Where it disappoints</th></tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">US stocks</th><td class="sym">SPY</td>
+          <td>Corporate earnings and the rate used to discount them. Rewards growth, punishes rising real rates.</td>
+          <td>Falls hardest exactly when you are most likely to need the money &mdash; recessions cost jobs and portfolios together.</td>
+        </tr>
+        <tr>
+          <th scope="row">Gold</th><td class="sym">GLD</td>
+          <td>Real interest rates above all. Gold pays no income, so it competes with cash &mdash; when real yields fall, holding it costs less.</td>
+          <td>Produces nothing. Long stretches of flat-to-negative real return, and it is not a reliable short-term inflation hedge.</td>
+        </tr>
+        <tr>
+          <th scope="row">Long Treasuries</th><td class="sym">TLT</td>
+          <td>Interest rates, inversely and with leverage. A long bond's price moves several percent for every one percent move in yield.</td>
+          <td>Failed as a stock hedge in 2022, when rising inflation hit both at once. The hedge works against growth shocks, not inflation shocks.</td>
+        </tr>
+        <tr>
+          <th scope="row">Real estate</th><td class="sym">VNQ</td>
+          <td>Rates and rents pulling opposite ways. Cheap borrowing lifts values; a strong economy lifts rents.</td>
+          <td>Behaves far more like equities than most people expect. It is not the diversifier the "different asset class" label implies.</td>
+        </tr>
+        <tr>
+          <th scope="row">Commodities</th><td class="sym">DBC</td>
+          <td>Physical supply and demand, and the only asset class that reliably rises with an inflation surprise.</td>
+          <td>Long-run real return near zero, high volatility, and futures roll costs quietly erode holdings.</td>
+        </tr>
+        <tr>
+          <th scope="row">International stocks</th><td class="sym">EFA</td>
+          <td>Foreign earnings plus the dollar. A falling dollar adds to returns for a US investor; a rising one subtracts.</td>
+          <td>Correlations with US stocks rise precisely during crises, which is when diversification was supposed to help.</td>
+        </tr>
+        <tr>
+          <th scope="row">Bitcoin</th><td class="sym">BTC</td>
+          <td>Liquidity and risk appetite far more than scarcity. It has traded as a high-beta risk asset, not as digital gold.</td>
+          <td>Roughly fifteen years of history including several drawdowns of 50&ndash;80%. Too short a record to make confident claims about.</td>
+        </tr>
+        <tr>
+          <th scope="row">Cash</th><td class="sym">BIL</td>
+          <td>The Fed funds rate, directly. The only line that cannot fall in nominal terms.</td>
+          <td>Loses purchasing power whenever inflation runs above the rate, which is most of history.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>The point is not which one wins</h3>
+    <p>
+      Whichever line is highest over any given year is mostly a fact about that year. What the
+      chart is genuinely useful for is watching how the lines move <em>relative to each other</em>
+      as conditions change. When gold and long bonds rise together while stocks fall, the market
+      is pricing lower growth and lower rates. When commodities rise while bonds fall, it is
+      pricing inflation. When everything falls together &mdash; which happened in 2022 &mdash;
+      it is pricing a rate shock, and that is the environment in which diversification helps least
+      and surprises people most.
+    </p>
+    <p>
+      That last case is the one worth internalising. The standard argument for holding stocks and
+      bonds together assumes they move in opposite directions, and that assumption held for most
+      of the period the argument was built on. It failed in 2022 because the driver was inflation
+      rather than a growth scare, and the same driver hits both. Diversification is real, and it
+      is conditional on the type of shock &mdash; which is precisely why the blocks above this one
+      matter.
+    </p>
+    <div class="eco-call">
+      <p>
+        <span class="eco-call-h">Go deeper</span>
+        Stage 5 of <a href="economics.html">Economics for Traders</a> covers asset behaviour
+        across regimes &mdash; which conditions favour which assets and why the relationships
+        break. To see how the same forces show up inside the stock market rather than across asset
+        classes, the sector table above and
+        <a href="markets-technical.html">sector breadth</a> are the equivalent view.
       </p>
     </div>
   </div>
@@ -1196,10 +1339,10 @@
         <p>What price and volume are doing right now. Live charts, S&amp;P 500 breadth, Dow Theory, and what each signal is actually worth.</p>
         <span>Open Technical Analysis &rarr;</span>
       </a>
-      <a class="eco-rel" href="trading-psychology.html">
+      <a class="eco-rel" href="markets-behavior.html">
         <h3>Behaviour</h3>
-        <p>The one that decides outcomes. Most losses are not analytical failures &mdash; they are a good plan abandoned at the worst possible moment.</p>
-        <span>Trading Psychology &rarr;</span>
+        <p>The one that decides outcomes. Live sentiment measured in dollars, the eight costly biases, and a free pre-trade checklist.</p>
+        <span>Open Behaviour &rarr;</span>
       </a>
       <a class="eco-rel" href="markets.html">
         <h3>Markets home</h3>
@@ -1333,7 +1476,77 @@
   if (a && pick) a.textContent = pick[1];
 })();
 </script>
-<script src="app.js?v=202608012040"></script>
+<script>
+/* =============================================================================
+   Cross-asset overlay. SPY is always the base; chips toggle what sits on top.
+   =============================================================================
+   TradingView embeds cannot be reconfigured after mounting, so every toggle
+   rebuilds the chart. That is a full iframe reload, which is why the chip count
+   is capped — past four overlays the chart is unreadable anyway and each one
+   costs another data feed.
+
+   SameScale is what makes this honest: it normalises every series to percentage
+   change. Overlaying BTC at $60,000 against BIL at $91 on a price axis would
+   render BIL as a flat line at the bottom and tell the reader nothing.
+   ========================================================================== */
+(function () {
+  var MAX = 4;
+  var host = document.getElementById('xa-chart');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#xa-chips .xa-chip[data-sym]'));
+  var warn = document.getElementById('xa-warn');
+  if (!host || !chips.length) return;
+
+  function selected() {
+    return chips.filter(function (c) { return c.getAttribute('aria-pressed') === 'true'; })
+                .map(function (c) { return c.getAttribute('data-sym'); });
+  }
+
+  function draw() {
+    var syms = selected();
+    host.innerHTML = '';
+    var box = document.createElement('div');
+    box.className = 'tradingview-widget-container';
+    var inner = document.createElement('div');
+    inner.className = 'tradingview-widget-container__widget';
+    box.appendChild(inner);
+
+    var cfg = {
+      width: '100%', height: 480, symbol: 'AMEX:SPY', interval: 'D', range: '12M',
+      timezone: 'Etc/UTC', theme: 'dark', style: '2', locale: 'en',
+      hide_side_toolbar: true, hide_volume: true, allow_symbol_change: false, save_image: false,
+      enable_publishing: false, withdateranges: true,
+      backgroundColor: 'rgba(13,13,13,1)', gridColor: 'rgba(255,255,255,0.06)',
+      support_host: 'https://www.tradingview.com'
+    };
+    if (syms.length) {
+      cfg.compareSymbols = syms.map(function (s) { return { symbol: s, position: 'SameScale' }; });
+    }
+    var sc = document.createElement('script');
+    sc.type = 'text/javascript';
+    sc.async = true;
+    sc.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    sc.text = JSON.stringify(cfg);
+    box.appendChild(sc);
+    host.appendChild(box);
+  }
+
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.getAttribute('aria-pressed') === 'true';
+      if (!on && selected().length >= MAX) {
+        warn.textContent = 'Four overlays is the limit — past that the chart stops being readable.';
+        return;
+      }
+      warn.textContent = '';
+      c.setAttribute('aria-pressed', on ? 'false' : 'true');
+      draw();
+    });
+  });
+
+  draw();
+})();
+</script>
+<script src="app.js?v=DEPLOYSTAMP"></script>
 <script>
 HFY.initNavOnly();
 </script>

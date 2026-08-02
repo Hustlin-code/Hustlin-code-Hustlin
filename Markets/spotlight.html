@@ -14,16 +14,16 @@
      To re-index one: write 800+ words of original analysis around the widget
      the way calculate-your-hustle.html does, THEN remove this tag. -->
 <meta name="description" content="Research any single stock — quote info, a technical-analysis gauge, financials, and a company profile. Part of Hustlin's free live market data hub.">
-<title>Symbol Spotlight | Markets | Hustlin'</title>
+<title>Symbol Lookup | Markets | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Symbol Spotlight | Markets | Hustlin'">
+<meta property="og:title" content="Symbol Symbol Lookup | Markets | Hustlin'">
 <meta property="og:description" content="What a deep-dive on one company looks like: quote info, a technical-analysis gauge, the underlying financials, and a company profile.">
 <meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
 <meta property="og:url" content="https://www.hustlin.org/Markets/spotlight.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Symbol Spotlight | Markets | Hustlin'">
+<meta name="twitter:title" content="Symbol Symbol Lookup | Markets | Hustlin'">
 <meta name="twitter:description" content="What a deep-dive on one company looks like: quote info, a technical-analysis gauge, the underlying financials, and a company profile.">
 <meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,6 +102,40 @@
   color:var(--amber);padding:6px 16px;border-radius:20px;
   font-family:var(--f-mono);font-size:.82rem;font-weight:700;margin-bottom:8px;
 }
+
+/* ── Symbol lookup form + dashboard layout (added 2026-08-02) ── */
+.sp-form{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch;margin:22px 0 6px;max-width:640px}
+.sp-input-wrap{position:relative;flex:1 1 240px;min-width:0}
+.sp-input{width:100%;box-sizing:border-box;background:#0D0D0D;border:1px solid rgba(255,255,255,.16);
+  border-radius:11px;color:#fff;font-family:'Space Mono',monospace;font-size:16px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;padding:14px 16px;transition:border-color .18s}
+.sp-input::placeholder{color:rgba(255,255,255,.28);letter-spacing:.04em}
+.sp-input:focus{outline:none;border-color:#F5C520;box-shadow:0 0 0 3px rgba(245,197,32,.15)}
+.sp-go{background:#F5C520;color:#060606;border:none;border-radius:11px;font-family:inherit;
+  font-weight:800;font-size:15px;padding:14px 28px;cursor:pointer;transition:.18s;white-space:nowrap}
+.sp-go:hover{background:#ffd94a;transform:translateY(-1px)}
+.sp-go:active{transform:none}
+.sp-hint{font-size:12.5px;color:rgba(255,255,255,.34);margin:10px 0 0;line-height:1.6;max-width:640px}
+.sp-err{color:#E4634A;font-size:13px;margin:10px 0 0;min-height:1em}
+.sp-quick{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 0}
+.sp-quick-lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);align-self:center;margin-right:4px}
+.sp-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);
+  border-radius:18px;padding:6px 13px;font-family:'Space Mono',monospace;font-size:12.5px;font-weight:700;
+  cursor:pointer;transition:.15s}
+.sp-chip:hover{border-color:rgba(245,197,32,.45);color:#F5C520;background:rgba(245,197,32,.08)}
+.sp-current{display:inline-flex;align-items:center;gap:9px;background:rgba(240,192,48,.1);
+  border:1px solid rgba(240,192,48,.3);color:#F5C520;padding:7px 17px;border-radius:20px;
+  font-family:'Space Mono',monospace;font-size:.9rem;font-weight:700;margin:0 0 6px}
+/* Two-up on desktop so each card gets real width, one column on tablet down.
+   The old .mkt-grid-4 gave four cramped columns that clipped the financials. */
+.sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px;align-items:start}
+@media(max-width:980px){.sp-grid{grid-template-columns:1fr}}
+.sp-card{background:var(--dark-card);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-lg);padding:4px;overflow:hidden}
+.sp-card-lbl{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);padding:14px 18px 6px}
+@media(max-width:600px){.sp-form{gap:8px}.sp-go{width:100%}}
 </style>
 </head>
 <body>
@@ -120,7 +154,7 @@
   <a href="tickers.html">Tickers</a>
   <a href="heatmaps.html">Heatmaps</a>
   <a href="screeners.html">Screeners</a>
-  <a href="spotlight.html" class="active">Spotlight</a>
+  <a href="spotlight.html" class="active">Symbol Lookup</a>
   <a href="news.html">News</a>
   <a href="calendar.html">Calendar</a>
 </div>
@@ -133,64 +167,59 @@
       <span class="breadcrumb-sep">/</span>
       <a href="../markets.html">Markets</a>
       <span class="breadcrumb-sep">/</span>
-      <span>Spotlight</span>
+      <span>Symbol Lookup</span>
     </div>
-    <p class="mkt-eyebrow">Symbol Details</p>
-    <h1 class="sec-h2" style="color:#fff">Research any single stock.</h1>
-    <span class="mkt-symbol-pill">NASDAQ: AAPL — used here as the example</span>
-    <p class="sec-sub" style="color:rgba(255,255,255,.45)">This is what a deep-dive on one company looks like: quote info, a technical-analysis gauge, the underlying financials, and a company profile. Swap the symbol on the Advanced Chart page to look up anything else.</p>
+    <p class="mkt-eyebrow">Symbol Lookup</p>
+    <h1 class="sec-h2" style="color:#fff">Research any stock.</h1>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45);margin-bottom:0">
+      Type a ticker and the whole dashboard reloads around it &mdash; quote, technical gauge,
+      full financials and company profile. No account, nothing saved.
+    </p>
 
-    <div class="mkt-grid-4">
+    <form class="sp-form" id="sp-form" autocomplete="off">
+      <div class="sp-input-wrap">
+        <label for="sp-input" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Ticker symbol</label>
+        <input class="sp-input" id="sp-input" type="text" placeholder="AAPL" maxlength="24"
+               spellcheck="false" inputmode="text" aria-describedby="sp-hint">
+      </div>
+      <button class="sp-go" type="submit">Look it up</button>
+    </form>
+    <p class="sp-err" id="sp-err" role="alert"></p>
+    <p class="sp-hint" id="sp-hint">
+      Plain tickers work &mdash; <strong>AAPL</strong>, <strong>MSFT</strong>, <strong>SPY</strong>.
+      For a specific exchange or a non-US listing, use the full form:
+      <strong>NYSE:BRK.B</strong>, <strong>LSE:TSCO</strong>, <strong>BINANCE:BTCUSDT</strong>.
+    </p>
+    <div class="sp-quick">
+      <span class="sp-quick-lbl">Try</span>
+      <button class="sp-chip" type="button" data-sym="AAPL">AAPL</button>
+      <button class="sp-chip" type="button" data-sym="MSFT">MSFT</button>
+      <button class="sp-chip" type="button" data-sym="NVDA">NVDA</button>
+      <button class="sp-chip" type="button" data-sym="SPY">SPY</button>
+      <button class="sp-chip" type="button" data-sym="AMEX:XLK">XLK</button>
+      <button class="sp-chip" type="button" data-sym="TSLA">TSLA</button>
+    </div>
+
+    <p class="sp-hint" style="margin-top:22px">
+      Showing <span class="sp-current" id="sp-current">AAPL</span>
+    </p>
+
+    <div class="sp-grid" id="sp-grid">
       <div>
-        <div class="mkt-card-lbl">Symbol Info</div>
-        <div class="mkt-widget-card">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-            { "symbol": "NASDAQ:AAPL", "width": "100%", "locale": "en", "colorTheme": "dark", "isTransparent": true }
-            </script>
-          </div>
-        </div>
+        <div class="sp-card-lbl">Symbol Info</div>
+        <div class="sp-card"><div id="w-info"></div></div>
       </div>
       <div>
-        <div class="mkt-card-lbl">Technical Analysis</div>
-        <div class="mkt-widget-card">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-            {
-              "interval": "1D", "width": "100%", "isTransparent": true, "height": "450",
-              "symbol": "NASDAQ:AAPL", "showIntervalTabs": true, "displayMode": "single",
-              "locale": "en", "colorTheme": "dark"
-            }
-            </script>
-          </div>
-        </div>
+        <div class="sp-card-lbl">Technical Analysis Gauge</div>
+        <div class="sp-card"><div id="w-ta"></div></div>
       </div>
       <div>
-        <div class="mkt-card-lbl">Fundamental Data</div>
-        <div class="mkt-widget-card">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
-            {
-              "symbol": "NASDAQ:AAPL", "colorTheme": "dark", "isTransparent": true,
-              "largeChartUrl": "", "displayMode": "regular", "width": "100%", "height": "500", "locale": "en"
-            }
-            </script>
-          </div>
-        </div>
+        <div class="sp-card-lbl">Fundamental Data</div>
+        <div class="sp-card"><div id="w-fin"></div></div>
       </div>
       <div>
-        <div class="mkt-card-lbl">Company Profile</div>
-        <div class="mkt-widget-card">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
-            { "symbol": "NASDAQ:AAPL", "colorTheme": "dark", "isTransparent": true, "width": "100%", "height": "450", "locale": "en" }
-            </script>
-          </div>
-        </div>
+        <div class="sp-card-lbl">Company Profile</div>
+        <div class="sp-card"><div id="w-prof"></div></div>
       </div>
     </div>
 
@@ -276,7 +305,104 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="../app.js?v=202608012040"></script>
+<script>
+/* =============================================================================
+   Symbol lookup — rebuilds all four TradingView widgets around a new ticker.
+   =============================================================================
+
+   TradingView embeds are script tags that read their config from their own
+   innerHTML and then write into the container beside them. There is no public
+   API to change the symbol afterwards, so the only reliable way to switch is to
+   destroy the container and build a fresh one. That is what mount() does.
+
+   The symbol is mirrored into ?symbol= so a lookup is bookmarkable and
+   shareable — which is the point of putting it in the URL rather than in
+   storage. Nothing is saved to the device.
+
+   Input is whitelisted to [A-Z0-9:._-] before it is written anywhere. It ends
+   up inside a JSON blob in an injected <script>, so an unsanitised value would
+   be a script-injection hole on our own page. Length is capped for the same
+   reason. Being strict costs nothing here — no real ticker needs anything else.
+   ========================================================================== */
+(function () {
+  var WIDGETS = [
+    { el: 'w-info', src: 'embed-widget-symbol-info.js',
+      cfg: function (s) { return { symbol: s, width: '100%', locale: 'en', colorTheme: 'dark', isTransparent: true }; } },
+    { el: 'w-ta', src: 'embed-widget-technical-analysis.js',
+      cfg: function (s) { return { symbol: s, interval: '1D', width: '100%', height: 450, isTransparent: true,
+                                   showIntervalTabs: true, displayMode: 'single', locale: 'en', colorTheme: 'dark' }; } },
+    { el: 'w-fin', src: 'embed-widget-financials.js',
+      cfg: function (s) { return { symbol: s, colorTheme: 'dark', isTransparent: true, largeChartUrl: '',
+                                   displayMode: 'regular', width: '100%', height: 500, locale: 'en' }; } },
+    { el: 'w-prof', src: 'embed-widget-symbol-profile.js',
+      cfg: function (s) { return { symbol: s, colorTheme: 'dark', isTransparent: true, width: '100%', height: 450, locale: 'en' }; } }
+  ];
+
+  var input = document.getElementById('sp-input');
+  var form = document.getElementById('sp-form');
+  var err = document.getElementById('sp-err');
+  var current = document.getElementById('sp-current');
+  if (!form || !input) return;
+
+  function clean(raw) {
+    return String(raw || '').toUpperCase().replace(/[^A-Z0-9:._-]/g, '').slice(0, 24);
+  }
+
+  function mount(symbol) {
+    WIDGETS.forEach(function (w) {
+      var host = document.getElementById(w.el);
+      if (!host) return;
+      // Full teardown. Reusing the node leaves TradingView's previous render in
+      // place and the new script quietly does nothing.
+      host.innerHTML = '';
+      var box = document.createElement('div');
+      box.className = 'tradingview-widget-container';
+      var inner = document.createElement('div');
+      inner.className = 'tradingview-widget-container__widget';
+      box.appendChild(inner);
+      var sc = document.createElement('script');
+      sc.type = 'text/javascript';
+      sc.async = true;
+      sc.src = 'https://s3.tradingview.com/external-embedding/' + w.src;
+      sc.text = JSON.stringify(w.cfg(symbol));
+      box.appendChild(sc);
+      host.appendChild(box);
+    });
+  }
+
+  function show(symbol, push) {
+    var sym = clean(symbol);
+    if (!sym) { err.textContent = 'Enter a ticker, for example AAPL.'; return; }
+    if (!/[A-Z0-9]/.test(sym)) { err.textContent = 'That does not look like a ticker.'; return; }
+    err.textContent = '';
+    if (current) current.textContent = sym;
+    input.value = sym;
+    document.title = sym + ' — Symbol Details | Markets | Hustlin\'';
+    mount(sym);
+    if (push) {
+      try {
+        var u = new URL(window.location.href);
+        u.searchParams.set('symbol', sym);
+        history.replaceState(null, '', u);
+      } catch (e) { /* file:// or an old browser — the page still works */ }
+    }
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); show(input.value, true); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.sp-chip'), function (b) {
+    b.addEventListener('click', function () { show(b.getAttribute('data-sym'), true); });
+  });
+
+  var start = 'AAPL';
+  try {
+    var q = new URL(window.location.href).searchParams.get('symbol');
+    if (q) start = q;
+  } catch (e) { /* ignore */ }
+  show(start, false);
+})();
+</script>
+<script src="../app.js?v=DEPLOYSTAMP"></script>
 <script>
 HFY.initNavOnly();
 </script>
