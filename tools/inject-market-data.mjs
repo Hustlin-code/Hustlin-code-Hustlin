@@ -948,6 +948,20 @@ function replaceBlock(html, name, inner) {
 }
 
 async function main() {
+  /* The snapshot is read HERE, before any fetching, because the earnings
+     carry-forward needs last run's watch list in order to know which symbols
+     have since reported. It used to be read after the fetches, which was fine
+     when its only job was the "what changed" diff. */
+  let prevSnapshot = null
+  try {
+    if (existsSync(SNAPSHOT)) prevSnapshot = JSON.parse(readFileSync(SNAPSHOT, 'utf8'))
+  } catch { /* first run, or a corrupt file — either way, start clean */ }
+
+  /* Populated by the earnings block and persisted at the end. Declared out
+     here so a failed earnings fetch leaves it null and the existing watch list
+     is carried over untouched rather than being wiped. */
+  let earningsWatch = null
+
   // Which pages exist, and which markers are actually in them.
   const live = []
   for (const p of PAGES) {
@@ -1049,28 +1063,75 @@ async function main() {
      build over it. */
   if (sets.includes('earnings')) {
     try {
-      /* back=7 asks market-earnings v3 for the week BEHIND today as well as
-         the week ahead, so the page can show reported results next to upcoming
-         ones. A reported quarter carries epsActual/revenueActual; an upcoming
-         one carries estimates only. v2 ignored the past entirely.
-         Older deployments of the function ignore `back` and simply return the
-         forward window, which renders as an upcoming-only table — degraded,
-         not broken. */
-      const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}&back=7&days=7`,
+      const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}&days=7`,
         { signal: AbortSignal.timeout(45000) })
       if (!r.ok) throw new Error(`HTTP ${r.status}`)
       const ed = await r.json()
       if (Array.isArray(ed.earnings) && ed.earnings.length) {
-        /* Prefer the split arrays from v3; derive them if we are talking to an
-           older function so the renderer never has to care which it got. */
         const today = ed.today ?? new Date().toISOString().slice(0, 10)
-        data.earnings = {
-          upcoming: ed.upcoming ?? ed.earnings.filter(x => String(x.date) >= today),
-          reported: ed.reported ?? ed.earnings.filter(x => String(x.date) < today),
+        const upcoming = ed.upcoming ?? ed.earnings
+
+        /* ---- THE REPORTED WEEK IS RECONSTRUCTED, NOT QUERIED --------------
+           Finnhub's /calendar/earnings is forward-only on this plan. Asked for
+           2026-07-26 it answered from 2026-08-03 and reported zero rows before
+           today — proven by the diagnostics in market-earnings v4. There is no
+           request that returns last week's calendar.
+           So we remember instead. Every run appends the upcoming list to a
+           watch list in the snapshot. Once a company's date has passed we ask
+           market-earnings ?actuals= for that specific symbol, which DOES return
+           the reported quarter. The past week is rebuilt from what we already
+           saw coming.
+           Consequence worth knowing: this starts empty and fills in over the
+           following week. That is inherent to the approach, not a fault. */
+        const watchPrev = (prevSnapshot?.earningsWatch ?? [])
+        const horizon = new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10)
+
+        const watch = new Map()
+        for (const w of watchPrev) if (String(w.date) >= horizon) watch.set(w.symbol, w)
+        for (const u of upcoming) {
+          watch.set(u.symbol, {
+            symbol: u.symbol, name: u.name, date: u.date, hour: u.hour,
+            epsEstimate: u.epsEstimate, revenueEstimate: u.revenueEstimate,
+            marketCap: u.marketCap,
+          })
         }
+        earningsWatch = [...watch.values()]
+
+        /* Due = date has passed. Largest first, because the actuals budget is
+           20 symbols and a reader cares more about the big ones. */
+        const due = earningsWatch
+          .filter(w => String(w.date) < today)
+          .sort((a, b) => (b.marketCap || 0) - (a.marketCap || 0))
+          .slice(0, 20)
+
+        let reported = []
+        if (due.length) {
+          try {
+            const ar = await fetch(
+              `${EARNINGS_ENDPOINT}?actuals=${encodeURIComponent(due.map(d => d.symbol).join(','))}`,
+              { signal: AbortSignal.timeout(45000) })
+            if (ar.ok) {
+              const ad = await ar.json()
+              const bySym = new Map((ad.actuals ?? []).map(a => [a.symbol, a]))
+              reported = due.map(w => {
+                const a = bySym.get(w.symbol)
+                if (!a) return null
+                return { ...w, epsActual: a.epsActual, epsEstimate: a.epsEstimate ?? w.epsEstimate,
+                         revenueActual: null, quarter: a.quarter, year: a.year }
+              }).filter(Boolean)
+              console.log(`  earnings actuals: ${reported.length} of ${due.length} due symbols resolved`)
+            } else {
+              console.log(`  WARN actuals lookup HTTP ${ar.status} — reported tab left empty this run.`)
+            }
+          } catch (e) {
+            console.log(`  WARN actuals lookup failed (${e.message}) — reported tab left empty this run.`)
+          }
+        }
+
+        data.earnings = { upcoming, reported }
         console.log(`  earnings: ${ed.kept} companies over $${EARNINGS_MIN_CAP_M}M ` +
-                    `(${data.earnings.upcoming.length} upcoming, ${data.earnings.reported.length} reported, ` +
-                    `checked ${ed.checked} of ${ed.considered} across ${ed.from} → ${ed.to})`)
+                    `(${upcoming.length} upcoming, ${reported.length} reported, ` +
+                    `watch list ${earningsWatch.length}, checked ${ed.checked} of ${ed.considered})`)
       } else {
         console.log('  WARN market-earnings returned nothing — keeping market-data earnings.')
       }
@@ -1105,8 +1166,10 @@ async function main() {
   const stamp = new Date().toISOString().slice(0, 10)
   const flat = flatten(data)
 
-  let prev = null
-  try { if (existsSync(SNAPSHOT)) prev = JSON.parse(readFileSync(SNAPSHOT, 'utf8')) } catch { /* first run */ }
+  // Already read at the top of main() — reusing it rather than re-reading,
+  // which also guarantees the diff and the earnings carry-forward are looking
+  // at the same snapshot.
+  const prev = prevSnapshot
   const diff = buildDiff(flat, prev, stamp)
 
   let stale = false
@@ -1135,7 +1198,15 @@ async function main() {
 
   // Snapshot LAST, and only on a real write. Writing it in --check mode would
   // consume the diff and the next real build would report "nothing changed".
-  writeFileSync(SNAPSHOT, JSON.stringify({ stamp, figures: flat }, null, 2), 'utf8')
+  /* earningsWatch is what makes the "just reported" tab possible at all — see
+     the carry-forward note above. If this run's earnings fetch failed it stays
+     null, and we keep the previous list rather than wiping a week of
+     accumulated history over one bad request. */
+  writeFileSync(SNAPSHOT, JSON.stringify({
+    stamp,
+    figures: flat,
+    earningsWatch: earningsWatch ?? prev?.earningsWatch ?? [],
+  }, null, 2), 'utf8')
   console.log(`  ${live.length} page(s) baked, ${diff ? diff.rows.length : 0} change(s) reported since ${prev?.stamp ?? 'first run'}.`)
   return 0
 }
