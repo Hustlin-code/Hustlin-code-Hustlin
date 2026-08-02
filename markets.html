@@ -82,7 +82,7 @@
         {
           "@type": "Question",
           "name": "How often does this page update?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Economic and market figures are written into the page each time the site is rebuilt, and every figure carries the date of its own underlying release. The 'what changed' block compares the current update against the previous one and names both dates. Charts, the ticker tape and the economic calendar are live TradingView widgets and update continuously, though quotes may be delayed." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Economic and market figures are written into the page each time the site is rebuilt, and every figure carries the date of its own underlying release. The 'what changed' block compares the current update against the previous one and names both dates. The news feed, the heatmaps and the economic calendar are live TradingView widgets and update continuously, though quotes may be delayed." }
         },
         {
           "@type": "Question",
@@ -104,7 +104,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260801">
+<link rel="stylesheet" href="styles.css?v=20260802">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -270,6 +270,11 @@
   .mkt-side-nav a:hover{border-color:rgba(240,192,48,.4)}
 }
 
+/* Anchor targets for the side-nav jump links. Without this the sticky nav
+   sits on top of the heading you just jumped to. */
+#news,#calendar,#heatmaps,#explore{scroll-margin-top:120px}
+@media(max-width:900px){#news,#calendar,#heatmaps,#explore{scroll-margin-top:150px}}
+
 /* Section label inside dark widget sections */
 .mkt-eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
 
@@ -324,18 +329,78 @@
     <a href="markets-technical.html" style="color:#F5C520">Technical</a>
     <a href="markets-behavior.html" style="color:#F5C520">Behaviour</a>
     <div class="mkt-side-nav-title" style="margin-top:18px">Tools</div>
+    <a href="#news">News</a>
+    <a href="#calendar">Earnings</a>
+    <a href="#heatmaps">Heatmaps</a>
+    <a href="markets-economic.html#calendar">Econ Calendar</a>
     <a href="Markets/chart.html">Chart</a>
     <a href="Markets/compare.html">Compare</a>
     <a href="Markets/watchlists.html">Watchlists</a>
     <a href="Markets/tickers.html">Tickers</a>
-    <a href="Markets/heatmaps.html">Heatmaps</a>
     <a href="Markets/screeners.html">Screeners</a>
     <a href="Markets/spotlight.html">Symbol Lookup</a>
-    <a href="Markets/news.html">News</a>
-    <a href="Markets/calendar.html">Calendar</a>
   </aside>
 
   <div class="mkt-main">
+
+<!-- ============ DAILY DASHBOARD — "Today's Tape" ============
+     This replaced the scrolling TradingView ticker tape at the top of the page
+     (removed 2026-08-02). The tape was an iframe, so a crawler saw an empty box
+     where the numbers should be; these cards are baked into the HTML at build
+     time by tools/inject-market-data.mjs and read as real text. They also stay
+     still long enough to actually be read.
+     Do not hand-edit between the MKT: markers. -->
+<section class="mkt-dash" id="dashboard">
+  <div class="mkt-dash-in">
+    <p class="eye">Today's Tape</p>
+    <h2>Where the market actually closed.</h2>
+    <!-- MKT:quotes:START -->
+    <div class="mkt-quote-row">
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">S&amp;P 500</h3>
+        <p class="mkt-quote-px" data-fill="q-SPY">$747.03</p>
+        <p class="mkt-quote-chg">+0.72%</p>
+        <p class="mkt-quote-sym">SPY · day range 737.68–748.89</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Dow Jones</h3>
+        <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
+        <p class="mkt-quote-chg">+0.54%</p>
+        <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
+      </article>
+      <article class="mkt-quote up">
+        <h3 class="mkt-quote-name">Nasdaq 100</h3>
+        <p class="mkt-quote-px" data-fill="q-QQQ">$687.99</p>
+        <p class="mkt-quote-chg">+0.65%</p>
+        <p class="mkt-quote-sym">QQQ · day range 680.05–695.77</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Russell 2000</h3>
+        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
+        <p class="mkt-quote-chg">-0.48%</p>
+        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">Gold</h3>
+        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
+        <p class="mkt-quote-chg">-1.49%</p>
+        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>
+        <p class="mkt-quote-px" data-fill="q-TLT">$82.25</p>
+        <p class="mkt-quote-chg">-0.66%</p>
+        <p class="mkt-quote-sym">TLT · day range 81.89–82.45</p>
+      </article>
+</div>
+    <!-- MKT:quotes:END -->
+    <p class="mkt-quote-note">
+      These are the ETFs, not the indexes &mdash; SPY rather than the S&amp;P 500 itself.
+      That is deliberate: an index is a number you cannot buy, an ETF is the thing you
+      would actually own. Prices are last close, refreshed each build.
+    </p>
+  </div>
+</section>
 
 <!-- HERO -->
 <section class="hero mkt-hero">
@@ -367,76 +432,434 @@
   </div>
 </section>
 
-<!-- TICKER TAPE STRIP -->
-<div class="mkt-section mkt-ticker-section">
-  <div class="mkt-ticker-wrap" style="max-width:1400px;margin:0 auto">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-          { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
-          { "proName": "FOREXCOM:DJI", "title": "Dow 30" },
-          { "proName": "TVC:RUT", "title": "Russell 2000" },
-          { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
-          { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
-          { "proName": "BITSTAMP:ETHUSD", "title": "Ethereum" },
-          { "proName": "TVC:GOLD", "title": "Gold" },
-          { "proName": "TVC:US10Y", "title": "US 10Y" },
-          { "proName": "NASDAQ:TTWO", "title": "Take-Two" },
-          { "proName": "NYSE:SWK", "title": "Stanley B&D" },
-          { "proName": "NASDAQ:MSFT", "title": "Microsoft" },
-          { "proName": "NYSE:ORCL", "title": "Oracle" },
-          { "proName": "AMEX:HYD", "title": "High Yield Muni" },
-          { "proName": "NYSE:UPS", "title": "UPS" },
-          { "proName": "NYSE:KMX", "title": "CarMax" },
-          { "proName": "NYSE:IIPR", "title": "Innovative Ind." },
-          { "proName": "NYSE:BBW", "title": "Build-A-Bear" },
-          { "proName": "AMEX:FRDM", "title": "Freedom 100" },
-          { "proName": "NYSE:TGT", "title": "Target" },
-          { "proName": "AMEX:BMNR", "title": "Bitmine" },
-          { "proName": "NYSE:UNH", "title": "UnitedHealth" },
-          { "proName": "NASDAQ:TSLA", "title": "Tesla" },
-          { "proName": "NASDAQ:SOFI", "title": "SoFi" },
-          { "proName": "NYSE:HD", "title": "Home Depot" },
-          { "proName": "NASDAQ:HOOD", "title": "Robinhood" },
-          { "proName": "NYSE:BRK.B", "title": "Berkshire B" },
-          { "proName": "NASDAQ:AVAV", "title": "AeroVironment" },
-          { "proName": "NYSE:CAG", "title": "Conagra" },
-          { "proName": "NYSE:JOBY", "title": "Joby Aviation" },
-          { "proName": "NASDAQ:PANW", "title": "Palo Alto" },
-          { "proName": "NASDAQ:META", "title": "Meta" },
-          { "proName": "AMEX:GDX", "title": "Gold Miners" },
-          { "proName": "AMEX:SCHD", "title": "Schwab Dividend" },
-          { "proName": "NYSE:DG", "title": "Dollar General" },
-          { "proName": "NYSE:HRL", "title": "Hormel" },
-          { "proName": "NYSE:TOST", "title": "Toast" },
-          { "proName": "NASDAQ:AMZN", "title": "Amazon" },
-          { "proName": "AMEX:LNG", "title": "Cheniere" },
-          { "proName": "NASDAQ:AEP", "title": "Am. Electric" },
-          { "proName": "NYSE:JPM", "title": "JPMorgan" },
-          { "proName": "NYSE:EQT", "title": "EQT" },
-          { "proName": "NASDAQ:INTU", "title": "Intuit" },
-          { "proName": "NASDAQ:PLTR", "title": "Palantir" }
-        ],
-        "showSymbolLogo": true,
-        "isTransparent": false,
-        "displayMode": "adaptive",
-        "colorTheme": "dark",
-        "locale": "en"
-      }
-      </script>
+<!-- ============ NEWS ============
+     Baked headlines, not a TradingView timeline widget. A widget is an iframe:
+     a crawler sees an empty box where the stories should be, which is the same
+     thin-content problem that got the Markets viewer pages flagged. These cards
+     are written into the HTML at build time by tools/inject-market-data.mjs and
+     read as real text. Summaries are clipped and every card links out — the
+     point is to send the reader to the source, not to republish the article.
+     Do not hand-edit between the MKT: markers. -->
+<section class="mkt-news-wrap" id="news">
+  <div class="mkt-news-in">
+    <h2>What moved, and why</h2>
+    <p class="lede">Headlines only, linked to the source. We do not republish other people's reporting.</p>
+    <!-- MKT:news:START -->
+    <ul class="mkt-news">
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/here-are-the-2-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Here are the 2 big things we're watching in the stock market in the week ahead</span>
+          <span class="mkt-news-sum">Four more Club holdings report earnings. Plus, it's a loaded week of jobs data.</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/bloomberg-defers-inclusion-of-indian-bonds-in-global-index-ms8wqbxp" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Bloomberg puts off adding Indian bonds to its global index</span>
+          <span class="mkt-news-sum">Bloomberg delays adding Indian bonds to its global index, disappointing traders and prompting expected selling in the bond market.</span>
+          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/why-people-are-dropping-out-of-the-workforce-and-not-looking-for-new-jobs-the-market-wore-me-down.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Why people are dropping out of the workforce and not looking for new jobs: 'The market wore me down'</span>
+          <span class="mkt-news-sum">Candidates giving up in the face of relentless job searches could be part of the reason behind recent declines in the labor force participation rate.</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/data-center-boom-fueling-demand-for-workforce-housing" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Data centre boom fuels demand for workforce housing</span>
+          <span class="mkt-news-sum">A typical 100-megawatt data centre employs hundreds of workers to build it, although it needs only dozens to eventually operate it, according to a…</span>
+          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/ai-model-competition-us-china.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Op-ed: The U.S. lead over China in AI is all but gone</span>
+          <span class="mkt-news-sum">AI debate in recent years has centered on whether the U.S. can develop a strategy capable of preserving an edge over China. The answer isn't looking…</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/dollar-heads-for-worst-week-in-three-months-as-fed-doubts-grow" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Dollar logs its worst week in over 3 months amid Fed doubts</span>
+          <span class="mkt-news-sum">Traders boosted their bullish dollar bets ahead of the Fed meeting, turning the most upbeat since 2014 as of Tuesday, according to Commodity Futures…</span>
+          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/02/flights-are-getting-even-more-expensive-as-fuel-prices-rise.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Why flights are so expensive and will likely stay that way</span>
+          <span class="mkt-news-sum">Airlines are paying billions of dollars more in fuel costs this year</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.bloomberg.com/news/articles/2026-07-31/indian-firms-plan-fresh-price-hikes-testing-inflation-outlook" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Indian companies plan for fresh price hikes, testing inflation outlook</span>
+          <span class="mkt-news-sum">Consumer prices rose above the Reserve Bank of India’s 4% target for the first time in nearly a year and a half in June as food and fuel costs climbed</span>
+          <span class="mkt-news-src">Bloomberg <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/01/traders-go-full-time-on-prediction-markets-using-ai-bots-and-antennas.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Looking at just the odds isn’t enough. How traders gain an edge on prediction markets</span>
+          <span class="mkt-news-sum">Gaining an edge on prediction markets requires speed and skills beyond just reading the odds on platforms like Kalshi and Polymarket.</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/01/open-ai-hugging-face-hack-cyber-warnings.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">OpenAI's Hugging Face hack confirmed months of AI cyber warnings: 'Pandora's box is open'</span>
+          <span class="mkt-news-sum">The wake-up call to the cyber industry comes as industry experts descend on Black Hat, a major cybersecurity conference.</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/andy-jassy-soothed-concerns-over-amazons-massive-ai-spending-heres-how-he-did-it-.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Andy Jassy soothed concerns over Amazon's massive AI spending. Here's how he did it</span>
+          <span class="mkt-news-sum">Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      <li class="mkt-news-item">
+        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/clear-street-pre-ipo-platform-databricks.html" target="_blank" rel="noopener nofollow">
+          <span class="mkt-news-hd">Fintech broker Clear Street offers investors pre-IPO access to $188 billion AI giant Databricks</span>
+          <span class="mkt-news-sum">Fintech brokerage Clear Street is launching a private markets platform, beginning with Databricks stakes, to give investors more access to late-stage…</span>
+          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+</ul>
+    <!-- MKT:news:END -->
+  </div>
+</section>
+
+<!-- ============ EARNINGS CALENDAR ============
+     The TradingView economic calendar that used to sit here moved to
+     markets-economic.html on 2026-08-02 — jobs prints and rate decisions are an
+     economics question, and that page is where the rest of that story is.
+
+     This is NOT a TradingView widget. TradingView publishes exactly one
+     calendar widget (economic); there is no earnings equivalent, so the table
+     below comes from the Finnhub earnings calendar via our own edge function
+     and is baked in at build time by tools/inject-market-data.mjs. That is the
+     better outcome anyway: real text a crawler can read, not an iframe.
+     Do not hand-edit between the MKT: markers. -->
+<section class="mkt-econ" id="calendar">
+  <div class="mkt-econ-in">
+    <p class="eye">Earnings Calendar</p>
+    <h2>Who reports, and when.</h2>
+    <p class="lede">
+      A stock can move more on the day it reports than in the whole month around it.
+      Knowing the date before you buy is worth more than any opinion about the quarter.
+      Looking for jobs reports, inflation prints and rate decisions instead? Those are on
+      <a href="markets-economic.html#calendar">the Economic Analysis page</a>.
+    </p>
+
+    <!-- MKT:earnings:START -->
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Companies reporting over the next seven days, with the consensus estimate analysts are expecting. An estimate is a forecast, not a target the company agreed to.</caption>
+      <thead><tr><th scope="col">Symbol</th><th scope="col">Date</th><th scope="col">When</th><th scope="col">EPS est.</th><th scope="col">Revenue est.</th></tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">ACMR</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.34</td>
+          <td>$275M</td>
+        </tr>
+        <tr>
+          <th scope="row">AD</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$0.64</td>
+          <td>$54M</td>
+        </tr>
+        <tr>
+          <th scope="row">AIRS</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.01</td>
+          <td>$45M</td>
+        </tr>
+        <tr>
+          <th scope="row">ANIP</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$2.09</td>
+          <td>$265M</td>
+        </tr>
+        <tr>
+          <th scope="row">ARKO</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.15</td>
+          <td>$2.03B</td>
+        </tr>
+        <tr>
+          <th scope="row">ASIX</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.57</td>
+          <td>$461M</td>
+        </tr>
+        <tr>
+          <th scope="row">ATMU</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.79</td>
+          <td>$515M</td>
+        </tr>
+        <tr>
+          <th scope="row">AUUD</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.81</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <th scope="row">BTDR</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.37</td>
+          <td>$239M</td>
+        </tr>
+        <tr>
+          <th scope="row">CGON</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.68</td>
+          <td>$0M</td>
+        </tr>
+        <tr>
+          <th scope="row">CLMT</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-0.13</td>
+          <td>$1.10B</td>
+        </tr>
+        <tr>
+          <th scope="row">CNTY</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-0.34</td>
+          <td>$157M</td>
+        </tr>
+        <tr>
+          <th scope="row">CTEV</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-4.21</td>
+          <td>$250M</td>
+        </tr>
+        <tr>
+          <th scope="row">CWAN</th>
+          <td>7 Aug</td>
+          <td>After close</td>
+          <td>$0.17</td>
+          <td>$234M</td>
+        </tr>
+        <tr>
+          <th scope="row">DCH</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.18</td>
+          <td>$2.84B</td>
+        </tr>
+        <tr>
+          <th scope="row">DTI</th>
+          <td>7 Aug</td>
+          <td>After close</td>
+          <td>$-0.04</td>
+          <td>$39M</td>
+        </tr>
+        <tr>
+          <th scope="row">EMBC</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.27</td>
+          <td>$260M</td>
+        </tr>
+        <tr>
+          <th scope="row">ENTX</th>
+          <td>7 Aug</td>
+          <td>—</td>
+          <td>$-0.08</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <th scope="row">ESNT</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$1.81</td>
+          <td>$333M</td>
+        </tr>
+        <tr>
+          <th scope="row">FLR</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.71</td>
+          <td>$3.96B</td>
+        </tr>
+        <tr>
+          <th scope="row">GLP</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$1.25</td>
+          <td>$7.58B</td>
+        </tr>
+        <tr>
+          <th scope="row">GTN</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$-0.11</td>
+          <td>$802M</td>
+        </tr>
+        <tr>
+          <th scope="row">HE</th>
+          <td>7 Aug</td>
+          <td>After close</td>
+          <td>$0.18</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <th scope="row">JOUT</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.69</td>
+          <td>$190M</td>
+        </tr>
+        <tr>
+          <th scope="row">KRP</th>
+          <td>7 Aug</td>
+          <td>Before open</td>
+          <td>$0.23</td>
+          <td>$96M</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- MKT:earnings:END -->
+
+    <div class="mkt-econ-foot">
+      <p>
+        <strong>An estimate is not a target.</strong> The consensus figure is what analysts
+        guessed, not a number the company promised. A business can "miss" an estimate it never
+        agreed to while having a perfectly good quarter, and beating one tells you the analysts
+        were low — not that the business improved. Read the actual report.
+      </p>
+      <p>
+        Dates are scheduled and do get moved. Confirm against the company's own investor-relations
+        page before you act on one. Source: Finnhub.
+      </p>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ============ HEATMAPS ============ -->
+<section class="sec mkt-section" id="heatmaps">
+  <div class="sec-inner">
+    <p class="mkt-eyebrow">Heatmaps</p>
+    <h2 class="sec-h2" style="color:#fff">The whole market, colored in.</h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Green means up, red means down — box size usually means bigger company or bigger weighting. A fast way to see what's driving the day.</p>
+
+    <div class="mkt-stack">
+      <div>
+        <div class="mkt-card-lbl">Stock Heatmap — S&amp;P 500</div>
+        <div class="mkt-widget-card">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+            {
+              "exchanges": [], "dataSource": "SPX500", "grouping": "sector",
+              "blockSize": "market_cap_basic", "blockColor": "change",
+              "locale": "en", "symbolUrl": "", "colorTheme": "dark",
+              "hasTopBar": true, "isDataSetEnabled": true, "isZoomEnabled": true,
+              "hasSymbolTooltip": true, "isMonoSize": false, "width": "100%", "height": "500"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="mkt-card-lbl">Crypto Coins Heatmap</div>
+        <div class="mkt-widget-card">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+            {
+              "dataSource": "Crypto", "blockSize": "market_cap_calc", "blockColor": "change",
+              "locale": "en", "symbolUrl": "", "colorTheme": "dark",
+              "hasTopBar": false, "isDataSetEnabled": false, "isZoomEnabled": true,
+              "hasSymbolTooltip": true, "isMonoSize": false, "width": "100%", "height": "450"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="mkt-card-lbl">ETF Heatmap</div>
+        <div class="mkt-widget-card">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-etf-heatmap.js" async>
+            {
+              "dataSource": "AllUSEtf", "blockSize": "aum", "blockColor": "change",
+              "grouping": "asset_class", "locale": "en", "symbolUrl": "", "colorTheme": "dark",
+              "hasTopBar": true, "isDataSetEnabled": true, "isZoomEnabled": true,
+              "hasSymbolTooltip": true, "isMonoSize": false, "width": "100%", "height": "450"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="mkt-grid-2" style="margin-top:0">
+        <div>
+          <div class="mkt-card-lbl">Forex Cross Rates</div>
+          <div class="mkt-widget-card">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+              {
+                "width": "100%", "height": "450",
+                "currencies": ["EUR","USD","JPY","GBP","CHF","AUD","CAD","NZD"],
+                "isTransparent": true, "colorTheme": "dark", "locale": "en", "backgroundColor": "#0A0A0A"
+              }
+              </script>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="mkt-card-lbl">Forex Heatmap</div>
+          <div class="mkt-widget-card">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
+              {
+                "width": "100%", "height": "450",
+                "currencies": ["EUR","USD","JPY","GBP","CHF","AUD","CAD","NZD","CNY"],
+                "isTransparent": true, "colorTheme": "dark", "locale": "en", "backgroundColor": "#0A0A0A"
+              }
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mkt-caption">Market data provided by TradingView and may be delayed. Shown for educational purposes only — nothing on this page is investment advice, and past performance doesn't guarantee future results.</p>
+  </div>
+</section>
 
 <!-- EXPLORE THE WIDGETS -->
 <section class="sec mkt-section" id="explore">
   <div class="sec-inner">
     <p class="mkt-eyebrow">Tools</p>
     <h2 class="sec-h2" style="color:#fff">Pull it up full-screen.</h2>
-    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Charts, screeners, heatmaps and the calendar — each one opens on its own page with room to actually work in.</p>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Charts, screeners and watchlists — each one opens on its own page with room to actually work in. News, the calendar and the heatmaps are on this page, above.</p>
 
     <div class="mkt-nav-grid">
       <a class="mkt-nav-card" href="Markets/chart.html">
@@ -459,11 +882,6 @@
         <div class="mkt-nav-card-desc">A single symbol badge and a compact multi-symbol row.</div>
         <div class="mkt-nav-card-go">Open Tickers <span>→</span></div>
       </a>
-      <a class="mkt-nav-card" href="Markets/heatmaps.html">
-        <div class="mkt-nav-card-title">Heatmaps</div>
-        <div class="mkt-nav-card-desc">Stocks, crypto, ETFs, and forex — colored by how they're moving today.</div>
-        <div class="mkt-nav-card-go">Open Heatmaps <span>→</span></div>
-      </a>
       <a class="mkt-nav-card" href="Markets/screeners.html">
         <div class="mkt-nav-card-title">Screeners</div>
         <div class="mkt-nav-card-desc">Sortable tables of stocks and crypto — rank by any metric.</div>
@@ -473,16 +891,6 @@
         <div class="mkt-nav-card-title">Symbol Lookup</div>
         <div class="mkt-nav-card-desc">Quote info, a technical-analysis gauge, financials, and a company profile for one symbol at a time.</div>
         <div class="mkt-nav-card-go">Open Symbol Lookup <span>→</span></div>
-      </a>
-      <a class="mkt-nav-card" href="Markets/news.html">
-        <div class="mkt-nav-card-title">News</div>
-        <div class="mkt-nav-card-desc">Headlines feeding into the numbers above.</div>
-        <div class="mkt-nav-card-go">Open News <span>→</span></div>
-      </a>
-      <a class="mkt-nav-card" href="Markets/calendar.html">
-        <div class="mkt-nav-card-title">Calendar</div>
-        <div class="mkt-nav-card-desc">Jobs reports, inflation data, rate decisions — the releases that tend to move markets.</div>
-        <div class="mkt-nav-card-go">Open Calendar <span>→</span></div>
       </a>
     </div>
 
@@ -550,22 +958,27 @@
 .mkt-mot .eye{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C520;margin:0 0 16px}
 #mkt-quote-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(20px,3.4vw,30px);line-height:1.35;color:#fff;margin:0;letter-spacing:-.01em}
 
-.mkt-news-wrap{background:#FAF7F0;padding:56px 22px}
-.mkt-news-in{max-width:1060px;margin:0 auto}
-.mkt-news-in h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,3.6vw,32px);color:#060606;margin:0 0 8px}
-.mkt-news-in .lede{font-size:15px;color:#5c574c;margin:0 0 26px;line-height:1.6}
-.mkt-news{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+/* Scaled up 2026-08-02. At 1060px wide with 15px headlines this block was a
+   column of small print stranded in the middle of a wide screen — the cards
+   are the main event on this section, so they get the width and the type size
+   to match. The minmax floor rises with it so cards stay readable rather than
+   splitting into more, narrower columns on a big monitor. */
+.mkt-news-wrap{background:#FAF7F0;padding:72px 22px}
+.mkt-news-in{max-width:1400px;margin:0 auto}
+.mkt-news-in h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,4vw,40px);color:#060606;margin:0 0 10px;letter-spacing:-.015em}
+.mkt-news-in .lede{font-size:17px;color:#5c574c;margin:0 0 32px;line-height:1.6}
+.mkt-news{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px}
 .mkt-news-item{background:#fff;border:1px solid #E4DFD3;border-radius:12px;padding:0;transition:border-color .18s,box-shadow .18s,transform .18s}
 .mkt-news-item:hover{border-color:#F5C520;box-shadow:0 6px 18px rgba(0,0,0,.07);transform:translateY(-2px)}
 /* The whole card is the anchor. A card that looks clickable but only responds
    on one line of text reads as broken, and it is a real accessibility problem:
    the tap target was a single line of wrapped text on mobile. */
-.mkt-news-card{display:flex;flex-direction:column;height:100%;padding:16px;text-decoration:none}
+.mkt-news-card{display:flex;flex-direction:column;height:100%;padding:24px;text-decoration:none}
 .mkt-news-card:focus-visible{outline:2px solid #F5C520;outline-offset:2px;border-radius:12px}
-.mkt-news-hd{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;line-height:1.4;color:#060606}
+.mkt-news-hd{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:19px;line-height:1.35;color:#060606;letter-spacing:-.01em}
 .mkt-news-item:hover .mkt-news-hd{color:#8A6D08}
-.mkt-news-sum{display:block;font-size:13px;line-height:1.5;color:#5c574c;margin:8px 0 10px;flex:1 1 auto}
-.mkt-news-src{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8b8577;margin:0}
+.mkt-news-sum{display:block;font-size:15px;line-height:1.6;color:#5c574c;margin:12px 0 16px;flex:1 1 auto}
+.mkt-news-src{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:#8b8577;margin:0}
 .mkt-news-go{color:#B8930F;font-weight:700;transition:transform .18s;display:inline-block}
 .mkt-news-item:hover .mkt-news-go{transform:translateX(3px)}
 
@@ -611,12 +1024,21 @@
 .tk-msg{font-size:13.5px;line-height:1.6;margin:0 0 18px;min-height:1.2em;color:rgba(255,255,255,.5)}
 .tk-msg.err{color:#E4634A}
 .tk-msg strong{color:#F5C520}
-.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:6px}
+.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:6px;align-items:stretch}
 @media(max-width:900px){.tk-grid{grid-template-columns:1fr}}
-.tk-card{background:#0D0D0D;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:6px;overflow:hidden}
+/* The two captions are written by JS and are rarely the same number of lines —
+   the sector one almost always wraps to two while the price one fits on one.
+   Left alone that pushes the right-hand chart ~20px below the left one, which
+   reads as a rendering bug. Two belts: reserve two lines of caption height, and
+   push the chart card to the bottom of its column so the tops line up even when
+   a caption runs to three lines. */
+.tk-grid > div{display:flex;flex-direction:column}
+.tk-card{background:#0D0D0D;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:6px;overflow:hidden;margin-top:auto}
 .tk-card-lbl{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
   color:#F5C520;padding:13px 16px 4px}
-.tk-card-sub{font-size:12.5px;color:rgba(255,255,255,.38);padding:0 16px 10px;margin:0;line-height:1.55}
+.tk-card-sub{font-size:12.5px;color:rgba(255,255,255,.38);padding:0 16px 10px;margin:0;line-height:1.55;
+  min-height:calc(2 * 12.5px * 1.55 + 10px)}
+@media(max-width:900px){.tk-card-sub{min-height:0}.tk-card{margin-top:0}}
 .tk-note{font-size:12.5px;color:rgba(255,255,255,.34);line-height:1.65;margin:16px 0 0;max-width:760px}
 .tk-note a{color:#F5C520;font-weight:700}
 .tk-wrap h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;color:#fff;margin:38px 0 14px}
@@ -638,59 +1060,6 @@
 .mkt-faq details p{padding:0 20px 18px;margin:0;font-size:14.5px;line-height:1.72;color:#4a463d}
 
 </style>
-
-<!-- ============ DAILY DASHBOARD ============ -->
-<section class="mkt-dash" id="dashboard">
-  <div class="mkt-dash-in">
-    <p class="eye">Today's Tape</p>
-    <h2>Where the market actually closed.</h2>
-    <!-- MKT:quotes:START -->
-    <div class="mkt-quote-row">
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">S&amp;P 500</h3>
-        <p class="mkt-quote-px" data-fill="q-SPY">$747.03</p>
-        <p class="mkt-quote-chg">+0.72%</p>
-        <p class="mkt-quote-sym">SPY · day range 737.68–748.89</p>
-      </article>
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">Dow Jones</h3>
-        <p class="mkt-quote-px" data-fill="q-DIA">$524.32</p>
-        <p class="mkt-quote-chg">+0.54%</p>
-        <p class="mkt-quote-sym">DIA · day range 519.25–525.61</p>
-      </article>
-      <article class="mkt-quote up">
-        <h3 class="mkt-quote-name">Nasdaq 100</h3>
-        <p class="mkt-quote-px" data-fill="q-QQQ">$687.99</p>
-        <p class="mkt-quote-chg">+0.65%</p>
-        <p class="mkt-quote-sym">QQQ · day range 680.05–695.77</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Russell 2000</h3>
-        <p class="mkt-quote-px" data-fill="q-IWM">$291.20</p>
-        <p class="mkt-quote-chg">-0.48%</p>
-        <p class="mkt-quote-sym">IWM · day range 287.83–293.95</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">Gold</h3>
-        <p class="mkt-quote-px" data-fill="q-GLD">$371.54</p>
-        <p class="mkt-quote-chg">-1.49%</p>
-        <p class="mkt-quote-sym">GLD · day range 368.81–372.01</p>
-      </article>
-      <article class="mkt-quote down">
-        <h3 class="mkt-quote-name">20+ Yr Treasuries</h3>
-        <p class="mkt-quote-px" data-fill="q-TLT">$82.25</p>
-        <p class="mkt-quote-chg">-0.66%</p>
-        <p class="mkt-quote-sym">TLT · day range 81.89–82.45</p>
-      </article>
-</div>
-    <!-- MKT:quotes:END -->
-    <p class="mkt-quote-note">
-      These are the ETFs, not the indexes &mdash; SPY rather than the S&amp;P 500 itself.
-      That is deliberate: an index is a number you cannot buy, an ETF is the thing you
-      would actually own. Prices are last close, refreshed each build.
-    </p>
-  </div>
-</section>
 
 <style>
 /* What changed — the return-visit block. Namespaced mkt-chg*, additive. */
@@ -864,81 +1233,6 @@
   if (el) el.textContent = lines[day % lines.length];
 })();
 </script>
-
-<!-- ============ NEWS ============ -->
-<section class="mkt-news-wrap" id="news">
-  <div class="mkt-news-in">
-    <h2>What moved, and why</h2>
-    <p class="lede">Headlines only, linked to the source. We do not republish other people's reporting.</p>
-    <!-- MKT:news:START -->
-    <ul class="mkt-news">
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/01/traders-go-full-time-on-prediction-markets-using-ai-bots-and-antennas.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Looking at just the odds isn’t enough. How traders gain an edge on prediction markets</span>
-          <span class="mkt-news-sum">Gaining an edge on prediction markets requires speed and skills beyond just reading the odds on platforms like Kalshi and Polymarket.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/08/01/open-ai-hugging-face-hack-cyber-warnings.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">OpenAI's Hugging Face hack confirmed months of AI cyber warnings: 'Pandora's box is open'</span>
-          <span class="mkt-news-sum">The wake-up call to the cyber industry comes as industry experts descend on Black Hat, a major cybersecurity conference.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/andy-jassy-soothed-concerns-over-amazons-massive-ai-spending-heres-how-he-did-it-.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Andy Jassy soothed concerns over Amazon's massive AI spending. Here's how he did it</span>
-          <span class="mkt-news-sum">Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/clear-street-pre-ipo-platform-databricks.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Fintech broker Clear Street offers investors pre-IPO access to $188 billion AI giant Databricks</span>
-          <span class="mkt-news-sum">Fintech brokerage Clear Street is launching a private markets platform, beginning with Databricks stakes, to give investors more access to late-stage…</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/the-sp-500-is-stuck-this-obscure-index-could-determine-the-markets-next-move.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">The S&amp;P 500 is stuck at a key battleground level. This obscure index could determine the market’s next move</span>
-          <span class="mkt-news-sum">Options traders and market makers in Chicago were quick to buy dips below 7,500 in the benchmark index Friday, but almost as quick to sell rallies…</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/spider-man-brand-new-day-box-office-preview-sales.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">‘Spider-Man: Brand New Day’ sets domestic box office preview record with $72 million</span>
-          <span class="mkt-news-sum">Sony and Marvel's &quot;Spider-Man: Brave New Day&quot; is expected to haul in around $270 million domestically over its debut weekend.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/jim-cramer-buy-this-industrial-stock-on-the-dip-if-you-dont-own-it-already.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Jim Cramer: Buy this industrial stock on the dip if you don't own it already</span>
-          <span class="mkt-news-sum">The Investing Club holds its &quot;Morning Meeting&quot; every weekday at 10:20 a.m. ET.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/fifa-world-cup-private-equity-sports.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">FIFA tests the limits of private equity in sports with World Cup subsidiary sale</span>
-          <span class="mkt-news-sum">UEFA and Concacaf's rejection of FIFA's plan to sell a 20% stake in the World Cup's commercial operations highlights uneasiness with private equity in…</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-      <li class="mkt-news-item">
-        <a class="mkt-news-card" href="https://www.cnbc.com/2026/07/31/microsoft-shares-are-surging-heres-how-to-still-make-money-says-mike-khouw.html" target="_blank" rel="noopener nofollow">
-          <span class="mkt-news-hd">Microsoft shares are surging. Here’s how to still make money, says Mike Khouw</span>
-          <span class="mkt-news-sum">Following Microsoft's (MSFT) Q4 earnings and record-setting appreciation, the immediate binary event risk is officially behind us.</span>
-          <span class="mkt-news-src">CNBC <span class="mkt-news-go" aria-hidden="true">&rarr;</span></span>
-        </a>
-      </li>
-</ul>
-    <!-- MKT:news:END -->
-  </div>
-</section>
 
 <!-- ============ THE FOUR DISCIPLINES ============ -->
 <section class="mkt-disc" id="disciplines">
@@ -1176,7 +1470,7 @@
       </details>
       <details>
         <summary>How often does this page update?</summary>
-        <p>Economic and market figures are written into the page each time the site is rebuilt, and every figure carries the date of its own underlying release. The &#x27;what changed&#x27; block compares the current update against the previous one and names both dates. Charts, the ticker tape and the economic calendar are live TradingView widgets and update continuously, though quotes may be delayed.</p>
+        <p>Economic and market figures are written into the page each time the site is rebuilt, and every figure carries the date of its own underlying release. The &#x27;what changed&#x27; block compares the current update against the previous one and names both dates. The news feed, the heatmaps and the economic calendar are live TradingView widgets and update continuously, though quotes may be delayed.</p>
       </details>
       <details>
         <summary>How do I compare a stock to its sector?</summary>

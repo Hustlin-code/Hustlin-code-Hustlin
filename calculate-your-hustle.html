@@ -85,7 +85,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260801">
+<link rel="stylesheet" href="styles.css?v=20260802">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 
@@ -97,6 +97,10 @@
 .cyh-wrap{--gold:#F5C520;--green:#2DA02D;--ink:#060606;--red:#EF4444;
   --cream:#FAF7F0;--line:#E4DFD3;--mut:#6F6A5E;font-family:'Plus Jakarta Sans',sans-serif}
 
+/* The site-wide .nav is position:fixed at 108px tall (76px under 900px), so the
+   page has to start below it or the hero slides underneath the logo bar. */
+.cyh-wrap{padding-top:108px}
+@media(max-width:900px){.cyh-wrap{padding-top:76px}}
 .cyh-hero{background:radial-gradient(ellipse at 50% 0%,#1a1a1a 0%,#060606 70%);padding:74px 22px 66px;text-align:center}
 .cyh-eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
 .cyh-h1{font-weight:800;font-size:clamp(34px,6.2vw,62px);line-height:1.06;color:#fff;margin:0 0 20px;letter-spacing:-.02em}
@@ -108,13 +112,16 @@
 .cyh-body{background:var(--cream);padding:0 0 70px}
 .cyh-inner{max-width:1060px;margin:0 auto;padding:0 22px}
 
-.cyh-nav{position:sticky;top:0;z-index:40;background:rgba(250,247,240,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:38px}
+.cyh-nav{position:sticky;top:108px;z-index:40;background:rgba(250,247,240,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:38px}
 .cyh-navscroll{display:flex;gap:8px;overflow-x:auto;max-width:1060px;margin:0 auto;padding:0 22px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .cyh-navscroll::-webkit-scrollbar{display:none}
 .cyh-nav a{flex:0 0 auto;font-size:13px;font-weight:600;color:#3d3a33;text-decoration:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;white-space:nowrap;transition:.15s}
 .cyh-nav a:hover{border-color:var(--gold);color:var(--ink)}
 
-.cyh-tool{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;margin:0 0 26px;scroll-margin-top:78px}
+@media(max-width:900px){.cyh-nav{top:76px}}
+/* Clears the fixed site nav (108px) plus the sticky tool nav underneath it. */
+.cyh-tool{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;margin:0 0 26px;scroll-margin-top:190px}
+@media(max-width:900px){.cyh-tool{scroll-margin-top:150px}}
 .cyh-tool h2{font-size:clamp(22px,3.4vw,30px);font-weight:800;color:var(--ink);margin:0 0 8px;letter-spacing:-.01em}
 .cyh-tool .cyh-sub{font-size:15px;line-height:1.6;color:var(--mut);margin:0 0 24px;max-width:640px}
 .cyh-num{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:9px}
@@ -172,6 +179,12 @@
 </style>
 </head>
 <body>
+
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:96px;width:auto;display:block;mix-blend-mode:screen">
+  </a>
+</nav>
 
 <div class="cyh-wrap">
 
