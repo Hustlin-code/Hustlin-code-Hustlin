@@ -1062,6 +1062,24 @@ async function main() {
      and fall back to market-data's unfiltered calendar rather than failing the
      build over it. */
   if (sets.includes('earnings')) {
+    /* ---- FINNHUB COOLDOWN — do not remove -----------------------------
+       market-quotes and market-earnings both hit Finnhub, whose free tier
+       allows 60 calls/minute. quotes can spend up to 36 (9 symbols x 4
+       attempts, because it retries a 429 with backoff) and earnings wants
+       37 more. Fired back to back that is ~73 in one minute, so whichever
+       runs second gets 429s on most of its profile lookups and silently
+       returns a short table. That is what produced a two-row earnings
+       calendar, and the 13.7s market-quotes 502s in the edge logs are the
+       same collision seen from the other side.
+       Waiting is the correct fix rather than shrinking the tables: a daily
+       cron does not care about 70 seconds, and a reader does care about a
+       calendar with two rows in it. Set MARKET_NO_COOLDOWN=1 for local
+       iteration when you do not need the earnings table to be complete. */
+    if (!process.env.MARKET_NO_COOLDOWN) {
+      const wait = 70000
+      console.log(`  cooling down ${wait / 1000}s before earnings so Finnhub's rate window clears...`)
+      await new Promise(r => setTimeout(r, wait))
+    }
     try {
       const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}&days=7`,
         { signal: AbortSignal.timeout(45000) })
@@ -1106,6 +1124,12 @@ async function main() {
 
         let reported = []
         if (due.length) {
+          // Second cooldown, same reason: the calendar request above just spent
+          // ~37 of the 60/minute allowance and the actuals lookup wants 20 more.
+          if (!process.env.MARKET_NO_COOLDOWN) {
+            console.log('  cooling down 70s before the actuals lookup...')
+            await new Promise(r => setTimeout(r, 70000))
+          }
           try {
             const ar = await fetch(
               `${EARNINGS_ENDPOINT}?actuals=${encodeURIComponent(due.map(d => d.symbol).join(','))}`,
