@@ -62,16 +62,28 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      # v4 ran on the Node 20 action runtime, which GitHub deprecated — the
+      # first run of this workflow succeeded but logged a warning about being
+      # force-migrated to Node 24. v6 targets Node 24 natively. Bumped
+      # 2026-08-02. If a future runner deprecates this too, the warning text
+      # names the replacement.
       - name: Check out the site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
+      # actions/setup-node was removed deliberately, not forgotten.
+      #
+      # ubuntu-latest already ships a current Node, and inject-market-data.mjs
+      # needs nothing exotic — node:fs, node:path, node:url, global fetch and
+      # AbortController, all standard since Node 18. Pinning a version bought
+      # us nothing and cost a second action to keep patched, which was the
+      # other half of the deprecation warning.
+      #
+      # Add it back only if this script ever needs a version the runner does
+      # not have. It does not today.
       - name: Bake current figures into the Markets pages
-        run: node tools/inject-market-data.mjs
+        run: |
+          node --version
+          node tools/inject-market-data.mjs
 
       - name: Commit only if something actually changed
         id: commit
