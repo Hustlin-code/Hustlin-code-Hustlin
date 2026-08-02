@@ -3,29 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, follow">
-<!-- noindex 2026-08-01 — AdSense "low value content" remediation.
-     This page is a viewer: ~200 words of chrome around a TradingView iframe.
-     Iframe content is not ours and is invisible to crawlers, so to Google this
-     was a near-empty page. Nine of these made up 29% of the crawlable site,
-     which is what triggered the policy violation.
-     "follow" is deliberate: the links still pass authority, we are only asking
-     Google not to index the page itself. Fully usable for visitors either way.
-     To re-index one: write 800+ words of original analysis around the widget
-     the way calculate-your-hustle.html does, THEN remove this tag. -->
-<meta name="description" content="Research any single stock — quote info, a technical-analysis gauge, financials, and a company profile. Part of Hustlin's free live market data hub.">
-<title>Symbol Lookup | Markets | Hustlin'</title>
+<!-- Re-indexed 2026-08-02. Carried noindex from 2026-08-01 as AdSense "low value
+     content" remediation — ~200 words of chrome around TradingView iframes.
+     Condition for re-indexing was 800+ words of original analysis around the
+     widget; that is now written below. If the prose is stripped, restore this
+     tag. Also fixed the duplicated "Symbol Symbol" og:title typo. -->
+<meta name="description" content="Look up any stock free, plus the order to actually read a company in: revenue, margins, cash versus profit, debt — and why the P/E ratio comes last, not first.">
+<title>Look Up Any Stock — And How to Read a Company | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Symbol Symbol Lookup | Markets | Hustlin'">
-<meta property="og:description" content="What a deep-dive on one company looks like: quote info, a technical-analysis gauge, the underlying financials, and a company profile.">
-<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
-<meta property="og:url" content="https://www.hustlin.org/Markets/spotlight.html">
-<meta property="og:type" content="website">
+<meta property="og:title" content="Look Up Any Stock — And How to Read a Company | Hustlin'">
+<meta property="og:description" content="Quote, technical gauge, financials and profile for any ticker — plus the order to read them in, and why valuation comes last.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/Markets/spotlight.html">
+<meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Symbol Symbol Lookup | Markets | Hustlin'">
-<meta name="twitter:description" content="What a deep-dive on one company looks like: quote info, a technical-analysis gauge, the underlying financials, and a company profile.">
-<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta name="twitter:title" content="Look Up Any Stock — And How to Read a Company | Hustlin'">
+<meta name="twitter:description" content="The order to read a company in — and why the P/E ratio comes last.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/Markets/spotlight.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to research a single company — and the order to read it in",
+      "description": "Revenue, margins, cash flow versus profit, debt, and why the price-to-earnings ratio belongs at the end of the process rather than the start. Includes what an automated technical gauge does and does not mean.",
+      "url": "https://hustlin.org/Markets/spotlight.html",
+      "isAccessibleForFree": true,
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "about": ["Stock research", "Financial statements", "Cash flow", "Valuation", "Technical indicators"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://hustlin.org/markets.html" },
+        { "@type": "ListItem", "position": 3, "name": "Symbol Lookup", "item": "https://hustlin.org/Markets/spotlight.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What order should I read a company's financials in?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Revenue first, to see whether the business is growing at all. Then margins, to see whether that growth is profitable. Then operating cash flow set against net income, because if profit is rising while cash is not, something in the accounting is doing work the business is not. Then the debt line. Only after all of that, the price-to-earnings ratio. Valuation is the last question, not the first, because a ratio is meaningless until you know what is underneath it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the P/E ratio come last?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because a price-to-earnings ratio is a comparison between price and a single accounting number, and that number can be flattered, depressed by a one-off charge, or generated by a business in structural decline. A low P/E on a shrinking company is not cheap, it is correctly priced. Reaching for the ratio first is starting at the end — you cannot judge whether a multiple is reasonable until you know what kind of earnings it is a multiple of." }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I compare a company year-over-year or quarter-over-quarter?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Year-over-year, meaning this quarter against the same quarter a year earlier. Almost every business is seasonal, so quarter-on-quarter comparisons mostly measure the calendar rather than the company. A retailer's fourth quarter will always beat its third. This is the single most common way people misread an earnings report." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the technical analysis gauge actually mean?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is a mechanical aggregate of several indicators, each computed from recent price data, averaged into a single strong buy to strong sell reading. It contains no information about the business, no judgement, and no view on valuation. It summarises what price has recently done, which is a legitimate thing to know and is not a forecast. Treating it as a recommendation is the error it invites." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I look up a non-US stock?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Plain tickers work for major US listings — AAPL, MSFT, SPY. For a specific exchange or a non-US listing, use the full exchange-prefixed form, such as NYSE:BRK.B, LSE:TSCO or BINANCE:BTCUSDT." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -136,6 +195,95 @@
 .sp-card-lbl{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
   color:rgba(255,255,255,.4);padding:14px 18px 6px}
 @media(max-width:600px){.sp-form{gap:8px}.sp-go{width:100%}}
+/* ─ Prose sections (added 2026-08-02 with the re-index) ─
+   Deliberately self-contained with explicit colours rather than variables,
+   so these render correctly regardless of what styles.css defines. Mirrors
+   the eco-* system on markets-technical.html. */
+.cht-sec{padding:64px 22px}
+.cht-sec.cream{background:#FAF7F0}
+.cht-sec.white{background:#FFFDF8}
+.cht-sec.dark{background:#060606}
+.cht-in{max-width:1060px;margin:0 auto}
+.cht-num{
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#8A6D08;margin:0 0 12px;display:block;
+}
+.cht-sec.dark .cht-num{color:#F5C520}
+.cht-sec h2{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:29px;
+  line-height:1.22;color:#1c1c1c;margin:0 0 16px;letter-spacing:-.01em;
+}
+.cht-sec.dark h2{color:#fff}
+.cht-sec h3{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
+  color:#1c1c1c;margin:30px 0 10px;
+}
+.cht-sec.dark h3{color:#fff}
+.cht-sec p{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
+.cht-sec.dark p{color:rgba(255,255,255,.62)}
+.cht-sec .lede{font-size:17px;color:#5c574c;max-width:720px}
+.cht-sec.dark .lede{color:rgba(255,255,255,.66)}
+.cht-sec a{color:#8A6D08;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.cht-sec.dark a{color:#F5C520}
+.cht-sec ol,.cht-sec ul{max-width:720px;margin:0 0 16px;padding-left:20px}
+.cht-sec li{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 11px}
+.cht-sec.dark li{color:rgba(255,255,255,.62)}
+.cht-sec li strong{color:#1c1c1c}
+.cht-sec.dark li strong{color:#fff}
+
+/* Callout */
+.cht-call{
+  margin:26px 0 0;padding:20px 22px;border-radius:13px;background:#FFFBEF;
+  border:1px solid rgba(245,197,32,.4);max-width:720px;
+}
+.cht-call p{margin:0;font-size:14.5px;line-height:1.68;color:#3d3a33}
+.cht-call .cht-call-h{
+  display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.cht-call a{color:#8A6D08}
+
+/* Four-numbers grid */
+.cht-quad{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 8px;max-width:720px}
+@media(max-width:700px){.cht-quad{grid-template-columns:1fr 1fr}}
+.cht-quad div{
+  background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:11px;padding:15px 14px;
+}
+.cht-quad b{
+  display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:#8A6D08;margin-bottom:7px;
+}
+.cht-quad span{font-size:14px;line-height:1.6;color:#4a463d;display:block}
+
+/* Next-steps cards */
+.cht-next{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media(max-width:860px){.cht-next{grid-template-columns:1fr}}
+.cht-next a,.cht-sec .cht-next a{
+  display:block;background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;padding:20px;transition:.2s;
+  text-decoration:none;font-weight:400;color:inherit;
+}
+.cht-next a:hover{border-color:rgba(245,197,32,.45);background:#121212}
+.cht-next b{display:block;font-size:15.5px;font-weight:800;color:#F5C520;margin-bottom:7px}
+.cht-next span{display:block;font-size:13.5px;line-height:1.62;color:rgba(255,255,255,.55)}
+
+/* FAQ */
+.cht-faq{max-width:760px;margin-top:26px}
+.cht-faq details{
+  border-bottom:1px solid rgba(0,0,0,.1);padding:15px 0;
+}
+.cht-faq summary{
+  cursor:pointer;font-weight:800;font-size:16px;color:#1c1c1c;
+  font-family:'Plus Jakarta Sans',sans-serif;list-style:none;
+}
+.cht-faq summary::-webkit-details-marker{display:none}
+.cht-faq summary::before{content:'+ ';color:#8A6D08;font-weight:800}
+.cht-faq details[open] summary::before{content:'– '}
+.cht-faq p{margin:12px 0 0;font-size:15.5px;color:#4a463d}
+@media(max-width:640px){
+  .cht-sec{padding:44px 16px}
+  .cht-sec h2{font-size:24px}
+}
 </style>
 </head>
 <body>
@@ -225,6 +373,96 @@
 
     <div class="cta-row" style="margin-top:40px">
       <a class="btn-b" href="../markets.html">← Back to Markets</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     PROSE SECTIONS — added 2026-08-02 to lift this page off noindex.
+     Original writing, sourced from the Fundamental Analysis course.
+     Do not delete without restoring the noindex tag in <head>.
+     ───────────────────────────────────────────────────────────────────── -->
+
+<section class="cht-sec cream" id="order">
+  <div class="cht-in">
+    <span class="cht-num">01 — The order</span>
+    <h2>Read it in this order. Valuation last.</h2>
+    <p class="lede">Most people open a company page, glance at the P/E ratio, compare it to a number they half-remember, and decide. That is starting at the end. A ratio is meaningless until you know what is underneath it.</p>
+    <ol>
+      <li><strong>Revenue.</strong> Is the business selling more than it used to? Everything else is a refinement of this question. A company can improve margins for a while without growing, but not forever.</li>
+      <li><strong>Margins.</strong> Is the growth profitable, and is that profitability stable or drifting? Compare the company to its own history rather than to companies in other industries — margin norms differ enormously between a software business and a grocer, and cross-industry comparison mostly generates false conclusions.</li>
+      <li><strong>Operating cash flow against net income.</strong> This is the check almost nobody runs and it is the most revealing one on the page. If profit is rising while cash is not, something in the accounting is doing work the business is not.</li>
+      <li><strong>Debt.</strong> Not whether it exists — most healthy companies carry some — but whether the business could service it through a bad year. Debt turns an ordinary downturn into an existential one.</li>
+      <li><strong>Only now, the P/E.</strong> By this point you know what kind of earnings you are putting a multiple on, which is the only way the multiple means anything.</li>
+    </ol>
+    <div class="cht-call">
+      <span class="cht-call-h">This is the course, compressed</span>
+      <p>Each of those steps is a stage of <a href="../fundamental-analysis.html">Fundamental Analysis</a> — income statement, balance sheet and cash flow, valuation, then moats and management. The <a href="../markets-fundamental.html">free Fundamentals page</a> covers the same ground with live sector data.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cht-sec white" id="seasonal">
+  <div class="cht-in">
+    <span class="cht-num">02 — The common mistake</span>
+    <h2>Year-over-year. Never quarter-to-quarter.</h2>
+    <p>When the financials tab shows you quarterly figures, compare each quarter to <strong>the same quarter a year earlier</strong> — not to the quarter immediately before it.</p>
+    <p>Almost every business is seasonal. A retailer's fourth quarter will beat its third every single year, in good years and bad. Comparing them measures the calendar, not the company. This is the single most common way people misread an earnings report, and it produces confident conclusions in both directions: false alarm and false comfort.</p>
+    <p>The same caution applies to any one-off item sitting inside a quarter — a legal settlement, an asset sale, a restructuring charge. A single unusual line can make a flat year look like a collapse or a boom. If a number moves sharply and you cannot name why, you have not finished reading.</p>
+  </div>
+</section>
+
+<section class="cht-sec cream" id="gauge">
+  <div class="cht-in">
+    <span class="cht-num">03 — The gauge</span>
+    <h2>What the technical dial is, honestly.</h2>
+    <p class="lede">The technical analysis gauge on this page aggregates several indicators — moving averages and oscillators computed from recent price — and averages them into one reading from strong sell to strong buy. It is worth being clear about what that is.</p>
+    <p>It contains <strong>no information about the business</strong>. It has not read a filing. It has no view on whether the price is reasonable relative to what the company earns. It is a summary of what price has recently done, expressed with more confidence than the underlying method supports.</p>
+    <p>That is not the same as saying it is useless. Knowing whether something has been trending is legitimate information, and momentum has real academic support as a broad statistical tendency. The error the gauge invites is reading a single needle position as a recommendation about one specific company. Several indicators agreeing is not several pieces of evidence — they are largely computing the same thing from the same price data. We take that apart properly on the <a href="../markets-technical.html">free Technical Analysis page</a>, and in more depth in <a href="../technical-analysis.html">the Technical Analysis course</a>.</p>
+  </div>
+</section>
+
+<section class="cht-sec dark" id="limits">
+  <div class="cht-in">
+    <span class="cht-num">04 — What is missing</span>
+    <h2>The page cannot show you the important part.</h2>
+    <p class="lede">Everything on this dashboard is a number in a database. The things that most reliably determine whether a company is worth owning are not.</p>
+    <p>A <strong>moat</strong> — some durable reason competitors cannot simply copy the business — does not appear in any field here. Being well known is not a moat; being able to charge thirty per cent more than an equivalent product is. Neither does <strong>management quality</strong>, meaning whether the people running it allocate capital sensibly or build empires with shareholder money.</p>
+    <p>Nor does customer concentration, a patent expiry, a pending case, or a regulator taking an interest. All of it sits in the filings, and reading them is the actual work. That is what <a href="../fundamental-analysis.html">Fundamental Analysis</a> teaches, and the economic conditions those companies operate inside are <a href="../markets-economic.html">Economics</a>.</p>
+    <p>One last thing, and it is the one that costs people the most money: by the time you have spent an hour on a company you will want your research to have been worth something. That pressure is real, it is well documented, and it is why disciplined investors write down what would change their mind <em>before</em> they start — a habit built in <a href="../trading-psychology.html">Trading Psychology</a>.</p>
+  </div>
+</section>
+
+<section class="cht-sec dark" id="next" style="padding-top:0">
+  <div class="cht-in">
+    <span class="cht-num">05 — Keep going</span>
+    <h2>Where to go from here.</h2>
+    <div class="cht-next">
+      <a href="screeners.html"><b>Find candidates →</b><span>Screen the whole market down to companies matching criteria you set — then bring the names back here.</span></a>
+      <a href="chart.html"><b>Chart it →</b><span>Full interactive chart for any ticker, plus a plain-English guide to reading one.</span></a>
+      <a href="../markets-fundamental.html"><b>Fundamentals, live →</b><span>Valuation and growth across every sector, updated daily. Free.</span></a>
+      <a href="../fundamental-analysis.html"><b>The full course →</b><span>Statements, cash flow, valuation, moats and management — in working order. $37.95.</span></a>
+      <a href="../markets-economic.html"><b>The bigger picture →</b><span>Inflation, rates, jobs and growth — the conditions every company operates inside.</span></a>
+      <a href="../financial-literacy.html"><b>Start earlier →</b><span>Researching stocks is a long way down the list. The free five-stage Financial Literacy course comes first.</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cht-sec white" id="faq">
+  <div class="cht-in">
+    <span class="cht-num">06 — Questions</span>
+    <h2>Common questions.</h2>
+    <div class="cht-faq">
+      <details open><summary>What order should I read a company's financials in?</summary><p>Revenue, then margins, then operating cash flow against net income, then debt, then — last — the P/E. Valuation is the final question because a ratio means nothing until you know what is underneath it.</p></details>
+      <details><summary>Why does the P/E come last?</summary><p>Because earnings can be flattered, depressed by a one-off, or produced by a business in structural decline. A low P/E on a shrinking company is not cheap, it is correctly priced.</p></details>
+      <details><summary>Year-over-year or quarter-over-quarter?</summary><p>Year-over-year — this quarter against the same quarter last year. Almost every business is seasonal, so sequential comparisons mostly measure the calendar. It is the most common way earnings reports get misread.</p></details>
+      <details><summary>What does the technical gauge mean?</summary><p>It is a mechanical average of several price-derived indicators. It has no information about the business and no view on valuation. It summarises what price recently did, which is not a forecast.</p></details>
+      <details><summary>How do I look up a non-US stock?</summary><p>Plain tickers work for major US listings — AAPL, MSFT, SPY. Otherwise use the exchange-prefixed form: NYSE:BRK.B, LSE:TSCO, BINANCE:BTCUSDT.</p></details>
+    </div>
+    <div class="cht-call" style="margin-top:34px">
+      <span class="cht-call-h">Back to Markets</span>
+      <p>This lookup is part of the <a href="../markets.html">free Markets hub</a> — live economic data, sector performance, earnings and news, refreshed daily.</p>
     </div>
   </div>
 </section>

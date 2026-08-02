@@ -3,16 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, follow">
-<!-- noindex 2026-08-01 — AdSense "low value content" remediation.
-     This page is a viewer: ~200 words of chrome around a TradingView iframe.
-     Iframe content is not ours and is invisible to crawlers, so to Google this
-     was a near-empty page. Nine of these made up 29% of the crawlable site,
-     which is what triggered the policy violation.
-     "follow" is deliberate: the links still pass authority, we are only asking
-     Google not to index the page itself. Fully usable for visitors either way.
-     To re-index one: write 800+ words of original analysis around the widget
-     the way calculate-your-hustle.html does, THEN remove this tag. -->
+<!-- Re-indexed 2026-08-02. Carried noindex from 2026-08-01 as AdSense "low value
+     content" remediation. This page always had real original writing; it just
+     sat below the 800-word bar. Now expanded past it with the rotation section
+     and FAQ below. If that prose is stripped, restore the noindex tag. -->
 <meta name="description" content="All eleven S&P 500 sectors on one chart, plus total returns at 3 months, 6 months, 1, 3, 5 and 10 years against the index itself. Free, no account.">
 <title>Sector Compare — 11 Sectors, Six Timeframes | Hustlin'</title>
 
@@ -179,7 +173,161 @@
   color:var(--amber);padding:6px 16px;border-radius:20px;
   font-family:var(--f-mono);font-size:.82rem;font-weight:700;margin-bottom:8px;
 }
+/* ─ Prose sections (added 2026-08-02 with the re-index) ─
+   Deliberately self-contained with explicit colours rather than variables,
+   so these render correctly regardless of what styles.css defines. Mirrors
+   the eco-* system on markets-technical.html. */
+.cht-sec{padding:64px 22px}
+.cht-sec.cream{background:#FAF7F0}
+.cht-sec.white{background:#FFFDF8}
+.cht-sec.dark{background:#060606}
+.cht-in{max-width:1060px;margin:0 auto}
+.cht-num{
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#8A6D08;margin:0 0 12px;display:block;
+}
+.cht-sec.dark .cht-num{color:#F5C520}
+.cht-sec h2{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:29px;
+  line-height:1.22;color:#1c1c1c;margin:0 0 16px;letter-spacing:-.01em;
+}
+.cht-sec.dark h2{color:#fff}
+.cht-sec h3{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
+  color:#1c1c1c;margin:30px 0 10px;
+}
+.cht-sec.dark h3{color:#fff}
+.cht-sec p{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
+.cht-sec.dark p{color:rgba(255,255,255,.62)}
+.cht-sec .lede{font-size:17px;color:#5c574c;max-width:720px}
+.cht-sec.dark .lede{color:rgba(255,255,255,.66)}
+.cht-sec a{color:#8A6D08;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.cht-sec.dark a{color:#F5C520}
+.cht-sec ol,.cht-sec ul{max-width:720px;margin:0 0 16px;padding-left:20px}
+.cht-sec li{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 11px}
+.cht-sec.dark li{color:rgba(255,255,255,.62)}
+.cht-sec li strong{color:#1c1c1c}
+.cht-sec.dark li strong{color:#fff}
+
+/* Callout */
+.cht-call{
+  margin:26px 0 0;padding:20px 22px;border-radius:13px;background:#FFFBEF;
+  border:1px solid rgba(245,197,32,.4);max-width:720px;
+}
+.cht-call p{margin:0;font-size:14.5px;line-height:1.68;color:#3d3a33}
+.cht-call .cht-call-h{
+  display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.cht-call a{color:#8A6D08}
+
+/* Four-numbers grid */
+.cht-quad{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 8px;max-width:720px}
+@media(max-width:700px){.cht-quad{grid-template-columns:1fr 1fr}}
+.cht-quad div{
+  background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:11px;padding:15px 14px;
+}
+.cht-quad b{
+  display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:#8A6D08;margin-bottom:7px;
+}
+.cht-quad span{font-size:14px;line-height:1.6;color:#4a463d;display:block}
+
+/* Next-steps cards */
+.cht-next{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media(max-width:860px){.cht-next{grid-template-columns:1fr}}
+.cht-next a,.cht-sec .cht-next a{
+  display:block;background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;padding:20px;transition:.2s;
+  text-decoration:none;font-weight:400;color:inherit;
+}
+.cht-next a:hover{border-color:rgba(245,197,32,.45);background:#121212}
+.cht-next b{display:block;font-size:15.5px;font-weight:800;color:#F5C520;margin-bottom:7px}
+.cht-next span{display:block;font-size:13.5px;line-height:1.62;color:rgba(255,255,255,.55)}
+
+/* FAQ */
+.cht-faq{max-width:760px;margin-top:26px}
+.cht-faq details{
+  border-bottom:1px solid rgba(0,0,0,.1);padding:15px 0;
+}
+.cht-faq summary{
+  cursor:pointer;font-weight:800;font-size:16px;color:#1c1c1c;
+  font-family:'Plus Jakarta Sans',sans-serif;list-style:none;
+}
+.cht-faq summary::-webkit-details-marker{display:none}
+.cht-faq summary::before{content:'+ ';color:#8A6D08;font-weight:800}
+.cht-faq details[open] summary::before{content:'– '}
+.cht-faq p{margin:12px 0 0;font-size:15.5px;color:#4a463d}
+@media(max-width:640px){
+  .cht-sec{padding:44px 16px}
+  .cht-sec h2{font-size:24px}
+}
 </style>
+
+<link rel="canonical" href="https://hustlin.org/Markets/compare.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Sector comparison — which part of the market is actually working",
+      "description": "All eleven S&P 500 sectors across six timeframes, with a plain-English method for reading the table: do the subtraction against the index, check every column, and treat the ten-year figure with care.",
+      "url": "https://hustlin.org/Markets/compare.html",
+      "isAccessibleForFree": true,
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "about": ["Sector performance", "S&P 500 sectors", "Sector rotation", "Total return"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://hustlin.org/markets.html" },
+        { "@type": "ListItem", "position": 3, "name": "Sector Compare", "item": "https://hustlin.org/Markets/compare.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the 11 S&P 500 sectors?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Technology, Health Care, Financials, Consumer Discretionary, Communication Services, Industrials, Consumer Staples, Energy, Utilities, Real Estate and Materials. Every company in the index belongs to exactly one of them, which is why sector performance explains most of the difference between two portfolios that both claim to hold American stocks." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I tell whether a sector actually outperformed?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Do the subtraction. Find the S&P 500 row, pick a timeframe column, and take the index figure away from the sector figure. That gap in percentage points is the entire result of having chosen that sector over simply owning the index. Do it across all six columns before concluding anything, because a sector ahead over three months and behind over five years is telling you something very different from one ahead in every column." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does trailing the index mean losing money?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and the distinction matters. A sector up 1% in a year the index rose 17% still made you 1% — you did not lose anything. What you gave up is the extra 16 points you would have had by owning the whole index instead. That is an opportunity cost, not a loss, and confusing the two leads people to abandon positions at exactly the wrong moment." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why should I be careful with the ten-year column?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because it covers one specific decade under one specific interest-rate regime. The sector at the top of a ten-year table is there partly because money was cheap for most of that period, which flatters long-duration, growth-heavy sectors in particular. A ten-year number is a description of conditions that have already happened, not a forecast that they continue." }
+        },
+        {
+          "@type": "Question",
+          "name": "What causes sector rotation?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Mostly interest rates, the stage of the economic cycle, and where earnings growth is expected rather than where it currently is. Rate-sensitive sectors such as Utilities and Real Estate tend to struggle when rates rise, largely as a valuation effect rather than a change in the underlying businesses. Cyclicals lead early in an expansion, defensives hold up better late. None of this is a timing system — the patterns are loose, the exceptions are numerous, and identifying the stage of a cycle is far easier afterwards." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -212,7 +360,7 @@
     </div>
     <p class="mkt-eyebrow">Sectors</p>
     <h1 class="sec-h2" style="color:#fff">Which part of the market is actually working.</h1>
-    <p class="sec-sub" style="color:rgba(255,255,255,.45)">The S&amp;P 500 is eleven sectors in a trenchcoat. "The market is up" can mean everything rose together, or that technology carried a tape where most sectors fell. Those are different markets and they call for different decisions.</p>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45)">The S&amp;P 500 is eleven sectors in a trenchcoat. "The market is up" can mean everything rose together, or that technology carried a tape where most sectors fell. Those are different markets and they call for different decisions. The daily read on which is happening sits on our free <a href="../markets.html">Markets hub</a>.</p>
 
     <!-- Our own chart, not a TradingView embed. See the .sec-chart-wrap comment
          in the stylesheet for why. Data comes from the market-sectors edge
@@ -363,6 +511,52 @@
 
     <div class="cta-row" style="margin-top:40px">
       <a class="btn-b" href="../markets.html">← Back to Markets</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Added 2026-08-02 with the re-index: rotation section, next steps, FAQ ── -->
+<section class="cht-sec cream" id="rotation">
+  <div class="cht-in">
+    <span class="cht-num">05 — What drives it</span>
+    <h2>Why sectors take turns.</h2>
+    <p class="lede">The table tells you what happened. It does not tell you why, and the why is mostly three things: interest rates, where the economy sits in its cycle, and where earnings growth is <em>expected</em> rather than where it currently is.</p>
+    <p><strong>Rates do the heaviest lifting.</strong> Utilities and Real Estate tend to struggle when rates rise, and it is worth being precise about the mechanism: it is largely a valuation effect rather than a business one. Nothing about the underlying company changed — the rate used to discount its future cash flows did. Sectors whose value sits furthest in the future feel that most, which is why high-growth technology and rate-sensitive income sectors can fall together for what looks like opposite reasons.</p>
+    <p><strong>The cycle does the rest.</strong> Cyclical sectors — Industrials, Consumer Discretionary, Materials — depend on people and businesses spending freely, so they tend to lead early in an expansion and suffer first when demand cools. Defensives such as Consumer Staples, Health Care and Utilities sell things people buy regardless, so their earnings hold up better late in a cycle and in downturns. That maps directly onto demand elasticity: how much a business's sales fall when money gets tight.</p>
+    <p>None of this is a timing system, and it would be dishonest to present it as one. The patterns are loose, the exceptions are numerous, and identifying which stage of a cycle you are in is dramatically easier afterwards than at the time. What it is good for is <em>understanding</em> — knowing why a sector is moving stops you attributing it to something that is not happening. The live economic data behind all of it is on our free <a href="../markets-economic.html">Economics page</a>, and the full treatment is <a href="../economics.html">Economics for Traders</a>.</p>
+  </div>
+</section>
+
+<section class="cht-sec dark" id="next">
+  <div class="cht-in">
+    <span class="cht-num">06 — Keep going</span>
+    <h2>Where to go from here.</h2>
+    <div class="cht-next">
+      <a href="../markets-economic.html"><b>The economy behind it →</b><span>Inflation, rates, jobs and growth — the forces that actually move sectors. Free, updated daily.</span></a>
+      <a href="screeners.html"><b>Screen inside a sector →</b><span>Once you know which sector, filter it down to companies matching criteria you set.</span></a>
+      <a href="spotlight.html"><b>Research one company →</b><span>Profile, financials and news for any ticker, plus the order to read them in.</span></a>
+      <a href="../markets-technical.html"><b>Breadth and internals →</b><span>How many stocks are actually participating in a move, not just where the index closed.</span></a>
+      <a href="../economics.html"><b>The full course →</b><span>Cycles, rates, inflation and sector strategy, in working order. $37.95.</span></a>
+      <a href="../financial-literacy.html"><b>Start earlier →</b><span>Sector allocation is a long way down the list. The free five-stage Financial Literacy course comes first.</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cht-sec white" id="faq">
+  <div class="cht-in">
+    <span class="cht-num">07 — Questions</span>
+    <h2>Common questions.</h2>
+    <div class="cht-faq">
+      <details open><summary>What are the 11 S&amp;P 500 sectors?</summary><p>Technology, Health Care, Financials, Consumer Discretionary, Communication Services, Industrials, Consumer Staples, Energy, Utilities, Real Estate and Materials. Every company in the index sits in exactly one.</p></details>
+      <details><summary>How do I tell if a sector actually outperformed?</summary><p>Subtract the S&amp;P 500 row from the sector row, in the column you care about. That gap in percentage points is the whole result of choosing that sector over the index. Check all six columns before concluding anything.</p></details>
+      <details><summary>Does trailing the index mean losing money?</summary><p>No. A sector up 1% while the index rose 17% still made you 1%. What you gave up is the extra 16 points — opportunity cost, not loss. Confusing the two makes people quit at the worst time.</p></details>
+      <details><summary>Why be careful with the ten-year column?</summary><p>It covers one decade under one interest-rate regime. Whatever sits at the top is there partly because money was cheap for most of it. That is a description of conditions already past, not a forecast.</p></details>
+      <details><summary>What causes sector rotation?</summary><p>Mostly rates, the stage of the economic cycle, and expected rather than current earnings growth. The patterns are real but loose — useful for understanding, unreliable for timing.</p></details>
+    </div>
+    <div class="cht-call" style="margin-top:34px">
+      <span class="cht-call-h">Back to Markets</span>
+      <p>Sector comparison is part of the <a href="../markets.html">free Markets hub</a> — live economic data, earnings, news and sector performance, refreshed daily.</p>
     </div>
   </div>
 </section>

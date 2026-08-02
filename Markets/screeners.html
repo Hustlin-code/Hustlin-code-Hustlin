@@ -3,29 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, follow">
-<!-- noindex 2026-08-01 — AdSense "low value content" remediation.
-     This page is a viewer: ~200 words of chrome around a TradingView iframe.
-     Iframe content is not ours and is invisible to crawlers, so to Google this
-     was a near-empty page. Nine of these made up 29% of the crawlable site,
-     which is what triggered the policy violation.
-     "follow" is deliberate: the links still pass authority, we are only asking
-     Google not to index the page itself. Fully usable for visitors either way.
-     To re-index one: write 800+ words of original analysis around the widget
-     the way calculate-your-hustle.html does, THEN remove this tag. -->
-<meta name="description" content="Sortable tables of stocks and crypto — click any column header to rank by that metric. Part of Hustlin's free live market data hub.">
-<title>Screeners | Markets | Hustlin'</title>
+<!-- Re-indexed 2026-08-02. Carried noindex from 2026-08-01 as AdSense "low value
+     content" remediation — it was ~200 words of chrome around a TradingView
+     iframe, and iframe content belongs to tradingview.com, not to us.
+     The stated condition for re-indexing was 800+ words of original analysis
+     around the widget. That is now written below. If the prose is ever
+     stripped, restore the noindex tag. -->
+<meta name="description" content="A free stock screener, plus the part nobody explains: what a screen can and cannot find, why three filters quietly pick one industry, and a starter screen that is honest about what it is.">
+<title>Free Stock Screener — And How to Actually Use One | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Screeners | Markets | Hustlin'">
-<meta property="og:description" content="Sortable tables of stocks and crypto — click any column header to rank by that metric.">
-<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
-<meta property="og:url" content="https://www.hustlin.org/Markets/screeners.html">
-<meta property="og:type" content="website">
+<meta property="og:title" content="Free Stock Screener — And How to Actually Use One | Hustlin'">
+<meta property="og:description" content="Sortable stock and crypto screens, plus an honest guide to what a screener is: a filter, not an oracle.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/Markets/screeners.html">
+<meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Screeners | Markets | Hustlin'">
-<meta name="twitter:description" content="Sortable tables of stocks and crypto — click any column header to rank by that metric.">
-<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta name="twitter:title" content="Free Stock Screener — And How to Actually Use One | Hustlin'">
+<meta name="twitter:description" content="A filter, not an oracle. What a screen can and cannot find.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/Markets/screeners.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to actually use a stock screener",
+      "description": "A screener is a filter, not an oracle. What a screen can find, what it structurally cannot see, why three filters quietly select one industry, and a starter screen that is honest about what it is.",
+      "url": "https://hustlin.org/Markets/screeners.html",
+      "isAccessibleForFree": true,
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "about": ["Stock screener", "Fundamental analysis", "Valuation ratios", "Investment research"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://hustlin.org/markets.html" },
+        { "@type": "ListItem", "position": 3, "name": "Screeners", "item": "https://hustlin.org/Markets/screeners.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a stock screener?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A screener filters the entire universe of listed companies down to those matching numeric criteria you set — market capitalisation above a threshold, price-to-earnings below one, revenue growth positive, and so on. It is a filter, not a recommendation engine. Nothing that comes out of a screen is a suggestion to buy; it is simply a list of companies that happen to match arithmetic you chose." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good screen for beginners?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A defensible starting screen is market cap above two billion, debt-to-equity under 1.0, and positive revenue growth. That is a reasonable ordinary businesses screen — it removes very small companies whose prices move on little volume, companies carrying heavy debt, and companies whose sales are shrinking. It is deliberately not a best stocks screen, because no such screen exists." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do my screen results all come from the same industry?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because financial ratios are industry-specific, and stacking three filters usually describes one industry without your intending it. A screen for low price-to-earnings, high dividend yield and low price-to-book will return banks, utilities and energy companies almost every time — not because those are the best investments, but because that combination is the normal financial shape of those industries. The screen did not find value; it found the shape you asked for." }
+        },
+        {
+          "@type": "Question",
+          "name": "What can a screener not tell you?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Everything that is not a number in a database. A screen cannot see whether a company has a durable competitive advantage, whether management allocates capital well, whether accounting policy is aggressive, whether a major customer contract is about to end, or whether a legal case is pending. Those are read from filings and are the reason a screen is the beginning of research rather than the end of it." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -102,6 +157,95 @@
   color:var(--amber);padding:6px 16px;border-radius:20px;
   font-family:var(--f-mono);font-size:.82rem;font-weight:700;margin-bottom:8px;
 }
+/* ─ Prose sections (added 2026-08-02 with the re-index) ─
+   Deliberately self-contained with explicit colours rather than variables,
+   so these render correctly regardless of what styles.css defines. Mirrors
+   the eco-* system on markets-technical.html. */
+.cht-sec{padding:64px 22px}
+.cht-sec.cream{background:#FAF7F0}
+.cht-sec.white{background:#FFFDF8}
+.cht-sec.dark{background:#060606}
+.cht-in{max-width:1060px;margin:0 auto}
+.cht-num{
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#8A6D08;margin:0 0 12px;display:block;
+}
+.cht-sec.dark .cht-num{color:#F5C520}
+.cht-sec h2{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:29px;
+  line-height:1.22;color:#1c1c1c;margin:0 0 16px;letter-spacing:-.01em;
+}
+.cht-sec.dark h2{color:#fff}
+.cht-sec h3{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
+  color:#1c1c1c;margin:30px 0 10px;
+}
+.cht-sec.dark h3{color:#fff}
+.cht-sec p{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
+.cht-sec.dark p{color:rgba(255,255,255,.62)}
+.cht-sec .lede{font-size:17px;color:#5c574c;max-width:720px}
+.cht-sec.dark .lede{color:rgba(255,255,255,.66)}
+.cht-sec a{color:#8A6D08;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.cht-sec.dark a{color:#F5C520}
+.cht-sec ol,.cht-sec ul{max-width:720px;margin:0 0 16px;padding-left:20px}
+.cht-sec li{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 11px}
+.cht-sec.dark li{color:rgba(255,255,255,.62)}
+.cht-sec li strong{color:#1c1c1c}
+.cht-sec.dark li strong{color:#fff}
+
+/* Callout */
+.cht-call{
+  margin:26px 0 0;padding:20px 22px;border-radius:13px;background:#FFFBEF;
+  border:1px solid rgba(245,197,32,.4);max-width:720px;
+}
+.cht-call p{margin:0;font-size:14.5px;line-height:1.68;color:#3d3a33}
+.cht-call .cht-call-h{
+  display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.cht-call a{color:#8A6D08}
+
+/* Four-numbers grid */
+.cht-quad{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 8px;max-width:720px}
+@media(max-width:700px){.cht-quad{grid-template-columns:1fr 1fr}}
+.cht-quad div{
+  background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:11px;padding:15px 14px;
+}
+.cht-quad b{
+  display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:#8A6D08;margin-bottom:7px;
+}
+.cht-quad span{font-size:14px;line-height:1.6;color:#4a463d;display:block}
+
+/* Next-steps cards */
+.cht-next{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media(max-width:860px){.cht-next{grid-template-columns:1fr}}
+.cht-next a,.cht-sec .cht-next a{
+  display:block;background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;padding:20px;transition:.2s;
+  text-decoration:none;font-weight:400;color:inherit;
+}
+.cht-next a:hover{border-color:rgba(245,197,32,.45);background:#121212}
+.cht-next b{display:block;font-size:15.5px;font-weight:800;color:#F5C520;margin-bottom:7px}
+.cht-next span{display:block;font-size:13.5px;line-height:1.62;color:rgba(255,255,255,.55)}
+
+/* FAQ */
+.cht-faq{max-width:760px;margin-top:26px}
+.cht-faq details{
+  border-bottom:1px solid rgba(0,0,0,.1);padding:15px 0;
+}
+.cht-faq summary{
+  cursor:pointer;font-weight:800;font-size:16px;color:#1c1c1c;
+  font-family:'Plus Jakarta Sans',sans-serif;list-style:none;
+}
+.cht-faq summary::-webkit-details-marker{display:none}
+.cht-faq summary::before{content:'+ ';color:#8A6D08;font-weight:800}
+.cht-faq details[open] summary::before{content:'– '}
+.cht-faq p{margin:12px 0 0;font-size:15.5px;color:#4a463d}
+@media(max-width:640px){
+  .cht-sec{padding:44px 16px}
+  .cht-sec h2{font-size:24px}
+}
 </style>
 </head>
 <body>
@@ -175,6 +319,95 @@
 
     <div class="cta-row" style="margin-top:40px">
       <a class="btn-b" href="../markets.html">← Back to Markets</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     PROSE SECTIONS — added 2026-08-02 to lift this page off noindex.
+     Original writing, sourced from the Fundamental Analysis course.
+     Do not delete without restoring the noindex tag in <head>.
+     ───────────────────────────────────────────────────────────────────── -->
+
+<section class="cht-sec cream" id="what">
+  <div class="cht-in">
+    <span class="cht-num">01 — What this is</span>
+    <h2>A filter, not an oracle.</h2>
+    <p class="lede">A screener takes every listed company and throws away the ones that do not match numbers you picked. That is the entire function. It is worth being blunt about, because the way screeners are usually presented implies something closer to a search for good investments, and that is not what is happening.</p>
+    <p>Nothing that comes out the other end is a recommendation. It is a list of companies that happen to match arithmetic you chose. Whether that arithmetic described anything worth owning is a separate question, and the screen has no opinion on it.</p>
+    <p>Which makes the useful question not "what does the screen say" but "what did I actually ask for". Most bad screening is a bad question answered accurately. The order we teach this in — statements first, ratios last — is <a href="../fundamental-analysis.html">Fundamental Analysis</a>.</p>
+  </div>
+</section>
+
+<section class="cht-sec white" id="trap">
+  <div class="cht-in">
+    <span class="cht-num">02 — The three-filter trap</span>
+    <h2>Three filters quietly pick one industry.</h2>
+    <p>Set a screen for low price-to-earnings, high dividend yield and low price-to-book. Run it. You will get banks, utilities and energy companies, and you will get them almost every time.</p>
+    <p>That is not because those are the best investments available. It is because that combination <strong>is the ordinary financial shape of those industries</strong>. Banks carry low price-to-book because of how their balance sheets work. Utilities carry high yields because they are regulated and pay most of their earnings out. The screen did not find value. It found the shape you asked for.</p>
+    <p>This is the single most common way a screen misleads, and it is invisible from inside the results, because the results look like a discovery. Ratios are industry-specific, so any stack of ratio filters is implicitly an industry filter. If your output is concentrated in one sector, assume that is what you selected for until you have ruled it out.</p>
+    <div class="cht-call">
+      <span class="cht-call-h">Watch it happen</span>
+      <p>Our <a href="../markets-fundamental.html">free Fundamentals page</a> shows current P/E, EPS growth, revenue growth and debt-to-equity by sector, so you can see how differently these numbers behave from one industry to the next.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cht-sec cream" id="starter">
+  <div class="cht-in">
+    <span class="cht-num">03 — A starter screen</span>
+    <h2>Three filters that are honest about themselves.</h2>
+    <p class="lede">If you want somewhere defensible to begin, use this — and read the label carefully.</p>
+    <ol>
+      <li><strong>Market cap above $2 billion.</strong> Not because small companies are bad, but because below that size a single order can move the price, results can halve or double a stock overnight, and the reported figures get thinner. It is a volatility filter more than a quality one.</li>
+      <li><strong>Debt-to-equity under 1.0.</strong> Debt is not inherently a problem — it is a problem when revenue falls and the payments do not. This filter removes the companies where an ordinary bad year becomes an existential one.</li>
+      <li><strong>Positive revenue growth.</strong> The lowest possible bar: the business is selling more than it used to. Plenty of good investments fail this at a given moment. It is a starting point, not a verdict.</li>
+    </ol>
+    <p>That is a <strong>"reasonable ordinary businesses" screen</strong>, not a "best stocks" screen — there is no such thing as the latter, and any tool presenting itself that way is telling you something about its marketing rather than its method. Sizing what you eventually buy is a separate discipline again, covered in <a href="../trading-psychology.html">Trading Psychology</a>.</p>
+  </div>
+</section>
+
+<section class="cht-sec dark" id="blind">
+  <div class="cht-in">
+    <span class="cht-num">04 — The blind spots</span>
+    <h2>What a screen structurally cannot see.</h2>
+    <p class="lede">A screener reads a database. Everything that matters and is not in that database is invisible to it — which is most of what actually decides whether a company is worth owning.</p>
+    <p>It cannot see whether a business has a <strong>moat</strong>: something that stops competitors from copying it. Being well known is not a moat. Being able to charge thirty per cent more than an equivalent product is. No ratio captures that.</p>
+    <p>It cannot see <strong>management quality</strong> — whether the people running the company allocate capital sensibly or empire-build. It cannot see <strong>accounting policy</strong>, which is where a rising profit line and a flat cash line quietly diverge. If profit is climbing while operating cash flow is not, something in the accounting is doing work the business is not, and no screen will flag it.</p>
+    <p>It cannot see a customer concentration risk, a patent cliff, a pending legal case, or a regulator's attention. All of that lives in the filings, which is why a screen is the <em>beginning</em> of research. Working through those documents in order is <a href="../fundamental-analysis.html">Fundamental Analysis</a>, and the macro backdrop they sit inside is <a href="../markets-economic.html">Economics</a>.</p>
+  </div>
+</section>
+
+<section class="cht-sec dark" id="next" style="padding-top:0">
+  <div class="cht-in">
+    <span class="cht-num">05 — Keep going</span>
+    <h2>Where to go from here.</h2>
+    <div class="cht-next">
+      <a href="spotlight.html"><b>Research one company →</b><span>Once a screen hands you a name, the symbol lookup gives you its profile, financials and news in one place.</span></a>
+      <a href="../markets-fundamental.html"><b>Fundamentals, live →</b><span>Current valuation and growth figures across every sector, updated daily. Free.</span></a>
+      <a href="compare.html"><b>Compare sectors →</b><span>See which parts of the market are leading and lagging across six horizons.</span></a>
+      <a href="../fundamental-analysis.html"><b>The full course →</b><span>Statements, cash flow, valuation, moats and management — in the order that actually works. $37.95.</span></a>
+      <a href="../financial-literacy.html"><b>Start earlier →</b><span>Screening stocks is a long way down the list. The free five-stage Financial Literacy course comes first.</span></a>
+      <a href="../markets.html"><b>The Markets hub →</b><span>Economic data, sector performance, earnings and news, all in plain English.</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cht-sec white" id="faq">
+  <div class="cht-in">
+    <span class="cht-num">06 — Questions</span>
+    <h2>Common questions.</h2>
+    <div class="cht-faq">
+      <details open><summary>What is a stock screener?</summary><p>A filter that reduces every listed company down to those matching numeric criteria you set. It is not a recommendation engine — the output is simply a list of companies matching arithmetic you chose.</p></details>
+      <details><summary>What is a good screen for beginners?</summary><p>Market cap above $2 billion, debt-to-equity under 1.0, positive revenue growth. That is a "reasonable ordinary businesses" screen. It is deliberately not a "best stocks" screen, because there is no such thing.</p></details>
+      <details><summary>Why are my results all from the same industry?</summary><p>Because ratios are industry-specific, so stacking filters is implicitly an industry filter. Low P/E plus high yield plus low price-to-book returns banks, utilities and energy nearly every time — that is the normal financial shape of those sectors, not a discovery.</p></details>
+      <details><summary>What can a screener not tell you?</summary><p>Moats, management quality, accounting aggressiveness, customer concentration, pending litigation — everything that is not a number in a database. All of it lives in the filings.</p></details>
+      <details><summary>Is this free?</summary><p>Free, no account needed. Data from TradingView and may be delayed. Educational purposes only, not investment advice.</p></details>
+    </div>
+    <div class="cht-call" style="margin-top:34px">
+      <span class="cht-call-h">Back to Markets</span>
+      <p>This screener is part of the <a href="../markets.html">free Markets hub</a> — live economic data, sector performance, earnings and news, refreshed daily.</p>
     </div>
   </div>
 </section>

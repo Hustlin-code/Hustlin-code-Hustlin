@@ -1,0 +1,355 @@
+{
+  "stamp": "2026-08-02",
+  "figures": {
+    "inflation": {
+      "label": "Inflation (CPI, YoY)",
+      "display": "3.5%",
+      "value": 3.46353,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "coreInflation": {
+      "label": "Core Inflation (ex food & energy)",
+      "display": "2.6%",
+      "value": 2.56579,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "unemployment": {
+      "label": "Unemployment Rate",
+      "display": "4.2%",
+      "value": 4.2,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "fedFunds": {
+      "label": "Fed Funds Rate",
+      "display": "3.63%",
+      "value": 3.63,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "gdp": {
+      "label": "GDP Growth (annualised)",
+      "display": "1.5%",
+      "value": 1.5,
+      "date": "2026-04-01",
+      "freq": "q",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "savingsRate": {
+      "label": "Personal Savings Rate",
+      "display": "2.7%",
+      "value": 2.7,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "industrial": {
+      "label": "Industrial Production",
+      "display": "1.1%",
+      "value": 1.14408,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "retailSales": {
+      "label": "Retail Sales",
+      "display": "6.7%",
+      "value": 6.71916,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "capacity": {
+      "label": "Capacity Utilisation",
+      "display": "76.1%",
+      "value": 76.0937,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "housingStarts": {
+      "label": "Housing Starts",
+      "display": "1.43M",
+      "value": 1427,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "thouM",
+      "deltaUnit": "thousand"
+    },
+    "homePrices": {
+      "label": "Home Prices (Case-Shiller)",
+      "display": "1.1%",
+      "value": 1.11402,
+      "date": "2026-05-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "pce": {
+      "label": "PCE Inflation",
+      "display": "3.7%",
+      "value": 3.66805,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "corePce": {
+      "label": "Core PCE",
+      "display": "3.3%",
+      "value": 3.28653,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "ppi": {
+      "label": "Producer Prices (PPI, final demand)",
+      "display": "5.5%",
+      "value": 5.50767,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "breakeven10": {
+      "label": "10-Year Breakeven Inflation",
+      "display": "2.28%",
+      "value": 2.28,
+      "date": "2026-07-31",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "forward5y5y": {
+      "label": "5-Year, 5-Year Forward",
+      "display": "2.30%",
+      "value": 2.3,
+      "date": "2026-07-31",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "threeMonth": {
+      "label": "3-Month Treasury",
+      "display": "3.82%",
+      "value": 3.82,
+      "date": "2026-07-30",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "twoYear": {
+      "label": "2-Year Treasury",
+      "display": "4.23%",
+      "value": 4.23,
+      "date": "2026-07-30",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "tenYear": {
+      "label": "10-Year Treasury",
+      "display": "4.68%",
+      "value": 4.68,
+      "date": "2026-07-30",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "thirtyYear": {
+      "label": "30-Year Treasury",
+      "display": "5.21%",
+      "value": 5.21,
+      "date": "2026-07-30",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "realTenYear": {
+      "label": "10-Year Real Yield (TIPS)",
+      "display": "2.41%",
+      "value": 2.41,
+      "date": "2026-07-30",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "mortgage30": {
+      "label": "30-Year Mortgage",
+      "display": "6.66%",
+      "value": 6.66,
+      "date": "2026-07-30",
+      "freq": "w",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "curve10y2y": {
+      "label": "10-Year minus 2-Year",
+      "display": "0.47%",
+      "value": 0.47,
+      "date": "2026-07-31",
+      "freq": "d",
+      "better": "up",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "curve10y3m": {
+      "label": "10-Year minus 3-Month",
+      "display": "0.92%",
+      "value": 0.92,
+      "date": "2026-07-31",
+      "freq": "d",
+      "better": "up",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "hySpread": {
+      "label": "High Yield Spread",
+      "display": "2.84%",
+      "value": 2.84,
+      "date": "2026-07-30",
+      "freq": "d",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "u6": {
+      "label": "U-6 Underemployment",
+      "display": "7.9%",
+      "value": 7.9,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "payrolls": {
+      "label": "Jobs Added (monthly)",
+      "display": "+57K",
+      "value": 158984,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "deltaK",
+      "deltaUnit": "thousand jobs"
+    },
+    "claims": {
+      "label": "Initial Jobless Claims",
+      "display": "197K",
+      "value": 197000,
+      "date": "2026-07-25",
+      "freq": "w",
+      "better": "down",
+      "fmt": "countK",
+      "deltaUnit": "thousand"
+    },
+    "openings": {
+      "label": "Job Openings",
+      "display": "7.59M",
+      "value": 7594,
+      "date": "2026-05-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "thouM",
+      "deltaUnit": "thousand"
+    },
+    "participation": {
+      "label": "Labour Force Participation",
+      "display": "61.5%",
+      "value": 61.5,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "sentiment": {
+      "label": "Consumer Sentiment",
+      "display": "49.5",
+      "value": 49.5,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "idx",
+      "deltaUnit": "points"
+    },
+    "cardDelinq": {
+      "label": "Credit Card Delinquency",
+      "display": "2.92%",
+      "value": 2.92,
+      "date": "2026-01-01",
+      "freq": "q",
+      "better": "down",
+      "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "revolving": {
+      "label": "Revolving Credit",
+      "display": "3.4%",
+      "value": 3.42268,
+      "date": "2026-05-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
+    "dollar": {
+      "label": "US Dollar Index (broad)",
+      "display": "120.7",
+      "value": 120.7105,
+      "date": "2026-07-24",
+      "freq": "d",
+      "better": "up",
+      "fmt": "idx",
+      "deltaUnit": "points"
+    },
+    "m2": {
+      "label": "Money Supply (M2)",
+      "display": "5.5%",
+      "value": 5.52576,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    }
+  }
+}

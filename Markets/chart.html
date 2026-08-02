@@ -3,29 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, follow">
-<!-- noindex 2026-08-01 — AdSense "low value content" remediation.
-     This page is a viewer: ~200 words of chrome around a TradingView iframe.
-     Iframe content is not ours and is invisible to crawlers, so to Google this
-     was a near-empty page. Nine of these made up 29% of the crawlable site,
-     which is what triggered the policy violation.
-     "follow" is deliberate: the links still pass authority, we are only asking
-     Google not to index the page itself. Fully usable for visitors either way.
-     To re-index one: write 800+ words of original analysis around the widget
-     the way calculate-your-hustle.html does, THEN remove this tag. -->
-<meta name="description" content="Full interactive TradingView chart — search any symbol, draw trendlines, add indicators, and switch timeframes. Part of Hustlin's free live market data hub.">
-<title>Chart | Markets | Hustlin'</title>
+<!-- Re-indexed 2026-08-02. This page carried noindex from 2026-08-01 as AdSense
+     "low value content" remediation: it was ~200 words of chrome around a
+     TradingView iframe, and iframe content belongs to tradingview.com, not to
+     us, so to a crawler this was a near-empty page.
+     The remediation condition was 800+ words of original analysis around the
+     widget. That is now written below (~1,200 words), so the tag is removed.
+     If you ever strip the prose sections, put the noindex back. -->
+<meta name="description" content="A free full-screen chart for any ticker, plus a plain-English guide to reading one: the four numbers in a candle, a five-step routine, and an honest account of what a chart cannot tell you.">
+<title>How to Read a Stock Chart — Free Interactive Chart | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Chart | Markets | Hustlin'">
-<meta property="og:description" content="Full interactive TradingView chart — search any symbol, draw trendlines, add indicators, and switch timeframes.">
-<meta property="og:image" content="https://www.hustlin.org/assets/social-preview.png">
-<meta property="og:url" content="https://www.hustlin.org/Markets/chart.html">
-<meta property="og:type" content="website">
+<meta property="og:title" content="How to Read a Stock Chart — Free Interactive Chart | Hustlin'">
+<meta property="og:description" content="Pull up any ticker, then learn what you're actually looking at: candles, timeframe, volume, and the questions a chart genuinely cannot answer.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta property="og:url" content="https://hustlin.org/Markets/chart.html">
+<meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Chart | Markets | Hustlin'">
-<meta name="twitter:description" content="Full interactive TradingView chart — search any symbol, draw trendlines, add indicators, and switch timeframes.">
-<meta name="twitter:image" content="https://www.hustlin.org/assets/social-preview.png">
+<meta name="twitter:title" content="How to Read a Stock Chart — Free Interactive Chart | Hustlin'">
+<meta name="twitter:description" content="Pull up any ticker, then learn what you're actually looking at — including what a chart cannot tell you.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+<link rel="canonical" href="https://hustlin.org/Markets/chart.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to read a stock chart — and what a chart cannot tell you",
+      "description": "A plain-English guide to reading a price chart: the four numbers inside a candle, why timeframe changes the answer, what volume adds, a five-step routine, and the hard limits of what price data can know.",
+      "url": "https://hustlin.org/Markets/chart.html",
+      "isAccessibleForFree": true,
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "about": ["Stock charts", "Candlestick charts", "Technical analysis", "Volume", "Timeframes"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'",
+      "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://hustlin.org/markets.html" },
+        { "@type": "ListItem", "position": 3, "name": "Chart", "item": "https://hustlin.org/Markets/chart.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What do the four numbers in a candlestick mean?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every candle summarizes one period of trading with four numbers: the price it opened at, the price it closed at, and the highest and lowest prices reached in between. The thick body spans open to close, and the thin lines above and below mark the extremes. A candle is coloured according to whether the close finished above or below the open. That is the entire vocabulary — every indicator on a chart is arithmetic performed on those four numbers." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which timeframe should I use on a chart?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The one that matches how long you intend to hold. A chart does not have a single correct answer that longer or shorter bars reveal more clearly — different timeframes genuinely disagree, and all of them can be accurate at once. A stock can be falling on the hourly, rising on the daily and flat on the weekly with no contradiction. Problems arise when someone forms a view on one timeframe and then justifies it using a different one, which is one of the most common ways people talk themselves into a position." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does volume tell you that price does not?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Volume counts how many shares changed hands, which is a rough measure of how much conviction sat behind a move. A large price move on unusually heavy volume means many participants acted; the same move on thin volume may reflect very few. Volume is corroboration rather than a signal in its own right — it can tell you a move had participation behind it, but it cannot tell you whether that participation was right." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a chart predict where a stock is going?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and this is the single most important thing to understand before using one. A chart is a complete record of prices that have already been agreed. It contains no information about what a company earns, what it owes, whether a major customer has left, or what a central bank will do next month. Momentum and trend-following do have substantial academic support, but that is a statistical tendency across many positions over time, not a forecast for the specific chart in front of you." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this chart free, and is the data live?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The chart is free to use with no account required. Data is provided by TradingView and may be delayed depending on the exchange and symbol. It is published for educational purposes only and is not investment advice." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -102,6 +163,96 @@
   color:var(--amber);padding:6px 16px;border-radius:20px;
   font-family:var(--f-mono);font-size:.82rem;font-weight:700;margin-bottom:8px;
 }
+
+/* ─ Prose sections (added 2026-08-02 with the re-index) ─
+   Deliberately self-contained with explicit colours rather than variables,
+   so these render correctly regardless of what styles.css defines. Mirrors
+   the eco-* system on markets-technical.html. */
+.cht-sec{padding:64px 22px}
+.cht-sec.cream{background:#FAF7F0}
+.cht-sec.white{background:#FFFDF8}
+.cht-sec.dark{background:#060606}
+.cht-in{max-width:1060px;margin:0 auto}
+.cht-num{
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#8A6D08;margin:0 0 12px;display:block;
+}
+.cht-sec.dark .cht-num{color:#F5C520}
+.cht-sec h2{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:29px;
+  line-height:1.22;color:#1c1c1c;margin:0 0 16px;letter-spacing:-.01em;
+}
+.cht-sec.dark h2{color:#fff}
+.cht-sec h3{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
+  color:#1c1c1c;margin:30px 0 10px;
+}
+.cht-sec.dark h3{color:#fff}
+.cht-sec p{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
+.cht-sec.dark p{color:rgba(255,255,255,.62)}
+.cht-sec .lede{font-size:17px;color:#5c574c;max-width:720px}
+.cht-sec.dark .lede{color:rgba(255,255,255,.66)}
+.cht-sec a{color:#8A6D08;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.cht-sec.dark a{color:#F5C520}
+.cht-sec ol,.cht-sec ul{max-width:720px;margin:0 0 16px;padding-left:20px}
+.cht-sec li{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 11px}
+.cht-sec.dark li{color:rgba(255,255,255,.62)}
+.cht-sec li strong{color:#1c1c1c}
+.cht-sec.dark li strong{color:#fff}
+
+/* Callout */
+.cht-call{
+  margin:26px 0 0;padding:20px 22px;border-radius:13px;background:#FFFBEF;
+  border:1px solid rgba(245,197,32,.4);max-width:720px;
+}
+.cht-call p{margin:0;font-size:14.5px;line-height:1.68;color:#3d3a33}
+.cht-call .cht-call-h{
+  display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.cht-call a{color:#8A6D08}
+
+/* Four-numbers grid */
+.cht-quad{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 8px;max-width:720px}
+@media(max-width:700px){.cht-quad{grid-template-columns:1fr 1fr}}
+.cht-quad div{
+  background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:11px;padding:15px 14px;
+}
+.cht-quad b{
+  display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:#8A6D08;margin-bottom:7px;
+}
+.cht-quad span{font-size:14px;line-height:1.6;color:#4a463d;display:block}
+
+/* Next-steps cards */
+.cht-next{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media(max-width:860px){.cht-next{grid-template-columns:1fr}}
+.cht-next a,.cht-sec .cht-next a{
+  display:block;background:#0D0D0D;border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;padding:20px;transition:.2s;
+  text-decoration:none;font-weight:400;color:inherit;
+}
+.cht-next a:hover{border-color:rgba(245,197,32,.45);background:#121212}
+.cht-next b{display:block;font-size:15.5px;font-weight:800;color:#F5C520;margin-bottom:7px}
+.cht-next span{display:block;font-size:13.5px;line-height:1.62;color:rgba(255,255,255,.55)}
+
+/* FAQ */
+.cht-faq{max-width:760px;margin-top:26px}
+.cht-faq details{
+  border-bottom:1px solid rgba(0,0,0,.1);padding:15px 0;
+}
+.cht-faq summary{
+  cursor:pointer;font-weight:800;font-size:16px;color:#1c1c1c;
+  font-family:'Plus Jakarta Sans',sans-serif;list-style:none;
+}
+.cht-faq summary::-webkit-details-marker{display:none}
+.cht-faq summary::before{content:'+ ';color:#8A6D08;font-weight:800}
+.cht-faq details[open] summary::before{content:'– '}
+.cht-faq p{margin:12px 0 0;font-size:15.5px;color:#4a463d}
+@media(max-width:640px){
+  .cht-sec{padding:44px 16px}
+  .cht-sec h2{font-size:24px}
+}
 </style>
 </head>
 <body>
@@ -134,8 +285,8 @@
       <span>Chart</span>
     </div>
     <p class="mkt-eyebrow">Charts</p>
-    <h1 class="sec-h2" style="color:#fff">Full, interactive chart.</h1>
-    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Pull up any symbol — type a ticker into the search box on the chart to change it. Draw trendlines, add indicators, switch timeframes.</p>
+    <h1 class="sec-h2" style="color:#fff">Pull up any chart. Then learn to read it.</h1>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Type a ticker into the search box to change the symbol. Draw trendlines, add indicators, switch timeframes. Below the chart: what you're actually looking at, a routine for using it, and the questions a chart genuinely cannot answer.</p>
 
     <div class="mkt-widget-card" style="margin-top:36px;height:600px">
       <div class="tradingview-widget-container" style="height:100%">
@@ -163,9 +314,158 @@
     </div>
 
     <p class="mkt-caption">Market data provided by TradingView and may be delayed. Shown for educational purposes only — nothing on this page is investment advice, and past performance doesn't guarantee future results.</p>
+  </div>
+</section>
 
-    <div class="cta-row" style="margin-top:40px">
-      <a class="btn-b" href="../markets.html">← Back to Markets</a>
+<!-- ─────────────────────────────────────────────────────────────────────
+     PROSE SECTIONS — added 2026-08-02 to lift this page off noindex.
+     Original writing, sourced from the Technical Analysis course.
+     Do not delete without restoring the noindex tag in <head>.
+     ───────────────────────────────────────────────────────────────────── -->
+
+<!-- 01 — WHAT YOU ARE LOOKING AT -->
+<section class="cht-sec cream" id="reading">
+  <div class="cht-in">
+    <span class="cht-num">01 — What you're looking at</span>
+    <h2>A chart is four numbers, repeated.</h2>
+    <p class="lede">Every candle on the chart above summarizes one period of trading with four numbers. That's it. Every indicator you can add to this chart is arithmetic performed on those four numbers, which is worth knowing before anyone sells you a system built on them.</p>
+
+    <div class="cht-quad">
+      <div><b>Open</b><span>The first price agreed in the period.</span></div>
+      <div><b>High</b><span>The highest anyone paid.</span></div>
+      <div><b>Low</b><span>The lowest anyone accepted.</span></div>
+      <div><b>Close</b><span>The last price agreed.</span></div>
+    </div>
+
+    <p>The thick body spans open to close. The thin lines above and below — wicks — mark the extremes. When the close finishes above the open the candle is drawn one colour, below the open the other. Nothing more is encoded than that.</p>
+
+    <p>The most basic read available: where did price finish relative to where it traded all period? A close near the top of the range means buyers had the last word. A close near the bottom means sellers did. It's a small piece of information and it's real — which already puts it ahead of most of what gets said about charts. We take the same four numbers apart in more detail on the <a href="../markets-technical.html">free Technical Analysis page</a>.</p>
+
+    <h3>Timeframe changes the answer, and that's not a bug</h3>
+    <p>Switch this chart from daily to weekly and you will see a different picture of the same stock. Both are accurate. A stock can be falling on the hourly, rising on the daily and flat on the weekly with no contradiction at all — they are measuring different spans.</p>
+    <p>The rule that matters: <strong>pick the timeframe that matches how long you intend to hold.</strong> The trouble starts when someone forms a view on one timeframe and then goes looking for a different one that agrees with them. That isn't analysis, it's shopping, and it is one of the most reliable ways people talk themselves into a position they'd already decided on — a bias we cover properly in <a href="../markets-behavior.html">Market Sentiment</a>.</p>
+
+    <div class="cht-call">
+      <span class="cht-call-h">Where this comes from</span>
+      <p>This is the ground covered in Stage 1 of our <a href="../technical-analysis.html">Technical Analysis course</a>. The <a href="../markets-technical.html">free Technical Analysis markets page</a> goes further into trend, volume and market breadth with live data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — VOLUME -->
+<section class="cht-sec white" id="volume">
+  <div class="cht-in">
+    <span class="cht-num">02 — Volume</span>
+    <h2>The one thing worth adding first.</h2>
+    <p>Volume — the bars along the bottom — counts how many shares changed hands. It is the closest thing a chart has to a measure of conviction. A big move on unusually heavy volume means a lot of participants acted on it. The same move on thin volume might be a handful of trades in a quiet afternoon.</p>
+    <p>Used properly, volume is <strong>corroboration, not a signal</strong>. It can tell you a move had participation behind it. It cannot tell you whether that participation was right. Plenty of heavily-traded moves reversed the following week, and the volume bars gave no warning whatsoever.</p>
+    <p>The practical version: when price does something notable and volume is unremarkable, hold the observation more loosely. That's the whole lesson, and it's more useful than most indicators. The same logic scaled up to the whole index is called market breadth, which we track with live data on <a href="../markets-technical.html">the Technical Analysis page</a>.</p>
+  </div>
+</section>
+
+<!-- 03 — A ROUTINE -->
+<section class="cht-sec cream" id="routine">
+  <div class="cht-in">
+    <span class="cht-num">03 — A routine</span>
+    <h2>Five steps, in this order.</h2>
+    <p class="lede">Almost everyone learns charts backwards — they start with indicators, because indicators look like answers. Indicators are the last layer and they are derived from the first two. Learning them first is how people end up with a screen full of colored lines and no idea what any of it means, which is exactly why <a href="../technical-analysis.html">our Technical Analysis course</a> runs candles first and indicators fourth.</p>
+
+    <ol>
+      <li><strong>Zoom out first.</strong> Set the chart to weekly or monthly before anything else. You are asking one question: over a long span, is this generally rising, generally falling, or going sideways? A surprising number of bad decisions come from analysing a five-day chart of something that has been declining for three years.</li>
+      <li><strong>Find the obvious levels.</strong> Look for prices the stock has repeatedly failed to get above, or repeatedly refused to fall below. These aren't magic. They're just prices where enough people have historically changed their minds that it shows up in the record. Mark two or three, not fifteen.</li>
+      <li><strong>Drop to your actual timeframe.</strong> Now switch to the span that matches your intended holding period. Check whether what you see here agrees with the long view from step one. If it doesn't, that disagreement is the most useful thing on the screen.</li>
+      <li><strong>Add volume. Stop there for a while.</strong> Confirm whether recent moves had participation. Resist adding a fourth, fifth and sixth indicator — they are largely computing the same thing from the same four numbers, and three that agree is not three pieces of evidence.</li>
+      <li><strong>Write down what would prove you wrong.</strong> Before acting, name the specific price or event that would mean your read was mistaken. If you can't name one, you don't have an analysis — you have a preference.</li>
+    </ol>
+
+    <div class="cht-call">
+      <span class="cht-call-h">Step five is the whole game</span>
+      <p>Deciding in advance what would falsify your view is the single highest-value habit in this discipline, and it's psychological rather than technical. That's the subject of our <a href="../trading-psychology.html">Trading Psychology course</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 — LIMITS -->
+<section class="cht-sec dark" id="limits">
+  <div class="cht-in">
+    <span class="cht-num">04 — The limits</span>
+    <h2>What this chart cannot tell you.</h2>
+    <p class="lede">A chart is the complete history of every price two people have ever agreed on for a thing. That is genuinely useful information, and it is not a forecast. Most of what goes wrong in technical analysis comes from confusing the two.</p>
+
+    <p>Because a chart contains prices and nothing else, it sets a hard ceiling on what it can possibly know. It holds no information about what a company earns, what it owes, whether its largest customer just walked, or how much of its profit is real cash — that lives in the filings, which is what <a href="../markets-fundamental.html">Fundamentals</a> is for. Nor can it see what the Federal Reserve will do next month, which is the territory of <a href="../markets-economic.html">the economic data</a>. Anyone claiming a chart told them something outside those four numbers is telling you about themselves, not the market.</p>
+
+    <h3>What the evidence actually supports</h3>
+    <p>It's worth splitting the discipline up, because the parts have very different track records. <strong>Momentum and trend-following</strong> have decades of academic support across many markets and asset classes — the tendency for what has been rising to keep rising over intermediate horizons is one of the most replicated findings in finance. But that is a statistical tendency across many positions over time. It is not a prediction about the specific chart in front of you.</p>
+    <p><strong>Specific chart patterns</strong> fare considerably worse under testing, largely because they get identified after the fact and human beings are extremely good at seeing shapes in noise — the pattern-matching instinct itself is the problem, and it's unpacked in <a href="../markets-behavior.html">Market Sentiment</a>. <strong>Risk management built on price levels</strong> — sizing a position against the point where you'd admit you were wrong — isn't a prediction method at all, and is arguably the most valuable thing in the whole field.</p>
+    <p>None of this makes charts useless. It makes them a record rather than an oracle, which is a more modest claim and a far more defensible one. If money is tight right now, charts are a long way down the list of things that will help — start instead with the free five-stage <a href="../financial-literacy.html">Financial Literacy course</a>.</p>
+  </div>
+</section>
+
+<!-- 05 — NEXT -->
+<section class="cht-sec dark" id="next" style="padding-top:0">
+  <div class="cht-in">
+    <span class="cht-num">05 — Keep going</span>
+    <h2>Where to go from here.</h2>
+    <div class="cht-next">
+      <a href="../markets-technical.html">
+        <b>Technical Analysis — live →</b>
+        <span>Trend, volume, moving averages and S&amp;P 500 breadth, with current data and an honest read on each signal. Free.</span>
+      </a>
+      <a href="compare.html">
+        <b>Compare sectors →</b>
+        <span>See which parts of the market are leading and lagging over six horizons, side by side.</span>
+      </a>
+      <a href="spotlight.html">
+        <b>Look up a symbol →</b>
+        <span>Profile, financials and news for any ticker, in one place.</span>
+      </a>
+      <a href="../financial-literacy.html">
+        <b>Start with the basics →</b>
+        <span>Charts are a long way down the list. If money is tight right now, the free five-stage Financial Literacy course is the place to begin.</span>
+      </a>
+      <a href="../markets-economic.html">
+        <b>The economy behind the chart →</b>
+        <span>Inflation, rates, jobs and growth — the forces a price chart cannot see. Free, updated with live data.</span>
+      </a>
+      <a href="../technical-analysis.html">
+        <b>The full course →</b>
+        <span>Five stages, from candles to advanced methods. $37.95, or included in the All-Access Bundle.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 06 — FAQ -->
+<section class="cht-sec white" id="faq">
+  <div class="cht-in">
+    <span class="cht-num">06 — Questions</span>
+    <h2>Common questions.</h2>
+    <div class="cht-faq">
+      <details open>
+        <summary>What do the four numbers in a candlestick mean?</summary>
+        <p>Open, high, low and close: the price it opened at, the price it closed at, and the highest and lowest reached in between. The thick body spans open to close; the thin wicks mark the extremes. Every indicator you can add is arithmetic performed on those four numbers.</p>
+      </details>
+      <details>
+        <summary>Which timeframe should I use?</summary>
+        <p>The one that matches how long you intend to hold. Different timeframes genuinely disagree and can all be accurate at once — a stock can fall on the hourly, rise on the daily and sit flat on the weekly. The problem isn't the disagreement, it's forming a view on one timeframe and then justifying it with another.</p>
+      </details>
+      <details>
+        <summary>What does volume tell you that price doesn't?</summary>
+        <p>Roughly how much conviction sat behind a move. A large move on heavy volume means many participants acted; the same move on thin volume may be very few. It's corroboration rather than a signal — it can tell you a move had participation, not whether that participation was right.</p>
+      </details>
+      <details>
+        <summary>Can a chart predict where a stock is going?</summary>
+        <p>No. A chart is a record of prices already agreed. It holds no information about earnings, debt, customers or central bank policy. Momentum and trend-following do have real academic support, but as a statistical tendency across many positions over time — not as a forecast for the chart in front of you.</p>
+      </details>
+      <details>
+        <summary>Is this free, and is the data live?</summary>
+        <p>Free, no account needed. Data comes from TradingView and may be delayed depending on the exchange and symbol. Educational purposes only — this is not investment advice.</p>
+      </details>
+    </div>
+
+    <div class="cht-call" style="margin-top:34px">
+      <span class="cht-call-h">Back to Markets</span>
+      <p>This chart is one piece of the <a href="../markets.html">free Markets hub</a> — live economic data, sector performance, earnings and news, updated daily and written up in plain English.</p>
     </div>
   </div>
 </section>

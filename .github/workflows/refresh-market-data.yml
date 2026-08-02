@@ -1,0 +1,109 @@
+# =============================================================================
+#  Refresh market data — hustlin.org
+# =============================================================================
+#
+#  WHAT THIS DOES
+#
+#  Runs tools/inject-market-data.mjs on a schedule, which fetches current
+#  figures from the market-* Supabase Edge Functions and writes them BETWEEN
+#  the <!-- MKT:name:START --> / <!-- MKT:name:END --> markers in the Markets
+#  pages. If anything changed, it commits the rebuilt HTML and GitHub Pages
+#  redeploys automatically.
+#
+#  WHY BUILD-TIME AND NOT CLIENT-SIDE
+#
+#  The numbers end up in the static HTML, so Googlebot sees "Inflation 3.5%"
+#  as text on first crawl. Fetching them in the browser instead means the
+#  content only exists after JavaScript runs, which Google renders on a second
+#  pass, days later, unreliably. That is the whole reason the Markets pages
+#  rank at all. Do not "simplify" this into a client-side fetch.
+#
+#  It also keeps the Supabase cost per BUILD rather than per VISITOR. One run
+#  a day is one set of function invocations no matter how much traffic arrives.
+#
+#  NO SECRETS REQUIRED
+#
+#  The market-* functions are deliberately unauthenticated (verify_jwt false).
+#  The FRED and Finnhub keys live server-side inside the functions and never
+#  touch this workflow. The optional Cloudflare purge at the end is the only
+#  step that reads secrets, and it skips cleanly when they are absent.
+#
+#  FAILURE POLICY
+#
+#  inject-market-data.mjs exits 0 and keeps the existing baked numbers when an
+#  endpoint is unreachable. That is intentional: slightly stale inflation data
+#  is a minor problem, a Markets page that ships empty because an API blipped
+#  is a real one. So an upstream outage produces no diff and no commit, and
+#  this workflow goes green. Check the "as of" dates on the page, not the
+#  badge, to spot staleness.
+# =============================================================================
+
+name: Refresh market data
+
+on:
+  schedule:
+    # 11:00 UTC on weekdays — after the overnight FRED releases land and
+    # before the US open. Cron here is always UTC; it does not follow DST,
+    # so this drifts by an hour between EST and EDT. That is fine.
+    - cron: '0 11 * * 1-5'
+  workflow_dispatch:        # lets you run it by hand from the Actions tab
+
+# Never let two runs rewrite the same markers at once.
+concurrency:
+  group: refresh-market-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write           # required to push the rebuilt HTML back
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Bake current figures into the Markets pages
+        run: node tools/inject-market-data.mjs
+
+      - name: Commit only if something actually changed
+        id: commit
+        run: |
+          git config user.name  "hustlin-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          # tools/.market-snapshot.json must be committed too — the next run
+          # diffs against it to build the "what changed" block on the page.
+          git add -A '*.html' 'Markets/*.html' 'tools/.market-snapshot.json'
+
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No change in the baked figures — nothing to commit."
+          else
+            git commit -m "chore: refresh market data ($(date -u +'%Y-%m-%d'))"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Cloudflare sits in front of Pages and will keep serving the previous
+      # HTML until its cache expires. Without this the numbers update in the
+      # repo but not for visitors. Skipped automatically if the secrets are
+      # not set, so the workflow still works before you configure them.
+      - name: Purge Cloudflare cache
+        if: steps.commit.outputs.changed == 'true' && env.CF_ZONE != ''
+        env:
+          CF_ZONE:  ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          curl -sS -X POST \
+            "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
+            -H "Authorization: Bearer ${CF_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}'

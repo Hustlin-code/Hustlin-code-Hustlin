@@ -24,10 +24,26 @@ Allow: /
 # from an authenticated Edge Function. Crawling it wastes budget on a spinner.
 Disallow: /learn.html
 
-# Market viewer sub-pages. Each is a TradingView iframe with ~200 words of
-# chrome. Thin by any measure, and the widget content is not ours to rank for.
-# The main markets.html carries the real written analysis and stays indexed.
-Disallow: /Markets/
+# Market viewer sub-pages.
+#
+# CHANGED 2026-08-02 — the blanket "Disallow: /Markets/" is GONE.
+#
+# It was correct when written: those pages were a TradingView iframe wrapped in
+# ~200 words of chrome, and the widget content is not ours to rank for. Four of
+# them have since been rewritten with 1,150-1,780 words of original analysis
+# each, canonical tags and Article/FAQ schema, and their noindex tags removed.
+#
+# Leaving this line in place would have quietly wasted all of that: a Disallow
+# stops Google FETCHING the page at all, so it never sees the new content and
+# never sees the noindex removal either. A page can be blocked by robots.txt
+# and still surface as a bare URL with no description — the worst of both.
+#
+# The three genuinely thin ones are retired redirect stubs. They keep their
+# noindex tags, which is the right tool here: crawlable, not indexable, so link
+# equity still flows through them.
+#
+# If you ever add a new thin viewer page, give it a noindex meta tag. Do not
+# reach for a Disallow — noindex is what you actually mean.
 
 # Account flows — no reason to crawl, already noindex
 Disallow: /login.html
