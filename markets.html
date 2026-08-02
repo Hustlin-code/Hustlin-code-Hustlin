@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Free live market data explained — today's tape, market headlines, US economic indicators, sector performance and charts, organised into the four disciplines that actually decide outcomes. No account, no email.">
+<meta name="description" content="Free live market data explained — today's tape, headlines, US economic indicators and charts, organised into the four disciplines that decide outcomes.">
 <title>Markets — Free Live Data, Explained Four Ways | Hustlin'</title>
 
 <!-- Social Preview -->
@@ -1303,6 +1303,13 @@
     return String(v || '').toUpperCase().replace(/[^A-Z0-9.\-]/g, '').slice(0, 16);
   }
 
+  // Escape anything from an upstream API before it reaches innerHTML.
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
   function chart(hostId, symbol, compare) {
     var host = document.getElementById(hostId);
     if (!host) return;
@@ -1367,17 +1374,21 @@
         if (!p) throw new Error('no profile');
         setLabels(sym, p.sectorEtf, p.sectorName, p.sectorMatched, p.name);
         chart('tk-chart-2', sym, p.sectorEtf);
+        // p.name and p.sectorName come from a third-party API. `sym` is already
+        // whitelisted, but a company name is free text we do not control, so it
+        // is escaped before it touches innerHTML. Trusting an upstream feed not
+        // to contain markup is not a security model.
         msg.className = 'tk-msg';
         msg.innerHTML = p.sectorMatched
-          ? '<strong>' + sym + '</strong> — ' + (p.name || '') + '. Sector: ' + p.sectorName + ', charted against ' + p.sectorEtf + '.'
-          : '<strong>' + sym + '</strong> — could not determine a sector, so the comparison uses SPY.';
+          ? '<strong>' + esc(sym) + '</strong> — ' + esc(p.name || '') + '. Sector: ' + esc(p.sectorName) + ', charted against ' + esc(p.sectorEtf) + '.'
+          : '<strong>' + esc(sym) + '</strong> — could not determine a sector, so the comparison uses SPY.';
       })
       .catch(function () {
         // Degrade, do not blank. SPY is a defensible fallback and we say so.
         setLabels(sym, 'SPY', 'the S&P 500', false, '');
         chart('tk-chart-2', sym, 'SPY');
         msg.className = 'tk-msg';
-        msg.innerHTML = '<strong>' + sym + '</strong> — sector lookup unavailable, comparing against SPY instead.';
+        msg.innerHTML = '<strong>' + esc(sym) + '</strong> — sector lookup unavailable, comparing against SPY instead.';
       })
       .then(function () {
         go.disabled = false;

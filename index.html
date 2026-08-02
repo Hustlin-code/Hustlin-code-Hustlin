@@ -495,7 +495,29 @@
   .ix-bundle-list{grid-template-columns:1fr}
   .ix-bundle-price{font-size:2.3rem}
 }
+
+/* ── Markets CTA in the hero (added 2026-08-02) ─────────────────
+   Text button rather than a PNG so it can ship tonight; swap in a matching
+   button image when one exists and the layout will not move. */
+.ix-mkt-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(6,6,6,.72);border:2px solid #F5C520;color:#F5C520;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:.95rem;
+  letter-spacing:.02em;padding:15px 26px;border-radius:12px;text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .18s,background .18s,box-shadow .18s;
+  backdrop-filter:blur(2px);
+}
+.ix-mkt-btn:hover{background:#F5C520;color:#060606;transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(245,197,32,.3)}
+.ix-mkt-btn .live{width:9px;height:9px;border-radius:50%;background:#2DA02D;
+  box-shadow:0 0 8px #2DA02D;animation:ixLive 1.6s infinite}
+.ix-mkt-btn:hover .live{background:#060606;box-shadow:none}
+@keyframes ixLive{0%,100%{opacity:1}50%{opacity:.35}}
+.ix-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
+@media(max-width:600px){.ix-mkt-btn{width:100%;justify-content:center;font-size:.9rem;padding:14px 20px}}
 </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -519,6 +541,7 @@
     </p>
     <div class="ix-ctas" id="join">
       <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Free Course" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
+      <a class="ix-mkt-btn" href="markets.html"><span class="live"></span>Live Markets &amp; Data</a>
     </div>
     <div class="ix-social">
       <span class="ix-social-label">Follow us</span>
