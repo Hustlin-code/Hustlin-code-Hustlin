@@ -1,0 +1,65 @@
+/* =========================================================================
+   blog/post.css — shared styling for long-form blog posts.
+
+   The first two posts carry this CSS inline, which was fine at two posts and
+   becomes a maintenance problem at ten: a spacing tweak would mean editing
+   every file. New posts link this instead. The existing inline copies are
+   harmless and can be stripped whenever those posts are next touched.
+
+   All selectors are .bp-* prefixed so nothing collides with styles.css or
+   the course pages.
+   ========================================================================= */
+
+.bp{--gold:#F5C520;--ink:#060606;--cream:#FAF7F0;--line:#E4DFD3;--mut:#5c574c;
+    font-family:'Plus Jakarta Sans',sans-serif}
+
+.bp-hero{background:radial-gradient(ellipse at 50% 0%,#1a1a1a 0%,#060606 70%);padding:66px 22px 56px}
+.bp-hero-in{max-width:760px;margin:0 auto}
+.bp-crumb{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
+          text-transform:uppercase;color:#8b8577;margin:0 0 18px}
+.bp-crumb a{color:#8b8577;text-decoration:none}
+.bp-crumb a:hover{color:var(--gold)}
+.bp-h1{font-weight:800;font-size:clamp(28px,5vw,46px);line-height:1.12;color:#fff;
+       margin:0 0 18px;letter-spacing:-.02em}
+.bp-sub{font-size:17px;line-height:1.65;color:#c2c2c2;margin:0 0 22px}
+.bp-meta{font-family:'Space Mono',monospace;font-size:12px;color:#7d776b;margin:0}
+
+.bp-body{background:var(--cream);padding:52px 22px 70px}
+.bp-in{max-width:760px;margin:0 auto}
+.bp-in h2{font-size:clamp(21px,3.4vw,29px);font-weight:800;color:var(--ink);
+          margin:40px 0 14px;letter-spacing:-.01em}
+.bp-in h3{font-size:18px;font-weight:800;color:var(--ink);margin:28px 0 10px}
+.bp-in p{font-size:16.5px;line-height:1.75;color:#332f28;margin:0 0 17px}
+.bp-in ul,.bp-in ol{font-size:16.5px;line-height:1.75;color:#332f28;margin:0 0 17px;padding-left:22px}
+.bp-in li{margin-bottom:9px}
+.bp-in a{color:#8A6D08;font-weight:600}
+.bp-lead{font-size:18px;line-height:1.7;color:#332f28}
+
+.bp-call{background:#fff;border-left:3px solid var(--gold);border-radius:0 12px 12px 0;
+         padding:18px 22px;margin:24px 0}
+.bp-call.warn{border-left-color:#C4381F;background:#FDF1EE}
+.bp-call p{margin:0 0 10px;font-size:15.5px}
+.bp-call p:last-child{margin:0}
+.bp-call b{color:var(--ink)}
+
+.bp-tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);
+        border-radius:12px;overflow:hidden;font-size:15px;margin:0 0 20px}
+.bp-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;
+           color:#6F6A5E;padding:12px;border-bottom:2px solid var(--line)}
+.bp-tbl td{padding:11px 12px;border-bottom:1px solid #EFEBE1;color:#332f28;vertical-align:top}
+.bp-tbl tr:last-child td{border-bottom:none}
+
+.bp-next{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin:38px 0 0}
+.bp-next h3{margin-top:0}
+.bp-next ul{list-style:none;padding:0;margin:0}
+.bp-next li{margin-bottom:10px;font-size:15px}
+
+.bp-disc{font-size:13.5px;line-height:1.65;color:var(--mut);margin-top:34px;
+         padding-top:20px;border-top:1px solid var(--line)}
+
+@media(max-width:600px){
+  .bp-hero{padding:44px 16px 40px}
+  .bp-body{padding:38px 16px 50px}
+  .bp-tbl{font-size:14px}
+  .bp-tbl th,.bp-tbl td{padding:9px 8px}
+}

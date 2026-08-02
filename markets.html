@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Current US inflation, Fed funds rate, unemployment, GDP and the 10y-2y yield curve, explained in plain English — plus sector performance and market headlines. Free, sourced from the Federal Reserve.">
-<title>Live Economic Data — Inflation, Fed Rate, Yield Curve | Hustlin'</title>
+<meta name="description" content="Free live market data explained — today's tape, market headlines, US economic indicators, sector performance and charts, organised into the four disciplines that actually decide outcomes. No account, no email.">
+<title>Markets — Free Live Data, Explained Four Ways | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Live Economic Data — Inflation, Fed Rate, Yield Curve | Hustlin\'">
-<meta property="og:description" content="Inflation, rates, unemployment and the yield curve — the numbers that move everything else, explained without jargon.">
+<meta property="og:title" content="Markets — Free Live Data, Explained Four Ways | Hustlin\'">
+<meta property="og:description" content="Today's tape, the headlines behind it, and live US economic data — organised the way an analyst actually reads a market. Free, no account.">
 <meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
 <meta property="og:url" content="https://hustlin.org/markets.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Live Economic Data — Inflation, Fed Rate, Yield Curve | Hustlin\'">
-<meta name="twitter:description" content="Inflation, rates, unemployment and the yield curve, explained without jargon. Free.">
+<meta name="twitter:title" content="Markets — Free Live Data, Explained Four Ways | Hustlin\'">
+<meta name="twitter:description" content="Today's tape, the headlines behind it, and live US economic data. Free, no account.">
 <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
 <link rel="canonical" href="https://hustlin.org/markets.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,27 +56,38 @@
       ]
     },
     {
+      "@type": "ItemList",
+      "name": "The four disciplines of market analysis",
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Economic Analysis", "url": "https://hustlin.org/markets-economic.html" },
+        { "@type": "ListItem", "position": 2, "name": "Fundamental Analysis", "url": "https://hustlin.org/fundamental-analysis.html" },
+        { "@type": "ListItem", "position": 3, "name": "Technical Analysis", "url": "https://hustlin.org/technical-analysis.html" },
+        { "@type": "ListItem", "position": 4, "name": "Trading Psychology", "url": "https://hustlin.org/trading-psychology.html" }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is the current US inflation rate?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Inflation is measured by the Consumer Price Index, reported as the percent change from a year ago. This page shows the latest CPI and core CPI figures from the Federal Reserve, each stamped with its reference month. Core CPI strips out food and energy because those two categories swing hardest month to month, which is why the Fed watches it more closely than headline CPI." }
+          "name": "Is this market data free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, entirely. No account, no email address, no trial. Economic figures come from FRED at the Federal Reserve Bank of St. Louis and market quotes from Finnhub, both of which allow this use. Charts and calendars are TradingView widgets. The site is funded by advertising and by four paid courses, none of which you need to buy to read anything here." }
         },
         {
           "@type": "Question",
-          "name": "What does an inverted yield curve mean?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The curve is inverted when short-term Treasuries yield more than long-term ones — normally the reverse is true, because investors expect compensation for tying money up longer. Inversion has preceded most modern US recessions, but the lead time has ranged from a few months to over two years, so it is a signal rather than a timer." }
+          "name": "What are the four disciplines of market analysis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Economic analysis asks what the whole economy is doing — inflation, rates, employment, growth. Fundamental analysis asks what an individual business earns, owns and owes. Technical analysis asks what price and volume are doing right now. Behavioural analysis asks whether you will actually follow your own plan. Every number on this page is evidence for one of those four questions, and nobody uses all four equally." }
         },
         {
           "@type": "Question",
-          "name": "How does the Fed funds rate affect me?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It is the rate banks charge each other overnight, and almost every other rate moves off it. When it rises, credit card APRs, car loans and mortgages follow within weeks; savings account and CD yields follow too, usually more slowly. It is the single number with the widest reach into an ordinary household budget." }
+          "name": "How often does this page update?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Economic and market figures are written into the page each time the site is rebuilt, and every figure carries the date of its own underlying release. The 'what changed' block compares the current update against the previous one and names both dates. Charts, the ticker tape and the economic calendar are live TradingView widgets and update continuously, though quotes may be delayed." }
         },
         {
           "@type": "Question",
-          "name": "Where does this economic data come from?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Every economic figure comes from FRED, the Federal Reserve Bank of St. Louis, which republishes official Bureau of Labor Statistics and Bureau of Economic Analysis series. Each number links to its own FRED series page and shows its reference month. Market quotes come from Finnhub. Nothing here is estimated or modelled." }
+          "name": "Do I need to understand all of this to start investing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and treating it as a prerequisite is a common way to never start. Before any of this matters you need banking that works, high-interest debt under control and an emergency fund — that is the free Financial Literacy course, and it comes first. This page is for after those are handled." }
         }
       ]
     }
@@ -297,7 +308,12 @@
 <div class="mkt-layout">
   <!-- SIDE NAV -->
   <aside class="mkt-side-nav">
-    <div class="mkt-side-nav-title">Widgets</div>
+    <div class="mkt-side-nav-title">Analysis</div>
+    <a href="markets-economic.html" style="color:#F5C520">Economic</a>
+    <a href="fundamental-analysis.html">Fundamental</a>
+    <a href="technical-analysis.html">Technical</a>
+    <a href="trading-psychology.html">Behaviour</a>
+    <div class="mkt-side-nav-title" style="margin-top:18px">Widgets</div>
     <a href="Markets/chart.html">Chart</a>
     <a href="Markets/compare.html">Compare</a>
     <a href="Markets/watchlists.html">Watchlists</a>
@@ -328,12 +344,14 @@
         Watch The Market.<br>
         <em>Learn What You're Seeing.</em>
       </h1>
-      <p class="hero-sub" style="max-width:640px">
-        Charts, watchlists, heatmaps, screeners, news, and the economic calendar — every market widget we could bolt on, all on one page, no login required. Not sure what any of it means yet? That's what Stage 4 is for.
+      <p class="hero-sub" style="max-width:660px">
+        Today's tape, the headlines behind it, and live US economic data — organised into the
+        four questions that actually decide outcomes, instead of a wall of widgets with no
+        opinion about what matters. Free, no account, no email.
       </p>
       <div class="cta-row">
-        <a class="btn-a" href="stage-4-invest.html">Learn what these numbers mean <span>→</span></a>
-        <span class="mkt-hero-note">See live data ↓</span>
+        <a class="btn-a" href="markets-economic.html">Start with the economy <span>→</span></a>
+        <span class="mkt-hero-note">Today's numbers ↓</span>
       </div>
     </div>
   </div>
@@ -406,9 +424,9 @@
 <!-- EXPLORE THE WIDGETS -->
 <section class="sec mkt-section" id="explore">
   <div class="sec-inner">
-    <p class="mkt-eyebrow">Live Data</p>
-    <h2 class="sec-h2" style="color:#fff">Every widget, its own page.</h2>
-    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Pick a tool below — each one opens full-width on its own page so it has room to breathe.</p>
+    <p class="mkt-eyebrow">Tools</p>
+    <h2 class="sec-h2" style="color:#fff">Pull it up full-screen.</h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,.45)">Charts, screeners, heatmaps and the calendar — each one opens on its own page with room to actually work in.</p>
 
     <div class="mkt-nav-grid">
       <a class="mkt-nav-card" href="Markets/chart.html">
@@ -600,6 +618,50 @@
   </div>
 </section>
 
+<style>
+/* What changed — the return-visit block. Namespaced mkt-chg*, additive. */
+.mkt-chg-wrap{background:#0B0B0B;padding:52px 22px;border-top:1px solid rgba(255,255,255,.06)}
+.mkt-chg-in{max-width:1060px;margin:0 auto}
+.mkt-chg-wrap .eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;color:#F5C520;margin:0 0 12px}
+.mkt-chg-wrap h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:clamp(24px,4vw,34px);color:#fff;margin:0 0 12px;letter-spacing:-.015em}
+.mkt-chg-wrap .lede{font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.5);max-width:660px;margin:0 0 26px}
+.mkt-chg-since,.mkt-chg-none{font-size:14px;color:rgba(255,255,255,.55);margin:0 0 16px;max-width:720px}
+.mkt-chg-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.mkt-chg-item{display:grid;grid-template-columns:minmax(150px,1fr) auto;gap:4px 18px;
+  align-items:baseline;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.03);
+  border-left:3px solid rgba(255,255,255,.14)}
+.mkt-chg-item.good{border-left-color:#2DA02D}
+.mkt-chg-item.bad{border-left-color:#C4381F}
+.mkt-chg-label{font-size:14px;font-weight:700;color:#fff}
+.mkt-chg-move{font-family:'Space Mono',monospace;font-size:14px;color:rgba(255,255,255,.75);text-align:right}
+.mkt-chg-move strong{color:#F5C520}
+.mkt-chg-note{grid-column:1/-1;font-size:12px;color:rgba(255,255,255,.38)}
+.mkt-chg-more{margin-top:22px;font-size:14px}
+.mkt-chg-more a{color:#F5C520;font-weight:700}
+@media(max-width:560px){.mkt-chg-item{grid-template-columns:1fr}.mkt-chg-move{text-align:left}}
+</style>
+
+<!-- ============ WHAT CHANGED — the reason to come back ============ -->
+<section class="mkt-chg-wrap" id="changed">
+  <div class="mkt-chg-in">
+    <p class="eye">Since the last update</p>
+    <h2>What actually moved.</h2>
+    <p class="lede">
+      Most economic data is true for weeks at a time. This is the part that is not. Every
+      figure is compared against the previous update, with both dates named — so you never
+      have to guess how fresh a number is.
+    </p>
+    <!-- MKT:changed:START -->
+    <p class="mkt-chg-none">Nothing on this page has been revised since 2026-08-02. That is normal &mdash; most of these series report monthly, and a page that claimed something new every day would be making it up.</p>
+    <!-- MKT:changed:END -->
+    <p class="mkt-chg-more">
+      <a href="markets-economic.html">See all thirty indicators, read in order →</a>
+    </p>
+  </div>
+</section>
+
 <!-- ============ DAILY MOTIVATION — rotates by day of year, no backend ============ -->
 <section class="mkt-mot" id="daily">
   <div class="mkt-mot-in">
@@ -715,8 +777,9 @@
     <div class="mkt-disc-grid">
       <article class="mkt-disc-card">
         <h3>Economic</h3>
-        <p>Inflation, rates, employment, the yield curve. The tide every other boat sits on. Start here &mdash; it explains more of the move than anything else on this page.</p>
-        <a href="economics.html">Economics for Traders &rarr;</a>
+        <p>Inflation, rates, employment, growth, the yield curve. The tide every other boat sits on &mdash; start here, it explains more of any given move than the other three combined. Thirty live indicators, read in the order that makes them mean something.</p>
+        <a class="free" href="markets-economic.html">Open Economic Analysis &mdash; free &rarr;</a>
+        <a href="economics.html" style="display:block;margin-top:8px">Or learn the reasoning &rarr;</a>
       </article>
       <article class="mkt-disc-card">
         <h3>Fundamental</h3>
@@ -763,44 +826,44 @@
       <article class="mkt-stat" data-series="CPIAUCSL">
         <h3 class="mkt-stat-label">Inflation (CPI, YoY)</h3>
         <p class="mkt-stat-value" data-fill="inflation">3.5%</p>
-        <p class="mkt-stat-trend bad"><span aria-hidden="true">↑</span> up 1.1 pts vs a year ago</p>
+        <p class="mkt-stat-trend bad"><span aria-hidden="true">↑</span> up 0.8 pts vs a year ago</p>
         <p class="mkt-stat-blurb">How much more the same basket of goods costs than a year ago.</p>
-        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener">FRED</a></p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener">FRED CPIAUCSL</a></p>
       </article>
       <article class="mkt-stat" data-series="CPILFESL">
         <h3 class="mkt-stat-label">Core Inflation (ex food &amp; energy)</h3>
         <p class="mkt-stat-value" data-fill="coreInflation">2.6%</p>
-        <p class="mkt-stat-trend good"><span aria-hidden="true">↓</span> down 0.2 pts vs a year ago</p>
+        <p class="mkt-stat-trend good"><span aria-hidden="true">↓</span> down 0.3 pts vs a year ago</p>
         <p class="mkt-stat-blurb">Inflation with the two most volatile categories stripped out. The Fed watches this one.</p>
-        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/CPILFESL" target="_blank" rel="noopener">FRED</a></p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/CPILFESL" target="_blank" rel="noopener">FRED CPILFESL</a></p>
       </article>
       <article class="mkt-stat" data-series="UNRATE">
         <h3 class="mkt-stat-label">Unemployment Rate</h3>
         <p class="mkt-stat-value" data-fill="unemployment">4.2%</p>
-        <p class="mkt-stat-trend good"><span aria-hidden="true">↓</span> down 0.1 pts vs a year ago</p>
+        <p class="mkt-stat-trend bad"><span aria-hidden="true">↑</span> up 0.1 pts vs a year ago</p>
         <p class="mkt-stat-blurb">Share of people who want work and cannot find it.</p>
-        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/UNRATE" target="_blank" rel="noopener">FRED</a></p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/UNRATE" target="_blank" rel="noopener">FRED UNRATE</a></p>
       </article>
       <article class="mkt-stat" data-series="FEDFUNDS">
         <h3 class="mkt-stat-label">Fed Funds Rate</h3>
-        <p class="mkt-stat-value" data-fill="fedFunds">3.6%</p>
+        <p class="mkt-stat-value" data-fill="fedFunds">3.63%</p>
         <p class="mkt-stat-trend good"><span aria-hidden="true">↓</span> down 0.7 pts vs a year ago</p>
         <p class="mkt-stat-blurb">The rate the Fed sets. Mortgages, card APRs and savings yields all move off it.</p>
-        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">FRED</a></p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">FRED FEDFUNDS</a></p>
       </article>
       <article class="mkt-stat" data-series="A191RL1Q225SBEA">
         <h3 class="mkt-stat-label">GDP Growth (annualised)</h3>
         <p class="mkt-stat-value" data-fill="gdp">1.5%</p>
-        <p class="mkt-stat-trend bad"><span aria-hidden="true">↓</span> down 1.0 pts vs a year ago</p>
+        <p class="mkt-stat-trend bad"><span aria-hidden="true">↓</span> down 2.3 pts vs a year ago</p>
         <p class="mkt-stat-blurb">How fast the whole economy grew last quarter.</p>
-        <p class="mkt-stat-src">Apr 2026 · <a href="https://fred.stlouisfed.org/series/A191RL1Q225SBEA" target="_blank" rel="noopener">FRED</a></p>
+        <p class="mkt-stat-src">Q2 2026 · <a href="https://fred.stlouisfed.org/series/A191RL1Q225SBEA" target="_blank" rel="noopener">FRED A191RL1Q225SBEA</a></p>
       </article>
       <article class="mkt-stat" data-series="PSAVERT">
         <h3 class="mkt-stat-label">Personal Savings Rate</h3>
         <p class="mkt-stat-value" data-fill="savingsRate">2.7%</p>
         <p class="mkt-stat-trend bad"><span aria-hidden="true">↓</span> down 1.9 pts vs a year ago</p>
         <p class="mkt-stat-blurb">Share of after-tax income Americans are saving.</p>
-        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener">FRED</a></p>
+        <p class="mkt-stat-src">Jun 2026 · <a href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener">FRED PSAVERT</a></p>
       </article>
 </div>
     <!-- MKT:macro:END -->
@@ -811,9 +874,9 @@
       <caption class="mkt-table-cap">Rates, and what the gap between them is saying</caption>
       <thead><tr><th scope="col">Rate</th><th scope="col">Now</th><th scope="col">As of</th></tr></thead>
       <tbody>
-        <tr><th scope="row">2-Year Treasury</th><td data-fill="twoYear">4.2%</td><td>Jul 2026</td></tr>
-        <tr><th scope="row">10-Year Treasury</th><td data-fill="tenYear">4.7%</td><td>Jul 2026</td></tr>
-        <tr><th scope="row">30-Year Mortgage</th><td data-fill="mortgage30">6.7%</td><td>Jul 2026</td></tr>
+        <tr><th scope="row">2-Year Treasury</th><td data-fill="twoYear">4.23%</td><td>30 Jul 2026</td></tr>
+        <tr><th scope="row">10-Year Treasury</th><td data-fill="tenYear">4.68%</td><td>30 Jul 2026</td></tr>
+        <tr><th scope="row">30-Year Mortgage</th><td data-fill="mortgage30">6.66%</td><td>30 Jul 2026</td></tr>
       </tbody>
     </table>
     <p class="mkt-spread normal">
@@ -850,11 +913,18 @@
       </p>
       <p>
         Data last baked into this page on <!-- MKT:stamp:START -->
-    <time datetime="2026-08-01">2026-08-01</time>
+    <time datetime="2026-08-02">2026-08-02</time>
     <!-- MKT:stamp:END -->.
         Series are revised after first publication; each figure shows its own reference month.
         Sources: <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED,
         Federal Reserve Bank of St. Louis</a> for economic series, Finnhub for market quotes.
+      </p>
+      <p>
+        <strong>This is the summary.</strong> The full picture &mdash; thirty indicators across
+        growth, inflation, rates, jobs and the household, plus a recession-signal dashboard and
+        the release calendar &mdash; is on
+        <a href="markets-economic.html">the Economic Analysis page</a>. Free, same sources, read
+        in the order that makes them mean something.
       </p>
       <p>
         Want to understand <em>why</em> these move? That is
@@ -983,7 +1053,7 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=DEPLOYSTAMP"></script>
+<script src="app.js?v=202608012022"></script>
 <script>
 HFY.initNavOnly();
 </script>

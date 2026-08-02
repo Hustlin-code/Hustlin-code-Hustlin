@@ -11,6 +11,18 @@
       Fundemental Course/, TradingPsycologycourse/                      (private lesson
       fragments fetched by learn.js — not standalone pages)
 
+  ADDED 2026-08-01 (Markets rebuild):
+    · markets-economic.html — the first of four discipline pillar pages fanning out
+      from markets.html. Deliberately NOT like Markets/*.html: those nine are all
+      noindex because they were ~200 words of chrome around a TradingView iframe,
+      which is what AdSense flagged as low-value content. A pillar page carries
+      1,800+ words of original analysis and ~30 server-baked FRED figures, and the
+      widgets sit inside that rather than being the page. Any future pillar
+      (fundamental / technical / behaviour) must clear the same bar before it goes
+      in this file. markets.html was also retitled off "Live Economic Data —
+      Inflation, Fed Rate, Yield Curve" so the hub and the pillar stop competing
+      for the same query.
+
   ADDED 2026-08-01 (second change):
     · stage-4-invest.html and stage-5-wealth.html — Stages 4 and 5 were opened to
       anonymous readers and now ship as public static copies via
@@ -139,7 +151,14 @@
     <loc>https://hustlin.org/markets.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/markets-economic.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- ─── Blog ─────────────────────────────────────────── -->
@@ -159,6 +178,20 @@
 
   <url>
     <loc>https://hustlin.org/blog/banking-after-incarceration.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/blog/second-chance-bank-accounts.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/blog/jobs-that-hire-felons.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
