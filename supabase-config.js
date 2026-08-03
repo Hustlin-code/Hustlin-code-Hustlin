@@ -31,6 +31,6 @@ window.HFY_CONFIG = {
     dwg:   { name: 'Disability Wealth Guide',      price: 0,     free: true  },
     // Not a course — the all-access bundle SKU. Entitles the buyer to every
     // paid course; see BUNDLE_KEY in the course-content Edge Function.
-    all:   { name: 'All-Access Bundle',            price: 127.95, free: false }
+    all:   { name: 'All-Access Bundle',            price: 113.85, free: false }
   }
 };

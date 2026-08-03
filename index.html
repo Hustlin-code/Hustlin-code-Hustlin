@@ -425,9 +425,17 @@
    Full-width band BELOW .ix-grid, never inside it. minmax(0,1fr) on the copy
    column matters: a bare 1fr lets long words force the column wider than its
    share and the whole band overflows. */
+/* Own section now that the band sits between the cream free-course feature
+   and the mission block. Matches .ix-courses' dark canvas so the gold band
+   reads as part of the same surface, with lighter padding — it's a closing
+   offer, not a section header. */
+.ix-bundle-band{background:var(--dark);padding:56px 40px}
+@media(max-width:900px){.ix-bundle-band{padding:44px 24px}}
+@media(max-width:600px){.ix-bundle-band{padding:36px 18px}}
+
 .ix-bundle{
   display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center;
-  margin-top:44px;padding:40px 44px;border-radius:20px;
+  padding:40px 44px;border-radius:20px;
   background:
     radial-gradient(ellipse at 100% 0%,rgba(245,197,32,.14) 0%,transparent 55%),
     linear-gradient(135deg,rgba(245,197,32,.07),rgba(245,197,32,.02));
@@ -477,11 +485,24 @@
 .ix-bundle-was{
   font-size:.8rem;color:rgba(255,255,255,.36);text-decoration:line-through;margin-bottom:4px;
 }
+/* Lead with the per-course unit price, not the basket total. The three-figure
+   total is the biggest number on the page and it lands before anyone has read
+   a module; the per-course figure is the same offer at an entry point people
+   can say yes to. The full total still appears directly underneath — this
+   reframes, it does not hide. */
 .ix-bundle-price{
   font-family:'Space Mono',ui-monospace,monospace;font-size:2.7rem;font-weight:700;
   color:#f5c520;line-height:1;letter-spacing:-.03em;
+  display:flex;align-items:baseline;justify-content:center;gap:5px;
 }
-.ix-bundle-note{font-size:.74rem;color:rgba(255,255,255,.5);margin:8px 0 18px}
+.ix-bundle-per{
+  font-family:var(--f-body);font-size:.9rem;font-weight:700;letter-spacing:0;
+  color:rgba(245,197,32,.72);
+}
+.ix-bundle-total{
+  font-size:.86rem;font-weight:600;color:rgba(255,255,255,.72);margin-top:9px;
+}
+.ix-bundle-note{font-size:.74rem;color:rgba(255,255,255,.5);margin:5px 0 18px}
 .ix-bundle-btn{display:inline-flex;justify-content:center;width:100%}
 .ix-bundle-fine{font-size:.7rem;color:rgba(255,255,255,.32);margin-top:11px}
 
@@ -515,6 +536,37 @@
 @keyframes ixLive{0%,100%{opacity:1}50%{opacity:.35}}
 .ix-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
 @media(max-width:600px){.ix-mkt-btn{width:100%;justify-content:center;font-size:.9rem;padding:14px 20px}}
+
+/* ─ HERO DEPTH STRIP ─
+   The hero said "a free course" while the site holds six of them. Someone who
+   bounced above the fold never learned there was a library here. These are
+   counts, not adjectives, and they must stay true — the numbers come from
+   stage_count in public.courses (6 active courses, 26 stages) plus the module
+   counts printed on the cards below (40+ free, 40 each paid = 200+). If a
+   course is added or retired, update this strip. */
+.ix-depth{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:10px 0;margin:0 auto 28px;max-width:760px;
+}
+.ix-depth-item{
+  display:flex;align-items:baseline;gap:7px;padding:0 18px;
+  border-left:1px solid rgba(255,255,255,.16);
+}
+.ix-depth-item:first-child{border-left:0}
+.ix-depth-n{
+  font-family:var(--f-mono);font-size:1.15rem;font-weight:700;color:#F5C520;
+  line-height:1;letter-spacing:-.02em;
+}
+.ix-depth-l{
+  font-size:.76rem;font-weight:600;color:rgba(255,255,255,.72);
+  letter-spacing:.02em;white-space:nowrap;
+}
+@media(max-width:700px){
+  /* Two-up grid rather than a wrapping flex row: wrapped flex items keep
+     their left border and it lands mid-row looking like a stray tick. */
+  .ix-depth{display:grid;grid-template-columns:1fr 1fr;gap:14px 0;max-width:340px}
+  .ix-depth-item{border-left:0;justify-content:center;padding:0 8px}
+}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
@@ -543,6 +595,17 @@
       <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Free Course" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
       <a class="ix-mkt-btn" href="markets.html"><span class="live"></span>Live Markets &amp; Data</a>
     </div>
+
+    <!-- Depth strip. Sits under the CTAs on purpose: the free course is still
+         the first thing you're asked to do, and this answers "is there more
+         than one thing here?" for anyone who hesitates. -->
+    <div class="ix-depth">
+      <div class="ix-depth-item"><span class="ix-depth-n">6</span><span class="ix-depth-l">courses</span></div>
+      <div class="ix-depth-item"><span class="ix-depth-n">26</span><span class="ix-depth-l">stages</span></div>
+      <div class="ix-depth-item"><span class="ix-depth-n">200+</span><span class="ix-depth-l">modules</span></div>
+      <div class="ix-depth-item"><span class="ix-depth-n">2</span><span class="ix-depth-l">free, no account</span></div>
+    </div>
+
     <div class="ix-social">
       <span class="ix-social-label">Follow us</span>
       <a class="ix-social-btn ix-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
@@ -646,38 +709,9 @@
       </div>
     </div>
 
-    <!-- ─ ALL-ACCESS BUNDLE ─
-         Sits OUTSIDE .ix-grid on purpose. It was inside it once, which made it
-         a grid item constrained to a single card column — the headline broke
-         one word per line. It is a full-width band under the grid, not a card
-         in it.
-
-         Price and entitlement both come from the 'all' row in public.courses.
-         The button is wired by course-buy.js via data-hfy-buy, exactly like
-         every single-course button, so it inherits the same signed-out /
-         already-owned handling for free. -->
-    <div class="ix-bundle">
-      <div class="ix-bundle-copy">
-        <div class="ix-bundle-label">Best Value</div>
-        <h2 class="ix-bundle-h">Every paid course.<br><em>One payment.</em></h2>
-        <p class="ix-bundle-p">Four complete courses, 160 modules, every stage &mdash; for less than the price of three.</p>
-        <ul class="ix-bundle-list">
-          <li>Technical Analysis</li>
-          <li>Fundamental Analysis</li>
-          <li>Trading Psychology</li>
-          <li>Economics for Traders</li>
-        </ul>
-      </div>
-
-      <div class="ix-bundle-buy">
-        <div class="ix-bundle-save">Save $23.85</div>
-        <div class="ix-bundle-was">$151.80 bought separately</div>
-        <div class="ix-bundle-price">$127.95</div>
-        <div class="ix-bundle-note">One-time payment &middot; lifetime access</div>
-        <a class="btn-a ix-bundle-btn" href="#" data-hfy-buy="all">Get All-Access</a>
-        <div class="ix-bundle-fine">No subscription. No renewal.</div>
-      </div>
-    </div>
+    <!-- The all-access bundle used to live here, directly under the grid. It
+         has moved below the free Financial Literacy feature — see the
+         ALL-ACCESS BUNDLE section further down. Reason in that comment. -->
   </div>
 </section>
 
@@ -718,6 +752,58 @@
         <div><div class="ix-stage-name">Build Wealth</div><div class="ix-stage-desc">Compound growth, tax strategy, legacy</div></div>
         <div class="ix-stage-arr">→</div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─ ALL-ACCESS BUNDLE ─
+     Moved here from directly under the course grid (2026-08-02). It was the
+     largest, brightest, most saturated element on the page and it sat above
+     the free Financial Literacy feature, so a first-time visitor hit the
+     three-figure price before they hit the thing that proves the teaching is
+     worth paying for. Free course first, paid ladder second.
+
+     It needs its own dark section: .ix-featured above it is cream, and the
+     band is gold-on-dark. Padding is lighter than .ix-courses because this is
+     a closing offer, not a section header.
+
+     Kept OUTSIDE any grid on purpose. It was a grid item once, constrained to
+     a single card column, and the headline broke one word per line.
+
+     Price and entitlement both come from the 'all' row in public.courses.
+     The button is wired by course-buy.js via data-hfy-buy, exactly like every
+     single-course button, so it inherits the same signed-out / already-owned
+     handling for free. -->
+<section class="ix-bundle-band">
+  <div class="ix-courses-inner">
+    <div class="ix-bundle">
+      <div class="ix-bundle-copy">
+        <div class="ix-bundle-label">Best Value</div>
+        <h2 class="ix-bundle-h">Every paid course.<br><em>One payment.</em></h2>
+        <!-- At $113.85 this claim is now exactly true: 3 × $37.95 = $113.85.
+             The earlier copy said "less than the price of three" while the
+             bundle cost $127.95, which was false by $14.10. Any visitor who
+             does the multiplication catches it, and on a financial-literacy
+             site that is the worst possible place to be caught rounding in
+             your own favour. If the bundle price moves, re-check this line. -->
+        <p class="ix-bundle-p">Four complete courses, 160 modules, every stage &mdash; for the price of three.</p>
+        <ul class="ix-bundle-list">
+          <li>Technical Analysis</li>
+          <li>Fundamental Analysis</li>
+          <li>Trading Psychology</li>
+          <li>Economics for Traders</li>
+        </ul>
+      </div>
+
+      <div class="ix-bundle-buy">
+        <div class="ix-bundle-save">One course free</div>
+        <div class="ix-bundle-was">$151.80 bought separately</div>
+        <div class="ix-bundle-price">$28.46<span class="ix-bundle-per">/course</span></div>
+        <div class="ix-bundle-total">$113.85 for all four &middot; save $37.95</div>
+        <div class="ix-bundle-note">One-time payment &middot; lifetime access</div>
+        <a class="btn-a ix-bundle-btn" href="#" data-hfy-buy="all">Get All-Access</a>
+        <div class="ix-bundle-fine">No subscription. No renewal.</div>
+      </div>
     </div>
   </div>
 </section>

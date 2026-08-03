@@ -82,35 +82,72 @@
     var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-hfy-buy]'));
     if (!buttons.length) return;
 
-    var course = buttons[0].getAttribute('data-hfy-buy');
-    var user = null;
-    var owns = false;
+    // Every distinct course key on the page. This used to be a single key
+    // taken from buttons[0], with one on-sale check and one `owns` flag
+    // applied to every button — fine when a page only ever sold one thing.
+    //
+    // The course sales pages now also carry an all-access cross-sell, so a
+    // page holds two independent keys. Under the old single-flag logic,
+    // owning Fundamental Analysis set owns = true for the whole page, which
+    // relabelled the bundle button "Go to Course" and pointed it at
+    // learn.html — making the upgrade permanently unreachable for exactly
+    // the people it was built for. State has to be per key.
+    var keys = [];
+    buttons.forEach(function (b) {
+      var k = b.getAttribute('data-hfy-buy');
+      if (k && keys.indexOf(k) === -1) keys.push(k);
+    });
 
-    if (!(await isOnSale(course))) {
-      buttons.forEach(function (btn) {
+    var user = null;
+    try {
+      user = await window.HFY.auth.getUser();
+    } catch (e) {
+      console.error('course-buy: auth lookup failed', e);
+    }
+
+    var state = {};
+    await Promise.all(keys.map(async function (k) {
+      var onSale = await isOnSale(k);
+      var owns = false;
+      if (user && onSale) {
+        try {
+          owns = await window.HFY.access.checkCourseAccess(k);
+        } catch (e) {
+          console.error('course-buy: access check failed for ' + k, e);
+        }
+      }
+      state[k] = { onSale: onSale, owns: owns };
+    }));
+
+    // Someone holding at least one paid course who does not yet hold the
+    // bundle is an upgrade candidate: the Edge Function credits what they
+    // already paid, so they are not being asked for the full sticker price.
+    // Saying "Get" to that person misdescribes the offer.
+    var ownsSomething = keys.some(function (k) {
+      return k !== BUNDLE_KEY && state[k] && state[k].owns;
+    });
+
+    buttons.forEach(function (btn) {
+      var key = btn.getAttribute('data-hfy-buy');
+      var st = state[key] || { onSale: true, owns: false };
+
+      if (!st.onSale) {
         setLabel(btn, 'Coming Soon');
         btn.setAttribute('aria-disabled', 'true');
         btn.style.opacity = '.55';
         btn.style.cursor = 'default';
         btn.addEventListener('click', function (e) { e.preventDefault(); });
-      });
-      return;
-    }
+        return;
+      }
 
-    try {
-      user = await window.HFY.auth.getUser();
-      if (user) owns = await window.HFY.access.checkCourseAccess(course);
-    } catch (e) {
-      console.error('course-buy: access check failed', e);
-    }
-
-    buttons.forEach(function (btn) {
-      var key = btn.getAttribute('data-hfy-buy') || course;
-
-      if (owns) {
+      if (st.owns) {
         setLabel(btn, 'Go to Course');
         btn.setAttribute('href', learnHref(key));
         return;
+      }
+
+      if (key === BUNDLE_KEY && ownsSomething) {
+        setLabel(btn, 'Upgrade to All-Access');
       }
 
       btn.addEventListener('click', async function (e) {
