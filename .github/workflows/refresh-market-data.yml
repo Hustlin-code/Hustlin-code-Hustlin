@@ -59,7 +59,18 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20      # the build now pauses ~140s for Finnhub cooldowns
+
+    # Promoted to JOB level on purpose. A step cannot read its OWN `env:` block
+    # from inside its `if:` condition, and the `secrets` context is not
+    # available in `if:` at all. The purge step originally declared these in its
+    # own env and tested `env.CF_ZONE != ''` — which is always empty there, so
+    # the step would have been skipped forever, even with the secrets set
+    # correctly. Silent, and exactly the kind of thing you only notice weeks
+    # later when the site has been serving stale numbers the whole time.
+    env:
+      CF_ZONE:  ${{ secrets.CLOUDFLARE_ZONE_ID }}
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
     steps:
       # v4 ran on the Node 20 action runtime, which GitHub deprecated — the
@@ -109,13 +120,26 @@ jobs:
       # repo but not for visitors. Skipped automatically if the secrets are
       # not set, so the workflow still works before you configure them.
       - name: Purge Cloudflare cache
-        if: steps.commit.outputs.changed == 'true' && env.CF_ZONE != ''
-        env:
-          CF_ZONE:  ${{ secrets.CLOUDFLARE_ZONE_ID }}
-          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        if: steps.commit.outputs.changed == 'true'
         run: |
-          curl -sS -X POST \
+          if [ -z "$CF_ZONE" ] || [ -z "$CF_TOKEN" ]; then
+            echo "::warning::Cloudflare secrets are not set. The repo was updated"
+            echo "::warning::but visitors will keep seeing the CACHED page until the"
+            echo "::warning::edge expires it. Add CLOUDFLARE_ZONE_ID and"
+            echo "::warning::CLOUDFLARE_API_TOKEN in Settings > Secrets > Actions."
+            exit 0
+          fi
+
+          # Fail loudly on a bad token. A purge that silently 403s looks
+          # identical to a successful run from the outside, and the whole point
+          # of this step is that nobody has to check.
+          resp=$(curl -sS -X POST \
             "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
             -H "Authorization: Bearer ${CF_TOKEN}" \
             -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}'
+            --data '{"purge_everything":true}')
+          echo "$resp"
+          echo "$resp" | grep -q '"success":true' || {
+            echo "::error::Cloudflare purge failed — visitors will see stale data."
+            exit 1
+          }
