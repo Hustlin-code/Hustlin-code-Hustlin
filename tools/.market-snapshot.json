@@ -676,6 +676,96 @@
       "epsEstimate": 0.248,
       "revenueEstimate": 13122545483,
       "marketCap": 5210815537.835997
+    },
+    {
+      "symbol": "BKNG",
+      "name": "Booking Holdings Inc",
+      "date": "2026-08-04",
+      "hour": "amc",
+      "epsEstimate": 2.4906,
+      "revenueEstimate": 7343699202,
+      "marketCap": 149474051075.40103
+    },
+    {
+      "symbol": "OXY",
+      "name": "Occidental Petroleum Corp",
+      "date": "2026-08-05",
+      "hour": "amc",
+      "epsEstimate": 1.872,
+      "revenueEstimate": 7149975001,
+      "marketCap": 56763803365.33815
+    },
+    {
+      "symbol": "XYZ",
+      "name": "Block Inc",
+      "date": "2026-08-05",
+      "hour": "amc",
+      "epsEstimate": 0.8751,
+      "revenueEstimate": 6549900197,
+      "marketCap": 49156000000
+    },
+    {
+      "symbol": "CDW",
+      "name": "CDW Corp",
+      "date": "2026-08-05",
+      "hour": "bmo",
+      "epsEstimate": 2.8275,
+      "revenueEstimate": 6268128175,
+      "marketCap": 18883238031.43446
+    },
+    {
+      "symbol": "KDP",
+      "name": "Keurig Dr Pepper Inc",
+      "date": "2026-08-06",
+      "hour": "bmo",
+      "epsEstimate": 0.5426,
+      "revenueEstimate": 7311596040,
+      "marketCap": 42340609620.20652
+    },
+    {
+      "symbol": "AIG",
+      "name": "American International Group Inc",
+      "date": "2026-08-06",
+      "hour": "amc",
+      "epsEstimate": 1.9428,
+      "revenueEstimate": 7357165391,
+      "marketCap": 41663605843.55532
+    },
+    {
+      "symbol": "RGA",
+      "name": "Reinsurance Group of America Inc",
+      "date": "2026-08-06",
+      "hour": "amc",
+      "epsEstimate": 6.5825,
+      "revenueEstimate": 6742812318,
+      "marketCap": 15516791954.357306
+    },
+    {
+      "symbol": "FERG",
+      "name": "Ferguson Enterprises Inc",
+      "date": "2026-08-10",
+      "hour": "",
+      "epsEstimate": 3.3541,
+      "revenueEstimate": 8841683982,
+      "marketCap": 45445453160.64666
+    },
+    {
+      "symbol": "KSPI",
+      "name": "Kaspi.kz AO",
+      "date": "2026-08-10",
+      "hour": "",
+      "epsEstimate": 1391.9175,
+      "revenueEstimate": 1194457230000,
+      "marketCap": 16588171810.887634
+    },
+    {
+      "symbol": "JBS",
+      "name": "Jbs NV",
+      "date": "2026-08-10",
+      "hour": "",
+      "epsEstimate": 0.3194,
+      "revenueEstimate": 23119502313,
+      "marketCap": 14980494331.596924
     }
   ]
 }

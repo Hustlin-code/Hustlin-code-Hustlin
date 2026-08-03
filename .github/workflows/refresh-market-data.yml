@@ -111,7 +111,20 @@ jobs:
             echo "No change in the baked figures — nothing to commit."
           else
             git commit -m "chore: refresh market data ($(date -u +'%Y-%m-%d'))"
-            git push
+
+            # Rebase before pushing. Two ways this branch goes stale under us:
+            # a "Re-run all jobs" on an older run checks out a commit that
+            # origin has since moved past, and a manual deploy can land while
+            # this job is mid-flight. Either produces a non-fast-forward
+            # rejection and a red X on a job that did nothing wrong.
+            # Rebase is safe here because this job only ever touches generated
+            # blocks between the MKT markers, so there is nothing to conflict
+            # with that a human also edits by hand.
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || {
+              echo "::error::rebase onto origin/${GITHUB_REF_NAME} failed — resolve by hand."
+              exit 1
+            }
+            git push origin "HEAD:${GITHUB_REF_NAME}"
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
