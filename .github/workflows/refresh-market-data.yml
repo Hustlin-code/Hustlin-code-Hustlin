@@ -135,24 +135,56 @@ jobs:
       - name: Purge Cloudflare cache
         if: steps.commit.outputs.changed == 'true'
         run: |
+          # Trim whitespace and stray CR/LF. Pasting a Zone ID into the GitHub
+          # secrets box very easily carries a trailing newline, which makes the
+          # URL below malformed and gets curl exit code 3 — an opaque failure
+          # that looks nothing like "your secret has a newline in it".
+          CF_ZONE="$(printf '%s' "$CF_ZONE"  | tr -d '[:space:]')"
+          CF_TOKEN="$(printf '%s' "$CF_TOKEN" | tr -d '[:space:]')"
+
           if [ -z "$CF_ZONE" ] || [ -z "$CF_TOKEN" ]; then
             echo "::warning::Cloudflare secrets are not set. The repo was updated"
-            echo "::warning::but visitors will keep seeing the CACHED page until the"
-            echo "::warning::edge expires it. Add CLOUDFLARE_ZONE_ID and"
-            echo "::warning::CLOUDFLARE_API_TOKEN in Settings > Secrets > Actions."
+            echo "::warning::but visitors keep seeing the CACHED page until the edge"
+            echo "::warning::expires it. Add CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN"
+            echo "::warning::in Settings > Secrets and variables > Actions."
             exit 0
           fi
 
-          # Fail loudly on a bad token. A purge that silently 403s looks
-          # identical to a successful run from the outside, and the whole point
-          # of this step is that nobody has to check.
-          resp=$(curl -sS -X POST \
+          # A Cloudflare zone id is 32 hex characters. Checking the SHAPE (never
+          # the value) turns "wrong thing pasted in the wrong box" into a clear
+          # message instead of a malformed-URL error.
+          if ! printf '%s' "$CF_ZONE" | grep -qE '^[0-9a-fA-F]{32}$'; then
+            echo "::error::CLOUDFLARE_ZONE_ID is not 32 hex characters (got ${#CF_ZONE} chars)."
+            echo "::error::Cloudflare > hustlin.org > Overview > right sidebar > Zone ID."
+            echo "::error::Check you did not paste the Account ID or the API token by mistake."
+            exit 1
+          fi
+
+          # Capture curl's own exit code rather than letting bash -e abort on it,
+          # so a transport failure reports as itself instead of as a bare number.
+          set +e
+          resp=$(curl -sS --max-time 30 -X POST \
             "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
             -H "Authorization: Bearer ${CF_TOKEN}" \
             -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}')
+            --data '{"purge_everything":true}' 2>&1)
+          rc=$?
+          set -e
+
           echo "$resp"
-          echo "$resp" | grep -q '"success":true' || {
-            echo "::error::Cloudflare purge failed — visitors will see stale data."
+
+          if [ $rc -ne 0 ]; then
+            echo "::error::curl failed with exit code $rc while calling Cloudflare."
             exit 1
-          }
+          fi
+
+          # A purge that silently 403s looks identical to a successful run from
+          # the outside, and the entire point of this step is that nobody checks.
+          case "$resp" in
+            *'"success":true'*)
+              echo "Cache purged." ;;
+            *)
+              echo "::error::Cloudflare rejected the purge — visitors will see stale data."
+              echo "::error::A 403 here usually means the token lacks Zone.Cache Purge on this zone."
+              exit 1 ;;
+          esac
