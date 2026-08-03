@@ -125,6 +125,32 @@ Allow: /
 # Microsoft Copilot
 User-agent: bingbot
 Allow: /
+# FIXED 2026-08-03. This group used to be "Allow: /" and nothing else, which was
+# a bug, not a permission.
+#
+# A crawler obeys ONLY the most specific User-agent group that matches it and
+# ignores every other group — including "User-agent: *". So naming bingbot here
+# to allow it silently exempted Bing from every Disallow rule at the top of this
+# file. Bing was free to crawl the gated shell, all seven auth pages, and all
+# five raw course-fragment folders: partial HTML files that are not pages and
+# read as thin, duplicated junk to a crawler still deciding whether this domain
+# is worth its budget.
+#
+# The rules below mirror the "User-agent: *" group. If you add a Disallow up
+# there, add it here too — or Bing will not honour it.
+Disallow: /learn.html
+Disallow: /login.html
+Disallow: /signup.html
+Disallow: /forgot-password.html
+Disallow: /reset-password.html
+Disallow: /change-password.html
+Disallow: /auth-callback.html
+Disallow: /checkout-success.html
+Disallow: /Financial%20Literacy%20Course/
+Disallow: /TA%20Course/
+Disallow: /Fundemental%20Course/
+Disallow: /EconomicsCourse/
+Disallow: /TradingPsycologycourse/
 
 # Common Crawl — feeds many downstream models and research datasets
 User-agent: CCBot
