@@ -35,7 +35,7 @@
       "label": "Fed Funds Rate",
       "display": "3.63%",
       "value": 3.63,
-      "date": "2026-06-01",
+      "date": "2026-07-01",
       "freq": "m",
       "better": "down",
       "fmt": "pct2",
@@ -143,9 +143,9 @@
     },
     "breakeven10": {
       "label": "10-Year Breakeven Inflation",
-      "display": "2.28%",
-      "value": 2.28,
-      "date": "2026-07-31",
+      "display": "2.27%",
+      "value": 2.27,
+      "date": "2026-08-03",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -153,9 +153,9 @@
     },
     "forward5y5y": {
       "label": "5-Year, 5-Year Forward",
-      "display": "2.30%",
-      "value": 2.3,
-      "date": "2026-07-31",
+      "display": "2.31%",
+      "value": 2.31,
+      "date": "2026-08-03",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -163,9 +163,9 @@
     },
     "threeMonth": {
       "label": "3-Month Treasury",
-      "display": "3.82%",
-      "value": 3.82,
-      "date": "2026-07-30",
+      "display": "3.83%",
+      "value": 3.83,
+      "date": "2026-07-31",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -173,9 +173,9 @@
     },
     "twoYear": {
       "label": "2-Year Treasury",
-      "display": "4.23%",
-      "value": 4.23,
-      "date": "2026-07-30",
+      "display": "4.28%",
+      "value": 4.28,
+      "date": "2026-07-31",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -183,9 +183,9 @@
     },
     "tenYear": {
       "label": "10-Year Treasury",
-      "display": "4.68%",
-      "value": 4.68,
-      "date": "2026-07-30",
+      "display": "4.75%",
+      "value": 4.75,
+      "date": "2026-07-31",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -193,9 +193,9 @@
     },
     "thirtyYear": {
       "label": "30-Year Treasury",
-      "display": "5.21%",
-      "value": 5.21,
-      "date": "2026-07-30",
+      "display": "5.27%",
+      "value": 5.27,
+      "date": "2026-07-31",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -203,9 +203,9 @@
     },
     "realTenYear": {
       "label": "10-Year Real Yield (TIPS)",
-      "display": "2.41%",
-      "value": 2.41,
-      "date": "2026-07-30",
+      "display": "2.47%",
+      "value": 2.47,
+      "date": "2026-07-31",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -223,9 +223,9 @@
     },
     "curve10y2y": {
       "label": "10-Year minus 2-Year",
-      "display": "0.47%",
-      "value": 0.47,
-      "date": "2026-07-31",
+      "display": "0.45%",
+      "value": 0.45,
+      "date": "2026-08-03",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -233,9 +233,9 @@
     },
     "curve10y3m": {
       "label": "10-Year minus 3-Month",
-      "display": "0.92%",
-      "value": 0.92,
-      "date": "2026-07-31",
+      "display": "0.79%",
+      "value": 0.79,
+      "date": "2026-08-03",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -333,9 +333,9 @@
     },
     "dollar": {
       "label": "US Dollar Index (broad)",
-      "display": "120.7",
-      "value": 120.7105,
-      "date": "2026-07-24",
+      "display": "119.7",
+      "value": 119.7034,
+      "date": "2026-07-31",
       "freq": "d",
       "better": "up",
       "fmt": "idx",
@@ -360,7 +360,7 @@
       "hour": "amc",
       "epsEstimate": 1.631,
       "revenueEstimate": 11396426778,
-      "marketCap": 776410492425.2418
+      "marketCap": 776410459042
     },
     {
       "symbol": "CAT",
@@ -369,7 +369,7 @@
       "hour": "bmo",
       "epsEstimate": 6.2595,
       "revenueEstimate": 19530045113,
-      "marketCap": 375331660259.9432
+      "marketCap": 375331652340
     },
     {
       "symbol": "MRK",
@@ -387,7 +387,7 @@
       "hour": "amc",
       "epsEstimate": 5.7281,
       "revenueEstimate": 9609525845,
-      "marketCap": 207874038177.57687
+      "marketCap": 207874032299
     },
     {
       "symbol": "PFE",
@@ -468,7 +468,7 @@
       "hour": "bmo",
       "epsEstimate": 1.455,
       "revenueEstimate": 22120893750,
-      "marketCap": 38204695450.52984
+      "marketCap": 38204693543
     },
     {
       "symbol": "CPNG",
@@ -495,7 +495,7 @@
       "hour": "bmo",
       "epsEstimate": 6.0661,
       "revenueEstimate": 20932741920,
-      "marketCap": 1081910155688.9492
+      "marketCap": 1081910150944.0001
     },
     {
       "symbol": "SNDK",
@@ -504,7 +504,7 @@
       "hour": "amc",
       "epsEstimate": 35.1395,
       "revenueEstimate": 8561788200,
-      "marketCap": 179903886707.95602
+      "marketCap": 179903885691
     },
     {
       "symbol": "DIS",
@@ -513,7 +513,7 @@
       "hour": "bmo",
       "epsEstimate": 1.879,
       "revenueEstimate": 25658241808,
-      "marketCap": 167035033361.56003
+      "marketCap": 167035031240
     },
     {
       "symbol": "UBER",
@@ -522,7 +522,7 @@
       "hour": "bmo",
       "epsEstimate": 0.8309,
       "revenueEstimate": 14523853276,
-      "marketCap": 143224751161.21527
+      "marketCap": 143224746814
     },
     {
       "symbol": "CVS",
@@ -531,7 +531,7 @@
       "hour": "bmo",
       "epsEstimate": 1.8702,
       "revenueEstimate": 101115104650,
-      "marketCap": 133245083855.88826
+      "marketCap": 133245082698.99998
     },
     {
       "symbol": "MCK",
@@ -540,7 +540,7 @@
       "hour": "amc",
       "epsEstimate": 9.6305,
       "revenueEstimate": 104775012511,
-      "marketCap": 100240794363.98856
+      "marketCap": 100240793519
     },
     {
       "symbol": "MELI",
@@ -549,7 +549,7 @@
       "hour": "amc",
       "epsEstimate": 8.8292,
       "revenueEstimate": 9860200566,
-      "marketCap": 95206771390.44669
+      "marketCap": 95206769901
     },
     {
       "symbol": "PSX",
@@ -558,7 +558,7 @@
       "hour": "bmo",
       "epsEstimate": 7.5136,
       "revenueEstimate": 44153338477,
-      "marketCap": 84869929202.8718
+      "marketCap": 84869923807
     },
     {
       "symbol": "ALL",
@@ -567,7 +567,7 @@
       "hour": "amc",
       "epsEstimate": 6.1822,
       "revenueEstimate": 15814243336,
-      "marketCap": 67979720169.2013
+      "marketCap": 67979715461.99999
     },
     {
       "symbol": "MET",
@@ -576,7 +576,7 @@
       "hour": "amc",
       "epsEstimate": 2.3159,
       "revenueEstimate": 19906250155,
-      "marketCap": 61853576272.3824
+      "marketCap": 61853574700
     },
     {
       "symbol": "COR",
@@ -585,7 +585,7 @@
       "hour": "bmo",
       "epsEstimate": 4.3924,
       "revenueEstimate": 85157696691,
-      "marketCap": 60574644318.45696
+      "marketCap": 60574641473.99999
     },
     {
       "symbol": "MDLN",
@@ -594,7 +594,7 @@
       "hour": "bmo",
       "epsEstimate": 0.3291,
       "revenueEstimate": 7668271912,
-      "marketCap": 51601670229.76892
+      "marketCap": 51601670035.00001
     },
     {
       "symbol": "GLXY",
@@ -603,7 +603,7 @@
       "hour": "bmo",
       "epsEstimate": -0.0262,
       "revenueEstimate": 11648716812,
-      "marketCap": 8191801239.634759
+      "marketCap": 8191801153.999999
     },
     {
       "symbol": "AVT",
@@ -612,7 +612,7 @@
       "hour": "bmo",
       "epsEstimate": 1.7882,
       "revenueEstimate": 7593914775,
-      "marketCap": 7287019378.761752
+      "marketCap": 7287018822.000001
     },
     {
       "symbol": "COP",
@@ -621,7 +621,7 @@
       "hour": "bmo",
       "epsEstimate": 2.9112,
       "revenueEstimate": 18984120256,
-      "marketCap": 146780053025.58212
+      "marketCap": 146780058621
     },
     {
       "symbol": "CEG",
@@ -630,7 +630,7 @@
       "hour": "bmo",
       "epsEstimate": 2.4459,
       "revenueEstimate": 8030296213,
-      "marketCap": 94354054950.28076
+      "marketCap": 94354055824
     },
     {
       "symbol": "WBD",
@@ -648,7 +648,7 @@
       "hour": "bmo",
       "epsEstimate": 1.3906,
       "revenueEstimate": 10670190338,
-      "marketCap": 22152096362.23411
+      "marketCap": 22152094883.999996
     },
     {
       "symbol": "PAA",
@@ -657,7 +657,7 @@
       "hour": "",
       "epsEstimate": 0.363,
       "revenueEstimate": 12623899352,
-      "marketCap": 17334913096.856567
+      "marketCap": 17334913095.000004
     },
     {
       "symbol": "ARW",
@@ -666,7 +666,7 @@
       "hour": "amc",
       "epsEstimate": 4.5046,
       "revenueEstimate": 9659687975,
-      "marketCap": 11074078886.578716
+      "marketCap": 11074078944
     },
     {
       "symbol": "PAGP",
@@ -675,7 +675,7 @@
       "hour": "",
       "epsEstimate": 0.248,
       "revenueEstimate": 13122545483,
-      "marketCap": 5210815537.835997
+      "marketCap": 5210815702
     },
     {
       "symbol": "BKNG",
@@ -684,7 +684,7 @@
       "hour": "amc",
       "epsEstimate": 2.4906,
       "revenueEstimate": 7343699202,
-      "marketCap": 149474051075.40103
+      "marketCap": 149474042097
     },
     {
       "symbol": "OXY",
@@ -693,7 +693,7 @@
       "hour": "amc",
       "epsEstimate": 1.872,
       "revenueEstimate": 7149975001,
-      "marketCap": 56763803365.33815
+      "marketCap": 56763802286.99999
     },
     {
       "symbol": "XYZ",
@@ -711,7 +711,7 @@
       "hour": "bmo",
       "epsEstimate": 2.8275,
       "revenueEstimate": 6268128175,
-      "marketCap": 18883238031.43446
+      "marketCap": 18883238037
     },
     {
       "symbol": "KDP",
@@ -720,7 +720,7 @@
       "hour": "bmo",
       "epsEstimate": 0.5426,
       "revenueEstimate": 7311596040,
-      "marketCap": 42340609620.20652
+      "marketCap": 42340611170.99999
     },
     {
       "symbol": "AIG",
@@ -729,7 +729,7 @@
       "hour": "amc",
       "epsEstimate": 1.9428,
       "revenueEstimate": 7357165391,
-      "marketCap": 41663605843.55532
+      "marketCap": 41663607137
     },
     {
       "symbol": "RGA",
@@ -738,7 +738,7 @@
       "hour": "amc",
       "epsEstimate": 6.5825,
       "revenueEstimate": 6742812318,
-      "marketCap": 15516791954.357306
+      "marketCap": 15516792513.000002
     },
     {
       "symbol": "FERG",
@@ -747,7 +747,7 @@
       "hour": "",
       "epsEstimate": 3.3541,
       "revenueEstimate": 8841683982,
-      "marketCap": 45445453160.64666
+      "marketCap": 45445453393
     },
     {
       "symbol": "KSPI",
@@ -756,7 +756,7 @@
       "hour": "",
       "epsEstimate": 1391.9175,
       "revenueEstimate": 1194457230000,
-      "marketCap": 16588171810.887634
+      "marketCap": 16720245748.69807
     },
     {
       "symbol": "JBS",
@@ -765,7 +765,7 @@
       "hour": "",
       "epsEstimate": 0.3194,
       "revenueEstimate": 23119502313,
-      "marketCap": 14980494331.596924
+      "marketCap": 14980494861
     }
   ]
 }
