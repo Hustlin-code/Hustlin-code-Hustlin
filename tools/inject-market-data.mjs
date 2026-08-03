@@ -551,10 +551,27 @@ function renderEarnings(input) {
   const nameCell = (r) =>
     `<th scope="row">${esc(r.symbol)}${r.name && r.name !== r.symbol ? `<span class="mkt-co">${esc(r.name)}</span>` : ''}</th>`
 
+  /* Row order for the upcoming table: date, then time of day, then size.
+     Upstream hands these back sorted by date and market cap, which interleaves
+     the pre-market and post-close reporters within a day. A reader planning a
+     week wants them separated — the before-open names are the ones that gap
+     while the market is shut, and grouping them is the difference between a
+     calendar you can act on and a list you have to re-read. Within a slot,
+     largest company first, unchanged.
+
+     Sorting a copy rather than in place: `upcoming` may be the same array
+     object the snapshot writer persists, and mutating a caller's data from a
+     render function is the kind of thing that produces a bug three files away. */
+  const WHEN_RANK = { bmo: 0, dmh: 1, amc: 2 }
+  const byDayThenSession = (a, b) =>
+    String(a.date ?? '').localeCompare(String(b.date ?? '')) ||
+    ((WHEN_RANK[a.hour] ?? 3) - (WHEN_RANK[b.hour] ?? 3)) ||
+    ((b.marketCap || 0) - (a.marketCap || 0))
+
   const upcomingTable = `<table class="mkt-table">
       <thead><tr><th scope="col">Company</th><th scope="col">Date</th><th scope="col">When</th><th scope="col">Market cap</th><th scope="col">EPS est.</th><th scope="col">Revenue est.</th><th scope="col">Read it</th></tr></thead>
       <tbody>
-${upcoming.slice(0, 25).map(r => `        <tr>
+${[...upcoming].sort(byDayThenSession).slice(0, 25).map(r => `        <tr>
           ${nameCell(r)}
           <td>${esc(day(r.date))}</td>
           <td>${esc(when[r.hour] ?? '—')}</td>
