@@ -132,6 +132,26 @@ jobs:
       # HTML until its cache expires. Without this the numbers update in the
       # repo but not for visitors. Skipped automatically if the secrets are
       # not set, so the workflow still works before you configure them.
+      # WAIT FOR PAGES BEFORE PURGING — this ordering is load-bearing.
+      #
+      # Pushing a commit does not update the site. GitHub Pages runs its own
+      # build afterwards, which takes roughly a minute. Purging Cloudflare the
+      # instant the push lands therefore clears the cache while the ORIGIN is
+      # still serving the old file — so the next visitor re-caches exactly the
+      # stale page we were trying to replace, and it sticks until the edge TTL
+      # expires. The workflow goes green, the purge reports success, and the
+      # site is stale anyway. That is how chart.html sat on a months-old
+      # version while every page beside it was current.
+      #
+      # 100s is comfortably past a normal Pages build for a static site this
+      # size. If Pages ever gets slower, the symptom is stale pages with a
+      # green run — raise this first.
+      - name: Wait for GitHub Pages to rebuild
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          echo "Waiting 100s for GitHub Pages to publish before purging the edge..."
+          sleep 100
+
       - name: Purge Cloudflare cache
         if: steps.commit.outputs.changed == 'true'
         run: |
