@@ -1,5 +1,5 @@
 {
-  "stamp": "2026-08-03",
+  "stamp": "2026-08-04",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -243,9 +243,9 @@
     },
     "hySpread": {
       "label": "High Yield Spread",
-      "display": "2.84%",
-      "value": 2.84,
-      "date": "2026-07-30",
+      "display": "2.85%",
+      "value": 2.85,
+      "date": "2026-07-31",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -283,9 +283,9 @@
     },
     "openings": {
       "label": "Job Openings",
-      "display": "7.59M",
-      "value": 7594,
-      "date": "2026-05-01",
+      "display": "7.36M",
+      "value": 7359,
+      "date": "2026-06-01",
       "freq": "m",
       "better": "up",
       "fmt": "thouM",
@@ -495,7 +495,7 @@
       "hour": "bmo",
       "epsEstimate": 6.0661,
       "revenueEstimate": 20932741920,
-      "marketCap": 1081910150944.0001
+      "marketCap": 1056031098205.637
     },
     {
       "symbol": "SNDK",
@@ -513,7 +513,7 @@
       "hour": "bmo",
       "epsEstimate": 1.879,
       "revenueEstimate": 25658241808,
-      "marketCap": 167035031240
+      "marketCap": 170421228463.3912
     },
     {
       "symbol": "UBER",
@@ -531,7 +531,7 @@
       "hour": "bmo",
       "epsEstimate": 1.8702,
       "revenueEstimate": 101115104650,
-      "marketCap": 133245082698.99998
+      "marketCap": 134444454313.83344
     },
     {
       "symbol": "MCK",
@@ -540,7 +540,7 @@
       "hour": "amc",
       "epsEstimate": 9.6305,
       "revenueEstimate": 104775012511,
-      "marketCap": 100240793519
+      "marketCap": 96839685059.74802
     },
     {
       "symbol": "MELI",
@@ -549,7 +549,7 @@
       "hour": "amc",
       "epsEstimate": 8.8292,
       "revenueEstimate": 9860200566,
-      "marketCap": 95206769901
+      "marketCap": 96263299140.18999
     },
     {
       "symbol": "PSX",
@@ -567,7 +567,7 @@
       "hour": "amc",
       "epsEstimate": 6.1822,
       "revenueEstimate": 15814243336,
-      "marketCap": 67979715461.99999
+      "marketCap": 67619326179.78703
     },
     {
       "symbol": "MET",
@@ -576,7 +576,7 @@
       "hour": "amc",
       "epsEstimate": 2.3159,
       "revenueEstimate": 19906250155,
-      "marketCap": 61853574700
+      "marketCap": 61969393314.85489
     },
     {
       "symbol": "COR",
@@ -585,7 +585,7 @@
       "hour": "bmo",
       "epsEstimate": 4.3924,
       "revenueEstimate": 85157696691,
-      "marketCap": 60574641473.99999
+      "marketCap": 59996795115.749275
     },
     {
       "symbol": "MDLN",
@@ -594,7 +594,7 @@
       "hour": "bmo",
       "epsEstimate": 0.3291,
       "revenueEstimate": 7668271912,
-      "marketCap": 51601670035.00001
+      "marketCap": 53164958918.44324
     },
     {
       "symbol": "GLXY",
@@ -603,7 +603,7 @@
       "hour": "bmo",
       "epsEstimate": -0.0262,
       "revenueEstimate": 11648716812,
-      "marketCap": 8191801153.999999
+      "marketCap": 8531014243.194668
     },
     {
       "symbol": "AVT",
@@ -612,7 +612,7 @@
       "hour": "bmo",
       "epsEstimate": 1.7882,
       "revenueEstimate": 7593914775,
-      "marketCap": 7287018822.000001
+      "marketCap": 7290299784.99955
     },
     {
       "symbol": "COP",
@@ -621,7 +621,7 @@
       "hour": "bmo",
       "epsEstimate": 2.9112,
       "revenueEstimate": 18984120256,
-      "marketCap": 146780058621
+      "marketCap": 145171910568.3795
     },
     {
       "symbol": "CEG",
@@ -630,7 +630,7 @@
       "hour": "bmo",
       "epsEstimate": 2.4459,
       "revenueEstimate": 8030296213,
-      "marketCap": 94354055824
+      "marketCap": 98289813966.07817
     },
     {
       "symbol": "WBD",
@@ -648,7 +648,7 @@
       "hour": "bmo",
       "epsEstimate": 1.3906,
       "revenueEstimate": 10670190338,
-      "marketCap": 22152094883.999996
+      "marketCap": 21949490974.1354
     },
     {
       "symbol": "PAA",
@@ -657,7 +657,7 @@
       "hour": "",
       "epsEstimate": 0.363,
       "revenueEstimate": 12623899352,
-      "marketCap": 17334913095.000004
+      "marketCap": 17073866377.655678
     },
     {
       "symbol": "ARW",
@@ -666,7 +666,7 @@
       "hour": "amc",
       "epsEstimate": 4.5046,
       "revenueEstimate": 9659687975,
-      "marketCap": 11074078944
+      "marketCap": 11086351091.326778
     },
     {
       "symbol": "PAGP",
@@ -675,7 +675,7 @@
       "hour": "",
       "epsEstimate": 0.248,
       "revenueEstimate": 13122545483,
-      "marketCap": 5210815702
+      "marketCap": 5145507339.61261
     },
     {
       "symbol": "BKNG",
@@ -711,7 +711,7 @@
       "hour": "bmo",
       "epsEstimate": 2.8275,
       "revenueEstimate": 6268128175,
-      "marketCap": 18883238037
+      "marketCap": 18869185157.05906
     },
     {
       "symbol": "KDP",
@@ -720,7 +720,7 @@
       "hour": "bmo",
       "epsEstimate": 0.5426,
       "revenueEstimate": 7311596040,
-      "marketCap": 42340611170.99999
+      "marketCap": 42054893679.16483
     },
     {
       "symbol": "AIG",
@@ -729,7 +729,7 @@
       "hour": "amc",
       "epsEstimate": 1.9428,
       "revenueEstimate": 7357165391,
-      "marketCap": 41663607137
+      "marketCap": 41774950449.532074
     },
     {
       "symbol": "RGA",
@@ -738,22 +738,22 @@
       "hour": "amc",
       "epsEstimate": 6.5825,
       "revenueEstimate": 6742812318,
-      "marketCap": 15516792513.000002
+      "marketCap": 15485346195.05092
     },
     {
       "symbol": "FERG",
       "name": "Ferguson Enterprises Inc",
       "date": "2026-08-10",
-      "hour": "",
+      "hour": "bmo",
       "epsEstimate": 3.3541,
       "revenueEstimate": 8841683982,
-      "marketCap": 45445453393
+      "marketCap": 48499974329.02932
     },
     {
       "symbol": "KSPI",
       "name": "Kaspi.kz AO",
       "date": "2026-08-10",
-      "hour": "",
+      "hour": "bmo",
       "epsEstimate": 1391.9175,
       "revenueEstimate": 1194457230000,
       "marketCap": 16720245748.69807
@@ -762,10 +762,100 @@
       "symbol": "JBS",
       "name": "Jbs NV",
       "date": "2026-08-10",
-      "hour": "",
+      "hour": "amc",
       "epsEstimate": 0.3194,
       "revenueEstimate": 23119502313,
-      "marketCap": 14980494861
+      "marketCap": 14702682545.460772
+    },
+    {
+      "symbol": "KHC",
+      "name": "Kraft Heinz Co",
+      "date": "2026-08-05",
+      "hour": "bmo",
+      "epsEstimate": 0.5344,
+      "revenueEstimate": 6185453322,
+      "marketCap": 31328244334.064987
+    },
+    {
+      "symbol": "PH",
+      "name": "Parker-Hannifin Corp",
+      "date": "2026-08-06",
+      "hour": "bmo",
+      "epsEstimate": 8.5185,
+      "revenueEstimate": 5739304828,
+      "marketCap": 125773697165.8333
+    },
+    {
+      "symbol": "FISV",
+      "name": "Fiserv Inc",
+      "date": "2026-08-06",
+      "hour": "bmo",
+      "epsEstimate": 1.9486,
+      "revenueEstimate": 5139483261,
+      "marketCap": 28982355701.042828
+    },
+    {
+      "symbol": "VST",
+      "name": "Vistra Corp",
+      "date": "2026-08-07",
+      "hour": "bmo",
+      "epsEstimate": 1.7989,
+      "revenueEstimate": 5631959808,
+      "marketCap": 49737783718.59386
+    },
+    {
+      "symbol": "SE",
+      "name": "Sea Ltd",
+      "date": "2026-08-11",
+      "hour": "",
+      "epsEstimate": 0.8008,
+      "revenueEstimate": 7276857639,
+      "marketCap": 65376596570
+    },
+    {
+      "symbol": "CAH",
+      "name": "Cardinal Health Inc",
+      "date": "2026-08-11",
+      "hour": "amc",
+      "epsEstimate": 2.4443,
+      "revenueEstimate": 65679375072,
+      "marketCap": 55178899456.79433
+    },
+    {
+      "symbol": "SMCI",
+      "name": "Super Micro Computer Inc",
+      "date": "2026-08-11",
+      "hour": "amc",
+      "epsEstimate": 0.9767,
+      "revenueEstimate": 11782281660,
+      "marketCap": 18526442065.515495
+    },
+    {
+      "symbol": "ARMK",
+      "name": "Aramark",
+      "date": "2026-08-11",
+      "hour": "bmo",
+      "epsEstimate": 0.495,
+      "revenueEstimate": 5034456931,
+      "marketCap": 14919984873.68931
+    },
+    {
+      "symbol": "TME",
+      "name": "Tencent Music Entertainment Group",
+      "date": "2026-08-11",
+      "hour": "bmo",
+      "epsEstimate": 1.6242,
+      "revenueEstimate": 8846298332,
+      "marketCap": 14072454361.53856
+    },
+    {
+      "symbol": "PAGS",
+      "name": "PagSeguro Digital Ltd",
+      "date": "2026-08-11",
+      "hour": "",
+      "epsEstimate": 2.0839,
+      "revenueEstimate": 5341876680,
+      "marketCap": 2664161127.634854
     }
   ]
 }
