@@ -1,5 +1,5 @@
 {
-  "stamp": "2026-08-05",
+  "stamp": "2026-08-06",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -621,7 +621,7 @@
       "hour": "bmo",
       "epsEstimate": 2.9112,
       "revenueEstimate": 18984120256,
-      "marketCap": 143685590885
+      "marketCap": 140152538370.446
     },
     {
       "symbol": "CEG",
@@ -630,7 +630,7 @@
       "hour": "bmo",
       "epsEstimate": 2.4459,
       "revenueEstimate": 8030296213,
-      "marketCap": 95970014915.00002
+      "marketCap": 95205127611.8421
     },
     {
       "symbol": "WBD",
@@ -666,7 +666,7 @@
       "hour": "amc",
       "epsEstimate": 4.5046,
       "revenueEstimate": 9659687975,
-      "marketCap": 11641665270
+      "marketCap": 11599735435.05732
     },
     {
       "symbol": "PAGP",
@@ -675,7 +675,7 @@
       "hour": "",
       "epsEstimate": 0.248,
       "revenueEstimate": 13122545483,
-      "marketCap": 5036660235
+      "marketCap": 4963435705.060904
     },
     {
       "symbol": "BKNG",
@@ -720,7 +720,7 @@
       "hour": "bmo",
       "epsEstimate": 0.5426,
       "revenueEstimate": 7311596040,
-      "marketCap": 42313399359
+      "marketCap": 41837203546.27813
     },
     {
       "symbol": "AIG",
@@ -729,7 +729,7 @@
       "hour": "amc",
       "epsEstimate": 1.9428,
       "revenueEstimate": 7357165391,
-      "marketCap": 42055958619.99999
+      "marketCap": 42480123608.60313
     },
     {
       "symbol": "RGA",
@@ -747,7 +747,7 @@
       "hour": "bmo",
       "epsEstimate": 3.3541,
       "revenueEstimate": 8841683982,
-      "marketCap": 49553055333
+      "marketCap": 49502631496.80345
     },
     {
       "symbol": "KSPI",
@@ -765,7 +765,7 @@
       "hour": "amc",
       "epsEstimate": 0.3194,
       "revenueEstimate": 23119502313,
-      "marketCap": 14542405368
+      "marketCap": 14638571163.96767
     },
     {
       "symbol": "KHC",
@@ -792,7 +792,7 @@
       "hour": "bmo",
       "epsEstimate": 1.9486,
       "revenueEstimate": 5139483261,
-      "marketCap": 29744909049.000004
+      "marketCap": 28854374841.18663
     },
     {
       "symbol": "VST",
@@ -819,7 +819,7 @@
       "hour": "bmo",
       "epsEstimate": 2.4443,
       "revenueEstimate": 65679375072,
-      "marketCap": 54698778459
+      "marketCap": 56029067740.29788
     },
     {
       "symbol": "SMCI",
@@ -828,7 +828,7 @@
       "hour": "amc",
       "epsEstimate": 0.9767,
       "revenueEstimate": 11782281660,
-      "marketCap": 20499405267
+      "marketCap": 19613189261.452824
     },
     {
       "symbol": "ARMK",
@@ -837,7 +837,7 @@
       "hour": "bmo",
       "epsEstimate": 0.495,
       "revenueEstimate": 5034456931,
-      "marketCap": 14783249028
+      "marketCap": 14956798376.2476
     },
     {
       "symbol": "TME",
@@ -855,7 +855,7 @@
       "hour": "",
       "epsEstimate": 2.0839,
       "revenueEstimate": 5341876680,
-      "marketCap": 2636409354.9999995
+      "marketCap": 2608657677.578947
     },
     {
       "symbol": "ABNB",
@@ -864,7 +864,7 @@
       "hour": "amc",
       "epsEstimate": 1.2769,
       "revenueEstimate": 3647509463,
-      "marketCap": 90357516950
+      "marketCap": 91906468514.57779
     },
     {
       "symbol": "AFL",
@@ -873,7 +873,7 @@
       "hour": "amc",
       "epsEstimate": 1.7854,
       "revenueEstimate": 4203934948,
-      "marketCap": 63699460236.00001
+      "marketCap": 63908144045.00328
     },
     {
       "symbol": "LNG",
@@ -891,7 +891,7 @@
       "hour": "bmo",
       "epsEstimate": 3.1728,
       "revenueEstimate": 4936005067,
-      "marketCap": 46874937591
+      "marketCap": 47023729422.055374
     },
     {
       "symbol": "ED",
@@ -900,7 +900,7 @@
       "hour": "amc",
       "epsEstimate": 0.7754,
       "revenueEstimate": 3706277840,
-      "marketCap": 39952308742
+      "marketCap": 39919141065.70833
     },
     {
       "symbol": "KVUE",
@@ -918,7 +918,7 @@
       "hour": "bmo",
       "epsEstimate": 1.4468,
       "revenueEstimate": 3714693507,
-      "marketCap": 23427863538
+      "marketCap": 23269245639.976982
     },
     {
       "symbol": "OSCR",
@@ -936,7 +936,7 @@
       "hour": "bmo",
       "epsEstimate": 0.7083,
       "revenueEstimate": 3963329051,
-      "marketCap": 7198586328.000001
+      "marketCap": 7042156046.910362
     },
     {
       "symbol": "VG",
@@ -945,7 +945,7 @@
       "hour": "bmo",
       "epsEstimate": 0.5008,
       "revenueEstimate": 4804357626,
-      "marketCap": 31899157073.999996
+      "marketCap": 31613455900.829433
     },
     {
       "symbol": "SFD",
@@ -954,25 +954,25 @@
       "hour": "bmo",
       "epsEstimate": 0.6032,
       "revenueEstimate": 3719921102,
-      "marketCap": 9970713940
+      "marketCap": 9927431440.65509
     },
     {
       "symbol": "AMCR",
       "name": "Amcor PLC",
       "date": "2026-08-12",
-      "hour": "amc",
+      "hour": "bmo",
       "epsEstimate": 1.216,
       "revenueEstimate": 6170932680,
-      "marketCap": 21794974724.999996
+      "marketCap": 22077005581.645096
     },
     {
       "symbol": "PFGC",
       "name": "Performance Food Group Co",
       "date": "2026-08-12",
-      "hour": "amc",
+      "hour": "bmo",
       "epsEstimate": 1.6312,
       "revenueEstimate": 18447831271,
-      "marketCap": 17658469911
+      "marketCap": 17594063072.96504
     },
     {
       "symbol": "VIPS",
@@ -991,6 +991,60 @@
       "epsEstimate": -3.6669,
       "revenueEstimate": 25370068065,
       "marketCap": 5057188596
+    },
+    {
+      "symbol": "AMAT",
+      "name": "Applied Materials Inc",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": 3.462,
+      "revenueEstimate": 9168915088,
+      "marketCap": 424164872275.9229
+    },
+    {
+      "symbol": "NTES",
+      "name": "NetEase Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 15.5105,
+      "revenueEstimate": 29989572564,
+      "marketCap": 83664882877.44408
+    },
+    {
+      "symbol": "NU",
+      "name": "Nu Holdings Ltd.",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 0.2087,
+      "revenueEstimate": 5383451384,
+      "marketCap": 69945415000.20099
+    },
+    {
+      "symbol": "BAP",
+      "name": "Credicorp Ltd",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 25.2307,
+      "revenueEstimate": 6300719360,
+      "marketCap": 31406028681.09109
+    },
+    {
+      "symbol": "BILI",
+      "name": "Bilibili Inc",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 1.5455,
+      "revenueEstimate": 8065153627,
+      "marketCap": 7986661752.7258005
+    },
+    {
+      "symbol": "STNE",
+      "name": "StoneCo Ltd",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 2.4558,
+      "revenueEstimate": 3736698600,
+      "marketCap": 2716859184.9741764
     }
   ]
 }
