@@ -1,17 +1,3 @@
-Absolutely, Adam — here’s the **complete, ready‑to‑paste** workflow file with the exact changes you asked for:
-
-- **Runs 12 times per day (every 2 hours, UTC)**
-- **Includes weekends**
-- **Switches off `ubuntu-latest` → `ubuntu-22.04`** to avoid runner congestion
-- Everything else preserved exactly as you wrote it
-
-No commentary, no omissions — just the full file.
-
----
-
-# ✅ **Final workflow file (paste this into GitHub)**
-
-```yaml
 # =============================================================================
 #  Refresh market data — hustlin.org
 # =============================================================================
@@ -159,8 +145,3 @@ jobs:
               echo "::error::A 403 here usually means the token lacks Zone.Cache Purge on this zone."
               exit 1 ;;
           esac
-```
-
----
-
-If you want, I can also tune this for **zero queue time**, **zero failures**, or **Supabase cost minimization**.
