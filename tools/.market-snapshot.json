@@ -1117,6 +1117,24 @@
       "epsEstimate": 4.9078,
       "revenueEstimate": 2250358780,
       "marketCap": 3571404520.6852574
+    },
+    {
+      "symbol": "CSCO",
+      "name": "Cisco Systems Inc",
+      "date": "2026-08-12",
+      "hour": "amc",
+      "epsEstimate": 1.1937,
+      "revenueEstimate": 17159212935,
+      "marketCap": 476440640371.0393
+    },
+    {
+      "symbol": "TPR",
+      "name": "Tapestry Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 1.2888,
+      "revenueEstimate": 1888597788,
+      "marketCap": 32731245961.975372
     }
   ]
 }
