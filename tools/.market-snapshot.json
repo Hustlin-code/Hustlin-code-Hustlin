@@ -243,9 +243,9 @@
     },
     "hySpread": {
       "label": "High Yield Spread",
-      "display": "2.75%",
-      "value": 2.75,
-      "date": "2026-08-05",
+      "display": "2.71%",
+      "value": 2.71,
+      "date": "2026-08-06",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
