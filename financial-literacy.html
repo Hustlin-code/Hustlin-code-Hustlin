@@ -148,6 +148,17 @@
    its own content instead. */
 .fl-hero .hero-stats{align-items:flex-start}
 
+/* ─ MASCOT PLACEMENT ─
+   Animation lives in styles.css (.hfy-*); placement is here alongside the
+   other .fl-hero overrides.
+
+   It gets its own grid column rather than stacking above the journey card.
+   The >=1025px block below deliberately compacts this hero so the headline,
+   stats and card fit one viewport without scrolling — anything added to the
+   vertical stack breaks that. A third column widens the wrap instead, which
+   costs no height at all. Below 1300px there is no room, so it is hidden. */
+.fl-hero-mascot{display:none}
+
 /* Compact hero — fit headline + stats + journey card in one viewport
    on desktop without scrolling (mobile keeps the roomier default). */
 @media(min-width:1025px){
@@ -163,6 +174,25 @@
   .fl-hero .j-desc{font-size:.72rem;line-height:1.35}
   .fl-hero #card-cta-img{height:44px}
   .fl-hero .journey-card .btn-badge-img{margin-top:8px}
+}
+
+/* Must sit AFTER the >=1025px block, not before it. Both match at widths
+   over 1300 and both set .fl-hero .hero-h1 at the same specificity, so
+   source order is the only tiebreak — placed earlier, the 2.8rem cap
+   below would silently win and the headline would keep wrapping. */
+@media(min-width:1300px){
+  .fl-hero .hero-wrap{
+    max-width:1520px;
+    grid-template-columns:clamp(170px,13vw,240px) 1fr 390px;
+    gap:40px;
+  }
+  .fl-hero-mascot{display:block;align-self:end;pointer-events:none}
+  .fl-hero-mascot .hfy-mascot{max-width:100%}
+  /* The mascot column costs the copy column ~280px, which pushed
+     "Start Today. Costs Nothing." onto a third line. Trimming the cap
+     keeps it to one line, so the two clauses read as the two-beat line
+     they were written as. */
+  .fl-hero .hero-h1{font-size:clamp(2.1rem,3vw,2.65rem)}
 }
 
 /* Stage cards (extends styles.css .s-card) */
@@ -323,11 +353,11 @@ ROME BADGE BUTTON (matches logo branding) ─ */
         <div class="hfy-idle">
           <div class="hfy-glow"></div>
           <div class="hfy-orbwrap">
-            <img class="hfy-orb" src="mascot/orb.png" alt="" width="193" height="193" decoding="async">
+            <img class="hfy-orb" src="assets/mascot/orb.png" alt="" width="193" height="193" decoding="async">
             <div class="hfy-shine"></div>
           </div>
-          <img class="hfy-rays" src="mascot/rays.png" alt="" width="269" height="210" decoding="async">
-          <img class="hfy-body" src="mascot/body.png" alt="" width="941" height="1134" decoding="async">
+          <img class="hfy-rays" src="assets/mascot/rays.png" alt="" width="269" height="210" decoding="async">
+          <img class="hfy-body" src="assets/mascot/body.png" alt="" width="941" height="1134" decoding="async">
         </div>
       </div>
     </div>

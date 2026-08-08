@@ -1640,50 +1640,9 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 }
 .hfy-mascot.is-paused * { animation-play-state: paused !important; }
 
-/* ---- Mascot placements ------------------------------------------------ */
-/* Homepage hero: mascot sits to the right of the copy on wide screens and
-   drops out entirely below 900px rather than stacking. On a phone the hero
-   is already CTA-first and a 460px character above the fold would push the
-   button under it. */
-/* Hidden by default and switched on only at >=1200px. The hero centres a
-   820px inner column, so an absolutely-positioned character would sit on
-   top of the copy at narrower widths. Above 1200 we reserve a right-hand
-   band with padding-right, which pushes the centred column left and gives
-   the mascot a lane of its own — no overlap at any width. */
-.ix-hero-mascot { display: none; }
-@media (min-width: 1200px) {
-  .ix-hero { padding-right: 400px; }
-  .ix-hero-mascot {
-    display: block;
-    position: absolute;
-    right: clamp(16px, 2.5vw, 56px);
-    bottom: 0;
-    width: clamp(300px, 24vw, 400px);
-    z-index: 2;
-    pointer-events: none;
-  }
-  .ix-hero-mascot .hfy-mascot { max-width: 100%; }
-  /* The scroll cue is centred on the whole section; recentre it on the
-     copy column now that the section has a reserved right band. */
-  .ix-hero .ix-scroll { margin-right: 400px; }
-}
-
-/* FL hero: gets its own grid column rather than stacking above the journey
-   card. The >=1025px rules deliberately compact this hero so headline,
-   stats and card fit one viewport without scrolling — anything added in
-   the vertical stack breaks that. A third column widens the wrap instead,
-   which costs no height. Below 1300px there isn't room, so it's hidden. */
-.fl-hero-mascot { display: none; }
-@media (min-width: 1300px) {
-  .fl-hero .hero-wrap {
-    max-width: 1440px;
-    grid-template-columns: clamp(190px, 15vw, 260px) 1fr 390px;
-    gap: 44px;
-  }
-  .fl-hero-mascot {
-    display: block;
-    align-self: end;
-    pointer-events: none;
-  }
-  .fl-hero-mascot .hfy-mascot { max-width: 100%; }
-}
+/* Placement of the mascot is per-page and lives in each page's own <style>
+   block (index.html, financial-literacy.html). It cannot live here: both
+   pages load this file first and their inline block second, so an equal-
+   specificity rule here loses the cascade to the page's own .ix-hero /
+   .hero rules. Only the shared animation machinery above belongs in this
+   file. */
