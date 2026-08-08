@@ -149,11 +149,33 @@
 .eco-sec h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
   font-size:clamp(25px,4.2vw,38px);color:#060606;margin:0 0 14px;letter-spacing:-.015em;line-height:1.15}
 .eco-sec.dark h2{color:#fff}
-.eco-sec h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
+/* ── INJECTED MARKET BLOCKS OPT OUT OF THE SECTION TEXT DEFAULTS ──────────
+   Added 2026-08-07 after the quote cards on markets-behavior.html rendered
+   as near-black text on a #111 card.
+
+   The cause was specificity, not a wrong colour. `.eco-sec p` is one class
+   plus an element (0,1,1); `.mkt-quote-px` is a single class (0,1,0). So the
+   SECTION won, and every generated block inheriting `color:#4a463d` and
+   `font-size:16px` lost both its own colour and its own type scale. The
+   percentages survived only because `.mkt-quote.up .mkt-quote-chg` happens to
+   be three classes — which is why the symptom looked so odd: bright, readable
+   percentages surrounded by invisible labels and prices.
+
+   `:not([class*="mkt-"])` fixes all of it in one place. The section rules
+   simply stop matching generated components, so each component's own styles
+   apply at whatever specificity they already have. That beats raising the
+   specificity of two dozen individual rules: it needs no per-component
+   bookkeeping, and it keeps working for components the injector has not been
+   taught to emit yet — which matters, because that list keeps growing.
+
+   The audit that found this covered 8 pages and 24 affected components. If a
+   new generated block ever looks wrong here, check this rule still wraps the
+   selector before going hunting for a colour value. */
+.eco-sec h3:not([class*="mkt-"]){font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
   color:#060606;margin:38px 0 14px}
-.eco-sec.dark h3{color:#fff}
-.eco-sec p{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
-.eco-sec.dark p{color:rgba(255,255,255,.62)}
+.eco-sec.dark h3:not([class*="mkt-"]){color:#fff}
+.eco-sec p:not([class*="mkt-"]){font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
+.eco-sec.dark p:not([class*="mkt-"]){color:rgba(255,255,255,.62)}
 .eco-sec .lede{font-size:17px;color:#5c574c;max-width:720px}
 
 /* gauge */

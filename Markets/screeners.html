@@ -176,13 +176,35 @@
   line-height:1.22;color:#1c1c1c;margin:0 0 16px;letter-spacing:-.01em;
 }
 .cht-sec.dark h2{color:#fff}
-.cht-sec h3{
+/* ── INJECTED MARKET BLOCKS OPT OUT OF THE SECTION TEXT DEFAULTS ──────────
+   Added 2026-08-07 after the quote cards on markets-behavior.html rendered
+   as near-black text on a #111 card.
+
+   The cause was specificity, not a wrong colour. `.eco-sec p` is one class
+   plus an element (0,1,1); `.mkt-quote-px` is a single class (0,1,0). So the
+   SECTION won, and every generated block inheriting `color:#4a463d` and
+   `font-size:16px` lost both its own colour and its own type scale. The
+   percentages survived only because `.mkt-quote.up .mkt-quote-chg` happens to
+   be three classes — which is why the symptom looked so odd: bright, readable
+   percentages surrounded by invisible labels and prices.
+
+   `:not([class*="mkt-"])` fixes all of it in one place. The section rules
+   simply stop matching generated components, so each component's own styles
+   apply at whatever specificity they already have. That beats raising the
+   specificity of two dozen individual rules: it needs no per-component
+   bookkeeping, and it keeps working for components the injector has not been
+   taught to emit yet — which matters, because that list keeps growing.
+
+   The audit that found this covered 8 pages and 24 affected components. If a
+   new generated block ever looks wrong here, check this rule still wraps the
+   selector before going hunting for a colour value. */
+.cht-sec h3:not([class*="mkt-"]){
   font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;
   color:#1c1c1c;margin:30px 0 10px;
 }
-.cht-sec.dark h3{color:#fff}
-.cht-sec p{font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
-.cht-sec.dark p{color:rgba(255,255,255,.62)}
+.cht-sec.dark h3:not([class*="mkt-"]){color:#fff}
+.cht-sec p:not([class*="mkt-"]){font-size:16px;line-height:1.72;color:#4a463d;margin:0 0 16px;max-width:720px}
+.cht-sec.dark p:not([class*="mkt-"]){color:rgba(255,255,255,.62)}
 .cht-sec .lede{font-size:17px;color:#5c574c;max-width:720px}
 .cht-sec.dark .lede{color:rgba(255,255,255,.66)}
 .cht-sec a{color:#8A6D08;font-weight:700;text-decoration:underline;text-underline-offset:2px}
