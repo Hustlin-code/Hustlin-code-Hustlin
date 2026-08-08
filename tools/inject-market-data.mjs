@@ -117,6 +117,31 @@ const SECTORS_ENDPOINT = process.env.MARKET_SECTORS_ENDPOINT
    sense asking. */
 const LOCAL_SETS = new Set(['sectorReturns'])
 
+/* ---------------------------------------------------------- EASTERN DATES --
+   Every date decision about earnings is made in America/New_York, never UTC
+   and never the build machine's local zone.
+
+   Why it has to be explicit: GitHub's runners are UTC, so
+   `new Date().toISOString().slice(0,10)` is a day AHEAD of the US market for
+   the entire evening — from 19:00 Eastern (20:00 under EDT) to midnight. A
+   build at 21:00 ET therefore believed "today" was tomorrow, emptied the
+   today tab, and pushed that evening's after-close reporters into "just
+   reported" while the market day was still running. It went green doing it.
+
+   Intl with an explicit timeZone is the fix. 'en-CA' because it formats as
+   YYYY-MM-DD, which sorts and compares as a string — the same shape every
+   date from the API arrives in.
+
+   This also handles DST for free, which is the other reason not to do it with
+   arithmetic on UTC offsets. */
+const etFmt = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'America/New_York',
+  year: 'numeric', month: '2-digit', day: '2-digit',
+})
+const etDay = (d = new Date()) => etFmt.format(d)
+const etDayOffset = (n) => etDay(new Date(Date.now() + n * 864e5))
+const ET_TODAY = etDay()
+
 const checkOnly = process.argv.includes('--check')
 const offline = process.argv.includes('--offline')
 
@@ -488,15 +513,35 @@ ${rows.map(r => `        <tr>
    thin margins and a software company books little on fat ones, so a revenue
    floor quietly deleted the large-cap tech names a reader most wants. */
 function renderEarnings(input) {
-  /* Accepts either the v3 shape { upcoming, reported } or a bare array, which
-     is what market-data's fallback calendar still returns. Normalising here
-     means the fallback path renders an upcoming-only table rather than
-     throwing, which is the behaviour that keeps a build green during an
-     upstream wobble. */
-  const today = new Date().toISOString().slice(0, 10)
-  const upcoming = Array.isArray(input) ? input.filter(r => String(r.date) >= today) : (input?.upcoming ?? [])
-  const reported = Array.isArray(input) ? input.filter(r => String(r.date) <  today) : (input?.reported ?? [])
-  if (!upcoming.length && !reported.length) return ''
+  /* ── SHAPES ────────────────────────────────────────────────────────────────
+     Current shape is { today, tomorrow, reported }, all Eastern-bucketed by
+     the caller. Two older shapes still have to render rather than throw:
+
+       { upcoming, reported }  — the pre-2026-08-07 caller
+       [ ...rows ]             — market-data's own fallback calendar
+
+     Both are re-bucketed here against the Eastern date. That keeps a build
+     green when market-earnings is unreachable and market-data answers instead,
+     which is the whole point of the failure policy at the top of this file. */
+  const TODAY = ET_TODAY
+  const TOMORROW = etDayOffset(1)
+
+  let today, tomorrow, reported
+  if (Array.isArray(input)) {
+    today = input.filter(r => String(r.date) === TODAY)
+    tomorrow = input.filter(r => String(r.date) === TOMORROW)
+    reported = input.filter(r => String(r.date) < TODAY)
+  } else if (input && (input.today || input.tomorrow)) {
+    today = input.today ?? []
+    tomorrow = input.tomorrow ?? []
+    reported = input.reported ?? []
+  } else {
+    const up = input?.upcoming ?? []
+    today = up.filter(r => String(r.date) === TODAY)
+    tomorrow = up.filter(r => String(r.date) === TOMORROW)
+    reported = input?.reported ?? []
+  }
+  if (!today.length && !tomorrow.length && !reported.length) return ''
 
   const when = { bmo: 'Before open', amc: 'After close', dmh: 'During hours' }
   const cap = (v) => {
@@ -518,17 +563,27 @@ function renderEarnings(input) {
     return `${Number(d)} ${names[Number(m) - 1] ?? ''}`
   }
 
+  /* SORT KEYS. Every cell that is not plain text carries data-v, a raw number
+     the client-side sorter reads instead of the formatted string. Without it
+     "$1.2B" sorts before "$900M" because that is correct alphabetically and
+     nonsense financially, and "—" sorts wherever the browser's collator feels
+     like putting it. Missing values get -Infinity so blanks always sink to the
+     bottom whichever direction you sort. */
+  const sv = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : -Infinity)
+  const td = (v, txt, cls) =>
+    `<td data-v="${sv(v)}"${cls ? ` class="${cls}"` : ''}>${esc(txt)}</td>`
+
   /* Beat or miss, in dollars per share rather than a percentage.
      A percentage surprise explodes toward infinity as the estimate approaches
      zero — a company expected to earn $0.01 that earns $0.05 is "up 400%",
      which is arithmetic rather than news. The dollar gap stays readable. */
   const surprise = (r) => {
     if (typeof r.epsActual !== 'number' || typeof r.epsEstimate !== 'number') {
-      return { txt: '—', cls: '' }
+      return { txt: 'Not in yet', cls: 'mkt-pending', v: null }
     }
     const d = r.epsActual - r.epsEstimate
-    if (Math.abs(d) < 0.005) return { txt: 'In line', cls: '' }
-    return { txt: (d > 0 ? '+' : '−') + '$' + Math.abs(d).toFixed(2), cls: d > 0 ? 'up' : 'down' }
+    if (Math.abs(d) < 0.005) return { txt: 'In line', cls: '', v: 0 }
+    return { txt: (d > 0 ? '+' : '−') + '$' + Math.abs(d).toFixed(2), cls: d > 0 ? 'up' : 'down', v: d }
   }
 
   /* Two links per company, because they answer different questions.
@@ -548,84 +603,156 @@ function renderEarnings(input) {
     `<td class="mkt-rel"><a href="${esc(presser(sym))}" target="_blank" rel="noopener nofollow">Release &rarr;</a>` +
     `<a class="sec" href="${esc(edgar(sym))}" target="_blank" rel="noopener">SEC</a></td>`
 
-  const nameCell = (r) =>
-    `<th scope="row">${esc(r.symbol)}${r.name && r.name !== r.symbol ? `<span class="mkt-co">${esc(r.name)}</span>` : ''}</th>`
+  /* THE TICKER IS A LINK INTO THE SYMBOL LOOKUP.
+     ?symbol= is a real href, not an onclick, so it works with JavaScript off,
+     survives a middle-click into a new tab, and shows a destination on hover.
 
-  /* Row order for the upcoming table: date, then time of day, then size.
-     Upstream hands these back sorted by date and market cap, which interleaves
-     the pre-market and post-close reporters within a day. A reader planning a
-     week wants them separated — the before-open names are the ones that gap
-     while the market is shut, and grouping them is the difference between a
-     calendar you can act on and a list you have to re-read. Within a slot,
-     largest company first, unchanged.
+     ROOT-RELATIVE, because this renderer feeds THREE pages: markets.html and
+     markets-fundamental.html at the root, and Markets/spotlight.html one level
+     down. Only spotlight carries the lookup form, so a bare "?symbol=" would
+     do nothing at all on the other two — it would set a query string on a page
+     with nothing to read it. An absolute path resolves to the same place from
+     any depth, and the site is served from the domain root, so this is safe.
 
-     Sorting a copy rather than in place: `upcoming` may be the same array
-     object the snapshot writer persists, and mutating a caller's data from a
-     render function is the kind of thing that produces a bug three files away. */
+     What each page then does with it:
+       · spotlight.html   — its inline script intercepts the click, fills the
+                            field and scrolls, no reload.
+       · the other two    — plain navigation to spotlight, symbol prefilled,
+                            which is exactly the intended behaviour.
+
+     rel="nofollow" is deliberate. Every row would otherwise mint a distinct
+     crawlable ?symbol= URL — up to 25 per table, three tables, three pages —
+     and that is a lot of near-duplicate URLs to hand a crawler for no gain.
+     Do not remove it if spotlight is ever indexed. */
+  const nameCell = (r) => {
+    const sym = String(r.symbol ?? '')
+    return `<th scope="row" data-v="${esc(sym)}">` +
+      `<a class="mkt-sym" href="/Markets/spotlight.html?symbol=${encodeURIComponent(sym)}#lookup"` +
+      ` rel="nofollow" title="Look up ${esc(sym)}">${esc(sym)}</a>` +
+      (r.name && r.name !== sym ? `<span class="mkt-co">${esc(r.name)}</span>` : '') +
+      `</th>`
+  }
+
+  /* Sortable header. A <button> rather than a click handler on the <th>: it is
+     keyboard reachable and screen readers announce it as actionable, which a
+     bare th with a cursor:pointer is not. aria-sort lives on the th and the
+     sorter updates it. */
+  const th = (label, type, extraClass) =>
+    `<th scope="col"${extraClass ? ` class="${extraClass}"` : ''} aria-sort="none" data-type="${type}">` +
+    `<button type="button" class="mkt-sort">${esc(label)}<span class="mkt-arrow" aria-hidden="true"></span></button></th>`
+
   const WHEN_RANK = { bmo: 0, dmh: 1, amc: 2 }
-  const byDayThenSession = (a, b) =>
-    String(a.date ?? '').localeCompare(String(b.date ?? '')) ||
+
+  /* Row order within a day: before-open, then during hours, then after close,
+     then largest first. A reader planning a day wants the pre-market names
+     separated — they are the ones that gap while the market is shut. Sorting a
+     COPY, because these arrays are the same objects the snapshot writer
+     persists and mutating a caller's data from a render function is the kind
+     of thing that produces a bug three files away. */
+  const bySession = (a, b) =>
     ((WHEN_RANK[a.hour] ?? 3) - (WHEN_RANK[b.hour] ?? 3)) ||
     ((b.marketCap || 0) - (a.marketCap || 0))
 
-  const upcomingTable = `<table class="mkt-table">
-      <thead><tr><th scope="col">Company</th><th scope="col">Date</th><th scope="col">When</th><th scope="col">Market cap</th><th scope="col">EPS est.</th><th scope="col">Revenue est.</th><th scope="col">Read it</th></tr></thead>
+  /* ── TODAY ────────────────────────────────────────────────────────────────
+     Estimate and actual side by side. Every row starts the day with the actual
+     columns reading "—", and they fill in through the session as companies
+     report, because the build now runs hourly. */
+  const todayTable = today.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
+      <thead><tr>${th('Company','text')}${th('When','text')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('EPS actual','num')}${th('Surprise','num')}${th('Revenue est.','num','mkt-hide-sm')}${th('Revenue actual','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
-${[...upcoming].sort(byDayThenSession).slice(0, 25).map(r => `        <tr>
+${[...today].sort(bySession).slice(0, 25).map(r => {
+    const s = surprise(r)
+    return `        <tr>
           ${nameCell(r)}
-          <td>${esc(day(r.date))}</td>
-          <td>${esc(when[r.hour] ?? '—')}</td>
-          <td>${esc(cap(r.marketCap))}</td>
-          <td>${esc(eps(r.epsEstimate))}</td>
-          <td>${esc(money(r.revenueEstimate))}</td>
+          <td data-v="${WHEN_RANK[r.hour] ?? 3}">${esc(when[r.hour] ?? '—')}</td>
+          ${td(r.marketCap, cap(r.marketCap), 'mkt-hide-sm')}
+          ${td(r.epsEstimate, eps(r.epsEstimate))}
+          ${td(r.epsActual, eps(r.epsActual))}
+          <td data-v="${sv(s.v)}" class="${s.cls}">${esc(s.txt)}</td>
+          ${td(r.revenueEstimate, money(r.revenueEstimate), 'mkt-hide-sm')}
+          ${td(r.revenueActual, money(r.revenueActual))}
+          ${readCell(r.symbol)}
+        </tr>`
+  }).join('\n')}
+      </tbody>
+    </table></div>` : `<p class="mkt-empty">No company above $${(EARNINGS_MIN_CAP_M / 1000).toFixed(0)} billion is scheduled to report today. That is normal — reporting clusters into a few weeks each quarter and thins out to nothing in between. Try the Tomorrow tab, or Just reported for the ones already in.</p>`
+
+  /* ── TOMORROW ─────────────────────────────────────────────────────────────
+     Estimates only, by definition. No actual columns: a column that is
+     structurally always empty is worse than no column, because it reads as
+     missing data rather than as data that cannot exist yet. */
+  const tomorrowTable = tomorrow.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
+      <thead><tr>${th('Company','text')}${th('When','text')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('Revenue est.','num')}<th scope="col">Read it</th></tr></thead>
+      <tbody>
+${[...tomorrow].sort(bySession).slice(0, 25).map(r => `        <tr>
+          ${nameCell(r)}
+          <td data-v="${WHEN_RANK[r.hour] ?? 3}">${esc(when[r.hour] ?? '—')}</td>
+          ${td(r.marketCap, cap(r.marketCap), 'mkt-hide-sm')}
+          ${td(r.epsEstimate, eps(r.epsEstimate))}
+          ${td(r.revenueEstimate, money(r.revenueEstimate))}
           ${readCell(r.symbol)}
         </tr>`).join('\n')}
       </tbody>
-    </table>`
+    </table></div>` : `<p class="mkt-empty">Nothing above the size floor is on the calendar for tomorrow yet. Dates move, and companies confirm late — this fills in as they do.</p>`
 
-  const reportedTable = reported.length ? `<table class="mkt-table">
-      <thead><tr><th scope="col">Company</th><th scope="col">Date</th><th scope="col">Market cap</th><th scope="col">EPS est.</th><th scope="col">EPS actual</th><th scope="col">Surprise</th><th scope="col">Revenue</th><th scope="col">Read it</th></tr></thead>
+  /* ── JUST REPORTED ────────────────────────────────────────────────────────
+     Actual revenue is present for companies caught on their own day and absent
+     for older ones, because Finnhub's per-symbol endpoint carries EPS only.
+     That gap is explained in the note above the tabs rather than hidden. */
+  const reportedTable = reported.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
+      <thead><tr>${th('Company','text')}${th('Date','num')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('EPS actual','num')}${th('Surprise','num')}${th('Revenue est.','num','mkt-hide-sm')}${th('Revenue actual','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
 ${reported.slice(0, 25).map(r => {
     const s = surprise(r)
     return `        <tr>
           ${nameCell(r)}
-          <td>${esc(day(r.date))}</td>
-          <td>${esc(cap(r.marketCap))}</td>
-          <td>${esc(eps(r.epsEstimate))}</td>
-          <td>${esc(eps(r.epsActual))}</td>
-          <td class="${s.cls}">${esc(s.txt)}</td>
-          <td>${esc(money(typeof r.revenueActual === 'number' ? r.revenueActual : r.revenueEstimate))}</td>
+          <td data-v="${esc(String(r.date ?? '').replace(/-/g, ''))}">${esc(day(r.date))}</td>
+          ${td(r.marketCap, cap(r.marketCap), 'mkt-hide-sm')}
+          ${td(r.epsEstimate, eps(r.epsEstimate))}
+          ${td(r.epsActual, eps(r.epsActual))}
+          <td data-v="${sv(s.v)}" class="${s.cls}">${esc(s.txt)}</td>
+          ${td(r.revenueEstimate, money(r.revenueEstimate), 'mkt-hide-sm')}
+          ${td(r.revenueActual, money(r.revenueActual))}
           ${readCell(r.symbol)}
         </tr>`
   }).join('\n')}
       </tbody>
-    </table>` : `<p class="mkt-empty">No companies above the size floor reported in the last seven days.</p>`
+    </table></div>` : `<p class="mkt-empty">Nothing has dropped through to reported yet. This fills in as each day ends.</p>`
 
-  /* Tabs are two radio inputs and a sibling selector — no JavaScript.
-     That matters for more than elegance: BOTH tables ship in the HTML and are
-     only hidden with CSS, so a crawler reads every row of both. Building the
-     panels with JS would have hidden half this table from Google, which is the
-     exact mistake these pages were rewritten to stop making.
-     "Upcoming" is checked by default because the forward week is the reason
-     most people open the page. */
+  /* Tabs are three radio inputs and a sibling selector — no JavaScript.
+     That matters for more than elegance: ALL THREE tables ship in the HTML and
+     are only hidden with CSS, so a crawler reads every row of every one.
+     Building the panels with JS would have hidden two thirds of this content
+     from Google, which is the exact mistake these pages were rewritten to stop
+     making. The column sorter is a genuine enhancement layered on top and the
+     tables are complete and readable without it.
+
+     "Today" is checked by default because that is the question the section
+     asks. */
   return `<div class="mkt-filter-note">
       <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. This shows only those worth more than $2 billion &mdash; because a company below that size can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
       <p>That is an editorial choice rather than a judgement about those businesses, and it does mean genuinely interesting small companies are missing. <strong>Estimates</strong> are what analysts expect: a forecast, not a target the company agreed to. <strong>Surprise</strong> is actual EPS minus estimate, in dollars per share. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
+      <p><strong>Two honest limits.</strong> Actual figures appear within about an hour of a company releasing them, not instantly, so a name that has just reported may still show a dash. And <strong>actual revenue is only kept for companies we caught on their own reporting day</strong> &mdash; our data source sells no revenue history, so older rows in Just reported show actual EPS with a dash beside it for revenue. A dash means we do not have it, never that the company did not report it.</p>
     </div>
     <div class="mkt-tabs">
-      <input type="radio" name="earnwin" id="earnwin-upcoming" class="mkt-tab-in" checked>
+      <input type="radio" name="earnwin" id="earnwin-today" class="mkt-tab-in" checked>
+      <input type="radio" name="earnwin" id="earnwin-tomorrow" class="mkt-tab-in">
       <input type="radio" name="earnwin" id="earnwin-reported" class="mkt-tab-in">
       <div class="mkt-tab-btns">
-        <label for="earnwin-upcoming">Reporting next &nbsp;<span>${upcoming.length}</span></label>
+        <label for="earnwin-today">Today &nbsp;<span>${today.length}</span></label>
+        <label for="earnwin-tomorrow">Tomorrow &nbsp;<span>${tomorrow.length}</span></label>
         <label for="earnwin-reported">Just reported &nbsp;<span>${reported.length}</span></label>
       </div>
-      <div class="mkt-tab-panel" data-win="upcoming">
-        ${upcomingTable}
+      <div class="mkt-tab-panel" data-win="today">
+        ${todayTable}
+      </div>
+      <div class="mkt-tab-panel" data-win="tomorrow">
+        ${tomorrowTable}
       </div>
       <div class="mkt-tab-panel" data-win="reported">
         ${reportedTable}
       </div>
+      <p class="mkt-tab-hint">Tap any column heading to sort. Tap a ticker to load it into the lookup at the top of the page.</p>
     </div>`
 }
 
@@ -1098,12 +1225,26 @@ async function main() {
       await new Promise(r => setTimeout(r, wait))
     }
     try {
-      const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}&days=7`,
+      /* days=3, not 7. market-earnings spends a fixed budget of 36 profile
+         lookups across whatever window it is given, in revenue order — so a
+         seven-day window spends most of it on companies the page does not
+         show, and today's mid-caps fall off the bottom. Three days keeps the
+         budget on the two days actually displayed plus a little slack. */
+      const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}&days=3`,
         { signal: AbortSignal.timeout(45000) })
       if (!r.ok) throw new Error(`HTTP ${r.status}`)
       const ed = await r.json()
       if (Array.isArray(ed.earnings) && ed.earnings.length) {
-        const today = ed.today ?? new Date().toISOString().slice(0, 10)
+        /* THE DAY BOUNDARY IS EASTERN, NOT UTC.
+           `ed.today` was the function's UTC date, which between 19:00 and
+           midnight Eastern is already TOMORROW. Bucketing on it meant that
+           every evening the "today" tab emptied out and the after-close
+           reporters — the ones a reader opens the page for — jumped straight
+           to "just reported" hours before the day had actually ended.
+           market-earnings v6 returns todayET; ET_TODAY is the local fallback
+           for an older deployed function. */
+        const today = ed.todayET ?? ET_TODAY
+        const tomorrow = etDayOffset(1)
         const upcoming = ed.upcoming ?? ed.earnings
 
         /* ---- THE REPORTED WEEK IS RECONSTRUCTED, NOT QUERIED --------------
@@ -1124,20 +1265,52 @@ async function main() {
         const watch = new Map()
         for (const w of watchPrev) if (String(w.date) >= horizon) watch.set(w.symbol, w)
         for (const u of upcoming) {
+          const prev = watch.get(u.symbol)
           watch.set(u.symbol, {
             symbol: u.symbol, name: u.name, date: u.date, hour: u.hour,
             epsEstimate: u.epsEstimate, revenueEstimate: u.revenueEstimate,
             marketCap: u.marketCap,
+
+            /* ---- CAPTURE THE ACTUALS THE MOMENT THEY APPEAR --------------
+               This is the only chance we get at actual REVENUE.
+
+               market-earnings v6 passes through epsActual and revenueActual
+               from the calendar row, which Finnhub fills in within the hour
+               after a company reports. But the calendar is a moving window:
+               once a date drops off the back of it, that row is gone, and the
+               ?actuals= fallback returns EPS ONLY — Finnhub sells no revenue
+               history on this plan. So a figure not saved on the day it
+               appears is a figure we can never show again.
+
+               Hence `??`, not plain assignment: a later run whose row has
+               gone null must NOT wipe a value an earlier run already banked.
+               That asymmetry is the whole point of these two lines. */
+            epsActual: u.epsActual ?? prev?.epsActual ?? null,
+            revenueActual: u.revenueActual ?? prev?.revenueActual ?? null,
+            quarter: u.quarter ?? prev?.quarter ?? null,
+            year: u.year ?? prev?.year ?? null,
           })
         }
         earningsWatch = [...watch.values()]
 
-        /* Due = date has passed. Largest first, because the actuals budget is
-           20 symbols and a reader cares more about the big ones. */
+        /* Due = date has passed AND we still have no actual EPS for it. The
+           second half is new and it is what makes hourly runs affordable:
+           a company whose number we already banked from its calendar row
+           needs no lookup at all, so the 20-symbol actuals budget is spent
+           only on the genuine gaps. On a normal day that is a handful of
+           symbols rather than twenty, and most runs skip the second Finnhub
+           cooldown entirely.
+           Largest first, because the budget is finite and a reader cares
+           more about the big ones. */
         const due = earningsWatch
-          .filter(w => String(w.date) < today)
+          .filter(w => String(w.date) < today && typeof w.epsActual !== 'number')
           .sort((a, b) => (b.marketCap || 0) - (a.marketCap || 0))
           .slice(0, 20)
+
+        /* Everything already resolved — banked from a calendar row on the day.
+           These carry actual REVENUE, which the ?actuals= path cannot. */
+        const alreadyResolved = earningsWatch
+          .filter(w => String(w.date) < today && typeof w.epsActual === 'number')
 
         let reported = []
         if (due.length) {
@@ -1157,10 +1330,15 @@ async function main() {
               reported = due.map(w => {
                 const a = bySym.get(w.symbol)
                 if (!a) return null
+                /* revenueActual stays whatever the watch list banked — which
+                   is usually null on this path, because a symbol only reaches
+                   here when no calendar row was ever caught for it. Never
+                   overwrite it with null; see the watch-list note above. */
                 return { ...w, epsActual: a.epsActual, epsEstimate: a.epsEstimate ?? w.epsEstimate,
-                         revenueActual: null, quarter: a.quarter, year: a.year }
+                         revenueActual: w.revenueActual ?? null,
+                         quarter: a.quarter ?? w.quarter, year: a.year ?? w.year }
               }).filter(Boolean)
-              console.log(`  earnings actuals: ${reported.length} of ${due.length} due symbols resolved`)
+              console.log(`  earnings actuals: ${reported.length} of ${due.length} unresolved symbols looked up`)
             } else {
               console.log(`  WARN actuals lookup HTTP ${ar.status} — reported tab left empty this run.`)
             }
@@ -1169,9 +1347,39 @@ async function main() {
           }
         }
 
-        data.earnings = { upcoming, reported }
+        /* Rows banked from a calendar row need no lookup and are strictly
+           better than a looked-up row, because they carry actual revenue.
+           Merge them in, newest date first, and de-duplicate on symbol in
+           case a symbol somehow landed in both lists. */
+        const bySymReported = new Map()
+        for (const r of [...alreadyResolved, ...reported]) {
+          const prev = bySymReported.get(r.symbol)
+          // Prefer whichever row actually has revenue.
+          if (!prev || (prev.revenueActual == null && r.revenueActual != null)) {
+            bySymReported.set(r.symbol, r)
+          }
+        }
+        reported = [...bySymReported.values()]
+          .sort((a, b) => String(b.date).localeCompare(String(a.date)) ||
+                          ((b.marketCap || 0) - (a.marketCap || 0)))
+
+        /* THE THREE BUCKETS THE PAGE ACTUALLY RENDERS.
+           Boundaries are Eastern dates (see `today` above). A company stays in
+           `today` for the whole Eastern day even after it has reported — its
+           actual EPS and revenue simply fill in beside the estimate — and only
+           falls through to `reported` when the date itself has passed. That is
+           the behaviour the page promises in its own copy: "everything drops
+           into Just reported at the end of the day." */
+        data.earnings = {
+          today: upcoming.filter(r => String(r.date) === today),
+          tomorrow: upcoming.filter(r => String(r.date) === tomorrow),
+          reported,
+        }
+        const withRev = reported.filter(r => typeof r.revenueActual === 'number').length
         console.log(`  earnings: ${ed.kept} companies over $${EARNINGS_MIN_CAP_M}M ` +
-                    `(${upcoming.length} upcoming, ${reported.length} reported, ` +
+                    `(ET ${today}: ${data.earnings.today.length} today, ` +
+                    `${data.earnings.tomorrow.length} tomorrow, ` +
+                    `${reported.length} reported of which ${withRev} with actual revenue, ` +
                     `watch list ${earningsWatch.length}, checked ${ed.checked} of ${ed.considered})`)
       } else {
         console.log('  WARN market-earnings returned nothing — keeping market-data earnings.')

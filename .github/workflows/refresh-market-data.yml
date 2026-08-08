@@ -19,7 +19,18 @@
 #  rank at all. Do not "simplify" this into a client-side fetch.
 #
 #  It also keeps the Supabase cost per BUILD rather than per VISITOR. One run
-#  a day is one set of function invocations no matter how much traffic arrives.
+#  is one set of function invocations no matter how much traffic arrives.
+#
+#  WHY HOURLY, AS OF 2026-08-07
+#
+#  The earnings table on Markets/spotlight.html now shows TODAY's reporters
+#  with their actual EPS and revenue filled in as the numbers land, rather
+#  than a static week-ahead calendar. Finnhub populates epsActual and
+#  revenueActual on the calendar row for the current day, so a company that
+#  reports before the open is on the page within the hour instead of the
+#  next morning. A daily build cannot do that — the whole feature depends on
+#  this cadence. If you ever drop back to daily, the "Today" tab degrades to
+#  estimates only and you should say so on the page.
 #
 #  NO SECRETS REQUIRED
 #
@@ -42,8 +53,38 @@ name: Refresh market data
 
 on:
   schedule:
-    # Run every 2 hours, 12 times per day, including weekends.
-    - cron: '0 */2 * * *'
+    # ── THE TRADING WEEK, HOURLY ──────────────────────────────────────────
+    #
+    #  Target, in EST (UTC-5): hourly from 18:00 Sunday through 18:00 Friday,
+    #  then twice a day at 00:00 and 12:00 across the weekend.
+    #
+    #  GitHub cron is ALWAYS UTC and does not observe DST, so these are
+    #  written against EST and drift one hour later in local terms during
+    #  EDT (mid-March to early November): the week then reopens at 19:00 ET
+    #  and the weekend runs land at 01:00 and 13:00 ET. That is deliberate.
+    #  The alternative is two sets of expressions swapped twice a year, which
+    #  is a maintenance trap for an hour of drift on a job whose entire
+    #  purpose is "roughly current".
+    #
+    #  Do not merge these into fewer lines. The Sunday reopen and the weekend
+    #  pair both land on day 0, and separating them is what keeps the intent
+    #  readable when you come back to this in six months.
+    #
+    #  ~125 runs a week. Public repo, so Actions minutes are unmetered.
+
+    # Mon 00:00 → Fri 23:00 UTC, on the hour. The bulk of the week.
+    - cron: '0 * * * 1-5'
+
+    # Sun 23:00 UTC = Sun 18:00 EST. The reopen — futures are trading and
+    # this is the first refresh of the new week. Runs straight into the
+    # Monday expression above with no gap.
+    - cron: '0 23 * * 0'
+
+    # Sat & Sun 05:00 and 17:00 UTC = 00:00 and 12:00 EST. Two runs a day
+    # across the weekend, because nothing prices between Friday's close and
+    # Sunday's open and an hourly cadence would burn ~46 no-op jobs for it.
+    - cron: '0 5,17 * * 6,0'
+
   workflow_dispatch:        # lets you run it by hand from the Actions tab
 
 # Never let two runs rewrite the same markers at once.
@@ -56,17 +97,39 @@ permissions:
 
 jobs:
   refresh:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 20      # the build now pauses ~140s for Finnhub cooldowns
 
+    # Promoted to JOB level on purpose. A step cannot read its OWN `env:` block
+    # from inside its `if:` condition, and the `secrets` context is not
+    # available in `if:` at all. The purge step originally declared these in its
+    # own env and tested `env.CF_ZONE != ''` — which is always empty there, so
+    # the step would have been skipped forever, even with the secrets set
+    # correctly. Silent, and exactly the kind of thing you only notice weeks
+    # later when the site has been serving stale numbers the whole time.
     env:
       CF_ZONE:  ${{ secrets.CLOUDFLARE_ZONE_ID }}
       CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
     steps:
+      # v4 ran on the Node 20 action runtime, which GitHub deprecated — the
+      # first run of this workflow succeeded but logged a warning about being
+      # force-migrated to Node 24. v6 targets Node 24 natively. Bumped
+      # 2026-08-02. If a future runner deprecates this too, the warning text
+      # names the replacement.
       - name: Check out the site
         uses: actions/checkout@v6
 
+      # actions/setup-node was removed deliberately, not forgotten.
+      #
+      # ubuntu-latest already ships a current Node, and inject-market-data.mjs
+      # needs nothing exotic — node:fs, node:path, node:url, global fetch and
+      # AbortController, all standard since Node 18. Pinning a version bought
+      # us nothing and cost a second action to keep patched, which was the
+      # other half of the deprecation warning.
+      #
+      # Add it back only if this script ever needs a version the runner does
+      # not have. It does not today.
       - name: Bake current figures into the Markets pages
         run: |
           node --version
@@ -78,14 +141,31 @@ jobs:
           git config user.name  "hustlin-bot"
           git config user.email "actions@users.noreply.github.com"
 
+          # tools/.market-snapshot.json must be committed too — the next run
+          # diffs against it to build the "what changed" block on the page.
           git add -A '*.html' 'Markets/*.html' 'tools/.market-snapshot.json'
 
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No change in the baked figures — nothing to commit."
           else
-            git commit -m "chore: refresh market data ($(date -u +'%Y-%m-%d'))"
+            # Record WHICH pages changed, so the purge below can name them
+            # instead of flushing the whole zone. See the purge step for why
+            # that matters now that this runs ~18 times a day.
+            changed_files=$(git diff --cached --name-only -- '*.html' | tr '\n' ' ')
+            echo "files=${changed_files}" >> "$GITHUB_OUTPUT"
+            echo "Changed pages: ${changed_files:-none}"
 
+            git commit -m "chore: refresh market data ($(date -u +'%Y-%m-%dT%H:%MZ'))"
+
+            # Rebase before pushing. Two ways this branch goes stale under us:
+            # a "Re-run all jobs" on an older run checks out a commit that
+            # origin has since moved past, and a manual deploy can land while
+            # this job is mid-flight. Either produces a non-fast-forward
+            # rejection and a red X on a job that did nothing wrong.
+            # Rebase is safe here because this job only ever touches generated
+            # blocks between the MKT markers, so there is nothing to conflict
+            # with that a human also edits by hand.
             git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || {
               echo "::error::rebase onto origin/${GITHUB_REF_NAME} failed — resolve by hand."
               exit 1
@@ -94,6 +174,24 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
+      # Cloudflare sits in front of Pages and will keep serving the previous
+      # HTML until its cache expires. Without this the numbers update in the
+      # repo but not for visitors. Skipped automatically if the secrets are
+      # not set, so the workflow still works before you configure them.
+      # WAIT FOR PAGES BEFORE PURGING — this ordering is load-bearing.
+      #
+      # Pushing a commit does not update the site. GitHub Pages runs its own
+      # build afterwards, which takes roughly a minute. Purging Cloudflare the
+      # instant the push lands therefore clears the cache while the ORIGIN is
+      # still serving the old file — so the next visitor re-caches exactly the
+      # stale page we were trying to replace, and it sticks until the edge TTL
+      # expires. The workflow goes green, the purge reports success, and the
+      # site is stale anyway. That is how chart.html sat on a months-old
+      # version while every page beside it was current.
+      #
+      # 100s is comfortably past a normal Pages build for a static site this
+      # size. If Pages ever gets slower, the symptom is stale pages with a
+      # green run — raise this first.
       - name: Wait for GitHub Pages to rebuild
         if: steps.commit.outputs.changed == 'true'
         run: |
@@ -102,7 +200,13 @@ jobs:
 
       - name: Purge Cloudflare cache
         if: steps.commit.outputs.changed == 'true'
+        env:
+          CHANGED_FILES: ${{ steps.commit.outputs.files }}
         run: |
+          # Trim whitespace and stray CR/LF. Pasting a Zone ID into the GitHub
+          # secrets box very easily carries a trailing newline, which makes the
+          # URL below malformed and gets curl exit code 3 — an opaque failure
+          # that looks nothing like "your secret has a newline in it".
           CF_ZONE="$(printf '%s' "$CF_ZONE"  | tr -d '[:space:]')"
           CF_TOKEN="$(printf '%s' "$CF_TOKEN" | tr -d '[:space:]')"
 
@@ -114,6 +218,9 @@ jobs:
             exit 0
           fi
 
+          # A Cloudflare zone id is 32 hex characters. Checking the SHAPE (never
+          # the value) turns "wrong thing pasted in the wrong box" into a clear
+          # message instead of a malformed-URL error.
           if ! printf '%s' "$CF_ZONE" | grep -qE '^[0-9a-fA-F]{32}$'; then
             echo "::error::CLOUDFLARE_ZONE_ID is not 32 hex characters (got ${#CF_ZONE} chars)."
             echo "::error::Cloudflare > hustlin.org > Overview > right sidebar > Zone ID."
@@ -121,12 +228,50 @@ jobs:
             exit 1
           fi
 
+          # PURGE BY URL, NOT purge_everything.
+          #
+          # This used to flush the entire zone. That was correct when the job
+          # ran once a day; at ~18 runs a day it means the edge cache is wiped
+          # eighteen times daily and almost every visitor becomes a cache MISS
+          # that GitHub Pages has to serve. The site gets SLOWER the more often
+          # we refresh it, which is the opposite of the intent.
+          #
+          # A refresh only ever rewrites the pages carrying MKT markers, and the
+          # commit step above already knows exactly which ones. So purge those
+          # URLs and leave the other ~40 pages, the stylesheet and the images
+          # cached where they are.
+          #
+          # Free-plan limit is 30 URLs per request; we send at most a handful.
+          # If a page ever fails to update after a confirmed commit, check that
+          # its path made it into this list before blaming Cloudflare.
+          files_json=""
+          for f in ${CHANGED_FILES}; do
+            files_json="${files_json}\"https://hustlin.org/${f}\","
+            # A directory index is reachable at two URLs and Cloudflare caches
+            # them separately. Purging only /index.html leaves / stale — which
+            # is the copy essentially every visitor actually receives.
+            case "$f" in
+              index.html) files_json="${files_json}\"https://hustlin.org/\"," ;;
+              */index.html) files_json="${files_json}\"https://hustlin.org/${f%index.html}\"," ;;
+            esac
+          done
+          files_json="[${files_json%,}]"
+
+          if [ "$files_json" = "[]" ]; then
+            echo "No HTML changed — nothing to purge."
+            exit 0
+          fi
+
+          echo "Purging: $files_json"
+
+          # Capture curl's own exit code rather than letting bash -e abort on it,
+          # so a transport failure reports as itself instead of as a bare number.
           set +e
           resp=$(curl -sS --max-time 30 -X POST \
             "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
             -H "Authorization: Bearer ${CF_TOKEN}" \
             -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}' 2>&1)
+            --data "{\"files\":${files_json}}" 2>&1)
           rc=$?
           set -e
 
@@ -137,6 +282,8 @@ jobs:
             exit 1
           fi
 
+          # A purge that silently 403s looks identical to a successful run from
+          # the outside, and the entire point of this step is that nobody checks.
           case "$resp" in
             *'"success":true'*)
               echo "Cache purged." ;;
