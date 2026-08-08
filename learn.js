@@ -360,6 +360,22 @@
     } catch (e) {
       console.error('course shell init failed', e);
     }
+
+    // Same asymmetry, same fix: the share bar and the stage-completion outro
+    // are injected by stage-outro.js on DOM ready, which fired long before
+    // this lesson arrived. Without this call the viewer is the one route
+    // through the course where finishing a stage congratulates nobody and
+    // sells nothing. It is not fatal if the file is missing — the lesson is
+    // still perfectly readable — so this warns rather than errors.
+    try {
+      if (window.HFY_STAGE_OUTRO && typeof window.HFY_STAGE_OUTRO.init === 'function') {
+        window.HFY_STAGE_OUTRO.init();
+      } else {
+        console.warn('learn.js: stage-outro.js did not load — no share bar or stage outro');
+      }
+    } catch (e) {
+      console.error('stage outro init failed', e);
+    }
   }
 
   // Belt and braces behind bootCourseShell(). If the lesson's inline script

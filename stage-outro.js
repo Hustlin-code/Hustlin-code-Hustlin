@@ -48,6 +48,15 @@
   'use strict';
 
   var DISMISS_KEY = 'hfy_outro_account_dismissed_v1';
+
+  // True on learn.html, where the lesson is fetched and injected long after
+  // DOM ready. Detected the same two ways course-shell.js detects it — by
+  // filename and by the viewer's lesson mount point — so a clean-URL rewrite
+  // cannot quietly re-enable the auto-init and have it run against an empty
+  // page. In the viewer, learn.js calls HFY_STAGE_OUTRO.init() instead, once
+  // the lesson has actually landed.
+  var IN_VIEWER = /(^|\/)learn(\.html)?$/i.test(window.location.pathname) ||
+                  !!document.getElementById('hfy-lesson');
   var SHARE_URL   = 'https://hustlin.org/financial-literacy.html';
   var SHARE_TEXT  = "I'm taking Hustlin's free financial literacy course — 5 stages, no cost, no account. If you're trying to get your money right, start here:";
 
@@ -77,16 +86,35 @@
   }
 
   /**
-   * Complete = every action box in the stage is ticked. Mirrors the signal
-   * course-shell.js uses for sidebar ticks, so the two can never disagree.
+   * Complete = every module in the stage is ticked.
+   *
+   * This scores module by module rather than counting every .act-box on the
+   * page, because that is exactly what course-shell.js's syncSidebar() does:
+   * a module uses its .act-box elements if it has any, and only falls back to
+   * .ms-row when it has none. Several modules in Stages 4 and 5 carry only
+   * .ms-row, so a flat .act-box sweep would call the stage finished while the
+   * sidebar still showed those modules unticked — the outro would fire early
+   * and contradict the ticks the reader is looking at.
+   *
+   * A module with neither kind of activity is skipped, not failed: there is
+   * nothing in it to complete, and treating it as outstanding would mean the
+   * outro could never fire on a stage that contains one.
    */
   function isComplete() {
-    var boxes = document.querySelectorAll('.course-main .act-box');
-    if (!boxes.length) return false;
-    for (var i = 0; i < boxes.length; i++) {
-      if (!boxes[i].classList.contains('done')) return false;
+    var mods = document.querySelectorAll('.course-main .module');
+    if (!mods.length) return false;
+
+    var scored = 0;
+    for (var i = 0; i < mods.length; i++) {
+      var items = mods[i].querySelectorAll('.act-box');
+      if (!items.length) items = mods[i].querySelectorAll('.ms-row');
+      if (!items.length) continue;          // nothing to complete — skip it
+      scored++;
+      for (var j = 0; j < items.length; j++) {
+        if (!items[j].classList.contains('done')) return false;
+      }
     }
-    return true;
+    return scored > 0;
   }
 
   /* ----------------------------------------------------------- share links */
@@ -284,18 +312,29 @@
     if (isComplete()) { built = true; buildOutro(); }
   }
 
+  // The observer is attached once and only once. start() is re-entrant by
+  // design — learn.js calls it after the lesson lands, and a stage page that
+  // somehow fired DOM ready twice would call it again — and a second observer
+  // on document.body would run check() twice for every class change on the
+  // page, for no benefit.
+  var observing = false;
+
   function start() {
     initial();
+    if (observing) return;
+    observing = true;
     // Action boxes toggle a class rather than firing an event, so watch for it.
     new MutationObserver(check).observe(document.body, {
       attributes: true, attributeFilter: ['class'], subtree: true
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
+  if (!IN_VIEWER) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start);
+    } else {
+      start();
+    }
   }
 
   // learn.html injects the lesson long after DOMContentLoaded — let it re-run.

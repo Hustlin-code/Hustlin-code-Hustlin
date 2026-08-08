@@ -1267,3 +1267,264 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .hfy-ft-top { grid-template-columns: 1fr; gap: 28px }
   .hfy-ft-bottom { flex-direction: column; align-items: flex-start }
 }
+
+/* ─── STAGE SHARE BAR + STAGE OUTRO ───────────────────────────────
+   Injected by stage-outro.js, not written into any stage file. The
+   share bar sits above .course-layout on every stage; the outro is
+   inserted after it and only once every module in the stage is done.
+
+   Both live on the cream page background, so amber text uses
+   --amber-ink / --amber-mid rather than --amber, which drops to about
+   1.9:1 on cream and fails AA. Full --amber is only used here on the
+   dark crown panel, where it is the intended colour.
+   ───────────────────────────────────────────────────────────────── */
+
+/* — share bar — */
+.hfy-sharebar{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  flex-wrap:wrap;
+  margin:0 0 20px;padding:14px 20px;
+  background:linear-gradient(135deg,rgba(240,192,48,.13),rgba(232,114,14,.09));
+  border:1px solid rgba(240,192,48,.42);
+  border-radius:var(--r-md);
+}
+.hfy-sharebar-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.hfy-sharebar-txt strong{font-size:.98rem;font-weight:800;color:var(--text-dark)}
+.hfy-sharebar-txt span{font-size:.82rem;color:var(--text-muted)}
+.hfy-sharebar-btns{display:flex;flex-wrap:wrap;gap:8px}
+
+.hfy-share-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:999px;
+  background:var(--white);border:1px solid var(--border);
+  font-family:var(--f-body);font-size:.82rem;font-weight:700;
+  color:var(--text-dark);white-space:nowrap;
+  transition:transform .15s,border-color .15s,box-shadow .15s;
+}
+.hfy-share-btn:hover{
+  transform:translateY(-2px);
+  border-color:var(--amber-mid);
+  box-shadow:var(--sh-sm);
+}
+.hfy-share-btn.is-copied{
+  border-color:var(--green);color:var(--green);
+}
+
+/* — outro: crown — */
+.hfy-outro{margin:26px 0 8px;display:flex;flex-direction:column;gap:18px}
+
+.hfy-outro-crown{
+  padding:34px 30px;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,var(--dark) 0%,var(--dark-card) 100%);
+  border:2px solid rgba(240,192,48,.5);
+  box-shadow:var(--sh-md);
+  text-align:center;
+}
+.hfy-outro-h1{
+  font-size:1.7rem;font-weight:800;line-height:1.25;
+  color:var(--amber);margin-bottom:12px;
+}
+.hfy-outro-lede{
+  font-size:1rem;line-height:1.7;color:rgba(255,255,255,.82);
+  max-width:62ch;margin:0 auto 18px;
+}
+.hfy-outro-stamp{
+  display:inline-block;padding:9px 20px;border-radius:999px;
+  background:rgba(240,192,48,.14);border:1px solid rgba(240,192,48,.45);
+  font-size:.92rem;font-weight:800;letter-spacing:.01em;color:var(--amber-lt);
+}
+
+/* — outro: sections — */
+.hfy-outro-sec{
+  padding:26px 24px;border-radius:var(--r-md);
+  background:var(--cream);border:1px solid var(--border);
+}
+.hfy-outro-h3{
+  font-size:1.2rem;font-weight:800;color:var(--text-dark);margin-bottom:8px;
+}
+.hfy-outro-p{
+  font-size:.94rem;line-height:1.7;color:var(--text-body);
+  max-width:70ch;margin-bottom:16px;
+}
+.hfy-outro-share{display:flex;flex-wrap:wrap;gap:9px}
+
+/* — outro: account prompt — */
+.hfy-outro-acct{
+  background:linear-gradient(135deg,rgba(45,160,45,.09),rgba(240,192,48,.07));
+  border-color:rgba(45,160,45,.4);
+}
+.hfy-outro-btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.hfy-outro-cta{
+  display:inline-block;padding:13px 26px;border-radius:999px;
+  background:var(--dark);color:var(--amber);
+  font-size:.95rem;font-weight:800;
+  border:2px solid rgba(240,192,48,.55);
+  transition:transform .15s,box-shadow .15s;
+}
+.hfy-outro-cta:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.hfy-outro-alt{
+  font-size:.9rem;font-weight:700;color:var(--amber-ink);
+  text-decoration:underline;text-underline-offset:3px;
+}
+.hfy-outro-skip{
+  font-size:.86rem;font-weight:600;color:var(--text-muted);
+  text-decoration:underline;text-underline-offset:3px;
+  background:none;border:none;padding:0;
+}
+.hfy-outro-skip:hover{color:var(--text-dark)}
+.hfy-outro-fine{
+  margin-top:12px;font-size:.79rem;color:var(--text-muted);line-height:1.6;
+}
+
+/* — outro: course catalogue — */
+.hfy-oc-grid{
+  display:grid;gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  margin-bottom:14px;
+}
+.hfy-oc-card{
+  display:flex;flex-direction:column;gap:5px;
+  padding:18px 17px;border-radius:var(--r-md);
+  background:var(--white);border:1px solid var(--border);
+  transition:transform .15s,border-color .15s,box-shadow .15s;
+}
+.hfy-oc-card:hover{
+  transform:translateY(-3px);border-color:var(--amber-mid);box-shadow:var(--sh-sm);
+}
+.hfy-oc-ico{font-size:1.5rem;line-height:1}
+.hfy-oc-price{
+  font-family:var(--f-mono);font-size:.72rem;font-weight:700;
+  letter-spacing:.04em;color:var(--amber-ink);
+}
+.hfy-oc-title{font-size:1.02rem;font-weight:800;color:var(--text-dark)}
+.hfy-oc-desc{font-size:.84rem;line-height:1.6;color:var(--text-body);flex:1}
+.hfy-oc-go{
+  margin-top:4px;font-size:.82rem;font-weight:700;color:var(--amber-ink);
+}
+
+.hfy-oc-bundle{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  flex-wrap:wrap;
+  padding:16px 20px;border-radius:var(--r-md);
+  background:var(--dark);border:2px solid rgba(240,192,48,.5);
+  transition:transform .15s,box-shadow .15s;
+}
+.hfy-oc-bundle:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.hfy-oc-bundle-l{font-size:1rem;font-weight:800;color:var(--amber)}
+.hfy-oc-bundle-r{font-size:.86rem;color:rgba(255,255,255,.72)}
+.hfy-oc-bundle-r b{font-size:1.05rem;color:var(--amber-lt);margin-right:6px}
+
+.hfy-oc-free{
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--border);
+  font-size:.85rem;color:var(--text-muted);
+}
+.hfy-oc-free a{color:var(--amber-ink);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+
+@media(max-width:600px){
+  .hfy-sharebar{flex-direction:column;align-items:flex-start;gap:12px}
+  .hfy-outro-crown{padding:26px 18px}
+  .hfy-outro-h1{font-size:1.35rem}
+  .hfy-outro-sec{padding:20px 16px}
+  .hfy-oc-bundle{flex-direction:column;align-items:flex-start}
+}
+
+/* ─── TOTAL-RETURN vs PRICE-RETURN CHART ──────────────────────────
+   Stage 4, dividends module. Paired horizontal bars per year, drawn
+   in CSS rather than a charting library: these stage files load no
+   JS beyond app.js and course-shell.js, and pulling in Chart.js for
+   one static ten-row figure would cost more than the figure is worth.
+
+   Bar widths are baked into the markup as percentages of the largest
+   value (the 2025 total-return bar), so the chart is correct with CSS
+   disabled-ish, prints, and cannot drift out of step with the numbers
+   printed inside the bars — they are in the same element.
+   ───────────────────────────────────────────────────────────────── */
+.tr-chart{
+  margin:20px 0;padding:18px 18px 14px;
+  background:var(--cream);border:1px solid var(--border);border-radius:var(--r-md);
+}
+.tr-chart-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:10px;margin-bottom:14px;
+}
+.tr-chart-title{font-size:.95rem;font-weight:800;color:var(--text-dark)}
+.tr-chart-key{display:flex;flex-wrap:wrap;gap:14px}
+.tr-key{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--text-muted)}
+.tr-sw{width:12px;height:12px;border-radius:3px;display:inline-block;flex-shrink:0}
+.tr-sw-total{background:var(--green)}
+.tr-sw-price{background:var(--amber-mid)}
+
+.tr-rows{display:flex;flex-direction:column;gap:9px}
+.tr-row{display:flex;align-items:center;gap:10px}
+.tr-yr{
+  font-family:var(--f-mono);font-size:.72rem;font-weight:700;
+  color:var(--text-muted);width:38px;flex-shrink:0;
+}
+.tr-bars{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.tr-bar{
+  display:flex;align-items:center;justify-content:flex-end;
+  height:19px;border-radius:3px;padding-right:7px;min-width:74px;
+}
+.tr-bar b{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:700;
+  color:#fff;white-space:nowrap;
+}
+.tr-bar-total{background:var(--green)}
+.tr-bar-price{background:var(--amber-mid)}
+.tr-row-last .tr-bar{height:23px}
+
+.tr-chart-foot{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin-top:14px;padding-top:13px;border-top:1px solid var(--border);
+}
+.tr-foot-stat{
+  flex:1;min-width:130px;
+  display:flex;flex-direction:column;gap:1px;
+  padding:9px 12px;border-radius:var(--r-sm);
+  background:var(--white);border:1px solid var(--border);
+}
+.tr-foot-stat b{font-family:var(--f-mono);font-size:1.02rem;font-weight:700;color:var(--text-dark)}
+.tr-foot-stat span{font-size:.72rem;color:var(--text-muted);line-height:1.4}
+.tr-foot-win{border-color:rgba(45,160,45,.45);background:rgba(45,160,45,.06)}
+.tr-foot-win b{color:var(--green)}
+.tr-foot-gap{border-color:rgba(240,192,48,.5);background:rgba(240,192,48,.09)}
+.tr-foot-gap b{color:var(--amber-ink)}
+
+@media(max-width:560px){
+  .tr-chart{padding:14px 12px 12px}
+  .tr-yr{width:32px;font-size:.68rem}
+  .tr-bar{min-width:66px;padding-right:5px}
+  .tr-bar b{font-size:.65rem}
+  .tr-chart-foot{flex-direction:column}
+}
+
+/* ─── NUMBERED STEPS BOX ──────────────────────────────────────────
+   Replaces an inline-styled block in Stage 5 whose heading used
+   var(--f-display) — Impact — at .88rem. Impact is a condensed
+   poster face; at that size, in the site's dark ink on white, the
+   counters close up and it reads as a smudge. Display type on this
+   site belongs in the banner art, not in body copy.
+   ───────────────────────────────────────────────────────────────── */
+.steps-box{
+  margin:18px 0;padding:18px 18px 15px;
+  background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);
+}
+.steps-box-h{
+  font-family:var(--f-body);
+  font-size:1.02rem;font-weight:800;letter-spacing:-.01em;
+  color:var(--text-dark);margin-bottom:13px;
+}
+.steps-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.steps-list li{display:flex;gap:12px;align-items:flex-start}
+.steps-n{
+  width:25px;height:25px;flex-shrink:0;margin-top:1px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.35);
+  font-family:var(--f-mono);font-size:.74rem;font-weight:700;color:var(--green);
+}
+.steps-t{font-size:.9rem;line-height:1.65;color:var(--text-body)}
+.steps-box-foot{
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--border);
+  font-size:.85rem;line-height:1.6;color:var(--text-body);
+}
