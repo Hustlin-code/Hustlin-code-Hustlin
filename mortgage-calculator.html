@@ -194,7 +194,13 @@
   </details>
 </aside>
 
-<main>
+<!-- id="calc" is the mobile deep-link target. Under 940px the sidebar
+     stacks above <main>, so calculators.js rewrites rail links to
+     "<slug>.html#calc" and the reader lands on the tool instead of the
+     top of the hero. Do not rename without updating cyhMobileDeepLinks
+     in calculators.js and the #calc scroll-margin rule in
+     calculators.css. -->
+<main id="calc">
 
 <section class="cyh-tool" id="mortgage">
   <span class="cyh-num">Calculator 13</span>

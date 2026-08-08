@@ -204,3 +204,11 @@
    with the heading hidden behind that nav. */
 .cyh-shell .cyh-tool{scroll-margin-top:126px}
 @media(max-width:900px){ .cyh-shell .cyh-tool{scroll-margin-top:92px} }
+
+/* Mobile deep-link target. calculators.js appends #calc to the rail
+   links under 940px so a tap lands on the calculator rather than the
+   hero; without the scroll-margin the card's top edge tucks under the
+   fixed nav (76px, 64px below 720px). */
+main#calc{scroll-margin-top:126px}
+@media(max-width:900px){ main#calc{scroll-margin-top:88px} }
+@media(max-width:720px){ main#calc{scroll-margin-top:76px} }

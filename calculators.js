@@ -652,8 +652,31 @@
   }
   window.cyhAll = cyhAll;
 
+  /* ---------- mobile: land on the calculator, not the hero ----------
+     On desktop the calculator rail sits beside the tool, so a plain
+     link is right. Under 940px the rail stacks ABOVE <main>, so a plain
+     link drops the reader at the top of the next page - hero, badges,
+     then the whole 14-item accordion again - and they have to scroll
+     past all of it to reach the thing they just asked for.
+
+     Every standalone page carries <main id="calc">, so appending #calc
+     on mobile only makes the browser land on the tool itself. The
+     selector is deliberately narrow: all 14 slugs end in
+     -calculator.html, so the hub and the Financial Literacy link at the
+     bottom of the rail are left alone. */
+  function cyhMobileDeepLinks() {
+    if (!window.matchMedia || !window.matchMedia('(max-width:940px)').matches) return;
+    var links = document.querySelectorAll('.cyh-side a[href$="-calculator.html"]');
+    Array.prototype.forEach.call(links, function (a) {
+      if (a.hasAttribute('aria-current')) return;      /* current page */
+      a.setAttribute('href', a.getAttribute('href') + '#calc');
+    });
+  }
+
   /* ---------- seed sensible starting rows ---------- */
   document.addEventListener('DOMContentLoaded', function () {
+    cyhMobileDeepLinks();
+
     cyhAdd('cyh-inc', 'Income source', 'Job / Wages');
     cyhAdd('cyh-inc', 'Income source', 'Side Income');
     ['Rent / Mortgage', 'Food & Groceries', 'Transportation', 'Phone', 'Utilities']
