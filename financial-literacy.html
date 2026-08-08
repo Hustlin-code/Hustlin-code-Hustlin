@@ -3,29 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Hustlin' Financial Literacy Course — all five stages, no account needed. Banking, credit, budgeting, debt and real investing, from zero.">
-<title>Financial Literacy Course | Hustlin'</title>
+<meta name="description" content="A free financial literacy resource — five-stage course, calculators and guides. Banking, credit, budgeting, debt and investing. No account, nothing to buy.">
+<!-- Title leads with "Resource" (the framing) but keeps "Course" in it.
+     Dropping "financial literacy course" entirely would have thrown away the
+     higher-volume head term this page already competes for; carrying both
+     covers the resource intent and the course intent in one 60-char title. -->
+<title>Free Financial Literacy Resource — 5-Stage Course | Hustlin'</title>
 
 <!-- Social Preview -->
-<meta property="og:title" content="Free Financial Literacy Course | Hustlin'">
-<meta property="og:description" content="The Hustlin' Financial Literacy Course — all five stages open with no account at all. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
+<meta property="og:title" content="Free Financial Literacy Resource | Hustlin'">
+<meta property="og:description" content="The Hustlin' Financial Literacy Resource — all five stages open with no account at all. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
 <meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
 <meta property="og:url" content="https://hustlin.org/financial-literacy.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Financial Literacy Course | Hustlin'">
-<meta name="twitter:description" content="The Hustlin' Financial Literacy Course — all five stages open with no account at all. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
+<meta name="twitter:title" content="Free Financial Literacy Resource | Hustlin'">
+<meta name="twitter:description" content="The Hustlin' Financial Literacy Resource — all five stages open with no account at all. Banking, credit, budgeting, debt, and real investing. Five stages starting from zero.">
 <meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
 <link rel="canonical" href="https://hustlin.org/financial-literacy.html">
-<!-- Course schema. Financial Literacy is free the whole way through:
-     All five stages open with no account (courses.anon_stages = 5). Stages 4-5 were
-     free once signed up (is_free = true, free_stages = 99). Priced at 0
-     rather than omitted so the free offer is explicit to Google. -->
+<!-- Course + LearningResource schema, 2026-08-08.
+
+     WHY BOTH TYPES. This page is the entry point to a five-stage curriculum,
+     so Course is accurate and earns the Course rich result. But the thing
+     people actually search for and link to is a free financial literacy
+     RESOURCE - something you dip into for the one answer you need, not a
+     20-hour commitment you enrol in. Declaring ["Course","LearningResource"]
+     is valid schema (Course is already a subtype of LearningResource; naming
+     both makes the resource framing explicit rather than inherited) and lets
+     the page be eligible as either.
+
+     hasPart lists the five stages as individually addressable
+     LearningResources at their real static URLs. That is what turns the page
+     from a single course listing into a described collection, and it gives
+     each stage page an explicit parent so the internal link graph is legible
+     without relying on the nav.
+
+     Financial Literacy is free the whole way through: all five stages open
+     with no account (courses.anon_stages = 5). Priced at 0 rather than
+     omitted so the free offer is explicit to Google. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Course",
-  "name": "Financial Literacy",
+  "@type": ["Course", "LearningResource"],
+  "name": "Financial Literacy Resource",
+  "alternateName": "Hustlin' Financial Literacy Course",
+  "learningResourceType": ["Course", "Guide", "Reference"],
+  "isFamilyFriendly": true,
+  "hasPart": [
+    { "@type": "LearningResource", "name": "Stage 1: Survive", "url": "https://hustlin.org/stage-1-survive.html", "learningResourceType": "Guide", "isAccessibleForFree": true },
+    { "@type": "LearningResource", "name": "Stage 2: Stabilize", "url": "https://hustlin.org/stage-2-stabilize.html", "learningResourceType": "Guide", "isAccessibleForFree": true },
+    { "@type": "LearningResource", "name": "Stage 3: Rebuild", "url": "https://hustlin.org/stage-3-rebuild.html", "learningResourceType": "Guide", "isAccessibleForFree": true },
+    { "@type": "LearningResource", "name": "Stage 4: Invest", "url": "https://hustlin.org/stage-4-invest.html", "learningResourceType": "Guide", "isAccessibleForFree": true },
+    { "@type": "LearningResource", "name": "Stage 5: Build Wealth", "url": "https://hustlin.org/stage-5-wealth.html", "learningResourceType": "Guide", "isAccessibleForFree": true },
+    { "@type": "LearningResource", "name": "Calculate Your Hustle - free money calculators", "url": "https://hustlin.org/calculate-your-hustle.html", "learningResourceType": "Interactive Resource", "isAccessibleForFree": true },
+    { "@type": "LearningResource", "name": "Disability Wealth Guide", "url": "https://hustlin.org/disability-wealth-guide.html", "learningResourceType": "Guide", "isAccessibleForFree": true }
+  ],
   "description": "A five-stage financial literacy course starting from absolute zero \u2014 second-chance banking, credit scores, zero-based budgeting, predatory-lending traps, emergency funds, the debt avalanche, credit repair, Roth IRAs, index funds and long-term wealth building. Written in plain language for people starting over.",
   "url": "https://hustlin.org/financial-literacy.html",
   "provider": { "@type": "Organization", "name": "Hustlin'", "url": "https://hustlin.org/" },
@@ -288,7 +320,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       <div class="breadcrumb">
         <a href="index.html">Hustlin'</a>
         <span class="breadcrumb-sep">/</span>
-        <span>Financial Literacy Course</span>
+        <span>Financial Literacy Resource</span>
       </div>
       <div class="free-pill">
         <span class="free-pill-dot"></span>
@@ -379,9 +411,9 @@ ROME BADGE BUTTON (matches logo branding) ─ */
 
 <section class="sec roadmap" id="roadmap">
   <div class="sec-inner">
-    <p class="sec-eye">The Full Course</p>
+    <p class="sec-eye">The Full Resource</p>
     <h2 class="sec-h2">Five Stages. One Clear Path.</h2>
-    <p class="sec-sub">All five stages are open right now — no waiting, no signup, no account. An account is optional and only exists to save your progress across devices.</p>
+    <p class="sec-sub">Work through it in order as a course, or jump straight to the one stage that answers your question — every stage stands on its own. All five are open right now: no waiting, no signup, no account. An account is optional and only exists to save your progress across devices.</p>
     <div class="stages" style="margin-top:44px">
       <a class="s-card" data-stage-card="stage1" href="stage-1-survive.html">
         <div class="s-num">STAGE 1</div>
@@ -459,6 +491,60 @@ ROME BADGE BUTTON (matches logo branding) ─ */
   </div>
 </section>
 
+<!-- ============================================================
+     TOOLS IN THIS RESOURCE
+     Added 2026-08-08 with the course -> resource rebrand.
+
+     This page previously linked to zero calculators, which was the
+     single biggest hole in the "resource, not just a course" framing:
+     a resource you can dip into needs visible entry points that are
+     not "start at Stage 1". It is also the internal-linking half of
+     the calculator SEO work — every calculator page links back here,
+     and until now nothing linked forward.
+
+     Each calculator below is its own indexable page. Do not collapse
+     these back into calculate-your-hustle.html#anchor links; a
+     fragment is not a document and cannot rank on its own.
+     ============================================================ -->
+<section class="sec" id="tools">
+  <div class="sec-inner">
+    <p class="sec-eye">Tools In This Resource</p>
+    <h2 class="sec-h2">Fourteen Calculators. <span style="color:var(--amber)">No Account.</span></h2>
+    <p class="sec-sub" style="margin-bottom:30px">You do not have to read a stage to use these. Every one runs in your browser, nothing you type is sent anywhere, and each has the maths explained and a worked example on its own page.</p>
+
+    <style>
+      .fl-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px}
+      .fl-tool{display:block;text-decoration:none;background:rgba(255,255,255,.03);
+        border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:15px 16px;transition:.15s}
+      .fl-tool:hover{border-color:rgba(232,160,32,.55);background:rgba(232,160,32,.06)}
+      .fl-tool b{display:block;font-size:.94rem;color:#fff;margin-bottom:4px;font-weight:700}
+      .fl-tool span{display:block;font-size:.79rem;line-height:1.45;color:rgba(255,255,255,.46)}
+      .fl-tool .fl-new{display:inline-block;font-size:.62rem;letter-spacing:.09em;font-weight:800;
+        color:#E8A020;border:1px solid rgba(232,160,32,.5);border-radius:99px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+      .fl-tools-all{display:inline-block;margin-top:22px;font-weight:700;color:var(--amber);text-decoration:none;font-size:.95rem}
+    </style>
+
+    <div class="fl-tools">
+      <a class="fl-tool" href="budget-calculator.html"><b>Budget Calculator</b><span>Income minus expenses. Your breathing room, live.</span></a>
+      <a class="fl-tool" href="paycheck-calculator.html"><b>Paycheck Calculator<span class="fl-new">NEW</span></b><span>Take-home after federal tax, FICA and your state.</span></a>
+      <a class="fl-tool" href="paycheck-split-calculator.html"><b>Paycheck Split</b><span>50/30/20 — plus versions for tight and crisis months.</span></a>
+      <a class="fl-tool" href="emergency-fund-calculator.html"><b>Emergency Fund</b><span>How long to $1,000, then to three and six months.</span></a>
+      <a class="fl-tool" href="sinking-fund-calculator.html"><b>Sinking Fund Planner</b><span>Annual bills, divided by twelve, stop being crises.</span></a>
+      <a class="fl-tool" href="debt-overview-calculator.html"><b>Debt Overview</b><span>Every debt in one place, and which to attack first.</span></a>
+      <a class="fl-tool" href="debt-payoff-calculator.html"><b>Debt Payoff Timeline</b><span>What an extra $25 a month actually does.</span></a>
+      <a class="fl-tool" href="credit-utilization-calculator.html"><b>Credit Utilization</b><span>The fastest-moving factor in your credit score.</span></a>
+      <a class="fl-tool" href="mortgage-calculator.html"><b>Mortgage Calculator<span class="fl-new">NEW</span></b><span>Full PITI with PMI, and why 20% down is the line.</span></a>
+      <a class="fl-tool" href="auto-loan-calculator.html"><b>Auto Loan Calculator<span class="fl-new">NEW</span></b><span>Car payment, checked against the 20/4/10 rule.</span></a>
+      <a class="fl-tool" href="compound-interest-calculator.html"><b>Compound Interest</b><span>The whole argument for starting now, in one number.</span></a>
+      <a class="fl-tool" href="investment-growth-calculator.html"><b>Investment Growth</b><span>Three market outcomes at once, not one false average.</span></a>
+      <a class="fl-tool" href="net-worth-calculator.html"><b>Net Worth Tracker</b><span>Own minus owe. Allowed to be negative.</span></a>
+      <a class="fl-tool" href="financial-freedom-calculator.html"><b>Freedom Number</b><span>What it takes to never need a paycheck again.</span></a>
+    </div>
+
+    <a class="fl-tools-all" href="calculate-your-hustle.html">See all fourteen on one page &rarr;</a>
+  </div>
+</section>
+
 <!-- CALLOUT -->
 <section class="callout-sec">
   <div class="callout-txt">
@@ -501,7 +587,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
     <div>
       <div class="hfy-ft-col-title">Courses</div>
       <div class="hfy-ft-links">
-        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
         <a href="markets.html">Markets</a>

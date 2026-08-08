@@ -1,0 +1,206 @@
+/* ===================================================================
+   calculators.css - Calculate Your Hustle
+   -------------------------------------------------------------------
+   Shared by the hub page and all 14 standalone calculator pages.
+   Everything is namespaced .cyh-* so nothing can leak into styles.css,
+   a course page or the Markets pages.
+
+   Colours are hardcoded hex, never var(--x) inherited from styles.css.
+   Guessing a variable name that does not exist renders a transparent
+   or black element and the failure is silent - this has bitten this
+   codebase before.
+   =================================================================== */
+/* ===================================================================
+   Calculate Your Hustle - fully namespaced with cyh- to guarantee no
+   collision with styles.css or any course page. Nothing here leaks.
+   =================================================================== */
+.cyh-wrap{--gold:#F5C520;--green:#2DA02D;--ink:#060606;--red:#EF4444;
+  --cream:#FAF7F0;--line:#E4DFD3;--mut:#6F6A5E;font-family:'Plus Jakarta Sans',sans-serif}
+
+/* The site-wide .nav is position:fixed at 108px tall (76px under 900px), so the
+   page has to start below it or the hero slides underneath the logo bar. */
+.cyh-wrap{padding-top:108px}
+@media(max-width:900px){.cyh-wrap{padding-top:76px}}
+.cyh-hero{background:radial-gradient(ellipse at 50% 0%,#1a1a1a 0%,#060606 70%);padding:74px 22px 66px;text-align:center}
+.cyh-eye{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+.cyh-h1{font-weight:800;font-size:clamp(34px,6.2vw,62px);line-height:1.06;color:#fff;margin:0 0 20px;letter-spacing:-.02em}
+.cyh-h1 em{font-style:italic;color:var(--gold)}
+.cyh-lede{font-size:17px;line-height:1.65;color:#c2c2c2;max-width:620px;margin:0 auto 30px}
+.cyh-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cyh-badge{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(245,197,32,.35);border-radius:999px;padding:7px 15px}
+
+.cyh-body{background:var(--cream);padding:0 0 70px}
+.cyh-inner{max-width:1060px;margin:0 auto;padding:0 22px}
+
+.cyh-nav{position:sticky;top:108px;z-index:40;background:rgba(250,247,240,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:38px}
+.cyh-navscroll{display:flex;gap:8px;overflow-x:auto;max-width:1060px;margin:0 auto;padding:0 22px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cyh-navscroll::-webkit-scrollbar{display:none}
+.cyh-nav a{flex:0 0 auto;font-size:13px;font-weight:600;color:#3d3a33;text-decoration:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;white-space:nowrap;transition:.15s}
+.cyh-nav a:hover{border-color:var(--gold);color:var(--ink)}
+
+@media(max-width:900px){.cyh-nav{top:76px}}
+/* Clears the fixed site nav (108px) plus the sticky tool nav underneath it. */
+.cyh-tool{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;margin:0 0 26px;scroll-margin-top:190px}
+@media(max-width:900px){.cyh-tool{scroll-margin-top:150px}}
+.cyh-tool h2{font-size:clamp(22px,3.4vw,30px);font-weight:800;color:var(--ink);margin:0 0 8px;letter-spacing:-.01em}
+.cyh-tool .cyh-sub{font-size:15px;line-height:1.6;color:var(--mut);margin:0 0 24px;max-width:640px}
+.cyh-num{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:9px}
+
+.cyh-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.cyh-col h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--mut);margin:0 0 12px}
+.cyh-row{display:grid;grid-template-columns:1fr 118px 34px;gap:8px;margin-bottom:8px;align-items:center}
+.cyh-row input{font-family:inherit;font-size:14px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);width:100%;box-sizing:border-box}
+.cyh-row input:focus{outline:none;border-color:var(--gold)}
+.cyh-x{background:none;border:none;color:#b8b2a4;font-size:20px;cursor:pointer;padding:0;line-height:1}
+.cyh-x:hover{color:var(--red)}
+.cyh-add{background:none;border:1px dashed var(--line);color:var(--mut);font-family:inherit;font-size:13px;font-weight:600;padding:9px 14px;border-radius:9px;cursor:pointer;width:100%;margin-top:4px}
+.cyh-add:hover{border-color:var(--gold);color:var(--ink)}
+
+.cyh-field{margin-bottom:16px}
+.cyh-field label{display:block;font-size:13px;font-weight:600;color:#3d3a33;margin-bottom:6px}
+.cyh-field input,.cyh-field select{font-family:inherit;font-size:15px;padding:11px 13px;border:1px solid var(--line);border-radius:9px;width:100%;box-sizing:border-box;background:#fff;color:var(--ink)}
+.cyh-field input:focus,.cyh-field select:focus{outline:none;border-color:var(--gold)}
+.cyh-field .cyh-hint{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.5}
+
+.cyh-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+.cyh-stat{text-align:center;padding:16px 10px;background:var(--cream);border-radius:12px}
+.cyh-stat b{display:block;font-family:'Space Mono',monospace;font-size:clamp(20px,3vw,27px);font-weight:700;color:var(--ink);margin-bottom:5px;word-break:break-word}
+.cyh-stat span{display:block;font-size:12px;color:var(--mut);font-weight:600}
+.cyh-stat.pos b{color:var(--green)} .cyh-stat.neg b{color:var(--red)} .cyh-stat.gold b{color:#B8930F}
+
+.cyh-msg{margin-top:18px;padding:15px 18px;border-radius:11px;font-size:14px;line-height:1.6;border-left:3px solid var(--gold);background:#FFFBEF;color:#3d3a33}
+.cyh-msg b{color:var(--ink)}
+
+.cyh-tbl{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
+.cyh-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);padding:9px 10px;border-bottom:2px solid var(--line);font-weight:700}
+.cyh-tbl td{padding:10px;border-bottom:1px solid #EFEBE1;color:#3d3a33}
+.cyh-tbl tr:last-child td{border-bottom:none}
+.cyh-tbl .cyh-hi{background:#FFFBEF;font-weight:700;color:var(--ink)}
+
+.cyh-link{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.cyh-link span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-right:2px}
+.cyh-link a{font-size:13px;font-weight:600;color:#3d3a33;text-decoration:none;padding:7px 13px;border:1px solid var(--line);border-radius:8px;background:#fff;transition:.15s}
+.cyh-link a:hover{border-color:var(--gold);color:var(--ink)}
+.cyh-link a.cyh-paid{border-color:rgba(245,197,32,.5);background:#FFFBEF}
+
+.cyh-note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;margin:34px 0 0}
+.cyh-note h2{font-size:24px;font-weight:800;color:var(--ink);margin:0 0 16px}
+.cyh-note h3{font-size:16px;font-weight:700;color:var(--ink);margin:22px 0 7px}
+.cyh-note p{font-size:15px;line-height:1.7;color:#413d35;margin:0 0 12px}
+.cyh-note a{color:#8A6D08;font-weight:600}
+
+@media(max-width:720px){
+  .cyh-grid{grid-template-columns:1fr;gap:18px}
+  .cyh-tool{padding:22px 18px;border-radius:14px}
+  .cyh-row{grid-template-columns:1fr 96px 30px}
+  .cyh-tbl{font-size:13px}
+  .cyh-tbl th,.cyh-tbl td{padding:8px 6px}
+}
+
+/* ===================================================================
+   SIDEBAR LAYOUT - standalone calculator pages
+   The hub keeps the horizontal scroller (.cyh-nav) as a secondary
+   in-page jump list; standalone pages get this persistent rail so
+   every calculator is one click from every other one. That is the
+   internal-linking half of the SEO work, not decoration.
+   =================================================================== */
+.cyh-shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:40px;
+  max-width:1320px;margin:0 auto;padding:0 26px}
+
+/* The rail scrolls independently only when it is genuinely taller than
+   the viewport, and its scrollbar is hidden in both engines.
+   A permanently visible scrollbar track sat right against the content
+   column and read as a hard grey divider rather than as a control. */
+.cyh-side{position:sticky;top:126px;align-self:start;max-height:calc(100vh - 148px);
+  overflow-y:auto;padding:2px 18px 24px 0;border-right:1px solid #E7E2D6;
+  scrollbar-width:none;-ms-overflow-style:none}
+.cyh-side::-webkit-scrollbar{width:0;height:0;display:none}
+.cyh-side-title{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:#8A6D08;margin:0 0 12px;font-weight:700}
+.cyh-side-group{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+  color:#8B8577;margin:20px 0 8px;padding-top:14px;border-top:1px solid #E4DFD3}
+.cyh-side-group:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.cyh-side a{display:block;font-size:13.5px;font-weight:600;color:#3d3a33;text-decoration:none;
+  padding:9px 13px;border-radius:9px;border:1px solid transparent;line-height:1.35;
+  transition:background .15s,border-color .15s,color .15s}
+.cyh-side a:hover{background:#fff;border-color:#E4DFD3;color:#060606}
+.cyh-side a[aria-current="page"]{background:#FFFBEF;border-color:rgba(245,197,32,.55);
+  color:#060606;font-weight:700}
+.cyh-side a[aria-current="page"]::before{content:"";display:inline-block;width:3px;height:13px;
+  background:#F5C520;border-radius:2px;margin-right:9px;vertical-align:-2px}
+
+/* Mobile: the rail becomes a collapsed <details> above the calculator.
+   Keeping it in the DOM (rather than display:none) preserves the
+   internal links for crawlers on the mobile-first index. */
+.cyh-side-mobile{display:none}
+@media(max-width:940px){
+  .cyh-shell{grid-template-columns:1fr;gap:0}
+  .cyh-side{position:static;max-height:none;order:-1;margin-bottom:24px;
+    background:#fff;border:1px solid #E4DFD3;border-radius:14px;padding:0}
+  .cyh-side-inner{padding:0 16px 16px}
+  .cyh-side-mobile{display:block;font-size:14px;font-weight:700;color:#060606;
+    padding:15px 16px;cursor:pointer;list-style:none}
+  .cyh-side-mobile::-webkit-details-marker{display:none}
+  .cyh-side-mobile::after{content:"▾";float:right;color:#8A6D08}
+  details[open] .cyh-side-mobile::after{content:"▴"}
+  .cyh-side-desktop-title{display:none}
+}
+
+/* ---- article prose on standalone pages ---- */
+.cyh-art{background:#fff;border:1px solid #E4DFD3;border-radius:18px;padding:30px;margin:26px 0 0}
+.cyh-art h2{font-size:clamp(20px,3vw,26px);font-weight:800;color:#060606;margin:0 0 14px;letter-spacing:-.01em}
+.cyh-art h3{font-size:16.5px;font-weight:700;color:#060606;margin:24px 0 8px}
+.cyh-art p,.cyh-art li{font-size:15.5px;line-height:1.72;color:#413d35;margin:0 0 13px}
+.cyh-art ul,.cyh-art ol{margin:0 0 13px;padding-left:22px}
+.cyh-art li{margin-bottom:7px}
+.cyh-art a{color:#8A6D08;font-weight:600}
+.cyh-art b,.cyh-art strong{color:#060606}
+.cyh-formula{font-family:'Space Mono',monospace;font-size:14px;line-height:1.75;background:#FAF7F0;
+  border:1px solid #E4DFD3;border-left:3px solid #F5C520;border-radius:10px;padding:16px 18px;
+  margin:0 0 16px;color:#2f2c26;overflow-x:auto;white-space:pre-wrap}
+.cyh-example{background:#FFFBEF;border:1px solid rgba(245,197,32,.4);border-radius:12px;padding:18px 20px;margin:0 0 16px}
+.cyh-example p:last-child{margin-bottom:0}
+.cyh-faq{border-top:1px solid #E4DFD3;padding-top:16px;margin-top:6px}
+.cyh-faq h3{margin-top:0;font-size:16px}
+.cyh-faq details{border-bottom:1px solid #EFEBE1;padding:13px 0}
+.cyh-faq details:last-child{border-bottom:none}
+.cyh-faq summary{font-size:15.5px;font-weight:700;color:#060606;cursor:pointer;list-style:none}
+.cyh-faq summary::-webkit-details-marker{display:none}
+.cyh-faq summary::after{content:"+";float:right;color:#8A6D08;font-weight:700}
+.cyh-faq details[open] summary::after{content:"–"}
+.cyh-faq details p{margin:11px 0 2px}
+
+.cyh-crumb{font-size:12.5px;color:#8B8577;margin:0 0 10px;font-family:'Space Mono',monospace}
+.cyh-crumb a{color:#c9bd9c;text-decoration:none}
+.cyh-crumb a:hover{color:#F5C520}
+
+.cyh-ratebox{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;background:#FAF7F0;
+  border:1px solid #E4DFD3;border-radius:11px;padding:13px 16px;margin:0 0 20px;font-size:13.5px;color:#5c574c}
+.cyh-ratebox b{font-family:'Space Mono',monospace;font-size:19px;color:#060606}
+.cyh-ratebox span{font-size:12px;color:#8B8577}
+
+@media(max-width:720px){
+  .cyh-art{padding:22px 18px;border-radius:14px}
+  .cyh-shell{padding:0 16px}
+}
+
+/* ===================================================================
+   COMPACT HERO — standalone calculator pages only
+   The hub page earns a tall hero: it is a landing page and the reader
+   is choosing. A single-calculator page is not a landing page. Someone
+   searching "paycheck calculator" wants the inputs, and a 250px hero
+   pushed them below the fold on a laptop for no gain.
+   =================================================================== */
+.cyh-hero-sm{padding:38px 22px 34px}
+.cyh-hero-sm .cyh-h1{font-size:clamp(30px,4.4vw,44px);margin-bottom:14px}
+.cyh-hero-sm .cyh-lede{font-size:16px;margin-bottom:20px}
+.cyh-hero-sm .cyh-eye{margin-bottom:10px}
+.cyh-hero-sm .cyh-badges{gap:8px}
+.cyh-hero-sm .cyh-badge{font-size:10px;padding:6px 12px}
+@media(max-width:720px){ .cyh-hero-sm{padding:28px 18px 26px} }
+
+/* The sticky rail sits 126px down to clear the fixed 108px site nav.
+   The tool cards need matching scroll-margin or an in-page jump lands
+   with the heading hidden behind that nav. */
+.cyh-shell .cyh-tool{scroll-margin-top:126px}
+@media(max-width:900px){ .cyh-shell .cyh-tool{scroll-margin-top:92px} }

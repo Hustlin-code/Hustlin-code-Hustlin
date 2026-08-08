@@ -21,8 +21,24 @@ User-agent: *
 Allow: /
 
 # Gated shell. Serves no lesson content to crawlers — every lesson is fetched
-# from an authenticated Edge Function. Crawling it wastes budget on a spinner.
-Disallow: /learn.html
+# from an authenticated Edge Function.
+#
+# FIXED 2026-08-08 — "Disallow: /learn.html" is GONE. It was the cause of the
+# Search Console error on https://hustlin.org/learn.html?course=fl&stage=1:
+# "Page cannot be crawled: Blocked by robots.txt".
+#
+# That URL is not supposed to be indexed — but it IS supposed to be crawled,
+# because learn.html carries a first-in-head redirect that sends ?course=fl
+# straight to the static /stage-N-*.html page. That redirect is the entire
+# mechanism that consolidates the two duplicate URLs into one. A Disallow
+# stopped Googlebot fetching the file, so it never executed the redirect and
+# never saw the noindex either. The old FL URL just sat in the index as a
+# bare, description-less entry, holding link equity that could not flow
+# anywhere — exactly the failure mode already documented for /Markets/ below.
+#
+# noindex (already on the page) is the correct tool and is now the only one
+# acting on it. Google can fetch, follow the redirect to the real stage page,
+# consolidate the signal, and drop the shell cleanly.
 
 # Market viewer sub-pages.
 #
@@ -138,7 +154,10 @@ Allow: /
 #
 # The rules below mirror the "User-agent: *" group. If you add a Disallow up
 # there, add it here too — or Bing will not honour it.
-Disallow: /learn.html
+#
+# /learn.html was removed from this mirror on 2026-08-08 for the same reason
+# it was removed from the group above: the page is noindex and self-redirects,
+# and blocking the fetch prevents Bing from ever acting on either signal.
 Disallow: /login.html
 Disallow: /signup.html
 Disallow: /forgot-password.html

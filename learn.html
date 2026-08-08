@@ -51,7 +51,15 @@
      the user's JWT and their entitlement before returning anything, and pulls
      the HTML from a private Supabase Storage bucket. There is no URL that
      serves lesson content to an unauthenticated or unpaid visitor. -->
-<meta name="robots" content="noindex, nofollow">
+<!-- noindex, FOLLOW — not nofollow.
+     Changed 2026-08-08 alongside the removal of "Disallow: /learn.html" from
+     robots.txt. This page must stay out of the index, but it must still pass
+     link equity: old shares and bookmarks of ?course=fl&stage=N land here and
+     are redirected to the static stage pages by the script at the top of this
+     file. "nofollow" told Google to drop that signal on the floor, which
+     stranded every inbound link the old FL viewer URLs had accumulated.
+     noindex keeps it unlisted; follow lets the value reach the real pages. -->
+<meta name="robots" content="noindex, follow">
 <title>Course — Hustlin'</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,7 +147,7 @@
     <div>
       <div class="hfy-ft-col-title">Courses</div>
       <div class="hfy-ft-links">
-        <a href="financial-literacy.html">Financial Literacy — Free</a>
+        <a href="financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
         <a href="markets.html">Markets</a>
