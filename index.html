@@ -145,8 +145,28 @@
 .ix-ctas {
   display: flex; align-items: center; justify-content: center;
   gap: 14px; flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 18px;
 }
+
+/* The "free means free" line under the CTA. Deliberately quieter than the
+   subhead — it answers a doubt, it isn't part of the pitch, and shouting it
+   would make it sound like it needs defending. */
+.ix-freeline {
+  display: flex; align-items: baseline; gap: 10px;
+  max-width: 560px; margin: 0 auto 30px;
+  font-size: clamp(.82rem, 1.1vw, .9rem);
+  line-height: 1.7; text-align: left;
+  color: rgba(255,255,255,.5);
+}
+.ix-freeline-x {
+  flex-shrink: 0;
+  font-family: var(--f-mono); font-weight: 800;
+  font-size: .95rem; color: #3ec83e;
+  border: 1px solid rgba(62,200,62,.4);
+  background: rgba(62,200,62,.08);
+  border-radius: 6px; padding: 2px 8px;
+}
+@media(max-width:600px){ .ix-freeline{ text-align:left; margin-bottom:24px } }
 
 /* ─ SOCIAL FOLLOW ─ */
 .ix-social {
@@ -218,6 +238,7 @@
   font-size: .97rem; color: var(--text-muted);
   line-height: 1.78; margin-bottom: 28px;
 }
+.ix-feat-p strong { color: var(--text-dark); font-weight: 800 }
 .ix-stages {
   display: flex; flex-direction: column; gap: 6px;
   background: #fff; border: 1px solid var(--border);
@@ -592,8 +613,8 @@
     </p>
     <div class="ix-accent-bar"></div>
     <h1 class="ix-headline">
-      Legally Hustle.<br>
-      <em>Own Something.</em>
+      Stop Working For Money.<br>
+      <em>Make Money Work For You.</em>
     </h1>
     <!-- Subhead leads with the span of the journey, not the name of one
          course. The old version opened "Free financial literacy course" and
@@ -602,16 +623,34 @@
          budget to reading the market" states the two ends, "six courses, in
          order" states the depth and the sequence, and the free hook still
          lands last where it closes rather than first where it undersells.
-         The count must match the depth strip below and public.courses. -->
+         The count must match the depth strip below and public.courses.
+
+         2026-08-08: sharpened to a direct call to action. The free hook is
+         now stated as a comparison ("people charge hundreds for less") rather
+         than a bare adjective, because "free" alone reads as "probably thin".
+         No named competitor and no earnings claim — the contrast is about
+         price, which is checkable, not about outcomes, which are not. -->
     <p class="ix-sub">
-      <strong>From your first budget to reading the market.</strong>
-      Six courses, in order, starting from absolute zero.
-      The first one's free and doesn't even need an account.
+      <strong>Five stages, absolute zero to owning the market — and it costs nothing.</strong>
+      No account. No card. No trial that turns into a bill.
+      People charge hundreds for less than what's behind this button.
+      You bring the effort; we'll hand you the map.
     </p>
     <div class="ix-ctas" id="join">
       <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Free Course" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
       <a class="ix-mkt-btn" href="markets.html"><span class="live"></span>Live Markets &amp; Data</a>
     </div>
+
+    <!-- Objection-handler, sits directly under the button where the hesitation
+         actually happens. States the business model in one line: the free
+         course is real and complete, the paid ones are separate and optional.
+         Anyone who suspects a catch gets the answer before they scroll. -->
+    <p class="ix-freeline">
+      <span class="ix-freeline-x">$0</span>
+      Free means free. Not a preview, not a lead magnet — the whole course,
+      all five stages, open right now. No scam, no scheme. Just the way it
+      should have been taught the first time.
+    </p>
 
     <!-- Depth strip. Sits under the CTAs on purpose: the free course is still
          the first thing you're asked to do, and this answers "is there more
@@ -639,6 +678,24 @@
       </a>
     </div>
   </div>
+  <!-- Mascot. Desktop-only (>=1200px) — see .ix-hero-mascot in styles.css for
+       why. Decorative here: the headline already carries the meaning, so the
+       images are alt="" and the wrapper is aria-hidden to keep a screen
+       reader from announcing a character it cannot use. -->
+  <div class="ix-hero-mascot" aria-hidden="true">
+    <div class="hfy-mascot">
+      <div class="hfy-idle">
+        <div class="hfy-glow"></div>
+        <div class="hfy-orbwrap">
+          <img class="hfy-orb" src="mascot/orb.png" alt="" width="193" height="193" loading="eager" decoding="async">
+          <div class="hfy-shine"></div>
+        </div>
+        <img class="hfy-rays" src="mascot/rays.png" alt="" width="269" height="210" loading="eager" decoding="async">
+        <img class="hfy-body" src="mascot/body.png" alt="" width="941" height="1134" loading="eager" decoding="async">
+      </div>
+    </div>
+  </div>
+
   <a class="ix-scroll" href="#courses">
     <div class="ix-scroll-line"></div>
     <span>Courses ↓</span>
@@ -737,11 +794,13 @@
   <div class="ix-featured-inner">
     <div>
       <div class="ix-feat-label"><div class="ix-feat-dot"></div>Free · All 5 Stages · No Account</div>
-      <h2 class="ix-feat-h">The Financial Foundation<br><em>Nobody Taught You.</em></h2>
-      <p class="ix-feat-p">Five stages from banking basics to building wealth. Starts from absolute zero. Built for people who were never given a roadmap — until now.</p>
+      <h2 class="ix-feat-h">The Course Everyone Else<br><em>Charges You For.</em></h2>
+      <p class="ix-feat-p">Banking. Credit. Budgeting. Killing debt. Real investing. Five stages, absolute zero to owning the market — the same ground people sell for the price of a car payment, and here it's <strong>$0</strong>. No account. No card. No catch to find later.</p>
+      <p class="ix-feat-p" style="margin-top:14px"><strong>Why free?</strong> Because a person who can't cover rent shouldn't have to buy the book that explains why. Learn it here, and if you ever want the market side — stocks, charts, valuation — that ladder's waiting. It just isn't the toll gate.</p>
       <div class="cta-row" style="margin-top:0">
         <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start free — all five stages, no account needed" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
       </div>
+      <p style="margin-top:14px;font-size:.84rem;line-height:1.6;color:var(--text-muted)">Stage 1 opens instantly. Nothing to fill in first.</p>
     </div>
     <div class="ix-stages">
       <a class="ix-stage-row" href="stage-1-survive.html">

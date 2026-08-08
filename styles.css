@@ -176,7 +176,11 @@ a{text-decoration:none}
    unwrapped flex row) was forcing this whole column wider than the
    viewport on phones, which pushed the heading/paragraph text to wrap
    at that wider width and get sliced off at the screen edge. */
-.hero-wrap > div:first-child{min-width:0}
+/* Was `> div:first-child`. The FL hero now puts a mascot div first at wide
+   widths, and :first-child still matches it when it is display:none — which
+   silently moved this fix off the text column. Applying it to every direct
+   child is equivalent for the fixed-width tracks and immune to reordering. */
+.hero-wrap > div{min-width:0}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.28);
@@ -200,6 +204,9 @@ a{text-decoration:none}
   font-size:1.1rem;color:rgba(255,255,255,.72);
   line-height:1.72;margin-bottom:38px;max-width:510px;
 }
+/* The subhead body is deliberately dimmed; a lead clause set in <strong>
+   needs full white or the emphasis reads as noise rather than hierarchy. */
+.hero-sub strong{color:#fff;font-weight:800}
 .cta-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .btn-a{
   background:var(--amber);color:var(--dark);
@@ -1527,4 +1534,156 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .steps-box-foot{
   margin-top:14px;padding-top:12px;border-top:1px solid var(--border);
   font-size:.85rem;line-height:1.6;color:var(--text-body);
+}
+
+/* ---- Hustlin' animated mascot ---------------------------------------- */
+/* Four motions, pure CSS. Source: Mascot/files/mascot.css — keep in sync.
+   The glow uses mix-blend-mode:screen, so it reads on dark sections and
+   nearly vanishes on cream. Both placements below are on dark heroes. */
+.hfy-mascot {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 941 / 1134;
+  margin-inline: auto;
+}
+.hfy-mascot .hfy-idle { position: absolute; inset: 0; }
+.hfy-idle > * { position: absolute; }
+.hfy-mascot img {
+  display: block;
+  user-select: none; -webkit-user-drag: none;
+}
+
+/* breathing: origin sits at his feet so the ground shadow stays planted */
+.hfy-idle {
+  transform-origin: 50% 97%;
+  animation: hfy-breathe 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes hfy-breathe {
+  0%, 100% { transform: scale(1, 1) rotate(0deg); }
+  50%      { transform: scale(0.997, 1.013) rotate(0.22deg); }
+}
+
+.hfy-body { inset: 0; width: 100%; height: 100%; }
+
+/* the orb, sitting behind the hand */
+.hfy-orbwrap {
+  left: 7.2264%; top: 11.1993%;
+  width: 20.5101%; height: 17.0194%;
+  transform-origin: 50% 50%;
+  animation: hfy-orb 2.1s ease-in-out infinite;
+  will-change: transform;
+}
+.hfy-orb { width: 100%; height: 100%; }
+@keyframes hfy-orb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-1.6%) scale(1.035); }
+}
+
+/* specular sweep across the orb */
+.hfy-shine {
+  position: absolute; inset: 6%;
+  border-radius: 50%;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.hfy-shine::before {
+  content: ""; position: absolute; inset: -30%;
+  background: linear-gradient(105deg,
+    transparent 38%, rgba(255,255,255,.50) 50%, transparent 62%);
+  transform: translateX(-160%);
+  animation: hfy-sweep 5.6s cubic-bezier(.5,0,.5,1) infinite;
+}
+@keyframes hfy-sweep {
+  0%, 62%   { transform: translateX(-160%); }
+  92%, 100% { transform: translateX(160%); }
+}
+
+/* sparkle dashes, scaling about the orb centre */
+.hfy-rays {
+  left: 1.2752%; top: 6.6138%;
+  width: 28.5866%; height: 18.5185%;
+  transform-origin: 56.692% 70.714%;
+  animation: hfy-rays 2.1s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@keyframes hfy-rays {
+  0%, 100% { transform: scale(0.955) rotate(0deg);   opacity: .55; }
+  50%      { transform: scale(1.075) rotate(-2.5deg); opacity: 1;   }
+}
+
+/* ambient glow behind the orb */
+.hfy-glow {
+  left: -9.1817%; top: -2.4162%;
+  width: 53.3263%; height: 44.2505%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(140,225,20,.55) 0%, rgba(140,225,20,.26) 34%,
+    rgba(140,225,20,.07) 58%, transparent 72%);
+  filter: blur(6px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: hfy-glow 2.1s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@keyframes hfy-glow {
+  0%, 100% { transform: scale(.90); opacity: .55; }
+  50%      { transform: scale(1.10); opacity: 1;   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hfy-idle, .hfy-orbwrap, .hfy-rays, .hfy-glow, .hfy-shine::before {
+    animation: none;
+  }
+}
+.hfy-mascot.is-paused * { animation-play-state: paused !important; }
+
+/* ---- Mascot placements ------------------------------------------------ */
+/* Homepage hero: mascot sits to the right of the copy on wide screens and
+   drops out entirely below 900px rather than stacking. On a phone the hero
+   is already CTA-first and a 460px character above the fold would push the
+   button under it. */
+/* Hidden by default and switched on only at >=1200px. The hero centres a
+   820px inner column, so an absolutely-positioned character would sit on
+   top of the copy at narrower widths. Above 1200 we reserve a right-hand
+   band with padding-right, which pushes the centred column left and gives
+   the mascot a lane of its own — no overlap at any width. */
+.ix-hero-mascot { display: none; }
+@media (min-width: 1200px) {
+  .ix-hero { padding-right: 400px; }
+  .ix-hero-mascot {
+    display: block;
+    position: absolute;
+    right: clamp(16px, 2.5vw, 56px);
+    bottom: 0;
+    width: clamp(300px, 24vw, 400px);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ix-hero-mascot .hfy-mascot { max-width: 100%; }
+  /* The scroll cue is centred on the whole section; recentre it on the
+     copy column now that the section has a reserved right band. */
+  .ix-hero .ix-scroll { margin-right: 400px; }
+}
+
+/* FL hero: gets its own grid column rather than stacking above the journey
+   card. The >=1025px rules deliberately compact this hero so headline,
+   stats and card fit one viewport without scrolling — anything added in
+   the vertical stack breaks that. A third column widens the wrap instead,
+   which costs no height. Below 1300px there isn't room, so it's hidden. */
+.fl-hero-mascot { display: none; }
+@media (min-width: 1300px) {
+  .fl-hero .hero-wrap {
+    max-width: 1440px;
+    grid-template-columns: clamp(190px, 15vw, 260px) 1fr 390px;
+    gap: 44px;
+  }
+  .fl-hero-mascot {
+    display: block;
+    align-self: end;
+    pointer-events: none;
+  }
+  .fl-hero-mascot .hfy-mascot { max-width: 100%; }
 }

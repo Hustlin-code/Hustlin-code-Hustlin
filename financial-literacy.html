@@ -154,7 +154,7 @@
   .fl-hero{padding:128px 40px 32px}
   .fl-hero .free-pill{margin-bottom:12px}
   .fl-hero .hero-h1{font-size:clamp(2.1rem,3vw,2.8rem);margin-bottom:12px}
-  .fl-hero .hero-sub{font-size:1rem;line-height:1.55;margin-bottom:18px}
+  .fl-hero .hero-sub{font-size:1rem;line-height:1.55;margin-bottom:18px;max-width:585px}
   .fl-hero #hero-cta-img{height:48px}
   .fl-hero .hero-stats{margin-top:22px;padding-top:16px}
   .fl-hero .journey-card{padding:18px}
@@ -316,6 +316,22 @@ ROME BADGE BUTTON (matches logo branding) ─ */
 <!-- HERO -->
 <section class="hero fl-hero">
   <div class="hero-wrap">
+    <!-- Mascot. Its own grid column at >=1300px only — see .fl-hero-mascot in
+         styles.css. Decorative, so alt="" and aria-hidden. -->
+    <div class="fl-hero-mascot" aria-hidden="true">
+      <div class="hfy-mascot">
+        <div class="hfy-idle">
+          <div class="hfy-glow"></div>
+          <div class="hfy-orbwrap">
+            <img class="hfy-orb" src="mascot/orb.png" alt="" width="193" height="193" decoding="async">
+            <div class="hfy-shine"></div>
+          </div>
+          <img class="hfy-rays" src="mascot/rays.png" alt="" width="269" height="210" decoding="async">
+          <img class="hfy-body" src="mascot/body.png" alt="" width="941" height="1134" decoding="async">
+        </div>
+      </div>
+    </div>
+
     <div>
       <div class="breadcrumb">
         <a href="index.html">Hustlin'</a>
@@ -327,13 +343,15 @@ ROME BADGE BUTTON (matches logo branding) ─ */
         Free · All 5 Stages · No Account
       </div>
       <h1 class="hero-h1">
-        The Financial Foundation<br>
-        <em>Nobody Taught You.</em>
+        Nobody Taught You This.<br>
+        <em>Start Today. Costs Nothing.</em>
       </h1>
       <p class="hero-sub">
-        Five stages. Zero fluff. Starting from wherever you actually are —
-        not where the textbooks assume you should be. Banking, credit, budgeting,
-        debt, and real investing. Taught straight.
+        <strong>Five stages, absolute zero to owning the market.</strong>
+        Banking, credit, budgeting, killing debt, real investing — the same
+        ground people sell for hundreds. Here it's $0, all five stages open
+        right now, no account and no card. Taught straight, no judgment about
+        how you got here. We'll show you the way. You take the journey.
       </p>
       <div class="cta-row">
         <a class="btn-badge-img" href="stage-1-survive.html" id="hero-cta"><img src="assets/buttons/StartJourney.png" alt="Start Stage 1 — Free" id="hero-cta-img"></a>
@@ -549,9 +567,9 @@ ROME BADGE BUTTON (matches logo branding) ─ */
 <section class="callout-sec">
   <div class="callout-txt">
     <span class="callout-soft">The mission</span>
-    The information that builds wealth has been kept behind expensive courses and confusing jargon —
-    <em>on purpose.</em>
-    We built this to change that.
+    The information that builds wealth sits behind three-figure courses and deliberate jargon.
+    <em>We gave it away instead.</em>
+    Learn it. Use it. Then tell the person next to you.
   </div>
 </section>
 
@@ -566,6 +584,31 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       <button class="nav-cta" onclick="flSubscribe()">GET UPDATES</button>
     </div>
     <div class="email-ok" id="fl-ok">✓ You're in. Welcome to Hustlin'.</div>
+
+    <!-- Share row. Sits after the email capture on purpose: someone who has
+         read this far is the person most likely to pass it on, and passing it
+         on costs them nothing. Plain links, no share SDKs — a third-party
+         share widget would put a tracker on a page that promises none. -->
+    <div class="fl-share">
+      <p class="fl-share-lead">Somebody you know needs this and doesn't know it exists.</p>
+      <div class="fl-share-row">
+        <a class="fl-share-btn" href="https://x.com/intent/tweet?text=Free%20financial%20literacy%20course%20%E2%80%94%20five%20stages%2C%20no%20account%2C%20no%20cost.&amp;url=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on X</a>
+        <a class="fl-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on Facebook</a>
+        <a class="fl-share-btn" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">Follow @hustlin_org</a>
+      </div>
+    </div>
+    <style>
+      .fl-share{margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08)}
+      .fl-share-lead{color:rgba(255,255,255,.5);font-size:.9rem;margin-bottom:14px}
+      .fl-share-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+      .fl-share-btn{
+        display:inline-flex;align-items:center;text-decoration:none;
+        padding:8px 16px;border-radius:20px;
+        border:1px solid rgba(232,160,32,.35);background:rgba(232,160,32,.07);
+        color:var(--amber);font-size:.82rem;font-weight:700;transition:.18s;
+      }
+      .fl-share-btn:hover{background:rgba(232,160,32,.16);border-color:rgba(232,160,32,.6)}
+    </style>
   </div>
 </section>
 
