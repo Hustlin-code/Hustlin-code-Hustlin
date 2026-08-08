@@ -69,7 +69,7 @@
     "How a credit score is calculated and how to build one from zero",
     "Zero-based budgeting and variable-income budgeting",
     "Recognising payday loans, rent-to-own and buy-here-pay-here traps",
-    "Building an emergency fund and a sinking fund",
+    "Building an emergency fund and a Life Just Happened Fund",
     "The debt avalanche method",
     "Roth IRAs, index funds and compound interest"
   ],
@@ -157,7 +157,29 @@
    stats and card fit one viewport without scrolling — anything added to the
    vertical stack breaks that. A third column widens the wrap instead, which
    costs no height at all. Below 1300px there is no room, so it is hidden. */
+/* Hidden by default, then switched on at the two widths where he fits.
+   The awkward band is 1025-1299px: there the hero is a two-column grid
+   (copy + journey card) compacted to fit one viewport, and a third grid
+   item would wrap to a second row and blow that budget. Rather than
+   shrink the card or let the hero scroll, he sits that range out. */
 .fl-hero-mascot{display:none}
+
+/* Phone and small tablet. The journey card is display:none under 1025px
+   and the grid collapses to one column, so he becomes the last item in a
+   single stack — under the stats, closing the hero. order:3 is what puts
+   him there; without it he is the first child in the markup and would
+   land above the breadcrumb, pushing the headline and CTA down the
+   screen, which is the one thing a hero cannot afford on a phone. */
+@media(max-width:1024px){
+  .fl-hero-mascot{
+    display:block;
+    order:3;
+    width:clamp(160px,40vw,240px);
+    margin:0 auto;
+    pointer-events:none;
+  }
+  .fl-hero-mascot .hfy-mascot{max-width:100%}
+}
 
 /* Compact hero — fit headline + stats + journey card in one viewport
    on desktop without scrolling (mobile keeps the roomier default). */
@@ -531,7 +553,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
           <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">No minimum income required to start</div></div>
           <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Covers second-chance banking and building from zero</div></div>
           <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Goes past budgeting into real ownership and investing</div></div>
-          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Built-in tools: Budget Builder, Debt Tracker, Sinking Fund Planner</div></div>
+          <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Built-in tools: Budget Builder, Debt Tracker, Life Just Happened Fund Planner</div></div>
           <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Progress saved to your device — pick up where you left off</div></div>
         </div>
       </div>
@@ -577,7 +599,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       <a class="fl-tool" href="paycheck-calculator.html"><b>Paycheck Calculator<span class="fl-new">NEW</span></b><span>Take-home after federal tax, FICA and your state.</span></a>
       <a class="fl-tool" href="paycheck-split-calculator.html"><b>Paycheck Split</b><span>50/30/20 — plus versions for tight and crisis months.</span></a>
       <a class="fl-tool" href="emergency-fund-calculator.html"><b>Emergency Fund</b><span>How long to $1,000, then to three and six months.</span></a>
-      <a class="fl-tool" href="sinking-fund-calculator.html"><b>Sinking Fund Planner</b><span>Annual bills, divided by twelve, stop being crises.</span></a>
+      <a class="fl-tool" href="life-just-happened-fund-calculator.html"><b>Life Just Happened Fund Planner</b><span>Annual bills, divided by twelve, stop being crises.</span></a>
       <a class="fl-tool" href="debt-overview-calculator.html"><b>Debt Overview</b><span>Every debt in one place, and which to attack first.</span></a>
       <a class="fl-tool" href="debt-payoff-calculator.html"><b>Debt Payoff Timeline</b><span>What an extra $25 a month actually does.</span></a>
       <a class="fl-tool" href="credit-utilization-calculator.html"><b>Credit Utilization</b><span>The fastest-moving factor in your credit score.</span></a>

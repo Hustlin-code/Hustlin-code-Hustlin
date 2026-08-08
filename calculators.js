@@ -144,7 +144,7 @@
       : '');
   };
 
-  /* ---------- 04 sinking fund ---------- */
+  /* ---------- 04 Life Just Happened Fund ---------- */
   window.cyhAddSF = function (label, amt) {
     var host = $('cyh-sf'), d = document.createElement('div');
     d.className = 'cyh-row';

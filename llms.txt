@@ -22,7 +22,7 @@ Five stages, free the whole way through. Stages 1–5 are readable with no accou
 - [Disability Wealth Guide](https://hustlin.org/disability-wealth-guide.html): How SSDI and SSI recipients can legally save and invest without losing benefits — SSDI vs SSI rules, ABLE accounts, Special Needs Trusts, work incentives, WIPA counselors. Figures sourced from the SSA Red Book, IRS publications, and the ABLE National Resource Center, with a stated verification date.
 
 ## Free Tools
-- [Calculate Your Hustle](https://hustlin.org/calculate-your-hustle.html): Eleven free calculators — budget builder, paycheck split, emergency fund, sinking fund, debt overview, debt payoff timeline, credit utilization, compound interest, investment growth, net worth tracker, financial freedom number. No account, runs entirely client-side.
+- [Calculate Your Hustle](https://hustlin.org/calculate-your-hustle.html): Eleven free calculators — budget builder, paycheck split, emergency fund, Life Just Happened Fund, debt overview, debt payoff timeline, credit utilization, compound interest, investment growth, net worth tracker, financial freedom number. No account, runs entirely client-side.
 
 ## Blog
 - [ChexSystems Explained](https://hustlin.org/blog/chexsystems-explained.html): What ChexSystems is, how long records last, how to get your free report and dispute errors

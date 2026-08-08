@@ -940,7 +940,7 @@ a{text-decoration:none}
 .mtg-desc{font-size:.74rem;color:var(--text-muted);line-height:1.5}
 @media(max-width:768px){.mtg-steps{grid-template-columns:1fr 1fr}}
 
-/* ─── SINKING FUND TOOL ─────────────────────────── */
+/* ─── LIFE JUST HAPPENED FUND TOOL ─────────────────────────── */
 .sf-hd{display:grid;grid-template-columns:1fr 110px 100px 30px;gap:9px;padding:0 18px;margin-bottom:7px}
 .sf-hd span{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted)}
 .sf-rows{display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
@@ -1000,6 +1000,11 @@ a{text-decoration:none}
   .hero-stats{gap:22px}
   .debt-item{grid-template-columns:1fr 90px;gap:7px}
 }
+/* Site-wide motion kill switch. Note the !important + universal selector:
+   this beats ANY later rule that does not also use !important, regardless
+   of source order. If you add an animation that must survive reduced
+   motion, it needs !important and a real selector (a class beats `*`) —
+   see the mascot block at the end of this file. */
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
 /* ─── HUSTLIN' FOR YOU — BRAND LOGO ─────────────── */
@@ -1650,13 +1655,20 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
    Durations keep the 2:1 nesting the full version relies on (8.4 / 4.2),
    or the loop visibly hitches on reset. The sweep is deliberately off that
    grid, same as at full speed. */
+   Every declaration below needs !important. There is a site-wide
+   `*,*::before,*::after{animation:none!important}` under this same media
+   query earlier in the file, and !important beats a plain declaration no
+   matter how far down it appears — so without it this whole block is dead
+   and the mascot freezes anyway. With !important on both sides the
+   cascade falls back to specificity, and a class (0,1,0) beats `*`
+   (0,0,0), so these win. */
 @media (prefers-reduced-motion: reduce) {
-  .hfy-idle    { animation: hfy-breathe-soft 8.4s ease-in-out infinite; }
-  .hfy-orbwrap { animation: hfy-orb-soft     4.2s ease-in-out infinite; }
-  .hfy-glow    { animation: hfy-fade-soft    4.2s ease-in-out infinite; }
-  .hfy-rays    { animation: hfy-fade-soft    4.2s ease-in-out infinite; }
+  .hfy-idle    { animation: hfy-breathe-soft 8.4s ease-in-out infinite !important; }
+  .hfy-orbwrap { animation: hfy-orb-soft     4.2s ease-in-out infinite !important; }
+  .hfy-glow    { animation: hfy-fade-soft    4.2s ease-in-out infinite !important; }
+  .hfy-rays    { animation: hfy-fade-soft    4.2s ease-in-out infinite !important; }
   .hfy-shine::before {
-    animation: hfy-sweep 11.2s cubic-bezier(.5,0,.5,1) infinite;
+    animation: hfy-sweep 11.2s cubic-bezier(.5,0,.5,1) infinite !important;
   }
 }
 @keyframes hfy-breathe-soft {
