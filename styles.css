@@ -1633,10 +1633,43 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   50%      { transform: scale(1.10); opacity: 1;   }
 }
 
+/* Reduced-motion: gentler, never off.
+   Nobody has to change a system setting to see the mascot move — that was
+   the requirement. So instead of freezing him, reduced-motion gets a
+   toned-down cut of the same performance: every amplitude roughly halved
+   and every cycle stretched to about half speed.
+
+   What makes this defensible rather than just ignoring the setting: the
+   motion here is already tiny and entirely local. The breathe is a 1.3%
+   scale (about 6px at display size) anchored at his feet, the orb lifts
+   1.6%, and the shine sweep is clipped inside a circle a fifth of his
+   width. None of it translates across the viewport, parallaxes, spins or
+   zooms — those are the patterns the setting exists to stop. Halved
+   again, the breathe is ~3px over 8.4 seconds.
+
+   Durations keep the 2:1 nesting the full version relies on (8.4 / 4.2),
+   or the loop visibly hitches on reset. The sweep is deliberately off that
+   grid, same as at full speed. */
 @media (prefers-reduced-motion: reduce) {
-  .hfy-idle, .hfy-orbwrap, .hfy-rays, .hfy-glow, .hfy-shine::before {
-    animation: none;
+  .hfy-idle    { animation: hfy-breathe-soft 8.4s ease-in-out infinite; }
+  .hfy-orbwrap { animation: hfy-orb-soft     4.2s ease-in-out infinite; }
+  .hfy-glow    { animation: hfy-fade-soft    4.2s ease-in-out infinite; }
+  .hfy-rays    { animation: hfy-fade-soft    4.2s ease-in-out infinite; }
+  .hfy-shine::before {
+    animation: hfy-sweep 11.2s cubic-bezier(.5,0,.5,1) infinite;
   }
+}
+@keyframes hfy-breathe-soft {
+  0%, 100% { transform: scale(1, 1) rotate(0deg); }
+  50%      { transform: scale(0.9985, 1.006) rotate(0.1deg); }
+}
+@keyframes hfy-orb-soft {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-0.8%) scale(1.018); }
+}
+@keyframes hfy-fade-soft {
+  0%, 100% { opacity: .62; }
+  50%      { opacity: 1; }
 }
 .hfy-mascot.is-paused * { animation-play-state: paused !important; }
 
