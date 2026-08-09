@@ -654,9 +654,10 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       <div class="fl-share-row">
         <a class="fl-share-btn" href="https://x.com/intent/tweet?text=Free%20financial%20literacy%20course%20%E2%80%94%20five%20stages%2C%20no%20account%2C%20no%20cost.&amp;url=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on X</a>
         <a class="fl-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on Facebook</a>
-        <!-- Snapchat's Share Link plugin: attachmentUrl is what carries the
-             link back to us. Without it the Snap is a dead end. -->
-        <a class="fl-share-btn" href="https://www.snapchat.com/scan?attachmentUrl=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on Snapchat</a>
+        <!-- Snapchat button removed 2026-08-08. If it returns, the Share Link
+             plugin URL is https://www.snapchat.com/scan?attachmentUrl=<encoded>
+             — attachmentUrl is what carries the link back to us, and without
+             it the Snap is a dead end. -->
         <!-- Instagram says "Follow", not "Share", because Instagram exposes no
              share intent for third-party URLs and does not make caption links
              tappable. A "Share to Instagram" button here could not do what the
@@ -687,6 +688,55 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       .fl-share-qr img{width:88px;height:88px;background:#fff;padding:6px;border-radius:8px}
       .fl-share-qr span{font-size:.72rem;line-height:1.45;font-weight:700;color:rgba(255,255,255,.4);text-align:left}
       @media(max-width:700px){.fl-share-qr{display:none}}
+
+      /* ══ MOBILE PASS — 2026-08-08 ═══════════════════════════════════
+         Course-page half of the mobile work. It lives in this block, the
+         last style block on the page, for the same reason the landing page's
+         does: styles.css loads first, so a .fl-* or .s-card rule over
+         there would lose every equal-specificity tie to the blocks above.
+         ═══════════════════════════════════════════════════════════════ */
+
+      /* Two share links, both wide, on one centred wrapping row. At 8px of
+         vertical padding they were ~33px tall — under the 44px floor, and
+         at the very bottom of a long page where a mis-tap is most likely
+         to be read as "nothing happened". Full width under 420px because
+         at that size they wrap to one per line anyway, and a half-width
+         pill next to empty space reads as broken rather than centred. */
+      @media(max-width:600px){
+        .fl-share{margin-top:26px;padding-top:20px}
+        .fl-share-lead{font-size:.86rem;line-height:1.5}
+        .fl-share-row{gap:8px}
+        .fl-share-btn{min-height:44px;padding:0 18px;justify-content:center}
+      }
+      @media(max-width:420px){
+        .fl-share-btn{width:100%}
+      }
+
+      /* Stage cards. .stages goes two-up at 600px (styles.css) and these
+         cards carry a PNG wordmark rather than text, so the real constraint
+         is the image height, not the copy. 44px keeps five stage links
+         comfortably tappable in a 2x3 grid; the tag line is what gives. */
+      @media(max-width:600px){
+        .s-card[data-stage-card]{padding:13px 11px}
+        .s-name-img{height:38px}
+        .s-card .s-tag{font-size:.7rem;line-height:1.35}
+      }
+
+      /* Tool tiles. auto-fill at a 215px floor already collapses to one
+         column on a phone, so this is spacing only — the tiles were built
+         for a three-up desktop grid and kept desktop padding when alone. */
+      @media(max-width:600px){
+        .fl-tools{gap:9px}
+        .fl-tool{padding:13px 14px;min-height:44px}
+        .fl-tool b{font-size:.9rem}
+        .fl-tool span{font-size:.76rem;line-height:1.4}
+      }
+
+      /* Newsletter row already stacks at 768px. This is the tap-target
+         floor on the submit control, which the stack does not give it. */
+      @media(max-width:768px){
+        .email-row .nav-cta{min-height:46px}
+      }
     </style>
   </div>
 </section>

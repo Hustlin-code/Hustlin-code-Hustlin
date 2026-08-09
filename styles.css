@@ -1736,3 +1736,219 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
    specificity rule here loses the cascade to the page's own .ix-hero /
    .hero rules. Only the shared animation machinery above belongs in this
    file. */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE PASS — 2026-08-08
+   ═══════════════════════════════════════════════════════════════════════
+   Appended deliberately at the end of the file. Almost every rule below is
+   a plain class selector matching one declared earlier at the same
+   specificity, so source order is the only tiebreak — moved higher up,
+   these would lose silently to the originals.
+
+   Scope: shared chrome + the Financial Literacy stage pages. Landing-page
+   (.ix-*) and financial-literacy.html (.fl-*) overrides live in those
+   pages' own <style> blocks, because both load this file FIRST and their
+   inline block second — a rule here could not win the cascade against
+   them.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. ROOT TYPE SCALE ────────────────────────────────────────────────
+   html was pinned at 130% (20.8px) at every width. That is a deliberate,
+   readable size on a laptop, but on a 390px phone every rem-based value —
+   headings, nav pills, button labels, table cells — inherited a third more
+   size than it was designed against while the px paddings around them
+   stayed put. The result was cramped rather than generous: two-word
+   headlines wrapping to three lines, tab labels breaking mid-word, table
+   columns down to two words per line.
+
+   Stepping the ROOT down is the one lever that fixes all of them at once
+   and keeps every existing ratio intact. Body copy still lands at ~17.5px
+   on a phone — comfortably above the 16px floor this audience needs — and
+   nothing that was tuned in px moves at all. */
+@media(max-width:900px){ html{font-size:124%} }
+@media(max-width:600px){ html{font-size:118%} }
+@media(max-width:380px){ html{font-size:112%} }
+
+/* ─── 2. iOS ZOOM-ON-FOCUS GUARD ────────────────────────────────────────
+   Mobile Safari zooms the whole page when a focused input's computed font
+   size is under 16px, and it does NOT zoom back out on blur — the reader
+   is left on a horizontally scrolled page mid-form. At the old 130% root
+   these inputs cleared 16px by accident (.83rem = 17.3px). After step 1
+   they no longer would, so the floor is now stated explicitly rather than
+   left to arithmetic. 16px is the trigger threshold, not a design choice. */
+@media(max-width:900px){
+  .d-inp,.sf-inp,.bi-label,.bi-amt,.f-inp,.e-inp,
+  input[type=text],input[type=number],input[type=email],
+  input[type=tel],input[type=search],select,textarea{
+    font-size:16px;
+  }
+}
+
+/* ─── 3. TAP TARGETS ────────────────────────────────────────────────────
+   The action checkbox is the most-tapped control on the whole course —
+   there are ninety of them on Stage 1 alone — and it was a 19px circle,
+   well under half the 44px minimum. Missing it does not just fail; it
+   scrolls the page instead, so a mis-tap costs the reader their place.
+
+   Expanded with a pseudo-element rather than a bigger box: inset:-13px
+   grows the hit area to 45px in every direction while the circle keeps
+   its 19px visual weight and the row keeps its rhythm. Nothing reflows. */
+@media(max-width:900px){
+  .act-box{position:relative}
+  .act-box::after{content:"";position:absolute;inset:-13px;border-radius:50%}
+
+  /* Pill links and share buttons: the padding that reads as elegant on a
+     mouse-driven page is under-sized for a thumb. Height only — the
+     horizontal padding was never the problem.
+
+     .pill is deliberately NOT in this list. It looks like the same chip
+     but it is a <span> on the coming-soon cards, not a control, and
+     giving eight inert labels a 44px floor would triple the height of
+     that card for nothing. */
+  .res-link,.hfy-share-btn{min-height:44px;display:inline-flex;align-items:center}
+  .t-tab{min-height:44px}
+}
+
+/* The delete button is sized to the grid column it sits in, so it can only
+   grow where that column grows with it — which is the 768px row rebuild in
+   section 5 below. Widening it at 900px instead would push it 8px past a
+   30px column and drag the whole row wider. */
+@media(max-width:768px){
+  .del-btn{width:38px;height:38px}
+}
+
+/* ─── 4. TOOL TABS ──────────────────────────────────────────────────────
+   Four flex:1 tabs on one row, one of them labelled "Life Just Happened
+   Fund". At phone widths each got ~78px and the labels broke mid-word into
+   four-line stacks of ragged text. A 2x2 grid gives each label roughly
+   double the width and costs one row of height. */
+@media(max-width:600px){
+  .tool-tabs{
+    display:grid;grid-template-columns:1fr 1fr;gap:5px;
+    max-width:none!important;margin-top:28px;
+  }
+  .t-tab{padding:11px 10px;font-size:.8rem;line-height:1.3}
+}
+
+/* ─── 5. DEBT + SINKING-FUND ROW GRIDS ──────────────────────────────────
+   Both were fixed five- and four-column grids (1fr 105px 75px 75px 30px)
+   with ~285px of hard minimums before the name column got anything. Below
+   about 420px of content width there was nothing left for it.
+
+   Two real bugs were sitting here as well:
+     · .debt-item collapsed to `1fr 90px` at 768px but .debt-hd kept its
+       five columns, so the header labels stopped lining up with the fields
+       they described — worse than no header.
+     · .sf-hd / .sf-item had no mobile rule at all and simply overflowed.
+
+   Fixed by giving the name field its own full-width row and putting the
+   numbers underneath in equal columns. The headers go: they cannot label a
+   two-row field set honestly, and every input already carries a
+   placeholder. The one value with no placeholder to fall back on is the
+   computed monthly figure, so it states its own unit instead. */
+@media(max-width:768px){
+  .debt-hd,.sf-hd{display:none}
+
+  .debt-item{grid-template-columns:repeat(3,minmax(0,1fr)) 38px;gap:8px;padding:12px 14px}
+  .debt-item > :nth-child(1){grid-column:1 / -1}
+
+  .sf-item{grid-template-columns:repeat(2,minmax(0,1fr)) 38px;gap:8px;padding:12px 14px}
+  .sf-item > :nth-child(1){grid-column:1 / -1}
+  .sf-auto{text-align:left;padding:8px 0}
+  .sf-auto::after{content:" /mo";font-size:.72rem;color:var(--text-muted);font-weight:600}
+
+  .sf-total-bar{grid-template-columns:1fr;gap:16px;padding:20px}
+}
+
+/* ─── 6. TABLES ─────────────────────────────────────────────────────────
+   .mod-body table already forces table-layout:fixed, so nothing here
+   overflows — the problem was the opposite. A four-column table inside
+   14px page padding leaves roughly 70px per column, and 12px of cell
+   padding either side ate two-thirds of it. Trimming padding and type
+   buys back real reading width; break-word stops a long unbroken term
+   (a URL, "ChexSystems") from forcing a column wider than its share. */
+@media(max-width:600px){
+  .mod-body table th,.mod-body table td,
+  .cat-table th,.cat-table td,
+  .sit-table th,.sit-table td,
+  .hold-table th,.hold-table td{
+    padding:7px 6px;line-height:1.45;
+    word-break:break-word;overflow-wrap:anywhere;hyphens:auto;
+  }
+  .cat-table,.sit-table{font-size:.78rem}
+  .hold-table,.hold-table td{font-size:.74rem}
+  .cat-note{font-size:.7rem;line-height:1.4}
+  .cat-pct{font-size:.72rem}
+}
+
+/* ─── 7. MODULE CHROME ──────────────────────────────────────────────────
+   .mod-body already stepped its padding down twice; .mod-head never did,
+   so the accordion header kept 26px of side padding and an 18px gap around
+   a 46px icon while the body beneath it ran to 14px. On a phone the icon
+   was taking a fifth of the row from the title. */
+@media(max-width:600px){
+  .mod-head{padding:16px 14px;gap:12px}
+  .mod-icon{width:38px;height:38px;font-size:1.05rem;border-radius:9px}
+  .mod-title{font-size:.95rem;line-height:1.45}
+  .mod-sub{font-size:.74rem;line-height:1.4}
+  .mod-toggle{width:26px;height:26px;font-size:1rem}
+
+  .next-mod-btn,.next-stage-btn{padding:16px 16px}
+  .next-mod-btn-title{font-size:1rem}
+  .next-stage-btn-title{font-size:1.02rem}
+  .next-mod-btn-arrow,.next-stage-btn-arrow{margin-left:10px;font-size:1.3rem}
+
+  .actions{padding:14px}
+  .tip,.warn{padding:12px 14px}
+}
+
+/* ─── 8. EMERGENCY-FUND RESULT ──────────────────────────────────────────
+   3.4rem against a 130% root rendered the headline figure at ~70px. With
+   a currency symbol and thousands separators that is wider than a phone
+   and it was the one number on the page people came for. */
+@media(max-width:600px){
+  .ef-result{padding:22px 16px}
+  .ef-big{font-size:2.4rem;letter-spacing:-.02em;word-break:break-word}
+  .bar-lbl{width:64px;font-size:.72rem}
+  .bar-amt{width:auto;min-width:48px;font-size:.71rem}
+  .bud-result,.debt-sum{padding:20px}
+  .res-val{font-size:1.3rem}
+}
+
+/* ─── 9. FOOTER ─────────────────────────────────────────────────────────
+   40px of side padding on a 360px screen left 280px for the content and
+   the legal disclaimer, which is the longest prose block on the page. */
+@media(max-width:600px){
+  .footer{padding:32px 18px}
+  .f-disclaimer{padding:14px 14px;font-size:.74rem;line-height:1.65;margin-top:18px}
+  .footer-inner{gap:16px}
+}
+
+/* ─── 10. SHARE BAR ─────────────────────────────────────────────────────
+   Left as a wrapping flex row rather than forced into a column: with the
+   QR already hidden under 700px the buttons wrap into two tidy rows, and
+   stacking them would push the first module below the fold. Only the
+   padding and the copy needed to come in. */
+@media(max-width:600px){
+  .hfy-sharebar{padding:12px 14px;gap:12px}
+  .hfy-sharebar-txt strong{font-size:.92rem;line-height:1.35}
+  .hfy-sharebar-txt span{font-size:.78rem;line-height:1.4}
+  .hfy-sharebar-btns{gap:7px;width:100%}
+  .hfy-outro-crown{padding:24px 18px}
+  .hfy-outro-h1{font-size:1.35rem}
+  .hfy-outro-lede{font-size:.92rem}
+}
+
+/* ─── 11. OVERFLOW BACKSTOP ─────────────────────────────────────────────
+   body{overflow-x:hidden} hides a horizontal overflow; it does not stop
+   one, and a hidden overflow still steals horizontal scroll from anything
+   legitimately scrollable inside it (the module rail, a wide table). These
+   are the element types that can exceed their container without being
+   asked to. Embeds keep their own aspect-ratio wrappers — this only caps
+   the width. */
+@media(max-width:900px){
+  img,video,iframe,canvas,svg{max-width:100%}
+  pre,code{white-space:pre-wrap;word-break:break-word}
+  .mod-body,.tool-card,.actions{min-width:0}
+}

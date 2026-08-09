@@ -718,6 +718,80 @@
   .ix-freeline    { max-width: 680px; margin-bottom: 20px }
   .ix-depth       { margin-bottom: 20px }
 }
+
+/* ══ MOBILE PASS — 2026-08-08 ═════════════════════════════════════════
+   Landing-page half of the mobile work. It has to live here rather than
+   in styles.css: this block loads second, so every .ix-* rule above wins
+   any equal-specificity rule in the stylesheet regardless of what that
+   file says. Same reasoning as the hero-vertical-fit block above — this
+   one sits after it for the same reason.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─ Hero height ─
+   min-height:100vh is measured against the LARGE viewport on a phone: the
+   height the page would have if the browser's address bar were retracted.
+   It is not retracted on load, so a 100vh hero is roughly 60-100px taller
+   than the screen actually showing it, and the follow row — the last thing
+   in the stack — starts life below the fold on every phone.
+
+   100svh is the small viewport: the height that is genuinely visible with
+   the chrome showing. The 100vh line stays directly above it as the
+   fallback for engines that never shipped svh; those get today's
+   behaviour, which is the current state, not a regression. */
+@media (max-width: 900px) {
+  .ix-hero { min-height: 100vh; min-height: 100svh }
+}
+
+/* ─ Follow buttons ─
+   9px of vertical padding put these at about 36px tall. They are the only
+   controls in the hero besides the CTA and they sit at the very bottom,
+   where a thumb is least accurate. min-height only: the pill's horizontal
+   proportions are fine and widening them would wrap the row. */
+@media (max-width: 900px) {
+  .ix-social-btn { min-height: 44px; padding-top: 0; padding-bottom: 0 }
+  .ix-social { gap: 8px }
+}
+
+/* ─ Depth strip ─
+   The labels are nowrap so a wrapped "free, no account" cannot orphan a
+   word. That holds down to 360px; below it the two-up grid's column is
+   narrower than the longest label and nowrap turns a tight fit into an
+   overflow. Under 400px the strip goes one-up, where there is room for
+   the label to stay on its line at any width. */
+@media (max-width: 400px) {
+  .ix-depth { grid-template-columns: 1fr; gap: 10px 0; max-width: 260px }
+}
+
+/* ─ Course cards ─
+   The card footer is a space-between row of a note and a "Start free →"
+   label, and .ix-card-go is nowrap. Single-column at 520px the pair has
+   room; between 520 and 820 it is two-up and the note was being squeezed
+   to one word per line against a link that would not yield. Letting the
+   row wrap costs nothing when it fits and fixes it when it does not. */
+@media (max-width: 820px) {
+  .ix-card-foot { flex-wrap: wrap; row-gap: 4px }
+  .ix-card-note { font-size: .66rem; line-height: 1.4 }
+}
+
+/* ─ Featured stage list ─
+   Rows are the tap target for the five stage pages, so they get the 44px
+   floor. The description is the first thing to give when width is short —
+   the stage name carries the click. */
+@media (max-width: 600px) {
+  .ix-stage-row { min-height: 44px; padding: 11px 13px; gap: 11px }
+  .ix-stage-desc { font-size: .72rem; line-height: 1.35 }
+  .ix-stage-num { width: 26px; height: 26px }
+}
+
+/* ─ Bundle band ─
+   .ix-bundle-price is a 2.3rem mono figure at 520px. Against the stepped
+   root it lands where it was designed to; this only keeps the surrounding
+   box from crowding it on the narrowest phones. */
+@media (max-width: 380px) {
+  .ix-bundle { padding: 22px 16px }
+  .ix-bundle-buy { padding: 20px 16px }
+  .ix-bundle-price { font-size: 2.1rem }
+}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>

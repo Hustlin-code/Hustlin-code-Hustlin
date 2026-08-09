@@ -128,11 +128,10 @@
       case 'sms':   return 'sms:?&body=' + t + '%20' + u;
       case 'email': return 'mailto:?subject=' + encodeURIComponent("A free financial course that's actually good")
                          + '&body=' + t + '%20' + u;
-      /* Snapchat's Share Link plugin. Opens the camera with the URL already
-         attached, on mobile and on Snapchat for Web. `attachmentUrl` is the
-         parameter that carries the link — without it the Snap posts with no
-         way back to us, which is the whole point of sharing it. */
-      case 'snap':  return 'https://www.snapchat.com/scan?attachmentUrl=' + u;
+      /* Snapchat removed 2026-08-08. The Share Link plugin case lived here;
+         if it comes back it is 'https://www.snapchat.com/scan?attachmentUrl='
+         + u — `attachmentUrl` is the parameter that carries the link, and
+         without it the Snap posts with no way back to us. */
       /* Instagram is a FOLLOW link, not a share link, and that is not an
          oversight. Instagram exposes no share intent for third-party URLs and
          does not make links in captions tappable, so a "Share to Instagram"
@@ -176,7 +175,6 @@
       '<a class="hfy-share-btn" href="' + shareHref('sms') + '">💬 Text it</a>' +
       '<a class="hfy-share-btn" href="' + shareHref('x') + '" target="_blank" rel="noopener">𝕏 Post</a>' +
       '<a class="hfy-share-btn" href="' + shareHref('fb') + '" target="_blank" rel="noopener">📘 Facebook</a>' +
-      '<a class="hfy-share-btn" href="' + shareHref('snap') + '" target="_blank" rel="noopener">👻 Snapchat</a>' +
       // Labelled "Follow", never "Share" — see shareHref('ig') for why the
       // distinction is load-bearing rather than pedantic.
       '<a class="hfy-share-btn" href="' + shareHref('ig') + '" target="_blank" rel="noopener">📸 Follow on IG</a>' +
