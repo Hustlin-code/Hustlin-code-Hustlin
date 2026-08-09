@@ -244,10 +244,17 @@
              '</a>';
     }).join('');
 
+    /* Copy leans on what they just demonstrated about themselves rather than
+       on what the courses contain. Someone who ticked every action step
+       through five stages has proven the expensive part — the finishing —
+       and that is the argument, not the feature list. The bundle price and
+       saving are stated up front rather than behind a click, because the
+       objection at this moment is "how much" and a link that hides it reads
+       like the answer is bad. */
     return '' +
       '<div class="hfy-outro-sec">' +
-        '<div class="hfy-outro-h3">Keep going — the rest of the library</div>' +
-        '<p class="hfy-outro-p">Financial Literacy is free forever and always will be. When you are ready to read the market instead of just surviving it, these are the four that take you there.</p>' +
+        '<div class="hfy-outro-h3">You just proved you finish things. Now go get paid for it.</div>' +
+        '<p class="hfy-outro-p">Financial Literacy is free forever and always will be — that was the part about keeping your head above water. These four are the part where money starts working for you instead of the other way round. You already did the hard bit: almost nobody finishes a course. Reading a chart is easier than what you just did.</p>' +
         '<div class="hfy-oc-grid">' + cards + '</div>' +
         '<a class="hfy-oc-bundle" href="/index.html#courses">' +
           '<span class="hfy-oc-bundle-l">All-Access Bundle — all four courses</span>' +
@@ -301,13 +308,22 @@
         '<p class="hfy-outro-lede">' + sub + '</p>' +
         '<div class="hfy-outro-stamp">That is why you are a true hustler. 100%</div>' +
       '</div>' +
+      /* ORDER CHANGED 2026-08-09. Was: crown, share, account, catalogue —
+         which put the only paid ask last, under two other asks, at the
+         bottom of a panel that already runs several screens on a phone.
+         Almost nobody reached it.
+
+         The catalogue now comes straight after the crown, while the sense
+         of having just finished something is still doing the work. Share
+         and account still follow, because both are worth having and neither
+         competes for the same decision: one is a referral, one is free. */
+      catalogueHTML() +
       '<div class="hfy-outro-sec">' +
         '<div class="hfy-outro-h3">Now go put somebody else on</div>' +
         '<p class="hfy-outro-p">You just proved it works. One person you send this to is one person who does not pay a hundred dollars for the same information.</p>' +
         '<div class="hfy-outro-share">' + shareButtons(false) + '</div>' +
       '</div>' +
-      accountHTML(info) +
-      catalogueHTML();
+      accountHTML(info);
 
     anchor.parentNode.insertBefore(el, anchor.nextSibling);
     wireShare(el);

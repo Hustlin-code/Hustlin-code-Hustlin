@@ -123,59 +123,22 @@
 <style>from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}from{box-shadow:0 0 0 1px #8a6a00,0 0 18px rgba(240,192,48,.55),0 0 36px rgba(240,192,48,.25),inset 0 2px 4px rgba(255,255,255,.15)}to{box-shadow:0 0 0 1px #c9a84c,0 0 34px rgba(255,220,60,.85),0 0 64px rgba(240,192,48,.4),inset 0 2px 4px rgba(255,255,255,.25)}0%{left:-80%;opacity:0}5%{opacity:1}40%{left:140%;opacity:1}41%{opacity:0}100%{left:140%;opacity:0}
 
 /* Hero chrome. .hero / .hero-wrap / .hero-h1 / .hero-sub / .cta-row /
-   .hero-stats / .stat-val / .stat-lbl all live in styles.css already — only
-   the breadcrumb and the free pill are page-local across this site, so they
-   are duplicated here the same way financial-literacy.html and
-   technical-analysis.html carry them. Restored with the hero. */
-/* Breadcrumb now lives in styles.css - it is on 22 pages. */
-.free-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);color:var(--green-lt);padding:5px 14px;border-radius:20px;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px}
-.free-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green-lt);box-shadow:0 0 6px var(--green-lt);animation:fpdot 2s ease-in-out infinite alternate}
-@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}}
-/* Gated to >=601px on 2026-08-09. These are plain single-class rules in an
-   inline block, so they load after styles.css and beat it at every width —
-   including the phone block in section 12 of styles.css, which is the one
-   place the shared sizes are actually correct for this page. Above 600px
-   they still do their original job of compacting this hero relative to the
-   poster-sized default. */
-@media(min-width:601px){
-  .hero-h1{font-size:clamp(2.1rem,3vw,2.8rem);margin-bottom:12px}
-  .hero-sub{font-size:1rem;line-height:1.55;margin-bottom:18px}
-}
+   .hero-stats / .stat-val / .stat-lbl all live in styles.css already.
+   .breadcrumb joined them when it turned out to be on 22 pages, and on
+   2026-08-09 the whole guide-page kit — .free-pill, .disc-top,
+   .scenario-card, .stack-row, .plan-row, .verified-note, .persona-grid —
+   followed it, when a second standalone guide was built on the same
+   chrome. See "GUIDE-PAGE COMPONENTS" at the end of styles.css.
+
+   Only .dwg-stat-txt below is genuinely specific to this page. */
+/* Hero size removed 2026-08-09 — it is now the shared default in
+   styles.css (THE HERO STANDARD). This page was one of the three that
+   independently overrode the old poster size to exactly this, which is
+   why it became the default. tools/check-hero.mjs fails the deploy if a
+   hero font-size comes back here. */
 /* "SSDI + SSI" is text where the other three stats are numerals — the default
    stat-val size overflows the column on narrow screens. */
 .dwg-stat-txt{font-size:1.15rem!important}
-
-/* Top disclaimer strip */
-.disc-top{max-width:900px;margin:0 auto 0;padding:16px 22px;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.06);border-radius:var(--r-md);font-size:.83rem;line-height:1.7;color:#2a1414 !important}
-.disc-top strong{color:#b91c1c;display:block;margin-bottom:4px;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
-
-/* Comparison cards (reuses .persona structure but two-up) */
-.persona-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}@media(max-width:760px){.persona-grid{grid-template-columns:1fr}}
-
-/* Scenario cards */
-.scenario-card{background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.08);border-radius:var(--r-md);padding:22px 24px;margin-bottom:18px}
-.scenario-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.scenario-ico{font-size:1.4rem}
-.scenario-name{font-weight:800;font-size:1rem;color:#1c1c1c}
-.scenario-tag{font-size:.78rem;color:rgba(28,28,28,.55)}
-.scenario-body p{font-size:.88rem;line-height:1.75;color:#1c1c1c;margin-bottom:0}
-
-/* Priority stack */
-.stack-row{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.08)}
-.stack-row:last-child{border-bottom:none}
-.stack-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(245,197,32,.12);border:1px solid rgba(245,197,32,.35);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:var(--amber)}
-.stack-txt strong{color:#1c1c1c;display:block;margin-bottom:3px;font-size:.92rem}
-.stack-txt p{font-size:.85rem;color:rgba(28,28,28,.62);line-height:1.7}
-
-/* Verified figures footnote */
-.verified-note{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:rgba(45,160,45,.85);background:rgba(45,160,45,.08);border:1px solid rgba(45,160,45,.22);padding:3px 10px;border-radius:20px;margin:10px 0}
-
-/* Static checklist (no localStorage — reference list, not a tracked tool) */
-.plan-row{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(0,0,0,.08)}
-.plan-row:last-child{border-bottom:none}
-.plan-box{flex-shrink:0;width:20px;height:20px;border-radius:5px;border:1.5px solid rgba(0,0,0,.2);margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--amber)}
-.plan-txt{font-size:.88rem;line-height:1.65;color:#1c1c1c}
-.plan-txt strong{color:#1c1c1c}
 
 
 

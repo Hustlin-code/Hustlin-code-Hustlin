@@ -20,6 +20,7 @@ Five stages, free the whole way through. Stages 1–5 are readable with no accou
 
 ## Specialist Guides
 - [Disability Wealth Guide](https://hustlin.org/disability-wealth-guide.html): How SSDI and SSI recipients can legally save and invest without losing benefits — SSDI vs SSI rules, ABLE accounts, Special Needs Trusts, work incentives, WIPA counselors. Figures sourced from the SSA Red Book, IRS publications, and the ABLE National Resource Center, with a stated verification date.
+- [Starting Over After Prison](https://hustlin.org/starting-over-after-prison.html): The money side of reentry in the order it has to happen — replacing ID and Social Security documents, prepaid release-card fees, which benefits suspend rather than terminate (Medicaid suspension became mandatory 1 Jan 2026; SSI terminates at 12 months where SSDI does not), the state-by-state SNAP drug-felony opt-outs, why the Bradley Amendment makes child support arrears permanent and modification urgent, the Federal Bonding Program, the lapsed Work Opportunity Tax Credit, HUD's two lifetime housing bans, and building credit from an empty file. Federal figures verified August 2026.
 
 ## Free Tools
 - [Calculate Your Hustle](https://hustlin.org/calculate-your-hustle.html): Eleven free calculators — budget builder, paycheck split, emergency fund, Life Just Happened Fund, debt overview, debt payoff timeline, credit utilization, compound interest, investment growth, net worth tracker, financial freedom number. No account, runs entirely client-side.

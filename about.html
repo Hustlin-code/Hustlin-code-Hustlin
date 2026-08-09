@@ -82,15 +82,9 @@
     -webkit-text-stroke:0;
     text-shadow:none;
   }
-  /* This size was a style="" attribute on the <h1> until 2026-08-09. An
-     inline attribute outranks every stylesheet, so the phone block in
-     section 12 of styles.css could not touch it and this hero alone stayed
-     at 2.1rem (~40px) on a 390px screen while the rest of the site came
-     down. Moved here and gated so the shared rule owns the phone; above
-     600px it does exactly what the attribute did. */
-  @media(min-width:601px){
-    .about-hero .hero-h1{font-size:clamp(2.1rem,4vw,3.4rem)}
-  }
+  /* Hero size removed 2026-08-09 — see THE HERO STANDARD in styles.css.
+     One file owns hero font-size now, and tools/check-hero.mjs fails the
+     deploy if it comes back to a page. */
   .about-hero .hero-h1 em{
     font-style:normal;
     color:var(--amber);          /* hero IS dark - amber is correct here */

@@ -180,8 +180,9 @@
 @media(min-width:1025px){
   .fl-hero{padding:128px 40px 32px}
   .fl-hero .free-pill{margin-bottom:12px}
-  .fl-hero .hero-h1{font-size:clamp(2.1rem,3vw,2.8rem);margin-bottom:12px}
-  .fl-hero .hero-sub{font-size:1rem;line-height:1.55;margin-bottom:18px;max-width:585px}
+  /* Hero size removed 2026-08-09 — see THE HERO STANDARD in styles.css.
+     One file owns hero font-size now, and tools/check-hero.mjs fails the
+     deploy if it comes back to a page. */
   .fl-hero #hero-cta-img{height:48px}
   .fl-hero .hero-stats{margin-top:22px;padding-top:16px}
   .fl-hero .journey-card{padding:18px}
@@ -208,7 +209,6 @@
      "Start Today. Costs Nothing." onto a third line. Trimming the cap
      keeps it to one line, so the two clauses read as the two-beat line
      they were written as. */
-  .fl-hero .hero-h1{font-size:clamp(2.1rem,3vw,2.65rem)}
 }
 
 /* Stage cards (extends styles.css .s-card) */
@@ -516,9 +516,9 @@ ROME BADGE BUTTON (matches logo branding) ─ */
         <p class="sec-eye">Who This Is For</p>
         <h2 class="sec-h2">Most Financial Advice Assumes You Have Something.</h2>
         <p class="sec-sub" style="margin-bottom:28px">We assume you have nothing — and build from there. No minimum income. No prior knowledge. Zero judgment about how you got here.</p>
-        <div class="persona">
+        <div class="persona" style="cursor:pointer" onclick="location.href='starting-over-after-prison.html'">
           <div class="p-icon">🔓</div>
-          <div><div class="p-name">Recently Released</div><div class="p-desc">Walking out with nothing but determination. You need banking, ID, and a clear first step. We start exactly there.</div></div>
+          <div><div class="p-name">Recently Released</div><div class="p-desc">Walking out with nothing but determination. ID, banking, benefits, and the child support clock nobody warned you about. <strong style="color:var(--amber)">See the dedicated guide →</strong></div></div>
         </div>
         <div class="persona">
           <div class="p-icon">⚖️</div>

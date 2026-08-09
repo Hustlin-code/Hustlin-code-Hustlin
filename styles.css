@@ -184,10 +184,29 @@ a{text-decoration:none}
     radial-gradient(ellipse at 15% 60%,rgba(61,122,88,.18) 0%,transparent 55%),
     radial-gradient(ellipse at 85% 15%,rgba(232,160,32,.1) 0%,transparent 50%);
 }
+/* The side column is now CONDITIONAL. It used to be unconditional — a
+   1fr/390px grid on every hero on the site — which is fine on the pages
+   that put a card in it and dead space on the ones that do not. The
+   disability guide and the reentry guide both ship copy only, so they
+   rendered as a squeezed 738px column of text sitting next to 462px of
+   nothing, on a 1200px canvas.
+
+   :has() makes this automatic rather than a class somebody has to remember
+   to add. A hero with a second child gets the two-up grid; a hero without
+   one becomes a single 900px column and centres. The next guide inherits
+   the right behaviour by existing, which is the entire point of doing it
+   this way instead of adding .hero-wrap--solo. */
 .hero-wrap{
   max-width:1200px;margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1fr 390px;gap:72px;
+  display:grid;grid-template-columns:1fr;gap:72px;
   align-items:center;position:relative;z-index:1;
+}
+@media(min-width:901px){
+  .hero-wrap:has(> *:nth-child(2)){grid-template-columns:1fr 390px}
+  /* Solo hero: cap the measure. Left at 1200px the headline and subhead
+     would run the full width and the line length would be worse than the
+     dead space this replaces. */
+  .hero-wrap:not(:has(> *:nth-child(2))){max-width:900px}
 }
 @media(max-width:900px){.hero-wrap{grid-template-columns:1fr;gap:40px}}
 @media(max-width:600px){.hero-wrap{gap:24px}}
@@ -221,21 +240,66 @@ a{text-decoration:none}
   font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
   margin-bottom:26px;
 }
+/* ═══════════════════════════════════════════════════════════════════════
+   THE HERO STANDARD — 2026-08-09
+   ═══════════════════════════════════════════════════════════════════════
+   This file owns hero SIZE and LAYOUT at every width. Pages do not.
+
+   It was written after the third round of hero edits in one day. The churn
+   was never about how the headline LOOKED — it was that six pages each
+   carried their own font-size, in their own inline <style>, which loads
+   after this file and therefore wins. Changing "the hero" meant finding
+   and editing all six, and missing one was invisible: about.html and
+   work-with-us.html sat at ~40px on a phone for a full deploy because
+   their size was a style="" attribute nobody thought to grep for.
+
+   WHAT IS SHARED (here, and only here):
+     font-size and line-height on .hero-h1 and .hero-sub, at every
+     breakpoint; hero spacing; and whether .hero-wrap is one column or two.
+
+   WHAT A PAGE MAY STILL SET:
+     the THEME — font-family, colour, -webkit-text-stroke, text-shadow.
+     Technical Analysis is blue, Fundamental is green, Economics is orange,
+     and those pages set --amber locally so the <em> follows automatically.
+     That has never caused a problem because it is genuinely per-page.
+
+   tools/check-hero.mjs enforces the split and fails the deploy on any
+   page-local hero font-size. If you need a different size, it belongs in
+   this block as a documented variant — see .blog-hero below.
+
+   THE SIZE ITSELF: the old default was clamp(2.8rem, 4.6vw, 4.4rem) —
+   roughly 91px at the site's 130% root. Financial Literacy, the disability
+   guide and the reentry guide had each independently overridden it to
+   clamp(2.1rem, 3vw, 2.8rem), which is the strongest evidence available
+   that the default was wrong rather than that those pages were special.
+   That size is now the default, so the four paid course pages come down to
+   match the flagship instead of the other way round.
+   ═══════════════════════════════════════════════════════════════════════ */
 .hero-h1{
-  font-family:var(--f-display);font-size:clamp(2.8rem,4.6vw,4.4rem);
-  font-weight:900;color:#fff;line-height:1.04;letter-spacing:.005em;
-  margin-bottom:22px;
+  font-family:var(--f-display);font-size:clamp(2.1rem,3vw,2.8rem);
+  font-weight:900;color:#fff;line-height:1.08;letter-spacing:.005em;
+  margin-bottom:12px;
   -webkit-text-stroke:2px #000;
   text-shadow:1px 1px 0 rgba(255,255,255,.18),2px 2px 0 rgba(0,0,0,.55),4px 5px 4px rgba(0,0,0,.55);
 }
+/* Blog post titles are the one documented size variant. A post hero is a
+   headline for one article, not a landing page's proposition, and it sits
+   above dense body copy rather than a CTA — so it reads one step down.
+   This lives here rather than in blog.html's inline block so the gate can
+   stay strict and there is still exactly one file to look in. */
+.blog-hero .hero-h1{font-size:clamp(1.35rem,2.3vw,1.9rem);margin-bottom:10px}
+.blog-hero .hero-sub{font-size:.82rem;line-height:1.6}
 .hero-h1 em{
   font-style:normal;color:var(--amber);
   -webkit-text-stroke:3px #0a0500;
   text-shadow:1px 1px 0 #d4a010,2px 2px 0 #b88008,3px 3px 0 #9a6200,4px 4px 0 #7a4a00,5px 6px 3px rgba(0,0,0,.75),0 0 26px rgba(240,192,48,.55),0 0 50px rgba(240,192,48,.25);
 }
+/* Part of the hero standard above — size and measure live here, not on the
+   page. 1rem/1.55 is what the three pages that overrode the old 1.1rem/1.72
+   had each settled on. */
 .hero-sub{
-  font-size:1.1rem;color:rgba(255,255,255,.72);
-  line-height:1.72;margin-bottom:38px;max-width:510px;
+  font-size:1rem;color:rgba(255,255,255,.72);
+  line-height:1.55;margin-bottom:18px;max-width:585px;
 }
 /* The subhead body is deliberately dimmed; a lead clause set in <strong>
    needs full white or the emphasis reads as noise rather than hierarchy. */
@@ -2136,4 +2200,147 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
      there is the reader's only marker. */
   .course-main .mod-num{display:none}
   .course-main .mod-head{padding:14px}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   GUIDE-PAGE COMPONENTS — 2026-08-09
+   ═══════════════════════════════════════════════════════════════════════
+   Lifted verbatim out of disability-wealth-guide.html's inline <style> when
+   a second standalone guide was built on the same chrome.
+
+   These are the parts a guide page is assembled from — the free pill in the
+   hero, the red disclaimer strip, the scenario cards, the numbered priority
+   stack and the static action checklist. They were page-local for as long
+   as there was exactly one guide, which was fine right up until there were
+   two: tools/check-shared-css.mjs fails the deploy when a class is styled
+   in one page's inline block and used in another page's markup with no rule
+   for it, and that gate exists precisely because the second page still
+   RENDERS — just unstyled, in the browser's defaults, which never looks
+   broken enough to catch in a diff. Nine copies of .breadcrumb got that far.
+
+   So the rule is the one already written down: move it here, do not paste
+   it into the second page. Anything genuinely specific to one guide
+   (.dwg-stat-txt) stays in that guide.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Hero "100% free" pill. Green rather than amber on purpose — amber is the
+   CTA colour on these pages and a free badge that looks like a button gets
+   tapped. */
+.free-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(45,160,45,.12);border:1px solid rgba(45,160,45,.28);
+  color:var(--green-lt);padding:5px 14px;border-radius:20px;
+  font-size:.74rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;margin-bottom:12px;
+}
+.free-pill-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--green-lt);
+  box-shadow:0 0 6px var(--green-lt);
+  animation:fpdot 2s ease-in-out infinite alternate;
+}
+@keyframes fpdot{from{opacity:.5}to{opacity:1;box-shadow:0 0 10px var(--green-lt)}}
+
+/* Top disclaimer strip. The !important on colour is load-bearing: this sits
+   on a cream surface inside .stage-content, which sets a lighter body
+   colour, and red-on-cream at that weight fails contrast. */
+.disc-top{
+  max-width:900px;margin:0 auto 0;padding:16px 22px;
+  border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.06);
+  border-radius:var(--r-md);font-size:.83rem;line-height:1.7;
+  color:#2a1414 !important;
+}
+.disc-top strong{
+  color:#b91c1c;display:block;margin-bottom:4px;
+  font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+}
+
+/* Two-up comparison cards (reuses the .persona structure) */
+.persona-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+@media(max-width:760px){.persona-grid{grid-template-columns:1fr}}
+
+/* Scenario cards — "here is a person in this situation, here is the move" */
+.scenario-card{
+  background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.08);
+  border-radius:var(--r-md);padding:22px 24px;margin-bottom:18px;
+}
+.scenario-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.scenario-ico{font-size:1.4rem}
+.scenario-name{font-weight:800;font-size:1rem;color:#1c1c1c}
+.scenario-tag{font-size:.78rem;color:rgba(28,28,28,.55)}
+.scenario-body p{font-size:.88rem;line-height:1.75;color:#1c1c1c;margin-bottom:0}
+
+/* Numbered priority stack — order of operations, not a checklist */
+.stack-row{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 0;border-bottom:1px solid rgba(0,0,0,.08);
+}
+.stack-row:last-child{border-bottom:none}
+.stack-num{
+  flex-shrink:0;width:32px;height:32px;border-radius:50%;
+  background:rgba(245,197,32,.12);border:1px solid rgba(245,197,32,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.85rem;color:var(--amber);
+}
+.stack-txt strong{color:#1c1c1c;display:block;margin-bottom:3px;font-size:.92rem}
+.stack-txt p{font-size:.85rem;color:rgba(28,28,28,.62);line-height:1.7}
+
+/* Figures-verified footnote */
+.verified-note{
+  display:inline-flex;align-items:center;gap:6px;font-size:.72rem;
+  color:rgba(45,160,45,.85);background:rgba(45,160,45,.08);
+  border:1px solid rgba(45,160,45,.22);padding:3px 10px;
+  border-radius:20px;margin:10px 0;
+}
+
+/* Static action checklist. Deliberately NOT localStorage-backed — it is a
+   reference list to read, not a tool that tracks you. The course modules
+   own progress; a second, quieter progress system would compete with it. */
+.plan-row{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:11px 0;border-bottom:1px solid rgba(0,0,0,.08);
+}
+.plan-row:last-child{border-bottom:none}
+.plan-box{
+  flex-shrink:0;width:20px;height:20px;border-radius:5px;
+  border:1.5px solid rgba(0,0,0,.2);margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;color:var(--amber);
+}
+.plan-txt{font-size:.88rem;line-height:1.65;color:#1c1c1c}
+.plan-txt strong{color:#1c1c1c}
+
+/* Phone density for the guide components. Same reasoning as sections 12-14:
+   these were sized against a desktop column. */
+@media(max-width:600px){
+  .disc-top{padding:13px 15px;font-size:.79rem;line-height:1.62}
+  .scenario-card{padding:16px 16px}
+  .stack-row{gap:12px;padding:13px 0}
+  .stack-num{width:27px;height:27px;font-size:.78rem}
+  .plan-row{gap:10px;padding:10px 0}
+}
+
+/* ─── 15. STAGE OUTRO DENSITY ───────────────────────────────────────────
+   The completion panel is the one screen where the site asks for money, and
+   on a phone it was spending most of its height before getting there. The
+   crown alone ran ~330px: 24px of padding, a two-line 24px headline, a
+   six-line lede at 1.7 line-height, and a pill — all centred, which is
+   fine for a headline and tiring for a paragraph.
+
+   Centred body copy also costs more than it looks. Both edges are ragged,
+   so the eye has to find the start of every line, and at ~34 characters per
+   line on a 375px screen that is a lot of finding. The headline and the
+   stamp stay centred because they are single statements; the lede goes
+   left because it is prose. */
+@media(max-width:600px){
+  .hfy-outro-crown{padding:20px 16px}
+  .hfy-outro-h1{font-size:1.22rem;line-height:1.3;margin-bottom:9px}
+  .hfy-outro-lede{
+    font-size:.88rem;line-height:1.58;margin-bottom:14px;
+    text-align:left;
+  }
+  .hfy-outro-stamp{padding:7px 15px;font-size:.82rem}
+
+  .hfy-outro-sec{padding:17px 15px}
+  .hfy-outro-h3{font-size:1.02rem;line-height:1.32;margin-bottom:6px}
+  .hfy-outro-p{font-size:.87rem;line-height:1.6;margin-bottom:13px}
 }
