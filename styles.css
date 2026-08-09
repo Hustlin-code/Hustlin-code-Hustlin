@@ -1991,3 +1991,75 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   pre,code{white-space:pre-wrap;word-break:break-word}
   .mod-body,.tool-card,.actions{min-width:0}
 }
+
+/* ─── 12. HERO + SECTION TYPE AT PHONE WIDTHS ───────────────────────────
+   Section 1 stepped the ROOT down, which fixed everything sized in rem
+   *relative to itself*. It could not fix the two places where the size was
+   chosen for a 1400px canvas and then floored:
+
+     .hero-h1   clamp(2.8rem, 4.6vw, 4.4rem)
+     .sec-h2    clamp(1.6rem, 2.6vw, 2.3rem)
+
+   A clamp's vw term collapses on a phone (4.6vw at 390px is 18px), so the
+   MINIMUM is what renders — 2.8rem, which against the 118% root is ~53px.
+   Stepping the root further would only shrink body copy, which is already
+   correct; the fix has to be at the two floors themselves.
+
+   Calibrated against blog.html, which is the page that already reads right
+   on a phone and whose hero is deliberately much smaller:
+
+     .blog-hero .hero-h1   clamp(1.35rem, 2.3vw, 1.9rem)   ≈ 25px
+
+   The heroes here are page H1s on landing pages rather than post titles,
+   so they sit one step above the blog rather than level with it.
+
+   NOTE ON CASCADE: these are plain single-class selectors, so they win on
+   source order alone against the originals earlier in this file — but they
+   LOSE to any page that declares the same class in its own inline <style>,
+   which loads after this file. disability-wealth-guide.html was doing
+   exactly that and has been gated to min-width:601px so this block owns
+   the phone. Check for that first if a page ignores this section. */
+@media(max-width:600px){
+  /* The poster treatment is the real cost here. A 2px stroke and a five-
+     layer shadow are proportionate at 60px and turn to mud at 35px, so
+     both scale down with the type rather than staying pinned in px. */
+  .hero-h1{
+    font-size:1.85rem;line-height:1.12;letter-spacing:0;margin-bottom:14px;
+    -webkit-text-stroke-width:1px;
+    text-shadow:1px 1px 0 rgba(255,255,255,.14),1px 2px 0 rgba(0,0,0,.5),2px 3px 3px rgba(0,0,0,.5);
+  }
+  .hero-h1 em{
+    -webkit-text-stroke-width:1.5px;
+    text-shadow:1px 1px 0 #d4a010,2px 2px 0 #b88008,3px 4px 2px rgba(0,0,0,.7),0 0 18px rgba(240,192,48,.45);
+  }
+  .hero-sub{font-size:.92rem;line-height:1.62;margin-bottom:20px;max-width:none}
+
+  .breadcrumb{font-size:.72rem;margin-bottom:12px;gap:5px}
+  .eyebrow{font-size:.66rem;padding:4px 11px;margin-bottom:14px}
+
+  /* Four stats on one flex row: at 1.9rem the values alone are wider than
+     the screen, so the row wrapped to four stacked lines and pushed the
+     CTA below the fold on every hero on the site. */
+  .stat-val{font-size:1.3rem}
+  .stat-lbl{font-size:.66rem;letter-spacing:.04em}
+
+  .btn-a{padding:13px 22px;font-size:.88rem}
+  .btn-b{font-size:.86rem}
+
+  .sec-eye{font-size:.7rem;margin-bottom:10px}
+  .sec-h2{font-size:1.45rem;line-height:1.28}
+  .sec-sub{font-size:.9rem;line-height:1.62;max-width:none}
+
+  /* !important because the 768px rule above already carries one; equal
+     specificity, so this wins on source order only while it matches. */
+  .stage-banner h1,.stage-banner h2{font-size:1.45rem!important;margin:.6em 0}
+  .s-badge{font-size:.68rem;padding:4px 10px;margin-bottom:10px}
+}
+
+/* The 380px step exists because at that width the headline is the only
+   element still forcing a three-line wrap on a two-clause title. */
+@media(max-width:380px){
+  .hero-h1{font-size:1.68rem}
+  .sec-h2{font-size:1.34rem}
+  .stat-val{font-size:1.18rem}
+}
