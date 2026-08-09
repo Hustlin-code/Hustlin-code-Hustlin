@@ -908,9 +908,14 @@ ${m.rows.map(r => {
    catches one lie stops trusting the numbers too.
 */
 
+/* `equity` is in this list but has no MKT marker anywhere, and that is the
+   whole point. It exists purely to land in the snapshot, which is what
+   tools/build-charts.mjs reads to put a live final point on the Dow chart in
+   Stage 5. Nothing on a Markets page renders it. Remove it from here and the
+   chart silently reverts to ending at the last completed year. */
 function flatten(data) {
   const out = {}
-  for (const set of ['macro', 'growth', 'inflation', 'rates', 'labor', 'consumer']) {
+  for (const set of ['macro', 'growth', 'inflation', 'rates', 'labor', 'consumer', 'equity']) {
     for (const r of data[set] ?? []) {
       out[r.key] = { label: r.label, display: r.display, value: r.value, date: r.date, freq: r.freq, better: r.better, fmt: r.fmt, deltaUnit: r.deltaUnit }
     }
@@ -1136,6 +1141,20 @@ async function main() {
   if (needsDiff) for (const s of ['macro', 'growth', 'inflation', 'rates', 'labor', 'consumer']) {
     if (!sets.includes(s)) sets.push(s)
   }
+
+  /* `equity` (one series, DJIA) is requested unconditionally, because unlike
+     every other set it is not driven by a marker. No Markets page renders it.
+     It exists so the snapshot carries a current index level for the Stage 5
+     Dow chart, which build-charts.mjs bakes on the next deploy.
+
+     Cost is one extra FRED call per run, cached six hours server-side, so in
+     practice ~4 upstream calls a day across ~125 runs a week.
+
+     Harmless if the Edge Function has not been redeployed with the `equity`
+     set yet: the request filter there drops unknown set names, so this comes
+     back absent rather than erroring, `flatten` writes no djia key, and the
+     chart keeps its year-end ending. */
+  if (!sets.includes('equity')) sets.push('equity')
 
   let data
   try {

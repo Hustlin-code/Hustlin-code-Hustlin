@@ -1305,6 +1305,30 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .hfy-sharebar-txt span{font-size:.82rem;color:var(--text-muted)}
 .hfy-sharebar-btns{display:flex;flex-wrap:wrap;gap:8px}
 
+/* QR in the share bar. For the case the buttons cannot cover: you are next to
+   someone, they will not type a URL, and neither of you wants to swap phone
+   numbers over a course recommendation. They point a camera at your screen.
+
+   The white plate is required, not styling — a QR needs light background and a
+   quiet zone or scanners fail on it.
+
+   Hidden under 700px because on a phone this is almost always the screen being
+   scanned rather than the one scanning, and at that width it would take half
+   the bar to say nothing. */
+.hfy-share-qr{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+  padding-left:16px;margin-left:auto;
+  border-left:1px solid var(--border);
+}
+.hfy-share-qr img{
+  width:72px;height:72px;background:#fff;padding:5px;
+  border-radius:8px;border:1px solid var(--border);
+}
+.hfy-share-qr span{
+  font-size:.7rem;line-height:1.4;font-weight:700;color:var(--text-muted);
+}
+@media(max-width:700px){.hfy-share-qr{display:none}}
+
 .hfy-share-btn{
   display:inline-flex;align-items:center;gap:6px;
   padding:8px 14px;border-radius:999px;
@@ -1684,6 +1708,27 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   50%      { opacity: 1; }
 }
 .hfy-mascot.is-paused * { animation-play-state: paused !important; }
+
+/* Small-screen cost control. The mascot is decoration; it must never be the
+   reason a phone drops frames while someone is trying to reach the button.
+   Two things get dropped under 900px:
+
+     filter: blur(6px)  — an animated blur is recomposited every frame and is
+       by far the most expensive thing in this widget on a low-end phone. The
+       glow is a soft radial gradient already, so losing the blur costs almost
+       nothing visually at this size.
+
+     will-change — it promotes three layers to their own GPU textures. That is
+       a good trade on a 400px desktop mascot and a bad one on a 160px mobile
+       one, where the memory matters more than the paint saving.
+
+   The motion itself stays. Taps are unaffected at any size: both wrappers set
+   pointer-events:none, so the mascot cannot sit on top of a control, and
+   body{overflow-x:hidden} absorbs the glow's ~9% horizontal bleed. */
+@media (max-width: 900px) {
+  .hfy-glow { filter: none; }
+  .hfy-idle, .hfy-orbwrap, .hfy-rays, .hfy-glow { will-change: auto; }
+}
 
 /* Placement of the mascot is per-page and lives in each page's own <style>
    block (index.html, financial-literacy.html). It cannot live here: both

@@ -128,6 +128,18 @@
       case 'sms':   return 'sms:?&body=' + t + '%20' + u;
       case 'email': return 'mailto:?subject=' + encodeURIComponent("A free financial course that's actually good")
                          + '&body=' + t + '%20' + u;
+      /* Snapchat's Share Link plugin. Opens the camera with the URL already
+         attached, on mobile and on Snapchat for Web. `attachmentUrl` is the
+         parameter that carries the link — without it the Snap posts with no
+         way back to us, which is the whole point of sharing it. */
+      case 'snap':  return 'https://www.snapchat.com/scan?attachmentUrl=' + u;
+      /* Instagram is a FOLLOW link, not a share link, and that is not an
+         oversight. Instagram exposes no share intent for third-party URLs and
+         does not make links in captions tappable, so a "Share to Instagram"
+         button cannot do what its label promises. Pointing at the profile is
+         the honest version. Anyone who wants to put us in a Story can use
+         Copy link, which is the actual supported path. */
+      case 'ig':    return 'https://www.instagram.com/hustlin_org/';
       default: return SHARE_URL;
     }
   }
@@ -164,7 +176,28 @@
       '<a class="hfy-share-btn" href="' + shareHref('sms') + '">💬 Text it</a>' +
       '<a class="hfy-share-btn" href="' + shareHref('x') + '" target="_blank" rel="noopener">𝕏 Post</a>' +
       '<a class="hfy-share-btn" href="' + shareHref('fb') + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+      '<a class="hfy-share-btn" href="' + shareHref('snap') + '" target="_blank" rel="noopener">👻 Snapchat</a>' +
+      // Labelled "Follow", never "Share" — see shareHref('ig') for why the
+      // distinction is load-bearing rather than pedantic.
+      '<a class="hfy-share-btn" href="' + shareHref('ig') + '" target="_blank" rel="noopener">📸 Follow on IG</a>' +
       (compact ? '' : '<a class="hfy-share-btn" href="' + shareHref('email') + '">✉️ Email</a>');
+  }
+
+  /* The QR block. Exists for the in-person case the buttons cannot cover:
+     you are standing next to someone, they are not going to type a URL, and
+     nobody wants to swap phone numbers over a course recommendation. They
+     point a camera at your screen instead.
+
+     Hidden below 560px on purpose (see the CSS): a phone is the device most
+     likely to BE the screen being scanned, not the one doing the scanning,
+     and the code would eat half the bar. */
+  function qrBlock() {
+    return '' +
+      '<div class="hfy-share-qr">' +
+        '<img src="/assets/qr-code.png" width="96" height="96" loading="lazy" decoding="async" ' +
+             'alt="QR code linking to hustlin.org">' +
+        '<span>Point a camera<br>at this</span>' +
+      '</div>';
   }
 
   function wireShare(root) {
@@ -187,7 +220,8 @@
         '<strong>Somebody you know needs this.</strong>' +
         '<span>The whole course is free. Send it to one person.</span>' +
       '</div>' +
-      '<div class="hfy-sharebar-btns">' + shareButtons(true) + '</div>';
+      '<div class="hfy-sharebar-btns">' + shareButtons(true) + '</div>' +
+      qrBlock();
 
     anchor.parentNode.insertBefore(bar, anchor);
     wireShare(bar);

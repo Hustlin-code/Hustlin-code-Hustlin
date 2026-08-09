@@ -244,6 +244,38 @@
    pushes the CTA off the first screen; underneath, he closes the block
    and costs the button nothing. The scroll cue sits inside the hero's
    bottom padding (and moves hard left under 600px), so they never meet. */
+/* QR, mirroring the mascot on the left. Same 1600px gate, same reasoning.
+   Desktop-only in a second sense: the device most likely to scan a QR code
+   is the phone in your hand, not the phone showing it. This is for the
+   laptop-on-a-table conversation, so there is no mobile placement. */
+.ix-hero-qr { display: none }
+@media (min-width: 1600px) {
+  .ix-hero-qr {
+    display: block;
+    position: absolute;
+    left: clamp(40px, 3vw, 80px);
+    bottom: clamp(48px, 8vh, 96px);
+    width: 150px;
+    z-index: 2;
+    text-align: center;
+  }
+  .ix-hero-qr img {
+    width: 150px; height: 150px;
+    /* White plate and padding are load-bearing, not decorative: a QR with a
+       transparent background on a near-black hero has inverted contrast and
+       most scanners will not read it. The quiet zone matters too. */
+    background: #fff;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.45);
+  }
+  .ix-hero-qr span {
+    display: block; margin-top: 9px;
+    font-size: .7rem; line-height: 1.45; font-weight: 700;
+    letter-spacing: .04em; color: rgba(255,255,255,.45);
+  }
+}
+
 .ix-hero-mascot {
   display: block;
   position: static;
@@ -771,16 +803,28 @@
        why. Decorative here: the headline already carries the meaning, so the
        images are alt="" and the wrapper is aria-hidden to keep a screen
        reader from announcing a character it cannot use. -->
+  <!-- QR code. Mirrors the mascot on the opposite side, and shown under the
+       same >=1600px gate for the same reason: below that width the centred
+       copy column needs the margin. It is deliberately DESKTOP-ONLY in a
+       second sense too — a QR code on a phone is close to useless, because
+       the device most likely to scan it is the one already displaying it.
+       This is for the laptop-on-a-table conversation. -->
+  <div class="ix-hero-qr">
+    <img src="assets/qr-code.png" alt="QR code linking to hustlin.org"
+         width="150" height="150" loading="lazy" decoding="async">
+    <span>Scan it.<br>Send someone.</span>
+  </div>
+
   <div class="ix-hero-mascot" aria-hidden="true">
     <div class="hfy-mascot">
       <div class="hfy-idle">
         <div class="hfy-glow"></div>
         <div class="hfy-orbwrap">
-          <img class="hfy-orb" src="assets/mascot/orb.png" alt="" width="193" height="193" loading="eager" decoding="async">
+          <img class="hfy-orb" src="assets/mascot/orb.png" alt="" width="193" height="193" loading="lazy" decoding="async">
           <div class="hfy-shine"></div>
         </div>
-        <img class="hfy-rays" src="assets/mascot/rays.png" alt="" width="269" height="210" loading="eager" decoding="async">
-        <img class="hfy-body" src="assets/mascot/body.png" alt="" width="941" height="1134" loading="eager" decoding="async">
+        <img class="hfy-rays" src="assets/mascot/rays.png" alt="" width="269" height="210" loading="lazy" decoding="async">
+        <img class="hfy-body" src="assets/mascot/body.png" alt="" width="941" height="1134" loading="lazy" decoding="async">
       </div>
     </div>
   </div>

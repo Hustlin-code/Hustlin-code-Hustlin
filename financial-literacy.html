@@ -375,11 +375,11 @@ ROME BADGE BUTTON (matches logo branding) ─ */
         <div class="hfy-idle">
           <div class="hfy-glow"></div>
           <div class="hfy-orbwrap">
-            <img class="hfy-orb" src="assets/mascot/orb.png" alt="" width="193" height="193" decoding="async">
+            <img class="hfy-orb" src="assets/mascot/orb.png" alt="" width="193" height="193" loading="lazy" decoding="async">
             <div class="hfy-shine"></div>
           </div>
-          <img class="hfy-rays" src="assets/mascot/rays.png" alt="" width="269" height="210" decoding="async">
-          <img class="hfy-body" src="assets/mascot/body.png" alt="" width="941" height="1134" decoding="async">
+          <img class="hfy-rays" src="assets/mascot/rays.png" alt="" width="269" height="210" loading="lazy" decoding="async">
+          <img class="hfy-body" src="assets/mascot/body.png" alt="" width="941" height="1134" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -584,14 +584,22 @@ ROME BADGE BUTTON (matches logo branding) ─ */
 
     <style>
       .fl-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px}
-      .fl-tool{display:block;text-decoration:none;background:rgba(255,255,255,.03);
-        border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:15px 16px;transition:.15s}
-      .fl-tool:hover{border-color:rgba(232,160,32,.55);background:rgba(232,160,32,.06)}
-      .fl-tool b{display:block;font-size:.94rem;color:#fff;margin-bottom:4px;font-weight:700}
-      .fl-tool span{display:block;font-size:.79rem;line-height:1.45;color:rgba(255,255,255,.46)}
+      /* These cards shipped with white text and white-alpha fills, which is
+         the palette for a DARK section. #tools is a plain .sec, so it sits on
+         --white (#FBF7EC) and every tile rendered near-invisible: white on
+         cream. Nothing was broken, so nothing failed - it just could not be
+         read. Light-surface tokens only below, and --amber-ink rather than
+         --amber for anything that is text, because --amber is the on-dark
+         value and does not clear WCAG AA on cream. */
+      .fl-tool{display:block;text-decoration:none;background:var(--cream);
+        border:1px solid var(--border);border-radius:12px;padding:15px 16px;transition:.15s}
+      .fl-tool:hover{border-color:var(--amber-mid);background:#fff;box-shadow:var(--sh-sm)}
+      .fl-tool b{display:block;font-size:.94rem;color:var(--text-dark);margin-bottom:4px;font-weight:700}
+      .fl-tool span{display:block;font-size:.79rem;line-height:1.45;color:var(--text-muted)}
       .fl-tool .fl-new{display:inline-block;font-size:.62rem;letter-spacing:.09em;font-weight:800;
-        color:#E8A020;border:1px solid rgba(232,160,32,.5);border-radius:99px;padding:1px 6px;margin-left:6px;vertical-align:2px}
-      .fl-tools-all{display:inline-block;margin-top:22px;font-weight:700;color:var(--amber);text-decoration:none;font-size:.95rem}
+        color:var(--amber-ink);border:1px solid rgba(179,129,15,.55);border-radius:99px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+      .fl-tools-all{display:inline-block;margin-top:22px;font-weight:700;color:var(--amber-ink);text-decoration:none;font-size:.95rem}
+      .fl-tools-all:hover{text-decoration:underline}
     </style>
 
     <div class="fl-tools">
@@ -599,7 +607,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       <a class="fl-tool" href="paycheck-calculator.html"><b>Paycheck Calculator<span class="fl-new">NEW</span></b><span>Take-home after federal tax, FICA and your state.</span></a>
       <a class="fl-tool" href="paycheck-split-calculator.html"><b>Paycheck Split</b><span>50/30/20 — plus versions for tight and crisis months.</span></a>
       <a class="fl-tool" href="emergency-fund-calculator.html"><b>Emergency Fund</b><span>How long to $1,000, then to three and six months.</span></a>
-      <a class="fl-tool" href="life-just-happened-fund-calculator.html"><b>Life Just Happened Fund Planner</b><span>Annual bills, divided by twelve, stop being crises.</span></a>
+      <a class="fl-tool" href="life-just-happened-fund-calculator.html"><b>Life Just Happened Fund</b><span>Annual bills, divided by twelve, stop being crises.</span></a>
       <a class="fl-tool" href="debt-overview-calculator.html"><b>Debt Overview</b><span>Every debt in one place, and which to attack first.</span></a>
       <a class="fl-tool" href="debt-payoff-calculator.html"><b>Debt Payoff Timeline</b><span>What an extra $25 a month actually does.</span></a>
       <a class="fl-tool" href="credit-utilization-calculator.html"><b>Credit Utilization</b><span>The fastest-moving factor in your credit score.</span></a>
@@ -646,7 +654,19 @@ ROME BADGE BUTTON (matches logo branding) ─ */
       <div class="fl-share-row">
         <a class="fl-share-btn" href="https://x.com/intent/tweet?text=Free%20financial%20literacy%20course%20%E2%80%94%20five%20stages%2C%20no%20account%2C%20no%20cost.&amp;url=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on X</a>
         <a class="fl-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on Facebook</a>
+        <!-- Snapchat's Share Link plugin: attachmentUrl is what carries the
+             link back to us. Without it the Snap is a dead end. -->
+        <a class="fl-share-btn" href="https://www.snapchat.com/scan?attachmentUrl=https%3A%2F%2Fhustlin.org%2Ffinancial-literacy.html" target="_blank" rel="noopener">Share on Snapchat</a>
+        <!-- Instagram says "Follow", not "Share", because Instagram exposes no
+             share intent for third-party URLs and does not make caption links
+             tappable. A "Share to Instagram" button here could not do what the
+             label promised. -->
         <a class="fl-share-btn" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">Follow @hustlin_org</a>
+      </div>
+      <div class="fl-share-qr">
+        <img src="assets/qr-code.png" alt="QR code linking to hustlin.org"
+             width="88" height="88" loading="lazy" decoding="async">
+        <span>Or just let them<br>scan your screen.</span>
       </div>
     </div>
     <style>
@@ -660,6 +680,13 @@ ROME BADGE BUTTON (matches logo branding) ─ */
         color:var(--amber);font-size:.82rem;font-weight:700;transition:.18s;
       }
       .fl-share-btn:hover{background:rgba(232,160,32,.16);border-color:rgba(232,160,32,.6)}
+      /* White plate is functional: a QR on a near-black section has inverted
+         contrast and most scanners refuse it. Hidden on phones — there the
+         screen is the thing being scanned, not the scanner. */
+      .fl-share-qr{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px}
+      .fl-share-qr img{width:88px;height:88px;background:#fff;padding:6px;border-radius:8px}
+      .fl-share-qr span{font-size:.72rem;line-height:1.45;font-weight:700;color:rgba(255,255,255,.4);text-align:left}
+      @media(max-width:700px){.fl-share-qr{display:none}}
     </style>
   </div>
 </section>
