@@ -32,6 +32,13 @@
   -webkit-text-stroke:0;
   text-shadow:none;
 }
+/* Same fix as about.html, 2026-08-09: this size was a style="" attribute on
+   the <h1>, which outranks every stylesheet and left this one hero at
+   2.2rem (~42px) on a phone after section 12 of styles.css brought the rest
+   of the site down. Gated so the shared phone rule wins under 601px. */
+@media(min-width:601px){
+  .wwu-hero .hero-h1{font-size:clamp(2.2rem,4vw,3.4rem)}
+}
 .wwu-hero .hero-h1 em{
   font-style:normal;
   color:var(--amber);
@@ -67,7 +74,7 @@
   <div class="hero-wrap" style="grid-template-columns:1fr">
     <div>
       <div class="eyebrow"><span>●</span> Partner With Hustlin' For You</div>
-      <h1 class="hero-h1" style="font-size:clamp(2.2rem,4vw,3.4rem)">
+      <h1 class="hero-h1">
         Bring this to the people<br>
         you're already <em>showing up for.</em>
       </h1>

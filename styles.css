@@ -2010,8 +2010,13 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 
      .blog-hero .hero-h1   clamp(1.35rem, 2.3vw, 1.9rem)   ≈ 25px
 
-   The heroes here are page H1s on landing pages rather than post titles,
-   so they sit one step above the blog rather than level with it.
+   These land just above the blog rather than well above it. The first pass
+   tried 1.85rem on the theory that a landing-page H1 outranks a post title.
+   On the page that matters most it does not: financial-literacy.html's
+   headline is three clauses — "Nobody Taught You This. Start Today. Costs
+   Nothing." — and at 1.85rem it still wrapped to five lines and pushed the
+   CTA off a 390px screen. A hero whose button you cannot see is not a hero.
+   1.5rem puts each clause on its own line and the button above the fold.
 
    NOTE ON CASCADE: these are plain single-class selectors, so they win on
    source order alone against the originals earlier in this file — but they
@@ -2021,10 +2026,10 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
    the phone. Check for that first if a page ignores this section. */
 @media(max-width:600px){
   /* The poster treatment is the real cost here. A 2px stroke and a five-
-     layer shadow are proportionate at 60px and turn to mud at 35px, so
+     layer shadow are proportionate at 60px and turn to mud at 28px, so
      both scale down with the type rather than staying pinned in px. */
   .hero-h1{
-    font-size:1.85rem;line-height:1.12;letter-spacing:0;margin-bottom:14px;
+    font-size:1.5rem;line-height:1.16;letter-spacing:0;margin-bottom:14px;
     -webkit-text-stroke-width:1px;
     text-shadow:1px 1px 0 rgba(255,255,255,.14),1px 2px 0 rgba(0,0,0,.5),2px 3px 3px rgba(0,0,0,.5);
   }
@@ -2057,9 +2062,9 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 }
 
 /* The 380px step exists because at that width the headline is the only
-   element still forcing a three-line wrap on a two-clause title. */
+   element still forcing an extra wrap on a two-clause title. */
 @media(max-width:380px){
-  .hero-h1{font-size:1.68rem}
+  .hero-h1{font-size:1.36rem}
   .sec-h2{font-size:1.34rem}
   .stat-val{font-size:1.18rem}
 }
