@@ -135,6 +135,26 @@ jobs:
           node --version
           node tools/inject-market-data.mjs
 
+      # The Markets pages are not the only thing that quotes a live figure.
+      #
+      # The Dow chart in Stage 5 — and the level, price return and dollar
+      # figures in the prose beside it — are baked by build-charts.mjs from
+      # the same snapshot inject-market-data.mjs just refreshed. Without these
+      # two steps the snapshot updates hourly and Stage 5 does not, so it
+      # freezes at whatever the last MANUAL deploy happened to bake. That is
+      # the worst kind of staleness: invisible, and on the one page that talks
+      # about compounding.
+      #
+      # ORDER IS THE SAME AS THE DEPLOY SCRIPT AND FOR THE SAME REASON.
+      # build-charts writes the masters in "Financial Literacy Course/";
+      # build-public-stages regenerates the public copies at the site root
+      # from them. Run them the other way round and the public page ships the
+      # previous build's chart while --check still passes.
+      - name: Rebake the course charts from the new snapshot
+        run: |
+          node tools/build-charts.mjs
+          node tools/build-public-stages.mjs
+
       - name: Commit only if something actually changed
         id: commit
         run: |
@@ -143,7 +163,16 @@ jobs:
 
           # tools/.market-snapshot.json must be committed too — the next run
           # diffs against it to build the "what changed" block on the page.
-          git add -A '*.html' 'Markets/*.html' 'tools/.market-snapshot.json'
+          #
+          # "Financial Literacy Course/" is in this list because build-charts
+          # writes the MASTERS there and build-public-stages regenerates the
+          # public copies from them. Commit only the public copy and the next
+          # checkout has a new public page against an old master, which is
+          # exactly the mismatch `build-public-stages --check` exists to catch
+          # — so the next manual deploy would fail its gate on a change nobody
+          # made by hand. Stage both halves or neither.
+          git add -A '*.html' 'Markets/*.html' 'Financial Literacy Course/*.html' \
+                     'tools/.market-snapshot.json'
 
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -152,7 +181,14 @@ jobs:
             # Record WHICH pages changed, so the purge below can name them
             # instead of flushing the whole zone. See the purge step for why
             # that matters now that this runs ~18 times a day.
-            changed_files=$(git diff --cached --name-only -- '*.html' | tr '\n' ' ')
+            # Course masters are excluded: they live in "Financial Literacy
+            # Course/", are uploaded to Supabase rather than served, and have
+            # no public URL. Left in, they would be pasted into the purge list
+            # as a path containing spaces — a URL that does not exist, in a
+            # request that Cloudflare may reject outright and take the real
+            # purges down with it.
+            changed_files=$(git diff --cached --name-only -- '*.html' \
+                            ':(exclude)Financial Literacy Course/*' | tr '\n' ' ')
             echo "files=${changed_files}" >> "$GITHUB_OUTPUT"
             echo "Changed pages: ${changed_files:-none}"
 
