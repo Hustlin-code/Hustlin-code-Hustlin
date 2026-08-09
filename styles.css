@@ -2068,3 +2068,72 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .sec-h2{font-size:1.34rem}
   .stat-val{font-size:1.18rem}
 }
+
+/* ─── 13. MODULE RAIL DENSITY ───────────────────────────────────────────
+   Measured on a 375x667 viewport (iPhone SE/8, the narrowest phone the
+   site sees): the rail was taking ~192px before the reader reached the
+   module they actually came for, and the share bar above it another
+   ~159px. Over half the viewport was furniture.
+
+   The rail's height is set by its TALLEST card title, and titles run from
+   two words to nine — "Opening a Bank Account When You've Been Locked Out"
+   wraps to four lines and drags all eighteen cards up with it. Clamping to
+   three does two things: it takes a line off the strip, and it makes every
+   card the same height, so the rail stops resizing under the thumb as you
+   swipe. Nothing is lost to the clamp — the active module's full title is
+   stated in the module header immediately below, which is where the reader
+   is going anyway. */
+@media(max-width:600px){
+  .cs-item .cs-txt{
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  /* Padding reclaimed on the way through. Each of these is 2-4px and none
+     is worth stating alone; together they are another ~20px of the strip. */
+  .course-sidebar{padding:10px}
+  .cs-item{padding:9px 10px}
+  .cs-railhead{margin-bottom:6px}
+  .cs-list{padding-bottom:8px}
+  .cs-dots{margin-top:8px;gap:6px}
+
+  /* The dots are navigation, not decoration — each one jumps to a module.
+     At 7px they were a fifth of the 44px minimum, and a mis-tap on a
+     horizontal strip scrolls the page instead, costing the reader their
+     place. Same pseudo-element trick as .act-box in section 3: the hit
+     area grows, the dot keeps its visual weight, nothing reflows. */
+  .cs-dot{position:relative}
+  .cs-dot::after{content:"";position:absolute;inset:-14px -6px}
+}
+
+/* ─── 14. SHARE BAR + MODULE HEADER, PHONE DENSITY ──────────────────────
+   Both of these sit between the stage banner and the first module, so
+   every pixel here is a pixel the reader scrolls past to reach the thing
+   they came for. Measured at 375x667: share bar ~159px, module header
+   ~74px, on a screen that shows 667.
+
+   The share bar stays where it is. It reads as an interruption on a
+   phone, but it is the only ask on an otherwise entirely free page and
+   burying it under eighteen modules means nobody sees it. What goes is
+   the second line of copy, not the position: "The whole course is free.
+   Send it to one person." restates the page it is sitting on, and on a
+   narrow screen it is the difference between a two-line and a three-line
+   text block before the buttons even start.
+
+   Button padding comes in horizontally only. The 44px min-height from
+   section 3 is a tap-target floor, not styling — do not reclaim height
+   here, five smaller buttons that miss are worse than two tidy rows. */
+@media(max-width:600px){
+  .hfy-sharebar{padding:11px 13px;gap:10px;margin-bottom:14px}
+  .hfy-sharebar-txt span{display:none}
+  .hfy-sharebar-txt strong{font-size:.9rem;line-height:1.3}
+  .hfy-share-btn{padding:8px 12px;font-size:.79rem;gap:5px}
+
+  /* The rail head above already says "MODULE 4 OF 18", which is strictly
+     more information than "MODULE 04" — it gives position, not just an
+     index. Scoped to .course-main so it only applies where the rail
+     actually exists; the accordion stages have no rail and the number
+     there is the reader's only marker. */
+  .course-main .mod-num{display:none}
+  .course-main .mod-head{padding:14px}
+}
