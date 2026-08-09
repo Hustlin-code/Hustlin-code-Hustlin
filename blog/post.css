@@ -1,65 +1,201 @@
 /* =========================================================================
-   blog/post.css — shared styling for long-form blog posts.
+   blog/post.css — the ONLY stylesheet a blog post gets.
 
-   The first two posts carry this CSS inline, which was fine at two posts and
-   becomes a maintenance problem at ten: a spacing tweak would mean editing
-   every file. New posts link this instead. The existing inline copies are
-   harmless and can be stripped whenever those posts are next touched.
+   WHAT THIS REPLACED
+   ------------------
+   On 2026-08-09 the ten posts were running two incompatible layout systems:
 
-   All selectors are .bp-* prefixed so nothing collides with styles.css or
-   the course pages.
+     · five on a `.bp-*` system with its own hardcoded palette
+       (--gold:#F5C520, --cream:#FAF7F0, --ink:#060606) that did not match
+       styles.css, its own `.bp-hero`, and NO SITE NAV AT ALL - a reader
+       landing on one of those five from search had no way back into the
+       site except the footer
+     · five on a `.p*` system built correctly on the styles.css tokens and
+       the shared `.hero`, but with the whole stylesheet copy-pasted inline
+       into each file, so any change meant editing five posts
+
+   The `.p*` system won because it was already token-based; it now lives
+   here, once, and every post links it. There are no post-local colour
+   values anywhere in this file - every colour is a styles.css token, which
+   is what actually keeps the blog on-brand as the palette moves.
+
+   THE SURFACE RULE
+   ----------------
+   Post bodies render on the CREAM surface. Amber text is --amber-ink
+   (#7A4E00), never --amber (#F0C030), which measures ~1.9:1 on cream.
+   White text is never used on the body at all (~1.07:1). The hero is the
+   one dark region and uses the dark-surface tokens.
+
+   ADDING STYLES
+   -------------
+   Put them here, not in the post. `tools/stamp-post-shell.mjs --check`
+   fails the deploy if a post carries its own <style> block, because that
+   is exactly how the two systems above came to exist.
    ========================================================================= */
 
-.bp{--gold:#F5C520;--ink:#060606;--cream:#FAF7F0;--line:#E4DFD3;--mut:#5c574c;
-    font-family:'Plus Jakarta Sans',sans-serif}
 
-.bp-hero{background:radial-gradient(ellipse at 50% 0%,#1a1a1a 0%,#060606 70%);padding:66px 22px 56px}
-.bp-hero-in{max-width:760px;margin:0 auto}
-.bp-crumb{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;
-          text-transform:uppercase;color:#8b8577;margin:0 0 18px}
-.bp-crumb a{color:#8b8577;text-decoration:none}
-.bp-crumb a:hover{color:var(--gold)}
-.bp-h1{font-weight:800;font-size:clamp(28px,5vw,46px);line-height:1.12;color:#fff;
-       margin:0 0 18px;letter-spacing:-.02em}
-.bp-sub{font-size:17px;line-height:1.65;color:#c2c2c2;margin:0 0 22px}
-.bp-meta{font-family:'Space Mono',monospace;font-size:12px;color:#7d776b;margin:0}
+/* ─── HERO ──────────────────────────────────────────────────────────────
+   .nav is position:fixed at 108px and the shared .hero has no top offset
+   of its own, so the stock 60px padding-top put the breadcrumb behind the
+   header and sliced the category pill in half. The padding values below
+   are nav height plus air, and the breakpoints are the nav's own
+   (108 / 76 / 64) rather than round numbers - if the two ever move apart,
+   the clipping comes straight back in the gap between them.
 
-.bp-body{background:var(--cream);padding:52px 22px 70px}
-.bp-in{max-width:760px;margin:0 auto}
-.bp-in h2{font-size:clamp(21px,3.4vw,29px);font-weight:800;color:var(--ink);
-          margin:40px 0 14px;letter-spacing:-.01em}
-.bp-in h3{font-size:18px;font-weight:800;color:var(--ink);margin:28px 0 10px}
-.bp-in p{font-size:16.5px;line-height:1.75;color:#332f28;margin:0 0 17px}
-.bp-in ul,.bp-in ol{font-size:16.5px;line-height:1.75;color:#332f28;margin:0 0 17px;padding-left:22px}
-.bp-in li{margin-bottom:9px}
-.bp-in a{color:#8A6D08;font-weight:600}
-.bp-lead{font-size:18px;line-height:1.7;color:#332f28}
+   The posts also carried an inline min-height:44vh. At the site's 130%
+   root font size that plus a 3rem headline filled the viewport with a
+   title and pushed the first paragraph off-screen, which on a page whose
+   entire purpose is to be read is the worst possible trade. */
+.post-hero{
+  min-height:0;
+  padding:124px 40px 44px;
+}
+@media(max-width:900px){.post-hero{padding:92px 24px 36px}}
+@media(max-width:600px){.post-hero{padding:92px 18px 32px}}
+@media(max-width:480px){.post-hero{padding:78px 18px 28px}}
 
-.bp-call{background:#fff;border-left:3px solid var(--gold);border-radius:0 12px 12px 0;
-         padding:18px 22px;margin:24px 0}
-.bp-call.warn{border-left-color:#C4381F;background:#FDF1EE}
-.bp-call p{margin:0 0 10px;font-size:15.5px}
-.bp-call p:last-child{margin:0}
-.bp-call b{color:var(--ink)}
+.post-hero .hero-wrap{grid-template-columns:minmax(0,1fr);max-width:860px}
 
-.bp-tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);
-        border-radius:12px;overflow:hidden;font-size:15px;margin:0 0 20px}
-.bp-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;
-           color:#6F6A5E;padding:12px;border-bottom:2px solid var(--line)}
-.bp-tbl td{padding:11px 12px;border-bottom:1px solid #EFEBE1;color:#332f28;vertical-align:top}
-.bp-tbl tr:last-child td{border-bottom:none}
+/* Swap the heavy embossed Impact poster face (the shared .hero-h1 default)
+   for the clean display font. A poster headline works on a landing page and
+   fights the reader on an article. */
+.post-hero .hero-h1{
+  font-family:var(--f-body);font-weight:800;letter-spacing:-.015em;
+  -webkit-text-stroke:0;text-shadow:none;
+  font-size:clamp(1.45rem,2.7vw,2.15rem);
+  line-height:1.2;margin-bottom:12px;
+}
+.post-hero .hero-h1 em{
+  font-style:normal;color:var(--amber);
+  -webkit-text-stroke:0;text-shadow:none;
+}
+.post-hero .breadcrumb{margin-bottom:12px}
+.post-hero .hero-sub{font-size:.9rem;line-height:1.65;max-width:660px}
 
-.bp-next{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin:38px 0 0}
-.bp-next h3{margin-top:0}
-.bp-next ul{list-style:none;padding:0;margin:0}
-.bp-next li{margin-bottom:10px;font-size:15px}
 
-.bp-disc{font-size:13.5px;line-height:1.65;color:var(--mut);margin-top:34px;
-         padding-top:20px;border-top:1px solid var(--line)}
+/* ─── BODY COLUMN ───────────────────────────────────────────────────────
+   760px is roughly 70-80 characters at this size, which is the measure
+   long-form reading wants. Body copy stays at ~1rem deliberately: this is
+   the one surface on the site people read continuously rather than scan,
+   and it is the one place where bigger is correct. */
+.pw{max-width:760px;margin:0 auto;padding:0 24px}
+
+.pw h2{
+  font-family:var(--f-body);font-size:1.35rem;font-weight:800;
+  color:var(--text-dark);margin:40px 0 13px;letter-spacing:-.01em;
+  scroll-margin-top:132px;
+}
+.pw h3{
+  font-family:var(--f-body);font-size:.98rem;font-weight:700;
+  color:var(--amber-ink);margin:24px 0 9px;
+  scroll-margin-top:132px;
+}
+.pw p{
+  font-family:var(--f-body);font-size:1rem;line-height:1.78;
+  color:var(--text-body);margin:0 0 16px;
+}
+.pw p strong,.pw p b{color:var(--text-dark);font-weight:700}
+.pw a{color:var(--amber-ink);text-decoration:underline;text-underline-offset:2px}
+.pw a:hover{color:var(--orange)}
+
+.plead{font-size:1.08rem;line-height:1.7;color:var(--text-dark)}
+
+.pw ul{list-style:none;padding:0;margin:0 0 18px}
+.pw ul li{
+  font-family:var(--f-body);font-size:.97rem;line-height:1.72;
+  color:var(--text-body);padding:0 0 0 26px;margin-bottom:11px;position:relative;
+}
+.pw ul li:before{content:"\2192";position:absolute;left:0;color:var(--amber-ink);font-weight:700}
+.pw ul li strong,.pw ul li b{color:var(--text-dark)}
+
+.pw ol{padding-left:22px;margin:0 0 18px}
+.pw ol li{
+  font-family:var(--f-body);font-size:.97rem;line-height:1.72;
+  color:var(--text-body);margin-bottom:12px;padding-left:6px;
+}
+.pw ol li::marker{color:var(--amber-ink);font-weight:700}
+.pw ol li strong,.pw ol li b{color:var(--text-dark)}
+
+
+/* ─── CALLOUTS ──────────────────────────────────────────────────────────
+   .pbox is the neutral "worth stopping on" box; add .pwarn for the ones
+   that cost money if ignored. The warning tone is --orange rather than
+   --red: on a financial-literacy site red is reserved for the genuinely
+   dangerous, and spending it on "watch the fee here" makes it stop
+   meaning anything by the third post. */
+.pbox{
+  border:1px solid rgba(179,129,15,.38);
+  background:rgba(240,192,48,.12);
+  border-radius:var(--r-md);padding:20px 22px;margin:0 0 22px;
+}
+.pbox .pt{
+  font-family:var(--f-body);font-size:.7rem;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink);
+  display:block;margin-bottom:9px;
+}
+.pbox p{margin:0 0 10px;color:var(--text-body);font-size:.94rem}
+.pbox p:last-child{margin:0}
+.pbox p strong,.pbox p b{color:var(--text-dark);font-weight:700}
+.pbox ul,.pbox ol{margin-bottom:0}
+
+.pwarn{border-color:rgba(138,58,0,.38);background:rgba(232,114,14,.10)}
+.pwarn .pt{color:#8A3A00}
+
+
+/* ─── META, TABLES, TAIL BLOCKS ─────────────────────────────────────────── */
+.pmeta{
+  font-family:var(--f-mono,'Space Mono',monospace);
+  font-size:.72rem;color:var(--text-muted);margin-bottom:26px;
+}
+
+table.ptab{
+  width:100%;border-collapse:collapse;margin:0 0 22px;
+  font-family:var(--f-body);font-size:.9rem;
+  background:var(--white);border-radius:var(--r-sm);overflow:hidden;
+  box-shadow:var(--sh-sm);
+}
+table.ptab th{
+  text-align:left;padding:11px 13px;color:var(--amber-ink);
+  font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;
+  background:rgba(240,192,48,.14);
+  border-bottom:1px solid var(--border);
+}
+table.ptab td{
+  padding:12px 13px;color:var(--text-body);
+  border-bottom:1px solid var(--border);line-height:1.55;
+}
+table.ptab tr:last-child td{border-bottom:0}
+table.ptab td strong{color:var(--text-dark)}
+table.ptab td em{color:var(--text-muted)}
+
+/* "Where to go next". Every post ends with one, and it is not decoration:
+   the course lessons sit behind an authenticated Edge Function and cannot
+   be crawled, so these links are how the blog passes any authority it earns
+   to the pages that need it. A post that dead-ends is a post wasted. */
+.pnext{border-top:1px solid var(--border);margin-top:48px;padding-top:28px}
+.pnext h3{margin-top:0}
+.pnext ul{margin-bottom:0}
+
+.psrc{border-top:1px solid var(--border);margin-top:40px;padding-top:22px}
+.psrc .pt{
+  font-family:var(--f-body);font-size:.7rem;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink);
+  display:block;margin-bottom:12px;
+}
+.psrc ol{padding-left:20px;margin:0}
+.psrc ol li{
+  font-family:var(--f-body);font-size:.83rem;line-height:1.6;
+  color:var(--text-muted);margin-bottom:8px;
+}
+.psrc ol li a{color:var(--amber-ink)}
+
+.pdisc{
+  font-size:.8rem;line-height:1.65;color:var(--text-muted);
+  margin-top:34px;padding-top:20px;border-top:1px solid var(--border);
+}
 
 @media(max-width:600px){
-  .bp-hero{padding:44px 16px 40px}
-  .bp-body{padding:38px 16px 50px}
-  .bp-tbl{font-size:14px}
-  .bp-tbl th,.bp-tbl td{padding:9px 8px}
+  .pw{padding:0 18px}
+  table.ptab{font-size:.84rem}
+  table.ptab th,table.ptab td{padding:9px 9px}
 }

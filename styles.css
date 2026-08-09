@@ -92,6 +92,26 @@ a{text-decoration:none}
   flex-shrink:0;
 }
 .nav-stage.active .nav-stage-num{background:var(--amber);color:#000}
+
+/* Markets pill in the nav. Lived in blog.html's inline <style> until
+   2026-08-09 while about.html and five blog posts also used the class, so on
+   six of the seven pages that carry it there was no rule behind it and it
+   rendered as an unstyled visited link. A class used by more than one page
+   belongs in the shared sheet - that is the whole rule. */
+.nav-market-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.85rem;font-weight:800;color:var(--dark);
+  white-space:nowrap;text-decoration:none;
+  background:linear-gradient(135deg, var(--amber), var(--green-lt));
+  padding:11px 22px;border-radius:100px;
+  box-shadow:0 6px 18px rgba(240,192,48,.3);
+  transition:all .25s;
+}
+.nav-market-btn:hover{transform:translateY(-1px) scale(1.03);box-shadow:0 8px 22px rgba(240,192,48,.45)}
+@media(max-width:600px){
+  .nav-market-btn{font-size:.72rem;padding:9px 15px}
+}
+
 .nav-cta{
   background:var(--amber);color:var(--dark);
   padding:11px 24px;border-radius:var(--r-sm);
@@ -181,6 +201,19 @@ a{text-decoration:none}
    silently moved this fix off the text column. Applying it to every direct
    child is equivalent for the fixed-width tracks and immune to reordering. */
 .hero-wrap > div{min-width:0}
+/* Breadcrumb. Used on 22 pages; until 2026-08-09 it was defined only inside
+   blog.html's and disability-wealth-guide.html's page-local <style>, so on the
+   other twenty it rendered at inherited body size (21px at the site's 130%
+   root) in the browser's default link purple. Sits on dark heroes only, hence
+   the white alphas. */
+.breadcrumb{
+  font-size:.78rem;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:18px;
+}
+.breadcrumb a{color:rgba(255,255,255,.32);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--amber)}
+.breadcrumb-sep{color:rgba(255,255,255,.15)}
+
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.28);
@@ -828,6 +861,12 @@ a{text-decoration:none}
 .email-inner .sec-h2{color:#fff;margin-bottom:14px}
 .email-inner .sec-sub{color:rgba(255,255,255,.45);margin:0 auto 36px;max-width:480px}
 .email-row{display:flex;gap:10px;max-width:460px;margin:0 auto}
+/* Newsletter success panel. Lived only in the five course pages' inline
+   <style> while blog.html also used it, so the blog's "You're in" confirmation
+   rendered as unstyled body text. Green is the default; economics.html and
+   trading-psychology.html override the hue to their own course accent, which
+   is what a page-local rule is legitimately for. */
+.email-ok{display:none;background:rgba(45,160,45,.1);border:1px solid rgba(45,160,45,.25);border-radius:var(--r-sm);padding:10px;color:var(--green-lt);font-weight:600;font-size:.85rem;margin-top:8px;text-align:center}
 .e-inp{
   flex:1;padding:13px 18px;border:1px solid rgba(255,255,255,.13);
   border-radius:var(--r-sm);background:rgba(255,255,255,.06);
