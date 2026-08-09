@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Hustlin' — sitemap
-  Updated 2026-08-01
+  Updated 2026-08-08
+
+  ADDED 2026-08-08 (blog batch 2 — completes the four-post plan from the SEO session):
+    · blog/credit-utilization-explained.html — feeds credit-utilization-calculator.html
+    · blog/how-to-save-your-first-1000.html  — feeds emergency-fund-calculator.html and
+      Stage 2. Each post routes into a calculator and a stage rather than dead-ending,
+      which is the whole reason the blog exists as an SEO surface. If you add another
+      post, add it here in the same change — blog.html's blogPost JSON-LD graph had
+      drifted three posts behind the page before this edit, so update both.
 
   Only indexable, canonical pages belong here. Deliberately excluded:
     · login / signup / forgot-password / reset-password / auth-callback  (noindex)
@@ -359,6 +367,20 @@
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/blog/credit-utilization-explained.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/blog/how-to-save-your-first-1000.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- ─── Company ──────────────────────────────────────── -->
