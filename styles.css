@@ -2435,3 +2435,40 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .s-card:last-child{grid-column:1 / -1}
   .s-card::after{font-size:2.6rem;right:8px;bottom:2px}
 }
+
+/* ─── 17. SOLO STAGE BANNER ─────────────────────────────────────────────
+   Same shape of bug as .hero-wrap in the hero standard, and found the same
+   way — by looking at a guide page rather than a stage page.
+
+   .stage-banner is a flex row built for TWO children: the text block and
+   the progress ring. The five stage pages have both. Every guide page ships
+   only the text block, and three things then go wrong at once:
+
+     · justify-content:space-between has nothing to space, so the single
+       child stretches and the <h2> runs the full 1400px canvas — a headline
+       measure roughly three times what is comfortable to read.
+     · .stage-banner p is capped at 460px for the two-column case, so the
+       paragraph sits in a narrow left column with several hundred pixels of
+       empty black beside it. Long headline, narrow paragraph, big void.
+     · ::before prints a hardcoded content:'1' as a ghost numeral. On a
+       stage page that is the stage number. On a guide it is just a "1".
+
+   Fixed by capping the content column so the heading and the paragraph
+   share one measure, and dropping the numeral. Automatic via :has(), so a
+   future guide inherits it without anyone remembering a modifier class. */
+@media(min-width:901px){
+  .stage-banner:not(:has(> :nth-child(2))){display:block}
+  .stage-banner:not(:has(> :nth-child(2)))::before{display:none}
+  .stage-banner:not(:has(> :nth-child(2))) > div{max-width:860px}
+  .stage-banner:not(:has(> :nth-child(2))) p{max-width:none}
+  /* 24ch, not 18. At 2.6rem one ch is roughly 27px, so 18ch put a
+     47-character headline onto three lines; 24ch lands it on two, which is
+     what a banner headline wants. */
+  .stage-banner:not(:has(> :nth-child(2))) h1,
+  .stage-banner:not(:has(> :nth-child(2))) h2{max-width:24ch}
+
+  /* The hero subhead is capped at 585px for the two-column hero, where a
+     card sits beside it. In a solo hero that cap leaves a third of the
+     column empty for no reason. */
+  .hero-wrap:not(:has(> *:nth-child(2))) .hero-sub{max-width:720px}
+}
