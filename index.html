@@ -278,41 +278,109 @@
   }
 }
 
+/* ─ 2026-08-09 REBUILD ─
+   Brief: mascot to the RIGHT of the copy, on phones as well as desktop,
+   with the copy staying centred.
+
+   Those two requirements fight each other, and the fight is what this
+   block is. Centred copy has no left or right to be beside — it only has
+   a margin, and the margin only exists once the viewport is wider than
+   the column. So there are genuinely two layouts here, not one:
+
+     under 768px   he shares a flex row with the brand line, inside the
+                   column. There is no margin at this width, so the only
+                   honest "right of the text" is right of a specific line
+                   of it — and the brand line is the one that can afford
+                   to give up width, because it is one quiet sentence and
+                   not the headline.
+
+     1180px and up he leaves the flow and stands in the page margin. The
+                   copy does not move at all.
+
+   The old version stacked him ABOVE the copy on phones and BELOW it from
+   768 to 1599, and showed him beside the copy only past 1600px. */
+/* .ix-hero-top is deliberately NOT positioned. It was, briefly, and that is
+   what cropped his head: an absolutely positioned child resolves against
+   the nearest positioned ancestor, so top:50% measured against the brand
+   line's own ~60px row rather than the column. Centring a 240px character
+   on a 60px row puts 90px of him above the row, the row is ~55px below the
+   top of the hero, and .ix-hero{overflow:hidden} silently ate the
+   difference. Left unpositioned, he resolves against .ix-hero-inner — the
+   full copy column — which is several hundred pixels tall, so vertical
+   centring cannot push him past either edge. */
 .ix-hero-mascot {
   display: block;
-  position: static;
   width: clamp(160px, 30vw, 250px);
-  margin: 6px auto 0;
   pointer-events: none;
 }
 .ix-hero-mascot .hfy-mascot { max-width: 100% }
 
-/* 1600px and up there is enough margin beside the centred 900px column to
-   stand him in it full size, so he leaves the flow entirely. */
-@media (min-width: 1600px) {
+/* ── DEFAULT, EVERY WIDTH UP TO 1179px: brand line and mascot as one row ──
+   The pair is centred together, so the copy still reads as centred — the
+   brand line just no longer runs the full width of the column on its own.
+   This is the layout that works at ANY width, because it needs no margin
+   beside the column: it lives inside it. */
+.ix-hero-top {
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(10px, 2vw, 20px);
+  margin-bottom: 26px;
+}
+/* min-width:0 is load-bearing on the text side of any flex row — without it
+   the paragraph refuses to shrink below its longest word and shoves the
+   mascot off the edge instead of wrapping. The margin moves to the row so
+   the two items centre against each other rather than against the text
+   plus its trailing gap. */
+.ix-brand-line { flex: 0 1 auto; min-width: 0; margin: 0 }
+/* ~100px wide renders ~120px tall against .hfy-mascot's 941/1134
+   aspect-ratio — the most he can take without the row standing taller than
+   the two lines of text beside it. */
+.ix-hero-mascot { flex: 0 0 auto; width: clamp(78px, 11vw, 132px) }
+
+/* ── 1180px and up: out of the flow, into the page margin ──
+   Two things had to be right here and the first draft got both wrong.
+
+   THE GATE. 768px is far too low. .ix-hero-inner is min(900px, 100vw-80),
+   so below about 980px the column IS the viewport and there is no margin
+   to stand in at all. Even above that the margin fills slowly, and the
+   widest thing in the column is not the headline — it is .ix-depth at
+   760px, with the follow row close behind. Solving "mascot clears a
+   centred 760px block with 16px to spare" against a 13vw character gives
+   ~1157px, so the gate is 1180. Below it, the row above stays in charge.
+
+   THE OFFSET. It has to be COMPUTED, not stated. The margin beside a
+   centred 900px column is (100vw - 900px)/2, which is a different number
+   at every width. A fixed right:-220px would sit at a different distance
+   from the screen edge on every screen and would eventually push past the
+   viewport, where .ix-hero{overflow:hidden} crops him without a word.
+   Pinning him 32px from the VIEWPORT edge means his clearance from the
+   copy grows with the window, which is the right way round. */
+@media (min-width: 1180px) {
+  /* .ix-hero-top keeps owning the bottom spacing at every width — see the
+     note in HERO VERTICAL FIT below. If the margin moved back onto the
+     brand line here, that block (which loads later and wins) would apply
+     its 18px on top of the row's, and the gap would double above 1180. */
+  .ix-hero-top { display: block }
+  .ix-brand-line { margin: 0 auto }
   .ix-hero-mascot {
     position: absolute;
-    right: clamp(40px, 3vw, 80px);
-    bottom: 0;
-    width: clamp(300px, 19vw, 420px);
+    top: 50%;
+    right: calc(32px - (100vw - 900px) / 2);
+    transform: translateY(-50%);
+    width: clamp(140px, 12vw, 200px);
     margin: 0;
     z-index: 2;
   }
 }
 
-/* Phones: lead with the mascot. .ix-hero is a flex column whose only flex
-   items are .ix-hero-inner and .ix-hero-mascot (the bg, overlay, QR and
-   scroll cue are all absolute or display:none at this width), so `order`
-   alone moves him above the copy — no markup change, no second copy in
-   the DOM. Width is what drives size here: .hfy-mascot carries
-   aspect-ratio 941/1134, so ~133px wide renders ~160px tall, which keeps
-   the eyebrow, headline and Start button inside the first screen on a
-   375px viewport. */
-@media (max-width: 767px) {
+/* Past 1600px the margin is wide enough to stand him at full size, which is
+   what he was drawn for. He stays vertically centred rather than dropping
+   to the floor: at 420px wide he is ~506px tall, and the copy column is
+   taller than that at every width where this rule applies, so centring is
+   the one anchor that cannot clip him. */
+@media (min-width: 1600px) {
   .ix-hero-mascot {
-    order: -1;
-    width: clamp(112px, 34vw, 145px);
-    margin: 0 auto 14px;
+    right: calc(48px - (100vw - 900px) / 2);
+    width: clamp(300px, 19vw, 420px);
   }
 }
 
@@ -728,7 +796,12 @@
    the mobile hero scrolls anyway and stays roomy. */
 @media (min-width: 1000px) {
   .ix-hero        { padding-bottom: 72px }
-  .ix-brand-line  { margin-bottom: 18px }
+  /* Targets the ROW, not the paragraph. Since 2026-08-09 the brand line
+     shares a flex row with the mascot below 1180px and its own margin is
+     zeroed, so tightening .ix-brand-line here would have done nothing at
+     all between 1000 and 1180 and would have stacked on top of the row's
+     margin above it. */
+  .ix-hero-top    { margin-bottom: 18px }
   .ix-accent-bar  { margin-bottom: 16px }
   .ix-headline    { margin-bottom: 14px }
   .ix-sub         { max-width: 680px; margin-bottom: 22px }
@@ -821,9 +894,31 @@
   <div class="ix-hero-bg"></div>
   <div class="ix-hero-overlay"></div>
   <div class="ix-hero-inner">
-    <p class="ix-brand-line">
-      <strong>Hustlin'</strong> — free financial education and resources for people building from the ground up.
-    </p>
+    <!-- Brand line and mascot are one row. On phones that pairing IS the
+         layout: he stands to the right of this paragraph at ~100px, which
+         puts him at the top of the screen without taking a line off the
+         headline. Above 768px he leaves the flow entirely and stands in the
+         page margin — see .ix-hero-mascot below. He has to be a child of
+         .ix-hero-inner for the phone row to work at all, which is why the
+         desktop offset is computed rather than stated. -->
+    <div class="ix-hero-top">
+      <p class="ix-brand-line">
+        <strong>Hustlin'</strong> — free financial education and resources for people building from the ground up.
+      </p>
+      <div class="ix-hero-mascot" aria-hidden="true">
+        <div class="hfy-mascot">
+          <div class="hfy-idle">
+            <div class="hfy-glow"></div>
+            <div class="hfy-orbwrap">
+              <img class="hfy-orb" src="assets/mascot/orb.png" alt="" width="193" height="193" loading="eager" decoding="async">
+              <div class="hfy-shine"></div>
+            </div>
+            <img class="hfy-rays" src="assets/mascot/rays.png" alt="" width="269" height="210" loading="eager" decoding="async">
+            <img class="hfy-body" src="assets/mascot/body.png" alt="" width="941" height="1134" loading="eager" decoding="async">
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="ix-accent-bar"></div>
     <h1 class="ix-headline">
       Stop Working For Money.<br>
@@ -854,6 +949,30 @@
       <a class="ix-mkt-btn" href="markets.html"><span class="live"></span>Live Markets &amp; Data</a>
     </div>
 
+    <!-- Follow row. Moved here from below the depth strip on 2026-08-09.
+         The HERO VERTICAL FIT block above already spent real effort pulling
+         these above the fold by tightening everything else; sitting third
+         from last, they lost that fight on any short laptop and on every
+         phone. Position is the durable fix, not margin arithmetic.
+         Note this now sits between the CTA and the $0 objection-handler,
+         which the comment below deliberately kept touching the button. One
+         pill row is ~44px, so the two are still adjacent in practice. -->
+    <div class="ix-social">
+      <span class="ix-social-label">Follow us</span>
+      <a class="ix-social-btn ix-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+        <svg class="ix-social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>@hustlin_org</span>
+      </a>
+      <a class="ix-social-btn ix-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+        <svg class="ix-social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <span>@hustlin_org</span>
+      </a>
+      <a class="ix-social-btn ix-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+        <svg class="ix-social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <span>Hustlin'</span>
+      </a>
+    </div>
+
     <!-- Objection-handler, sits directly under the button where the hesitation
          actually happens. States the business model in one line: the free
          course is real and complete, the paid ones are separate and optional.
@@ -875,26 +994,11 @@
       <div class="ix-depth-item"><span class="ix-depth-n">2</span><span class="ix-depth-l">free, no account</span></div>
     </div>
 
-    <div class="ix-social">
-      <span class="ix-social-label">Follow us</span>
-      <a class="ix-social-btn ix-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
-        <svg class="ix-social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        <span>@hustlin_org</span>
-      </a>
-      <a class="ix-social-btn ix-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
-        <svg class="ix-social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        <span>@hustlin_org</span>
-      </a>
-      <a class="ix-social-btn ix-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
-        <svg class="ix-social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        <span>Hustlin'</span>
-      </a>
-    </div>
+
   </div>
-  <!-- Mascot. Desktop-only (>=1200px) — see .ix-hero-mascot in styles.css for
-       why. Decorative here: the headline already carries the meaning, so the
-       images are alt="" and the wrapper is aria-hidden to keep a screen
-       reader from announcing a character it cannot use. -->
+  <!-- The mascot used to sit here, as a flex sibling of .ix-hero-inner. It
+       moved INTO .ix-hero-inner on 2026-08-09 so it could share a row with
+       the brand line on phones — see the comment at the top of the hero. -->
   <!-- QR code. Mirrors the mascot on the opposite side, and shown under the
        same >=1600px gate for the same reason: below that width the centred
        copy column needs the margin. It is deliberately DESKTOP-ONLY in a
@@ -905,20 +1009,6 @@
     <img src="assets/qr-code.png" alt="QR code linking to hustlin.org"
          width="150" height="150" loading="lazy" decoding="async">
     <span>Scan it.<br>Send someone.</span>
-  </div>
-
-  <div class="ix-hero-mascot" aria-hidden="true">
-    <div class="hfy-mascot">
-      <div class="hfy-idle">
-        <div class="hfy-glow"></div>
-        <div class="hfy-orbwrap">
-          <img class="hfy-orb" src="assets/mascot/orb.png" alt="" width="193" height="193" loading="eager" decoding="async">
-          <div class="hfy-shine"></div>
-        </div>
-        <img class="hfy-rays" src="assets/mascot/rays.png" alt="" width="269" height="210" loading="eager" decoding="async">
-        <img class="hfy-body" src="assets/mascot/body.png" alt="" width="941" height="1134" loading="eager" decoding="async">
-      </div>
-    </div>
   </div>
 
   <a class="ix-scroll" href="#courses">
