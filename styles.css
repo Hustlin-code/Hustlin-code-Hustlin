@@ -378,7 +378,30 @@ a{text-decoration:none}
 
 /* ─── FOR WHO ─────────────────────────────────────── */
 .for-who{background:var(--cream)}
-.fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-top:60px;align-items:start}
+
+/* ─ The section header, 2026-08-09 ─
+   It used to live INSIDE .fw-cards, i.e. inside the left column. That put
+   the section's <h2> and the dark panel's pull-quote side by side at the
+   same eye-line, both set large and bold, each one asking to be read first.
+   Two headlines competing across a 72px gutter is why this section read as
+   flat and unbalanced on all five course pages.
+
+   It also squeezed the sub-head into half the width, so a two-line sentence
+   became four lines in a column that then had to be padded out to match the
+   panel's height — which is where the wasted space came from.
+
+   Lifted to full width in the markup on all five pages (the markup was
+   byte-identical, so one transform served them all). Capped at 760px
+   because a full 1400px measure is not readable prose. */
+.fw-head{max-width:760px;margin-bottom:8px}
+.fw-head .sec-sub{max-width:none}
+@media(max-width:600px){.fw-head{margin-bottom:4px}}
+
+/* Columns are no longer 1fr 1fr. The left column holds cards whose content
+   is a name and two lines; the right holds a pull-quote, a paragraph, and a
+   checklist. Giving them equal width forced the shorter column to stretch.
+   6:5 lets the panel carry its density without the cards going sparse. */
+.fw-grid{display:grid;grid-template-columns:6fr 5fr;gap:48px;margin-top:36px;align-items:start}
 @media(max-width:900px){.fw-grid{grid-template-columns:1fr;gap:40px;margin-top:40px}}
 @media(max-width:600px){.fw-grid{gap:28px;margin-top:28px}}
 .fw-cards{display:flex;flex-direction:column;gap:14px}
@@ -2343,4 +2366,72 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .hfy-outro-sec{padding:17px 15px}
   .hfy-outro-h3{font-size:1.02rem;line-height:1.32;margin-bottom:6px}
   .hfy-outro-p{font-size:.87rem;line-height:1.6;margin-bottom:13px}
+}
+
+/* ─── 16. THE STAGE ROADMAP STRIP ───────────────────────────────────────
+   Five identical boxes in a row, each with a label, a badge and a comma
+   list. Correct, and completely flat: nothing said which stage you were on,
+   nothing said which came first, and the eye had no reason to land anywhere
+   in particular. It also sat 52px below a section header whose paragraph is
+   capped at 540px, so the top third of the section was a narrow column of
+   text next to a wide strip of nothing.
+
+   Shared by all five course pages. Everything below is CSS only — app.js
+   already puts .live / .locked / .current on these cards, so the states
+   were available and simply had nothing rendering them. */
+
+/* The header stops looking stranded. 760px is a readable measure and it
+   spans enough of the row beneath it to read as the same section. */
+.roadmap .sec-sub{max-width:760px}
+.stages{margin-top:36px}
+@media(max-width:900px){.stages{margin-top:28px}}
+
+/* A spine behind the row, so five cards read as one path with an order
+   rather than five options. Drawn behind (z-index:0 on the line, cards get
+   their own stacking context) and only where the row is actually a row —
+   on a two-up phone grid a horizontal line through the middle is noise. */
+@media(min-width:901px){
+  .stages{position:relative}
+  .stages::before{
+    content:"";position:absolute;left:0;right:0;top:34px;height:2px;
+    background:linear-gradient(to right,
+      rgba(240,192,48,0) 0%, rgba(240,192,48,.35) 12%,
+      rgba(240,192,48,.35) 88%, rgba(240,192,48,0) 100%);
+    pointer-events:none;z-index:0;
+  }
+  .s-card{z-index:1}
+}
+
+/* Hierarchy inside the card: a large ghost numeral so the order is legible
+   at a glance without adding a word. Sits behind the content at very low
+   contrast — it is a wayfinding cue, not a thing to read. */
+.s-card{counter-increment:stagecount}
+.stages{counter-reset:stagecount}
+.s-card::after{
+  content:counter(stagecount);
+  position:absolute;right:10px;bottom:4px;
+  font-family:var(--f-display);font-size:4.2rem;font-weight:900;line-height:1;
+  color:rgba(28,28,28,.06);pointer-events:none;
+}
+.s-card.live::after{color:rgba(255,255,255,.05)}
+
+/* "You are here." app.js has been setting .current on the right card all
+   along; nothing was drawing it. This is the single most useful thing the
+   strip can say to a returning reader, and it was invisible. */
+.s-card.current{box-shadow:0 0 0 2px var(--amber),0 10px 30px rgba(240,192,48,.18)}
+.s-card.current::before{
+  content:"You are here";position:absolute;top:0;left:0;
+  background:var(--amber);color:var(--dark);
+  font-family:var(--f-mono);font-size:.6rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:var(--r-md) 0 var(--r-md) 0;
+  z-index:2;
+}
+.s-card.current .s-num{visibility:hidden}   /* the pill replaces it */
+
+/* Five cards do not divide by two. Left as-is, the fifth sat alone in a
+   half-width box next to a hole; spanning it keeps the grid closed. */
+@media(max-width:600px){
+  .s-card:last-child{grid-column:1 / -1}
+  .s-card::after{font-size:2.6rem;right:8px;bottom:2px}
 }
