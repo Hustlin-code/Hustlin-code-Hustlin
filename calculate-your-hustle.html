@@ -144,6 +144,7 @@
         <a href="investment-growth-calculator.html">Investment Growth</a>
         <a href="net-worth-calculator.html">Net Worth</a>
         <a href="financial-freedom-calculator.html">Financial Freedom Number</a>
+        <a href="roth-conversion-calculator.html">Roth Conversion <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
         <div class="cyh-side-group">Big purchases</div>
         <a href="mortgage-calculator.html">Mortgage <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
         <a href="auto-loan-calculator.html">Auto Loan <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
@@ -635,9 +636,73 @@
   <p style="margin:18px 0 0;font-size:13.5px"><a href="financial-freedom-calculator.html" style="color:#8A6D08;font-weight:700;text-decoration:none">Full guide, worked example and FAQ &rarr;</a></p>
 </section>
 
-<!-- ============ 13 MORTGAGE CALCULATOR ============ -->
-<section class="cyh-tool" id="mortgage">
+<!-- ============ 13 ROTH CONVERSION CALCULATOR ============ -->
+<section class="cyh-tool" id="roth">
   <span class="cyh-num">Calculator 13</span>
+  <h2>Roth Conversion Calculator</h2>
+  <p class="cyh-sub">Moving pre-tax retirement money into a Roth means paying tax now to never pay it again. This sizes the bill, shows how much room is left in your bracket, and tells you whether the trade is worth making this year.</p>
+  <div class="cyh-grid">
+    <div>
+      <div class="cyh-field">
+        <label for="cyh-rcAmt">Amount to convert ($)</label>
+        <input type="number" id="cyh-rcAmt" value="30000" oninput="cyhRoth()">
+        <div class="cyh-hint">From a Traditional IRA or old 401(k).</div>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-rcIncome">Your other income this year ($)</label>
+        <input type="number" id="cyh-rcIncome" value="70000" oninput="cyhRoth()">
+        <div class="cyh-hint">Everything else before the conversion. The conversion stacks on top.</div>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-rcStatus">Filing status</label>
+        <select id="cyh-rcStatus" onchange="cyhRoth()">
+          <option value="single" selected>Single</option>
+          <option value="joint">Married filing jointly</option>
+          <option value="hoh">Head of household</option>
+        </select>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-rcPayFrom">Pay the tax from</label>
+        <select id="cyh-rcPayFrom" onchange="cyhRoth()">
+          <option value="outside" selected>Savings outside the account</option>
+          <option value="inside">The converted money itself</option>
+        </select>
+        <div class="cyh-hint">Paying from inside shrinks the balance &mdash; and under 59&frac12; it is an early withdrawal.</div>
+      </div>
+    </div>
+    <div>
+      <div class="cyh-field">
+        <label for="cyh-rcYrs">Years until you withdraw</label>
+        <input type="number" id="cyh-rcYrs" value="20" oninput="cyhRoth()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-rcReturn">Expected annual return (%)</label>
+        <input type="number" id="cyh-rcReturn" value="7" step="0.5" oninput="cyhRoth()">
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-rcLater">Your expected tax rate in retirement (%)</label>
+        <input type="number" id="cyh-rcLater" value="24" step="1" oninput="cyhRoth()">
+        <div class="cyh-hint">The whole decision turns on this against the rate you pay now.</div>
+      </div>
+    </div>
+  </div>
+  <div class="cyh-out">
+    <div class="cyh-stat neg"><b id="cyh-rcTax">$0</b><span>Tax Due This Year</span></div>
+    <div class="cyh-stat"><b id="cyh-rcEff">0%</b><span>Effective Rate on Conversion</span></div>
+    <div class="cyh-stat gold"><b id="cyh-rcRoom">$0</b><span>Room Left in Bracket</span></div>
+    <div class="cyh-stat pos"><b id="cyh-rcDiff">$0</b><span>Converting Wins By</span></div>
+  </div>
+  <div class="cyh-out">
+    <div class="cyh-stat"><b id="cyh-rcRoth">$0</b><span>Roth Value, Tax-Free</span></div>
+    <div class="cyh-stat"><b id="cyh-rcTrad">$0</b><span>If You Don't Convert, After Tax</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-rcMsg"></div>
+  <p style="margin:18px 0 0;font-size:13.5px"><a href="roth-conversion-calculator.html" style="color:#8A6D08;font-weight:700;text-decoration:none">Full guide, worked example and FAQ &rarr;</a></p>
+</section>
+
+<!-- ============ 14 MORTGAGE CALCULATOR ============ -->
+<section class="cyh-tool" id="mortgage">
+  <span class="cyh-num">Calculator 14</span>
   <h2>Mortgage Calculator</h2>
   <p class="cyh-sub">The full monthly payment &mdash; principal, interest, tax, insurance, HOA and PMI. Not the principal-and-interest figure that makes a house look affordable.</p>
   <div class="cyh-ratebox">
@@ -692,9 +757,9 @@
   <p style="margin:18px 0 0;font-size:13.5px"><a href="mortgage-calculator.html" style="color:#8A6D08;font-weight:700;text-decoration:none">Full guide, worked example and FAQ &rarr;</a></p>
 </section>
 
-<!-- ============ 14 AUTO LOAN CALCULATOR ============ -->
+<!-- ============ 15 AUTO LOAN CALCULATOR ============ -->
 <section class="cyh-tool" id="auto">
-  <span class="cyh-num">Calculator 14</span>
+  <span class="cyh-num">Calculator 15</span>
   <h2>Auto Loan Calculator</h2>
   <p class="cyh-sub">What the car really costs, and whether the deal clears the 20/4/10 rule. Negotiate the price, never the monthly payment.</p>
   <div class="cyh-ratebox">

@@ -435,6 +435,123 @@
     return tax;
   }
 
+
+  /* ================================================================
+     ROTH CONVERSION  -  cyhRoth()
+     ----------------------------------------------------------------
+     Answers the only question a conversion actually turns on: is the
+     rate you pay now lower than the rate you would pay later?
+
+     Three things this models that a generic "future value" calculator
+     does not, and that are the whole point:
+
+       1. The tax is MARGINAL, not average. Converting stacks on top of
+          the income you already have, so the cost is
+          fedTax(income + conversion) - fedTax(income). Applying a flat
+          "your bracket" rate overstates it for most people and
+          understates it for anyone who crosses a threshold.
+
+       2. BRACKET HEADROOM. The single most useful output here is how
+          much room is left before the next rate starts, because that
+          is the number people size a conversion against - see Stage 5,
+          Module 06.
+
+       3. WHERE THE TAX COMES FROM. Paying it out of the converted
+          money is a materially worse deal and is the most common
+          avoidable mistake. Modelled as two separate scenarios rather
+          than a footnote.
+
+     ACCURACY BOUNDARY, stated on the page too:
+       federal ordinary income only. No state tax, no NIIT, no IRMAA
+       surcharge, no capital-gains drag on the side account, and it
+       assumes the standard deduction. It is a sizing tool, not a
+       filing. Anything large goes past a CPA.
+     ================================================================ */
+  window.cyhRoth = function () {
+    var amt    = num($("cyh-rcAmt"));
+    var income = num($("cyh-rcIncome"));
+    var status = ($("cyh-rcStatus").value) || "single";
+    var yrs    = num($("cyh-rcYrs"));
+    var ret    = num($("cyh-rcReturn")) / 100;
+    var later  = num($("cyh-rcLater")) / 100;
+    var payFrom= ($("cyh-rcPayFrom").value) || "outside";
+
+    var std     = STD_2026[status] || STD_2026.single;
+    var taxable = Math.max(0, income - std);
+
+    /* marginal cost of the conversion */
+    var taxBefore = fedTax(taxable, status);
+    var taxAfter  = fedTax(taxable + amt, status);
+    var convTax   = Math.max(0, taxAfter - taxBefore);
+    var effRate   = amt > 0 ? convTax / amt : 0;
+
+    /* bracket headroom before the NEXT rate starts */
+    var b = FED_2026[status], curRate = b[0][0], nextAt = Infinity, endRate = b[0][0];
+    for (var i = 0; i < b.length; i++) {
+      if (taxable >= b[i][1]) { curRate = b[i][0]; nextAt = (i + 1 < b.length) ? b[i + 1][1] : Infinity; }
+      if (taxable + amt >= b[i][1]) endRate = b[i][0];
+    }
+    var headroom = (nextAt === Infinity) ? Infinity : Math.max(0, nextAt - taxable);
+
+    var g = Math.pow(1 + ret, Math.max(0, yrs));
+
+    /* Convert: what ends up in the Roth, tax-free at the end. */
+    var rothBase = (payFrom === "inside") ? Math.max(0, amt - convTax) : amt;
+    var rothEnd  = rothBase * g;
+
+    /* Do not convert: the pre-tax balance grows and is taxed on the way
+       out. If the tax would have been paid from outside money, that cash
+       stays invested in this scenario - otherwise the comparison quietly
+       credits the conversion with money it actually spent. */
+    var tradEnd = amt * g * (1 - later);
+    var sideEnd = (payFrom === "outside") ? convTax * g : 0;
+    var noConvertEnd = tradEnd + sideEnd;
+
+    var diff = rothEnd - noConvertEnd;
+
+    $("cyh-rcTax").textContent  = money(convTax);
+    $("cyh-rcEff").textContent  = (effRate * 100).toFixed(1) + "%";
+    $("cyh-rcRoom").textContent = (headroom === Infinity) ? "No limit" : money(headroom);
+    $("cyh-rcRoth").textContent = money(rothEnd);
+    $("cyh-rcTrad").textContent = money(noConvertEnd);
+    $("cyh-rcDiff").textContent = (diff >= 0 ? "+" : "") + money(diff);
+
+    var msg = $("cyh-rcMsg");
+    if (amt <= 0) {
+      msg.innerHTML = "Enter an amount to convert.";
+      return;
+    }
+    var parts = [];
+    if (headroom !== Infinity && amt > headroom) {
+      parts.push("<b>This conversion spills into the next bracket.</b> You have " +
+        money(headroom) + " of room at " + Math.round(curRate * 100) + "% before the rate steps up to " +
+        Math.round(endRate * 100) + "%. Converting " + money(headroom) +
+        " instead keeps every converted dollar at the lower rate.");
+    } else if (headroom !== Infinity) {
+      parts.push("This fits inside your current " + Math.round(curRate * 100) +
+        "% bracket, with " + money(headroom - amt) + " of room still spare.");
+    }
+    if (Math.abs(diff) < amt * 0.005) {
+      parts.push("At " + (effRate * 100).toFixed(1) + "% now against " + (later * 100).toFixed(0) +
+        "% later, this is <b>a wash</b> - the two come out within a rounding error of each other. " +
+        "That is not a bug in the arithmetic, it is the whole decision: a conversion only wins when " +
+        "the rate you pay now is genuinely lower than the rate you would pay later. Change one of " +
+        "those two rates and the answer moves.");
+    } else parts.push(diff >= 0
+      ? "Converting comes out <b>" + money(Math.abs(diff)) + " ahead</b> after " + yrs +
+        " years, because you are paying " + (effRate * 100).toFixed(1) +
+        "% now instead of " + (later * 100).toFixed(0) + "% later."
+      : "Converting comes out <b>" + money(Math.abs(diff)) + " behind</b> after " + yrs +
+        " years. Paying " + (effRate * 100).toFixed(1) + "% now to avoid " +
+        (later * 100).toFixed(0) + "% later is the wrong direction - wait for a lower-income year.");
+    if (payFrom === "inside") {
+      parts.push("<b>You are paying the tax out of the conversion.</b> That is why the Roth column starts at " +
+        money(rothBase) + " rather than " + money(amt) +
+        " - and under 59.5 the withheld amount is itself an early withdrawal and gets penalised.");
+    }
+    msg.innerHTML = parts.join(" ");
+  };
+
   var PERIODS = { weekly: 52, biweekly: 26, semimonthly: 24, monthly: 12, annual: 1 };
 
   window.cyhWithhold = function () {
@@ -703,7 +820,8 @@
     [['cyh-pcAmt', cyhPaycheck], ['cyh-efNow', cyhEF], ['cyh-poBal', cyhPayoff],
      ['cyh-utBal', cyhUtil], ['cyh-ciStart', cyhCompound], ['cyh-igStart', cyhInvest],
      ['cyh-ffSpend', cyhFreedom], ['cyh-whGross', cyhWithhold],
-     ['cyh-mgPrice', cyhMortgage], ['cyh-auPrice', cyhAuto]]
+     ['cyh-mgPrice', cyhMortgage], ['cyh-auPrice', cyhAuto],
+     ['cyh-rcAmt', cyhRoth]]
       .forEach(function (pair) { if (has(pair[0])) { try { pair[1](); } catch (e) {} } });
   });
 })();
