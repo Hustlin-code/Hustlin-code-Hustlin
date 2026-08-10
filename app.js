@@ -468,7 +468,7 @@ window.HFY = (function(){
   //   2. The page is noindex and its content only arrives after an
   //      authenticated fetch, so the AdSense crawler sees an empty shell and
   //      has nothing to target against anyway.
-  //   3. Serving ads on login-gated pages is a policy grey area worth avoiding.
+  //   3. Serving ads on login-gated pages is a policy gray area worth avoiding.
   // Ads stay on the public marketing pages, which is where they actually earn.
   const NO_ADS_PAGES = [
     '', 'index.html', 'work-with-us.html',

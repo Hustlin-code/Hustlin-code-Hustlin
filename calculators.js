@@ -5,7 +5,7 @@
    by all 14 standalone /<name>-calculator.html pages.
 
    WHY ONE FILE INSTEAD OF A COPY PER PAGE
-   Fifteen pages ship the same maths. Inlining it fifteen times means a
+   Fifteen pages ship the same math. Inlining it fifteen times means a
    bug gets fixed fourteen times and missed once, and every page pays
    the bytes again instead of hitting cache.
 
@@ -230,7 +230,7 @@
         '<b>This payment never clears the balance.</b> At ' + apr + '% APR the monthly interest alone is ' +
         'about ' + money(bal * apr / 100 / 12) + ', which is more than you are paying. The balance grows ' +
         'every month no matter how long you keep paying. This is the situation predatory lending is built ' +
-        'to create. Raise the payment, or call a non-profit credit counsellor through the NFCC — it is free.');
+        'to create. Raise the payment, or call a non-profit credit counselor through the NFCC — it is free.');
       return;
     }
     $('cyh-poTime').textContent = months(base.m);
@@ -391,7 +391,7 @@
          taken as credits, or LOCAL income tax (NYC, Philadelphia,
          most of Ohio). Those states will read low.
        · W-4 dependents/credits, itemising and multi-job withholding
-         are not modelled. This estimates TAX OWED, which is what a
+         are not modeled. This estimates TAX OWED, which is what a
          correctly-filled W-4 converges on - not the exact number
          your employer withholds this Friday.
      ================================================================ */
@@ -458,7 +458,7 @@
 
        3. WHERE THE TAX COMES FROM. Paying it out of the converted
           money is a materially worse deal and is the most common
-          avoidable mistake. Modelled as two separate scenarios rather
+          avoidable mistake. Modeled as two separate scenarios rather
           than a footnote.
 
      ACCURACY BOUNDARY, stated on the page too:
@@ -547,7 +547,7 @@
     if (payFrom === "inside") {
       parts.push("<b>You are paying the tax out of the conversion.</b> That is why the Roth column starts at " +
         money(rothBase) + " rather than " + money(amt) +
-        " - and under 59.5 the withheld amount is itself an early withdrawal and gets penalised.");
+        " - and under 59.5 the withheld amount is itself an early withdrawal and gets penalized.");
     }
     msg.innerHTML = parts.join(" ");
   };

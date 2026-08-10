@@ -640,13 +640,13 @@
 
    WHY THIS IS HAND-DRAWN AND NOT A TRADINGVIEW WIDGET
    The Advanced Chart widget will overlay eleven sectors via compareSymbols, but
-   its embed API exposes no per-series colour. Every line came out the same blue
+   its embed API exposes no per-series color. Every line came out the same blue
    and the chart could not be read at all. This uses TradingView's own
    open-source library instead, which keeps their rendering and gives us the
-   colours — and, more usefully, lets each line's colour match its row in the
+   colors — and, more usefully, lets each line's color match its row in the
    returns table below. An iframe could never do that.
 
-   COLOURS ARE ASSIGNED, NOT GENERATED
+   COLORS ARE ASSIGNED, NOT GENERATED
    Twelve auto-generated hues include several nobody can tell apart on a dark
    background. These are picked by hand for separation, with the S&P benchmark
    deliberately the site's amber so it reads as the reference line rather than
@@ -773,7 +773,7 @@
       chart.applyOptions({ width: host.clientWidth });
 
       /* Paint a matching swatch onto each row of the baked returns table. The
-         table is generated at build time and knows nothing about these colours,
+         table is generated at build time and knows nothing about these colors,
          so the link between line and row is made here, once the palette is
          known. */
       document.querySelectorAll('.sec-table th[scope=row]').forEach(function (th) {
