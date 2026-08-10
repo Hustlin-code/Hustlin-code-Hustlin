@@ -1024,7 +1024,16 @@ a{text-decoration:none}
 .sit-table th,.sit-table td{padding:9px 12px;border:1px solid var(--border);text-align:center;background:var(--white)}
 .sit-table th{background:var(--cream);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted)}
 .sit-table td:first-child{text-align:left;font-weight:600;color:var(--text-dark);background:var(--cream)}
+/* The row rule below never actually showed. `.sit-table th,.sit-table td` sets
+   an opaque `background:var(--white)` on every cell, and a cell's own
+   background paints over its row's — so the highlight was invisible in all 41
+   places it is used. !important on the <tr> does not help: the td rule is not
+   competing for the tr, it is winning on the td. The cell-level rule is the
+   one that does anything. Both are kept: the row rule for any future table
+   whose cells are transparent, the cell rule for .sit-table. Found 2026-08-10. */
 .sit-highlight{background:rgba(232,160,32,.06)!important}
+.sit-table tr.sit-highlight td,
+.sit-table tr.sit-highlight th{background:rgba(232,160,32,.06)}
 
 /* ─── HOLDING ACCOUNT EXAMPLE ────────────────────── */
 .hold-table{width:100%;border-collapse:collapse;font-size:.8rem;margin:16px 0;overflow:hidden;border-radius:var(--r-sm)}

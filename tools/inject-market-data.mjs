@@ -973,6 +973,92 @@ function buildDiff(flat, prev, todayISO) {
   return { rows: rows.slice(0, 12), since: prev.stamp ?? 'the previous update', now: todayISO }
 }
 
+/* -------------------------------------------------------------- drawdown ---
+   How far the S&P 500 sits below its record high.
+
+   Added 2026-08-10. This is the one number that tells a reader whether the
+   long-run probability tables in Stage 4 Module 08 are being read in calm
+   weather or in a storm, and it is the question people actually arrive with.
+
+   COSTS ONE EXTRA CALL PER BUILD. Every other marker added since 2026-08-02
+   reused a set that was already being fetched. `drawdown` does not — it is a
+   new set, so it is a real request. Two markers share it (markets.html and
+   markets-technical.html), which is why it is one request and not two.
+
+   PRICE ONLY, and the high is the highest close in FRED's licensed ten-year
+   window. Both facts are stated in the caption rather than left implied. */
+function renderDrawdown(d) {
+  if (!d || d.value === null || d.value === undefined) return ''
+
+  const down = Math.abs(d.value)
+  const at = d.atHigh || down < 0.05
+
+  const lead = at
+    ? `The S&amp;P 500 closed at a <strong>record high</strong> on ${esc(d.date)}.`
+    : `The S&amp;P 500 is <strong>${esc(d.display)}</strong> from its record high, ` +
+      `set on ${esc(d.peakDate)} &mdash; ${esc(d.daysSincePeak)} days ago.`
+
+  // Plain-language read. Thresholds match the Stage 4 table exactly, so a
+  // reader moving between the two pages never sees them disagree.
+  const meaning =
+    d.bucket === 30 ? 'A fall of this size has happened seven times since 1928.'
+  : d.bucket === 20 ? 'Falls past 20% are what people mean by a bear market. Twenty since 1928.'
+  : d.bucket === 10 ? 'A correction. Twenty-six of these since 1928, most of them forgotten within a year.'
+  : down < 5       ? 'Normal. The index spends most of its life within a few percent of a high.'
+  :                  'A dip, not a correction. Corrections start at 10%.'
+
+  return `<p>${lead} ${esc(meaning)}</p>
+    <table class="mkt-table">
+      <caption class="mkt-table-cap">Measured on price against the highest close in the past ten years &mdash; dividends excluded, which is how a drawdown is always quoted. Ten years is the full history the St. Louis Fed publishes for this series.</caption>
+      <thead><tr><th scope="col">Reading</th><th scope="col">Level</th><th scope="col">As of</th></tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row"><a href="${esc(d.source)}" target="_blank" rel="noopener">S&amp;P 500 close</a></th>
+          <td><strong>${esc(d.levelDisplay)}</strong></td>
+          <td>${esc(d.date)}</td>
+        </tr>
+        <tr>
+          <th scope="row">Record high</th>
+          <td><strong>${esc(d.peakDisplay)}</strong></td>
+          <td>${esc(d.peakDate)}</td>
+        </tr>
+        <tr>
+          <th scope="row">Below that high</th>
+          <td class="${at ? 'up' : 'down'}"><strong>${esc(d.display)}</strong></td>
+          <td>${at ? 'at the high' : esc(d.daysSincePeak) + ' days'}</td>
+        </tr>
+      </tbody>
+    </table>`
+}
+
+/* The Stage 4 version of the same reading. Different job, so different markup:
+   the Markets pages are answering "what is the market doing", this one is
+   answering "which row of the table below is mine". It therefore names the
+   bucket in plain words and says nothing else.
+
+   Dark card, because it sits directly under the existing dark probability
+   chart in that module and the two read as a pair. Colours are explicit hex —
+   never a CSS variable in course content. */
+function renderDrawdownStage4(d) {
+  if (!d || d.value === null || d.value === undefined) return ''
+
+  const at = d.atHigh || Math.abs(d.value) < 0.05
+  const row = d.bucket === 0 ? 'Any moment' : `Down ${d.bucket}%+`
+
+  const line = at
+    ? 'The market is at a record high today, so the <strong>&ldquo;Any moment&rdquo;</strong> column is yours.'
+    : `That puts today in the <strong>&ldquo;${esc(row)}&rdquo;</strong> column below.`
+
+  const headline = at ? 'At a record high' : esc(d.display)
+
+  return `<div style="background:#0A0A0A;border:1px solid rgba(240,192,48,.28);border-radius:10px;padding:16px 20px;margin:0 0 18px">
+      <div style="font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#F0C030;margin-bottom:6px">Where the market is right now</div>
+      <div style="font-size:1.5rem;font-weight:800;color:#FBF7EC;letter-spacing:-.02em;line-height:1.15">${headline}</div>
+      <div style="font-size:.85rem;color:rgba(251,247,236,.66);line-height:1.55;margin-top:4px">${at ? '' : 'below its record high. '}${line}</div>
+      <div style="font-size:.72rem;color:rgba(251,247,236,.34);margin-top:8px">S&amp;P 500 ${esc(d.levelDisplay)} &middot; high ${esc(d.peakDisplay)} set ${esc(d.peakDate)} &middot; close of ${esc(d.date)} &middot; source: St. Louis Fed</div>
+    </div>`
+}
+
 /* ----------------------------------------------------------------- pages --- */
 
 const PAGES = [
@@ -992,6 +1078,9 @@ const PAGES = [
       // Reads the same 'news' set as the block above — two markers sharing one
       // set costs one request, not two.
       earningsNews: { set: 'news', render: renderEarningsNews },
+      // New set as of 2026-08-10 — one extra request per build, shared with
+      // markets-technical.html. See renderDrawdown.
+      drawdown: { set: 'drawdown', render: renderDrawdown },
       changed: { set: null,      render: renderChanged, diff: true },
     },
   },
@@ -1033,6 +1122,24 @@ const PAGES = [
     sections: {
       techQuotes:  { set: 'quotes',     render: renderQuotes },
       techSectors: { set: 'sectorPerf', render: renderSectorBreadth },
+      // Shares the 'drawdown' set with markets.html — one request, two markers.
+      techDrawdown: { set: 'drawdown', render: renderDrawdown },
+    },
+  },
+  {
+    /* Stage 4 Module 09 asks "what if the market is already down?" and answers
+       it with a table of historical odds by drawdown depth. The table is fixed;
+       the row that APPLIES today is not, so the page needs the live reading.
+
+       THIS IS THE MASTER, NOT THE PUBLIC PAGE. build-public-stages.mjs
+       regenerates stage-4-invest.html at the site root from this file. The
+       workflow runs inject-market-data BEFORE build-public-stages for exactly
+       this reason — reverse them and the public copy ships one build behind
+       while --check still passes. Same trap the Dow chart hit. */
+    file: 'Financial Literacy Course/stage-4-invest.html',
+    sections: {
+      // Third marker on the shared 'drawdown' set. Still one request.
+      ddStage4: { set: 'drawdown', render: renderDrawdownStage4 },
     },
   },
   {
