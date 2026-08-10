@@ -826,6 +826,30 @@ a{text-decoration:none}
 }
 .res-link:hover{border-color:var(--amber);color:var(--text-dark)}
 
+/* ─── VIDEO LINKS ────────────────────────────────────
+   Replaced the YouTube iframes site-wide, 2026-08-10. Each embed pulled ~1MB
+   of Google JS and set third-party cookies on page load whether or not anyone
+   pressed play — on a fourteen-module stage page that is fourteen of them.
+   These are links now. Hex values are hardcoded on purpose, not var()s: this
+   rule has to render correctly even if a variable is renamed upstream.
+   ──────────────────────────────────────────────────── */
+.vid-section{margin:22px 0}
+.vid-link{
+  display:inline-flex;align-items:center;gap:9px;min-height:44px;
+  background:#F5C520;color:#060606;border:1px solid #F5C520;border-radius:24px;
+  padding:10px 20px;font-size:.86rem;font-weight:700;line-height:1.2;
+  text-decoration:none;transition:all .2s;margin-bottom:16px;
+}
+.vid-link:hover,.vid-link:focus-visible{
+  background:#060606;color:#F5C520;border-color:#060606;
+}
+.vid-link-play{font-size:.72rem;line-height:1}
+.vid-link-note{font-size:.72rem;font-weight:500;opacity:.7}
+@media(max-width:600px){
+  .vid-link{width:100%;justify-content:center;padding:12px 16px}
+  .vid-link-note{display:none}
+}
+
 /* ─── TOOLS ──────────────────────────────────────── */
 .tools{background:var(--white)}
 .tool-tabs{
