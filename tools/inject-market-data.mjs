@@ -1497,6 +1497,36 @@ async function main() {
           .sort((a, b) => String(b.date).localeCompare(String(a.date)) ||
                           ((b.marketCap || 0) - (a.marketCap || 0)))
 
+        /* BANK THE LOOKED-UP ACTUALS. Added 2026-08-11, and it is the whole
+           reason the "just reported" tab had a ceiling.
+
+           earningsWatch is assembled above, BEFORE the ?actuals= lookup, and
+           it was snapshotted in that state. So every EPS the lookup resolved
+           rendered once and was then thrown away: the same symbols came back
+           `due` on the next run, spent the 20-symbol budget again, and never
+           accumulated. Measured on 2026-08-11, 43 of the 69 past-dated rows in
+           a 96-row watch list had no actual — and the 26 that did were ALL
+           banked from calendar rows (they carry revenue), not one from the
+           lookup path. The budget was not the ceiling; the discard was.
+
+           Merge in place, and never overwrite a value we already hold: a
+           calendar-banked row carries actual REVENUE, which the ?actuals= path
+           cannot return, so it is strictly the better row. */
+        const banked = new Map(earningsWatch.map(w => [w.symbol, w]))
+        for (const r of reported) {
+          const w = banked.get(r.symbol)
+          if (!w || typeof r.epsActual !== 'number' || typeof w.epsActual === 'number') continue
+          banked.set(r.symbol, {
+            ...w,
+            epsActual: r.epsActual,
+            epsEstimate: r.epsEstimate ?? w.epsEstimate,
+            revenueActual: w.revenueActual ?? r.revenueActual ?? null,
+            quarter: r.quarter ?? w.quarter,
+            year: r.year ?? w.year,
+          })
+        }
+        earningsWatch = [...banked.values()]
+
         /* THE THREE BUCKETS THE PAGE ACTUALLY RENDERS.
            Boundaries are Eastern dates (see `today` above). A company stays in
            `today` for the whole Eastern day even after it has reported — its
@@ -1585,8 +1615,17 @@ async function main() {
      the carry-forward note above. If this run's earnings fetch failed it stays
      null, and we keep the previous list rather than wiping a week of
      accumulated history over one bad request. */
+  /* bakedAt is the deploy's age signal, added 2026-08-11. `stamp` is a DATE and
+     is consumed by the what-changed diff, so it cannot double as a clock. The
+     deploy used to age the snapshot by its file mtime instead, which is wrong
+     on the authoring machine specifically: the working folder lives in OneDrive
+     and OneDrive rewrites mtimes wholesale when it re-materialises a folder, so
+     every file in the repo can carry this morning's timestamp over data that is
+     days old. deploy-site.ps1 step 3b reads this field and re-bakes when it is
+     older than -MarketMaxAgeHours. Keep it ISO 8601 and keep it UTC. */
   writeFileSync(SNAPSHOT, JSON.stringify({
     stamp,
+    bakedAt: new Date().toISOString(),
     figures: flat,
     earningsWatch: earningsWatch ?? prev?.earningsWatch ?? [],
   }, null, 2), 'utf8')
