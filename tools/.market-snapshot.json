@@ -1,5 +1,6 @@
 {
   "stamp": "2026-08-11",
+  "bakedAt": "2026-08-11T17:38:26.509Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -245,7 +246,7 @@
       "label": "High Yield Spread",
       "display": "2.70%",
       "value": 2.7,
-      "date": "2026-08-07",
+      "date": "2026-08-10",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -368,9 +369,13 @@
       "name": "Advanced Micro Devices Inc",
       "date": "2026-08-04",
       "hour": "amc",
-      "epsEstimate": 1.631,
+      "epsEstimate": 1.6313,
       "revenueEstimate": 11396426778,
-      "marketCap": 776410492425.2418
+      "marketCap": 776410492425.2418,
+      "epsActual": 1.66,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "CAT",
@@ -379,16 +384,24 @@
       "hour": "bmo",
       "epsEstimate": 6.2595,
       "revenueEstimate": 19530045113,
-      "marketCap": 375331660259.9432
+      "marketCap": 375331660259.9432,
+      "epsActual": 8.17,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "MRK",
       "name": "Merck & Co Inc",
       "date": "2026-08-04",
       "hour": "bmo",
-      "epsEstimate": -0.2733,
+      "epsEstimate": -0.2727,
       "revenueEstimate": 16528301075,
-      "marketCap": 321571128434.4048
+      "marketCap": 321571128434.4048,
+      "epsActual": -0.13,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "AMGN",
@@ -397,7 +410,11 @@
       "hour": "amc",
       "epsEstimate": 5.7281,
       "revenueEstimate": 9609525845,
-      "marketCap": 207874038177.57687
+      "marketCap": 207874038177.57687,
+      "epsActual": 6.29,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "PFE",
@@ -406,7 +423,11 @@
       "hour": "bmo",
       "epsEstimate": 0.6914,
       "revenueEstimate": 14549152363,
-      "marketCap": 142543089756.27258
+      "marketCap": 142543089756.27258,
+      "epsActual": 0.77,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "DUK",
@@ -415,7 +436,11 @@
       "hour": "bmo",
       "epsEstimate": 1.318,
       "revenueEstimate": 7756866559,
-      "marketCap": 97784747688.62726
+      "marketCap": 97784747688.62726,
+      "epsActual": 1.43,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "MPC",
@@ -424,7 +449,11 @@
       "hour": "bmo",
       "epsEstimate": 13.8643,
       "revenueEstimate": 42498879878,
-      "marketCap": 92389176595.9963
+      "marketCap": 92389176595.9963,
+      "epsActual": 17.73,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "CMI",
@@ -433,16 +462,24 @@
       "hour": "bmo",
       "epsEstimate": 7.305,
       "revenueEstimate": 9422964952,
-      "marketCap": 87512658801.3315
+      "marketCap": 87512658801.3315,
+      "epsActual": 6.73,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "EOG",
       "name": "EOG Resources Inc",
       "date": "2026-08-04",
       "hour": "amc",
-      "epsEstimate": 5.0582,
+      "epsEstimate": 5.0287,
       "revenueEstimate": 7871115567,
-      "marketCap": 79196525553.29022
+      "marketCap": 79196525553.29022,
+      "epsActual": 5.07,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "ET",
@@ -505,7 +542,11 @@
       "hour": "bmo",
       "epsEstimate": 6.0661,
       "revenueEstimate": 20932741920,
-      "marketCap": 1081910155688.9492
+      "marketCap": 1081910155688.9492,
+      "epsActual": 8.38,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "SNDK",
@@ -514,25 +555,37 @@
       "hour": "amc",
       "epsEstimate": 35.1395,
       "revenueEstimate": 8561788200,
-      "marketCap": 179903886707.95602
+      "marketCap": 179903886707.95602,
+      "epsActual": 39.25,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
     },
     {
       "symbol": "DIS",
       "name": "Walt Disney Co",
       "date": "2026-08-05",
       "hour": "bmo",
-      "epsEstimate": 1.879,
+      "epsEstimate": 1.8763,
       "revenueEstimate": 25658241808,
-      "marketCap": 167035033361.56003
+      "marketCap": 167035033361.56003,
+      "epsActual": 2.06,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
     },
     {
       "symbol": "UBER",
       "name": "Uber Technologies Inc",
       "date": "2026-08-05",
       "hour": "bmo",
-      "epsEstimate": 0.8309,
+      "epsEstimate": 0.8177,
       "revenueEstimate": 14523853276,
-      "marketCap": 143224751161.21527
+      "marketCap": 143224751161.21527,
+      "epsActual": 1.17,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "CVS",
@@ -541,7 +594,11 @@
       "hour": "bmo",
       "epsEstimate": 1.8702,
       "revenueEstimate": 101115104650,
-      "marketCap": 133245083855.88826
+      "marketCap": 133245083855.88826,
+      "epsActual": 2.58,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "MCK",
@@ -550,7 +607,11 @@
       "hour": "amc",
       "epsEstimate": 9.6305,
       "revenueEstimate": 104775012511,
-      "marketCap": 100240794363.98856
+      "marketCap": 100240794363.98856,
+      "epsActual": 9.93,
+      "revenueActual": null,
+      "quarter": 1,
+      "year": 2027
     },
     {
       "symbol": "MELI",
@@ -559,7 +620,11 @@
       "hour": "amc",
       "epsEstimate": 8.8292,
       "revenueEstimate": 9860200566,
-      "marketCap": 95206771390.44669
+      "marketCap": 95206771390.44669,
+      "epsActual": 9.19,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "PSX",
@@ -568,7 +633,11 @@
       "hour": "bmo",
       "epsEstimate": 7.5136,
       "revenueEstimate": 44153338477,
-      "marketCap": 84869929202.8718
+      "marketCap": 84869929202.8718,
+      "epsActual": 9.41,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "ALL",
@@ -631,16 +700,24 @@
       "hour": "bmo",
       "epsEstimate": 2.9112,
       "revenueEstimate": 18984120256,
-      "marketCap": 146780053025.58212
+      "marketCap": 146780053025.58212,
+      "epsActual": 3.24,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "CEG",
       "name": "Constellation Energy Corp",
       "date": "2026-08-06",
       "hour": "bmo",
-      "epsEstimate": 2.4459,
+      "epsEstimate": 2.3045,
       "revenueEstimate": 8030296213,
-      "marketCap": 94354054950.28076
+      "marketCap": 94354054950.28076,
+      "epsActual": 2.55,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "WBD",
@@ -667,7 +744,7 @@
       "hour": "bmo",
       "epsEstimate": 0.363,
       "revenueEstimate": 12623899352,
-      "marketCap": 16410666428.323544,
+      "marketCap": 16410666974,
       "epsActual": 0.41,
       "revenueActual": 17693000000,
       "quarter": 2,
@@ -700,9 +777,13 @@
       "name": "Booking Holdings Inc",
       "date": "2026-08-04",
       "hour": "amc",
-      "epsEstimate": 2.4906,
+      "epsEstimate": 2.4982,
       "revenueEstimate": 7343699202,
-      "marketCap": 149474051075.40103
+      "marketCap": 149474051075.40103,
+      "epsActual": 2.54,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "OXY",
@@ -1052,8 +1133,8 @@
       "epsEstimate": 0.7854,
       "revenueEstimate": 7274540139,
       "marketCap": 69474119517,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.86,
+      "revenueActual": 7804700000,
       "quarter": 2,
       "year": 2026
     },
@@ -1065,8 +1146,8 @@
       "epsEstimate": 2.4443,
       "revenueEstimate": 65679375072,
       "marketCap": 55548943568.21446,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 2.91,
+      "revenueActual": 63672000000,
       "quarter": 4,
       "year": 2026
     },
@@ -1091,8 +1172,8 @@
       "epsEstimate": 0.5008,
       "revenueEstimate": 4804357626,
       "marketCap": 30880570282.69626,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.51,
+      "revenueActual": 4578000000,
       "quarter": 2,
       "year": 2026
     },
@@ -1130,8 +1211,8 @@
       "epsEstimate": 0.495,
       "revenueEstimate": 5035096380,
       "marketCap": 14649142595.599463,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.52,
+      "revenueActual": 5057910000,
       "quarter": 3,
       "year": 2026
     },
@@ -1143,8 +1224,8 @@
       "epsEstimate": 1.6166,
       "revenueEstimate": 8866154144,
       "marketCap": 13658787134.3088,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 1.68665,
+      "revenueActual": 8885272200,
       "quarter": 2,
       "year": 2026
     },
@@ -1155,9 +1236,9 @@
       "hour": "bmo",
       "epsEstimate": 0.6032,
       "revenueEstimate": 3719921102,
-      "marketCap": 9616584197.836222,
-      "epsActual": null,
-      "revenueActual": null,
+      "marketCap": 9616584552,
+      "epsActual": 0.62,
+      "revenueActual": 3700000000,
       "quarter": 2,
       "year": 2026
     },
@@ -1207,7 +1288,7 @@
       "hour": "amc",
       "epsEstimate": 1.1937,
       "revenueEstimate": 17159212935,
-      "marketCap": 483101666421.77,
+      "marketCap": 483101664005.00006,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 4,
@@ -1298,7 +1379,7 @@
       "hour": "amc",
       "epsEstimate": -0.0762,
       "revenueEstimate": 1175270071,
-      "marketCap": 4992921285.850439,
+      "marketCap": 4992921509,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -1428,7 +1509,7 @@
       "hour": "amc",
       "epsEstimate": 3.4544,
       "revenueEstimate": 9175728984,
-      "marketCap": 414542099259.0449,
+      "marketCap": 414542084119,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 3,
@@ -1442,6 +1523,58 @@
       "epsEstimate": 25.2307,
       "revenueEstimate": 6300719360,
       "marketCap": 30398344166.506966,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ONON",
+      "name": "On Holding AG",
+      "date": "2026-08-11",
+      "hour": "bmo",
+      "epsEstimate": 0.3439,
+      "revenueEstimate": 895727810,
+      "marketCap": 12836083566.378166,
+      "epsActual": 0.35706,
+      "revenueActual": 873036045,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "MIDD",
+      "name": "Middleby Corp",
+      "date": "2026-08-11",
+      "hour": "bmo",
+      "epsEstimate": 2.0741,
+      "revenueEstimate": 698054003,
+      "marketCap": 5891449047.000001,
+      "epsActual": 2.35,
+      "revenueActual": 875550000,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "LEGN",
+      "name": "Legend Biotech Corp",
+      "date": "2026-08-11",
+      "hour": "bmo",
+      "epsEstimate": 0.0764,
+      "revenueEstimate": 362887338,
+      "marketCap": 3837384064,
+      "epsActual": 0.09,
+      "revenueActual": 387500000,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "TRMB",
+      "name": "Trimble Inc",
+      "date": "2026-08-12",
+      "hour": "",
+      "epsEstimate": 0.8171,
+      "revenueEstimate": 970947486,
+      "marketCap": 13623036396,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
