@@ -106,6 +106,14 @@ const EARNINGS_ENDPOINT = process.env.MARKET_EARNINGS_ENDPOINT
   || ENDPOINT.replace(/\/market-data$/, '/market-earnings')
 const EARNINGS_MIN_CAP_M = Number(process.env.EARNINGS_MIN_CAP_M ?? 2000)
 
+/* How many rows each earnings tab renders. Was a bare .slice(0, 25) repeated in
+   three places, which quietly capped the calendar at 25 companies per tab no
+   matter how many cleared the $2B floor — on a heavy day in earnings season
+   that hid most of the list, and it looked like missing data rather than a
+   display limit. The tables already live in .mkt-scroll, so a longer list
+   scrolls rather than running off the page. */
+const EARNINGS_ROWS = Number(process.env.EARNINGS_ROWS ?? 100)
+
 /* Sector total returns at six horizons, from Yahoo monthly adjusted closes.
    Not available from market-data at all — Finnhub's free tier dropped
    historical candles, so 3Y/5Y/10Y cannot be computed from it. */
@@ -208,7 +216,7 @@ function trend(row) {
 /* ------------------------------------------------------------- stat renderer */
 
 /** The workhorse. Every FRED group renders as the same card grid, so growth,
-    inflation, rates, labour and the household block are visually one system
+    inflation, rates, labor and the household block are visually one system
     rather than five bespoke layouts nobody can maintain. */
 function statGrid(rows) {
   if (!rows?.length) return ''
@@ -660,7 +668,7 @@ function renderEarnings(input) {
   const todayTable = today.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr>${th('Company','text')}${th('When','text')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('EPS actual','num')}${th('Surprise','num')}${th('Revenue est.','num','mkt-hide-sm')}${th('Revenue actual','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
-${[...today].sort(bySession).slice(0, 25).map(r => {
+${[...today].sort(bySession).slice(0, EARNINGS_ROWS).map(r => {
     const s = surprise(r)
     return `        <tr>
           ${nameCell(r)}
@@ -684,7 +692,7 @@ ${[...today].sort(bySession).slice(0, 25).map(r => {
   const tomorrowTable = tomorrow.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr>${th('Company','text')}${th('When','text')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('Revenue est.','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
-${[...tomorrow].sort(bySession).slice(0, 25).map(r => `        <tr>
+${[...tomorrow].sort(bySession).slice(0, EARNINGS_ROWS).map(r => `        <tr>
           ${nameCell(r)}
           <td data-v="${WHEN_RANK[r.hour] ?? 3}">${esc(when[r.hour] ?? '—')}</td>
           ${td(r.marketCap, cap(r.marketCap), 'mkt-hide-sm')}
@@ -702,7 +710,7 @@ ${[...tomorrow].sort(bySession).slice(0, 25).map(r => `        <tr>
   const reportedTable = reported.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr>${th('Company','text')}${th('Date','num')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('EPS actual','num')}${th('Surprise','num')}${th('Revenue est.','num','mkt-hide-sm')}${th('Revenue actual','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
-${reported.slice(0, 25).map(r => {
+${reported.slice(0, EARNINGS_ROWS).map(r => {
     const s = surprise(r)
     return `        <tr>
           ${nameCell(r)}
@@ -731,7 +739,7 @@ ${reported.slice(0, 25).map(r => {
      asks. */
   return `<div class="mkt-filter-note">
       <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. This shows only those worth more than $2 billion &mdash; because a company below that size can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
-      <p>That is an editorial choice rather than a judgement about those businesses, and it does mean genuinely interesting small companies are missing. <strong>Estimates</strong> are what analysts expect: a forecast, not a target the company agreed to. <strong>Surprise</strong> is actual EPS minus estimate, in dollars per share. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
+      <p>That is an editorial choice rather than a judgment about those businesses, and it does mean genuinely interesting small companies are missing. <strong>Estimates</strong> are what analysts expect: a forecast, not a target the company agreed to. <strong>Surprise</strong> is actual EPS minus estimate, in dollars per share. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
       <p><strong>Two honest limits.</strong> Actual figures appear within about an hour of a company releasing them, not instantly, so a name that has just reported may still show a dash. And <strong>actual revenue is only kept for companies we caught on their own reporting day</strong> &mdash; our data source sells no revenue history, so older rows in Just reported show actual EPS with a dash beside it for revenue. A dash means we do not have it, never that the company did not report it.</p>
     </div>
     <div class="mkt-tabs">
@@ -839,7 +847,7 @@ ${mixSources(hits, 8).map(n => `      <li class="mkt-erel-item">
 
 function renderSignals(s) {
   if (!s?.signals?.length) return ''
-  const label = { calm: 'Not flashing', watch: 'Grey zone', alert: 'Flashing' }
+  const label = { calm: 'Not flashing', watch: 'Gray zone', alert: 'Flashing' }
   return `<p class="mkt-sig-summary">${esc(s.summary)}</p>
     <div class="mkt-sig-grid">
 ${s.signals.map(x => `      <article class="mkt-sig ${esc(x.state)}">

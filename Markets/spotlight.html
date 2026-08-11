@@ -88,7 +88,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260810-2359">
+<link rel="stylesheet" href="../styles.css?v=20260811-0022">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -845,7 +845,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
     <!-- MKT:spotEarnings:START -->
     <div class="mkt-filter-note">
       <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. This shows only those worth more than $2 billion &mdash; because a company below that size can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
-      <p>That is an editorial choice rather than a judgement about those businesses, and it does mean genuinely interesting small companies are missing. <strong>Estimates</strong> are what analysts expect: a forecast, not a target the company agreed to. <strong>Surprise</strong> is actual EPS minus estimate, in dollars per share. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
+      <p>That is an editorial choice rather than a judgment about those businesses, and it does mean genuinely interesting small companies are missing. <strong>Estimates</strong> are what analysts expect: a forecast, not a target the company agreed to. <strong>Surprise</strong> is actual EPS minus estimate, in dollars per share. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
       <p><strong>Two honest limits.</strong> Actual figures appear within about an hour of a company releasing them, not instantly, so a name that has just reported may still show a dash. And <strong>actual revenue is only kept for companies we caught on their own reporting day</strong> &mdash; our data source sells no revenue history, so older rows in Just reported show actual EPS with a dash beside it for revenue. A dash means we do not have it, never that the company did not report it.</p>
     </div>
     <div class="mkt-tabs">
@@ -853,112 +853,134 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
       <input type="radio" name="earnwin" id="earnwin-tomorrow" class="mkt-tab-in">
       <input type="radio" name="earnwin" id="earnwin-reported" class="mkt-tab-in">
       <div class="mkt-tab-btns">
-        <label for="earnwin-today">Today &nbsp;<span>9</span></label>
-        <label for="earnwin-tomorrow">Tomorrow &nbsp;<span>2</span></label>
-        <label for="earnwin-reported">Just reported &nbsp;<span>37</span></label>
+        <label for="earnwin-today">Today &nbsp;<span>11</span></label>
+        <label for="earnwin-tomorrow">Tomorrow &nbsp;<span>10</span></label>
+        <label for="earnwin-reported">Just reported &nbsp;<span>46</span></label>
       </div>
       <div class="mkt-tab-panel" data-win="today">
         <div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">Company<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">When<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Market cap<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Surprise<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col">Read it</th></tr></thead>
       <tbody>
         <tr>
-          <th scope="row" data-v="FERG"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=FERG#lookup" rel="nofollow" title="Look up FERG">FERG</a><span class="mkt-co">Ferguson Enterprises Inc</span></th>
+          <th scope="row" data-v="SE"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SE#lookup" rel="nofollow" title="Look up SE">SE</a><span class="mkt-co">Sea Ltd</span></th>
           <td data-v="0">Before open</td>
-          <td data-v="51156922786.154655" class="mkt-hide-sm">$51.2B</td>
-          <td data-v="3.3541">$3.35</td>
-          <td data-v="3.39">$3.39</td>
-          <td data-v="0.035900000000000265" class="up">+$0.04</td>
-          <td data-v="8841683982" class="mkt-hide-sm">$8.84B</td>
-          <td data-v="8751000000">$8.75B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/FERG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=FERG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <td data-v="69474119517" class="mkt-hide-sm">$69.5B</td>
+          <td data-v="0.7854">$0.79</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="7274540139" class="mkt-hide-sm">$7.27B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SE/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SE&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="CRC"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=CRC#lookup" rel="nofollow" title="Look up CRC">CRC</a><span class="mkt-co">California Resources Corp</span></th>
+          <th scope="row" data-v="CAH"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=CAH#lookup" rel="nofollow" title="Look up CAH">CAH</a><span class="mkt-co">Cardinal Health Inc</span></th>
           <td data-v="0">Before open</td>
-          <td data-v="4772725988.527266" class="mkt-hide-sm">$4.8B</td>
-          <td data-v="1.4457">$1.45</td>
-          <td data-v="0.99">$0.99</td>
-          <td data-v="-0.4557" class="down">−$0.46</td>
-          <td data-v="986325034" class="mkt-hide-sm">$986M</td>
-          <td data-v="1056000000">$1.06B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CRC/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CRC&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <td data-v="55548943568.21446" class="mkt-hide-sm">$55.5B</td>
+          <td data-v="2.4443">$2.44</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="65679375072" class="mkt-hide-sm">$65.68B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CAH/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CAH&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="SGRY"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SGRY#lookup" rel="nofollow" title="Look up SGRY">SGRY</a><span class="mkt-co">Surgery Partners Inc</span></th>
+          <th scope="row" data-v="VG"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=VG#lookup" rel="nofollow" title="Look up VG">VG</a><span class="mkt-co">Venture Global Inc</span></th>
           <td data-v="0">Before open</td>
-          <td data-v="2086071152.2054088" class="mkt-hide-sm">$2.1B</td>
-          <td data-v="0.0595">$0.06</td>
-          <td data-v="0.1">$0.10</td>
-          <td data-v="0.04050000000000001" class="up">+$0.04</td>
-          <td data-v="846973044" class="mkt-hide-sm">$847M</td>
-          <td data-v="848900000">$849M</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SGRY/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SGRY&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <td data-v="30880570282.69626" class="mkt-hide-sm">$30.9B</td>
+          <td data-v="0.5008">$0.50</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="4804357626" class="mkt-hide-sm">$4.80B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/VG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=VG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="SPG"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SPG#lookup" rel="nofollow" title="Look up SPG">SPG</a><span class="mkt-co">Simon Property Group Inc</span></th>
-          <td data-v="2">After close</td>
-          <td data-v="71520378936.95303" class="mkt-hide-sm">$71.5B</td>
-          <td data-v="1.6907">$1.69</td>
-          <td data-v="3.29">$3.29</td>
-          <td data-v="1.5993" class="up">+$1.60</td>
-          <td data-v="1628124595" class="mkt-hide-sm">$1.63B</td>
-          <td data-v="1790600000">$1.79B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SPG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SPG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <th scope="row" data-v="ARMK"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=ARMK#lookup" rel="nofollow" title="Look up ARMK">ARMK</a><span class="mkt-co">Aramark</span></th>
+          <td data-v="0">Before open</td>
+          <td data-v="14649142595.599463" class="mkt-hide-sm">$14.6B</td>
+          <td data-v="0.495">$0.49</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="5035096380" class="mkt-hide-sm">$5.04B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/ARMK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=ARMK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="JBS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=JBS#lookup" rel="nofollow" title="Look up JBS">JBS</a><span class="mkt-co">Jbs NV</span></th>
-          <td data-v="2">After close</td>
-          <td data-v="14328703498.97751" class="mkt-hide-sm">$14.3B</td>
-          <td data-v="0.3194">$0.32</td>
-          <td data-v="-0.09">$-0.09</td>
-          <td data-v="-0.4094" class="down">−$0.41</td>
-          <td data-v="23155683159" class="mkt-hide-sm">$23.16B</td>
-          <td data-v="23899580000">$23.90B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/JBS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=JBS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <th scope="row" data-v="TME"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=TME#lookup" rel="nofollow" title="Look up TME">TME</a><span class="mkt-co">Tencent Music Entertainment Group</span></th>
+          <td data-v="0">Before open</td>
+          <td data-v="13658787134.3088" class="mkt-hide-sm">$13.7B</td>
+          <td data-v="1.6166">$1.62</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="8866154144" class="mkt-hide-sm">$8.87B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/TME/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=TME&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="ACM"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=ACM#lookup" rel="nofollow" title="Look up ACM">ACM</a><span class="mkt-co">AECOM</span></th>
-          <td data-v="2">After close</td>
-          <td data-v="9420729486.249998" class="mkt-hide-sm">$9.4B</td>
-          <td data-v="1.4809">$1.48</td>
-          <td data-v="-0.5">$-0.50</td>
-          <td data-v="-1.9809" class="down">−$1.98</td>
-          <td data-v="2043961815" class="mkt-hide-sm">$2.04B</td>
-          <td data-v="1608900000">$1.61B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/ACM/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=ACM&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <th scope="row" data-v="SFD"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SFD#lookup" rel="nofollow" title="Look up SFD">SFD</a><span class="mkt-co">Smithfield Foods Inc</span></th>
+          <td data-v="0">Before open</td>
+          <td data-v="9616584197.836222" class="mkt-hide-sm">$9.6B</td>
+          <td data-v="0.6032">$0.60</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="3719921102" class="mkt-hide-sm">$3.72B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SFD/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SFD&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="HIMS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=HIMS#lookup" rel="nofollow" title="Look up HIMS">HIMS</a><span class="mkt-co">Hims &amp; Hers Health Inc</span></th>
+          <th scope="row" data-v="CRWV"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=CRWV#lookup" rel="nofollow" title="Look up CRWV">CRWV</a><span class="mkt-co">CoreWeave Inc</span></th>
           <td data-v="2">After close</td>
-          <td data-v="7353411200.404557" class="mkt-hide-sm">$7.4B</td>
-          <td data-v="-0.0143">$-0.01</td>
-          <td data-v="-0.1">$-0.10</td>
-          <td data-v="-0.0857" class="down">−$0.09</td>
-          <td data-v="713886953" class="mkt-hide-sm">$714M</td>
-          <td data-v="753210000">$753M</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/HIMS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=HIMS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <td data-v="48113848291.603065" class="mkt-hide-sm">$48.1B</td>
+          <td data-v="-1.24">$-1.24</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="2611110688" class="mkt-hide-sm">$2.61B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CRWV/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CRWV&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="AMTM"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=AMTM#lookup" rel="nofollow" title="Look up AMTM">AMTM</a><span class="mkt-co">Amentum Holdings Inc</span></th>
+          <th scope="row" data-v="SMCI"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SMCI#lookup" rel="nofollow" title="Look up SMCI">SMCI</a><span class="mkt-co">Super Micro Computer Inc</span></th>
           <td data-v="2">After close</td>
-          <td data-v="5971090841.658459" class="mkt-hide-sm">$6.0B</td>
-          <td data-v="0.6233">$0.62</td>
-          <td data-v="0.67">$0.67</td>
-          <td data-v="0.046700000000000075" class="up">+$0.05</td>
-          <td data-v="3643760167" class="mkt-hide-sm">$3.64B</td>
-          <td data-v="3490000000">$3.49B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AMTM/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AMTM&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <td data-v="20350623585.568905" class="mkt-hide-sm">$20.4B</td>
+          <td data-v="0.9767">$0.98</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="11782281660" class="mkt-hide-sm">$11.78B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SMCI/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SMCI&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
-          <th scope="row" data-v="NIQ"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=NIQ#lookup" rel="nofollow" title="Look up NIQ">NIQ</a><span class="mkt-co">NIQ Global Intelligence PLC</span></th>
+          <th scope="row" data-v="HRB"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=HRB#lookup" rel="nofollow" title="Look up HRB">HRB</a><span class="mkt-co">H &amp; R Block Inc</span></th>
           <td data-v="2">After close</td>
-          <td data-v="3447192688.0000005" class="mkt-hide-sm">$3.4B</td>
-          <td data-v="0.2044">$0.20</td>
-          <td data-v="0.27">$0.27</td>
-          <td data-v="0.06560000000000002" class="up">+$0.07</td>
-          <td data-v="1116815761" class="mkt-hide-sm">$1.12B</td>
-          <td data-v="1124200000">$1.12B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/NIQ/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=NIQ&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+          <td data-v="5822095835.849968" class="mkt-hide-sm">$5.8B</td>
+          <td data-v="2.2341">$2.23</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="1129047690" class="mkt-hide-sm">$1.13B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/HRB/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=HRB&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="QXO"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=QXO#lookup" rel="nofollow" title="Look up QXO">QXO</a><span class="mkt-co">QXO Inc</span></th>
+          <td data-v="3">—</td>
+          <td data-v="15956462600.525991" class="mkt-hide-sm">$16.0B</td>
+          <td data-v="0.0758">$0.08</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="3234621788" class="mkt-hide-sm">$3.23B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/QXO/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=QXO&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="PAGS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=PAGS#lookup" rel="nofollow" title="Look up PAGS">PAGS</a><span class="mkt-co">PagSeguro Digital Ltd</span></th>
+          <td data-v="3">—</td>
+          <td data-v="2519852404.919037" class="mkt-hide-sm">$2.5B</td>
+          <td data-v="2.0839">$2.08</td>
+          <td data-v="-Infinity">—</td>
+          <td data-v="-Infinity" class="mkt-pending">Not in yet</td>
+          <td data-v="5341876680" class="mkt-hide-sm">$5.34B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/PAGS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=PAGS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
       </tbody>
     </table></div>
@@ -968,12 +990,76 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
       <thead><tr><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">Company<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">When<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Market cap<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col">Read it</th></tr></thead>
       <tbody>
         <tr>
+          <th scope="row" data-v="AMCR"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=AMCR#lookup" rel="nofollow" title="Look up AMCR">AMCR</a><span class="mkt-co">Amcor PLC</span></th>
+          <td data-v="0">Before open</td>
+          <td data-v="21781104914.12516" class="mkt-hide-sm">$21.8B</td>
+          <td data-v="1.216">$1.22</td>
+          <td data-v="6170932680">$6.17B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AMCR/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AMCR&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="PFGC"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=PFGC#lookup" rel="nofollow" title="Look up PFGC">PFGC</a><span class="mkt-co">Performance Food Group Co</span></th>
+          <td data-v="0">Before open</td>
+          <td data-v="17875253558.117752" class="mkt-hide-sm">$17.9B</td>
+          <td data-v="1.6338">$1.63</td>
+          <td data-v="18447831271">$18.45B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/PFGC/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=PFGC&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="EAT"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=EAT#lookup" rel="nofollow" title="Look up EAT">EAT</a><span class="mkt-co">Brinker International Inc</span></th>
+          <td data-v="0">Before open</td>
+          <td data-v="9758687758.828598" class="mkt-hide-sm">$9.8B</td>
+          <td data-v="3.1175">$3.12</td>
+          <td data-v="1549310962">$1.55B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/EAT/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=EAT&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="CSCO"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=CSCO#lookup" rel="nofollow" title="Look up CSCO">CSCO</a><span class="mkt-co">Cisco Systems Inc</span></th>
+          <td data-v="2">After close</td>
+          <td data-v="483101666421.77" class="mkt-hide-sm">$483.1B</td>
+          <td data-v="1.1937">$1.19</td>
+          <td data-v="17159212935">$17.16B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CSCO/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CSCO&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="COHR"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=COHR#lookup" rel="nofollow" title="Look up COHR">COHR</a><span class="mkt-co">Coherent Corp</span></th>
+          <td data-v="2">After close</td>
+          <td data-v="63612128319.394806" class="mkt-hide-sm">$63.6B</td>
+          <td data-v="1.6474">$1.65</td>
+          <td data-v="2025408135">$2.03B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/COHR/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=COHR&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="ENS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=ENS#lookup" rel="nofollow" title="Look up ENS">ENS</a><span class="mkt-co">EnerSys</span></th>
+          <td data-v="2">After close</td>
+          <td data-v="6791775824.161277" class="mkt-hide-sm">$6.8B</td>
+          <td data-v="2.8549">$2.85</td>
+          <td data-v="937229500">$937M</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/ENS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=ENS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="EQPT"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=EQPT#lookup" rel="nofollow" title="Look up EQPT">EQPT</a><span class="mkt-co">Equipmentshare.Com Inc</span></th>
+          <td data-v="2">After close</td>
+          <td data-v="4992921285.850439" class="mkt-hide-sm">$5.0B</td>
+          <td data-v="-0.0762">$-0.08</td>
+          <td data-v="1175270071">$1.18B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/EQPT/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=EQPT&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
           <th scope="row" data-v="TBBB"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=TBBB#lookup" rel="nofollow" title="Look up TBBB">TBBB</a><span class="mkt-co">Bbb Foods Inc</span></th>
           <td data-v="2">After close</td>
           <td data-v="4900469817.544117" class="mkt-hide-sm">$4.9B</td>
           <td data-v="-3.6669">$-3.67</td>
           <td data-v="25485452964">$25.49B</td>
           <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/TBBB/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=TBBB&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="REZI"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=REZI#lookup" rel="nofollow" title="Look up REZI">REZI</a><span class="mkt-co">Resideo Technologies Inc</span></th>
+          <td data-v="2">After close</td>
+          <td data-v="3666029974.792178" class="mkt-hide-sm">$3.7B</td>
+          <td data-v="0.6885">$0.69</td>
+          <td data-v="1973700000">$1.97B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/REZI/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=REZI&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
           <th scope="row" data-v="VIPS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=VIPS#lookup" rel="nofollow" title="Look up VIPS">VIPS</a><span class="mkt-co">Vipshop Holdings Ltd</span></th>
@@ -990,6 +1076,105 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
         <div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">Company<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Date<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Market cap<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Surprise<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col">Read it</th></tr></thead>
       <tbody>
+        <tr>
+          <th scope="row" data-v="SPG"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SPG#lookup" rel="nofollow" title="Look up SPG">SPG</a><span class="mkt-co">Simon Property Group Inc</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="71520378936.95303" class="mkt-hide-sm">$71.5B</td>
+          <td data-v="1.6907">$1.69</td>
+          <td data-v="3.29">$3.29</td>
+          <td data-v="1.5993" class="up">+$1.60</td>
+          <td data-v="1628124595" class="mkt-hide-sm">$1.63B</td>
+          <td data-v="1790600000">$1.79B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SPG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SPG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="FERG"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=FERG#lookup" rel="nofollow" title="Look up FERG">FERG</a><span class="mkt-co">Ferguson Enterprises Inc</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="51156922786.154655" class="mkt-hide-sm">$51.2B</td>
+          <td data-v="3.3541">$3.35</td>
+          <td data-v="3.39">$3.39</td>
+          <td data-v="0.035900000000000265" class="up">+$0.04</td>
+          <td data-v="8841683982" class="mkt-hide-sm">$8.84B</td>
+          <td data-v="8751000000">$8.75B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/FERG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=FERG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="JBS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=JBS#lookup" rel="nofollow" title="Look up JBS">JBS</a><span class="mkt-co">Jbs NV</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="14328703498.97751" class="mkt-hide-sm">$14.3B</td>
+          <td data-v="0.3194">$0.32</td>
+          <td data-v="-0.09">$-0.09</td>
+          <td data-v="-0.4094" class="down">−$0.41</td>
+          <td data-v="23155683159" class="mkt-hide-sm">$23.16B</td>
+          <td data-v="23899580000">$23.90B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/JBS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=JBS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="ACM"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=ACM#lookup" rel="nofollow" title="Look up ACM">ACM</a><span class="mkt-co">AECOM</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="9420729486.249998" class="mkt-hide-sm">$9.4B</td>
+          <td data-v="1.4809">$1.48</td>
+          <td data-v="-0.5">$-0.50</td>
+          <td data-v="-1.9809" class="down">−$1.98</td>
+          <td data-v="2043961815" class="mkt-hide-sm">$2.04B</td>
+          <td data-v="1608900000">$1.61B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/ACM/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=ACM&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="HIMS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=HIMS#lookup" rel="nofollow" title="Look up HIMS">HIMS</a><span class="mkt-co">Hims &amp; Hers Health Inc</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="7353411200.404557" class="mkt-hide-sm">$7.4B</td>
+          <td data-v="-0.0143">$-0.01</td>
+          <td data-v="-0.1">$-0.10</td>
+          <td data-v="-0.0857" class="down">−$0.09</td>
+          <td data-v="713886953" class="mkt-hide-sm">$714M</td>
+          <td data-v="753210000">$753M</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/HIMS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=HIMS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="AMTM"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=AMTM#lookup" rel="nofollow" title="Look up AMTM">AMTM</a><span class="mkt-co">Amentum Holdings Inc</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="5971090841.658459" class="mkt-hide-sm">$6.0B</td>
+          <td data-v="0.6233">$0.62</td>
+          <td data-v="0.67">$0.67</td>
+          <td data-v="0.046700000000000075" class="up">+$0.05</td>
+          <td data-v="3643760167" class="mkt-hide-sm">$3.64B</td>
+          <td data-v="3490000000">$3.49B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AMTM/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AMTM&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="CRC"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=CRC#lookup" rel="nofollow" title="Look up CRC">CRC</a><span class="mkt-co">California Resources Corp</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="4772725988.527266" class="mkt-hide-sm">$4.8B</td>
+          <td data-v="1.4457">$1.45</td>
+          <td data-v="0.99">$0.99</td>
+          <td data-v="-0.4557" class="down">−$0.46</td>
+          <td data-v="986325034" class="mkt-hide-sm">$986M</td>
+          <td data-v="1056000000">$1.06B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CRC/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CRC&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="NIQ"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=NIQ#lookup" rel="nofollow" title="Look up NIQ">NIQ</a><span class="mkt-co">NIQ Global Intelligence PLC</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="3447192688.0000005" class="mkt-hide-sm">$3.4B</td>
+          <td data-v="0.2044">$0.20</td>
+          <td data-v="0.27">$0.27</td>
+          <td data-v="0.06560000000000002" class="up">+$0.07</td>
+          <td data-v="1116815761" class="mkt-hide-sm">$1.12B</td>
+          <td data-v="1124200000">$1.12B</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/NIQ/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=NIQ&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="SGRY"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SGRY#lookup" rel="nofollow" title="Look up SGRY">SGRY</a><span class="mkt-co">Surgery Partners Inc</span></th>
+          <td data-v="20260810">10 Aug</td>
+          <td data-v="2086071152.2054088" class="mkt-hide-sm">$2.1B</td>
+          <td data-v="0.0595">$0.06</td>
+          <td data-v="0.1">$0.10</td>
+          <td data-v="0.04050000000000001" class="up">+$0.04</td>
+          <td data-v="846973044" class="mkt-hide-sm">$847M</td>
+          <td data-v="848900000">$849M</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/SGRY/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=SGRY&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
         <tr>
           <th scope="row" data-v="TTWO"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=TTWO#lookup" rel="nofollow" title="Look up TTWO">TTWO</a><span class="mkt-co">Take-Two Interactive Software Inc</span></th>
           <td data-v="20260807">7 Aug</td>
@@ -1264,6 +1449,138 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
           <td data-v="104775012511" class="mkt-hide-sm">$104.78B</td>
           <td data-v="-Infinity">—</td>
           <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MCK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MCK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="MELI"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=MELI#lookup" rel="nofollow" title="Look up MELI">MELI</a><span class="mkt-co">MercadoLibre Inc</span></th>
+          <td data-v="20260805">5 Aug</td>
+          <td data-v="95206771390.44669" class="mkt-hide-sm">$95.2B</td>
+          <td data-v="8.8292">$8.83</td>
+          <td data-v="9.19">$9.19</td>
+          <td data-v="0.36079999999999934" class="up">+$0.36</td>
+          <td data-v="9860200566" class="mkt-hide-sm">$9.86B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MELI/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MELI&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="PSX"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=PSX#lookup" rel="nofollow" title="Look up PSX">PSX</a><span class="mkt-co">Phillips 66</span></th>
+          <td data-v="20260805">5 Aug</td>
+          <td data-v="84869929202.8718" class="mkt-hide-sm">$84.9B</td>
+          <td data-v="7.5136">$7.51</td>
+          <td data-v="9.41">$9.41</td>
+          <td data-v="1.8963999999999999" class="up">+$1.90</td>
+          <td data-v="44153338477" class="mkt-hide-sm">$44.15B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/PSX/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=PSX&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="AMD"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=AMD#lookup" rel="nofollow" title="Look up AMD">AMD</a><span class="mkt-co">Advanced Micro Devices Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="776410492425.2418" class="mkt-hide-sm">$776.4B</td>
+          <td data-v="1.6313">$1.63</td>
+          <td data-v="1.66">$1.66</td>
+          <td data-v="0.028699999999999948" class="up">+$0.03</td>
+          <td data-v="11396426778" class="mkt-hide-sm">$11.40B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AMD/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AMD&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="CAT"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=CAT#lookup" rel="nofollow" title="Look up CAT">CAT</a><span class="mkt-co">Caterpillar Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="375331660259.9432" class="mkt-hide-sm">$375.3B</td>
+          <td data-v="6.2595">$6.26</td>
+          <td data-v="8.17">$8.17</td>
+          <td data-v="1.9104999999999999" class="up">+$1.91</td>
+          <td data-v="19530045113" class="mkt-hide-sm">$19.53B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CAT/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CAT&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="MRK"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=MRK#lookup" rel="nofollow" title="Look up MRK">MRK</a><span class="mkt-co">Merck &amp; Co Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="321571128434.4048" class="mkt-hide-sm">$321.6B</td>
+          <td data-v="-0.2727">$-0.27</td>
+          <td data-v="-0.13">$-0.13</td>
+          <td data-v="0.1427" class="up">+$0.14</td>
+          <td data-v="16528301075" class="mkt-hide-sm">$16.53B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MRK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MRK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="AMGN"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=AMGN#lookup" rel="nofollow" title="Look up AMGN">AMGN</a><span class="mkt-co">Amgen Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="207874038177.57687" class="mkt-hide-sm">$207.9B</td>
+          <td data-v="5.7281">$5.73</td>
+          <td data-v="6.29">$6.29</td>
+          <td data-v="0.5618999999999996" class="up">+$0.56</td>
+          <td data-v="9609525845" class="mkt-hide-sm">$9.61B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AMGN/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AMGN&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="BKNG"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=BKNG#lookup" rel="nofollow" title="Look up BKNG">BKNG</a><span class="mkt-co">Booking Holdings Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="149474051075.40103" class="mkt-hide-sm">$149.5B</td>
+          <td data-v="2.4982">$2.50</td>
+          <td data-v="2.54">$2.54</td>
+          <td data-v="0.04179999999999984" class="up">+$0.04</td>
+          <td data-v="7343699202" class="mkt-hide-sm">$7.34B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/BKNG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=BKNG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="PFE"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=PFE#lookup" rel="nofollow" title="Look up PFE">PFE</a><span class="mkt-co">Pfizer Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="142543089756.27258" class="mkt-hide-sm">$142.5B</td>
+          <td data-v="0.6914">$0.69</td>
+          <td data-v="0.77">$0.77</td>
+          <td data-v="0.0786" class="up">+$0.08</td>
+          <td data-v="14549152363" class="mkt-hide-sm">$14.55B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/PFE/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=PFE&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="DUK"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=DUK#lookup" rel="nofollow" title="Look up DUK">DUK</a><span class="mkt-co">Duke Energy Corp</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="97784747688.62726" class="mkt-hide-sm">$97.8B</td>
+          <td data-v="1.318">$1.32</td>
+          <td data-v="1.43">$1.43</td>
+          <td data-v="0.11199999999999988" class="up">+$0.11</td>
+          <td data-v="7756866559" class="mkt-hide-sm">$7.76B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/DUK/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=DUK&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="MPC"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=MPC#lookup" rel="nofollow" title="Look up MPC">MPC</a><span class="mkt-co">Marathon Petroleum Corp</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="92389176595.9963" class="mkt-hide-sm">$92.4B</td>
+          <td data-v="13.8643">$13.86</td>
+          <td data-v="17.73">$17.73</td>
+          <td data-v="3.8657000000000004" class="up">+$3.87</td>
+          <td data-v="42498879878" class="mkt-hide-sm">$42.50B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/MPC/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=MPC&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="CMI"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=CMI#lookup" rel="nofollow" title="Look up CMI">CMI</a><span class="mkt-co">Cummins Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="87512658801.3315" class="mkt-hide-sm">$87.5B</td>
+          <td data-v="7.305">$7.30</td>
+          <td data-v="6.73">$6.73</td>
+          <td data-v="-0.5749999999999993" class="down">−$0.57</td>
+          <td data-v="9422964952" class="mkt-hide-sm">$9.42B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/CMI/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=CMI&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
+          <th scope="row" data-v="EOG"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=EOG#lookup" rel="nofollow" title="Look up EOG">EOG</a><span class="mkt-co">EOG Resources Inc</span></th>
+          <td data-v="20260804">4 Aug</td>
+          <td data-v="79196525553.29022" class="mkt-hide-sm">$79.2B</td>
+          <td data-v="5.0287">$5.03</td>
+          <td data-v="5.07">$5.07</td>
+          <td data-v="0.04130000000000056" class="up">+$0.04</td>
+          <td data-v="7871115567" class="mkt-hide-sm">$7.87B</td>
+          <td data-v="-Infinity">—</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/EOG/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=EOG&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
       </tbody>
     </table></div>
@@ -1637,7 +1954,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
   });
 })();
 </script>
-<script src="../app.js?v=20260810-2359"></script>
+<script src="../app.js?v=20260811-0022"></script>
 <script>
 HFY.initNavOnly();
 </script>
