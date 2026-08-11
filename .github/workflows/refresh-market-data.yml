@@ -172,16 +172,38 @@ jobs:
       # the prose beside it are NOT refreshed by this job. They update only on
       # a manual deploy from the working copy, where the masters exist. The
       # Markets pages — the actual point of this workflow — are unaffected.
+      # REVISED 2026-08-10 — build-charts DOES work here, and always did.
+      #
+      # The first fix skipped both scripts when the course folder was absent.
+      # That was over-broad. build-charts.mjs does not read the masters: it
+      # WALKS THE REPO and rewrites anything carrying <!-- CHART:name:START -->
+      # markers, and the public stage-5-wealth.html carries them and is in the
+      # repo. So it updates the public page directly, with no master in sight.
+      #
+      # Only build-public-stages.mjs genuinely needs the masters, because its
+      # whole job is regenerating public copies FROM them. That one still
+      # skips.
+      #
+      # Net effect: the Stage 5 Dow chart and the figures in the prose beside
+      # it now refresh hourly like the Markets pages, instead of freezing at
+      # whatever the last manual deploy baked.
+      #
+      # Why this cannot desync the two halves: locally, deploy-site.ps1 runs
+      # step 2b (build-charts, which updates master AND public) before step 3
+      # (build-public-stages, which regenerates public from master). So a
+      # local deploy always re-syncs the pair before `--check` looks at them.
+      # A CI run that touches only the public copy is corrected by the next
+      # local build rather than caught as drift.
       - name: Rebake the course charts from the new snapshot
         run: |
-          if [ ! -d "Financial Literacy Course" ]; then
-            echo "::notice::Course masters are gitignored and absent on the runner —"
-            echo "::notice::skipping the Stage 5 rebake. Markets pages are unaffected."
-            echo "::notice::Stage 5 charts refresh on the next manual deploy."
-            exit 0
-          fi
           node tools/build-charts.mjs
-          node tools/build-public-stages.mjs
+          if [ -d "Financial Literacy Course" ]; then
+            node tools/build-public-stages.mjs
+          else
+            echo "::notice::Course masters are gitignored and absent on the runner —"
+            echo "::notice::skipping build-public-stages only. The charts above already"
+            echo "::notice::updated the public stage pages directly."
+          fi
 
       - name: Commit only if something actually changed
         id: commit

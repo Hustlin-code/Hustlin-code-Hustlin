@@ -2880,3 +2880,21 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .fl-share-btn{min-height:44px;padding:0 18px;justify-content:center}
 }
 @media(max-width:420px){.fl-share-btn{width:100%}}
+
+/* ── STAGE 4 "VERIFIED RECORD" TABLE ───────────────────────────────────────
+   The master is styled entirely inline, so these rules only add properties
+   the inline styles do not set — font-family and numeric behaviour. No
+   specificity fight, and no need to unpick a table of hand-written style
+   attributes to fix its typography.
+
+   The returns column is the whole point of the table: it is read by
+   comparing ~29.5% against ~39% against ~29%, and proportional digits make
+   a 1 about half the width of a 0, so the figures do not line up and the
+   comparison is harder than it needs to be. Space Mono plus tabular figures
+   is the same treatment the Markets tables get, for the same reason.
+
+   Periods get tabular figures too — 1957-1969 above 1988-2018 only reads as
+   a column when the digits are one width. */
+.rec-table{font-variant-numeric:tabular-nums}
+.rec-table .rec-num{font-family:var(--f-mono);font-variant-numeric:tabular-nums slashed-zero;letter-spacing:-.01em}
+.rec-table .rec-yr{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.94em}
