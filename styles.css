@@ -876,6 +876,32 @@ a{text-decoration:none}
   .ff-card{padding:16px 18px}
 }
 
+/* ─── STICKY STAGE PROGRESS ──────────────────────────
+   Built by app.js on any page that contains .module elements, and revealed
+   once the hero has scrolled past. Fixed to the BOTTOM, not the top: the nav
+   is already fixed up there at 108px, and a second fixed strip below it eats
+   a fifth of a phone screen on a page whose whole job is reading.
+
+   Hardcoded hex, as everywhere else that has to survive a token rename.
+   ──────────────────────────────────────────────────── */
+.stg-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  background:rgba(10,10,10,.96);border-top:1px solid rgba(240,192,48,.35);
+  padding:0 0 env(safe-area-inset-bottom,0);
+  transform:translateY(100%);transition:transform .2s ease;
+  pointer-events:none;
+}
+.stg-bar.is-on{transform:none}
+.stg-bar-track{height:3px;background:rgba(255,255,255,.08)}
+.stg-bar-fill{height:100%;width:0;background:#F0C030;transition:width .3s ease}
+.stg-bar-row{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:8px 18px;font-size:.76rem;color:rgba(255,255,255,.62);
+  max-width:900px;margin:0 auto;
+}
+.stg-bar-row span:last-child{color:#F0C030;font-weight:700}
+@media print{.stg-bar{display:none}}
+
 /* ─── VIDEO LINKS ────────────────────────────────────
    Replaced the YouTube iframes site-wide, 2026-08-10. Each embed pulled ~1MB
    of Google JS and set third-party cookies on page load whether or not anyone

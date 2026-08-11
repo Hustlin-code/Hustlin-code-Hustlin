@@ -254,8 +254,83 @@ window.HFY = (function(){
     const txt = document.getElementById('progTxt');
     if(circle) circle.style.strokeDashoffset = circ - (pct/100)*circ;
     if(txt) txt.textContent = pct+'%';
+    updateStickyProgress(pct);
     renderStageComplete(pct);
     renderNav();
+  }
+
+  /* ─── STICKY PROGRESS BAR ────────────────────────────────────────────────
+     The ring above lives in the hero, and the hero scrolls away about four
+     seconds into a stage that takes forty-five minutes to read. From then on
+     a reader has no idea how far in they are or how much is left — and people
+     abandon what they cannot measure. This is the same number, pinned.
+
+     It reads pct from the ring's own calculation rather than recomputing, so
+     there is exactly one definition of "done" on the page. Module N of M and
+     the minutes remaining come from the DOM, so nothing has to be maintained
+     per stage: add a module and the denominator moves on its own.
+
+     ~220 wpm is a deliberately unflattering reading speed for this audience —
+     overstating how fast someone reads is how "5 min left" becomes a lie at
+     minute nine. Rounded up, and it says "about".
+     ─────────────────────────────────────────────────────────────────────── */
+  var stickyEl = null, stickyMods = null, stickyWords = null;
+
+  function buildSticky(){
+    if(stickyEl || !document.querySelector('.module')) return;
+    var bar = document.createElement('div');
+    bar.className = 'stg-bar';
+    bar.setAttribute('role','status');
+    bar.setAttribute('aria-live','polite');
+    bar.innerHTML =
+      '<div class="stg-bar-track"><div class="stg-bar-fill" id="stgFill"></div></div>' +
+      '<div class="stg-bar-row">' +
+        '<span id="stgWhere"></span>' +
+        '<span id="stgLeft"></span>' +
+      '</div>';
+    document.body.appendChild(bar);
+    stickyEl = bar;
+    stickyMods = Array.prototype.slice.call(document.querySelectorAll('.module'));
+    stickyWords = stickyMods.map(function(m){
+      var b = m.querySelector('.mod-body');
+      return b ? (b.textContent || '').trim().split(/\s+/).length : 0;
+    });
+    window.addEventListener('scroll', positionSticky, { passive:true });
+    positionSticky();
+  }
+
+  function positionSticky(){
+    if(!stickyEl || !stickyMods.length) return;
+    /* .stage-banner is the block that carries the h1 and the progress ring on
+       the five FL stage pages — it is the thing scrolling away that this bar
+       replaces. The other two are there so the bar also works if it is ever
+       dropped on a page using the site's generic hero. The scrollY fallback
+       only fires if none of them is present. */
+    var hero = document.querySelector('.stage-banner, .stage-hero, .hero');
+    var past = hero ? (hero.getBoundingClientRect().bottom < 0) : (window.scrollY > 320);
+    stickyEl.classList.toggle('is-on', past);
+    if(!past) return;
+
+    var i = 0;
+    for(var n = 0; n < stickyMods.length; n++){
+      if(stickyMods[n].getBoundingClientRect().top < 140) i = n;
+    }
+    var where = document.getElementById('stgWhere');
+    var left  = document.getElementById('stgLeft');
+    if(where) where.textContent = 'Module ' + (i+1) + ' of ' + stickyMods.length;
+    if(left){
+      var remaining = 0;
+      for(var k = i+1; k < stickyWords.length; k++) remaining += stickyWords[k];
+      var mins = Math.ceil(remaining / 220);
+      left.textContent = mins > 0 ? 'about ' + mins + ' min left' : 'last module';
+    }
+  }
+
+  function updateStickyProgress(pct){
+    buildSticky();
+    var fill = document.getElementById('stgFill');
+    if(fill) fill.style.width = pct + '%';
+    positionSticky();
   }
   function renderStageComplete(pct){
     const banner = document.getElementById('stageCompleteBanner');
