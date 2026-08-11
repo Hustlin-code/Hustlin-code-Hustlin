@@ -266,15 +266,25 @@ window.HFY = (function(){
      abandon what they cannot measure. This is the same number, pinned.
 
      It reads pct from the ring's own calculation rather than recomputing, so
-     there is exactly one definition of "done" on the page. Module N of M and
-     the minutes remaining come from the DOM, so nothing has to be maintained
-     per stage: add a module and the denominator moves on its own.
+     there is exactly one definition of "done" on the page. Module N of M comes
+     from the DOM, so nothing has to be maintained per stage: add a module and
+     the denominator moves on its own.
 
-     ~220 wpm is a deliberately unflattering reading speed for this audience —
-     overstating how fast someone reads is how "5 min left" becomes a lie at
-     minute nine. Rounded up, and it says "about".
+     IT SHOWS A COUNT, NOT A TIME ESTIMATE, AND THAT IS DELIBERATE.
+     The first version said "about 12 min left", computed at 220 words per
+     minute. That number is an assumption about a reader we do not know, on a
+     site read by people on a phone after a double shift, people reading in a
+     second language, and people who read slowly and have been made to feel bad
+     about it their whole lives. Tell that reader twelve minutes, take them
+     thirty, and you have confirmed something they already believed about
+     themselves — on a site whose entire pitch is that it does not tell you
+     comfortable things that are not true.
+
+     "7 modules left" is a fact. It needs no assumption about anyone, it is
+     right for every reader, and it still answers the question the bar exists
+     to answer: how much of this is left. Do not put a wpm estimate back.
      ─────────────────────────────────────────────────────────────────────── */
-  var stickyEl = null, stickyMods = null, stickyWords = null;
+  var stickyEl = null, stickyMods = null;
 
   function buildSticky(){
     if(stickyEl || !document.querySelector('.module')) return;
@@ -291,10 +301,6 @@ window.HFY = (function(){
     document.body.appendChild(bar);
     stickyEl = bar;
     stickyMods = Array.prototype.slice.call(document.querySelectorAll('.module'));
-    stickyWords = stickyMods.map(function(m){
-      var b = m.querySelector('.mod-body');
-      return b ? (b.textContent || '').trim().split(/\s+/).length : 0;
-    });
     window.addEventListener('scroll', positionSticky, { passive:true });
     positionSticky();
   }
@@ -319,10 +325,10 @@ window.HFY = (function(){
     var left  = document.getElementById('stgLeft');
     if(where) where.textContent = 'Module ' + (i+1) + ' of ' + stickyMods.length;
     if(left){
-      var remaining = 0;
-      for(var k = i+1; k < stickyWords.length; k++) remaining += stickyWords[k];
-      var mins = Math.ceil(remaining / 220);
-      left.textContent = mins > 0 ? 'about ' + mins + ' min left' : 'last module';
+      var rest = stickyMods.length - (i+1);
+      left.textContent = rest === 0 ? 'last one'
+                       : rest === 1 ? '1 module left'
+                       : rest + ' modules left';
     }
   }
 
