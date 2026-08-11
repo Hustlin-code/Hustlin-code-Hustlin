@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amortization: How Loan Payments Work | Learn the Lingo</title>
+<meta name="description" content="How each loan payment splits between interest and principal, why early payments are mostly interest, and what one extra payment a year actually saves.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/amortization.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/amortization.html">
+<meta property="og:title" content="Amortization — Learn the Lingo">
+<meta property="og:description" content="The payment is fixed. The split inside it is not. A plain walk through amortization schedules, extra payments and negative amortization.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amortization — Learn the Lingo">
+<meta name="twitter:description" content="The payment is fixed. The split inside it is not. A plain walk through amortization schedules, extra payments and negative amortization.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/amortization.html#term",
+      "name": "Amortization",
+      "alternateName": ["Amortization","Amortization Schedule","Amortizing Loan"],
+      "description": "Amortization is the process of paying off a debt through regular payments, where each payment covers the interest accrued since the last one and applies whatever is left to the principal balance. It is also the accounting term for spreading the cost of an intangible asset across its useful life.",
+      "url": "https://hustlin.org/learn-the-lingo/amortization.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Amortization: how every loan payment splits between interest and principal",
+      "description": "A plain-language explanation of loan amortization — the payment formula, why early payments are almost entirely interest, and what an amortization schedule shows month by month. Includes a worked 30-year mortgage schedule at the current published rate, the effect of one extra payment a year, and where negative amortization shows up.",
+      "url": "https://hustlin.org/learn-the-lingo/amortization.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/amortization.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/amortization.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Amortization", "item": "https://hustlin.org/learn-the-lingo/amortization.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does amortization mean in simple terms?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It means paying off a loan in regular installments where each payment covers the interest that has built up since the last one, and whatever is left over reduces what you still owe. The payment amount stays the same every month, but the split between interest and principal shifts a little with every payment. Early on, most of the payment is interest because the balance is large. Late on, most of it is principal because the balance is small. When the schedule ends, the loan is paid off exactly." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is so much of my early mortgage payment going to interest?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because interest is charged on the balance you still owe, and at the beginning you still owe nearly all of it. On a 320,000 dollar loan at 6.69 percent, the first month's interest is 1,784 dollars, so out of a 2,062.77 dollar payment only 278.77 dollars reduces the balance. Nothing is being front-loaded onto you as a fee. As the balance falls, the interest portion falls with it and the principal portion grows by exactly the same amount, because the payment itself never changes." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does one extra payment a year save?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on the balance, rate and term, but the effect is large. On a 320,000 dollar 30-year mortgage at 6.69 percent, adding one extra monthly payment each year and applying it to principal pays the loan off in about 24 years and 2 months instead of 30, and saves roughly 95,000 dollars in interest. Spreading the same amount across all twelve months, about 172 dollars extra per month, saves a little more still. The extra money must be applied to principal, so tell the servicer that explicitly." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is negative amortization?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The CFPB defines it as what happens when, even though you are paying, the amount you owe still goes up, because the payment is not enough to cover the interest. The unpaid interest gets added to the balance, and next month interest is charged on that larger balance. It shows up in payment-option mortgages, some income-driven student loan situations, graduated payment structures and reverse mortgages. Under Regulation Z, a qualified mortgage cannot have payments that increase the principal balance." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an amortization schedule the same as a payment schedule?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They overlap but are not identical. A payment schedule tells you what is due and when. An amortization schedule tells you what each of those payments does, breaking every one into interest, principal and the balance left afterward. The amortization schedule is the more useful document because it shows progress rather than obligation. Your servicer can produce one for your actual loan, and the projected payments table on a Loan Estimate or Closing Disclosure shows the same information in summary form." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does amortization mean something different in accounting?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. In accounting, amortization is spreading the cost of an intangible asset, such as acquired goodwill, a patent or a customer list, across the years it is useful, rather than deducting the whole cost at once. The equivalent for physical assets is called depreciation. For US tax purposes, section 197 intangibles are generally amortized straight-line over 15 years. The two meanings share only the underlying idea of spreading an amount over time. If you are looking at a mortgage, the loan meaning is the one you want." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260811-1801">
+<link rel="stylesheet" href="lingo.css?v=20260811-1801">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Fifteen calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Amortization</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Loans &amp; Mortgages</div>
+      <h1 class="hero-h1">Amortization</h1>
+      <p class="hero-sub">The schedule that decides how much of each payment kills your balance and how much just rents the money &mdash; and why the early years lean so hard one way.</p>
+      <p class="gls-aka"><b>Also called:</b> amortization schedule &middot; paying down a loan &middot; fully amortizing loan</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 11 August 2026</b> &middot; Sourced from the CFPB, Regulation Z and the Federal Reserve</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Amortization is the process of paying off a loan with regular payments, where each payment first covers the interest that has built up since the last one, and whatever is left over reduces what you owe.</strong></p>
+    <p>The payment stays the same every month. The split inside it does not. Early on, almost all of it is interest. Late on, almost all of it is principal. Nobody rigged that &mdash; it falls out of the fact that interest is charged on the balance you still owe, and at the start you still owe everything.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li>Every payment is split two ways: interest first, then whatever remains goes to principal. The <b>payment</b> is fixed; the <b>split</b> moves every single month.</li>
+      <li>On a 30-year mortgage the two halves do not cross until roughly <b>year 20</b>. Before that, more of each payment is rent on the money than repayment of it.</li>
+      <li>An amortization schedule is the month-by-month table of that split. Every lender can produce yours, and you are entitled to see it.</li>
+      <li>Regulation Z defines a <b>fully amortizing payment</b> as one that &quot;will fully repay the loan amount over the loan term.&quot; Interest-only and balloon payments are not that.</li>
+      <li><b>One extra payment a year</b>, applied to principal, can retire a 30-year mortgage close to six years early. In the worked example below it saves about $95,000.</li>
+      <li><b>Negative amortization</b> is when the payment does not even cover the interest, so the balance grows while you are paying. Qualified mortgages are barred from it.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What amortization actually means</h2>
+
+  <p>Amortization is the least glamorous idea in personal finance and one of the most expensive to misunderstand. It is simply this: a loan that amortizes gets paid off on a schedule, by regular payments, and each of those payments does two jobs at once.</p>
+
+<p>Job one is paying for the use of the money since your last payment. That is interest. Job two is giving some of the money back. That is principal. Interest gets paid first, out of every payment, and whatever is left over is applied to the balance.</p>
+
+<p>That ordering is the whole story. It is not a fee, not a penalty, and not something buried in the fine print. It is just the order the money is applied in, and it produces every strange thing people notice about their loan statements.</p>
+
+<div class="gls-box">
+  <span class="gls-lbl">The one sentence to keep</span>
+  <p>Your payment does not change. What that payment <em>buys</em> changes every month. In month one of a 30-year mortgage you are almost entirely renting money. In month 350 you are almost entirely buying it back. Same dollar amount, completely different transaction.</p>
+</div>
+
+<p>Regulation Z, the rule that implements the Truth in Lending Act, puts a definition on it. A <b>fully amortizing payment</b> is &quot;a periodic payment of principal and interest that will fully repay the loan amount over the loan term.&quot; That is the standard a normal mortgage, auto loan or personal loan meets: make the scheduled payments on time, and on the last one the balance is zero. No lump sum waiting at the end, no surprise.</p>
+
+<p>Three things are <em>not</em> that, and they are worth naming now because the rest of this page keeps referring back to them:</p>
+
+<ul>
+  <li><b>Interest-only.</b> The payment covers the interest and nothing else. As the CFPB puts it, &quot;the amount that you owe on the loan does not go down with each payment.&quot; The balance sits still. That is zero amortization, not negative.</li>
+  <li><b>Balloon.</b> Payments are calculated as though the loan ran much longer than it does, so the scheduled payments never finish the job and a large single payment comes due at the end.</li>
+  <li><b>Negative amortization.</b> The payment does not even cover the interest, so the shortfall gets added to the balance and you owe more than you did before you paid. There is a whole section on this below.</li>
+</ul>
+
+<p>The word itself comes from the same root as &quot;mortal&quot; &mdash; a loan that amortizes is a loan being killed off on a schedule. That is a slightly grim etymology for a spreadsheet, but it is an accurate one, and it is worth holding onto. The point of the schedule is that the loan dies on a known date.</p>
+
+  <h2 id="formula">The formula that sets the payment</h2>
+
+  <p>There are really two formulas here, and people usually only learn the first one. The second one is the one that explains everything.</p>
+
+<p>The first solves for the level payment &mdash; the single fixed number that, repeated for the full term, exactly retires the loan. It looks worse than it is:</p>
+
+<div class="gls-formula">
+  <span class="gls-lbl">The level payment</span>
+<code>M  =  P  &times;  [ <em>i</em>(1 + <em>i</em>)^<em>n</em> ]  &divide;  [ (1 + <em>i</em>)^<em>n</em> &minus; 1 ]</code>
+  <p class="gls-where"><b>M</b> = the monthly payment of principal and interest &middot; <b>P</b> = the amount borrowed &middot; <b>i</b> = the monthly interest rate, which is the annual rate divided by 12 &middot; <b>n</b> = the total number of monthly payments, so 360 on a 30-year loan</p>
+</div>
+
+<p>Note what that payment does <b>not</b> include. On a mortgage, M is principal and interest only. Property taxes, homeowners insurance and mortgage insurance are collected on top, usually through an escrow account, and they are not part of amortization at all. A quoted &quot;payment&quot; that sounds too good is often M by itself.</p>
+
+<p>The second formula is the one that actually runs your loan month to month, and it fits on a napkin:</p>
+
+<div class="gls-formula">
+  <span class="gls-lbl">The split, every month</span>
+<code>Interest this month  =  <em>Current balance</em>  &times;  <em>i</em>
+Principal this month  =  <em>M</em>  &minus;  <em>Interest this month</em>
+New balance  =  <em>Current balance</em>  &minus;  <em>Principal this month</em></code>
+  <p class="gls-where">Three lines, repeated 360 times. That is the entire amortization schedule. There is nothing else in it.</p>
+</div>
+
+<p>Run those three lines in your head and you can see the machine working. The balance goes down a little, so next month's interest is a little smaller, so &mdash; because M never changes &mdash; next month's principal is bigger by exactly the same amount. Every dollar you shave off interest is a dollar that goes to principal instead, and that dollar shaves off a bit more interest the month after. It compounds in your favor, slowly at first and then not slowly at all.</p>
+
+<h3>A note on the &divide; 12</h3>
+
+<p>American mortgages, auto loans and most installment loans use a monthly periodic rate of the annual rate divided by twelve. Credit cards generally do not &mdash; they use a daily periodic rate applied to an average daily balance, which is why a card balance behaves differently from a car note even at the same quoted rate. If you are hand-checking a lender's math and it is off by a few dollars, the day-count convention is usually why.</p>
+
+  <h2 id="split">Why early payments are almost all interest</h2>
+
+  <p>This is the part that makes people angry, and the anger is misplaced. Nothing is being front-loaded onto you. Interest is charged on the balance you still owe, and at the beginning of a loan you still owe all of it.</p>
+
+<p>Take the worked loan from the next section: $320,000 at 6.69% for 30 years. The monthly payment is $2,062.77. In month one, the interest due is the balance times the monthly rate:</p>
+
+<div class="gls-formula">
+  <span class="gls-lbl">Month one, plainly</span>
+<code>$320,000  &times;  ( 6.69% &divide; 12 )  =  $1,784.00 interest
+$2,062.77  &minus;  $1,784.00      =  $278.77 principal</code>
+  <p class="gls-where">86.5% of the first payment is interest. That is not a policy. It is what happens when you owe $320,000 and pay $2,062.77.</p>
+</div>
+
+<p>After twelve payments &mdash; $24,753.24 handed over &mdash; the balance has fallen from $320,000 to $316,550.25. You paid $21,303.49 in interest and $3,449.75 in principal in your first year. That ratio is uncomfortable to look at, and looking at it is the point.</p>
+
+<div class="gls-box">
+  <span class="gls-lbl">The crossover</span>
+  <p>The month where principal finally exceeds interest is called the crossover. On this loan it is <b>month 237</b> &mdash; nineteen years and nine months in. And the balance does not fall by half until <b>month 259</b>, more than twenty-one years into a thirty-year loan. The back end of an amortizing loan is where all the progress lives.</p>
+</div>
+
+<p>Put the two ends of the loan side by side and the shape is obvious:</p>
+
+<div class="gls-tabwrap" tabindex="0" role="region" aria-label="First five years compared with last five years of a 30-year mortgage">
+<table class="gls-tab">
+  <thead>
+    <tr><th>Period</th><th>Total paid</th><th>To interest</th><th>To principal</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>First 5 years</strong></td><td>$123,766.20</td><td>$103,967.58</td><td>$19,798.62</td></tr>
+    <tr><td><strong>Last 5 years</strong></td><td>$123,763.22</td><td>$18,817.91</td><td>$104,945.31</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Almost exactly the same money in. Almost exactly opposite results. That is the single most useful fact about amortization, and it has two practical consequences.</p>
+
+<p><strong>Extra money is worth far more early than late.</strong> An extra $1,000 put against principal in month one removes that $1,000 from the balance for 359 months of interest. The same $1,000 in month 300 removes it for 60 months. Same dollars, wildly different effect &mdash; and this is why the extra-payment section below moves the needle so much.</p>
+
+<p><strong>Selling or refinancing early means you barely paid the thing down.</strong> Five years into this loan you have made $123,766 in payments and reduced the balance by $19,799. If you sell in year five, the equity you have is mostly your down payment plus whatever the market gave you, not the loan payments. That is worth knowing before you count on it.</p>
+
+  <h2 id="schedule">What an amortization schedule looks like</h2>
+
+  <p>An amortization schedule is just those three lines from the formula, run out for the whole term and printed as a table. One row per payment, four columns that matter: payment number, interest, principal, and remaining balance. That is it.</p>
+
+<p>Here is a real one, built on the 30-year fixed rate published by Freddie Mac in its Primary Mortgage Market Survey for the week ending <b>6 August 2026</b> &mdash; <b>6.69%</b>, the same figure carried by the Federal Reserve Bank of St. Louis as series <b>MORTGAGE30US</b>.</p>
+
+<div class="gls-eg">
+  <span class="gls-lbl">$320,000 &middot; 30-year fixed &middot; 6.69%</span>
+  <p>Principal and interest only. Taxes, insurance and any mortgage insurance would be collected on top of this.</p>
+  <div class="gls-result">Payment  $2,062.77 per month for 360 months
+
+  #     Payment    Interest   Principal        Balance
+-----------------------------------------------------
+  1    2,062.77    1,784.00      278.77     319,721.23
+  2    2,062.77    1,782.45      280.32     319,440.91
+  3    2,062.77    1,780.88      281.89     319,159.02
+ 12    2,062.77    1,766.42      296.35     316,550.25
+ 60    2,062.77    1,675.78      386.99     300,201.38
+120    2,062.77    1,522.55      540.22     272,563.61
+237    2,062.77    1,027.48    1,035.29     183,266.79   &lt;- crossover
+240    2,062.77    1,010.07    1,052.70     180,126.17
+300    2,062.77      593.26    1,469.51     104,945.31
+359    2,062.77       22.79    2,039.98       2,048.37
+360    2,059.79       11.42    2,048.37           0.00
+
+Total paid over 30 years    $742,594.22
+Of which interest           $422,594.22
+Total interest percentage        132.06%</div>
+  <p>Read the interest column top to bottom and watch $1,784 become $11. Read the principal column and watch $279 become $2,048. The payment never moved. Everything else did.</p>
+  <p>That last line has a name on your paperwork. Regulation Z requires the Closing Disclosure to show a <b>Total Interest Percentage</b>, described as &quot;the total amount of interest that you will pay over the loan term as a percentage of your loan amount.&quot; Here it is 132.06% &mdash; over thirty years, this loan charges more in interest than the house cost to borrow. That number is on page 5 of the Closing Disclosure of every mortgage in America, and almost nobody reads it.</p>
+</div>
+
+<div class="gls-box">
+  <span class="gls-lbl">Why the last payment is different</span>
+  <p>Notice payment 360 is $2,059.79, not $2,062.77. Interest is rounded to the cent every month, so tiny rounding differences accumulate across 359 payments and get squared up at the end. Every real amortization schedule does this. A final payment that is a few dollars off is normal, not an error.</p>
+</div>
+
+<h3>Where to get yours</h3>
+
+<p>You do not have to build this. Your servicer can produce the schedule for your actual loan, and the projected payments table on your Loan Estimate and Closing Disclosure already shows the shape of it. Any honest mortgage calculator will generate one from your balance, rate and remaining term. What matters is that you have looked at it once, because the table is far more persuasive than any description of it.</p>
+
+  <h2 id="extra">What one extra payment a year actually does</h2>
+
+  <p>Because every dollar of principal you kill early stops generating interest for the entire remaining term, small extra payments do disproportionate work. The standard version of this move is <b>one extra monthly payment per year</b>, applied entirely to principal.</p>
+
+<p>On the same loan &mdash; $320,000 at 6.69%, payment $2,062.77 &mdash; here is what that does.</p>
+
+<div class="gls-eg">
+  <span class="gls-lbl">One extra payment a year</span>
+  <div class="gls-result">                        As scheduled     One extra/yr
+Months to payoff                 360              290
+Years to payoff                 30.0             24.2
+Total interest            $422,594.22      $327,302.29
+
+Interest saved                            $ 95,291.93
+Time saved                                5 yrs 10 mos
+Extra paid in per year                    $  2,062.77</div>
+  <p>Roughly $2,063 a year &mdash; about $172 a month if you save it up &mdash; removes almost six years and $95,000 of interest from this loan.</p>
+</div>
+
+<p>There is a slightly better version. Instead of one lump at year end, add one-twelfth of a payment to every month. On this loan that is $171.90 extra per month, and because the money lands earlier it does a little more work:</p>
+
+<div class="gls-eg">
+  <span class="gls-lbl">The same money, spread monthly</span>
+  <div class="gls-result">$171.90 extra every month
+
+Months to payoff                 288  (24.0 years)
+Total interest            $323,574.04
+Interest saved            $ 99,020.18</div>
+  <p>An extra $3,728 saved for no extra money, purely from timing. Earlier is better, always, for the same reason the first five years of a loan are so interest-heavy.</p>
+</div>
+
+<div class="gls-box gls-warn">
+  <span class="gls-lbl">Four things to check before you do this</span>
+  <p><b>1. Tell the servicer it is principal.</b> An unlabeled extra payment is often applied to next month's payment instead, or held in suspense. That does almost nothing. Most servicers have a &quot;principal only&quot; option online &mdash; use it, then check the next statement to confirm the balance moved.</p>
+  <p><b>2. Read the note for a prepayment penalty.</b> Most modern mortgages do not have one. Some loans, and plenty of auto and personal loans, do. Find out before, not after.</p>
+  <p><b>3. Paying ahead does not skip a payment.</b> On most mortgages, prepaying principal shortens the loan; it does not excuse next month's payment. The payment is still due.</p>
+  <p><b>4. Rank it honestly.</b> Killing a 6.69% mortgage early is a guaranteed 6.69% return, which is real. It is also worse than killing a 22% credit card, and worse than having a month of expenses in cash when the car breaks. This is a move for after the emergency fund and the high-rate debt, not before.</p>
+</div>
+
+<p>One more framing that helps. Because of how the schedule is stacked, an extra principal payment in the early years does not just reduce your balance &mdash; it deletes the <em>last</em> rows of the table. You are not shaving the next payment; you are removing months from the far end of the loan, where the payments were nearly all principal anyway. That is why the time saved is so much larger than the money put in.</p>
+
+  <h2 id="negative">Negative amortization, and where it shows up</h2>
+
+  <p>Everything above assumes the payment is at least big enough to cover the interest. When it is not, the arithmetic runs backwards.</p>
+
+<p>The CFPB states it without decoration: &quot;Negative amortization means that even when you pay, the amount you owe will still go up because you are not paying enough to cover the interest.&quot;</p>
+
+<p>The mechanism is the same three lines from earlier, with one term going negative. If the interest due this month is $1,784 and you pay $1,400, the shortfall of $384 does not disappear. It is added to what you owe. Next month, interest is charged on the larger balance. Pay again, fall short again, and the balance climbs while you make every payment on time.</p>
+
+<div class="gls-box gls-warn">
+  <span class="gls-lbl">The trap in the shape</span>
+  <p>Negative amortization does not feel like a problem while it is happening. The payment is affordable &mdash; that is usually the entire selling point &mdash; and you are current. The damage is invisible until you look at the balance or try to sell, and by then you can owe more than you borrowed, sometimes more than the asset is worth.</p>
+</div>
+
+<h3>Where you actually meet it</h3>
+
+<ul>
+  <li><b>Payment-option and minimum-payment mortgages.</b> Loans that let the borrower choose a payment below the fully amortizing one. These were the signature product of the mid-2000s housing bubble and are heavily restricted now, but the structure still exists in corners of the market.</li>
+  <li><b>Income-driven student loan repayment.</b> When a payment is set by what you earn rather than by what you owe, it can come in below the interest accruing on the balance. Whether the shortfall capitalizes onto the principal, and when, depends on the specific plan and the rules in force &mdash; check the plan's own terms with the servicer rather than assuming.</li>
+  <li><b>Graduated-payment structures.</b> Any loan that deliberately starts below the level payment and steps up later has to make the difference somewhere.</li>
+  <li><b>Deferred-interest store financing.</b> Not technically negative amortization, but the same felt experience: interest quietly accruing behind a payment that is not touching it, then landing all at once.</li>
+  <li><b>Reverse mortgages.</b> Negative amortization by design &mdash; the balance is meant to grow because no payments are being made. That is the product working as intended, not failing.</li>
+</ul>
+
+<h3>The rules that push back on it</h3>
+
+<p>Federal mortgage rules treat negative amortization as a defining hazard rather than a detail. Under Regulation Z, a <b>qualified mortgage</b> must provide for regular periodic payments that do not &quot;result in an increase of the principal balance,&quot; do not &quot;allow the consumer to defer repayment of principal&quot; except in narrow cases, and do not &quot;result in a balloon payment.&quot; The same rule caps the loan term at 30 years. A mortgage that grows while you pay it cannot be a qualified mortgage.</p>
+
+<p>Disclosure backs that up. Page 1 of the Loan Estimate has to answer, for the loan amount, the interest rate and the monthly payment, the question <b>&quot;Can this amount increase after closing?&quot;</b> If the loan amount can increase, that is a yes, in a box, before you sign. It is one of the highest-value questions on the entire form.</p>
+
+<div class="gls-box">
+  <span class="gls-lbl">The three-second test</span>
+  <p>Ask any lender one question: <em>&quot;Is the payment you are quoting me a fully amortizing payment?&quot;</em> If the answer is yes, the balance goes down every month, guaranteed. If it is anything other than a clean yes, you have found the thing you needed to understand before signing.</p>
+</div>
+
+  <h2 id="accounting">The other amortization</h2>
+
+  <p>The word does double duty, and the second job has nothing to do with your mortgage. It comes up here only so that a search result about goodwill does not confuse you.</p>
+
+<p>In accounting, amortization means spreading the cost of an <b>intangible asset</b> across the years it is expected to be useful, rather than deducting it all in the year it was bought. The equivalent for physical things &mdash; trucks, machines, buildings &mdash; is called depreciation. Same idea, different asset type: amortization is for things you cannot touch, depreciation is for things you can.</p>
+
+<p>For US tax purposes, so-called section 197 intangibles &mdash; the category that covers acquired goodwill, going-concern value, patents, trademarks, customer lists and similar &mdash; are generally amortized straight-line over <b>15 years</b>, per the IRS instructions for Form 4562.</p>
+
+<p>The connective tissue between the two meanings is thin but real: both are about spreading a large amount evenly over time instead of dealing with it at once. Beyond that they share nothing. A loan amortization schedule tells you what you still owe. An accounting amortization schedule tells a business what it has left to write off. If you are here because of a mortgage, this section does not apply to you.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul>
+  <li><b>Thinking lenders front-load the interest deliberately.</b> They do not need to. Interest is charged on the outstanding balance, and at the start the outstanding balance is everything. The shape of the schedule is arithmetic, not strategy.</li>
+  <li><b>Comparing loans on the monthly payment.</b> Stretching a term always lowers the payment and always raises the total interest. The payment answers &quot;can I afford this month.&quot; The schedule answers &quot;what does this cost.&quot; Those are different questions and only one of them is on the sales sheet.</li>
+  <li><b>Sending extra money without labeling it.</b> Unlabeled extra dollars often get treated as an early next payment, not as principal. The balance barely moves and the saving evaporates. Label it, then verify on the next statement.</li>
+  <li><b>Assuming equity builds at the rate you are paying.</b> Five years into the worked loan, $123,766 in payments has reduced the balance by $19,799. Equity in the early years comes mostly from your down payment and the market, not from amortization.</li>
+  <li><b>Restarting the clock on a refinance.</b> Refinancing into a fresh 30-year term after eight years of payments drops you back onto the interest-heavy top of a brand new schedule. A lower rate can still win, but only if you compare against the remaining term you actually have, not against a new 30 years.</li>
+  <li><b>Confusing an interest-only period with a low rate.</b> An interest-only payment is smaller because it is doing less, not because the money is cheaper. The balance is unchanged when it ends, and the payment that follows has to amortize the same principal over fewer years.</li>
+  <li><b>Ignoring the Total Interest Percentage.</b> It is on page 5 of the Closing Disclosure, it is required by rule, and it is the most honest single number about what a long loan costs. It takes four seconds to read.</li>
+</ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What does amortization mean in simple terms?</h3>
+    <p>It means paying off a loan in regular installments where each payment covers the interest that has built up since the last one, and whatever is left over reduces what you still owe. The payment amount stays the same every month, but the split between interest and principal shifts a little with every payment. Early on, most of the payment is interest because the balance is large. Late on, most of it is principal because the balance is small. When the schedule ends, the loan is paid off exactly.</p>
+
+    <h3>Why is so much of my early mortgage payment going to interest?</h3>
+    <p>Because interest is charged on the balance you still owe, and at the beginning you still owe nearly all of it. On a 320,000 dollar loan at 6.69 percent, the first month's interest is 1,784 dollars, so out of a 2,062.77 dollar payment only 278.77 dollars reduces the balance. Nothing is being front-loaded onto you as a fee. As the balance falls, the interest portion falls with it and the principal portion grows by exactly the same amount, because the payment itself never changes.</p>
+
+    <h3>How much does one extra payment a year save?</h3>
+    <p>It depends on the balance, rate and term, but the effect is large. On a 320,000 dollar 30-year mortgage at 6.69 percent, adding one extra monthly payment each year and applying it to principal pays the loan off in about 24 years and 2 months instead of 30, and saves roughly 95,000 dollars in interest. Spreading the same amount across all twelve months, about 172 dollars extra per month, saves a little more still. The extra money must be applied to principal, so tell the servicer that explicitly.</p>
+
+    <h3>What is negative amortization?</h3>
+    <p>The CFPB defines it as what happens when, even though you are paying, the amount you owe still goes up, because the payment is not enough to cover the interest. The unpaid interest gets added to the balance, and next month interest is charged on that larger balance. It shows up in payment-option mortgages, some income-driven student loan situations, graduated payment structures and reverse mortgages. Under Regulation Z, a qualified mortgage cannot have payments that increase the principal balance.</p>
+
+    <h3>Is an amortization schedule the same as a payment schedule?</h3>
+    <p>They overlap but are not identical. A payment schedule tells you what is due and when. An amortization schedule tells you what each of those payments does, breaking every one into interest, principal and the balance left afterward. The amortization schedule is the more useful document because it shows progress rather than obligation. Your servicer can produce one for your actual loan, and the projected payments table on a Loan Estimate or Closing Disclosure shows the same information in summary form.</p>
+
+    <h3>Does amortization mean something different in accounting?</h3>
+    <p>Yes. In accounting, amortization is spreading the cost of an intangible asset, such as acquired goodwill, a patent or a customer list, across the years it is useful, rather than deducting the whole cost at once. The equivalent for physical assets is called depreciation. For US tax purposes, section 197 intangibles are generally amortized straight-line over 15 years. The two meanings share only the underlying idea of spreading an amount over time. If you are looking at a mortgage, the loan meaning is the one you want.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="apr.html"><b>APR</b><span>What the loan costs once the fees are counted in</span></a>
+      <a href="interest-rate.html"><b>Interest Rate</b><span>The price of the money, before any fees</span></a>
+      <a href="discount-points.html"><b>Discount Points</b><span>Paying up front to move the rate down</span></a>
+      <a href="compound-interest.html"><b>Compound Interest</b><span>The same force, running the other direction</span></a>
+      <a href="finance-charge.html"><b>Finance Charge</b><span>What Regulation Z counts as the cost of credit</span></a>
+      <a href="prime-rate.html"><b>Prime Rate</b><span>The index a lot of variable loans move with</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Build your own schedule with the <a href="../mortgage-calculator.html">mortgage calculator</a> &mdash; free, no account, no email.</li>
+      <li>See what a car note really costs with the <a href="../auto-loan-calculator.html">auto loan calculator</a>, where short terms and long terms diverge fast.</li>
+      <li>Attack the expensive debt first using the <a href="../debt-payoff-calculator.html">debt payoff calculator</a> before you prepay anything cheap.</li>
+      <li>Work through <a href="../stage-2-stabilize.html">Stage 2 &middot; Stabilize</a> for debt triage, then <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> for the question of prepaying versus investing.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-negative-amortization-en-103/" target="_blank" rel="noopener">What is negative amortization?</a> (definition quoted on this page).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-an-interest-only-loan-en-101/" target="_blank" rel="noopener">What is an interest-only loan?</a> (the balance does not go down with each payment).</li>
+      <li>Electronic Code of Federal Regulations, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-E/section-1026.43" target="_blank" rel="noopener">12 CFR &sect; 1026.43</a> &mdash; definition of a fully amortizing payment, and the qualified mortgage limits on increasing principal, deferred principal, balloon payments and the 30-year term.</li>
+      <li>Electronic Code of Federal Regulations, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-C/section-1026.37" target="_blank" rel="noopener">12 CFR &sect; 1026.37(b)(6)</a> &mdash; the Loan Estimate must disclose whether the loan amount, rate or payment can increase after closing.</li>
+      <li>Electronic Code of Federal Regulations, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-C/section-1026.38" target="_blank" rel="noopener">12 CFR &sect; 1026.38(o)</a> &mdash; Closing Disclosure loan calculations, including Total of Payments and the Total Interest Percentage.</li>
+      <li>Federal Reserve Bank of St. Louis (FRED), <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener">30-Year Fixed Rate Mortgage Average in the United States (MORTGAGE30US)</a> &mdash; 6.69% for the week ending 6 August 2026, the rate used in every worked example above. Source: Freddie Mac Primary Mortgage Market Survey.</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/instructions/i4562" target="_blank" rel="noopener">Instructions for Form 4562, Depreciation and Amortization</a> (section 197 intangibles amortized straight-line over 15 years).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/owning-a-home/loan-options/" target="_blank" rel="noopener">Owning a Home &mdash; Loan Options</a> (loan term, fixed versus adjustable, and risky payment features).</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it means</a></li>
+      <li><a href="#formula">The formula</a></li>
+      <li><a href="#split">Why early payments are interest</a></li>
+      <li><a href="#schedule">The schedule</a></li>
+      <li><a href="#extra">One extra payment a year</a></li>
+      <li><a href="#negative">Negative amortization</a></li>
+      <li><a href="#accounting">The other amortization</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>Build the full schedule for your own balance, rate and term &mdash; and see what an extra payment does to it. Free, no account.</p>
+    <a class="gls-cta" href="../mortgage-calculator.html">Mortgage calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

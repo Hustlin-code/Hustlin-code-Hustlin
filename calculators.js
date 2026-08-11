@@ -43,18 +43,48 @@
   var $ = function (id) { return document.getElementById(id) || VOID; };
   var has = function (id) { return !!document.getElementById(id); };
   var num = function (el) { var v = parseFloat(el && el.value); return isFinite(v) ? v : 0; };
+  /* HOUSE RULE: a metric we do not have renders as an em dash, never as zero.
+     money() used to return '$0' for a non-finite input, which is the worst
+     possible failure on this site - $0 looks like a real answer meaning "free"
+     or "nothing owed", and a reader has no way to tell it apart from a real
+     zero. months() returned an en dash (U+2013) where every other missing
+     value on the site is an em dash (U+2014). */
+  var EMDASH = '\u2014';
   var money = function (n) {
-    if (!isFinite(n)) return '$0';
+    if (!isFinite(n)) return EMDASH;
     return (n < 0 ? '-$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US');
   };
   var months = function (m) {
-    if (!isFinite(m) || m <= 0) return '–';
+    if (!isFinite(m) || m <= 0) return EMDASH;
     if (m >= 1200) return '40+ yrs';
     var y = Math.floor(m / 12), r = Math.round(m % 12);
     if (y === 0) return r + ' mo';
     if (r === 0) return y + (y === 1 ? ' yr' : ' yrs');
     return y + 'y ' + r + 'm';
   };
+  /* Shared root-finder. Several of the business calculators answer a question
+     that has no closed form - the effective APR once fees are in, the resale
+     price at which leasing and buying break even, the return a leveraged
+     position needs just to cover its own interest. Bisection rather than
+     Newton because it cannot diverge and needs no derivative, and because the
+     inputs here are user-typed and occasionally absurd.
+
+     Returns NaN when the bracket does not contain a sign change or the loop
+     does not converge, so the caller's money()/pct() renders an em dash rather
+     than a confidently wrong number. */
+  var solve = function (f, lo, hi, tol, maxIter) {
+    tol = tol || 1e-7; maxIter = maxIter || 200;
+    var flo = f(lo), fhi = f(hi);
+    if (!isFinite(flo) || !isFinite(fhi) || flo * fhi > 0) return NaN;
+    for (var i = 0; i < maxIter; i++) {
+      var mid = (lo + hi) / 2, fm = f(mid);
+      if (!isFinite(fm)) return NaN;
+      if (Math.abs(fm) < tol || (hi - lo) / 2 < tol) return mid;
+      if (flo * fm < 0) { hi = mid; fhi = fm; } else { lo = mid; flo = fm; }
+    }
+    return NaN;
+  };
+
   var show = function (el, html) {
     if (!el) return;
     if (html) { el.innerHTML = html; el.style.display = ''; } else { el.style.display = 'none'; }
@@ -778,7 +808,7 @@
 
      Every standalone page carries <main id="calc">, so appending #calc
      on mobile only makes the browser land on the tool itself. The
-     selector is deliberately narrow: all 14 slugs end in
+     selector is deliberately narrow: all 15 slugs end in
      -calculator.html, so the hub and the Financial Literacy link at the
      bottom of the rail are left alone. */
   function cyhMobileDeepLinks() {

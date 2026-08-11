@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Interest: How It Actually Works | Learn the Lingo</title>
+<meta name="description" content="Compound interest is interest earning interest. The formula, why compounding frequency matters less than you think, the Rule of 72, and how it works on debt.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/compound-interest.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/compound-interest.html">
+<meta property="og:title" content="Compound Interest — Learn the Lingo">
+<meta property="og:description" content="Interest that earns interest. Why it turns small money into real money over time, and why it makes a credit card balance so hard to outrun.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compound Interest — Learn the Lingo">
+<meta name="twitter:description" content="Interest that earns interest. Why it turns small money into real money over time, and why it makes a credit card balance so hard to outrun.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/compound-interest.html#term",
+      "name": "Compound Interest",
+      "alternateName": ["Compound Interest","Compounding","Interest on interest"],
+      "description": "Compound interest is interest calculated on the original principal and on the interest already added to it. It is the mechanism that makes balances grow faster over time, and it applies to money you owe as well as money you hold.",
+      "url": "https://hustlin.org/learn-the-lingo/compound-interest.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Compound Interest: The Formula, the Rule of 72, and How It Works on Debt",
+      "description": "A plain-language explanation of compound interest, covering the standard formula, how compounding frequency changes the result, and the measurable gap between simple and compound interest over time. Also covers the Rule of 72 as an approximation, where that approximation breaks down, and how the same mechanism works against you on a credit card balance.",
+      "url": "https://hustlin.org/learn-the-lingo/compound-interest.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/compound-interest.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/compound-interest.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Compound Interest", "item": "https://hustlin.org/learn-the-lingo/compound-interest.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is compound interest in simple terms?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is interest that gets paid on your interest. The Consumer Financial Protection Bureau describes it as earning interest on the money you have saved and on the interest you earn along the way. Their example: $1,000 at 5% becomes $1,050 after one year, then $1,102.50 after two, because the second year is calculated on $1,050 instead of on the original $1,000. Simple interest, by contrast, would pay exactly $50 every year forever, because it only ever counts the original deposit." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the formula for compound interest?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A equals P times the quantity one plus r divided by n, raised to the power of n times t. A is the ending amount, P is the principal you started with, r is the annual rate written as a decimal, n is how many times a year the interest compounds, and t is the number of years. Subtract P from A to get the interest alone. The important detail is that time appears as an exponent rather than a multiplier, which is why the length of time you leave money alone matters more than any other input." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does compounding daily instead of monthly make much difference?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Less than most people assume. On $10,000 at a 5% nominal rate, annual compounding produces $500 of interest in the first year and daily compounding produces $512.67. The entire spread is $12.67. Daily compounding is also very close to the mathematical ceiling: continuous compounding at that rate would yield 5.1271% against daily compounding's 5.1267%. Take the more frequent schedule if the rate is equal, but never accept a lower rate to get it." }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the Rule of 72?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is an approximation, and its accuracy depends on the rate. It is nearly exact around 8%, where it says nine years and the true answer is 9.01. It drifts at both extremes. At 1% it says 72 years against a true 69.7. At 24% it says three years against a true 3.22, and at 36% it is off by more than eleven percent. It also assumes a constant rate compounding once per period, so it is unreliable for anything that moves." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does compound interest work against you on debt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Identically, just pointed the other way. Interest is added to your balance, and the next round of interest is calculated on the larger balance. Credit card interest is typically calculated daily on your average daily balance, so it compounds every day. The Federal Reserve reported an average rate of 22.15% on card accounts assessed interest in the second quarter of 2026. Held for a full year with daily compounding, that works out to an effective annual cost of about 24.79%." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does inflation cancel out compound interest?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It offsets part of it, and sometimes more than all of it. Compound growth is measured in dollars, while inflation measures what those dollars buy. The Bureau of Labor Statistics reported consumer prices up 3.5% over the twelve months ending June 2026, while the FDIC national rate for savings accounts was 0.38%. A balance earning 0.38% while prices rise 3.5% loses roughly 3% of its purchasing power in a year, even though the dollar figure on the statement went up." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260811-1801">
+<link rel="stylesheet" href="lingo.css?v=20260811-1801">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Fifteen calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Compound Interest</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Saving &amp; Interest</div>
+      <h1 class="hero-h1">Compound Interest</h1>
+      <p class="hero-sub">Interest that earns interest. It is why patient money grows into real money, and why a credit card balance can outrun the person paying on it.</p>
+      <p class="gls-aka"><b>Also called:</b> compounding &middot; interest on interest &middot; compound growth &middot; compounding returns</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 11 August 2026</b> &middot; Sourced from the CFPB, Regulation DD and the Federal Reserve</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Compound interest is interest calculated on your original money <em>and</em> on the interest that money has already earned.</strong></p>
+    <p>That is the entire idea, and everything else is arithmetic. It is also completely symmetrical: the same mechanism that turns steady saving into a number that surprises you is the one that makes a credit card balance grow while you are paying on it. Compounding does not care which direction it is pointed.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Simple interest is paid on the principal only. Compound interest is paid on the principal plus everything already earned.</b> Over one year they are nearly identical. Over thirty they are not remotely close.</li>
+      <li>The formula is <b>A = P(1 + r &divide; n) ^ (n &times; t)</b>. Time sits in the exponent, which is why years matter more than any other input you can control.</li>
+      <li><b>Compounding frequency matters far less than people expect.</b> At 5%, going from annual to daily compounding is worth about 0.13 of a percentage point.</li>
+      <li>The <b>Rule of 72</b> is an approximation, not a law. It is at its most accurate around 8% and gets steadily worse at both extremes &mdash; it is off by roughly 11% at a 36% rate.</li>
+      <li>On debt, compounding runs in reverse. Federal Reserve data puts the average credit card rate on accounts assessed interest at <b>22.15%</b>, and card interest is calculated daily.</li>
+      <li><b>Inflation compounds too.</b> A yield below the inflation rate is a balance that grows in dollars and shrinks in what those dollars buy.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What compound interest actually is</h2>
+
+  <p>Interest is rent on money. Compound interest is what happens when you stop taking the rent out and let it sit there collecting rent of its own.</p><p>The Consumer Financial Protection Bureau puts it about as plainly as it can be put: compound interest is <em>&ldquo;when you earn interest on the money you've saved and on the interest you earn along the way.&rdquo;</em> Their example runs two years. Start with $1,000 at 5% annually. After year one you have $1,050 &mdash; the original thousand plus $50. After year two you have $1,102.50, because the second year's interest was calculated on $1,050 rather than on $1,000.</p><p>That extra $2.50 is the whole phenomenon. It looks like nothing. Two and a half dollars against a thousand is a rounding error, and if the story stopped in year two nobody would have built anything on it. What makes compounding worth a page is what that $2.50 becomes when it is allowed to do the same thing to itself, every year, for thirty years. It is not a big effect made bigger. It is a small effect applied to a growing base, which is a different shape of growth entirely.</p><p>The contrast that makes it legible is <b>simple interest</b>. Under simple interest, every year's interest is calculated on the original deposit and nothing else. $1,000 at 5% simple pays $50 in year one, $50 in year two, $50 in year forty. The base never moves. Under compound interest the base moves every single period, and each move makes the next one larger.</p><div class="gls-box"><span class="gls-lbl">Where you meet each one</span><p>Almost everything a normal person holds compounds: savings accounts, money market accounts, CDs, retirement accounts, credit card balances. Simple interest shows up in specific places &mdash; some auto loans and personal loans accrue simple interest on the outstanding principal, and short-term instruments often quote it. When a product does not say, assume compound and read the disclosure to confirm.</p></div>
+
+  <h2 id="formula">The formula</h2>
+
+  <p>One formula does the work, and a second one handles the case where you are adding money as you go &mdash; which for most people is the case that actually applies.</p><div class="gls-formula"><span class="gls-lbl">Compound interest</span><code>A  =  <em>P</em> ( 1 + <em>r</em> &divide; <em>n</em> ) ^ ( <em>n</em> &times; <em>t</em> )</code><p class="gls-where">Where <b>A</b> is the amount you end up with &middot; <b>P</b> is the principal you started with &middot; <b>r</b> is the annual interest rate as a decimal (5% is 0.05) &middot; <b>n</b> is how many times a year interest compounds &middot; <b>t</b> is the number of years. To get the interest alone rather than the total, subtract P from A.</p></div><p>Put the simple-interest version beside it, because the difference between the two formulas is the difference between the two outcomes:</p><div class="gls-formula"><span class="gls-lbl">Simple interest, for contrast</span><code>A  =  <em>P</em> ( 1 + <em>r</em> &times; <em>t</em> )</code><p class="gls-where">Time is multiplied. In the compound formula, time is an exponent. That single structural difference is why the two curves separate the way they do.</p></div><p>Notice where <b>t</b> sits in each one. Multiplication produces a straight line. An exponent produces a curve that bends upward and keeps bending. It is the reason every honest explanation of compounding ends up saying the same unglamorous thing about starting early &mdash; not as encouragement, but because the exponent is where the leverage is, and the exponent is years.</p><p>If you are contributing every month rather than depositing once, you need the future value of a series:</p><div class="gls-formula"><span class="gls-lbl">Regular contributions</span><code>FV  =  <em>PMT</em>  &times;  [ ( ( 1 + <em>i</em> ) ^ <em>N</em>  &minus;  1 )  &divide;  <em>i</em> ]</code><p class="gls-where">Where <b>PMT</b> is the amount you add each period &middot; <b>i</b> is the interest rate <em>per period</em> (an annual rate divided by 12 for monthly contributions) &middot; <b>N</b> is the total number of periods. Add the compound growth of any starting balance separately.</p></div><div class="gls-eg"><span class="gls-lbl">What the contribution formula looks like in dollars</span><p><b>$500</b> a month, <b>30 years</b>, an assumed <b>7%</b> annual return compounding monthly. This is arithmetic on an assumption, not a prediction &mdash; no account is guaranteed to return 7%.</p><div class="gls-result">You contribute      $500 &times; 360      =  $180,000.00
+Ending balance                        =  $609,985.50
+Growth                                =  $429,985.50</div><p>Roughly seventy percent of the ending balance is money you never deposited. That ratio, not the headline number, is the thing worth understanding &mdash; and it is entirely a function of how long the money was left alone.</p></div>
+
+  <h2 id="frequency">Compounding frequency, and how much it really matters</h2>
+
+  <p>Interest can compound annually, semiannually, quarterly, monthly, daily, or on any schedule an institution chooses. More frequent compounding produces a larger result, because the interest starts earning sooner. This is true, it is often oversold, and the size of the effect is easy to check.</p><div class="gls-eg"><span class="gls-lbl">$10,000 at 5.00%, five schedules</span><p>The nominal rate is 5.00% in every row. Only the compounding frequency changes.</p><div class="gls-result">Compounded       Effective yield    Year 1 interest
+annually             5.0000%            $500.00
+semiannually         5.0625%            $506.25
+quarterly            5.0945%            $509.45
+monthly              5.1162%            $511.62
+daily                5.1267%            $512.67</div><p>Worst to best: <b>$12.67 on ten thousand dollars</b>. Worth having. Not worth choosing a lower rate for. If one account compounds daily and another pays a quarter of a point more, take the quarter point without thinking about it.</p></div><p>There is a hard ceiling on this, which is a useful thing to know because it stops the &ldquo;but what if it compounded even faster&rdquo; question dead. As compounding periods approach infinity, the result converges on <b>continuous compounding</b>, which at 5% produces an effective 5.1271%. Daily compounding already delivers 5.1267%. The entire remaining distance between daily compounding and the mathematical limit is four ten-thousandths of a percentage point. There is nowhere left to go.</p><p>On the disclosure side, US law separates two things that sound like one. <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/4/" target="_blank" rel="noopener">Regulation DD &sect; 1030.4(b)</a> requires a bank to tell you the frequency with which interest is compounded <b>and</b> the frequency with which it is credited &mdash; two separate disclosures, because they are often different. And <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.7" target="_blank" rel="noopener">&sect; 1030.7</a> states outright that it <em>&ldquo;does not require institutions to compound or credit interest at any particular frequency.&rdquo;</em> The bank picks. It just has to tell you what it picked.</p><div class="gls-box"><span class="gls-lbl">Why APY exists</span><p>Because compounding frequency changes the outcome, a bare interest rate is not comparable across two accounts. APY &mdash; annual percentage yield &mdash; is the number that folds compounding in so the comparison works. If you are looking at a deposit account, the yield is the number to read; the rate underneath it is trivia.</p></div>
+
+  <h2 id="time">What compounding does over time</h2>
+
+  <p>Here is the same $10,000 at 5%, run two ways. The left column is simple interest, where only the original deposit ever earns. The right column is compound interest, annually.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Simple interest versus compound interest on $10,000 at 5 percent"><table class="gls-tab"><thead><tr><th>After</th><th>Simple interest</th><th>Compound interest</th><th>Difference</th></tr></thead><tbody><tr><td>1 year</td><td>$10,500.00</td><td>$10,500.00</td><td>$0.00</td></tr><tr><td>5 years</td><td>$12,500.00</td><td>$12,762.82</td><td>$262.82</td></tr><tr><td>10 years</td><td>$15,000.00</td><td>$16,288.95</td><td>$1,288.95</td></tr><tr><td>20 years</td><td>$20,000.00</td><td>$26,532.98</td><td>$6,532.98</td></tr><tr><td>30 years</td><td>$25,000.00</td><td>$43,219.42</td><td>$18,219.42</td></tr><tr><td>40 years</td><td>$30,000.00</td><td>$70,399.89</td><td>$40,399.89</td></tr></tbody></table></div><p>Read down the difference column and the shape becomes obvious. Year one: nothing. Year five: $263, which is a nice dinner. Year ten: $1,289. Year forty: <b>$40,400 &mdash; more than the entire simple-interest balance.</b> The advantage is not growing steadily. It is accelerating, because each year's advantage is itself compounding.</p><p>This has an uncomfortable implication that gets left out of most explanations. <strong>Compounding is boring for a long time before it is impressive.</strong> Anyone starting from nothing will spend the first several years looking at a curve that appears flat, and being told to be patient by people who are further along it. That is not a character test and it is not a trick &mdash; it is the arithmetic doing exactly what it does. The early years feel like nothing because, in dollar terms, they are nearly nothing. They are also the years doing the most work, because they are the ones being compounded the longest.</p><p>The practical consequence: for the same total dollars, money added early beats money added later, and the gap widens with every year of delay. Not because of discipline or virtue. Because <b>t</b> is an exponent.</p>
+
+  <h2 id="rule72">The Rule of 72</h2>
+
+  <p>The Rule of 72 is a shortcut for estimating how long money takes to double at a given rate. Divide 72 by the rate, expressed as a whole number, and the answer is roughly the number of periods.</p><div class="gls-formula"><span class="gls-lbl">Rule of 72 &mdash; an approximation</span><code>Years to double  &asymp;  72  &divide;  <em>rate</em></code><p class="gls-where">Where <b>rate</b> is the periodic compound rate written as a whole number, not a decimal &mdash; 6% is 6, not 0.06. At 6%, money doubles in roughly 12 years.</p></div><p><strong>This is a rule of thumb, not a measured figure and not a law.</strong> It is a rounded convenience derived from the exact relationship, which uses natural logarithms:</p><div class="gls-formula"><span class="gls-lbl">The exact version</span><code>Years to double  =  ln(2)  &divide;  ln( 1 + <em>r</em> )</code><p class="gls-where">Where <b>r</b> is the rate as a decimal. This one is exact for a rate that compounds once per period and never changes.</p></div><p>72 is used instead of the mathematically cleaner 69.3 for one reason: it divides evenly by 2, 3, 4, 6, 8, 9 and 12, which is what you want in a number meant to be used without a calculator. Here is what that convenience costs, across the range of rates you actually meet.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Rule of 72 accuracy compared with the exact doubling time"><table class="gls-tab"><thead><tr><th>Rate</th><th>Rule of 72</th><th>Exact</th><th>Error</th></tr></thead><tbody><tr><td>1%</td><td>72.00 yrs</td><td>69.66 yrs</td><td>+3.4%</td></tr><tr><td>4%</td><td>18.00 yrs</td><td>17.67 yrs</td><td>+1.9%</td></tr><tr><td>6%</td><td>12.00 yrs</td><td>11.90 yrs</td><td>+0.9%</td></tr><tr><td><b>8%</b></td><td><b>9.00 yrs</b></td><td><b>9.01 yrs</b></td><td><b>&minus;0.1%</b></td></tr><tr><td>12%</td><td>6.00 yrs</td><td>6.12 yrs</td><td>&minus;1.9%</td></tr><tr><td>20%</td><td>3.60 yrs</td><td>3.80 yrs</td><td>&minus;5.3%</td></tr><tr><td>24%</td><td>3.00 yrs</td><td>3.22 yrs</td><td>&minus;6.9%</td></tr><tr><td>36%</td><td>2.00 yrs</td><td>2.25 yrs</td><td>&minus;11.3%</td></tr></tbody></table></div><h3>Where it breaks down</h3><p><b>At very low rates it overstates the time.</b> At 1% it says 72 years when the answer is 69.7. The error is small in percentage terms and enormous in years, which is a strange combination to hold in your head.</p><p><b>At high rates it understates the time, and the error grows fast.</b> Past about 15% the rule starts telling you money doubles sooner than it does. At 36% it is wrong by more than eleven percent. This is the failure that costs something, because high rates are where debt lives.</p><p><b>It assumes the rate compounds once per period and never changes.</b> Feed it a rate that moves, or one that compounds daily while you are thinking in years, and it answers a question you did not ask.</p><div class="gls-box gls-warn"><span class="gls-lbl">Do not use 72 on a credit card</span><p>Card rates sit exactly in the band where the rule is least reliable, and the error runs in the direction that makes the debt look faster to escape than it is. Worse, the rule assumes nothing is being paid and nothing is being added &mdash; neither of which is true of a card you are actually using. For debt, do not estimate. Use the payoff arithmetic, or the calculator, and get the real number.</p></div>
+
+  <h2 id="debt">Compounding working against you</h2>
+
+  <p>Every mechanism on this page runs in both directions. The formula does not know whether the balance is yours or the bank's, and none of the arithmetic changes sign when the money is owed instead of held.</p><p>The Federal Reserve's <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank" rel="noopener">G.19 release of 7 August 2026</a> puts the average commercial-bank credit card rate for the second quarter of 2026 at <b>20.94%</b> across all accounts and <b>22.15%</b> on accounts actually assessed interest. That second figure is the one that describes someone carrying a balance.</p><p>And card interest does not wait for the month to end. The CFPB describes the mechanics: <em>&ldquo;Many credit card companies calculate the interest you owe daily, based on your average daily account balance,&rdquo;</em> at a rate they call the <em>daily periodic rate</em>. Because the interest is accruing daily, the CFPB notes, <em>&ldquo;the sooner you pay off all or some of your balance, the less interest you will pay.&rdquo;</em> At 22.15%, the daily periodic rate is 0.0607%. Held for a full year, daily compounding turns that 22.15% into an effective annual cost of <b>24.79%</b>.</p><div class="gls-eg"><span class="gls-lbl">$6,000 at 22.15%, three payment plans</span><p>A $6,000 balance. No new charges. A fixed payment every month, with interest applied monthly at the annual rate divided by twelve. The first month's interest alone is $110.75, or about <b>$3.64 a day</b>.</p><div class="gls-result">Payment      Time to clear     Interest paid    Total paid
+$150/mo      74 mo (6.2 yrs)      $4,995.48     $10,995.48
+$200/mo      45 mo (3.8 yrs)      $2,823.30      $8,823.30
+$250/mo      32 mo (2.7 yrs)      $1,998.76      $7,998.76</div><p>The first extra $50 a month saves <b>$2,172</b> and cuts two and a half years. The second $50 saves another $825. That is compounding read backwards: every dollar of principal you remove early is a dollar that never gets to grow against you, and the earliest dollars are the ones that would have grown the longest.</p></div><p>Two structural traps follow from the same mechanism.</p><p><strong>Minimum payments are designed around it.</strong> A minimum payment is typically a small percentage of the balance plus that period's interest, so it clears very little principal &mdash; and each issuer sets its own formula, so the only reliable version is the one on your own statement. Regulation Z requires that statement to show you two things: how long the balance will take to pay off making only minimum payments, and the monthly payment that would clear it in 36 months. Those two lines are on the bill already. They are the most useful numbers the issuer prints and the ones most often skipped.</p><p><strong>Unpaid interest can be added to principal.</strong> When accrued interest is capitalized &mdash; folded into the balance rather than paid &mdash; it starts generating interest of its own. This is how a balance grows during a period when nothing was borrowed. It appears in deferred-interest store financing, in some student loan situations, and anywhere a payment covers less than the interest that accrued. The rules differ by product, so the answer lives in your own paperwork, not in a general article.</p><div class="gls-box gls-warn"><span class="gls-lbl">The order that follows from the math</span><p>A dollar that stops 22% compounding against you is worth more than a dollar earning 4% for you, and it is worth more with certainty rather than on an assumption. That is arithmetic, not advice &mdash; and it deliberately says nothing about your emergency fund, your employer match, or anything else about your situation. It is one comparison, and it is only one input.</p></div>
+
+  <h2 id="reallife">The two things that quietly eat the return</h2>
+
+  <p>Compound growth projections are almost always shown gross. Two forces work on the number afterward, and both of them compound as well.</p><h3>Inflation</h3><p>The Bureau of Labor Statistics reported the Consumer Price Index for All Urban Consumers up <b>3.5%</b> over the twelve months ending June 2026. In the same window, the FDIC's deposit-weighted <a href="https://fred.stlouisfed.org/series/SNDR" target="_blank" rel="noopener">national rate for savings accounts</a> was <b>0.38%</b>.</p><div class="gls-eg"><span class="gls-lbl">What that combination does</span><p>Real return is roughly the nominal rate minus inflation. The precise version divides one by the other: (1 + rate) &divide; (1 + inflation) &minus; 1.</p><div class="gls-result">0.38% nominal, 3.5% inflation   &rarr;  &minus;3.01% real
+4.00% nominal, 3.5% inflation   &rarr;  +0.48% real</div><p>A balance at the national average savings rate is growing in dollars and shrinking in what those dollars buy, by roughly three percent a year. Compounding is running; it is just running the wrong way. This is the strongest practical argument for checking what your account pays, and it has nothing to do with compounding frequency.</p></div><h3>Taxes</h3><p>In a regular taxable account, interest is income in the year it is earned. IRS <a href="https://www.irs.gov/taxtopics/tc403" target="_blank" rel="noopener">Topic no. 403</a> lists interest on bank accounts, money market accounts and certificates of deposit as taxable, and states that <em>&ldquo;you must report all taxable and tax-exempt interest on your federal income tax return, even if you don't receive a Form 1099-INT.&rdquo;</em> A payer must issue that form once it has paid you at least $10 of reportable interest, but the obligation to report does not depend on the form arriving.</p><p>The compounding consequence is quiet. Tax paid on this year's interest is money that leaves the account, so it is not there to be compounded next year, or in any year after that. Over a long horizon, the drag is not the tax bill &mdash; it is everything the tax bill would have grown into. That difference is the entire structural argument for tax-advantaged accounts, and it is arithmetic rather than a recommendation about what anyone should hold.</p><h3>Fees, which are the same shape</h3><p>An annual fee expressed as a percentage &mdash; an expense ratio, an advisory fee, a monthly maintenance charge on a small balance &mdash; is charged on the balance every year, which means it compounds against you exactly the way interest compounds for you. A yield quoted before fees is not the yield.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Treating a projection as a forecast.</b> The formula tells you what happens <em>if</em> a rate holds for the whole period. No market rate holds for the whole period. Compound projections are arithmetic on an assumption, and the assumption is the fragile part.</li><li><b>Comparing a nominal rate to a yield.</b> The rate is before compounding; APY is after. Convert one or the other before deciding anything.</li><li><b>Optimizing compounding frequency instead of the rate.</b> At 5%, the whole annual-to-daily spread is about 0.13 of a point. The rate, the amount, and the years are where the money is.</li><li><b>Using the Rule of 72 at high rates.</b> It is tuned near 8% and understates doubling time badly above 15% &mdash; which is exactly the range credit card rates live in.</li><li><b>Assuming a deposit rate is locked.</b> Regulation DD exempts variable-rate accounts from its 30-day change notice, so a savings APY can move with no warning. A CD rate is fixed for its term; a savings rate is not fixed for anything.</li><li><b>Forgetting it runs both directions.</b> The same person can be compounding at 4% on $2,000 of savings and 22% on $6,000 of card debt, and describe themselves as saving.</li><li><b>Quitting during the flat part.</b> The first several years look like almost nothing because in dollar terms they are almost nothing. They are also the years being compounded the longest, which makes them the most valuable ones in the whole series.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is compound interest in simple terms?</h3>
+    <p>It is interest that gets paid on your interest. The Consumer Financial Protection Bureau describes it as earning interest on the money you have saved and on the interest you earn along the way. Their example: $1,000 at 5% becomes $1,050 after one year, then $1,102.50 after two, because the second year is calculated on $1,050 instead of on the original $1,000. Simple interest, by contrast, would pay exactly $50 every year forever, because it only ever counts the original deposit.</p>
+
+    <h3>What is the formula for compound interest?</h3>
+    <p>A equals P times the quantity one plus r divided by n, raised to the power of n times t. A is the ending amount, P is the principal you started with, r is the annual rate written as a decimal, n is how many times a year the interest compounds, and t is the number of years. Subtract P from A to get the interest alone. The important detail is that time appears as an exponent rather than a multiplier, which is why the length of time you leave money alone matters more than any other input.</p>
+
+    <h3>Does compounding daily instead of monthly make much difference?</h3>
+    <p>Less than most people assume. On $10,000 at a 5% nominal rate, annual compounding produces $500 of interest in the first year and daily compounding produces $512.67. The entire spread is $12.67. Daily compounding is also very close to the mathematical ceiling: continuous compounding at that rate would yield 5.1271% against daily compounding's 5.1267%. Take the more frequent schedule if the rate is equal, but never accept a lower rate to get it.</p>
+
+    <h3>How accurate is the Rule of 72?</h3>
+    <p>It is an approximation, and its accuracy depends on the rate. It is nearly exact around 8%, where it says nine years and the true answer is 9.01. It drifts at both extremes. At 1% it says 72 years against a true 69.7. At 24% it says three years against a true 3.22, and at 36% it is off by more than eleven percent. It also assumes a constant rate compounding once per period, so it is unreliable for anything that moves.</p>
+
+    <h3>How does compound interest work against you on debt?</h3>
+    <p>Identically, just pointed the other way. Interest is added to your balance, and the next round of interest is calculated on the larger balance. Credit card interest is typically calculated daily on your average daily balance, so it compounds every day. The Federal Reserve reported an average rate of 22.15% on card accounts assessed interest in the second quarter of 2026. Held for a full year with daily compounding, that works out to an effective annual cost of about 24.79%.</p>
+
+    <h3>Does inflation cancel out compound interest?</h3>
+    <p>It offsets part of it, and sometimes more than all of it. Compound growth is measured in dollars, while inflation measures what those dollars buy. The Bureau of Labor Statistics reported consumer prices up 3.5% over the twelve months ending June 2026, while the FDIC national rate for savings accounts was 0.38%. A balance earning 0.38% while prices rise 3.5% loses roughly 3% of its purchasing power in a year, even though the dollar figure on the statement went up.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="apy.html"><b>APY</b><span>Compounding, expressed as one comparable number</span></a>
+      <a href="apr.html"><b>APR</b><span>The borrowing rate that leaves compounding out</span></a>
+      <a href="interest-rate.html"><b>Interest Rate</b><span>The input the whole formula runs on</span></a>
+      <a href="amortization.html"><b>Amortization</b><span>How each payment splits between interest and principal</span></a>
+      <a href="finance-charge.html"><b>Finance Charge</b><span>What the law counts as the cost of credit</span></a>
+      <a href="grace-period.html"><b>Grace Period</b><span>The window where card compounding never starts</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Run your own numbers in the <a href="../compound-interest-calculator.html">compound interest calculator</a> or the <a href="../investment-growth-calculator.html">investment growth calculator</a> &mdash; both free, no account.</li>
+      <li>See the same math pointed at a balance you owe with the <a href="../debt-payoff-calculator.html">debt payoff calculator</a>, then read <a href="../blog/debt-avalanche-vs-snowball.html">avalanche vs snowball</a>.</li>
+      <li>Build the balance that does the compounding: <a href="../emergency-fund-calculator.html">emergency fund calculator</a> and <a href="../blog/how-to-save-your-first-1000.html">how to save your first $1,000</a>.</li>
+      <li>Work through <a href="../stage-2-stabilize.html">Stage 2 &middot; Stabilize</a> for the debt side and <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> for the long horizon.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/ask-cfpb/how-does-compound-interest-work-en-1683/" target="_blank" rel="noopener">How does compound interest work?</a> (definition and the $1,000 at 5% two-year example).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/ask-cfpb/how-is-my-credit-card-interest-calculated-en-51/" target="_blank" rel="noopener">How is my credit card interest calculated?</a> (daily periodic rate, average daily balance, daily accrual).</li>
+      <li>Board of Governors of the Federal Reserve System, <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank" rel="noopener">Consumer Credit &mdash; G.19</a>, released 7 August 2026: commercial bank credit card plans, Q2 2026 &mdash; 20.94% on all accounts, 22.15% on accounts assessed interest.</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/4/" target="_blank" rel="noopener">Regulation DD &sect; 1030.4 &mdash; Account disclosures</a> (compounding and crediting frequency must both be disclosed).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.7" target="_blank" rel="noopener">&sect; 1030.7 &mdash; Payment of interest</a> (no required compounding frequency; daily balance and average daily balance methods).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/5/" target="_blank" rel="noopener">&sect; 1030.5 &mdash; Subsequent disclosures</a> (30-day advance notice, and the variable-rate exemption).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/rules-policy/regulations/1026/7/" target="_blank" rel="noopener">Regulation Z &sect; 1026.7(b)(12) &mdash; Repayment disclosures</a> (the minimum-payment payoff estimate and the 36-month payment figure required on card statements).</li>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener">Consumer Price Index news release</a>, released 14 July 2026: CPI-U up 3.5% over the 12 months ending June 2026.</li>
+      <li>Federal Deposit Insurance Corporation, via Federal Reserve Bank of St. Louis, <a href="https://fred.stlouisfed.org/series/SNDR" target="_blank" rel="noopener">National Rate: Savings (SNDR)</a> &mdash; 0.38%, July 2026.</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/taxtopics/tc403" target="_blank" rel="noopener">Topic no. 403, Interest received</a>, and <a href="https://www.irs.gov/instructions/i1099int" target="_blank" rel="noopener">Instructions for Forms 1099-INT and 1099-OID</a> ($10 filing threshold; obligation to report all taxable interest).</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it actually is</a></li>
+      <li><a href="#formula">The formula</a></li>
+      <li><a href="#frequency">Compounding frequency</a></li>
+      <li><a href="#time">What it does over time</a></li>
+      <li><a href="#rule72">The Rule of 72</a></li>
+      <li><a href="#debt">When it works against you</a></li>
+      <li><a href="#reallife">Inflation, taxes and fees</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>Put your own number, rate and time horizon in and watch the curve bend &mdash; free, no account.</p>
+    <a class="gls-cta" href="../investment-growth-calculator.html">Investment growth calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

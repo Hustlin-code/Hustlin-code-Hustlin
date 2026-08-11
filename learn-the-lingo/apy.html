@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APY (Annual Percentage Yield): What It Is | Learn the Lingo</title>
+<meta name="description" content="APY is what your money actually earns in a year with compounding counted in. The Regulation DD formula, worked examples, and how it differs from APR.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/apy.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/apy.html">
+<meta property="og:title" content="APY (Annual Percentage Yield) — Learn the Lingo">
+<meta property="og:description" content="What a dollar in savings really earns over a year once interest starts earning interest — and why it is not the same as the interest rate.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="APY (Annual Percentage Yield) — Learn the Lingo">
+<meta name="twitter:description" content="What a dollar in savings really earns over a year once interest starts earning interest — and why it is not the same as the interest rate.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/apy.html#term",
+      "name": "Annual Percentage Yield (APY)",
+      "alternateName": ["APY","Annual Percentage Yield","Effective Annual Rate"],
+      "description": "APY, or annual percentage yield, is the percentage a deposit account pays over a year with compounding included. Under Regulation DD it is calculated on a 365-day basis, so the APY at one bank can be compared directly with the APY at another.",
+      "url": "https://hustlin.org/learn-the-lingo/apy.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "APY (Annual Percentage Yield): What It Is and How It Is Calculated",
+      "description": "A plain-language explanation of annual percentage yield, including the official Regulation DD formula, the everyday formula for converting a nominal rate into a yield, and worked examples on savings accounts and CDs. Covers what APY leaves out, what banks are legally required to disclose, and how APY differs from APR.",
+      "url": "https://hustlin.org/learn-the-lingo/apy.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/apy.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/apy.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "APY", "item": "https://hustlin.org/learn-the-lingo/apy.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does APY stand for?",
+          "acceptedAnswer": { "@type": "Answer", "text": "APY stands for annual percentage yield. It is the percentage a deposit account pays over a full year with compounding included, which is what separates it from the plain interest rate. Regulation DD, the federal rule that implements the Truth in Savings Act, defines it as a percentage rate reflecting the total interest paid on an account based on the interest rate and the frequency of compounding for a 365-day period. Banks and credit unions must use that exact term when they advertise a rate of return." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is APY the same as the interest rate?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and the difference is compounding. Regulation DD defines the interest rate as the annual rate paid on an account which does not reflect compounding. The APY takes that same rate and adds in the interest your interest earns during the year. The APY is therefore equal to or higher than the interest rate, never lower. On a 5.00% rate compounded daily, the APY is 5.13%. If one bank quotes a rate and another quotes a yield, you are not looking at the same measure." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between APY and APR?",
+          "acceptedAnswer": { "@type": "Answer", "text": "APY includes compounding but not fees. APR includes fees but not compounding. The faster way to keep them straight is which side of the deal you are on: APY is quoted on money you hold, like savings accounts and CDs, and APR is quoted on money you borrow, like credit cards and mortgages. Because compounding always makes a number bigger, the measure that includes it is attached to the product where a bigger number helps the institution quoting it." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is APY calculated?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Regulation DD sets the official method in Appendix A. APY equals 100 times the quantity one plus interest divided by principal, raised to the power of 365 divided by days in term, minus one. Principal is the amount assumed deposited at the start, interest is the total dollars earned over the term, and days in term is the actual number of days. If you are starting from an advertised rate instead of a dollar total, use one plus the rate divided by the number of compounding periods, raised to that number of periods, minus one." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a bank lower your APY without telling you?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On a variable-rate account, yes. Regulation DD normally requires 30 calendar days of advance notice before a change that may reduce your annual percentage yield. But the rule lists exemptions, and the first one covers changes in the interest rate and the corresponding annual percentage yield in variable-rate accounts. Ordinary savings and money market accounts are variable rate, so the yield can drop with no notice at all. A CD is different: its rate is fixed for the term you agreed to." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a higher APY always better?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For the rate itself, yes, since APY is designed so the larger number is genuinely the larger return. But APY does not include fees, so a monthly maintenance charge can erase the advantage without changing the advertised figure. It also says nothing about minimum balance requirements, balance tiers that cap the top rate, promotional periods that expire, or whether the deposit is federally insured. Compare the yield first, then check those four things before you move any money." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260811-1801">
+<link rel="stylesheet" href="lingo.css?v=20260811-1801">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Fifteen calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>APY</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Saving &amp; Interest</div>
+      <h1 class="hero-h1">Annual Percentage Yield <span>(APY)</span></h1>
+      <p class="hero-sub">What your money actually earns over a year once interest starts earning interest &mdash; and the one savings number federal law makes every bank calculate the same way.</p>
+      <p class="gls-aka"><b>Also called:</b> annual percentage yield &middot; the yield &middot; effective annual rate &middot; effective annual yield</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 11 August 2026</b> &middot; Sourced from the CFPB, Regulation DD and the FDIC</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>APY is what a dollar sitting in a savings account, CD or money market account actually earns over a year, with the interest that your interest earns counted in.</strong></p>
+    <p>The interest rate tells you what the bank is paying. The APY tells you what you end up holding. Compounding is the entire difference between those two numbers, and because federal law makes every bank compute APY the same way, it is the only savings figure you can put side by side without doing arithmetic first.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>APY includes compounding. The interest rate does not.</b> That gap is the whole reason both numbers exist, and it is why a 5.00% rate is not a 5.00% return.</li>
+      <li>APY is quoted on money you <b>hold</b>. APR is quoted on money you <b>borrow</b>. Both are legally required disclosures, and each one happens to flatter the side doing the quoting.</li>
+      <li>Regulation DD (12 CFR 1030) defines APY, forces banks to use the words &ldquo;annual percentage yield&rdquo; in advertising, and fixes the math to a <b>365-day basis</b> &mdash; which is what makes two banks' numbers genuinely comparable.</li>
+      <li>A disclosed APY must be rounded to two decimal places and is treated as accurate within <b>&plusmn;0.05 of a percentage point</b>.</li>
+      <li><b>APY does not include fees.</b> A monthly maintenance charge can wipe out the entire yield and never touch the advertised number.</li>
+      <li>Your savings APY can be cut with <b>no advance notice at all</b>, because Regulation DD exempts variable-rate accounts from its 30-day notice rule.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What APY actually measures</h2>
+
+  <p>Two banks want your emergency fund. One advertises 4.00% compounded monthly. The other advertises 3.95% compounded daily. Which one pays more? Nothing on either page answers that. You would have to know how compounding frequency interacts with a rate, run the math on both, and then compare &mdash; which is exactly the kind of homework that stops people from moving their money at all.</p><p>APY exists to end that problem. It answers one question and only one: <strong>if I leave a dollar in this account for a full year, what percentage more will I have at the end?</strong> Every compounding schedule, every crediting quirk, every stepped rate gets collapsed into a single yearly percentage. Once both banks quote APY, the higher number wins. There is no second consideration on the rate itself.</p><p>That is not a market convention. It is a legal one. In the United States, APY comes from the Truth in Savings Act, implemented through <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/" target="_blank" rel="noopener">Regulation DD</a> and administered by the Consumer Financial Protection Bureau. The regulation defines annual percentage yield as <em>&ldquo;a percentage rate reflecting the total amount of interest paid on an account, based on the interest rate and the frequency of compounding for a 365-day period.&rdquo;</em> In the same section it defines the interest rate as <em>&ldquo;the annual rate of interest paid on an account which does not reflect compounding.&rdquo;</em></p><p>Read those two definitions next to each other and the distinction stops being subtle. They are the same underlying number, described once with compounding and once without. The regulation went to the trouble of defining both because before it existed, a bank could pick whichever one made its account look best, and there was no way for a customer to tell which one they had been handed.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>The interest rate is the promise. The APY is the result. If a bank shows you only one of them, it is almost always showing you the one that serves it.</p></div>
+
+  <h2 id="how">Where the extra comes from</h2>
+
+  <p>Put $10,000 in an account paying 5.00% and leave it alone. If the bank pays all the interest in one lump at the end of the year, you get $500. If instead it pays a twelfth of that rate every month, the interest you earned in January is sitting in the account earning interest in February. By December you are earning interest on eleven months of previously earned interest. That is compounding, and it is the only reason APY and the interest rate ever differ.</p><p>Three separate mechanics decide how big that difference gets, and banks disclose all three because <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/4/" target="_blank" rel="noopener">Regulation DD &sect; 1030.4(b)</a> requires it.</p><h3>How often interest compounds</h3><p>Daily, monthly, quarterly, or annually. More often is better for you, though by far less than most people expect &mdash; the next section puts a dollar figure on it.</p><h3>How often interest is credited</h3><p>Compounding and crediting are two different events, and the regulation makes banks disclose both separately. Interest can accrue daily and be <em>credited</em> to your balance monthly. The reason this matters is buried in the same rule: if you close the account before the crediting date, some institutions do not pay the accrued interest at all. Regulation DD requires them to warn you in the disclosure if that is their policy. It is one of the few places where reading the boring paragraph saves real money.</p><h3>Which balance the rate is applied to</h3><p><a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.7" target="_blank" rel="noopener">Section 1030.7</a> allows two methods, and only two: the <b>daily balance method</b> or the <b>average daily balance method</b>. Under either one, the institution must calculate interest on the full amount of principal in the account each day, using a daily rate of at least 1/365th of the interest rate. In a leap year it may use 1/366th. Notably, the same section states plainly that it <em>&ldquo;does not require institutions to compound or credit interest at any particular frequency.&rdquo;</em> The frequency is the bank's choice. Disclosing it is not.</p><p>Which of the two balance methods you get matters most if your balance swings during the month. Average daily balance smooths a mid-month dip. Daily balance does not smooth anything, which cuts both ways.</p>
+
+  <h2 id="formula">The formula, both of them</h2>
+
+  <p>There are two formulas worth knowing and they answer different questions. The first is the one written into federal regulation. It works backwards from dollars actually earned, which is what a bank has in front of it when it needs to print a number.</p><div class="gls-formula"><span class="gls-lbl">The official formula &mdash; Regulation DD, Appendix A, Part I</span><code>APY  =  100  &times;  [ ( 1 + <em>Interest</em> &divide; <em>Principal</em> ) ^ ( 365 &divide; <em>Days in term</em> )  &minus;  1 ]</code><p class="gls-where">Where <b>Principal</b> is the amount of funds assumed to have been deposited at the beginning of the account &middot; <b>Interest</b> is the total dollar amount of interest earned on the Principal for the term of the account &middot; <b>Days in term</b> is the actual number of days in the term of the account.</p></div><p>When the term happens to be exactly 365 days, the exponent becomes 1 and the whole thing collapses to something you can do in your head:</p><div class="gls-formula"><span class="gls-lbl">The 365-day shortcut</span><code>APY  =  100  &times;  ( <em>Interest</em> &divide; <em>Principal</em> )</code><p class="gls-where">Regulation DD permits this simplification for accounts with a 365-day term. Interest divided by principal, expressed as a percentage. That is all APY has ever been.</p></div><p>The second formula is the one you will actually use, because you are usually starting from an advertised rate rather than from a dollar total. It converts a nominal annual rate into the yield it produces:</p><div class="gls-formula"><span class="gls-lbl">APY from a nominal rate</span><code>APY  =  ( 1 + <em>r</em> &divide; <em>n</em> ) ^ <em>n</em>  &minus;  1</code><p class="gls-where">Where <b>r</b> is the nominal annual interest rate written as a decimal (5.00% becomes 0.05) &middot; <b>n</b> is the number of times interest compounds per year (12 for monthly, 365 for daily). Multiply the result by 100 to get a percentage.</p></div><p>There is a third one you will meet on a statement rather than in an ad. Regulation DD calls it <b>annual percentage yield earned</b>, and it reports what an account actually did over a statement period rather than what it advertised:</p><div class="gls-formula"><span class="gls-lbl">APY Earned &mdash; Appendix A, Part II</span><code>APY Earned  =  100  &times;  [ ( 1 + <em>Interest earned</em> &divide; <em>Balance</em> ) ^ ( 365 &divide; <em>Days in period</em> )  &minus;  1 ]</code><p class="gls-where">Where <b>Balance</b> is the average daily balance in the account for the period and <b>Interest earned</b> is the actual amount of interest earned on the account for that period.</p></div><p>If the APY earned on your statement is meaningfully below the APY you were quoted, something happened &mdash; a balance tier you dropped out of, a promotional period that ended, or a rate the bank changed. It is the honest number, and almost nobody reads it.</p>
+
+  <h2 id="example">Worked examples</h2>
+
+  <p>Three of these, in the order people actually need them.</p><div class="gls-eg"><span class="gls-lbl">One rate, five compounding schedules</span><p>You have <b>$10,000</b>. The nominal rate is <b>5.00%</b> in every row. Only the compounding frequency changes.</p><div class="gls-result">Compounded       APY        Interest in year 1
+annually       5.0000%           $500.00
+semiannually   5.0625%           $506.25
+quarterly      5.0945%           $509.45
+monthly        5.1162%           $511.62
+daily          5.1267%           $512.67</div><p>Now the part nobody says out loud: the distance from the worst schedule to the best is <b>$12.67 on ten thousand dollars</b>. Compounding frequency is real, it is worth having, and it is nowhere near where the money is. If you are deciding between two accounts and one compounds daily while the other pays half a point more, take the half point. It is not close.</p></div><div class="gls-eg"><span class="gls-lbl">Running the official formula</span><p>Same account: <b>$10,000</b> principal, a <b>365-day</b> term, and <b>$512.67</b> of interest actually paid. Feed that into Appendix A:</p><div class="gls-result">Interest &divide; Principal  =  512.67 &divide; 10,000  =  0.051267
+365 &divide; Days in term  =  365 &divide; 365        =  1
+
+APY  =  100 &times; [ (1 + 0.051267) ^ 1 &minus; 1 ]  =  5.13%</div><p>Rounded to two decimal places, as Regulation DD requires. Note what the formula never asked for: it did not need to know the interest rate, or how often the account compounded, or which balance method the bank used. Dollars in, dollars out, annualized. That is the whole design.</p></div><div class="gls-eg"><span class="gls-lbl">The one that trips everyone: a six-month CD</span><p>A <b>6-month CD</b>, <b>182 days</b>, <b>$10,000</b>, quoted at a 4.00% interest rate. Simple interest over the term is 10,000 &times; 0.04 &times; 182 &divide; 365 = <b>$199.45</b>.</p><div class="gls-result">Interest &divide; Principal  =  199.45 &divide; 10,000  =  0.019945
+365 &divide; Days in term  =  365 &divide; 182        =  2.0055
+
+APY  =  100 &times; [ (1.019945) ^ 2.0055 &minus; 1 ]  =  4.04%</div><p>You will be quoted <b>4.04% APY</b>. You will receive <b>$199.45</b>. Both are true and they are not in conflict. APY always annualizes &mdash; it reports what the account would pay if the term ran a full year at that pace. On any term shorter than a year, the percentage you are quoted is bigger than the percentage of your money you are handed. Do not budget the yield. Budget the dollars.</p></div>
+
+  <h2 id="vs">APY vs APR vs the interest rate</h2>
+
+  <p>Three numbers, used interchangeably in conversation, meaning three different things on paper. The table is worth ten seconds because it changes what you are allowed to compare.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="APY, APR and interest rate compared"><table class="gls-tab"><thead><tr><th>Measure</th><th>Includes compounding?</th><th>Includes fees?</th><th>Quoted on</th><th>Governing rule</th></tr></thead><tbody><tr><td><strong>Interest rate</strong></td><td>No</td><td>No</td><td>Either side &mdash; the raw price of the money</td><td>&mdash;</td></tr><tr><td><strong>APR</strong></td><td>No</td><td>Yes</td><td>Money you <em>borrow</em></td><td>Regulation Z</td></tr><tr><td><strong>APY</strong></td><td>Yes</td><td>No</td><td>Money you <em>hold</em></td><td>Regulation DD</td></tr></tbody></table></div><p>The shortcut worth memorizing: <strong>APY is what you earn, APR is what you pay</strong>, and the measure that includes compounding is always attached to the side of the transaction where a bigger number helps whoever is quoting it. A bank puts APY on a savings account because compounding makes the figure larger. A card issuer puts APR on a credit card because leaving compounding out makes the figure smaller. Neither is deception. Both are the legally mandated disclosure for that product. It is simply worth knowing which direction each one leans.</p><p>The lean has a measurable size. The Federal Reserve's <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank" rel="noopener">G.19 release of 7 August 2026</a> puts the average commercial-bank credit card rate at <b>20.94%</b> across all accounts for the second quarter of 2026. Because card interest is charged daily, carrying that balance for a full year costs an effective <b>23.29%</b>. Over two full percentage points, created entirely by compounding, and it does not appear in any number the issuer is required to print.</p><p>The practical rule follows from all of this: <b>compare APY to APY and APR to APR.</b> Putting a savings APY next to a loan APR is not a comparison. It is two different measurements of two different things, and the answer it gives you will be wrong in a direction you cannot predict.</p>
+
+  <h2 id="rules">What the law makes a bank tell you</h2>
+
+  <p>Regulation DD is unusually specific about advertising, and knowing the specifics turns a savings ad from persuasion into a document you can audit.</p><h3>In advertising &mdash; &sect; 1030.8</h3><p>If an advertisement states a rate of return, it must state that rate as an <b>annual percentage yield</b>, using that exact term. The abbreviation &ldquo;APY&rdquo; is permitted only if the full phrase <em>&ldquo;annual percentage yield&rdquo;</em> appears at least once in the same advertisement. The plain interest rate may also appear, but only <em>&ldquo;in conjunction with, but not more conspicuously than, the annual percentage yield to which it relates&rdquo;</em> &mdash; and no other rate may be stated at all.</p><p>Two more prohibitions from the same section are worth carrying with you. An account cannot be described as <b>&ldquo;free&rdquo;</b> or &ldquo;no cost&rdquo; if any maintenance or activity fee may be imposed on it. And an institution may not use the word <b>&ldquo;profit&rdquo;</b> when referring to interest paid on an account.</p><h3>When you open the account &mdash; &sect; 1030.4(b)</h3><p>The disclosure must give you the annual percentage yield and the interest rate, using those terms; how long a fixed rate will stay in effect; and the frequency with which interest is compounded <b>and</b> credited. If closing the account early forfeits interest that has accrued but not been credited, the disclosure has to say so.</p><h3>How precise the number is &mdash; &sect; 1030.3(f)</h3><p>The APY, the APY earned and the interest rate must all be <em>&ldquo;rounded to the nearest one-hundredth of one percentage point (.01%) and expressed to two decimal places.&rdquo;</em> The accuracy tolerance is <b>one-twentieth of one percentage point</b> &mdash; not more than 0.05% above or below the true yield. A quoted APY is a tightly bounded figure, not an exact one.</p><div class="gls-box gls-warn"><span class="gls-lbl">The exception that catches savers</span><p><a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/5/" target="_blank" rel="noopener">Section 1030.5</a> requires a bank to give you <b>30 calendar days' advance notice</b> before changing a disclosed term in a way that may reduce your APY. Then it lists what is exempt &mdash; and the first item is <em>&ldquo;changes in the interest rate and corresponding changes in the annual percentage yield in variable-rate accounts.&rdquo;</em> Ordinary savings and money market accounts are variable-rate accounts. <b>Your APY can be cut tomorrow, with no notice, legally.</b> That is not a loophole a bank found; it is written into the rule. It is also the single best argument for checking your yield twice a year instead of assuming the number you opened with is the number you have.</p></div>
+
+  <h2 id="reallife">Where this actually costs people money</h2>
+
+  <p>Nobody loses money to APY by misunderstanding the definition. They lose it in five specific places.</p><p><strong>Leaving money in an account paying the national average.</strong> The FDIC's deposit-weighted <a href="https://fred.stlouisfed.org/series/SNDR" target="_blank" rel="noopener">national rate for savings accounts</a> was <b>0.38%</b> in July 2026. Meanwhile the Bureau of Labor Statistics reported the Consumer Price Index for All Urban Consumers up <b>3.5%</b> over the twelve months ending June 2026. On $10,000, the difference between 0.38% and a widely available 4.00% is <b>$362 a year</b> for filling in a form once. Nothing else on this page is worth that much.</p><p><strong>Fees, which APY does not include.</strong> This is the structural difference between APY and APR, and it runs against you. APR folds required fees into the rate; APY does not fold anything in. A $5 monthly maintenance fee is $60 a year. On a $2,000 balance at 4.00% APY, the account earns $80 and the fee takes $60 of it. The advertised yield never moves. Your actual yield is closer to 1%.</p><p><strong>Tiers and the word &ldquo;up to.&rdquo;</strong> A headline yield frequently applies only to a balance band. Sometimes the top rate requires a minimum you do not have. Sometimes &mdash; and this catches people going the other way &mdash; the top rate applies only <em>below</em> a cap, with everything above it dropping to a much lower tier. &ldquo;Up to 5.00% APY&rdquo; is a ceiling, not an offer.</p><p><strong>Promotional yields with a revert date.</strong> A high introductory APY is a real product with a real expiry. Because variable-rate changes need no notice, the day it reverts may pass without anything arriving in your mail or your inbox. The APY earned line on your statement is where you will find out.</p><p><strong>Forgetting that APY is a pre-tax number.</strong> The IRS treats interest on bank accounts, money market accounts and CDs as taxable income. A payer must issue you a <a href="https://www.irs.gov/instructions/i1099int" target="_blank" rel="noopener">Form 1099-INT</a> once you are paid at least $10 of reportable interest &mdash; but the reporting obligation is yours regardless. IRS <a href="https://www.irs.gov/taxtopics/tc403" target="_blank" rel="noopener">Topic no. 403</a> states it directly: <em>&ldquo;You must report all taxable and tax-exempt interest on your federal income tax return, even if you don't receive a Form 1099-INT.&rdquo;</em> Your after-tax yield is lower than the advertised APY by whatever your marginal rate is.</p><div class="gls-box"><span class="gls-lbl">One thing APY never tells you</span><p>It says nothing about whether your deposit is insured. Insurance is a separate question with a separate answer: <b>$250,000</b> per depositor, per insured institution, per ownership category &mdash; FDIC at banks, and the NCUA's Share Insurance Fund at federally insured credit unions. An uninsured account paying a spectacular yield is not a better savings account. It is a different product wearing the same coat.</p></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Comparing an APY to an interest rate.</b> The APY will always look better, because it is a different measure and not a better deal. If one bank quotes a rate and the other quotes a yield, convert before you decide.</li><li><b>Expecting the quoted percentage in dollars on a short term.</b> A six-month CD at 4.04% APY pays roughly 2% of your money over its actual life. The yield is annualized; the term is not.</li><li><b>Treating a savings APY as locked.</b> A CD's APY is fixed for its term. A savings or money market APY is variable and can move whenever the bank decides, without notice.</li><li><b>Chasing compounding frequency.</b> At 5%, the entire spread from annual to daily compounding is about 0.13 of a percentage point. Chase the rate.</li><li><b>Assuming APY covers fees.</b> It covers compounding and nothing else. Monthly maintenance fees, paper statement fees and excess-withdrawal fees all sit outside it.</li><li><b>Reading a promotional APY as the ongoing APY.</b> Find the revert date before you move the money, not after.</li><li><b>Forgetting inflation and taxes.</b> APY is nominal and pre-tax. What you keep is the yield minus taxes, adjusted for what prices did.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What does APY stand for?</h3>
+    <p>APY stands for annual percentage yield. It is the percentage a deposit account pays over a full year with compounding included, which is what separates it from the plain interest rate. Regulation DD, the federal rule that implements the Truth in Savings Act, defines it as a percentage rate reflecting the total interest paid on an account based on the interest rate and the frequency of compounding for a 365-day period. Banks and credit unions must use that exact term when they advertise a rate of return.</p>
+
+    <h3>Is APY the same as the interest rate?</h3>
+    <p>No, and the difference is compounding. Regulation DD defines the interest rate as the annual rate paid on an account which does not reflect compounding. The APY takes that same rate and adds in the interest your interest earns during the year. The APY is therefore equal to or higher than the interest rate, never lower. On a 5.00% rate compounded daily, the APY is 5.13%. If one bank quotes a rate and another quotes a yield, you are not looking at the same measure.</p>
+
+    <h3>What is the difference between APY and APR?</h3>
+    <p>APY includes compounding but not fees. APR includes fees but not compounding. The faster way to keep them straight is which side of the deal you are on: APY is quoted on money you hold, like savings accounts and CDs, and APR is quoted on money you borrow, like credit cards and mortgages. Because compounding always makes a number bigger, the measure that includes it is attached to the product where a bigger number helps the institution quoting it.</p>
+
+    <h3>How is APY calculated?</h3>
+    <p>Regulation DD sets the official method in Appendix A. APY equals 100 times the quantity one plus interest divided by principal, raised to the power of 365 divided by days in term, minus one. Principal is the amount assumed deposited at the start, interest is the total dollars earned over the term, and days in term is the actual number of days. If you are starting from an advertised rate instead of a dollar total, use one plus the rate divided by the number of compounding periods, raised to that number of periods, minus one.</p>
+
+    <h3>Can a bank lower your APY without telling you?</h3>
+    <p>On a variable-rate account, yes. Regulation DD normally requires 30 calendar days of advance notice before a change that may reduce your annual percentage yield. But the rule lists exemptions, and the first one covers changes in the interest rate and the corresponding annual percentage yield in variable-rate accounts. Ordinary savings and money market accounts are variable rate, so the yield can drop with no notice at all. A CD is different: its rate is fixed for the term you agreed to.</p>
+
+    <h3>Is a higher APY always better?</h3>
+    <p>For the rate itself, yes, since APY is designed so the larger number is genuinely the larger return. But APY does not include fees, so a monthly maintenance charge can erase the advantage without changing the advertised figure. It also says nothing about minimum balance requirements, balance tiers that cap the top rate, promotional periods that expire, or whether the deposit is federally insured. Compare the yield first, then check those four things before you move any money.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="apr.html"><b>APR</b><span>The same idea on money you borrow, minus the compounding</span></a>
+      <a href="compound-interest.html"><b>Compound Interest</b><span>The engine that turns a rate into a yield</span></a>
+      <a href="interest-rate.html"><b>Interest Rate</b><span>The price of the money before compounding</span></a>
+      <a href="finance-charge.html"><b>Finance Charge</b><span>What the law counts as the cost of credit</span></a>
+      <a href="grace-period.html"><b>Grace Period</b><span>How to pay a 20% card 0% interest</span></a>
+      <a href="prime-rate.html"><b>Prime Rate</b><span>The index most variable rates move with</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>See what a yield does over a decade with the <a href="../compound-interest-calculator.html">compound interest calculator</a> &mdash; free, no account.</li>
+      <li>Size the account first with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, then go find it a yield.</li>
+      <li>Read <a href="../blog/how-to-save-your-first-1000.html">how to save your first $1,000</a>, which is the part APY cannot do for you.</li>
+      <li>If banks have turned you down before, start with <a href="../blog/second-chance-bank-accounts.html">second-chance bank accounts</a> and <a href="../blog/chexsystems-explained.html">ChexSystems explained</a>.</li>
+      <li>Work through <a href="../stage-2-stabilize.html">Stage 2 &middot; Stabilize</a>, where the savings habit gets built, or browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.2" target="_blank" rel="noopener">Regulation DD &sect; 1030.2 &mdash; Definitions</a> (definitions of annual percentage yield, interest and interest rate).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/appendix-Appendix%20A%20to%20Part%201030" target="_blank" rel="noopener">Appendix A to Part 1030 &mdash; Annual Percentage Yield Calculation</a> (the official APY and APY earned formulas, and the 365-day term shortcut).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.3" target="_blank" rel="noopener">&sect; 1030.3(f) &mdash; Rounding and accuracy rules</a> (two decimal places; &plusmn;0.05 percentage point tolerance).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/4/" target="_blank" rel="noopener">&sect; 1030.4 &mdash; Account disclosures</a> (APY, interest rate, and compounding and crediting frequency must be disclosed).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/5/" target="_blank" rel="noopener">&sect; 1030.5 &mdash; Subsequent disclosures</a> (30-day advance notice, and the variable-rate exemption).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.7" target="_blank" rel="noopener">&sect; 1030.7 &mdash; Payment of interest</a> (daily balance and average daily balance methods; 1/365 daily rate; no required compounding frequency).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.8" target="_blank" rel="noopener">&sect; 1030.8 &mdash; Advertising</a> (the &ldquo;annual percentage yield&rdquo; term requirement, conspicuousness rule, and the &ldquo;free&rdquo; and &ldquo;profit&rdquo; prohibitions).</li>
+      <li>Federal Deposit Insurance Corporation, via Federal Reserve Bank of St. Louis, <a href="https://fred.stlouisfed.org/series/SNDR" target="_blank" rel="noopener">National Rate: Savings (SNDR)</a> &mdash; 0.38%, July 2026, deposit-weighted across insured institutions.</li>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener">Consumer Price Index news release</a>, released 14 July 2026: CPI-U up 3.5% over the 12 months ending June 2026.</li>
+      <li>Board of Governors of the Federal Reserve System, <a href="https://www.federalreserve.gov/releases/g19/current/" target="_blank" rel="noopener">Consumer Credit &mdash; G.19</a>, released 7 August 2026: commercial bank credit card plans, Q2 2026, 20.94% on all accounts.</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/taxtopics/tc403" target="_blank" rel="noopener">Topic no. 403, Interest received</a>, and <a href="https://www.irs.gov/instructions/i1099int" target="_blank" rel="noopener">Instructions for Forms 1099-INT and 1099-OID</a> ($10 filing threshold; obligation to report all taxable interest).</li>
+      <li>Consumer Financial Protection Bureau, <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-certificate-of-deposit-cd-en-917/" target="_blank" rel="noopener">What is a certificate of deposit (CD)?</a>, and National Credit Union Administration, <a href="https://ncua.gov/consumers/share-insurance-coverage" target="_blank" rel="noopener">Share Insurance Coverage</a> (the $250,000 limits).</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What APY measures</a></li>
+      <li><a href="#how">Where the extra comes from</a></li>
+      <li><a href="#formula">The formula</a></li>
+      <li><a href="#example">Worked examples</a></li>
+      <li><a href="#vs">APY vs APR vs rate</a></li>
+      <li><a href="#rules">What a bank must tell you</a></li>
+      <li><a href="#reallife">Where it costs people money</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>See what a yield actually turns into over five, ten and thirty years &mdash; free, no account.</p>
+    <a class="gls-cta" href="../compound-interest-calculator.html">Compound interest calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../learn.html">Learn</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>
