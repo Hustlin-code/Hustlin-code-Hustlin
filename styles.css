@@ -2680,3 +2680,114 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
    this file own the base rules is the finish line; check-shared-css.mjs will
    catch anything that turns out to have been load-bearing.
    ═════════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE SHARED NAV — panels
+   ═══════════════════════════════════════════════════════════════════════════
+   Markup lives in nav.template.html and is stamped by tools/stamp-nav.mjs.
+   .nav / .nav-logo / .nav-cta already existed above; this adds the menu and
+   the disclosure panels.
+
+   CSS-ONLY, and hover is not the only trigger. :focus-within opens a panel for
+   keyboard users, which matters because these panels ARE the site's internal
+   linking surface — every calculator and guide is in here. Nothing is injected
+   on open: the links are in the HTML on first fetch, same rule as the blog
+   index's collapsed rows, because a crawler never opens a menu.
+
+   The panel is display:block and hidden with opacity/visibility rather than
+   display:none. display:none is treated as hidden content by some crawlers;
+   an invisible-but-rendered panel is not. Same reason the blog uses a class.
+   ═════════════════════════════════════════════════════════════════════════ */
+.nav-menu{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.nav-item{position:relative}
+.nav-top{display:inline-block;padding:10px 14px;border-radius:9px;font-size:.92rem;
+  font-weight:600;color:rgba(255,255,255,.82);white-space:nowrap;transition:color .16s,background .16s}
+.nav-item:hover .nav-top,.nav-item:focus-within .nav-top{color:var(--amber);background:rgba(255,255,255,.06)}
+
+.nav-panel{position:absolute;top:calc(100% + 10px);left:0;z-index:60;
+  min-width:290px;padding:16px;background:#111;border:1px solid #2a2a2a;border-radius:14px;
+  box-shadow:0 18px 44px rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .16s,transform .16s,visibility .16s}
+.nav-item:hover .nav-panel,.nav-item:focus-within .nav-panel{opacity:1;visibility:visible;transform:none}
+.nav-item-flat .nav-panel{display:none}
+.nav-panel-h{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--amber);margin:0 0 12px}
+.nav-panel a{display:block;padding:8px 10px;border-radius:8px;color:#E8E4DA;font-size:.88rem;
+  line-height:1.4;transition:background .14s,color .14s}
+.nav-panel a:hover{background:rgba(245,197,32,.1);color:#fff}
+.nav-panel a b{display:block;font-weight:700}
+.nav-panel a span{display:block;font-size:.76rem;color:#8b8577;margin-top:2px}
+.nav-panel-all{margin-top:8px;border-top:1px solid #2a2a2a;padding-top:12px !important;
+  color:var(--amber) !important;font-weight:700}
+
+/* Sixteen calculators in one column is a panel taller than the viewport. Two
+   columns of eight fits on a laptop without scrolling, which is the whole
+   point of showing them by name. */
+.nav-panel-wide{min-width:470px}
+.nav-cols{display:grid;grid-template-columns:1fr 1fr;gap:1px 10px}
+
+/* The nav is horizontal-only for now. Below this width the menu is hidden and
+   the logo, CTA and footer carry navigation — a 16-item panel system on a
+   phone needs a real drawer, and a half-built one that traps focus is worse
+   than none. Tracked as the next step, not shipped as a compromise. */
+@media(max-width:1100px){
+  .nav-menu{display:none}
+}
+
+/* Stage state inside the Learn panel — replaces the old .nav-stages strip.
+   Classes are added at runtime from localStorage by the snippet in
+   nav.template.html; the stamped HTML is identical on every page so
+   stamp-nav.mjs --check can still byte-compare it.
+
+   The tick is a ::after rather than a character in the markup, so a screen
+   reader is not read "check mark" on every finished stage, and the label
+   below carries the meaning instead. */
+.nav-panel a.is-done{color:#fff}
+.nav-panel a.is-done b::after{content:"✓";margin-left:8px;color:var(--green-lt);font-weight:700}
+.nav-panel a.is-done span::before{content:"Finished · ";color:var(--green-lt);font-weight:700}
+.nav-panel a.is-here{background:rgba(245,197,32,.12);box-shadow:inset 2px 0 0 var(--amber)}
+.nav-panel a.is-here b{color:var(--amber)}
+
+/* The nav CTA is the brand button, not a flat pill. */
+.nav-cta-btn{display:inline-block;flex-shrink:0;line-height:0;transition:transform .16s,filter .16s}
+.nav-cta-btn img{width:178px;height:auto;display:block}
+.nav-cta-btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.nav-cta-btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:12px}
+
+/* Stage rows in the Learn panel carry their own button art. The image is
+   alt="" and aria-hidden: the <b> beside it already names the stage, so a
+   screen reader announcing "Survive" twice would be noise, not information. */
+.nav-stage-link{display:grid;grid-template-columns:74px 1fr;align-items:center;column-gap:11px}
+.nav-stage-btn{width:74px;height:auto;display:block;filter:saturate(.92)}
+.nav-stage-link:hover .nav-stage-btn{filter:none}
+.nav-stage-link.is-done .nav-stage-btn{filter:saturate(.5) brightness(.8)}
+
+/* The logo is 1423x572. Pin the HEIGHT and let width follow, so the aspect
+   ratio can never be forced by an attribute or a container. The nav bar is
+   108px tall; 96px leaves 6px of breathing room top and bottom.
+   mix-blend-mode:screen removes the PNG's black backing plate on the dark bar. */
+.nav-home{display:inline-flex;align-items:center;flex-shrink:0;line-height:0}
+.nav-home img{height:96px;width:auto;display:block;mix-blend-mode:screen}
+@media(max-width:760px){.nav-home img{height:68px}}
+
+/* ── HERO NAV CLEARANCE ────────────────────────────────────────────────────
+   .nav is position:fixed, so it is out of flow and the shared .hero has been
+   sliding its first 108px underneath it. blog/post.css already carries this
+   exact workaround, and .fl-hero solved it locally — which is the tell that it
+   was never a per-page problem. Every page using the shared .hero had it: the
+   six situation guides, and anything else with <section class="hero">.
+
+   The symptom is mild enough to look intentional, which is why it survived:
+   the hero just reads a bit tight at the top, and on the guides the callout
+   box directly under it gets its top edge clipped.
+
+   Breakpoints are the NAV'S OWN heights (108 / 76 / 64), matching post.css.
+   They must move together — the whole bug is the two numbers disagreeing.
+   calc() keeps the original design padding visible rather than folding it into
+   one magic number, so the next person can see which part is clearance and
+   which part is spacing. */
+.hero{padding-top:calc(108px + 60px)}
+@media(max-width:900px){.hero{padding-top:calc(76px + 50px)}}
+@media(max-width:600px){.hero{padding-top:calc(76px + 40px)}}
+@media(max-width:480px){.hero{padding-top:calc(64px + 40px)}}

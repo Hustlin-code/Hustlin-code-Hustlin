@@ -102,19 +102,186 @@
 </style>
 </head>
 <body>
-<nav class="nav">
-  <a href="index.html">
-    <img src="assets/hustlin-logo.png" alt="Hustlin'" style="height:96px;width:auto;display:block;mix-blend-mode:screen">
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="index.html">
+    <img src="assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
   </a>
-  <div class="nav-stages">
-    <a href="stage-1-survive.html" data-nav-stage="stage1" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Survive.png" alt="Survive" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
-    <a href="stage-2-stabilize.html" data-nav-stage="stage2" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Stabilize.png" alt="Stabilize" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
-    <a href="stage-3-rebuild.html" data-nav-stage="stage3" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Rebuild.png" alt="Rebuild" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
-    <a href="stage-4-invest.html" data-nav-stage="stage4" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/Invest.png" alt="Invest" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
-    <a href="stage-5-wealth.html" data-nav-stage="stage5" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:4px;width:190px;flex-shrink:0;"><img src="assets/buttons/BuildWealth.png" alt="Build Wealth" style="max-height:78px;height:auto;width:auto;max-width:100%;display:block;margin:0 auto;"></a>
-  </div>
-  
+
+  <ul class="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Sixteen calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="budget-calculator.html">Budget</a>
+          <a href="debt-payoff-calculator.html">Debt payoff</a>
+          <a href="debt-overview-calculator.html">Debt overview</a>
+          <a href="emergency-fund-calculator.html">Emergency fund</a>
+          <a href="paycheck-calculator.html">Paycheck</a>
+          <a href="paycheck-split-calculator.html">Paycheck split</a>
+          <a href="net-worth-calculator.html">Net worth</a>
+          <a href="credit-utilization-calculator.html">Credit utilization</a>
+          <a href="sinking-fund-calculator.html">Sinking fund</a>
+          <a href="life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="compound-interest-calculator.html">Compound interest</a>
+          <a href="investment-growth-calculator.html">Investment growth</a>
+          <a href="financial-freedom-calculator.html">Financial freedom</a>
+          <a href="mortgage-calculator.html">Mortgage</a>
+          <a href="auto-loan-calculator.html">Auto loan</a>
+          <a href="roth-conversion-calculator.html">Roth conversion</a>
+        </div>
+        <a class="nav-panel-all" href="calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="stage-1-survive.html">
+    <img src="assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
 </nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
 
 <section class="sec stage-content" id="stage1">
   <div class="sec-inner">
