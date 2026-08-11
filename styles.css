@@ -2771,8 +2771,19 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
      the first link inside the drawer anyway. */
   .nav-cta-btn{display:none}
 
+  /* THIS LINE IS WHY THE DRAWER WORKS. Do not delete it. 2026-08-10.
+     .nav carries backdrop-filter:blur(18px), and an ancestor with a
+     backdrop-filter becomes the containing block for position:fixed
+     descendants. So .nav-menu below was being positioned against the 108px
+     nav bar instead of the viewport: top:76px / bottom:0 resolved to a strip
+     roughly 32px tall, the drawer rendered as a stub with one link spilling
+     out of it, and the page painted straight through underneath.
+     The bar is already rgba(10,10,10,.97) — the blur was doing nothing
+     visible at 3% transparency, so dropping it on mobile costs nothing. */
+  .nav{backdrop-filter:none;-webkit-backdrop-filter:none}
+
   .nav-menu{
-    display:block;position:fixed;left:0;right:0;top:76px;bottom:0;
+    display:block;position:fixed;left:0;right:0;top:108px;bottom:0;
     margin:0;padding:14px 18px 40px;
     background:#0b0b0b;border-top:1px solid rgba(240,192,48,.3);
     overflow-y:auto;-webkit-overflow-scrolling:touch;
@@ -2797,6 +2808,13 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .nav-stage-link{display:flex;flex-direction:row;align-items:center;gap:11px}
   .nav-stage-link b,.nav-stage-link span{display:block}
   .nav-item-flat .nav-panel{display:none}
+}
+/* The drawer's top must track the nav's height, which steps 108 → 76 → 64.
+   Same breakpoints as the .nav rules near the top of this file; if one moves,
+   move the other or the drawer either overlaps the bar or leaves a gap the
+   page shows through. */
+@media(max-width:900px){
+  .nav-menu{top:76px}
 }
 @media(max-width:480px){
   .nav-menu{top:64px}
