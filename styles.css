@@ -739,7 +739,40 @@ a{text-decoration:none}
   .module.open .mod-body{padding:0 14px 14px}
 }
 .mod-body p{color:var(--text-body);font-size:.93rem;line-height:1.77;margin-bottom:14px}
+/* SECTION SUBHEADS INSIDE A MODULE. Added 2026-08-11.
+
+   Stage 1 wrote these as <h3> and Stages 2-5 wrote them as <h4>, so the same
+   thing rendered two different sizes and every Stage 2-5 page skipped a
+   heading level (<h1> hero straight to <h4>). Nothing styled .mod-body h3 at
+   all, so Stage 1's fell through to the browser default: 24.3px with margin 0,
+   which is not a designed value, it is what Chrome does when nobody decides.
+
+   1.06rem is the decision. It sits above .mod-body p (.93rem) — a subhead that
+   renders SMALLER than the body text it introduces is what .92rem was doing —
+   and below the module title, and it takes the spacing the h4 rule already had.
+   h4 stays exactly as it was for headings inside tips, warnings and video
+   cards, which are sub-content of a section rather than sections themselves. */
+.mod-body h3{font-size:1.06rem;font-weight:700;color:var(--text-dark);margin:22px 0 10px;line-height:1.35}
 .mod-body h4{font-size:.92rem;font-weight:700;color:var(--text-dark);margin:22px 0 10px}
+/* LINKS INSIDE COURSE COPY. Added 2026-08-11.
+
+   Until now nothing styled them, so an inline link in a module fell through
+   to the browser default: royal blue, then purple once visited. On a cream
+   page whose entire palette is amber and ink, that is the one colour
+   combination belonging to no brand at all — and it read as broken rather
+   than as a link, which is why several in-text references were written as
+   plain bold text instead.
+
+   #7A4E00 is the --amber-ink token written out, per the house rule against
+   inferring variable names in course CSS. 6.4:1 on --cream (#F6F1E4), and it
+   still clears AA on the tinted .warn / .tip callout backgrounds.
+
+   :not(.res-link) leaves the Sources pills alone — those are bordered chips
+   with their own colour, and underlining them would turn a tidy row of
+   citations into a wall of blue rules. */
+.mod-body a:not(.res-link){color:#7A4E00;font-weight:600;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.mod-body a:not(.res-link):hover{color:#553600;text-decoration-thickness:2px}
+.mod-body a:not(.res-link):visited{color:#7A4E00}
 .actions{
   background:var(--cream);border-radius:var(--r-sm);padding:18px;
   display:flex;flex-direction:column;gap:10px;margin:14px 0;

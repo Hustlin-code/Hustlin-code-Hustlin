@@ -444,6 +444,21 @@
   </url>
   <!-- BLOG:END -->
 
+  <!-- ─── Learn the Lingo (glossary) ────────────────────── -->
+  <url>
+    <loc>https://hustlin.org/learn-the-lingo.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://hustlin.org/learn-the-lingo/apr.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- ─── Company ──────────────────────────────────────── -->
   <url>
     <loc>https://hustlin.org/about.html</loc>

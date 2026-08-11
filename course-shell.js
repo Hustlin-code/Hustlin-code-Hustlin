@@ -258,12 +258,19 @@
 
     // Reveal the opening module — unless a module is already showing, which is
     // the case when init() runs a second time after a progress sync.
+    //
+    // A #module-id in the URL wins over CFG.first. That is what makes a
+    // cross-stage crosslink land on the module it names instead of dumping the
+    // reader at the top of the stage: stage-1-survive.html#m31 opens Module 02.
     if (!document.querySelector('.module.cs-visible')) {
-      var first = document.getElementById(CFG.first || 'm1') ||
+      var first = hashModule() ||
+                  document.getElementById(CFG.first || 'm1') ||
                   document.querySelector('.course-main .module') ||
                   document.querySelector('.module');
       if (first) first.classList.add('cs-visible');
     }
+
+    installXrefHandlers();
 
     syncSidebar();
     addNextButtons();   // idempotent: skips any .mod-body already carrying a wrap
@@ -281,6 +288,48 @@
       try { CFG.onReady(); }
       catch (e) { console.error('HFY_COURSE.onReady failed', e); }
     }
+  }
+
+  /* ---------- in-course crosslinks -----------------------------------
+     The shell shows ONE module at a time, so a plain href="#m31" anchor
+     points at a display:none element and does nothing at all. Every
+     crosslink written by tools/crosslink-modules.mjs therefore carries
+     data-mod="<module id>" alongside the href, and gets routed through
+     selectModule here.
+
+     The href stays a real URL on purpose — crawlers follow it, "open in
+     new tab" works, and with JS off the link is still honest markup. */
+  var xrefsInstalled = false;
+
+  function hashModule() {
+    var h = (window.location.hash || '').replace(/^#/, '');
+    if (!/^m\d+$/.test(h)) return null;
+    var el = document.getElementById(h);
+    return el && el.classList.contains('module') ? el : null;
+  }
+
+  function installXrefHandlers() {
+    if (xrefsInstalled) return;
+    xrefsInstalled = true;
+
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[data-mod]') : null;
+      if (!a) return;
+      // Let modified clicks (new tab, new window, download) behave normally.
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      var id = a.getAttribute('data-mod');
+      var el = id && document.getElementById(id);
+      if (!el || !el.classList.contains('module')) return;   // cross-page link — let it navigate
+      e.preventDefault();
+      selectModule(id);
+      if (window.history && history.replaceState) history.replaceState(null, '', '#' + id);
+    });
+
+    // Back/forward, and anyone pasting a #module URL into an open tab.
+    window.addEventListener('hashchange', function () {
+      var el = hashModule();
+      if (el) selectModule(el.id);
+    });
   }
 
   /* Exposed globally: inline onclick="selectModule('m3')" attributes in the

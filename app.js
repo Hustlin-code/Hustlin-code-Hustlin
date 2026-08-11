@@ -768,9 +768,9 @@ window.HFY = (function(){
     // Keep the active chip on screen without touching page scroll —
     // scrollIntoView would drag the whole document on iOS.
     //
-    // Only nudges when the chip is actually out of view. Centring
+    // Only nudges when the chip is actually out of view. Centering
     // unconditionally left module 1 hanging half off the left edge on load:
-    // centring a chip that already sits flush at the start can only push it
+    // centering a chip that already sits flush at the start can only push it
     // backwards, and a clipped FIRST card reads as "you missed something"
     // rather than "there is more ahead".
     function centreOn(chip){
