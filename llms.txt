@@ -50,7 +50,7 @@ Single one-time payment, lifetime access, no subscription.
 - [Markets](https://hustlin.org/markets.html): Live charts, screeners, heatmaps, economic calendar
 
 ## About
-- [About & Editorial Standards](https://hustlin.org/about.html): Who writes this, where every figure comes from, how the site is funded, corrections policy, and what Hustlin' is explicitly not qualified to advise on
+- [About & Editorial Standards](https://hustlin.org/about.html): Who writes this, where the numbers come from, how the site is funded, corrections policy, and what Hustlin' is explicitly not qualified to advise on
 - [Work With Us](https://hustlin.org/work-with-us.html)
 
 ## Optional
