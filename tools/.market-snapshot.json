@@ -1,6 +1,6 @@
 {
   "stamp": "2026-08-11",
-  "bakedAt": "2026-08-11T17:38:26.509Z",
+  "bakedAt": "2026-08-11T19:53:31.630Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -488,16 +488,24 @@
       "hour": "bmo",
       "epsEstimate": 0.3877,
       "revenueEstimate": 29091192537,
-      "marketCap": 70062000105.89131
+      "marketCap": 70062000105.89131,
+      "epsActual": 0.59,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "PRU",
       "name": "Prudential Financial Inc",
       "date": "2026-08-04",
       "hour": "amc",
-      "epsEstimate": 3.5432,
+      "epsEstimate": 3.5647,
       "revenueEstimate": 14528228557,
-      "marketCap": 42361758841.54761
+      "marketCap": 42361758841.54761,
+      "epsActual": 4.08,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "SYY",
@@ -506,25 +514,37 @@
       "hour": "bmo",
       "epsEstimate": 1.5263,
       "revenueEstimate": 22157387807,
-      "marketCap": 40760283247.19585
+      "marketCap": 40760283247.19585,
+      "epsActual": 1.53,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
     },
     {
       "symbol": "ADM",
       "name": "Archer-Daniels-Midland Co",
       "date": "2026-08-04",
       "hour": "bmo",
-      "epsEstimate": 1.455,
+      "epsEstimate": 1.4509,
       "revenueEstimate": 22120893750,
-      "marketCap": 38204695450.52984
+      "marketCap": 38204695450.52984,
+      "epsActual": 1.84,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "CPNG",
       "name": "Coupang Inc",
       "date": "2026-08-04",
       "hour": "amc",
-      "epsEstimate": -0.0694,
+      "epsEstimate": -0.0891,
       "revenueEstimate": 9095457126,
-      "marketCap": 29349300282.74394
+      "marketCap": 29349300282.74394,
+      "epsActual": -0.09,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "SUN",
@@ -533,7 +553,11 @@
       "hour": "bmo",
       "epsEstimate": 2.2161,
       "revenueEstimate": 11119090000,
-      "marketCap": 15707854869.841122
+      "marketCap": 15707854869.841122,
+      "epsActual": 0.94,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "LLY",
@@ -646,7 +670,11 @@
       "hour": "amc",
       "epsEstimate": 6.1822,
       "revenueEstimate": 15814243336,
-      "marketCap": 67979720169.2013
+      "marketCap": 67979720169.2013,
+      "epsActual": 8.99,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "MET",
@@ -655,7 +683,11 @@
       "hour": "amc",
       "epsEstimate": 2.3159,
       "revenueEstimate": 19906250155,
-      "marketCap": 61853576272.3824
+      "marketCap": 61853576272.3824,
+      "epsActual": 2.43,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "COR",
@@ -664,16 +696,24 @@
       "hour": "bmo",
       "epsEstimate": 4.3924,
       "revenueEstimate": 85157696691,
-      "marketCap": 60574644318.45696
+      "marketCap": 60574644318.45696,
+      "epsActual": 4.48,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
     },
     {
       "symbol": "MDLN",
       "name": "Medline Inc",
       "date": "2026-08-05",
       "hour": "bmo",
-      "epsEstimate": 0.3291,
+      "epsEstimate": 0.3285,
       "revenueEstimate": 7668271912,
-      "marketCap": 51601670229.76892
+      "marketCap": 51601670229.76892,
+      "epsActual": 0.5,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "GLXY",
@@ -724,18 +764,26 @@
       "name": "Warner Bros Discovery Inc",
       "date": "2026-08-06",
       "hour": "bmo",
-      "epsEstimate": -0.1259,
+      "epsEstimate": -0.1417,
       "revenueEstimate": 9325412567,
-      "marketCap": 63856770000
+      "marketCap": 63856770000,
+      "epsActual": 0.06,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "USFD",
       "name": "US Foods Holding Corp",
       "date": "2026-08-06",
       "hour": "bmo",
-      "epsEstimate": 1.3906,
+      "epsEstimate": 1.3877,
       "revenueEstimate": 10670190338,
-      "marketCap": 22152096362.23411
+      "marketCap": 22152096362.23411,
+      "epsActual": 1.43,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "PAA",
@@ -757,7 +805,11 @@
       "hour": "amc",
       "epsEstimate": 4.5046,
       "revenueEstimate": 9659687975,
-      "marketCap": 11074078886.578716
+      "marketCap": 11074078886.578716,
+      "epsActual": 5.45,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "PAGP",
@@ -790,18 +842,26 @@
       "name": "Occidental Petroleum Corp",
       "date": "2026-08-05",
       "hour": "amc",
-      "epsEstimate": 1.872,
+      "epsEstimate": 1.8577,
       "revenueEstimate": 7149975001,
-      "marketCap": 56763803365.33815
+      "marketCap": 56763803365.33815,
+      "epsActual": 2.4,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "XYZ",
       "name": "Block Inc",
       "date": "2026-08-05",
       "hour": "amc",
-      "epsEstimate": 0.8751,
+      "epsEstimate": 0.8764,
       "revenueEstimate": 6549900197,
-      "marketCap": 49156000000
+      "marketCap": 49156000000,
+      "epsActual": 1.02,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "CDW",
@@ -810,7 +870,11 @@
       "hour": "bmo",
       "epsEstimate": 2.8275,
       "revenueEstimate": 6268128175,
-      "marketCap": 18883238031.43446
+      "marketCap": 18883238031.43446,
+      "epsActual": 2.91,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "KDP",
@@ -819,7 +883,11 @@
       "hour": "bmo",
       "epsEstimate": 0.5426,
       "revenueEstimate": 7311596040,
-      "marketCap": 42340609620.20652
+      "marketCap": 42340609620.20652,
+      "epsActual": 0.57,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "AIG",
@@ -828,7 +896,11 @@
       "hour": "amc",
       "epsEstimate": 1.9428,
       "revenueEstimate": 7357165391,
-      "marketCap": 41663605843.55532
+      "marketCap": 41663605843.55532,
+      "epsActual": 2,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "RGA",
@@ -837,7 +909,11 @@
       "hour": "amc",
       "epsEstimate": 6.5825,
       "revenueEstimate": 6742812318,
-      "marketCap": 15516791954.357306
+      "marketCap": 15516791954.357306,
+      "epsActual": 8.89,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "FERG",
@@ -857,13 +933,13 @@
       "name": "Kaspi.kz AO",
       "date": "2026-08-10",
       "hour": "bmo",
-      "epsEstimate": 1391.9175,
+      "epsEstimate": 1725.418,
       "revenueEstimate": 1194457230000,
       "marketCap": 17310501573.692394,
-      "epsActual": null,
+      "epsActual": 1457.684,
       "revenueActual": null,
-      "quarter": 2,
-      "year": 2026
+      "quarter": 4,
+      "year": 2025
     },
     {
       "symbol": "JBS",
