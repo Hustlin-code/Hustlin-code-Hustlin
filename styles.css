@@ -2548,3 +2548,135 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
      column empty for no reason. */
   .hero-wrap:not(:has(> *:nth-child(2))) .hero-sub{max-width:720px}
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MARKETS — SHARED COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════
+
+   .mkt-dash and .mkt-table are used on EIGHT pages (markets.html, the four
+   markets-*.html analysis pages, and Markets/chart, compare, screeners,
+   spotlight). Several of those carry their own near-identical inline copy of
+   the .mkt-table rules — the same duplication that produced nine copies of
+   .breadcrumb and then had to be hunted down again.
+
+   Everything below lives here, once, for that reason. The selectors are
+   deliberately chosen to WIN against the surviving inline copies without
+   needing them deleted first: an inline <style> block comes after this file in
+   the cascade, so a bare `.mkt-table` here would lose to a bare `.mkt-table`
+   there. `.mkt-dash .mkt-table` (0,2,0) and `.mkt-table th[scope=row] a`
+   (0,2,1) both outrank it, so this is safe to ship before the inline blocks
+   are removed. Remove them anyway — see the tail of this block.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* ── 0. The base table, for the cream sections ─────────────────────────────
+   Lifted verbatim from markets.html so the values are unchanged; this is a
+   move, not a redesign. Markets/compare.html was the KNOWN finding that made
+   it necessary — it carries <table class="mkt-table sec-table"> and styled
+   only .sec-table locally, so half of that table had no rules at all and
+   rendered as a bare browser table on a page where every other table is a
+   card. Now that these live here, it gets them like everything else. */
+.mkt-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E4DFD3;
+  border-radius:14px;overflow:hidden;font-size:14px}
+.mkt-table-cap{caption-side:top;text-align:left;font-size:13px;color:#5c574c;
+  padding:0 0 10px;line-height:1.5}
+.mkt-table th[scope=col]{text-align:left;font-size:11px;text-transform:uppercase;
+  letter-spacing:.07em;color:#6F6A5E;padding:12px;border-bottom:2px solid #E4DFD3}
+.mkt-table td,.mkt-table th[scope=row]{padding:11px 12px;border-bottom:1px solid #EFEBE1;
+  color:#3d3a33;text-align:left;font-weight:400}
+.mkt-table th[scope=row]{font-weight:600}
+.mkt-table tr:last-child td,.mkt-table tr:last-child th{border-bottom:none}
+.mkt-table td.up{color:#2DA02D;font-weight:700}
+.mkt-table td.down{color:#C4381F;font-weight:700}
+.mkt-table td a{color:#8A6D08;font-weight:600;white-space:nowrap}
+.mkt-table td a:hover{text-decoration:underline}
+/* Ticker on top, company name under it — the ticker is what people scan for,
+   the name is what tells them whether they have heard of it. */
+.mkt-table th[scope=row] .mkt-co{display:block;font-size:12px;font-weight:400;
+  color:#6F6A5E;margin-top:2px;line-height:1.35}
+.mkt-table td.mkt-rel{white-space:nowrap}
+.mkt-table td.mkt-rel a.sec{margin-left:10px;font-size:11.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;color:#8b8577}
+.mkt-table td.mkt-rel a.sec:hover{color:#8A6D08}
+@media(max-width:600px){
+  .mkt-table{font-size:13px}
+  .mkt-table td,.mkt-table th{padding:9px 8px}
+}
+
+/* ── 1. The dashboard's own prose ──────────────────────────────────────────
+   .mkt-dash styled .eye and h2 and nothing else, so its h3, p and a fell
+   through to the global `h1..h6{color:var(--text-dark)}` and
+   `body{color:var(--text-dark)}` — dark text on a #060606 background, at
+   roughly 1.3:1. The copy was legible only because the browser antialiases it
+   onto black. Links were worse: styles.css sets `a{text-decoration:none}` and
+   no colour, so every link in this section rendered in the UA default purple.
+
+   This is the same failure the .nav-market-btn and .breadcrumb findings were:
+   an element that is styled ENOUGH to look deliberate and never checked. */
+.mkt-dash h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:clamp(17px,2.2vw,21px);color:#fff;margin:30px 0 10px;letter-spacing:-.01em}
+.mkt-dash p{font-size:15.5px;line-height:1.7;color:#C9C3B6;margin:0 0 14px;max-width:760px}
+.mkt-dash p strong{color:#fff;font-weight:700}
+.mkt-dash a{color:#F5C520;font-weight:600;border-bottom:1px solid rgba(245,197,32,.32)}
+.mkt-dash a:hover{border-bottom-color:#F5C520}
+
+/* ── 2. The drawdown table, on the dark dashboard ──────────────────────────
+   The base .mkt-table is built for the cream sections and must stay that way —
+   most of its uses sit on #FAF7F0. Only the copy inside .mkt-dash is restyled,
+   so this cannot leak onto the light pages.
+
+   Green is #5EDD5E here, NOT the #2DA02D used on cream. Brand green on a #111
+   card is about 3.4:1, which fails AA for the one thing on this table a reader
+   actually came to read. The lighter tint is the same hue at a contrast that
+   works on black — the light sections keep #2DA02D for exactly the same
+   reason in reverse. */
+.mkt-dash .mkt-table{background:#111;border:1px solid #262626}
+.mkt-dash .mkt-table-cap{color:#8b8577}
+.mkt-dash .mkt-table th[scope=col]{color:#9a9488;border-bottom:2px solid #2a2a2a}
+.mkt-dash .mkt-table td,
+.mkt-dash .mkt-table th[scope=row]{color:#E8E4DA;border-bottom:1px solid #1e1e1e}
+.mkt-dash .mkt-table th[scope=row]{color:#fff}
+.mkt-dash .mkt-table tr:last-child td,
+.mkt-dash .mkt-table tr:last-child th{border-bottom:none}
+.mkt-dash .mkt-table td.up{color:#5EDD5E}
+.mkt-dash .mkt-table td.down{color:#FF6B57}
+.mkt-dash .mkt-table th[scope=row] .mkt-co{color:#8b8577}
+
+/* ── 3. Links in a row header ──────────────────────────────────────────────
+   `.mkt-table td a{color:#8A6D08}` matches links inside td ONLY. The first
+   column of every one of these tables is `<th scope="row">` — correct markup,
+   and the reason "S&P 500 close" rendered in default browser blue on a page
+   whose entire palette is gold and green. It looked like a styling choice.
+   Scoped to both cell types so the next table with a linked row header cannot
+   reintroduce it. */
+.mkt-table th[scope=row] a{color:#8A6D08;font-weight:600}
+.mkt-table th[scope=row] a:hover{text-decoration:underline}
+.mkt-dash .mkt-table th[scope=row] a,
+.mkt-dash .mkt-table td a{color:#F5C520}
+
+/* ── 4. Tabular numerals on every figure ───────────────────────────────────
+   Proportional digits give a 1 about half the width of a 0, so a price column
+   will not line up on its decimal point and the digits visibly shift sideways
+   between hourly refreshes even when the value barely moved. tabular-nums
+   fixes both — it is the single highest-value typographic change available on
+   a page that is mostly numbers. slashed-zero keeps 0 and O apart in the
+   Space Mono figures. */
+.mkt-table td,
+.mkt-table th[scope=row]{font-variant-numeric:tabular-nums}
+.mkt-quote-px,
+.mkt-quote-chg{font-variant-numeric:tabular-nums slashed-zero}
+
+/* ── 5. Table rhythm ───────────────────────────────────────────────────────
+   The caption sat 10px off the table with the paragraph above it at margin 0,
+   so the footnote read as part of the body copy rather than as the table's
+   own note. */
+.mkt-table-cap{padding-bottom:14px;max-width:760px}
+.mkt-dash .mkt-table{margin-top:6px}
+
+/* ── STILL TO DO ───────────────────────────────────────────────────────────
+   markets.html, Markets/chart.html and Markets/screeners.html each still
+   carry a full inline copy of the base .mkt-table rules. They are consistent
+   with each other today and this block does not depend on them, but they are
+   three places to edit and get identically right. Deleting them and letting
+   this file own the base rules is the finish line; check-shared-css.mjs will
+   catch anything that turns out to have been load-bearing.
+   ═════════════════════════════════════════════════════════════════════════ */
