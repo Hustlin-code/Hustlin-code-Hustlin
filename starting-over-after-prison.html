@@ -197,7 +197,15 @@
     <img src="assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
   </a>
 
-  <ul class="nav-menu">
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
     <li class="nav-item">
       <a class="nav-top" href="financial-literacy.html">Learn</a>
       <div class="nav-panel">
@@ -309,6 +317,58 @@
      Deliberately inline and dependency-free: this runs on calculator and
      Markets pages that never load app.js. It only ever adds classes. -->
 <script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
 (function(){
   try{
     var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
@@ -841,5 +901,24 @@
   };
 </script>
 <script src="course-shell.js?v=20260810"></script>
+
+  <!-- SHARE:START -->
+  <!-- Config for the share bar built by stage-outro.js. Attributes, not a
+       second copy of the markup: the buttons, the clipboard fallback and the
+       QR plate stay in one place. This only says which page is being shared
+       and in whose words. -->
+  <script>
+    (function () {
+      var b = document.body;
+      b.dataset.shareOnly = '';
+      b.dataset.shareUrl  = "https://hustlin.org/starting-over-after-prison.html";
+      b.dataset.shareText = "Free reentry money guide — ID, banking, benefits and child support, with no account and nothing to buy.";
+      b.dataset.shareLead = "Somebody coming home needs this.";
+      b.dataset.shareSub  = "This guide is free. Send it to one person who is getting out.";
+    })();
+  </script>
+  <script src="stage-outro.js?v=20260810" defer></script>
+  <!-- SHARE:END -->
+
 </body>
 </html>

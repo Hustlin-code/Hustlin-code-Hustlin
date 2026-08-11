@@ -57,10 +57,38 @@
   // the lesson has actually landed.
   var IN_VIEWER = /(^|\/)learn(\.html)?$/i.test(window.location.pathname) ||
                   !!document.getElementById('hfy-lesson');
-  var SHARE_URL   = 'https://hustlin.org/financial-literacy.html';
-  var SHARE_TEXT  = "I'm taking Hustlin's free financial literacy course — 5 stages, no cost, no account. If you're trying to get your money right, start here:";
+  /* ── PER-PAGE OVERRIDES (added 2026-08-10) ───────────────────────────────
+     These were hardcoded to the financial literacy course, which was correct
+     while the share bar only ever appeared on course stages. The six
+     situation guides now want the same bar, and a guide about coming home
+     from prison must not post the sentence written for a budgeting course —
+     the copy IS the feature, and a share that describes the wrong page is
+     worse than no share at all.
+
+     Read from data-* on <body>, so a page opts in by declaring what it is
+     rather than by this file growing a list of pages. Defaults are unchanged,
+     so every existing course stage behaves exactly as before.
+
+     data-share-only tells this script to build the share bar and stop. The
+     outro below congratulates you for finishing a STAGE, prompts for an
+     account and cross-sells the course catalogue — all correct on a stage,
+     all wrong at the end of a guide about losing your spouse. */
+  var BODY_DATA   = (document.body && document.body.dataset) || {};
+  var SHARE_URL   = BODY_DATA.shareUrl  || 'https://hustlin.org/financial-literacy.html';
+  var SHARE_TEXT  = BODY_DATA.shareText || "I'm taking Hustlin's free financial literacy course — 5 stages, no cost, no account. If you're trying to get your money right, start here:";
+  var SHARE_LEAD  = BODY_DATA.shareLead || 'Somebody you know needs this.';
+  var SHARE_SUB   = BODY_DATA.shareSub  || 'The whole course is free. Send it to one person.';
+  var SHARE_ONLY  = 'shareOnly' in BODY_DATA;
 
   /* --------------------------------------------------------------- helpers */
+
+  // The lead and sub come from page markup now, so they go through the same
+  // escaping as anything else injected as innerHTML.
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
 
   /** Cheap session check that does not require auth.js to be on the page. */
   function hasSession() {
@@ -207,7 +235,20 @@
 
   function buildShareBar() {
     if (document.getElementById('hfyShareBar')) return;
-    var anchor = document.querySelector('.course-layout');
+
+    /* An explicit mount takes priority over the .course-layout anchor.
+       ----------------------------------------------------------------------
+       .course-layout only exists on course stages and the situation guides.
+       Blog posts, the paid course pages and the hubs have no such element, so
+       the bar had nowhere to go and buildShareBar() returned silently — a
+       page that simply has no share bar and never says why.
+
+       #hfyShareMount lets a page say exactly where it wants the bar instead
+       of this file accumulating a list of per-layout anchors. If the mount is
+       present the bar REPLACES it, so the placeholder never lingers in the
+       DOM when something goes wrong. */
+    var mount = document.getElementById('hfyShareMount');
+    var anchor = mount || document.querySelector('.course-layout');
     if (!anchor || !anchor.parentNode) return;
 
     var bar = document.createElement('div');
@@ -215,13 +256,14 @@
     bar.id = 'hfyShareBar';
     bar.innerHTML =
       '<div class="hfy-sharebar-txt">' +
-        '<strong>Somebody you know needs this.</strong>' +
-        '<span>The whole course is free. Send it to one person.</span>' +
+        '<strong>' + esc(SHARE_LEAD) + '</strong>' +
+        '<span>' + esc(SHARE_SUB) + '</span>' +
       '</div>' +
       '<div class="hfy-sharebar-btns">' + shareButtons(true) + '</div>' +
       qrBlock();
 
-    anchor.parentNode.insertBefore(bar, anchor);
+    if (mount) anchor.parentNode.replaceChild(bar, anchor);
+    else anchor.parentNode.insertBefore(bar, anchor);
     wireShare(bar);
   }
 
@@ -368,6 +410,10 @@
   var observing = false;
 
   function start() {
+    // Guides want the share bar and nothing else: no completion banner, no
+    // account prompt, no course catalogue. buildShareBar is idempotent and
+    // returns early if its anchor is missing, so this is safe anywhere.
+    if (SHARE_ONLY) { buildShareBar(); return; }
     initial();
     if (observing) return;
     observing = true;
