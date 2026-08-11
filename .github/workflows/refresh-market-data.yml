@@ -72,18 +72,29 @@ on:
     #
     #  ~125 runs a week. Public repo, so Actions minutes are unmetered.
 
-    # Mon 00:00 → Fri 23:00 UTC, on the hour. The bulk of the week.
-    - cron: '0 * * * 1-5'
+    #  ── MINUTE 23, NOT MINUTE 0 (changed 2026-08-11) ────────────────────
+    #
+    #  GitHub does not guarantee a scheduled run: it queues them on shared
+    #  infrastructure and DROPS them under load. Minute 0 is the single most
+    #  oversubscribed slot on the platform, because it is what everybody
+    #  writes. On minute 0 this workflow was landing 30-50 minutes late and
+    #  firing roughly six times a day instead of eighteen — runs #38-#41 came
+    #  in at 00:50, 04:32, 07:32 and 11:52. Any minute that is not a round
+    #  number is materially better. It is still best-effort: if a run is
+    #  genuinely required, use workflow_dispatch.
 
-    # Sun 23:00 UTC = Sun 18:00 EST. The reopen — futures are trading and
+    # Mon-Fri, hourly at :23 UTC. The bulk of the week.
+    - cron: '23 * * * 1-5'
+
+    # Sun 23:23 UTC = Sun 18:23 EST. The reopen — futures are trading and
     # this is the first refresh of the new week. Runs straight into the
     # Monday expression above with no gap.
-    - cron: '0 23 * * 0'
+    - cron: '23 23 * * 0'
 
-    # Sat & Sun 05:00 and 17:00 UTC = 00:00 and 12:00 EST. Two runs a day
+    # Sat & Sun 05:23 and 17:23 UTC = 00:23 and 12:23 EST. Two runs a day
     # across the weekend, because nothing prices between Friday's close and
     # Sunday's open and an hourly cadence would burn ~46 no-op jobs for it.
-    - cron: '0 5,17 * * 6,0'
+    - cron: '23 5,17 * * 6,0'
 
   workflow_dispatch:        # lets you run it by hand from the Actions tab
 
@@ -194,9 +205,30 @@ jobs:
       # local deploy always re-syncs the pair before `--check` looks at them.
       # A CI run that touches only the public copy is corrected by the next
       # local build rather than caught as drift.
+      # ── THE SCRIPT HAS TO BE IN THE REPO, AND UNTIL 2026-08-11 IT WAS NOT ──
+      #
+      # The reasoning above is right: build-charts.mjs walks the repo for CHART
+      # markers and does not need the gitignored masters. But deploy-site.ps1
+      # strips tools/ down to an allowlist before push-to-github.ps1 mirrors it
+      # with robocopy /MIR, and that allowlist held only inject-market-data.mjs
+      # and .market-snapshot.json. So this step ran `node` against a file that
+      # was not there, exited 1 on MODULE_NOT_FOUND, and killed the job before
+      # the commit step - every run, #1 through #41, always at ~2m45s, right
+      # after the two 70s cooldowns it had just finished paying for.
+      #
+      # build-charts.mjs is on the allowlist now. The guard stays anyway, and it
+      # WARNS rather than fails: this job exists to refresh the Markets pages,
+      # and a missing chart script should not be able to hold that hostage
+      # again. A warning is visible on the run without turning it red.
       - name: Rebake the course charts from the new snapshot
         run: |
-          node tools/build-charts.mjs
+          if [ -f tools/build-charts.mjs ]; then
+            node tools/build-charts.mjs
+          else
+            echo "::warning::tools/build-charts.mjs is not in the repo, so the Dow"
+            echo "::warning::chart and the figures beside it are NOT being refreshed."
+            echo "::warning::Add it to the tools allowlist in deploy-site.ps1 step 10."
+          fi
           if [ -d "Financial Literacy Course" ]; then
             node tools/build-public-stages.mjs
           else
