@@ -150,8 +150,36 @@ jobs:
       # build-public-stages regenerates the public copies at the site root
       # from them. Run them the other way round and the public page ships the
       # previous build's chart while --check still passes.
+      #
+      # ── WHY THIS STEP IS CONDITIONAL (fixed 2026-08-10) ──────────────────
+      #
+      # "Financial Literacy Course/" is in .gitignore — deliberately, because
+      # this repo is PUBLIC and those masters are paid course content. So the
+      # folder does not exist after actions/checkout, and it never will.
+      #
+      # build-charts.mjs no-ops quietly in that case ("0 file(s) updated"),
+      # but build-public-stages.mjs hits its missing-master guard and calls
+      # process.exit(1) — which is the bare "Process completed with exit
+      # code 1" this job was failing with. The guard is correct and should
+      # stay strict locally, where the masters DO exist and a missing one
+      # means something is actually wrong. It is only in CI that absence is
+      # the normal, expected state.
+      #
+      # Do NOT "fix" this by un-ignoring the course folder. That publishes
+      # paid content to a public repo and leaves it in git history forever.
+      #
+      # CONSEQUENCE, STATED PLAINLY: the Stage 5 Dow chart and the figures in
+      # the prose beside it are NOT refreshed by this job. They update only on
+      # a manual deploy from the working copy, where the masters exist. The
+      # Markets pages — the actual point of this workflow — are unaffected.
       - name: Rebake the course charts from the new snapshot
         run: |
+          if [ ! -d "Financial Literacy Course" ]; then
+            echo "::notice::Course masters are gitignored and absent on the runner —"
+            echo "::notice::skipping the Stage 5 rebake. Markets pages are unaffected."
+            echo "::notice::Stage 5 charts refresh on the next manual deploy."
+            exit 0
+          fi
           node tools/build-charts.mjs
           node tools/build-public-stages.mjs
 
@@ -164,15 +192,23 @@ jobs:
           # tools/.market-snapshot.json must be committed too — the next run
           # diffs against it to build the "what changed" block on the page.
           #
-          # "Financial Literacy Course/" is in this list because build-charts
-          # writes the MASTERS there and build-public-stages regenerates the
-          # public copies from them. Commit only the public copy and the next
-          # checkout has a new public page against an old master, which is
-          # exactly the mismatch `build-public-stages --check` exists to catch
-          # — so the next manual deploy would fail its gate on a change nobody
-          # made by hand. Stage both halves or neither.
-          git add -A '*.html' 'Markets/*.html' 'Financial Literacy Course/*.html' \
-                     'tools/.market-snapshot.json'
+          # "Financial Literacy Course/*.html" WAS in this list, on the theory
+          # that the masters and their public copies must be staged together.
+          # It was a second copy of the same wrong assumption as the step above:
+          # that folder is gitignored, so on the runner it does not exist, and
+          # `git add` treats a pathspec matching nothing as fatal —
+          #
+          #   fatal: pathspec 'Financial Literacy Course/*.html' did not match
+          #
+          # — exit 128, killing this step the first time there was anything to
+          # commit. Removed. Nothing regenerates those masters in CI any more
+          # (see the skip above), so there is no half-staged pair to worry
+          # about: this job now only ever touches public HTML and the snapshot.
+          #
+          # '*.html' is glob-magic in git pathspec terms and already matches at
+          # any depth, so 'Markets/*.html' is redundant — kept only because it
+          # documents what this job is actually here to update.
+          git add -A '*.html' 'Markets/*.html' 'tools/.market-snapshot.json'
 
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
