@@ -825,6 +825,13 @@ a{text-decoration:none}
   transition:all .2s;display:inline-flex;align-items:center;gap:5px;
 }
 .res-link:hover{border-color:var(--amber);color:var(--text-dark)}
+/* Labels a .res-links row as citations rather than further reading. The two were
+   visually identical, so a row of primary .gov sources read as "related links"
+   and did none of the trust work it was doing. Added 2026-08-10. */
+.res-src-lbl{
+  display:block;width:100%;font-size:.66rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.09em;color:#6B6B6B;margin-bottom:2px;
+}
 
 /* ─── FREE-FIRST BLOCK ───────────────────────────────
    Added 2026-08-10 to the four paid course pages. They were dead ends: every
@@ -2744,7 +2751,16 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
     background:transparent;border:1px solid rgba(240,192,48,.35);border-radius:10px;
     cursor:pointer;flex-shrink:0;
   }
-  .nav-burger span{display:block;height:2px;background:var(--amber);border-radius:2px;transition:.18s}
+  /* width is stated, not inherited from the stretch default. With no width the
+     three bars depend on align-items resolving to stretch; anything that sets
+     align-items on the button — a utility class, a future edit, a UA quirk —
+     collapses them to zero and the burger renders as an empty bordered box
+     with no way to tell it is a menu. Background is a literal, matching
+     --amber, so the bars survive a token rename too. */
+  .nav-burger span{
+    display:block;width:22px;height:2px;align-self:center;
+    background:#F0C030;border-radius:2px;transition:.18s;flex-shrink:0;
+  }
   .nav-burger:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
   .nav.is-open .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav.is-open .nav-burger span:nth-child(2){opacity:0}
@@ -2805,6 +2821,18 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .nav-cta-btn img{width:178px;height:auto;display:block}
 .nav-cta-btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
 .nav-cta-btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:12px}
+
+/* MOBILE HIDE — MUST STAY BELOW THE THREE RULES ABOVE. 2026-08-10.
+   The @media(max-width:1100px) block up at line ~2763 already says
+   .nav-cta-btn{display:none}, and it was being silently overridden: a media
+   query adds no specificity, so .nav-cta-btn{display:inline-block} written
+   later in the file simply won. The CTA therefore rendered at 178px on every
+   phone, next to a 239px logo, on a 390px screen — which is exactly the
+   overflow the earlier comment says it was hidden to prevent.
+   Do not "tidy" this by moving it back up next to its sibling. */
+@media(max-width:1100px){
+  .nav-cta-btn{display:none}
+}
 
 /* Stage rows in the Learn panel carry their own button art. The image is
    alt="" and aria-hidden: the <b> beside it already names the stage, so a
