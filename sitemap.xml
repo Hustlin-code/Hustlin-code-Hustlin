@@ -21,7 +21,8 @@
 
   ADDED 2026-08-01 (Markets rebuild):
     · markets-economic.html — the first of four discipline pillar pages fanning out
-      from markets.html. Deliberately NOT like Markets/*.html: those nine are all
+      from markets.html. Corrected 2026-08-11: there are SEVEN Markets/*.html files,
+      not nine, and only three of them (calendar, heatmaps, news) are
       noindex because they were ~200 words of chrome around a TradingView iframe,
       which is what AdSense flagged as low-value content. A pillar page carries
       1,800+ words of original analysis and ~30 server-baked FRED figures, and the
