@@ -1,6 +1,6 @@
 {
   "stamp": "2026-08-11",
-  "bakedAt": "2026-08-11T19:53:31.630Z",
+  "bakedAt": "2026-08-11T22:28:46.108Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -144,9 +144,9 @@
     },
     "breakeven10": {
       "label": "10-Year Breakeven Inflation",
-      "display": "2.29%",
-      "value": 2.29,
-      "date": "2026-08-10",
+      "display": "2.27%",
+      "value": 2.27,
+      "date": "2026-08-11",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -154,9 +154,9 @@
     },
     "forward5y5y": {
       "label": "5-Year, 5-Year Forward",
-      "display": "2.33%",
-      "value": 2.33,
-      "date": "2026-08-10",
+      "display": "2.31%",
+      "value": 2.31,
+      "date": "2026-08-11",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -164,9 +164,9 @@
     },
     "threeMonth": {
       "label": "3-Month Treasury",
-      "display": "3.87%",
-      "value": 3.87,
-      "date": "2026-08-07",
+      "display": "3.89%",
+      "value": 3.89,
+      "date": "2026-08-10",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -174,9 +174,9 @@
     },
     "twoYear": {
       "label": "2-Year Treasury",
-      "display": "4.19%",
-      "value": 4.19,
-      "date": "2026-08-07",
+      "display": "4.25%",
+      "value": 4.25,
+      "date": "2026-08-10",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -184,9 +184,9 @@
     },
     "tenYear": {
       "label": "10-Year Treasury",
-      "display": "4.65%",
-      "value": 4.65,
-      "date": "2026-08-07",
+      "display": "4.72%",
+      "value": 4.72,
+      "date": "2026-08-10",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -194,9 +194,9 @@
     },
     "thirtyYear": {
       "label": "30-Year Treasury",
-      "display": "5.19%",
-      "value": 5.19,
-      "date": "2026-08-07",
+      "display": "5.25%",
+      "value": 5.25,
+      "date": "2026-08-10",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -204,9 +204,9 @@
     },
     "realTenYear": {
       "label": "10-Year Real Yield (TIPS)",
-      "display": "2.40%",
-      "value": 2.4,
-      "date": "2026-08-07",
+      "display": "2.43%",
+      "value": 2.43,
+      "date": "2026-08-10",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -224,9 +224,9 @@
     },
     "curve10y2y": {
       "label": "10-Year minus 2-Year",
-      "display": "0.47%",
-      "value": 0.47,
-      "date": "2026-08-10",
+      "display": "0.48%",
+      "value": 0.48,
+      "date": "2026-08-11",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -234,9 +234,9 @@
     },
     "curve10y3m": {
       "label": "10-Year minus 3-Month",
-      "display": "0.83%",
-      "value": 0.83,
-      "date": "2026-08-10",
+      "display": "0.81%",
+      "value": 0.81,
+      "date": "2026-08-11",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -354,9 +354,9 @@
     },
     "djia": {
       "label": "Dow Jones Industrial Average",
-      "display": "53,976",
-      "value": 53975.98,
-      "date": "2026-08-10",
+      "display": "53,792",
+      "value": 53791.85,
+      "date": "2026-08-11",
       "freq": "d",
       "better": "up",
       "fmt": "idxK",
@@ -722,7 +722,11 @@
       "hour": "bmo",
       "epsEstimate": -0.0262,
       "revenueEstimate": 11648716812,
-      "marketCap": 8191801239.634759
+      "marketCap": 8191801239.634759,
+      "epsActual": -0.09,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "AVT",
@@ -731,7 +735,11 @@
       "hour": "bmo",
       "epsEstimate": 1.7882,
       "revenueEstimate": 7593914775,
-      "marketCap": 7287019378.761752
+      "marketCap": 7287019378.761752,
+      "epsActual": 2.28,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
     },
     {
       "symbol": "COP",
@@ -1180,12 +1188,12 @@
       "name": "Dillard's Inc",
       "date": "2026-08-10",
       "hour": "",
-      "epsEstimate": 4.3666,
+      "epsEstimate": 10.4703,
       "revenueEstimate": 1542256536,
       "marketCap": 9561302992.849918,
-      "epsActual": null,
+      "epsActual": 9.37,
       "revenueActual": null,
-      "quarter": 2,
+      "quarter": 1,
       "year": 2027
     },
     {
@@ -1234,9 +1242,9 @@
       "hour": "amc",
       "epsEstimate": -1.24,
       "revenueEstimate": 2611110688,
-      "marketCap": 48113848291.603065,
-      "epsActual": null,
-      "revenueActual": null,
+      "marketCap": 48113850595.00001,
+      "epsActual": -1.03,
+      "revenueActual": 2575000000,
       "quarter": 2,
       "year": 2026
     },
@@ -1260,9 +1268,9 @@
       "hour": "amc",
       "epsEstimate": 0.9767,
       "revenueEstimate": 11782281660,
-      "marketCap": 20350623585.568905,
-      "epsActual": null,
-      "revenueActual": null,
+      "marketCap": 20350623542,
+      "epsActual": 1.7,
+      "revenueActual": 11119780000,
       "quarter": 4,
       "year": 2026
     },
@@ -1326,8 +1334,8 @@
       "epsEstimate": 2.2341,
       "revenueEstimate": 1129047690,
       "marketCap": 5822095835.849968,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 2.38,
+      "revenueActual": 1144870000,
       "quarter": 4,
       "year": 2026
     },
@@ -1654,6 +1662,19 @@
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "LITE",
+      "name": "Lumentum Holdings Inc",
+      "date": "2026-08-11",
+      "hour": "amc",
+      "epsEstimate": 3.0312,
+      "revenueEstimate": 1007650288,
+      "marketCap": 63291081242.00001,
+      "epsActual": 3.23,
+      "revenueActual": 1006300000,
+      "quarter": 4,
       "year": 2026
     }
   ]
