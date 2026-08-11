@@ -91,6 +91,13 @@
   };
 
   /* ---------- generic label/amount rows ---------- */
+  /* SHARED HELPERS, exported for calculators-business.js. Exported rather
+     than duplicated so money(), months() and the em-dash rule mean exactly one
+     thing across the site: a second copy is a second place for the "$0 for a
+     missing value" bug to come back. */
+  window.CYH = { $: $, num: num, money: money, months: months, show: show,
+                 solve: solve, sumRows: sumRows, EMDASH: EMDASH };
+
   window.cyhAdd = function (host, ph, label, amt) {
     var d = document.createElement('div');
     d.className = 'cyh-row';
