@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260810-2325">
+<link rel="stylesheet" href="styles.css?v=20260810-2335">
 <style>
 .auth-wrap{min-height:100vh;background:#060606;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center}
 .auth-logo{margin-bottom:36px}
@@ -17,6 +17,11 @@
 .auth-card h1{color:#fff;font-size:1.4rem;margin-bottom:10px}
 .auth-card p{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.6;margin-bottom:22px}
 .status-icon{font-size:2.4rem;margin-bottom:16px}
+/* Only used on this page, so it stays here rather than in styles.css - the
+   shared-css gate only cares about classes used across more than one page.
+   Hex is literal, not a token: this renders once, at the moment somebody has
+   just paid, and it is the worst possible place for a colour to resolve wrong. */
+.auth-card p.thanks{color:rgba(255,255,255,.78);border-top:1px solid rgba(240,192,48,.18);padding-top:16px}
 .auth-card .btn-a{width:100%;justify-content:center}
 </style>
 </head>
@@ -31,10 +36,10 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=20260810-2325"></script>
-<script src="app.js?v=20260810-2325"></script>
-<script src="auth.js?v=20260810-2325"></script>
-<script src="course-access.js?v=20260810-2325"></script>
+<script src="supabase-config.js?v=20260810-2335"></script>
+<script src="app.js?v=20260810-2335"></script>
+<script src="auth.js?v=20260810-2335"></script>
+<script src="course-access.js?v=20260810-2335"></script>
 <script>
 (async function(){
   const params = new URLSearchParams(window.location.search);
@@ -62,6 +67,14 @@
       '<div class="status-icon">✓</div>' +
       '<h1>You\'re in!</h1>' +
       '<p>' + courseName + ' is now unlocked on your account.</p>' +
+      // Added 2026-08-10. This is the one moment where the reciprocity argument
+      // can be closed rather than made: they already paid, so it is a thank-you,
+      // not a pitch. Says what the money did. No upsell here - the all-access
+      // cross-sell lives on the course pages, and putting one on a receipt is
+      // how "one payment, no upsell ladder" stops being true.
+      '<p class="thanks">Thank you &mdash; genuinely. You paid for something you could have waited on, ' +
+      'and that is what keeps the free half free. Nothing else to buy, no renewal, ' +
+      'and this stays on your account for good.</p>' +
       '<a class="btn-a" href="learn.html?course=' + encodeURIComponent(course) +
       '&amp;stage=' + startAt + '">Start Learning →</a>';
   }
