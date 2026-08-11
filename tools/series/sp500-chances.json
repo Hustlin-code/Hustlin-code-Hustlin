@@ -1,0 +1,44 @@
+{
+ "id": "sp500-chances",
+ "label": "S&P 500 annual total return, and every bear market, across one working life",
+ "unit": "percent per year",
+ "what": "Calendar-year total return on the S&P 500 (price plus reinvested dividends) for the forty years 1986-2025, alongside every decline of 20% or more that happened inside that window.",
+ "howBuilt": [
+  "Returns are Aswath Damodaran's 'Annual Returns on Investments in Stocks' series (NYU Stern, table updated 5 January 2026), the same source Stage 4 Module 09 already cites. Total return, nominal, before tax and fees.",
+  "The window is forty calendar years on purpose: it is roughly one working life, age 25 to 65, and it is the unit the module argues in. Do not extend it to 'since 1928' — the whole point is a length a reader can picture themselves living through.",
+  "Bear markets are peak-to-trough declines of 20% or more measured on DAILY CLOSING prices of the S&P 500 index. Peak and trough dates and depths cross-checked against Yardeni Research's 'S&P 500 Bear Markets Since 1928' table (January 2024 edition) and, for the post-2024 period, against the published record: there has been no 20%+ decline since the 2022 trough.",
+  "WHY DAILY CLOSES AND NOT SHILLER MONTHLY. Module 09 counts drawdowns from Robert Shiller's monthly series, where each month is an average of daily closes, so shallow episodes wash out and the counts come in lower. That is the right basis there, because that module reports odds over the whole 1928-2026 record. Here we are naming five specific historical events by date, and a reader who checks them will check them against daily closes. The two modules are not in conflict, but if either method is ever restated, restate both."
+ ],
+ "notes": [
+  "The 1990 decline reached -19.9% on a closing basis and is therefore NOT counted as a bear market. It is included in the near-miss list instead. Rounding it up to 20% would make the module's headline count six instead of five, which is exactly the kind of quiet inflation the argument cannot afford.",
+  "April 2025 bottomed at -18.9% from the February 2025 high on a closing basis — also a near miss, and the most recent one. It is the module's closing example: the drawdown a waiting investor was promised did not arrive."
+ ],
+ "source": "S&P 500 returns: Aswath Damodaran, NYU Stern, updated January 2026. Bear market dates and depths: S&P Dow Jones Indices closing prices, cross-checked against Yardeni Research.",
+ "verified": "2026-08-10",
+ "bears": [
+  { "peak": "1987-08-25", "trough": "1987-12-04", "depth": -33.5, "days": 101, "label": "Black Monday" },
+  { "peak": "2000-03-24", "trough": "2002-10-09", "depth": -49.1, "days": 929, "label": "Dot-com bust" },
+  { "peak": "2007-10-09", "trough": "2009-03-09", "depth": -56.8, "days": 517, "label": "Financial crisis" },
+  { "peak": "2020-02-19", "trough": "2020-03-23", "depth": -33.9, "days": 33, "label": "COVID crash" },
+  { "peak": "2022-01-03", "trough": "2022-10-12", "depth": -25.4, "days": 282, "label": "2022 selloff" }
+ ],
+ "nearMisses": [
+  { "year": 1990, "depth": -19.9 },
+  { "year": 1998, "depth": -19.3 },
+  { "year": 2011, "depth": -19.4 },
+  { "year": 2018, "depth": -19.8 },
+  { "year": 2025, "depth": -18.9 }
+ ],
+ "points": [
+  [1986, 18.49], [1987, 5.81], [1988, 16.54], [1989, 31.48],
+  [1990, -3.06], [1991, 30.23], [1992, 7.49], [1993, 9.97],
+  [1994, 1.33], [1995, 37.2], [1996, 22.68], [1997, 33.1],
+  [1998, 28.34], [1999, 20.89], [2000, -9.03], [2001, -11.85],
+  [2002, -21.97], [2003, 28.36], [2004, 10.74], [2005, 4.83],
+  [2006, 15.61], [2007, 5.48], [2008, -36.55], [2009, 25.94],
+  [2010, 14.82], [2011, 2.1], [2012, 15.89], [2013, 32.15],
+  [2014, 13.52], [2015, 1.38], [2016, 11.77], [2017, 21.61],
+  [2018, -4.23], [2019, 31.21], [2020, 18.02], [2021, 28.47],
+  [2022, -18.04], [2023, 26.06], [2024, 24.88], [2025, 17.78]
+ ]
+}
