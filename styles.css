@@ -304,6 +304,72 @@ a{text-decoration:none}
 /* The subhead body is deliberately dimmed; a lead clause set in <strong>
    needs full white or the emphasis reads as noise rather than hierarchy. */
 .hero-sub strong{color:#fff;font-weight:800}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   .guide-hero — the situation guides, 2026-08-12
+   ═══════════════════════════════════════════════════════════════════════
+   Applied to <section class="hero guide-hero"> on the seven situation
+   guides. Two complaints, both of them about the same page:
+
+   1. THE FONT. The shared .hero-h1 default is the heavy embossed poster
+      face with a 3D drop-shadow stack. financial-literacy.html and all
+      four paid course pages had already each opted out of it into the
+      clean display face (Plus Jakarta Sans 800, no stroke, no shadow) —
+      five pages independently making the same choice. The guides were
+      the last set still carrying the embossed default, which is why the
+      guides read as a different site from the course they sit inside.
+      This is the same override those five pages write, in one place.
+
+   2. THE HEIGHT. .hero carries 120px of bottom padding meant for the
+      landing pages, where something sits below the fold on purpose. On a
+      guide the reader arrived to read the guide, and that padding plus a
+      four-item stat strip pushed the first section most of a screen down.
+      financial-literacy.html already trimmed it to 32px for the same
+      reason (see .fl-hero); this does the same for the guides.
+
+   NOTE ON SIZE. This deliberately does NOT set font-size or line-height
+   on .hero-h1 or .hero-sub. The headline size is unchanged — it was only
+   ever the FACE and the SPACING that were wrong. That keeps the hero
+   standard above with exactly one size variant (.blog-hero), and keeps
+   tools/check-hero.mjs meaningful.
+
+   ONLY padding-BOTTOM is touched, and that is not a shortcut. The
+   fixed nav is 108px tall and .hero's top padding is what clears it —
+   set near the end of this file as `padding-top:calc(108px + 60px)`,
+   with a matching value per breakpoint. Writing the padding shorthand
+   here would win on specificity (.hero.guide-hero beats .hero) no
+   matter where it sits in the file, and would silently delete that
+   clearance — sliding the breadcrumb under the nav on all seven guides.
+   Overriding one edge leaves the nav compensation intact by
+   construction rather than by remembering to re-add it.
+
+   The double class is still required: it has to outrank the .hero
+   padding shorthands inside the width media queries above.
+   ═══════════════════════════════════════════════════════════════════════ */
+.hero.guide-hero{padding-bottom:56px}
+@media(max-width:900px){.hero.guide-hero{padding-bottom:44px}}
+@media(max-width:600px){.hero.guide-hero{padding-bottom:34px}}
+.guide-hero .hero-h1{
+  font-family:var(--f-body);font-weight:800;letter-spacing:-.015em;
+  -webkit-text-stroke:0;text-shadow:none;
+}
+.guide-hero .hero-h1 em{
+  font-style:normal;color:var(--amber);
+  -webkit-text-stroke:0;text-shadow:none;
+}
+/* 585px is the shared measure, tuned for a landing page's two- or
+   three-line proposition. A guide's subhead is doing a different job —
+   it lists what is inside — and at 585px the longest of them ran to five
+   lines. 640px is still inside a comfortable measure and takes a line
+   off. Width, not size: the shared font-size is untouched. */
+.guide-hero .hero-sub{max-width:640px}
+.guide-hero .breadcrumb{margin-bottom:12px}
+.guide-hero .free-pill{margin-bottom:14px}
+.guide-hero .hero-stats{margin-top:26px;padding-top:20px;gap:30px}
+.guide-hero .stat-val{font-size:1.5rem}
+@media(max-width:600px){
+  .guide-hero .hero-stats{margin-top:18px;padding-top:14px;gap:18px}
+}
 .cta-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .btn-a{
   background:var(--amber);color:var(--dark);
@@ -522,6 +588,31 @@ a{text-decoration:none}
   color:#fff;letter-spacing:-.02em;line-height:1.05;margin:.83em 0;
 }
 .stage-banner p{color:rgba(255,255,255,.46);margin-top:10px;font-size:.96rem;max-width:460px}
+
+/* ─── .guide-banner ─────────────────────────────────────────────────────
+   The situation guides' intro block, 2026-08-12.
+
+   .stage-banner was designed for a course stage: a 44px dark slab with a
+   giant translucent stage NUMBER watermarked behind it and a 2.6rem
+   title. On a stage that is the page's masthead. On a guide it lands
+   immediately under the hero and repeats the same job one size larger —
+   the banner heading was bigger than the hero headline above it, and the
+   watermark says "1" on a guide that has no stage 1.
+
+   So: no watermark, a heading that sits a step BELOW the hero rather
+   than above it, tighter slab, and the paragraph allowed to run the full
+   width since there is no progress ring beside it to leave room for.
+
+   Mobile is deliberately untouched — the ≤600px and ≤400px blocks lower
+   in this file already clamp .stage-banner h1/h2 with !important, and
+   those sizes were already right. */
+.stage-banner.guide-banner{padding:30px 34px;margin-bottom:26px}
+@media(max-width:900px){.stage-banner.guide-banner{padding:24px;margin-bottom:20px}}
+@media(max-width:600px){.stage-banner.guide-banner{padding:20px 18px;margin-bottom:16px}}
+.guide-banner::before{display:none}
+.guide-banner .s-badge{margin-bottom:10px}
+.guide-banner h1,.guide-banner h2{font-size:1.85rem;margin:.45em 0 0}
+.guide-banner p{margin-top:12px;font-size:.93rem;max-width:780px}
 .prog-wrap{text-align:right;flex-shrink:0}
 .prog-lbl{font-size:.72rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
 .prog-ring{width:76px;height:76px;position:relative}
@@ -1348,7 +1439,7 @@ a{text-decoration:none}
 @media(max-width:480px){.stage-locked-wrap{padding:84px 18px 50px}}
 .stage-locked-inner{max-width:520px}
 .stage-locked-inner .lock-icon{font-size:3rem;margin-bottom:20px}
-.stage-locked-inner h1,.stage-locked-inner .lock-title{font-family:var(--f-body);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-.02em}
+.stage-locked-inner h1{font-family:var(--f-body);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-.02em}
 .stage-locked-inner p{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.7;margin-bottom:32px}
 
 /* ─── CROSS-STAGE DATA CALLOUT ───────────────── */
@@ -2947,6 +3038,17 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 @media(max-width:900px){.hero{padding-top:calc(76px + 50px)}}
 @media(max-width:600px){.hero{padding-top:calc(76px + 40px)}}
 @media(max-width:480px){.hero{padding-top:calc(64px + 40px)}}
+
+/* The guides get the same clearance and less of the design gap. See the
+   .guide-hero block near the top of this file for why: a guide hero is a
+   doorway, not a landing page, and every pixel here is a pixel between
+   the reader and the thing they came to read. The CLEARANCE half of each
+   calc is untouched and must stay locked to the nav heights above — only
+   the second term moves. */
+.hero.guide-hero{padding-top:calc(108px + 34px)}
+@media(max-width:900px){.hero.guide-hero{padding-top:calc(76px + 28px)}}
+@media(max-width:600px){.hero.guide-hero{padding-top:calc(76px + 22px)}}
+@media(max-width:480px){.hero.guide-hero{padding-top:calc(64px + 22px)}}
 
 /* ── SHARE BLOCK ───────────────────────────────────────────────────────────
    Was page-local in financial-literacy.html; moved here on 2026-08-10 when

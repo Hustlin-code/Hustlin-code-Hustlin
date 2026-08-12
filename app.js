@@ -248,7 +248,10 @@ window.HFY = (function(){
   // ─── PROGRESS RING + STAGE-COMPLETE BANNER ──
   function updateProgRing(){
     const pct = computePct();
-    if(currentStage){ progress[currentStage].pct = pct; saveProgress(); }
+    /* stageSlot, not progress[currentStage] — see the note on restoreStage.
+       updateProgRing is also reachable from check()/toggleMs() on a page
+       whose key was never seeded, so the guard belongs here too. */
+    if(currentStage){ stageSlot(currentStage).pct = pct; saveProgress(); }
     const circ = 207.3;
     const circle = document.getElementById('progCircle');
     const txt = document.getElementById('progTxt');
@@ -412,9 +415,38 @@ window.HFY = (function(){
   }
 
   // ─── RESTORE A STAGE PAGE ON LOAD ────────────
+  /* Guarantee progress[key] exists before anything writes to it.
+     ------------------------------------------------------------------
+     loadProgress() only seeds the keys listed in STAGES. The situation
+     guides each pass their own key to restoreStage — fc1, ds1, rd1,
+     sl1, sop1 — and none of those was ever in that list, so
+     progress[key] was undefined for all of them.
+
+     restoreStage() read it defensively (progress[stageKey] || {...})
+     but never wrote the slot back, and updateProgRing() a few lines
+     later does progress[currentStage].pct = pct with no guard. That
+     threw a TypeError on every one of those guide pages, which aborted
+     restoreStage, which aborted course-shell.js init() BEFORE
+     addNextButtons() ran — so those guides had no Next Module button,
+     no end-of-guide CTA, no crosslink handling and no saved progress.
+
+     Nothing looked broken. The opening module is hardcoded cs-visible
+     in the markup, so the page rendered fine and simply stopped
+     navigating. disability-wealth-guide.html was the one guide that
+     worked, because dwg1 had been added to STAGES for this exact
+     reason once before — a fix applied to one page instead of to the
+     cause.
+
+     Seeding on demand repairs every guide at once, and means the next
+     guide added cannot reintroduce this by forgetting to register a
+     key. */
+  function stageSlot(stageKey){
+    if(!progress[stageKey]) progress[stageKey] = { checks:{}, milestones:{}, pct:0 };
+    return progress[stageKey];
+  }
   function restoreStage(stageKey){
     currentStage = stageKey;
-    const data = progress[stageKey] || { checks:{}, milestones:{}, pct:0 };
+    const data = stageSlot(stageKey);
     document.querySelectorAll('.act-box').forEach(el=>{
       if(!isRealCheckbox(el)) return;
       if(data.checks[checkboxKey(el)]){ el.classList.add('done'); el.textContent = '✓'; }

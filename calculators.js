@@ -589,6 +589,247 @@
     msg.innerHTML = parts.join(" ");
   };
 
+
+  /* ================================================================
+     RETIREMENT WITHDRAWAL  -  cyhRetDraw()
+     ----------------------------------------------------------------
+     The decumulation side. Everything else in this file answers "how
+     do I get more in". This one answers "how do I take it out without
+     running out", which is a different question with a different
+     failure mode.
+
+     THE IRS UNIFORM LIFETIME TABLE, verbatim.
+     26 CFR 1.401(a)(9)-9(c), Table III, as adopted at 85 FR 72472 and
+     effective for distribution calendar years from 1 January 2022;
+     reproduced in IRS Publication 590-B, Appendix B. Cross-checked
+     against Pub. 590-B's own worked example (age 75 -> 24.6).
+
+     These are LAW, not an assumption. Do not round them, do not
+     interpolate between them, and do not extend the table past 120 -
+     the regulation itself stops there at 2.0 and every age above it
+     uses that same figure.
+
+     Table II (Joint Life) applies instead when the sole beneficiary is
+     a spouse more than ten years younger, which produces a LARGER
+     divisor and therefore a smaller RMD. This calculator uses Table
+     III only, and the page says so - using III when II applies
+     overstates the forced distribution, which is the safe direction to
+     be wrong in for a planning tool.
+     ================================================================ */
+  var ULT = {
+    72:27.4, 73:26.5, 74:25.5, 75:24.6, 76:23.7, 77:22.9, 78:22.0, 79:21.1,
+    80:20.2, 81:19.4, 82:18.5, 83:17.7, 84:16.8, 85:16.0, 86:15.2, 87:14.4,
+    88:13.7, 89:12.9, 90:12.2, 91:11.5, 92:10.8, 93:10.1, 94: 9.5, 95: 8.9,
+    96: 8.4, 97: 7.8, 98: 7.3, 99: 6.8, 100: 6.4, 101: 6.0, 102: 5.6,
+    103: 5.2, 104: 4.9, 105: 4.6, 106: 4.3, 107: 4.1, 108: 3.9, 109: 3.7,
+    110: 3.5, 111: 3.4, 112: 3.3, 113: 3.1, 114: 3.0, 115: 2.9, 116: 2.8,
+    117: 2.7, 118: 2.5, 119: 2.3, 120: 2.0
+  };
+  function rwDivisor(age) {
+    if (age < 72) return 0;            // no RMD yet, whatever the table says
+    if (age >= 120) return ULT[120];
+    return ULT[age] || 0;
+  }
+
+  /* SECURE 2.0: born 1951-1959 -> RMDs at 73; born 1960 or later -> 75.
+     Birth year is inferred from the age typed in, so it is right to
+     within one year depending on whether the birthday has passed. The
+     page states that. Anyone born 1950 or earlier is already past their
+     required beginning date under the older rules, and 73 is behind
+     them too, so the comparison `age >= start` holds either way. */
+  function rwStartAge(ageNow) {
+    var birthYear = new Date().getFullYear() - ageNow;
+    return birthYear >= 1960 ? 75 : 73;
+  }
+
+  /* One pass over the plan.
+     ----------------------------------------------------------------
+     WHY TOTAL WEALTH IS TRACKED UNFLOORED. An RMD does not make the
+     money run out sooner. Anything it forces out above what you wanted
+     to spend is not burned - it lands in a taxable account and keeps
+     compounding at the same rate. With no tax in the model the two
+     buckets are arithmetically one bucket, so the depletion age is
+     identical whether or not RMDs are applied. Letting W go negative
+     gives a smooth, monotonic function of the withdrawal, which is
+     what makes the "withdrawal that reaches your age" solve below
+     converge instead of hunting across a flat floor of zeros.
+
+     The tax-deferred balance is tracked separately and floored, purely
+     to size the RMD itself - that one does depend on which bucket the
+     money is sitting in. */
+  function rwRun(o) {
+    var W = o.bal, td = o.bal;
+    var res = { outAt: null, leftAtPlan: 0, firstRmd: 0, firstRmdAt: null, rmdExceedsAt: null };
+    for (var k = 0; k <= 120 - o.age; k++) {
+      var age  = o.age + k;
+      var r    = (o.shock && k < o.shock.length) ? o.shock[k] : o.ret;
+      var want = o.spend * Math.pow(1 + o.infl, k);
+      var div  = (age >= o.startAge) ? rwDivisor(age) : 0;
+      var rmd  = (div > 0 && td > 0) ? td / div : 0;
+
+      if (rmd > 0 && !res.firstRmd) { res.firstRmd = rmd; res.firstRmdAt = age; }
+      if (rmd > want && res.rmdExceedsAt === null && W > 0) res.rmdExceedsAt = age;
+      if (res.outAt === null && W - want < 0) res.outAt = age;
+
+      W  = (W - want) * (1 + r);
+      td = Math.max(0, td - Math.max(want, rmd)) * (1 + r);
+
+      if (age === o.toAge) res.leftAtPlan = Math.max(0, W);
+    }
+    return res;
+  }
+
+  /* End wealth at the plan-to age for a given first-year withdrawal.
+     Strictly decreasing in S, which is what solve() needs. */
+  function rwEnd(S, o) {
+    var W = o.bal;
+    for (var k = 0; k <= o.toAge - o.age; k++) {
+      var r = (o.shock && k < o.shock.length) ? o.shock[k] : o.ret;
+      W = (W - S * Math.pow(1 + o.infl, k)) * (1 + r);
+    }
+    return W;
+  }
+
+  window.cyhRetDraw = function () {
+    var age    = Math.round(num($('cyh-rwAge')));
+    var bal    = num($('cyh-rwBal'));
+    var spend  = num($('cyh-rwSpend'));
+    var other  = num($('cyh-rwOther'));
+    var ret    = num($('cyh-rwReturn')) / 100;
+    var infl   = num($('cyh-rwInfl')) / 100;
+    var toAge  = Math.round(num($('cyh-rwTo')));
+    var shockPct = parseFloat($('cyh-rwStressPick').value);
+    if (!isFinite(shockPct)) shockPct = -25;
+
+    if (age < 30) age = 30;
+    if (age > 100) age = 100;
+    if (toAge <= age) toAge = age + 1;
+    if (toAge > 120) toAge = 120;
+
+    var startAge = rwStartAge(age);
+
+    /* Nothing to model. HOUSE RULE: an answer we do not have is an em
+       dash, never a zero and never "Age 65" — a real-looking age for an
+       empty account reads as a finding rather than as a missing input. */
+    if (bal <= 0 || spend <= 0) {
+      ['cyh-rwLast','cyh-rwRate','cyh-rwIncome','cyh-rwLeft',
+       'cyh-rwStress','cyh-rwSafe','cyh-rwRmd1'].forEach(function (id) {
+        $(id).textContent = EMDASH;
+      });
+      $('cyh-rwRmdAge').textContent = 'Age ' + startAge;
+      $('cyh-rwLast').parentElement.className = 'cyh-stat gold';
+      $('cyh-rwMsg').innerHTML =
+        'Enter a balance and what you want it to pay you in the first year.';
+      return;
+    }
+
+    var base  = { bal: bal, spend: spend, ret: ret, infl: infl, age: age, toAge: toAge, startAge: startAge };
+    var plan  = rwRun(base);
+
+    /* One bad year, then two flat ones, then business as usual. Nothing
+       else moves - same withdrawals, same expected return from year 4.
+       The whole point is that the AVERAGE barely changes and the
+       outcome does. */
+    var shock = [shockPct / 100, 0, 0];
+    var stress = rwRun({ bal: bal, spend: spend, ret: ret, infl: infl, age: age,
+                         toAge: toAge, startAge: startAge, shock: shock });
+
+    var rate = bal > 0 ? (spend / bal) * 100 : 0;
+
+    /* The first-year withdrawal that lands exactly on zero at the
+       plan-to age. Bracketed between nothing and the whole balance;
+       solve() returns NaN rather than a wrong number if that bracket
+       ever fails to contain a crossing, and money() renders that as an
+       em dash. */
+    var safe = solve(function (S) { return rwEnd(S, base); }, 0, Math.max(bal, 1), 1e-4, 200);
+
+    $('cyh-rwLast').textContent   = plan.outAt ? ('Age ' + plan.outAt) : 'Past 120';
+    $('cyh-rwRate').textContent   = bal > 0 ? rate.toFixed(1) + '%' : EMDASH;
+    $('cyh-rwIncome').textContent = money(spend + other);
+    $('cyh-rwLeft').textContent   = money(plan.leftAtPlan);
+    $('cyh-rwStress').textContent = stress.outAt ? ('Age ' + stress.outAt) : 'Past 120';
+    $('cyh-rwSafe').textContent   = money(safe);
+    $('cyh-rwRmdAge').textContent = 'Age ' + startAge;
+    $('cyh-rwRmd1').textContent   = plan.firstRmd > 0 ? money(plan.firstRmd) : EMDASH;
+
+    /* Colour the headline stat by whether the plan actually reaches the
+       age it is planned to. Same class vocabulary as every other
+       calculator here: gold = the answer, pos = good, neg = trouble. */
+    var lasts = !plan.outAt || plan.outAt > toAge;
+    $('cyh-rwLast').parentElement.className = 'cyh-stat ' + (lasts ? 'pos' : 'neg');
+
+    var msg = $('cyh-rwMsg');
+    var parts = [];
+
+    if (lasts) {
+      parts.push('<b>At ' + rate.toFixed(1) + '% to start, this reaches ' + toAge +
+        ' with ' + money(plan.leftAtPlan) + ' still in it.</b>');
+    } else {
+      parts.push('<b>At ' + rate.toFixed(1) + '% to start, the savings run out at ' + plan.outAt +
+        ' — ' + (toAge - plan.outAt) + (toAge - plan.outAt === 1 ? ' year' : ' years') +
+        ' short of your plan.</b> Taking ' + money(safe) +
+        ' in year one instead of ' + money(spend) + ' is what reaches ' + toAge + '. ' +
+        'You would still have ' + money(other) + ' of guaranteed income a year underneath it either way — ' +
+        'that part does not run out.');
+    }
+
+    /* Framed against the plan-to age, not against the unstressed
+       depletion age. At a low withdrawal rate the unstressed plan runs
+       decades past 95, so "22 years earlier" is arithmetically true and
+       rhetorically useless — most of those years are deep in the
+       compounding tail and nobody is planning for them. What the reader
+       needs to know is whether the bad year breaks the plan they
+       actually have. */
+    if (stress.outAt && (!plan.outAt || stress.outAt < plan.outAt)) {
+      var lead = '<b>One ' + Math.abs(shockPct) + '% year at the start moves that to ' +
+        stress.outAt + '.</b> ';
+      if (stress.outAt <= toAge) {
+        var shortBy = toAge - stress.outAt;
+        lead += 'That is ' + (shortBy === 0 ? 'right at' : shortBy +
+          (shortBy === 1 ? ' year short of' : ' years short of')) + ' your plan, ' +
+          'from one bad year in a plan that is otherwise identical — same withdrawals, ' +
+          'same expected return from year four. ';
+      } else {
+        lead += 'It still clears your plan-to age, but with far less room behind it. ';
+      }
+      parts.push(lead + 'That gap is sequence-of-returns risk. It is why a year or two of ' +
+        'spending held in cash at the start of retirement is worth more than the return it ' +
+        'gives up: it turns a bad first year into something you wait out rather than ' +
+        'something you sell into.');
+    }
+
+    if (rate > 5) {
+      parts.push('A starting rate above 5% is above what the historical research supports for a ' +
+        '30-year retirement. The 4% figure everyone quotes is from Bengen’s 1994 study and it was ' +
+        'the WORST case that survived, not the typical one — he has since revised it up to 4.7% on a ' +
+        'more diversified mix. Either way, 5%+ needs flexibility built in: a plan you can cut in a ' +
+        'bad year is safer than a lower number you treat as fixed.');
+    } else if (rate < 3 && plan.leftAtPlan > bal) {
+      parts.push('Under 3% and growing — this plan ends with more than it started with, in nominal ' +
+        'terms. That is allowed, and for some people leaving money behind is the point. But if it is ' +
+        'not the point, you are underspending a life you already paid for.');
+    }
+
+    if (plan.rmdExceedsAt) {
+      parts.push('From <b>' + plan.rmdExceedsAt + '</b> the required minimum distribution is larger ' +
+        'than what you wanted to take. That does not shorten the plan — the excess is not spent, it ' +
+        'moves to a taxable account and keeps compounding. What it does is force taxable income in a ' +
+        'year you did not choose, which is the argument for pulling some of it forward into the ' +
+        'low-income years between retiring and 73 or 75.');
+    }
+
+    parts.push('<span class="cyh-cav"><b>What this does not model.</b> Every figure is pre-tax — ' +
+      'withdrawals from a traditional 401(k) or IRA are ordinary income, so what reaches your ' +
+      'account is less than what is shown here. No state tax, no tax on Social Security, no IRMAA ' +
+      'surcharge. It also earns the same return every single year, which no market has ever done: ' +
+      'that is precisely what the bad-first-year line above is there to correct for, and it is why ' +
+      '“the withdrawal that reaches your age” is an arithmetic answer rather than a safe one. RMDs ' +
+      'use the IRS Uniform Lifetime Table; if your sole beneficiary is a spouse more than ten years ' +
+      'younger, a different table applies and your real RMD is smaller.</span>');
+
+    msg.innerHTML = parts.join(' ');
+  };
+
   var PERIODS = { weekly: 52, biweekly: 26, semimonthly: 24, monthly: 12, annual: 1 };
 
   window.cyhWithhold = function () {
@@ -858,7 +1099,7 @@
      ['cyh-utBal', cyhUtil], ['cyh-ciStart', cyhCompound], ['cyh-igStart', cyhInvest],
      ['cyh-ffSpend', cyhFreedom], ['cyh-whGross', cyhWithhold],
      ['cyh-mgPrice', cyhMortgage], ['cyh-auPrice', cyhAuto],
-     ['cyh-rcAmt', cyhRoth]]
+     ['cyh-rcAmt', cyhRoth], ['cyh-rwBal', cyhRetDraw]]
       .forEach(function (pair) { if (has(pair[0])) { try { pair[1](); } catch (e) {} } });
   });
 })();

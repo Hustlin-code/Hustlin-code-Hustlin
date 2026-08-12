@@ -70,6 +70,12 @@
 
 .cyh-msg{margin-top:18px;padding:15px 18px;border-radius:11px;font-size:14px;line-height:1.6;border-left:3px solid var(--gold);background:#FFFBEF;color:#3d3a33}
 .cyh-msg b{color:var(--ink)}
+/* The accuracy boundary, at the end of a .cyh-msg. Every calculator here
+   states what it does NOT model, and that sentence is a different kind of
+   sentence from the answer above it — it should read as a footnote rather
+   than compete with the finding. Block-level so it always starts on its own
+   line no matter how the message above was assembled from parts. */
+.cyh-cav{display:block;margin-top:11px;padding-top:9px;border-top:1px solid rgba(0,0,0,.09);font-size:12.5px;line-height:1.55;color:#6b6559}
 
 .cyh-tbl{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
 .cyh-tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);padding:9px 10px;border-bottom:2px solid var(--line);font-weight:700}
