@@ -88,11 +88,12 @@ const NEWS_ENDPOINT = process.env.MARKET_NEWS_ENDPOINT
   || ENDPOINT.replace(/\/market-data$/, '/market-news')
 
 /* Tape quotes come from their own function as of 2026-08-02, for two reasons.
-   The list changed to nine cross-asset symbols (indexes, the 10-year, gold, oil,
-   copper, bitcoin), and market-data's quotes builder drops a symbol silently
-   when its upstream call fails — on 2026-08-02 that rendered a six-card tape as
-   two cards with nothing anywhere saying why. market-quotes reports failures per
-   symbol instead.
+   The list changed to a cross-asset set (indexes, the curve, the dollar, gold,
+   oil, copper, bitcoin), and market-data's quotes builder drops a symbol
+   silently when its upstream call fails — on 2026-08-02 that rendered a six-card
+   tape as two cards with nothing anywhere saying why. market-quotes reports
+   failures per symbol instead.
+   v3 (2026-08-12) is eleven cards, FRED-first, with a one-year range on each.
    To roll back: delete this constant and the quotes override in main(). */
 const QUOTES_ENDPOINT = process.env.MARKET_QUOTES_ENDPOINT
   || ENDPOINT.replace(/\/market-data$/, '/market-quotes')
@@ -312,20 +313,64 @@ ${rows.map(r => `        <tr><th scope="row">${esc(r.name)}</th><td>${esc(r.symb
     </table>`
 }
 
-/* Index quotes. Baked rather than left to the TradingView ticker alone, because
-   the ticker is an iframe — a crawler sees nothing there. These are ETFs, not the
-   indexes themselves: SPY not ^GSPC. Finnhub's free tier does not carry index
-   symbols, and an ETF is what a reader would actually buy anyway. */
+/* The tape. Baked rather than left to the TradingView ticker alone, because the
+   ticker is an iframe — a crawler sees nothing there.
+
+   THE RANGE IS ONE YEAR, NOT ONE DAY (changed 2026-08-12). This tape is written
+   into the HTML at build time; it does not tick. A day range from the last
+   deploy is stale the moment the deploy finishes and tells a reader nothing. A
+   one-year range says where today sits inside the last twelve months, which is
+   the only context a static number can honestly carry.
+
+   THE CARDS ARE THE REAL THING WHERE A FREE, LICENSED SOURCE PUBLISHES IT.
+   market-quotes v3 reads the actual index levels, WTI spot, the constant-
+   maturity Treasury yields, the Fed's broad dollar index and Coinbase's bitcoin
+   print from FRED. Russell 2000, Gold and Copper stay ETFs because FRED lost the
+   Russell license in 2019 and the gold benchmark in 2022, and Finnhub's free
+   tier carries no futures. Those three say so on the card.
+
+   Each row therefore carries its OWN source and its OWN as-of date. Do not
+   collapse them into one sitewide "as of" line — DGS2 lands the next morning,
+   DTWEXBGS is published weekly, DCOILWTICO runs several days behind, and the
+   Finnhub cards are last close with no date at all.
+
+   A yield is not a price: kind === 'yield' rows arrive with the change already
+   formatted in basis points and the range already suffixed with %. Nothing here
+   re-formats a number — market-quotes owns the formatting so the units cannot
+   drift between the function and the page.
+
+   FALLBACK. If market-quotes is unreachable, main() leaves market-data's own
+   quotes in place. Those are v2-shaped: no rangeDisplay, no note, no asOf. The
+   range line then prints an em dash rather than silently falling back to a day
+   range under a "1-year range" label. Same rule as everywhere else on this
+   site — a missing number is a gap, a mislabeled one is a lie. */
+const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+/* '2026-08-11' -> 'Aug 11'. Split rather than parsed: `new Date('2026-08-11')`
+   is UTC midnight, which prints as the 10th anywhere west of Greenwich. */
+function shortDay(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso ?? ''))
+  if (!m) return ''
+  return `${SHORT_MONTHS[Number(m[2]) - 1]} ${Number(m[3])}`
+}
+
 function renderQuotes(rows) {
   if (!rows?.length) return ''
   return `<div class="mkt-quote-row">
 ${rows.map(r => {
   const up = (r.changePct ?? 0) >= 0
+  const fill = r.key ?? r.symbol
+  const range = r.rangeDisplay ?? '—'
+  const day = shortDay(r.asOf)
+  const src = [r.note ?? r.symbol, [r.source, day].filter(Boolean).join(', ')]
+    .filter(Boolean).join(' · ')
   return `      <article class="mkt-quote ${up ? 'up' : 'down'}">
         <h3 class="mkt-quote-name">${esc(r.name)}</h3>
-        <p class="mkt-quote-px" data-fill="q-${esc(r.symbol)}">${esc(r.display)}</p>
+        <p class="mkt-quote-px" data-fill="q-${esc(fill)}">${esc(r.display)}</p>
         <p class="mkt-quote-chg">${esc(r.pctDisplay)}</p>
-        <p class="mkt-quote-sym">${esc(r.symbol)} · day range ${esc((r.low ?? 0).toFixed(2))}–${esc((r.high ?? 0).toFixed(2))}</p>
+        <p class="mkt-quote-sym">1-year range ${esc(range)}</p>
+        <p class="mkt-quote-sym">${esc(src)}</p>
       </article>`
 }).join('\n')}
 </div>`
@@ -998,7 +1043,16 @@ function buildDiff(flat, prev, todayISO) {
    markets-technical.html), which is why it is one request and not two.
 
    PRICE ONLY, and the high is the highest close in FRED's licensed ten-year
-   window. Both facts are stated in the caption rather than left implied. */
+   window. Both facts are stated in the caption rather than left implied.
+
+   NOT A TABLE ANY MORE (2026-08-12). It was three rows of two numbers plus a
+   raw ISO date, laid out across a full-width grid: accurate, and unreadable.
+   A table is for comparing rows against each other, and these three rows are
+   not comparable — they are one fact (how far below the high) and the two
+   numbers it was computed from. It is now a sentence, three labelled figures
+   and a scale showing where that sits against the thresholds. Styles live in
+   styles.css under `.mkt-dd` so both pages that carry this block get them from
+   one place. */
 function renderDrawdown(d) {
   if (!d || d.value === null || d.value === undefined) return ''
 
@@ -1006,9 +1060,9 @@ function renderDrawdown(d) {
   const at = d.atHigh || down < 0.05
 
   const lead = at
-    ? `The S&amp;P 500 closed at a <strong>record high</strong> on ${esc(d.date)}.`
+    ? `The S&amp;P 500 closed at a <strong>record high</strong> on ${esc(refDate(d.date, 'd'))}.`
     : `The S&amp;P 500 is <strong>${esc(d.display)}</strong> from its record high, ` +
-      `set on ${esc(d.peakDate)} &mdash; ${esc(d.daysSincePeak)} days ago.`
+      `set ${esc(refDate(d.peakDate, 'd'))} &mdash; ${esc(d.daysSincePeak)} days ago.`
 
   // Plain-language read. Thresholds match the Stage 4 table exactly, so a
   // reader moving between the two pages never sees them disagree.
@@ -1019,28 +1073,60 @@ function renderDrawdown(d) {
   : down < 5       ? 'Normal. The index spends most of its life within a few percent of a high.'
   :                  'A dip, not a correction. Corrections start at 10%.'
 
-  return `<p>${lead} ${esc(meaning)}</p>
-    <table class="mkt-table">
-      <caption class="mkt-table-cap">Measured on price against the highest close in the past ten years &mdash; dividends excluded, which is how a drawdown is always quoted. Ten years is the full history the St. Louis Fed publishes for this series.</caption>
-      <thead><tr><th scope="col">Reading</th><th scope="col">Level</th><th scope="col">As of</th></tr></thead>
-      <tbody>
-        <tr>
-          <th scope="row"><a href="${esc(d.source)}" target="_blank" rel="noopener">S&amp;P 500 close</a></th>
-          <td><strong>${esc(d.levelDisplay)}</strong></td>
-          <td>${esc(d.date)}</td>
-        </tr>
-        <tr>
-          <th scope="row">Record high</th>
-          <td><strong>${esc(d.peakDisplay)}</strong></td>
-          <td>${esc(d.peakDate)}</td>
-        </tr>
-        <tr>
-          <th scope="row">Below that high</th>
-          <td class="${at ? 'up' : 'down'}"><strong>${esc(d.display)}</strong></td>
-          <td>${at ? 'at the high' : esc(d.daysSincePeak) + ' days'}</td>
-        </tr>
-      </tbody>
-    </table>`
+  /* THE SCALE. Linear, right edge = the record high, left edge = 30% below it.
+     The band widths below are the REAL positions of the thresholds on that
+     scale, not four equal quarters: 5% is a sixth of 30, 10% is a third, 20% is
+     two thirds. An equal-quarters version would have been prettier and would
+     have drawn a 4% drawdown and a 15% one as though they were comparable
+     distances from the high, which is the exact misreading this block exists to
+     prevent.
+
+     Past 30% the pin clamps to the left edge. The sentence above it still
+     carries the true figure, so the reader is never left with only the clamped
+     picture — but if the S&P is ever 40% down, widen the scale rather than
+     leaving a pinned marker to imply the bottom of the range. */
+  const SCALE = 30
+  const pos = Math.max(0.6, Math.min(99.4, (1 - down / SCALE) * 100))
+
+  const band = down >= 20 ? 'a bear market'
+    : down >= 10 ? 'a correction'
+    : down >= 5 ? 'a dip'
+    : 'the normal range'
+
+  return `<figure class="mkt-dd">
+      <p class="mkt-dd-lead">${lead} ${esc(meaning)}</p>
+      <div class="mkt-dd-nums">
+        <div class="mkt-dd-cell">
+          <span class="mkt-dd-k">S&amp;P 500 close</span>
+          <span class="mkt-dd-v"><a href="${esc(d.source)}" target="_blank" rel="noopener">${esc(d.levelDisplay)}</a></span>
+          <span class="mkt-dd-d">${esc(refDate(d.date, 'd'))}</span>
+        </div>
+        <div class="mkt-dd-cell">
+          <span class="mkt-dd-k">Record high</span>
+          <span class="mkt-dd-v">${esc(d.peakDisplay)}</span>
+          <span class="mkt-dd-d">${esc(refDate(d.peakDate, 'd'))}</span>
+        </div>
+        <div class="mkt-dd-cell">
+          <span class="mkt-dd-k">Below that high</span>
+          <span class="mkt-dd-v ${at ? 'up' : 'down'}">${esc(d.display)}</span>
+          <span class="mkt-dd-d">${at ? 'at the high today' : esc(d.daysSincePeak) + ' days ago'}</span>
+        </div>
+      </div>
+      <div class="mkt-dd-track" role="img" aria-label="Scale from the record high on the right to 30 percent below it on the left. The S&amp;P 500 sits ${esc(d.display)} from its high, inside ${esc(band)}.">
+        <span class="mkt-dd-band" style="width:33.34%;background:#C4381F"></span>
+        <span class="mkt-dd-band" style="width:33.33%;background:#E07B39"></span>
+        <span class="mkt-dd-band" style="width:16.66%;background:#C9A227"></span>
+        <span class="mkt-dd-band" style="width:16.67%;background:#2DA02D"></span>
+        <span class="mkt-dd-pin${pos > 88 ? ' at-right' : pos < 12 ? ' at-left' : ''}" style="left:${pos.toFixed(2)}%"><b>${esc(d.display)}</b></span>
+      </div>
+      <ul class="mkt-dd-legend">
+        <li><i style="background:#C4381F"></i>Bear market &middot; 20% or more</li>
+        <li><i style="background:#E07B39"></i>Correction &middot; 10&ndash;20%</li>
+        <li><i style="background:#C9A227"></i>Dip &middot; 5&ndash;10%</li>
+        <li><i style="background:#2DA02D"></i>Normal &middot; under 5%</li>
+      </ul>
+      <figcaption class="mkt-dd-cap">Measured on price against the highest close in the past ten years &mdash; dividends excluded, which is how a drawdown is always quoted. Ten years is the full history the St. Louis Fed publishes for this series. The scale runs from the record high to 30% below it, drawn to scale.</figcaption>
+    </figure>`
 }
 
 /* The Stage 4 version of the same reading. Different job, so different markup:
@@ -1346,8 +1432,9 @@ async function main() {
   if (sets.includes('earnings')) {
     /* ---- FINNHUB COOLDOWN — do not remove -----------------------------
        market-quotes and market-earnings both hit Finnhub, whose free tier
-       allows 60 calls/minute. quotes can spend up to 36 (9 symbols x 4
-       attempts, because it retries a 429 with backoff) and earnings wants
+       allows 60 calls/minute. quotes can spend up to 24 (3 Finnhub symbols
+       x 2 endpoints x 4 attempts, because it retries a 429 with backoff —
+       the other eight cards are FRED and cost Finnhub nothing) and earnings wants
        37 more. Fired back to back that is ~73 in one minute, so whichever
        runs second gets 429s on most of its profile lookups and silently
        returns a short table. That is what produced a two-row earnings

@@ -90,7 +90,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260812-1701">
+<link rel="stylesheet" href="../styles.css?v=20260812-1743">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -290,6 +290,10 @@
 .mkt-quote.up .mkt-quote-chg{color:#2DA02D}
 .mkt-quote.down .mkt-quote-chg{color:#EF4444}
 .mkt-quote-sym{font-size:11px;color:#6b665c;margin:0}
+/* The tape carries two of these: the one-year range, then what the number is
+   and where it came from. Adjacent-sibling rather than a second class so the
+   four inline copies of this block stay one line apart from each other. */
+.mkt-quote-sym+.mkt-quote-sym{margin-top:4px;opacity:.8}
 .mkt-quote-note{font-size:12px;color:#6b665c;margin:16px 0 0;line-height:1.6}
 @media(max-width:640px){
   .mkt-table{font-size:13px}
@@ -640,62 +644,85 @@
   <div class="cht-in">
     <span class="cht-num">Today across the market</span>
     <h2>What moved, before you chart it.</h2>
-    <p class="lede">Nine cross-asset benchmarks — the major US indexes, the 10-year Treasury, gold, oil, copper and bitcoin. Type any of these tickers into the chart above to see the history behind the number.</p>
+    <p class="lede">Eleven cross-asset benchmarks — the major US indexes, the 2- and 10-year Treasury yields, the dollar, gold, WTI crude, copper and bitcoin — each with its one-year high and low. Most are the underlying series rather than a fund that tracks it; where a card names an ETF, type that ticker into the chart above to see the history behind the number.</p>
     <!-- MKT:chartQuotes:START -->
     <div class="mkt-quote-row">
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Dow Jones</h3>
-        <p class="mkt-quote-px" data-fill="q-DIA">$537.15</p>
-        <p class="mkt-quote-chg">-0.02%</p>
-        <p class="mkt-quote-sym">DIA · day range 536.86–539.18</p>
+        <p class="mkt-quote-px" data-fill="q-DJIA">53,792</p>
+        <p class="mkt-quote-chg">−0.34%</p>
+        <p class="mkt-quote-sym">1-year range 43,969–54,349</p>
+        <p class="mkt-quote-sym">Dow 30 index · FRED, Aug 11</p>
       </article>
-      <article class="mkt-quote up">
+      <article class="mkt-quote down">
         <h3 class="mkt-quote-name">S&amp;P 500</h3>
-        <p class="mkt-quote-px" data-fill="q-SPY">$772.49</p>
-        <p class="mkt-quote-chg">+0.25%</p>
-        <p class="mkt-quote-sym">SPY · day range 771.28–774.90</p>
+        <p class="mkt-quote-px" data-fill="q-SP500">7,728</p>
+        <p class="mkt-quote-chg">−0.32%</p>
+        <p class="mkt-quote-sym">1-year range 6,340–7,758</p>
+        <p class="mkt-quote-sym">S&amp;P 500 index · FRED, Aug 11</p>
       </article>
-      <article class="mkt-quote up">
+      <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Nasdaq 100</h3>
-        <p class="mkt-quote-px" data-fill="q-QQQ">$723.70</p>
-        <p class="mkt-quote-chg">+0.73%</p>
-        <p class="mkt-quote-sym">QQQ · day range 722.92–727.25</p>
+        <p class="mkt-quote-px" data-fill="q-NASDAQ100">29,525</p>
+        <p class="mkt-quote-chg">−0.33%</p>
+        <p class="mkt-quote-sym">1-year range 22,953–30,661</p>
+        <p class="mkt-quote-sym">Nasdaq-100 index · FRED, Aug 11</p>
       </article>
       <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Russell 2000</h3>
         <p class="mkt-quote-px" data-fill="q-IWM">$302.71</p>
         <p class="mkt-quote-chg">+0.57%</p>
-        <p class="mkt-quote-sym">IWM · day range 301.00–303.41</p>
+        <p class="mkt-quote-sym">1-year range 219.81–303.06</p>
+        <p class="mkt-quote-sym">IWM ETF · Finnhub</p>
       </article>
-      <article class="mkt-quote up">
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">2-Year Treasury</h3>
+        <p class="mkt-quote-px" data-fill="q-DGS2">4.22%</p>
+        <p class="mkt-quote-chg">−3 bp</p>
+        <p class="mkt-quote-sym">1-year range 3.38–4.37%</p>
+        <p class="mkt-quote-sym">2-year yield · FRED, Aug 11</p>
+      </article>
+      <article class="mkt-quote down">
         <h3 class="mkt-quote-name">10-Year Treasury</h3>
-        <p class="mkt-quote-px" data-fill="q-IEF">$92.96</p>
-        <p class="mkt-quote-chg">+0.10%</p>
-        <p class="mkt-quote-sym">IEF · day range 92.93–93.16</p>
+        <p class="mkt-quote-px" data-fill="q-DGS10">4.70%</p>
+        <p class="mkt-quote-chg">−2 bp</p>
+        <p class="mkt-quote-sym">1-year range 3.97–4.75%</p>
+        <p class="mkt-quote-sym">10-year yield · FRED, Aug 11</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">U.S. Dollar</h3>
+        <p class="mkt-quote-px" data-fill="q-DXY">119.06</p>
+        <p class="mkt-quote-chg">−0.37%</p>
+        <p class="mkt-quote-sym">1-year range 117.44–121.92</p>
+        <p class="mkt-quote-sym">Fed broad dollar index · FRED, Aug 7</p>
       </article>
       <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Gold</h3>
         <p class="mkt-quote-px" data-fill="q-GLD">$404.92</p>
         <p class="mkt-quote-chg">+0.99%</p>
-        <p class="mkt-quote-sym">GLD · day range 403.22–407.36</p>
+        <p class="mkt-quote-sym">1-year range 305.19–509.70</p>
+        <p class="mkt-quote-sym">GLD ETF · Finnhub</p>
       </article>
-      <article class="mkt-quote down">
+      <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Oil</h3>
-        <p class="mkt-quote-px" data-fill="q-USO">$127.30</p>
-        <p class="mkt-quote-chg">-0.24%</p>
-        <p class="mkt-quote-sym">USO · day range 125.86–127.83</p>
+        <p class="mkt-quote-px" data-fill="q-WTI">$84.77</p>
+        <p class="mkt-quote-chg">+1.21%</p>
+        <p class="mkt-quote-sym">1-year range 55.44–114.58</p>
+        <p class="mkt-quote-sym">WTI spot, per barrel · FRED, Aug 11</p>
       </article>
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Copper</h3>
         <p class="mkt-quote-px" data-fill="q-CPER">$40.02</p>
-        <p class="mkt-quote-chg">-0.50%</p>
-        <p class="mkt-quote-sym">CPER · day range 40.02–40.41</p>
+        <p class="mkt-quote-chg">−0.50%</p>
+        <p class="mkt-quote-sym">1-year range 27.37–40.97</p>
+        <p class="mkt-quote-sym">CPER ETF · Finnhub</p>
       </article>
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Bitcoin</h3>
-        <p class="mkt-quote-px" data-fill="q-IBIT">$35.89</p>
-        <p class="mkt-quote-chg">-0.14%</p>
-        <p class="mkt-quote-sym">IBIT · day range 35.80–36.26</p>
+        <p class="mkt-quote-px" data-fill="q-BTC">$63,528</p>
+        <p class="mkt-quote-chg">−0.54%</p>
+        <p class="mkt-quote-sym">1-year range 58,586–124,720</p>
+        <p class="mkt-quote-sym">BTC/USD, Coinbase · FRED, Aug 11</p>
       </article>
 </div>
     <!-- MKT:chartQuotes:END -->
@@ -931,7 +958,7 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="../app.js?v=20260812-1701"></script>
+<script src="../app.js?v=20260812-1743"></script>
 <script>
 HFY.initNavOnly();
 </script>

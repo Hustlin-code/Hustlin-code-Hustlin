@@ -2832,6 +2832,60 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .mkt-table-cap{padding-bottom:14px;max-width:760px}
 .mkt-dash .mkt-table{margin-top:6px}
 
+/* ── 6. Distance from the high ─────────────────────────────────────────────
+   Added 2026-08-12, replacing the three-row table this block used to be. The
+   table was accurate and unreadable: two figures and a raw ISO date stretched
+   across a full-width grid to answer one question. A table earns its keep when
+   rows are comparable; these were not.
+
+   Injected by renderDrawdown() in tools/inject-market-data.mjs into markets.html
+   and markets-technical.html — both DARK sections, which is why every color
+   here is a fixed dark-section hex rather than a variable. Do not reuse this on
+   a cream section without recoloring it.
+
+   The band widths on the track are the real positions of the thresholds on a
+   linear 0–30% scale (5% is a sixth of it, 10% a third, 20% two thirds), not
+   four equal quarters. Keep them that way — equal quarters would draw a 4%
+   drawdown and a 15% one as comparable distances from the high. */
+.mkt-dd{margin:14px 0 0;padding:22px;background:#111;border:1px solid #262626;border-radius:14px}
+.mkt-dd-lead{margin:0 0 20px;font-size:1rem;line-height:1.65;color:#C9C3B6}
+.mkt-dd-lead strong{color:#fff}
+.mkt-dd-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:16px;margin:0 0 8px}
+.mkt-dd-cell{display:flex;flex-direction:column;gap:4px}
+.mkt-dd-k{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8b8577}
+.mkt-dd-v{font-family:'Space Mono',monospace;font-size:26px;font-weight:700;line-height:1.05;
+  color:#fff;font-variant-numeric:tabular-nums slashed-zero}
+.mkt-dd-v a{color:#fff;text-decoration:underline;text-decoration-color:#F5C520;text-underline-offset:4px}
+.mkt-dd-v a:hover{color:#F5C520}
+.mkt-dd-v.down{color:#EF4444}
+.mkt-dd-v.up{color:#2DA02D}
+.mkt-dd-d{font-size:11px;color:#6b665c}
+
+/* 44px of top margin is the pin's label, which hangs above the track. */
+.mkt-dd-track{position:relative;display:flex;height:12px;margin:44px 0 14px}
+.mkt-dd-band{display:block;height:12px}
+.mkt-dd-band:first-child{border-radius:7px 0 0 7px}
+.mkt-dd-band:last-child{border-radius:0 7px 7px 0}
+.mkt-dd-pin{position:absolute;top:-9px;bottom:-9px;width:2px;background:#fff;transform:translateX(-50%)}
+.mkt-dd-pin b{position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);
+  padding:3px 8px;border-radius:7px;background:#fff;color:#111;white-space:nowrap;
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+/* At either end of the scale a centred label hangs outside the card and gets
+   clipped — which is exactly where the pin sits most of the time, because the
+   index spends most of its life near its high. The marker stays on its true
+   position; only the label swings inboard. */
+.mkt-dd-pin.at-right b{left:auto;right:0;transform:none}
+.mkt-dd-pin.at-left b{left:0;right:auto;transform:none}
+.mkt-dd-legend{display:flex;flex-wrap:wrap;gap:7px 18px;margin:0;padding:0;list-style:none}
+.mkt-dd-legend li{display:flex;align-items:center;gap:7px;font-size:11px;color:#8b8577}
+.mkt-dd-legend i{width:9px;height:9px;border-radius:3px;flex:0 0 auto}
+.mkt-dd-cap{margin:16px 0 0;max-width:760px;font-size:11px;line-height:1.6;color:#6b665c}
+@media(max-width:420px){
+  .mkt-dd{padding:16px}
+  .mkt-dd-v{font-size:22px}
+  .mkt-dd-legend{gap:6px 14px}
+}
+
 /* ── STILL TO DO ───────────────────────────────────────────────────────────
    markets.html, Markets/chart.html and Markets/screeners.html each still
    carry a full inline copy of the base .mkt-table rules. They are consistent

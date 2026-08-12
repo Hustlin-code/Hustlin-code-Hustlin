@@ -83,7 +83,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260812-1701">
+<link rel="stylesheet" href="styles.css?v=20260812-1743">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -182,6 +182,10 @@
 .mkt-quote.up .mkt-quote-chg{color:#5FD35F}
 .mkt-quote.down .mkt-quote-chg{color:#E4634A}
 .mkt-quote-sym{font-size:11px;color:rgba(255,255,255,.38);margin:0}
+/* The tape carries two of these: the one-year range, then what the number is
+   and where it came from. Adjacent-sibling rather than a second class so the
+   four inline copies of this block stay one line apart from each other. */
+.mkt-quote-sym+.mkt-quote-sym{margin-top:4px;opacity:.8}
 
 .mkt-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E4DFD3;
   border-radius:14px;overflow:hidden;font-size:14px;margin-top:6px}
@@ -677,11 +681,14 @@
 <section class="eco-sec dark" style="padding-top:0" id="tape">
   <div class="eco-in">
     <p class="eco-num">Where it closed</p>
-    <h2>The tape, with its day range.</h2>
+    <h2>The tape, with its one-year range.</h2>
     <p>
-      The most basic technical read there is: where did price finish relative to where it traded
-      all day? A close at the top of the range means buyers had the last word. A close at the
-      bottom means sellers did. It is a small piece of information, and it is real.
+      The most basic technical read there is: where does today sit inside the last twelve months?
+      Near the top of the range and buyers have been winning the argument all year. Near the
+      bottom and sellers have. It says nothing about tomorrow, and it is the honest version of a
+      question people usually answer with a feeling. Each card carries its own source and date
+      below the range &mdash; these are last published values, rewritten each build, not a live
+      tape.
     </p>
     <h3>Distance from the high</h3>
     <p>
@@ -693,85 +700,120 @@
       these starting points over one to twenty years.
     </p>
     <!-- MKT:techDrawdown:START -->
-    <p>The S&amp;P 500 is <strong>−0.4%</strong> from its record high, set on 2026-08-07 &mdash; 4 days ago. Normal. The index spends most of its life within a few percent of a high.</p>
-    <table class="mkt-table">
-      <caption class="mkt-table-cap">Measured on price against the highest close in the past ten years &mdash; dividends excluded, which is how a drawdown is always quoted. Ten years is the full history the St. Louis Fed publishes for this series.</caption>
-      <thead><tr><th scope="col">Reading</th><th scope="col">Level</th><th scope="col">As of</th></tr></thead>
-      <tbody>
-        <tr>
-          <th scope="row"><a href="https://fred.stlouisfed.org/series/SP500" target="_blank" rel="noopener">S&amp;P 500 close</a></th>
-          <td><strong>7,728</strong></td>
-          <td>2026-08-11</td>
-        </tr>
-        <tr>
-          <th scope="row">Record high</th>
-          <td><strong>7,758</strong></td>
-          <td>2026-08-07</td>
-        </tr>
-        <tr>
-          <th scope="row">Below that high</th>
-          <td class="down"><strong>−0.4%</strong></td>
-          <td>4 days</td>
-        </tr>
-      </tbody>
-    </table>
+    <figure class="mkt-dd">
+      <p class="mkt-dd-lead">The S&amp;P 500 is <strong>−0.4%</strong> from its record high, set 7 Aug 2026 &mdash; 4 days ago. Normal. The index spends most of its life within a few percent of a high.</p>
+      <div class="mkt-dd-nums">
+        <div class="mkt-dd-cell">
+          <span class="mkt-dd-k">S&amp;P 500 close</span>
+          <span class="mkt-dd-v"><a href="https://fred.stlouisfed.org/series/SP500" target="_blank" rel="noopener">7,728</a></span>
+          <span class="mkt-dd-d">11 Aug 2026</span>
+        </div>
+        <div class="mkt-dd-cell">
+          <span class="mkt-dd-k">Record high</span>
+          <span class="mkt-dd-v">7,758</span>
+          <span class="mkt-dd-d">7 Aug 2026</span>
+        </div>
+        <div class="mkt-dd-cell">
+          <span class="mkt-dd-k">Below that high</span>
+          <span class="mkt-dd-v down">−0.4%</span>
+          <span class="mkt-dd-d">4 days ago</span>
+        </div>
+      </div>
+      <div class="mkt-dd-track" role="img" aria-label="Scale from the record high on the right to 30 percent below it on the left. The S&amp;P 500 sits −0.4% from its high, inside the normal range.">
+        <span class="mkt-dd-band" style="width:33.34%;background:#C4381F"></span>
+        <span class="mkt-dd-band" style="width:33.33%;background:#E07B39"></span>
+        <span class="mkt-dd-band" style="width:16.66%;background:#C9A227"></span>
+        <span class="mkt-dd-band" style="width:16.67%;background:#2DA02D"></span>
+        <span class="mkt-dd-pin at-right" style="left:98.73%"><b>−0.4%</b></span>
+      </div>
+      <ul class="mkt-dd-legend">
+        <li><i style="background:#C4381F"></i>Bear market &middot; 20% or more</li>
+        <li><i style="background:#E07B39"></i>Correction &middot; 10&ndash;20%</li>
+        <li><i style="background:#C9A227"></i>Dip &middot; 5&ndash;10%</li>
+        <li><i style="background:#2DA02D"></i>Normal &middot; under 5%</li>
+      </ul>
+      <figcaption class="mkt-dd-cap">Measured on price against the highest close in the past ten years &mdash; dividends excluded, which is how a drawdown is always quoted. Ten years is the full history the St. Louis Fed publishes for this series. The scale runs from the record high to 30% below it, drawn to scale.</figcaption>
+    </figure>
     <!-- MKT:techDrawdown:END -->
 
     <!-- MKT:techQuotes:START -->
     <div class="mkt-quote-row">
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Dow Jones</h3>
-        <p class="mkt-quote-px" data-fill="q-DIA">$537.15</p>
-        <p class="mkt-quote-chg">-0.02%</p>
-        <p class="mkt-quote-sym">DIA · day range 536.86–539.18</p>
+        <p class="mkt-quote-px" data-fill="q-DJIA">53,792</p>
+        <p class="mkt-quote-chg">−0.34%</p>
+        <p class="mkt-quote-sym">1-year range 43,969–54,349</p>
+        <p class="mkt-quote-sym">Dow 30 index · FRED, Aug 11</p>
       </article>
-      <article class="mkt-quote up">
+      <article class="mkt-quote down">
         <h3 class="mkt-quote-name">S&amp;P 500</h3>
-        <p class="mkt-quote-px" data-fill="q-SPY">$772.49</p>
-        <p class="mkt-quote-chg">+0.25%</p>
-        <p class="mkt-quote-sym">SPY · day range 771.28–774.90</p>
+        <p class="mkt-quote-px" data-fill="q-SP500">7,728</p>
+        <p class="mkt-quote-chg">−0.32%</p>
+        <p class="mkt-quote-sym">1-year range 6,340–7,758</p>
+        <p class="mkt-quote-sym">S&amp;P 500 index · FRED, Aug 11</p>
       </article>
-      <article class="mkt-quote up">
+      <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Nasdaq 100</h3>
-        <p class="mkt-quote-px" data-fill="q-QQQ">$723.70</p>
-        <p class="mkt-quote-chg">+0.73%</p>
-        <p class="mkt-quote-sym">QQQ · day range 722.92–727.25</p>
+        <p class="mkt-quote-px" data-fill="q-NASDAQ100">29,525</p>
+        <p class="mkt-quote-chg">−0.33%</p>
+        <p class="mkt-quote-sym">1-year range 22,953–30,661</p>
+        <p class="mkt-quote-sym">Nasdaq-100 index · FRED, Aug 11</p>
       </article>
       <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Russell 2000</h3>
         <p class="mkt-quote-px" data-fill="q-IWM">$302.71</p>
         <p class="mkt-quote-chg">+0.57%</p>
-        <p class="mkt-quote-sym">IWM · day range 301.00–303.41</p>
+        <p class="mkt-quote-sym">1-year range 219.81–303.06</p>
+        <p class="mkt-quote-sym">IWM <a class="lingo-x" href="learn-the-lingo/etf.html">ETF</a> · Finnhub</p>
       </article>
-      <article class="mkt-quote up">
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">2-Year Treasury</h3>
+        <p class="mkt-quote-px" data-fill="q-DGS2">4.22%</p>
+        <p class="mkt-quote-chg">−3 bp</p>
+        <p class="mkt-quote-sym">1-year range 3.38–4.37%</p>
+        <p class="mkt-quote-sym">2-year yield · FRED, Aug 11</p>
+      </article>
+      <article class="mkt-quote down">
         <h3 class="mkt-quote-name">10-Year Treasury</h3>
-        <p class="mkt-quote-px" data-fill="q-IEF">$92.96</p>
-        <p class="mkt-quote-chg">+0.10%</p>
-        <p class="mkt-quote-sym">IEF · day range 92.93–93.16</p>
+        <p class="mkt-quote-px" data-fill="q-DGS10">4.70%</p>
+        <p class="mkt-quote-chg">−2 bp</p>
+        <p class="mkt-quote-sym">1-year range 3.97–4.75%</p>
+        <p class="mkt-quote-sym">10-year yield · FRED, Aug 11</p>
+      </article>
+      <article class="mkt-quote down">
+        <h3 class="mkt-quote-name">U.S. Dollar</h3>
+        <p class="mkt-quote-px" data-fill="q-DXY">119.06</p>
+        <p class="mkt-quote-chg">−0.37%</p>
+        <p class="mkt-quote-sym">1-year range 117.44–121.92</p>
+        <p class="mkt-quote-sym">Fed broad dollar index · FRED, Aug 7</p>
       </article>
       <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Gold</h3>
         <p class="mkt-quote-px" data-fill="q-GLD">$404.92</p>
         <p class="mkt-quote-chg">+0.99%</p>
-        <p class="mkt-quote-sym">GLD · day range 403.22–407.36</p>
+        <p class="mkt-quote-sym">1-year range 305.19–509.70</p>
+        <p class="mkt-quote-sym">GLD ETF · Finnhub</p>
       </article>
-      <article class="mkt-quote down">
+      <article class="mkt-quote up">
         <h3 class="mkt-quote-name">Oil</h3>
-        <p class="mkt-quote-px" data-fill="q-USO">$127.30</p>
-        <p class="mkt-quote-chg">-0.24%</p>
-        <p class="mkt-quote-sym">USO · day range 125.86–127.83</p>
+        <p class="mkt-quote-px" data-fill="q-WTI">$84.77</p>
+        <p class="mkt-quote-chg">+1.21%</p>
+        <p class="mkt-quote-sym">1-year range 55.44–114.58</p>
+        <p class="mkt-quote-sym">WTI spot, per barrel · FRED, Aug 11</p>
       </article>
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Copper</h3>
         <p class="mkt-quote-px" data-fill="q-CPER">$40.02</p>
-        <p class="mkt-quote-chg">-0.50%</p>
-        <p class="mkt-quote-sym">CPER · day range 40.02–40.41</p>
+        <p class="mkt-quote-chg">−0.50%</p>
+        <p class="mkt-quote-sym">1-year range 27.37–40.97</p>
+        <p class="mkt-quote-sym">CPER ETF · Finnhub</p>
       </article>
       <article class="mkt-quote down">
         <h3 class="mkt-quote-name">Bitcoin</h3>
-        <p class="mkt-quote-px" data-fill="q-IBIT">$35.89</p>
-        <p class="mkt-quote-chg">-0.14%</p>
-        <p class="mkt-quote-sym">IBIT · day range 35.80–36.26</p>
+        <p class="mkt-quote-px" data-fill="q-BTC">$63,528</p>
+        <p class="mkt-quote-chg">−0.54%</p>
+        <p class="mkt-quote-sym">1-year range 58,586–124,720</p>
+        <p class="mkt-quote-sym">BTC/USD, Coinbase · FRED, Aug 11</p>
       </article>
 </div>
     <!-- MKT:techQuotes:END -->
@@ -1089,7 +1131,7 @@
     </p>
     <p>
       These are US-listed ETFs rather than the indexes themselves &mdash; SPY, not the S&amp;P
-      500; EWJ, not the Nikkei. Two reasons. The index is a number you cannot buy, and the <a class="lingo-x" href="learn-the-lingo/etf.html">ETF</a>
+      500; EWJ, not the Nikkei. Two reasons. The index is a number you cannot buy, and the ETF
       is the thing a US reader would actually own. More importantly for a page about comparing
       markets, every one of these is priced in dollars, so the comparison is like-for-like. A
       chart of the Nikkei in yen can rise while a dollar investor in Japan loses money; EWJ
@@ -1101,8 +1143,11 @@
          widget tier — they render a UFO and "this symbol is only available on
          TradingView", which is what these buttons did on the first pass. Every
          symbol below is an ordinary US-listed ETF, which the free tier does
-         carry, and which is also what a US reader could actually buy. Same
-         reasoning as the Today's Tape block on markets.html.
+         carry, and which is also what a US reader could actually buy. This is
+         the same constraint that keeps Russell 2000, gold and copper as ETFs on
+         the tape — see the note in tools/inject-market-data.mjs. The rest of
+         the tape moved to the real series on 2026-08-12 because FRED publishes
+         those; nothing free publishes a Russell or a gold benchmark.
          Before changing any of these, check it in symbol-check.html. -->
     <div class="tec-idx-groups" role="group" aria-label="Choose an index">
       <div class="tec-idx-row">
@@ -1796,7 +1841,7 @@
   if (start) select(start);
 })();
 </script>
-<script src="app.js?v=20260812-1701"></script>
+<script src="app.js?v=20260812-1743"></script>
 <script>
 HFY.initNavOnly();
 </script>
