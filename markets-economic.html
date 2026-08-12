@@ -104,7 +104,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260812-0135">
+<link rel="stylesheet" href="styles.css?v=20260812-0153">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -1459,6 +1459,7 @@
     <div class="eco-widget">
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
         {
           "colorTheme": "dark", "isTransparent": true, "width": "100%", "height": "520",
@@ -1652,10 +1653,13 @@
         <a href="index.html">Home</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
+        <a href="about.html#how-this-is-funded">How This Is Funded</a>
         <a href="work-with-us.html">Work With Us</a>
         <a href="contact.html">Contact</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
+        <a href="dmca.html">DMCA &amp; Copyright</a>
+        <a href="privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
       </div>
     </div>
 
@@ -1683,6 +1687,10 @@
   <div class="hfy-ft-bottom">
     <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
     
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
   </div>
 
   <div class="hfy-ft-disc">
@@ -1792,6 +1800,12 @@
     sc.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
     sc.text = JSON.stringify(cfg);
     box.appendChild(sc);
+    /* TradingView's free-widget terms require their branding to stay visible.
+       These widgets are built in JS, so the attribution is appended here. Do not remove. */
+    var cr = document.createElement('div');
+    cr.className = 'tradingview-widget-copyright';
+    cr.innerHTML = '<a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a>';
+    box.appendChild(cr);
     host.appendChild(box);
   }
 
@@ -1811,7 +1825,7 @@
   draw();
 })();
 </script>
-<script src="app.js?v=20260812-0135"></script>
+<script src="app.js?v=20260812-0153"></script>
 <script>
 HFY.initNavOnly();
 </script>

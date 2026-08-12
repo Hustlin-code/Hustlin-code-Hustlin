@@ -752,7 +752,7 @@
     $('cyh-rwRmdAge').textContent = 'Age ' + startAge;
     $('cyh-rwRmd1').textContent   = plan.firstRmd > 0 ? money(plan.firstRmd) : EMDASH;
 
-    /* Colour the headline stat by whether the plan actually reaches the
+    /* Color the headline stat by whether the plan actually reaches the
        age it is planned to. Same class vocabulary as every other
        calculator here: gold = the answer, pos = good, neg = trouble. */
     var lasts = !plan.outAt || plan.outAt > toAge;

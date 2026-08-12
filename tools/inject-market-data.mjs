@@ -333,7 +333,11 @@ ${rows.map(r => {
 
 /* Headlines. Summaries are truncated hard: the point is to send the reader to
    the source, not to republish someone else's article on your domain. Reposting
-   full summaries at scale is both a copyright question and a thin-content one. */
+   full summaries at scale is both a copyright question and a thin-content one.
+   90 characters is roughly fifteen words — enough to say what the story is about,
+   short enough that it is a pointer rather than a substitute for the article.
+   The 2026-08-11 IP scan flagged the previous 150-character clip as reproducing a
+   news organisation's editorial copy. Do not raise it back. */
 const clip = (t, n) => {
   const s = String(t ?? '').replace(/\s+/g, ' ').trim()
   return s.length <= n ? s : s.slice(0, s.lastIndexOf(' ', n)) + '…'
@@ -439,7 +443,7 @@ ${mixSources(readable, NEWS_COUNT).map(n => {
   // only. An empty <span> still claims its 12px/16px margins, so the card gets
   // a mystery gap between headline and source. Omit the element entirely and
   // let the flex column close up.
-  const sum = clip(n.summary, 150)
+  const sum = clip(n.summary, 90)
   return `      <li class="mkt-news-item">
         <a class="mkt-news-card" href="${esc(n.url)}" target="_blank" rel="noopener nofollow">
           <span class="mkt-news-hd">${esc(clip(n.headline, 110))}</span>${sum ? `

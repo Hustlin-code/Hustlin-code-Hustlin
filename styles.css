@@ -3108,3 +3108,20 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .rec-table{font-variant-numeric:tabular-nums}
 .rec-table .rec-num{font-family:var(--f-mono);font-variant-numeric:tabular-nums slashed-zero;letter-spacing:-.01em}
 .rec-table .rec-yr{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.94em}
+
+/* ─── TRADINGVIEW ATTRIBUTION ─────────────────────────────────────
+   TradingView gives the widgets away free on one condition: their
+   branding stays visible. Hiding this block — display:none,
+   visibility:hidden, opacity:0, off-screen — is how sites breach
+   those terms. Restyle it if you like. Do not suppress it. */
+/* The attribution line is a real box in the flow, so a container pinned to a
+   fixed height (height:600px on the card, height:100% on the container) would
+   otherwise overflow by the height of this line. Column flex lets the widget
+   take the remaining space instead of fighting for it. */
+.tradingview-widget-container{display:flex;flex-direction:column}
+.tradingview-widget-container__widget{flex:1 1 auto;min-height:0}
+.tradingview-widget-copyright{flex:0 0 auto}
+.tradingview-widget-copyright{font-size:11px;line-height:1.5;text-align:center;padding:5px 0 2px;font-family:var(--f-body,"Plus Jakarta Sans",sans-serif)}
+.tradingview-widget-copyright a{color:#8D887C;text-decoration:none}
+.tradingview-widget-copyright a:hover{color:#F5C520}
+.tradingview-widget-copyright .blue-text{color:#8D887C}
