@@ -65,7 +65,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260812-1843">
+<link rel="stylesheet" href="styles.css?v=20260812-1911">
 <style>
   #hfy-lesson-styles:empty { display: none }
   .hfy-learn-state {
@@ -511,26 +511,26 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=20260812-1843"></script>
+<script src="app.js?v=20260812-1911"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=20260812-1843"></script>
-<script src="auth.js?v=20260812-1843"></script>
-<script src="course-access.js?v=20260812-1843"></script>
+<script src="supabase-config.js?v=20260812-1911"></script>
+<script src="auth.js?v=20260812-1911"></script>
+<script src="course-access.js?v=20260812-1911"></script>
 <!-- Module navigation, Next Module / Next Stage buttons, and the call to
      HFY.restoreStage() that arms the wins system. Every stage page loads this
      directly; the viewer must too, because the course-content Edge Function
      strips <script src> tags out of the lesson before sending it. Loaded
      BEFORE learn.js so HFY_COURSE_SHELL.init exists by the time the lesson
      lands; it self-suppresses its DOM-ready init on this page and waits. -->
-<script src="course-shell.js?v=20260812-1843"></script>
+<script src="course-shell.js?v=20260812-1911"></script>
 <!-- Share bar + stage-completion outro (congratulations, account prompt,
      course cross-sell). Same reason as course-shell.js above: the lesson's
      own <script src> tags are stripped, so the viewer has to carry this
      itself. It self-suppresses on DOM ready here and waits for learn.js to
      call HFY_STAGE_OUTRO.init() once the lesson has actually landed. -->
-<script src="stage-outro.js?v=20260812-1843"></script>
-<script src="learn.js?v=20260812-1843"></script>
+<script src="stage-outro.js?v=20260812-1911"></script>
+<script src="learn.js?v=20260812-1911"></script>
 <!-- Wins system. After app.js (completion hooks) and auth.js (account sync). -->
-<script src="rewards.js?v=20260812-1843"></script>
+<script src="rewards.js?v=20260812-1911"></script>
 </body>
 </html>

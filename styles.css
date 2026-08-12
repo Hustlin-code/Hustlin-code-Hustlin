@@ -193,8 +193,8 @@ a{text-decoration:none}
 
    :has() makes this automatic rather than a class somebody has to remember
    to add. A hero with a second child gets the two-up grid; a hero without
-   one becomes a single 900px column and centres. The next guide inherits
-   the right behaviour by existing, which is the entire point of doing it
+   one becomes a single 900px column and centers. The next guide inherits
+   the right behavior by existing, which is the entire point of doing it
    this way instead of adding .hero-wrap--solo. */
 .hero-wrap{
   max-width:1200px;margin:0 auto;width:100%;
@@ -1989,7 +1989,7 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   92%, 100% { transform: translateX(160%); }
 }
 
-/* sparkle dashes, scaling about the orb centre */
+/* sparkle dashes, scaling about the orb center */
 .hfy-rays {
   left: 1.2752%; top: 6.6138%;
   width: 28.5866%; height: 18.5185%;
@@ -2582,13 +2582,13 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
    The completion panel is the one screen where the site asks for money, and
    on a phone it was spending most of its height before getting there. The
    crown alone ran ~330px: 24px of padding, a two-line 24px headline, a
-   six-line lede at 1.7 line-height, and a pill — all centred, which is
+   six-line lede at 1.7 line-height, and a pill — all centerd, which is
    fine for a headline and tiring for a paragraph.
 
    Centred body copy also costs more than it looks. Both edges are ragged,
    so the eye has to find the start of every line, and at ~34 characters per
    line on a 375px screen that is a lot of finding. The headline and the
-   stamp stay centred because they are single statements; the lede goes
+   stamp stay centerd because they are single statements; the lede goes
    left because it is prose. */
 @media(max-width:600px){
   .hfy-outro-crown{padding:20px 16px}
@@ -2870,7 +2870,7 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .mkt-dd-pin b{position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);
   padding:3px 8px;border-radius:7px;background:#fff;color:#111;white-space:nowrap;
   font-family:'Space Mono',monospace;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
-/* At either end of the scale a centred label hangs outside the card and gets
+/* At either end of the scale a centerd label hangs outside the card and gets
    clipped — which is exactly where the pin sits most of the time, because the
    index spends most of its life near its high. The marker stays on its true
    position; only the label swings inboard. */
@@ -3089,6 +3089,35 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .nav-cta-btn{display:none}
 }
 
+/* NAV CENTERING — the menu was 30px right of true center. 2026-08-12.
+   .nav is justify-content:space-between over three items: the logo, the
+   .nav-menu, and the CTA button. space-between centers the middle item in
+   the space LEFT OVER, not in the bar, so unequal rails push it off center
+   by half the difference. The logo renders 238.8px wide (1423x572 art pinned
+   to height:96px) and the CTA image is 178px, a 61px gap — the menu sat 30px
+   to the right on every stamped page, which is why it read as "a little off"
+   on the landing page and identically off on Markets.
+
+   Fix: make the two rails the same width and right-align the CTA art inside
+   its rail. The menu then lands on the bar's true center, in flow, with no
+   absolute positioning and nothing to overlap.
+
+   --nav-rail IS THE LOGO'S RENDERED WIDTH: 96 * 1423 / 572 = 238.8px. If the
+   logo art or the 96px height in .nav-home img changes, recompute it here or
+   the menu goes off-center again by exactly the amount you were off.
+
+   MEASURED, not guessed (headless Chromium, index.html, this stylesheet):
+   before, the menu center sat 30.5px right of the bar center at 1101px and at
+   1920px alike; after, the offset is 0.0px at 1200/1280/1440/1920. Between
+   1101 and 1139 the bar runs out of room and the flex gap absorbs the rest,
+   so the offset there degrades to 15px at 1101px - still half of what it was,
+   with no overflow and no clipped link. That is why the query starts at the
+   same 1101px the desktop nav does rather than at a safer round number. */
+@media(min-width:1101px){
+  .nav{--nav-rail:239px}
+  .nav-cta-btn{flex:0 0 var(--nav-rail);display:flex;justify-content:flex-end}
+}
+
 /* Stage rows in the Learn panel carry their own button art. The image is
    alt="" and aria-hidden: the <b> beside it already names the stage, so a
    screen reader announcing "Survive" twice would be noise, not information. */
@@ -3166,7 +3195,7 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 /* 8px of vertical padding left these ~33px tall — under the 44px floor, at
    the bottom of a long page where a mis-tap reads as "nothing happened".
    Full width under 420px because they wrap one-per-line anyway there, and a
-   half-width pill beside empty space looks broken rather than centred. */
+   half-width pill beside empty space looks broken rather than centerd. */
 @media(max-width:600px){
   .fl-share{margin-top:26px;padding-top:20px}
   .fl-share-lead{font-size:.86rem;line-height:1.5}
@@ -3177,7 +3206,7 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 
 /* ── STAGE 4 "VERIFIED RECORD" TABLE ───────────────────────────────────────
    The master is styled entirely inline, so these rules only add properties
-   the inline styles do not set — font-family and numeric behaviour. No
+   the inline styles do not set — font-family and numeric behavior. No
    specificity fight, and no need to unpick a table of hand-written style
    attributes to fix its typography.
 
