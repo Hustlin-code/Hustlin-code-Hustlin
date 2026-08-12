@@ -32,9 +32,17 @@
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
       "wordCount": 1400,
-      "author":    { "@id": "https://hustlin.org/#organization" },
+      "author":    { "@id": "https://hustlin.org/about.html#author" },
       "publisher": { "@id": "https://hustlin.org/#organization" },
       "mainEntityOfPage": "https://hustlin.org/blog/chexsystems-explained.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://hustlin.org/about.html#author",
+      "name": "Adam",
+      "url": "https://hustlin.org/about.html#author",
+      "jobTitle": "Founder and Writer",
+      "worksFor": { "@id": "https://hustlin.org/#organization" }
     },
     {
       "@type": "Organization",
@@ -98,8 +106,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260812-0251">
-<link rel="stylesheet" href="post.css?v=20260812-0251">
+<link rel="stylesheet" href="../styles.css?v=20260812-0403">
+<link rel="stylesheet" href="post.css?v=20260812-0403">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <!-- POST-HEAD:END -->
@@ -129,6 +137,14 @@
       <div class="eyebrow"><span>&#9679;</span> Banking</div>
       <h1 class="hero-h1">Denied a Bank Account?<br><em>It's Probably ChexSystems.</em></h1>
       <p class="hero-sub">Nobody tells you this exists until it's already cost you an account. Here's what it is, how to read your file, how to fight what's wrong on it, and how to get banked this week regardless.</p>
+      <!-- Byline. Identical on every post because every post has the same author.
+           The machine-readable half is the Person @id that
+           tools/stamp-post-author.mjs writes into each post's Article JSON-LD.
+           Colors are hardcoded: this hero is a dark surface and the light-surface
+           tokens are wrong here. Do not convert to CSS variables. -->
+      <p class="post-byline" style="margin:14px 0 0;font-size:.82rem;line-height:1.5;color:#B8B8B8">
+        By <a href="../about.html#author" rel="author" style="color:#F0C030;text-decoration:none;font-weight:600">Adam</a><span aria-hidden="true" style="color:#5A5A5A;margin:0 7px">&middot;</span>Founder, Hustlin&rsquo;
+      </p>
     </div>
   </div>
 </section>
@@ -301,7 +317,7 @@
     </p>
     <p>
       On disability benefits? The <a href="../disability-wealth-guide.html">Disability Wealth
-      Guide</a> covers saving and investing without losing SSI or SSDI.
+      Guide</a> covers saving and investing without losing <a class="lingo-x" href="../learn-the-lingo/ssi.html">SSI</a> or SSDI.
     </p>
     <p>
       Just out? <a href="../starting-over-after-prison.html">Starting Over After Prison</a>
@@ -331,7 +347,7 @@
       b.dataset.shareSub  = "Free to read, no account. Send it to one person.";
     })();
   </script>
-  <script src="../stage-outro.js?v=20260812-0251" defer></script>
+  <script src="../stage-outro.js?v=20260812-0403" defer></script>
   <!-- SHARE:END -->
   <div id="hfyShareMount"></div>
 
@@ -416,6 +432,6 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="../app.js?v=20260812-0251"></script>
+<script src="../app.js?v=20260812-0403"></script>
 </body>
 </html>

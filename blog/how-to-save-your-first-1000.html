@@ -28,9 +28,17 @@
       "image": "https://hustlin.org/assets/social-preview.png",
       "datePublished": "2026-08-08", "dateModified": "2026-08-08",
       "inLanguage": "en-US", "isAccessibleForFree": true,
-      "author": { "@id": "https://hustlin.org/#organization" },
+      "author": { "@id": "https://hustlin.org/about.html#author" },
       "publisher": { "@id": "https://hustlin.org/#organization" },
       "mainEntityOfPage": "https://hustlin.org/blog/how-to-save-your-first-1000.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://hustlin.org/about.html#author",
+      "name": "Adam",
+      "url": "https://hustlin.org/about.html#author",
+      "jobTitle": "Founder and Writer",
+      "worksFor": { "@id": "https://hustlin.org/#organization" }
     },
     {
       "@type": "Organization", "@id": "https://hustlin.org/#organization",
@@ -86,8 +94,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260812-0251">
-<link rel="stylesheet" href="post.css?v=20260812-0251">
+<link rel="stylesheet" href="../styles.css?v=20260812-0403">
+<link rel="stylesheet" href="post.css?v=20260812-0403">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <!-- POST-HEAD:END -->
@@ -116,6 +124,14 @@
       <div class="eyebrow"><span>&#9679;</span> Saving</div>
       <h1 class="hero-h1">How to Save<br><em>Your First $1,000.</em></h1>
       <p class="hero-sub">The hardest thousand dollars you'll ever save, and the most valuable. Where to find it on a tight income, and where to put it so it survives.</p>
+      <!-- Byline. Identical on every post because every post has the same author.
+           The machine-readable half is the Person @id that
+           tools/stamp-post-author.mjs writes into each post's Article JSON-LD.
+           Colors are hardcoded: this hero is a dark surface and the light-surface
+           tokens are wrong here. Do not convert to CSS variables. -->
+      <p class="post-byline" style="margin:14px 0 0;font-size:.82rem;line-height:1.5;color:#B8B8B8">
+        By <a href="../about.html#author" rel="author" style="color:#F0C030;text-decoration:none;font-weight:600">Adam</a><span aria-hidden="true" style="color:#5A5A5A;margin:0 7px">&middot;</span>Founder, Hustlin&rsquo;
+      </p>
     </div>
   </div>
 </section>
@@ -277,7 +293,7 @@
   <li><strong>A separate account, at a different institution.</strong> If it shows in the same app as your spending money, it reads as spending money.</li>
   <li><strong>No debit card attached.</strong> Not a discipline test &mdash; just remove the option. If it can't be tapped at a register, it won't be.</li>
   <li><strong>A high-yield savings account.</strong> Online banks pay meaningfully more than a big-bank savings account. It's free money on money you were holding anyway. Confirm it's FDIC or NCUA insured.</li>
-  <li><strong>Liquid. Always.</strong> No CDs, no investing, no crypto. This money's only job is to be available on a bad Tuesday. Chasing return on an emergency fund defeats its purpose.</li>
+  <li><strong>Liquid. Always.</strong> No CDs, no investing, no crypto. This money's only job is to be available on a bad Tuesday. Chasing return on an <a class="lingo-x" href="../learn-the-lingo/emergency-fund.html">emergency fund</a> defeats its purpose.</li>
 </ol>
 
 <p>
@@ -360,7 +376,7 @@
       b.dataset.shareSub  = "Free to read, no account. Send it to one person.";
     })();
   </script>
-  <script src="../stage-outro.js?v=20260812-0251" defer></script>
+  <script src="../stage-outro.js?v=20260812-0403" defer></script>
   <!-- SHARE:END -->
   <div id="hfyShareMount"></div>
 
@@ -445,6 +461,6 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="../app.js?v=20260812-0251"></script>
+<script src="../app.js?v=20260812-0403"></script>
 </body>
 </html>

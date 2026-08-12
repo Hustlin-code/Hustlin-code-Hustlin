@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Basis: What It Is and How to Find It | Learn the Lingo</title>
+<meta name="description" content="Cost basis is what you paid, adjusted. Reinvested dividends, splits and depreciation move it &mdash; and forgetting them means paying tax twice. Worked examples.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/cost-basis.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/cost-basis.html">
+<meta property="og:title" content="Cost Basis &mdash; Learn the Lingo">
+<meta property="og:description" content="The number that decides your tax bill when you sell &mdash; how it moves, why reinvested dividends make people pay tax twice, and how to rebuild a basis you never wrote down.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cost Basis &mdash; Learn the Lingo">
+<meta name="twitter:description" content="The number that decides your tax bill when you sell &mdash; how it moves, why reinvested dividends make people pay tax twice, and how to rebuild a basis you never wrote down.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/cost-basis.html#term",
+      "name": "Cost Basis",
+      "alternateName": ["Cost Basis","Adjusted Basis","Tax Basis","Adjusted Cost Basis","Basis of Assets"],
+      "description": "Cost basis is the amount you have invested in an asset for tax purposes. It starts as what the asset cost you under 26 U.S.C. section 1012, then moves up for things like commissions, reinvested dividends and capital improvements, and down for things like return-of-capital distributions and depreciation claimed. Because taxable gain is sale proceeds minus adjusted basis under section 1001, the basis number decides what a sale actually costs in tax.",
+      "url": "https://hustlin.org/learn-the-lingo/cost-basis.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Cost Basis: What Moves the Number, and How to Rebuild One You Lost",
+      "description": "A plain-language explanation of cost basis and adjusted basis, with worked dollar examples covering reinvested dividends, first-in-first-out versus specific identification of tax lots, and a rental property's improvements and depreciation. Covers the covered-security phase-in dates that leave old holdings unreported, the settlement-date deadline for choosing which shares you sold, wash sale basis adjustments, carryover basis on gifts and divorce transfers, and a practical order for reconstructing records you no longer have.",
+      "url": "https://hustlin.org/learn-the-lingo/cost-basis.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/cost-basis.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/cost-basis.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Cost Basis", "item": "https://hustlin.org/learn-the-lingo/cost-basis.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is cost basis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cost basis is the amount you have invested in an asset for tax purposes. It starts as what the asset cost you, which is the rule in 26 U.S.C. section 1012, and includes buying costs like commissions, recording fees and transfer taxes. It then gets adjusted over time. Taxable gain is your sale proceeds minus your adjusted basis under section 1001, so basis is the number that decides how much tax a sale actually costs. A basis you cannot substantiate defaults in practice to zero, which means the whole sale price is treated as gain." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do reinvested dividends increase your cost basis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and this is the most expensive thing people get wrong. Every reinvested dividend is a new purchase with its own basis and its own holding period. You already paid income tax on that dividend in the year it was paid, even though you never saw the cash. If you leave those reinvestments out of basis when you sell, you pay tax on the same dollars a second time. On a holding with $12,000 of reinvested dividends, ignoring them costs about $1,800 in extra federal tax at a 15% long-term rate." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is the cost basis box blank on my 1099-B?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because the holding is a noncovered security. Section 6045(g) requires brokers to report your adjusted basis, but only for covered securities, and 26 CFR section 1.6045-1(a)(15) phased that in by date: stock acquired on or after 1 January 2011, mutual fund and dividend reinvestment shares on or after 1 January 2012, most debt and options on or after 1 January 2014, more complex debt on or after 1 January 2016. Anything older is noncovered, box 5 is checked, and the instructions relieve the broker of completing box 1e at all." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I choose which shares to sell?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You tell the broker before settlement. Without an identification, 26 CFR section 1.1012-1(c)(1) charges the sale against the earliest lot you acquired, which is first-in first-out. To pick a specific lot instead, paragraph (c)(8) requires the identification no later than the earlier of settlement or the settlement deadline in Rule 15c6-1, currently one business day after the trade. A standing order counts. You cannot make the choice on your tax return the following spring, because by then it has already been made for you." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is my basis in property I inherited or was given?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They are opposite rules. Inherited property gets a step-up in basis under section 1014 to its fair market value on the date of death, so the previous owner's lifetime of gain is never taxed. Gifted property carries over the giver's basis under section 1015, and the entire built-up gain travels with it. A gift made when the asset is worth less than the giver paid has two bases: the giver's basis for measuring gain, and the lower value at the date of gift for measuring loss. Divorce transfers are a plain carryover under section 1041." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find the cost basis of stock I bought decades ago?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Start by asking the brokerage, fund company or transfer agent for the full transaction history including every dividend reinvestment, since internal records often go back further than the years reported on tax forms. Then use your old returns: the IRS provides a Wage and Income Transcript for the current and nine prior tax years. If you know purchase dates, historical prices are recoverable from investor relations pages or a library archive. For splits, spin-offs and mergers, search the issuer's site for Form 8937, which 26 CFR section 1.6045B-1 lets companies publish on their website." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I can't prove my cost basis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The practical default is a basis of zero, which means the entire sale price is treated as taxable gain. There is no statute that says basis is zero; it is what happens when you cannot substantiate a number, and section 6001 puts the recordkeeping obligation on the taxpayer. IRS Publication 551 states it directly: you must keep accurate records of all items that affect the basis of property. This is the reason to run down records before you sell rather than in April, when the sale is already reported and the choices are gone." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-0403">
+<link rel="stylesheet" href="lingo.css?v=20260812-0403">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Twenty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Cost Basis</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Investing &amp; Taxes</div>
+      <h1 class="hero-h1">Cost Basis</h1>
+      <p class="hero-sub">The number that decides how much tax a sale costs you &mdash; and the number almost nobody has written down for the one thing they have held the longest.</p>
+      <p class="gls-aka"><b>Also called:</b> basis &middot; adjusted basis &middot; tax basis &middot; adjusted cost basis &middot; book cost</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from the Internal Revenue Code, the Treasury regulations and IRS Publication 551</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Cost basis is what an asset has cost you, kept up to date. Tax is charged on the difference between that number and what you sell for &mdash; so basis is not a bookkeeping detail, it is the number that sets the bill.</strong></p>
+    <p>It exists because the tax code taxes profit, not proceeds. Sell a $60,000 holding and the government does not want a share of $60,000; it wants a share of the gain, which means somebody has to establish what you put in. For an asset bought last year, the brokerage knows. For a house bought in 2003, a fund you have reinvested dividends in for twenty years, or 400 shares from an employer that no longer exists, the person who has to establish it is you.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Basis starts as cost</b> &mdash; <a href="https://www.law.cornell.edu/uscode/text/26/1012" target="_blank" rel="noopener">26 U.S.C. &sect; 1012</a> is one sentence: the basis of property shall be the cost of such property. Taxable gain is proceeds minus <em>adjusted</em> basis (<a href="https://www.law.cornell.edu/uscode/text/26/1001" target="_blank" rel="noopener">&sect; 1001(a)</a>).</li>
+      <li><b>Every reinvested dividend is a separate purchase with its own basis.</b> You already paid income tax on that dividend the year it was paid. Leave it out of basis and you pay tax on the same dollars a second time.</li>
+      <li><b>Brokers only report basis for &ldquo;covered securities.&rdquo;</b> Stock bought before 1 January 2011, and mutual fund or dividend-reinvestment shares bought before 1 January 2012, are <b>noncovered</b> &mdash; box 1e on your Form 1099-B can legally be blank (<a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR31749dec6d4756f/section-1.6045-1" target="_blank" rel="noopener">26 CFR &sect; 1.6045-1(a)(15)</a>).</li>
+      <li><b>The default is first-in, first-out</b>, which sells your cheapest, oldest shares first. Choosing specific lots instead must be done <b>no later than the earlier of settlement or the settlement deadline set by Rule 15c6-1</b> &mdash; currently one business day after the trade (26 CFR &sect; 1.1012-1(c)(8)). <b>You cannot do it at tax time.</b></li>
+      <li><b>Depreciation reduces basis whether you claimed it or not.</b> <a href="https://www.law.cornell.edu/uscode/text/26/1016" target="_blank" rel="noopener">&sect; 1016(a)(2)</a> adjusts for the amount allowed <em>or allowable</em>, whichever is greater. A landlord who skipped depreciation still takes the reduction on sale.</li>
+      <li><b>A disallowed wash sale loss is not gone, it is stored in basis.</b> Under <a href="https://www.law.cornell.edu/uscode/text/26/1091" target="_blank" rel="noopener">&sect; 1091(d)</a> it attaches to the replacement shares &mdash; but your broker only tracks it inside one account, so a repurchase in a different account is yours to catch.</li>
+      <li><b>Inheriting resets basis; a gift does not.</b> Death gives a <a href="step-up-in-basis.html">step-up in basis</a> to date-of-death value (&sect; 1014). A lifetime gift hands over the giver's old basis (&sect; 1015), and so does a divorce transfer (&sect; 1041(b)(2)).</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What cost basis actually is</h2>
+
+  <p>A man who worked twenty-two years at the same plant owns 400 shares of the company, bought a little at a time out of his paycheck. His transmission goes. He sells 100 shares for $9,140 and puts the money into the truck.</p><p>In February a Form 1099-B arrives. It reports the $9,140. The box marked <em>cost or other basis</em> is empty &mdash; the shares came out of a plan at an employer that has since been bought twice, and the brokerage cannot tell him what he paid. Whether he owes nothing on that sale or over a thousand dollars depends on a number he is expected to produce himself, from records he never kept.</p><p>That number is his <b>cost basis</b>.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>Basis is what an asset has cost you, kept up to date. Tax is charged on the gap between that number and your sale price &mdash; so a basis you can't prove is money you don't get back.</p></div><p>The statute is short. <a href="https://www.law.cornell.edu/uscode/text/26/1012" target="_blank" rel="noopener">26 U.S.C. &sect; 1012(a)</a> says <em>&ldquo;the basis of property shall be the cost of such property.&rdquo;</em> The other half of the machine is <a href="https://www.law.cornell.edu/uscode/text/26/1001" target="_blank" rel="noopener">&sect; 1001(a)</a>, which defines gain as <em>&ldquo;the excess of the amount realized therefrom over the adjusted basis.&rdquo;</em></p><div class="gls-formula"><code>Sale proceeds &minus; adjusted basis = taxable gain</code></div><p>Three things follow, and all three surprise people.</p><p><b>Basis is not what the asset is worth.</b> The balance on your statement is market value. Basis is history, and the two only match on the day you buy.</p><p><b>Basis includes the friction of buying.</b> <a href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener">IRS Publication 551</a>, the reader-facing authority on all of this, adds sales tax, freight, installation, excise taxes and, for real property, <em>&ldquo;abstract fees, legal fees, recording fees, surveys, transfer taxes, owner's title insurance.&rdquo;</em> Commissions go in too. Every dollar you correctly add is a dollar you don't pay tax on later.</p><p><b>Basis is the taxpayer's number, not the broker's.</b> A brokerage reports what it knows, and there are large, legal categories of things it does not know. That gap is most of this page.</p>
+
+  <h2 id="adjusted">Why the word adjusted carries the whole thing</h2>
+
+  <p>Nearly every expensive mistake with basis is the same one: treating the purchase price as final. It is a starting point, and <a href="https://www.law.cornell.edu/uscode/text/26/1016" target="_blank" rel="noopener">&sect; 1016</a> keeps moving it, adjusting for <em>&ldquo;expenditures, receipts, losses, or other items, properly chargeable to capital account&rdquo;</em> and for <em>&ldquo;exhaustion, wear and tear, obsolescence, amortization, and depletion.&rdquo;</em></p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Events that move cost basis up or down"><table class="gls-tab"><thead><tr><th>What happened</th><th>Basis</th><th>Authority</th></tr></thead><tbody><tr><td>Commissions, transfer taxes, recording fees, survey, owner's title insurance</td><td>Up</td><td>&sect; 1012 &middot; Pub 551</td></tr><tr><td>A dividend reinvested into more shares</td><td>Up</td><td>&sect; 1012</td></tr><tr><td>A capital improvement to real property</td><td>Up</td><td>&sect; 1016(a)(1)</td></tr><tr><td>A wash sale loss the IRS disallowed</td><td>Up, on the replacement shares</td><td>&sect; 1091(d)</td></tr><tr><td>A nondividend (return of capital) distribution</td><td>Down</td><td>&sect; 301(c)(2)</td></tr><tr><td>Depreciation allowed <em>or allowable</em></td><td>Down</td><td>&sect; 1016(a)(2)</td></tr><tr><td>A casualty loss you deducted, or insurance money you received</td><td>Down</td><td>Pub 551</td></tr><tr><td>A stock split</td><td>Total unchanged, spread over more shares</td><td>Pub 550</td></tr></tbody></table></div><h3>Return of capital</h3><p>Some distributions are not dividends at all &mdash; they are the company handing back part of your investment, and they appear in box 3 of a Form 1099-DIV. <a href="https://www.law.cornell.edu/uscode/text/26/301" target="_blank" rel="noopener">&sect; 301(c)(2)</a> says that portion <em>&ldquo;shall be applied against and reduce the adjusted basis of the stock.&rdquo;</em> Keep taking them and basis eventually hits zero; after that &sect; 301(c)(3) treats every further dollar as gain from a sale. Real estate investment trusts and pipeline partnerships do it routinely.</p><h3>Splits do nothing and everything</h3><p>A two-for-one split does not change what you invested: if 100 shares cost $4,000, you now hold 200 shares with $4,000 of total basis, $20 a share instead of $40. Report a later sale using the old $40 figure and you have doubled your basis.</p><h3>Wash sales, where the loss goes to hide</h3><p><a href="https://www.law.cornell.edu/uscode/text/26/1091" target="_blank" rel="noopener">&sect; 1091(a)</a> disallows a loss if you bought substantially identical stock within the window <em>&ldquo;beginning 30 days before the date of such sale or disposition and ending 30 days after&rdquo;</em> &mdash; sixty-one days wide, counting the sale date. The loss is not destroyed: &sect; 1091(d) folds it into the basis of the replacement shares, so you recover it when you sell those.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>The <a href="https://www.irs.gov/instructions/i1099b" target="_blank" rel="noopener">Form 1099-B instructions</a> require a broker to flag a disallowed loss in box 1g and to <em>&ldquo;increase the adjusted basis of the acquired securities by the amount of the disallowed loss&rdquo;</em> &mdash; but only where <em>&ldquo;both the sale and purchase transactions occur in the same account with respect to covered securities.&rdquo;</em> Sell at a loss in one brokerage and rebuy in another, or in an IRA, and no form will catch it. The rule still applies to you. The tracking doesn't.</p></div>
+
+  <h2 id="dividends">Reinvested dividends, and the tax people pay twice</h2>
+
+  <p>This is the single most expensive thing ordinary investors get wrong, and it is expensive precisely because the investor did everything right.</p><p>When a fund pays a dividend and the plan buys more shares with it, two things happen. That dividend is income to you in the year it was paid &mdash; it landed on a Form 1099-DIV and you paid tax on it, even though you never saw the cash. And the money bought shares, which are a <b>purchase</b> with their own basis and holding period, exactly as if you had wired the money in yourself. Skip the second part and you pay tax on the same dollars twice: once as dividend income, then again as capital gain years later.</p><h3>What one year of it looks like</h3><p>Take a holder of 800.0000 shares of an index fund paying $0.29 a share each quarter, reinvested automatically.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="One year of reinvested dividends and the basis each reinvestment creates"><table class="gls-tab"><thead><tr><th>Payment</th><th>Dividend paid</th><th>Share price</th><th>New shares</th><th>Basis of that lot</th></tr></thead><tbody><tr><td>March</td><td>$232.00</td><td>$58.00</td><td>4.0000</td><td>$232.00</td></tr><tr><td>June</td><td>$233.16</td><td>$60.30</td><td>3.8666</td><td>$233.16</td></tr><tr><td>September</td><td>$234.28</td><td>$63.00</td><td>3.7187</td><td>$234.28</td></tr><tr><td>December</td><td>$235.36</td><td>$66.00</td><td>3.5661</td><td>$235.36</td></tr><tr><td><b>Year</b></td><td><b>$934.80</b></td><td>&mdash;</td><td><b>15.1514</b></td><td><b>$934.80</b></td></tr></tbody></table></div><p>Four purchases, four lots, $934.80 of new basis in one year, 15.1514 more shares than she started with. The dividend grows each quarter without the rate changing, because she owns more shares each time &mdash; compounding, as in <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a>. Now stack twenty years of it into a figure nobody is tracking.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>She invested <b>$15,000</b> in 2006 and reinvested every distribution. In 2026 the account is worth <b>$60,000</b> and she sells the whole thing. Her statements, added up across twenty years, show <b>$12,000</b> of dividends reinvested. Her taxable income puts her in the 15% long-term bracket.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Tax on the same sale using the naive basis versus the correct basis"><table class="gls-tab"><thead><tr><th></th><th>Naive basis</th><th>Correct basis</th></tr></thead><tbody><tr><td>Original purchase, 2006</td><td>$15,000</td><td>$15,000</td></tr><tr><td>Dividends reinvested, 2006&ndash;2026</td><td>$0</td><td>$12,000</td></tr><tr><td>Adjusted basis</td><td>$15,000</td><td>$27,000</td></tr><tr><td>Sale proceeds</td><td>$60,000</td><td>$60,000</td></tr><tr><td>Taxable gain</td><td>$45,000</td><td>$33,000</td></tr><tr><td>Federal tax at 15%</td><td><b>$6,750</b></td><td><b>$4,950</b></td></tr></tbody></table></div><p class="gls-result">Filing the naive number costs her <b>$1,800</b> she did not owe &mdash; 15% of the $12,000 she had already been taxed on as dividend income.</p></div><p>The 15% figure is the middle long-term rate. For 2026 the rate is 0% up to $49,450 of taxable income for a single filer and $98,900 for a married couple filing jointly, per <a href="https://www.irs.gov/pub/irs-drop/rp-25-32.pdf" target="_blank" rel="noopener">Rev. Proc. 2025-32</a>, then 15%, then 20% at the top. Which band you land in depends on <em>taxable</em> income, not the size of the gain.</p>
+
+  <h2 id="covered">Covered, noncovered, and the blank box on your 1099-B</h2>
+
+  <p><a href="https://www.law.cornell.edu/uscode/text/26/6045" target="_blank" rel="noopener">26 U.S.C. &sect; 6045(g)</a> is why modern brokerage statements carry a basis figure at all: it requires a broker reporting a sale to also report <em>&ldquo;the customer's adjusted basis in such security&rdquo;</em> and whether the gain is long or short term. Before that rule, nobody reported basis to anyone. It did not apply to everything at once, and the phase-in dates are still the dividing line between a holding your broker can vouch for and one it can't.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Covered security phase-in dates by asset type"><table class="gls-tab"><thead><tr><th>What you own</th><th>Covered if acquired on or after</th></tr></thead><tbody><tr><td>Stock, other than mutual funds and dividend-reinvestment shares</td><td>1 January 2011</td></tr><tr><td>Mutual fund shares, and shares in a dividend reinvestment plan</td><td>1 January 2012</td></tr><tr><td>Most debt instruments &middot; options &middot; securities futures contracts</td><td>1 January 2014</td></tr><tr><td>More complex debt instruments</td><td>1 January 2016</td></tr></tbody></table></div><p>Those dates come from <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR31749dec6d4756f/section-1.6045-1" target="_blank" rel="noopener">26 CFR &sect; 1.6045-1(a)(15)</a>. Paragraph (a)(16) is blunt about the rest: <em>&ldquo;the term noncovered security means any specified security that is not a covered security.&rdquo;</em></p><h3>What noncovered means in practice</h3><p>Box 5 on the Form 1099-B is the flag. The <a href="https://www.irs.gov/instructions/i1099b" target="_blank" rel="noopener">instructions</a> tell the broker: <em>&ldquo;If you check box 5, you do not have to complete boxes 1b, 1e, 1f, 1g, and 2.&rdquo;</em> Box 1e is cost. A legally correct 1099-B on a thirty-year-old holding can report your proceeds and say nothing about what you paid &mdash; and if the broker fills it in as a courtesy, the same instructions relieve it of penalties for getting that figure wrong.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>Box 5 of the Form 1099-B, and the box you check at the top of Form 8949: A or D means basis was reported to the IRS, B or E means it was shown to you but not reported, C or F means noncovered with nothing reported. Anything in C or F is yours to establish and yours to defend.</p></div><h3>The holdings that are usually noncovered</h3><p>Shares from an employer plan at a company that has been acquired since. A dividend reinvestment plan run by a transfer agent rather than a brokerage. Stock received when a mutual insurer went public. Anything transferred in from a broker that has closed. Anything inherited or gifted, where basis depends on facts the broker was never told.</p>
+
+  <h2 id="lots">Which shares did you actually sell</h2>
+
+  <p>If you bought the same fund eleven times over twelve years, you own eleven <b>lots</b>, each with its own basis. Selling 100 shares means deciding which lot they came out of, and the decision changes the tax.</p><h3>The default is first-in, first-out</h3><p><a href="https://www.law.cornell.edu/cfr/text/26/1.1012-1" target="_blank" rel="noopener">26 CFR &sect; 1.1012-1(c)(1)</a> is the fallback: absent adequate identification, shares sold are <em>&ldquo;charged against the earliest lot the taxpayer purchased or acquired.&rdquo;</em> FIFO sells your oldest shares, which after a long holding period are your cheapest, which produces your largest gain. It is the default because it is administrable, not because it is good for you.</p><h3>Specific identification, and the deadline that kills it</h3><p>You can instead name the lot, and the catch is timing. Under &sect; 1.1012-1(c)(8), identification must be made <em>&ldquo;no later than the earlier of the settlement date or the time for settlement required by Rule 15c6-1&rdquo;</em> &mdash; and under <a href="https://www.law.cornell.edu/cfr/text/17/240.15c6-1" target="_blank" rel="noopener">17 CFR &sect; 240.15c6-1</a> that is now one business day after the trade. A standing order with your broker counts as timely.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>You cannot pick lots in April for a sale you made last August. By then the choice has already been made for you, and it was FIFO. Lot selection is a trade-desk decision with a one-day fuse, not a tax-return decision.</p></div><h3>Average cost, for funds only</h3><p>&sect; 1.1012-1(e) allows an average basis method &mdash; total cost divided by total shares &mdash; but only for shares in a regulated investment company (a mutual fund) or a dividend reinvestment plan held with a custodian, by written election, account by account. It is a real simplification for a DRIP with eighty tiny reinvestments in it, and it removes your ability to pick a high-basis lot there.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Three lots of the same fund, 100 shares each: bought 2014 at $40 ($4,000), 2020 at $75 ($7,500), 2024 at $110 ($11,000). Total basis $22,500 across 300 shares. She sells 100 shares in 2026 at $120, for $12,000. All three lots are long-term.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Tax on the same 100-share sale under FIFO, specific identification and average cost"><table class="gls-tab"><thead><tr><th>Method</th><th>Basis used</th><th>Gain</th><th>Tax at 15%</th></tr></thead><tbody><tr><td>FIFO (the default)</td><td>$4,000</td><td>$8,000</td><td>$1,200</td></tr><tr><td>Average cost ($75 a share)</td><td>$7,500</td><td>$4,500</td><td>$675</td></tr><tr><td>Specific ID, the 2024 lot</td><td>$11,000</td><td>$1,000</td><td><b>$150</b></td></tr></tbody></table></div><p class="gls-result">Same shares, same price, same day: <b>$1,200 or $150</b>, decided by an instruction given before settlement.</p></div><p>One honest caveat: selling the high-basis lot does not erase the gain, it leaves it in the shares you kept. A trade-off, not a free win &mdash; with one exception, covered next.</p>
+
+  <h2 id="transfers">Basis when you didn't buy it: death, gifts and divorce</h2>
+
+  <p>Property arrives in people's hands without being bought all the time. The code has a different basis rule for each route.</p><h3>Inherited: the basis resets</h3><p>&sect; 1014 replaces the basis of inherited property with its fair market value on the date of death, so the gain built up over the previous owner's lifetime is never taxed by anyone. That is the <a href="step-up-in-basis.html">step-up in basis</a> &mdash; automatic, no minimum estate size, and usually the largest single tax break an ordinary family ever touches. It also runs downward: an asset worth less at death than it cost takes the lower basis, and the loss is gone.</p><h3>Gifted: the basis comes with it</h3><p><a href="https://www.law.cornell.edu/uscode/text/26/1015" target="_blank" rel="noopener">&sect; 1015(a)</a> is the opposite rule: on a gift, <em>&ldquo;the basis shall be the same as it would be in the hands of the donor.&rdquo;</em> A carryover. The asset moves and the entire built-up gain moves with it.</p><p>A second half of &sect; 1015(a) applies when the gifted asset was already underwater. If the donor's basis <em>&ldquo;is greater than the fair market value of the property at the time of the gift, then for the purpose of determining loss the basis shall be such fair market value.&rdquo;</em> Two bases, and a dead zone between them:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Dual basis on a gift made at a loss"><table class="gls-tab"><thead><tr><th>Gift: donor's basis $10,000, worth $6,000 that day</th><th>Result</th></tr></thead><tbody><tr><td>You sell for $12,000</td><td>$2,000 gain (use the $10,000)</td></tr><tr><td>You sell for $4,000</td><td>$2,000 loss (use the $6,000)</td></tr><tr><td>You sell for $8,000</td><td><b>No gain and no loss</b></td></tr></tbody></table></div><h3>Divorce and transfers between spouses</h3><p><a href="https://www.law.cornell.edu/uscode/text/26/1041" target="_blank" rel="noopener">&sect; 1041</a> says <em>&ldquo;no gain or loss shall be recognized&rdquo;</em> on a transfer to a spouse, or to a former spouse if the transfer is incident to the divorce &mdash; and (b)(2) sets the recipient's basis at <em>&ldquo;the adjusted basis of the transferor.&rdquo;</em> Plain carryover, with none of &sect; 1015's relief for a loss.</p><p>The consequence belongs in every settlement conversation and is missing from most. <b>$100,000 of a brokerage account with a $20,000 basis is not worth $100,000 of cash.</b> Sold at a 15% rate the account nets about $88,000; the cash nets $100,000. More on joint assets in the <a href="../recovering-from-divorce.html">divorce guide</a>, and on survivor timing in the <a href="../death-of-a-spouse.html">death of a spouse guide</a>.</p><h3>Where basis stops mattering</h3><p>Inside a retirement account none of this runs. Growth in a traditional IRA or 401(k) is never a capital gain, and in a <a href="roth-ira.html">Roth IRA</a> qualified withdrawals aren't taxed at all. Roth accounts track contributions for withdrawal ordering &mdash; sometimes called basis, but a different concept from this one.</p>
+
+  <h2 id="property">Real property: improvements up, depreciation down</h2>
+
+  <p>A house is where basis gets built over decades, and where the receipts get thrown away.</p><p>The rule from <a href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener">Publication 551</a> turns on permanence. A capital improvement &mdash; <em>&ldquo;putting an addition on your home, replacing an entire roof&rdquo;</em> &mdash; goes into basis. <em>&ldquo;Incidental repairs or maintenance&rdquo;</em> deductible as business expenses cannot. Patching a roof is a repair; replacing it is an improvement.</p><p>Two costs people expect to add and can't: <a href="discount-points.html">discount points</a> and mortgage insurance premiums. Publication 551 lists both as items that <b>cannot</b> be added to basis.</p><p>Then there is depreciation, which only runs on a rental or business property but runs relentlessly. <a href="https://www.law.cornell.edu/uscode/text/26/1016" target="_blank" rel="noopener">&sect; 1016(a)(2)</a> reduces basis by the depreciation <em>allowed</em> or <em>allowable</em>, whichever is greater. Read that twice: a landlord who never claimed depreciation still takes the reduction when he sells. Skipping it forfeits the deduction and keeps the consequence.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>A duplex bought in 2013, lived in for a while, then rented from 2019.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Building the adjusted basis of a rental property"><table class="gls-tab"><thead><tr><th>Item</th><th>Amount</th><th>Effect on basis</th></tr></thead><tbody><tr><td>Purchase price, 2013</td><td>$120,000</td><td>Starting basis</td></tr><tr><td>Recording fees, survey, transfer tax, owner's title insurance</td><td>$3,400</td><td>+$3,400</td></tr><tr><td>Discount points paid at closing</td><td>$2,100</td><td>None</td></tr><tr><td>New roof, 2018</td><td>$11,000</td><td>+$11,000</td></tr><tr><td>HVAC replacement, 2021</td><td>$7,500</td><td>+$7,500</td></tr><tr><td>Painting, gutters, tenant turnovers</td><td>$6,900</td><td>None</td></tr><tr><td>Depreciation claimed 2019&ndash;2025</td><td>$25,500</td><td>&minus;$25,500</td></tr><tr><td><b>Adjusted basis</b></td><td colspan="2"><b>$116,400</b></td></tr></tbody></table></div><p>He sells for $230,000 and pays $14,000 in commission and closing costs, so the amount realized is $216,000. Gain is $216,000 &minus; $116,400 = <b>$99,600</b>.</p><p>That gain splits. The $25,500 of depreciation is unrecaptured section 1250 gain, taxed at a rate of up to 25% per <a href="https://www.irs.gov/taxtopics/tc409" target="_blank" rel="noopener">IRS Topic 409</a>. The remaining $74,100 is ordinary long-term gain at 15% in his bracket.</p><p class="gls-result">$6,375 + $11,115 = <b>$17,490</b>. Had he lost the roof and HVAC receipts, basis would have been $97,900 and the gain $118,100 &mdash; about <b>$2,775</b> more in tax for two pieces of paper.</p></div><p>Note where the selling costs went: commissions on a sale reduce the amount realized rather than increase basis. The arithmetic lands in the same place, but they are not part of what the property cost you. How a rental's numbers actually work sits in <a href="../stage-5-wealth.html">Stage 5 &middot; Build Wealth</a> and the <a href="../rental-property-calculator.html">rental property calculator</a>.</p>
+
+  <h2 id="reconstruct">Rebuilding a basis you don't have</h2>
+
+  <p>Most people reading this have one holding where the number is missing and it matters: an old fund, a block of employer stock, a house. Here is the order that tends to work, and its honest limit.</p><p><b>1. Ask the institution for history, not tax forms.</b> Call the brokerage, fund company or transfer agent and ask for the complete transaction history, specifically including every dividend reinvestment. Firms often hold internal records going back further than the years they report on a 1099-B, and the reinvestment history is worth the most.</p><p><b>2. Go back through your own returns.</b> Every reinvested dividend was reported to you on a Form 1099-DIV, so those totals are a floor on your basis additions. The IRS will send copies of what third parties reported: a <b>Wage and Income Transcript</b> covers <em>&ldquo;the current and nine prior tax years&rdquo;</em> per the IRS <a href="https://www.irs.gov/individuals/transcript-types-and-ways-to-order-them" target="_blank" rel="noopener">transcript types page</a>. Nine years is not thirty, which is why step 1 comes first.</p><p><b>3. If you know the dates, the prices are recoverable.</b> A purchase date plus a historical closing price is a defensible basis, and investor-relations pages, transfer agents and library archives all carry them.</p><p><b>4. Chase the corporate actions.</b> Splits, spin-offs and mergers reallocate basis, and there is a public trail. Under <a href="https://www.law.cornell.edu/cfr/text/26/1.6045B-1" target="_blank" rel="noopener">26 CFR &sect; 1.6045B-1</a> an issuer must report an organizational action affecting basis on Form 8937, and may satisfy that by posting it <em>&ldquo;in an area of its primary public Web site dedicated to this purpose&rdquo;</em> for ten years. Search investor relations for &ldquo;8937.&rdquo;</p><p><b>5. For a house, go to the county.</b> The register of deeds has the recorded deed and the transfer tax paid; the title company may still have the settlement statement; the building department has permits for the major work, which date an improvement and prove it happened.</p><h3>The part nobody wants to say</h3><p><a href="https://www.law.cornell.edu/uscode/text/26/6001" target="_blank" rel="noopener">&sect; 6001</a> requires every taxpayer to <em>&ldquo;keep such records&hellip; as the Secretary may from time to time prescribe,&rdquo;</em> and Publication 551 puts it in one line: <em>&ldquo;You must keep accurate records of all items that affect the basis of property.&rdquo;</em> If you cannot substantiate basis, the practical default is <b>zero</b>, and a zero basis means the entire sale price is gain. On the $60,000 sale earlier, that is a $9,000 federal tax bill on a $15,000 investment &mdash; the argument for doing step 1 before you sell, not after.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confidence ledger for the claims on this page"><table class="gls-tab"><thead><tr><th>Confidence</th><th>Claim</th></tr></thead><tbody><tr><td><b>Confirmed</b></td><td>Every statutory and regulatory claim here, each linked where it is made: &sect;&nbsp;1012, &sect;&nbsp;1001, &sect;&nbsp;1016(a)(2), &sect;&nbsp;301(c)(2), &sect;&nbsp;1091(a) and (d), &sect;&nbsp;1015, &sect;&nbsp;1041(b)(2), &sect;&nbsp;6001, 26 CFR &sect;&nbsp;1.1012-1, 26 CFR &sect;&nbsp;1.6045-1(a)(15), 26 CFR &sect;&nbsp;1.6045B-1, 17 CFR &sect;&nbsp;240.15c6-1, Rev. Proc. 2025-32.</td></tr><tr><td><b>Unverified</b></td><td>How far back any given brokerage, fund company or transfer agent will go on a records request. It varies by firm; no rule sets a floor.</td></tr><tr><td><b>Convention</b></td><td>The five-step order above is our own, not a published procedure. Treating zero as the fallback is the consequence of failing to substantiate, not a statute saying basis is zero. Every dollar figure in the worked examples is our own arithmetic on invented facts.</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Trusting box 1e.</b> On a noncovered security the broker need not fill it in and is not penalized for filling it in wrong. Check box 5 first.</li><li><b>Leaving out reinvested dividends.</b> The most expensive error here, and the one made by the most careful investors, because reinvesting is the responsible choice and the recordkeeping is invisible.</li><li><b>Trying to pick lots at tax time.</b> The deadline is settlement, one business day after the trade. Miss it and FIFO already decided &mdash; the cheapest shares, the biggest gain.</li><li><b>Not knowing which method your account is on.</b> Average cost on a fund account is an election that sticks.</li><li><b>Signing a house or a stock position over to a child while still alive.</b> It avoids probate and hands over the old basis along with the asset. The <a href="step-up-in-basis.html">step-up in basis</a> page runs that comparison in dollars.</li><li><b>Assuming skipped depreciation preserves basis.</b> &sect; 1016(a)(2) uses the allowable amount if it exceeds what was allowed. You lose the deduction and keep the reduction.</li><li><b>Splitting a divorce settlement without looking at basis.</b> A low-basis account and cash of the same face value are not the same asset.</li><li><b>Rebuying in a second account after a loss sale.</b> The wash sale rule applies across your accounts. Only the tracking is per account.</li><li><b>Throwing away closing statements and improvement receipts.</b> A folder with a roof invoice in it is worth more per page than anything else in the house.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is cost basis?</h3>
+    <p>Cost basis is the amount you have invested in an asset for tax purposes. It starts as what the asset cost you, which is the rule in 26 U.S.C. section 1012, and includes buying costs like commissions, recording fees and transfer taxes. It then gets adjusted over time. Taxable gain is your sale proceeds minus your adjusted basis under section 1001, so basis is the number that decides how much tax a sale actually costs. A basis you cannot substantiate defaults in practice to zero, which means the whole sale price is treated as gain.</p>
+
+    <h3>Do reinvested dividends increase your cost basis?</h3>
+    <p>Yes, and this is the most expensive thing people get wrong. Every reinvested dividend is a new purchase with its own basis and its own holding period. You already paid income tax on that dividend in the year it was paid, even though you never saw the cash. If you leave those reinvestments out of basis when you sell, you pay tax on the same dollars a second time. On a holding with $12,000 of reinvested dividends, ignoring them costs about $1,800 in extra federal tax at a 15% long-term rate.</p>
+
+    <h3>Why is the cost basis box blank on my 1099-B?</h3>
+    <p>Because the holding is a noncovered security. Section 6045(g) requires brokers to report your adjusted basis, but only for covered securities, and 26 CFR section 1.6045-1(a)(15) phased that in by date: stock acquired on or after 1 January 2011, mutual fund and dividend reinvestment shares on or after 1 January 2012, most debt and options on or after 1 January 2014, more complex debt on or after 1 January 2016. Anything older is noncovered, box 5 is checked, and the instructions relieve the broker of completing box 1e at all.</p>
+
+    <h3>How do I choose which shares to sell?</h3>
+    <p>You tell the broker before settlement. Without an identification, 26 CFR section 1.1012-1(c)(1) charges the sale against the earliest lot you acquired, which is first-in first-out. To pick a specific lot instead, paragraph (c)(8) requires the identification no later than the earlier of settlement or the settlement deadline in Rule 15c6-1, currently one business day after the trade. A standing order counts. You cannot make the choice on your tax return the following spring, because by then it has already been made for you.</p>
+
+    <h3>What is my basis in property I inherited or was given?</h3>
+    <p>They are opposite rules. Inherited property gets a step-up in basis under section 1014 to its fair market value on the date of death, so the previous owner's lifetime of gain is never taxed. Gifted property carries over the giver's basis under section 1015, and the entire built-up gain travels with it. A gift made when the asset is worth less than the giver paid has two bases: the giver's basis for measuring gain, and the lower value at the date of gift for measuring loss. Divorce transfers are a plain carryover under section 1041.</p>
+
+    <h3>How do I find the cost basis of stock I bought decades ago?</h3>
+    <p>Start by asking the brokerage, fund company or transfer agent for the full transaction history including every dividend reinvestment, since internal records often go back further than the years reported on tax forms. Then use your old returns: the IRS provides a Wage and Income Transcript for the current and nine prior tax years. If you know purchase dates, historical prices are recoverable from investor relations pages or a library archive. For splits, spin-offs and mergers, search the issuer's site for Form 8937, which 26 CFR section 1.6045B-1 lets companies publish on their website.</p>
+
+    <h3>What happens if I can't prove my cost basis?</h3>
+    <p>The practical default is a basis of zero, which means the entire sale price is treated as taxable gain. There is no statute that says basis is zero; it is what happens when you cannot substantiate a number, and section 6001 puts the recordkeeping obligation on the taxpayer. IRS Publication 551 states it directly: you must keep accurate records of all items that affect the basis of property. This is the reason to run down records before you sell rather than in April, when the sale is already reported and the choices are gone.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="step-up-in-basis.html"><b>Step-Up in Basis</b><span>The reset at death that erases a lifetime of gain</span></a>
+      <a href="probate.html"><b>Probate</b><span>The court process that moves assets after a death</span></a>
+      <a href="roth-ira.html"><b>Roth IRA</b><span>The account where capital gains basis stops mattering</span></a>
+      <a href="compound-interest.html"><b>Compound Interest</b><span>Why the oldest lot carries the biggest gain</span></a>
+      <a href="net-worth.html"><b>Net Worth</b><span>The number a low-basis account quietly overstates</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Read <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> for what reinvested dividends are actually doing to a balance over twenty years &mdash; free, no account.</li>
+      <li>Read <a href="../stage-5-wealth.html">Stage 5 &middot; Build Wealth</a> for the tax side: which accounts to draw down, and what happens to property you hold to the end.</li>
+      <li>Run the <a href="../step-up-in-basis-calculator.html">step-up in basis calculator</a> to see the same asset priced with the basis you can prove against a date-of-death reset.</li>
+      <li>If you are sorting out an estate, the <a href="../death-of-a-spouse.html">death of a spouse guide</a> covers the order the paperwork has to happen in.</li>
+      <li>If you are dividing accounts, the <a href="../recovering-from-divorce.html">divorce guide</a> covers joint assets and joint debt.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/26/1012" target="_blank" rel="noopener">26 U.S.C. &sect; 1012 &mdash; Cost</a> &mdash; the rule that basis is cost, and the account-by-account and dividend-reinvestment provisions in subsections (c) and (d).</li>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/26/1001" target="_blank" rel="noopener">26 U.S.C. &sect; 1001 &mdash; Determination of amount of and recognition of gain or loss</a> &mdash; gain is the amount realized over adjusted basis, the formula the whole page runs on.</li>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/26/1016" target="_blank" rel="noopener">26 U.S.C. &sect; 1016 &mdash; Adjustments to basis</a> &mdash; capital expenditures increasing basis, and depreciation &ldquo;allowed or allowable&rdquo; reducing it.</li>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/cfr/text/26/1.1012-1" target="_blank" rel="noopener">26 CFR &sect; 1.1012-1 &mdash; Basis of property</a> &mdash; first-in-first-out as the default in (c)(1), the settlement-date identification deadline in (c)(8), broker-held shares in (c)(3), and the average basis method for fund and DRIP shares in (e).</li>
+      <li>Electronic Code of Federal Regulations, <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR31749dec6d4756f/section-1.6045-1" target="_blank" rel="noopener">26 CFR &sect; 1.6045-1 &mdash; Returns of information of brokers and barter exchanges</a> &mdash; the definition of covered security in (a)(15) with all four phase-in dates, and noncovered security in (a)(16).</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/instructions/i1099b" target="_blank" rel="noopener">Instructions for Form 1099-B</a> &mdash; box 5 for noncovered securities and the relief from completing box 1e, and the box 1g wash sale reporting limited to the same account.</li>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/26/1091" target="_blank" rel="noopener">26 U.S.C. &sect; 1091 &mdash; Loss from wash sales of stock or securities</a> &mdash; the 30-day-before-and-after window in (a) and the basis of the replacement shares in (d).</li>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/26/1015" target="_blank" rel="noopener">26 U.S.C. &sect; 1015 &mdash; Basis of property acquired by gifts and transfers in trust</a> &mdash; carryover basis, and the rule limiting basis to fair market value when determining a loss.</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/publications/p551" target="_blank" rel="noopener">Publication 551, Basis of Assets</a> &mdash; what cost includes, the settlement costs that do and don't go into a home's basis, capital improvements versus repairs, and the recordkeeping requirement quoted on this page.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it is</a></li>
+      <li><a href="#adjusted">What moves the number</a></li>
+      <li><a href="#dividends">Reinvested dividends</a></li>
+      <li><a href="#covered">Covered vs. noncovered</a></li>
+      <li><a href="#lots">Which shares you sold</a></li>
+      <li><a href="#transfers">Death, gifts and divorce</a></li>
+      <li><a href="#property">Real property</a></li>
+      <li><a href="#reconstruct">Rebuilding a lost basis</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>Put a number on it: the basis you can actually prove against a date-of-death reset, with the tax difference in dollars. Free, no account.</p>
+    <a class="gls-cta" href="../step-up-in-basis-calculator.html">Step-up in basis calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

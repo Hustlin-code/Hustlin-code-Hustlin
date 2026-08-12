@@ -33,7 +33,18 @@
       "name": "About & Editorial Standards | Hustlin'",
       "description": "Who writes Hustlin', how content is sourced and verified, how the site is funded, and what Hustlin' explicitly is not.",
       "inLanguage": "en-US",
-      "mainEntity": { "@id": "https://hustlin.org/#organization" }
+      "mainEntity": { "@id": "https://hustlin.org/#organization" },
+      "about": { "@id": "https://hustlin.org/about.html#author" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://hustlin.org/about.html#author",
+      "name": "Adam",
+      "url": "https://hustlin.org/about.html#author",
+      "jobTitle": "Founder and Writer",
+      "description": "Founder and sole writer of Hustlin', a free financial education publisher for people building from the ground up or starting over.",
+      "email": "info@hustlin.org",
+      "worksFor": { "@id": "https://hustlin.org/#organization" }
     },
     {
       "@type": "Organization",
@@ -44,6 +55,7 @@
       "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
       "description": "Free financial education for people building from the ground up. Structured, self-paced courses on banking, credit, budgeting, debt, investing, and reading the market.",
       "foundingDate": "2026",
+      "founder": { "@id": "https://hustlin.org/about.html#author" },
       "knowsAbout": [
         "Second-chance banking",
         "ChexSystems",
@@ -68,7 +80,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260812-0251">
+<link rel="stylesheet" href="styles.css?v=20260812-0403">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -270,6 +282,57 @@
     </li>
 
     <li class="nav-item">
+      <a class="nav-top" href="learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Twenty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="learn-the-lingo/amortization.html">Amortization</a>
+          <a href="learn-the-lingo/apr.html">APR</a>
+          <a href="learn-the-lingo/apy.html">APY</a>
+          <a href="learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="learn-the-lingo/inflation.html">Inflation</a>
+          <a href="learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="learn-the-lingo/pmi.html">PMI</a>
+          <a href="learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="learn-the-lingo/probate.html">Probate</a>
+          <a href="learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="learn-the-lingo/ssi.html">SSI</a>
+          <a href="learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
       <a class="nav-top" href="markets.html">Markets</a>
       <div class="nav-panel">
         <p class="nav-panel-h">Live data, free, no account</p>
@@ -426,10 +489,13 @@
     invented. It attributes the work to Hustlin' as a publisher, which is a
     legitimate and common authorship model, and the JSON-LD above matches it.
 
-    IT WILL WORK HARDER IF YOU SIGN IT. Google's quality guidelines put
-    "Experience" first in E-E-A-T, and for this subject a named person who has
-    actually lived it outranks any credential. There's a ready-made block
-    commented out below — uncomment it, fill in two sentences, done.
+    IT IS NOW SIGNED. Google's quality guidelines put "Experience" first in
+    E-E-A-T, and for this subject a named person outranks any credential. The
+    "The person behind it" block below is the signature, and the Person node in
+    the JSON-LD above carries the same identity at @id .../about.html#author.
+    That @id is referenced by every blog post and every public FL stage page —
+    changing it here means changing tools/stamp-post-author.mjs and
+    tools/build-public-stages.mjs to match, or the reference dangles.
     ────────────────────────────────────────────────────────────────────────
   -->
   <div class="ab-block" id="who">
@@ -455,30 +521,24 @@
       argument for trusting it.
     </p>
 
-    <!--
-      ══ OPTIONAL: SIGN YOUR WORK ═════════════════════════════════════════
-      Delete the comment markers around the block below and fill it in.
-      Two honest sentences beat three paragraphs of credentials.
-
-      Worth naming if true: rebuilding your own credit, banking with
-      ChexSystems marks against you, coming up without any of this explained
-      to you, time working in reentry, lending, credit unions, or social
-      services. Lived experience is a real qualification here — say it plainly.
-
-    <h3>The person behind it</h3>
+    <!-- The visible half of the author identity. The machine-readable half is the
+         Person node in the JSON-LD at the top of this file. id="author" is the
+         anchor every byline on the site links to — do not rename it. -->
+    <h3 id="author">The person behind it</h3>
     <p>
-      <strong>YOUR NAME</strong> — founder and writer.
+      <strong>Adam</strong> — founder and writer. Every course, guide, calculator
+      and glossary entry on this site was written, sourced and built by one person.
     </p>
     <p>
-      TWO OR THREE SENTENCES ON YOUR BACKGROUND. What you went through, what
-      you learned the hard way, why you decided to write it all down.
+      Hustlin' exists because most financial advice assumes a starting point a lot
+      of people never had. What's here is written plainly, traced back to the body
+      that publishes the number, and honest about the places where a decision needs
+      a licensed professional instead of a website.
     </p>
     <p>
       Questions, corrections, or partnership inquiries:
-      <a href="mailto:YOUR@EMAIL">YOUR@EMAIL</a>
+      <a href="mailto:info@hustlin.org">info@hustlin.org</a>
     </p>
-      ═════════════════════════════════════════════════════════════════════
-    -->
   </div>
 
   <!-- ================= MISSION ================= -->
@@ -486,7 +546,7 @@
     <h2>Why this exists</h2>
     <p>
       Most financial advice quietly assumes you already have something — a bank account
-      that will accept you, a credit score above 600, a cushion to fall back on, someone
+      that will accept you, a <a class="lingo-x" href="learn-the-lingo/credit-score.html">credit score</a> above 600, a cushion to fall back on, someone
       in your life who explained how any of this works. Hustlin' assumes none of that.
     </p>
     <p>
@@ -519,7 +579,7 @@
       <li>Retirement and account contribution limits come from IRS publications</li>
       <li>Credit reporting rights and dispute procedures come from the CFPB and the
           FTC-authorized AnnualCreditReport.com</li>
-      <li>ABLE account rules come from the ABLE National Resource Center</li>
+      <li><a class="lingo-x" href="learn-the-lingo/able-account.html">ABLE account</a> rules come from the ABLE National Resource Center</li>
     </ul>
     <p>
       Not everything worth knowing has a government source. Long-run market returns, index
@@ -657,7 +717,7 @@
     <ul class="ab-list">
       <li>A Special Needs Trust must be drafted by an attorney who specializes in
           special needs planning. Getting it wrong can cost someone their coverage.</li>
-      <li>Before any change that could affect SSDI, SSI, Medicaid, or Medicare, talk to a
+      <li>Before any change that could affect SSDI, <a class="lingo-x" href="learn-the-lingo/ssi.html">SSI</a>, Medicaid, or Medicare, talk to a
           free WIPA benefits counselor.</li>
       <li>Self-employment tax planning needs a CPA who knows your actual numbers.</li>
     </ul>
@@ -759,6 +819,6 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=20260812-0251"></script>
+<script src="app.js?v=20260812-0403"></script>
 </body>
 </html>

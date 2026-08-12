@@ -91,7 +91,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260812-0251">
+<link rel="stylesheet" href="styles.css?v=20260812-0403">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -464,6 +464,57 @@ ROME BADGE BUTTON (matches logo branding) ─ */
     </li>
 
     <li class="nav-item">
+      <a class="nav-top" href="learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Twenty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="learn-the-lingo/amortization.html">Amortization</a>
+          <a href="learn-the-lingo/apr.html">APR</a>
+          <a href="learn-the-lingo/apy.html">APY</a>
+          <a href="learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="learn-the-lingo/inflation.html">Inflation</a>
+          <a href="learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="learn-the-lingo/pmi.html">PMI</a>
+          <a href="learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="learn-the-lingo/probate.html">Probate</a>
+          <a href="learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="learn-the-lingo/ssi.html">SSI</a>
+          <a href="learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
       <a class="nav-top" href="markets.html">Markets</a>
       <div class="nav-panel">
         <p class="nav-panel-h">Live data, free, no account</p>
@@ -781,7 +832,7 @@ ROME BADGE BUTTON (matches logo branding) ─ */
           "If the only way you ever make money is by trading hours for dollars,
           you're not an <em>owner</em> in this economy."
         </div>
-        <p class="fw-body">Most financial programs stop at "save money and pay off debt." That's where we start. By Stage 4 you're learning how the market actually works — what index funds are, how compound interest builds real wealth, and how to open a brokerage account without guessing. From there the free <a href="markets.html">Markets hub</a> keeps you current, and <a href="technical-analysis.html">Technical Analysis</a>, <a href="fundamental-analysis.html">Fundamental Analysis</a> and <a href="trading-psychology.html">Trading Psychology</a> go deeper when you are ready.</p>
+        <p class="fw-body">Most financial programs stop at "save money and pay off debt." That's where we start. By Stage 4 you're learning how the market actually works — what index funds are, how <a class="lingo-x" href="learn-the-lingo/compound-interest.html">compound interest</a> builds real wealth, and how to open a brokerage account without guessing. From there the free <a href="markets.html">Markets hub</a> keeps you current, and <a href="technical-analysis.html">Technical Analysis</a>, <a href="fundamental-analysis.html">Fundamental Analysis</a> and <a href="trading-psychology.html">Trading Psychology</a> go deeper when you are ready.</p>
         <div class="fw-checks">
           <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">No minimum income required to start</div></div>
           <div class="fw-check"><div class="chk-dot">✓</div><div class="chk-txt">Covers second-chance banking and building from zero</div></div>
@@ -1058,8 +1109,8 @@ ROME BADGE BUTTON (matches logo branding) ─ */
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=20260812-0251"></script>
-<script src="rewards.js?v=20260812-0251"></script>
+<script src="app.js?v=20260812-0403"></script>
+<script src="rewards.js?v=20260812-0403"></script>
 <script>
 // Render nav stage states + roadmap cards
 HFY.initNavOnly();

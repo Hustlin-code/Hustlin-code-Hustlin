@@ -2887,6 +2887,16 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .nav-panel-wide{min-width:470px}
 .nav-cols{display:grid;grid-template-columns:1fr 1fr;gap:1px 10px}
 
+/* The Lingo panel is wider and runs three columns, because it lists every
+   glossary term rather than a curated subset — see the note in
+   nav.template.html. At two columns twenty-eight rows made a 420px-tall panel
+   that ran off the bottom of a laptop viewport; three columns keeps it to ten
+   rows. The mobile drawer collapses both .nav-cols and .nav-cols-3 to a single
+   column in the max-width:1100px block below, so this only affects the hover
+   panels. */
+.nav-panel-xwide{min-width:640px}
+.nav-cols-3{grid-template-columns:1fr 1fr 1fr}
+
 /* ── THE DRAWER ────────────────────────────────────────────────────────────
    Above 1100px the burger is hidden and the hover panels do the work. Below
    it the menu becomes a full-height sheet and every panel is shown expanded —
@@ -2957,7 +2967,8 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   }
   .nav-panel-h{margin:2px 6px 8px}
   .nav-panel a{padding:12px 10px;min-height:44px;display:flex;flex-direction:column;justify-content:center}
-  .nav-cols{grid-template-columns:1fr}
+  .nav-cols,.nav-cols-3{grid-template-columns:1fr}
+  .nav-panel-xwide{min-width:0}
   .nav-stage-link{display:flex;flex-direction:row;align-items:center;gap:11px}
   .nav-stage-link b,.nav-stage-link span{display:block}
   .nav-item-flat .nav-panel{display:none}

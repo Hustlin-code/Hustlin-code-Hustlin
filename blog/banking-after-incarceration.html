@@ -31,9 +31,17 @@
       "dateModified": "2026-08-01",
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
-      "author": { "@id": "https://hustlin.org/#organization" },
+      "author": { "@id": "https://hustlin.org/about.html#author" },
       "publisher": { "@id": "https://hustlin.org/#organization" },
       "mainEntityOfPage": "https://hustlin.org/blog/banking-after-incarceration.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://hustlin.org/about.html#author",
+      "name": "Adam",
+      "url": "https://hustlin.org/about.html#author",
+      "jobTitle": "Founder and Writer",
+      "worksFor": { "@id": "https://hustlin.org/#organization" }
     },
     {
       "@type": "Organization",
@@ -86,8 +94,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260812-0251">
-<link rel="stylesheet" href="post.css?v=20260812-0251">
+<link rel="stylesheet" href="../styles.css?v=20260812-0403">
+<link rel="stylesheet" href="post.css?v=20260812-0403">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <!-- POST-HEAD:END -->
@@ -116,6 +124,14 @@
       <div class="eyebrow"><span>&#9679;</span> Reentry</div>
       <h1 class="hero-h1">Opening a Bank Account<br><em>After Prison.</em></h1>
       <p class="hero-sub">Your record is not what stops you. Missing documents and the wrong branch are. Here is the order to do this in, what to bring, and what to walk away from.</p>
+      <!-- Byline. Identical on every post because every post has the same author.
+           The machine-readable half is the Person @id that
+           tools/stamp-post-author.mjs writes into each post's Article JSON-LD.
+           Colors are hardcoded: this hero is a dark surface and the light-surface
+           tokens are wrong here. Do not convert to CSS variables. -->
+      <p class="post-byline" style="margin:14px 0 0;font-size:.82rem;line-height:1.5;color:#B8B8B8">
+        By <a href="../about.html#author" rel="author" style="color:#F0C030;text-decoration:none;font-weight:600">Adam</a><span aria-hidden="true" style="color:#5A5A5A;margin:0 7px">&middot;</span>Founder, Hustlin&rsquo;
+      </p>
     </div>
   </div>
 </section>
@@ -285,7 +301,7 @@
     <li><a href="../starting-over-after-prison.html">Starting Over After Prison</a> — the full reentry money guide this post is one piece of: ID, benefits, child support arrears, court debt and the first 90 days.</li>
     <li><a href="../stage-1-survive.html">Stage 1: Survive</a> — second-chance banking, credit basics, your first budget, and the traps built for this exact moment. Free, no account.</li>
     <li><a href="chexsystems-explained.html">ChexSystems Explained</a> — how to pull your free report and dispute what is wrong on it.</li>
-    <li><a href="../calculate-your-hustle.html">Calculate Your Hustle</a> — free budget builder and emergency fund calculator. Nothing saved to a server.</li>
+    <li><a href="../calculate-your-hustle.html">Calculate Your Hustle</a> — free budget builder and <a class="lingo-x" href="../learn-the-lingo/emergency-fund.html">emergency fund</a> calculator. Nothing saved to a server.</li>
     <li><a href="../stage-2-stabilize.html">Stage 2: Stabilize</a> — building your first $1,000 once the account exists.</li>
   </ul>
 </div>
@@ -315,7 +331,7 @@
       b.dataset.shareSub  = "Free to read, no account. Send it to one person.";
     })();
   </script>
-  <script src="../stage-outro.js?v=20260812-0251" defer></script>
+  <script src="../stage-outro.js?v=20260812-0403" defer></script>
   <!-- SHARE:END -->
   <div id="hfyShareMount"></div>
 
@@ -400,6 +416,6 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="../app.js?v=20260812-0251"></script>
+<script src="../app.js?v=20260812-0403"></script>
 </body>
 </html>

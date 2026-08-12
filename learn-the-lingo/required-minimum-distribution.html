@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMD: Required Minimum Distribution Rules | Learn the Lingo</title>
+<meta name="description" content="A required minimum distribution is the withdrawal the IRS forces from a traditional retirement account. The ages, the April 1 trap, the aggregation rule.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/required-minimum-distribution.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/required-minimum-distribution.html">
+<meta property="og:title" content="Required Minimum Distribution &mdash; Learn the Lingo">
+<meta property="og:description" content="The deduction was a loan, and this is the repayment schedule &mdash; the age it starts, the deadline that stacks two distributions into one tax year, and the rule that trips up 401(k) holders.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Required Minimum Distribution &mdash; Learn the Lingo">
+<meta name="twitter:description" content="The deduction was a loan, and this is the repayment schedule &mdash; the age it starts, the deadline that stacks two distributions into one tax year, and the rule that trips up 401(k) holders.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/required-minimum-distribution.html#term",
+      "name": "Required Minimum Distribution (RMD)",
+      "alternateName": ["Required Minimum Distribution","RMD","Minimum Required Distribution","Section 401(a)(9) Distribution"],
+      "description": "A required minimum distribution is the smallest amount a person must withdraw each year from a traditional retirement account, such as a traditional IRA or a 401(k), once they reach an age set by their year of birth. The requirement comes from 26 U.S.C. section 401(a)(9), and the amount is the prior December 31 account balance divided by a life expectancy factor published by the IRS. Failing to take it triggers an excise tax under section 4974 on the amount not withdrawn.",
+      "url": "https://hustlin.org/learn-the-lingo/required-minimum-distribution.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "RMDs: When They Start, How the Number Is Set, and the Deadline That Costs the Most",
+      "description": "A plain-language explanation of required minimum distributions: the birth-year table that sets your starting age including the unresolved 1959 cohort, the April 1 first-year deadline and the two-distributions-in-one-tax-year trap it creates, the Uniform Lifetime Table arithmetic with worked dollar examples, the aggregation rule that lets IRA distributions be pooled but not 401(k) distributions, the 25% excise tax and its correction window, the Roth exemptions, qualified charitable distributions, and how inherited accounts run on a separate clock.",
+      "url": "https://hustlin.org/learn-the-lingo/required-minimum-distribution.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/required-minimum-distribution.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/required-minimum-distribution.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "RMD", "item": "https://hustlin.org/learn-the-lingo/required-minimum-distribution.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Required Minimum Distribution?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A required minimum distribution is the smallest amount you must withdraw each year from a traditional retirement account once you reach an age set by your year of birth. The requirement comes from 26 U.S.C. section 401(a)(9). It applies to traditional IRAs, SEP and SIMPLE IRAs, 401(k), 403(b) and governmental 457(b) plans. The amount is your account balance on December 31 of the previous year divided by a life expectancy factor from the IRS Uniform Lifetime Table. It is not a tax and it does not force you to spend the money, but the withdrawal itself is ordinary income." }
+        },
+        {
+          "@type": "Question",
+          "name": "At what age do RMDs start?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends entirely on your birth year. Under 26 CFR section 1.401(a)(9)-2(b)(2), the applicable age is 73 if you were born from 1951 through 1958, and 75 if you were born after 1959. People born in 1959 are described by both clauses of the statute, and the regulation still leaves that cohort marked Reserved. Proposed regulations issued in July 2024 would set it at 73, but they remain proposals. Nobody born in 1959 reaches either candidate age before 2032, so the question is not urgent yet." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I delay my first RMD to April 1 of the next year?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it is usually a mistake. The first distribution is due by April 1 of the year after you reach your applicable age, which is your required beginning date. Every distribution after the first is due December 31 of its own year. Using the April 1 grace does not skip a year; it puts two distributions in a single tax year, which can push income into a higher bracket, make more of a Social Security benefit taxable, and cross a Medicare income surcharge tier that is billed two years later. It only wins if the earlier year was unusually high-income." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I take my whole RMD from just one account?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on the account type, and the difference is expensive. IRA amounts are calculated separately for each IRA but the total may be withdrawn from any one or more of them, so several IRAs can be satisfied with a single withdrawal. Multiple 403(b) contracts work the same way among themselves. But 401(k) and 457(b) plans must each pay their own required amount separately, and an IRA withdrawal can never satisfy a 401(k) requirement or the reverse. Missing one plan means a 25% excise tax on that plan's shortfall." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Roth accounts have required minimum distributions?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not during the original owner's lifetime. A Roth IRA has never had one. Designated Roth accounts inside a 401(k) or 403(b) did have them through 2023, but SECURE 2.0 added section 402A(d)(5), which exempts them for taxable years beginning after December 31, 2023. Both exemptions apply only while the owner is alive. Beneficiaries who inherit a Roth IRA or a designated Roth account are subject to distribution rules, generally including the ten-year rule." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the penalty for missing an RMD?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Section 4974(a) imposes an excise tax of 25% of the amount you failed to distribute, reduced to 10% under subsection (e) if you correct the shortfall inside the correction window. That window closes at the last day of the second taxable year beginning after the year of the shortfall, or earlier if the IRS assesses the tax or mails a notice of deficiency first. Report it on Form 5329 for the year you missed. Section 4974(d) also lets the IRS waive the tax where the shortfall was due to reasonable error and reasonable steps are being taken to fix it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to spend my RMD?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The rule only requires that the money leave the tax-deferred account, not that you consume it. If the required amount is more than you need, it can move into an ordinary taxable brokerage account the same day and stay invested in the same holdings. What you give up is future tax deferral, not the investment. The money starts a fresh cost basis equal to its value on the day it arrives. One thing you cannot do is convert a required distribution to a Roth IRA, because a required amount is not eligible to be rolled over." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-0403">
+<link rel="stylesheet" href="lingo.css?v=20260812-0403">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Twenty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>RMD</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Retirement</div>
+      <h1 class="hero-h1">Required Minimum Distribution <span>(RMD)</span></h1>
+      <p class="hero-sub">The amount the IRS makes you pull out of a traditional retirement account every year once you hit a certain age &mdash; whether you need the money or not. Here is the age, the arithmetic, and the deadline that quietly doubles your taxable income.</p>
+      <p class="gls-aka"><b>Also called:</b> RMD &middot; required distribution &middot; minimum required distribution &middot; forced withdrawal &middot; section 401(a)(9) distribution</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from 26 U.S.C. &sect; 401(a)(9), the Treasury regulations and IRS Publication 590-B</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>A required minimum distribution is the smallest amount you are legally required to take out of a traditional retirement account each year once you reach a starting age set by your birth year &mdash; whether you need the money or not.</strong></p>
+    <p>It exists because the deduction you got for putting the money in was never forgiveness. It was a deferral. Every dollar in a traditional 401(k) or IRA went in untaxed on the understanding that it would be taxed on the way out, and without a deadline a great many people would simply never take it out. Section 401(a)(9) of the tax code is that deadline. The RMD is not a tax and it is not a confiscation &mdash; it is the repayment schedule on a loan you took from your own future tax bill.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Your starting age comes from your birth year, not your choice.</b> Under <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6f8c3724b50e44d/section-1.401(a)(9)-2" target="_blank" rel="noopener">26 CFR &sect; 1.401(a)(9)-2(b)(2)</a> it is <b>73</b> if you were born 1951&ndash;1958 and <b>75</b> if you were born after 1959. The 1959 cohort is described twice by the statute and the regulation still says <b>[Reserved]</b>.</li>
+      <li><b>The first one is due April 1 of the following year. Every one after that is due December 31.</b> Using the April 1 grace does not skip a year &mdash; it stacks two distributions into a single tax year.</li>
+      <li><b>The math is one division.</b> Prior December 31 balance &divide; the factor for your age in the <b>Uniform Lifetime Table</b> (<a href="https://www.law.cornell.edu/cfr/text/26/1.401(a)(9)-9" target="_blank" rel="noopener">26 CFR &sect; 1.401(a)(9)-9(c)</a>). At 73 the factor is <b>26.5</b>, about 3.8% of the balance. At 90 it is <b>12.2</b>, about 8.2%.</li>
+      <li><b>Miss one and <a href="https://www.law.cornell.edu/uscode/text/26/4974" target="_blank" rel="noopener">&sect; 4974</a> charges a 25% excise tax</b> on the shortfall &mdash; <b>10%</b> if you fix it inside the correction window, which runs to the last day of the second taxable year after the one you missed. Reported on <b>Form 5329</b>, and waivable for reasonable error under &sect; 4974(d).</li>
+      <li><b>IRA distributions can be pooled. 401(k) distributions cannot.</b> Compute each IRA separately and take the total from whichever one you like; each 401(k) and each 457(b) must pay its own. This is the expensive mistake.</li>
+      <li><b>Roth accounts sit outside all of it.</b> A <a href="roth-ira.html">Roth IRA</a> has never had a lifetime RMD, and designated Roth accounts inside a 401(k) or 403(b) lost theirs for <b>taxable years beginning after December 31, 2023</b> (&sect; 402A(d)(5)).</li>
+      <li><b>A charitable transfer can absorb it.</b> A qualified charitable distribution from an IRA is available from age <b>70&frac12;</b> and counts toward the RMD &mdash; up to <b>$111,000 in 2026</b>, a figure that is now indexed (<a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" target="_blank" rel="noopener">IRS Notice 2025-67</a>).</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What a required minimum distribution actually is</h2>
+
+  <p>A woman turns 73 in March. The following January an envelope arrives from the company that holds her IRA. It says she is required to withdraw <b>$7,924.53</b> this year, and that if she does not, the IRS will penalize the part she failed to take.</p><p>She was not planning to withdraw anything. She lives on Social Security and twenty-two hours a week at a job she likes, and the IRA is the one thing she has managed not to touch. Nothing in the letter explains why the federal government has an opinion about that.</p><p>A <b>required minimum distribution</b> is that amount. It is the smallest sum you are legally required to take out of a traditional retirement account in a given year, once you reach a starting age fixed by the year you were born. The rule is <a href="https://www.law.cornell.edu/uscode/text/26/401" target="_blank" rel="noopener">26 U.S.C. &sect; 401(a)(9)</a>; the version written for humans is <a href="https://www.irs.gov/publications/p590b" target="_blank" rel="noopener">IRS Publication 590-B</a>.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>The deduction you got for putting the money in was never forgiveness. It was a deferral, and the RMD is the repayment schedule.</p></div><p>That is the honest frame. Every dollar that went into a traditional 401(k), 403(b) or IRA went in without being taxed, and the government's half of the arrangement was that it would collect eventually. Without a deadline the account would pass to heirs, then to theirs, and the tax would drift across generations untouched. Section 401(a)(9) stops the drift.</p><p>Two points defuse most of the panic. <b>An RMD is not a tax.</b> It is a forced <em>withdrawal</em>, and you owe ordinary income tax on it at your own rate, exactly as on any other withdrawal from that account. And <b>it does not force you to spend the money</b> &mdash; only to take it out of the tax shelter. What the rule really costs you is the choice of <em>when</em> the taxable event happens.</p>
+
+  <h2 id="age">When yours starts, and the two deadlines</h2>
+
+  <p>Nothing to elect, no form to file. The starting age &mdash; the regulations call it your <b>applicable age</b> &mdash; falls out of your date of birth. It has moved twice in six years, which is why much of what you will read is out of date.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Applicable age for required minimum distributions by year of birth"><table class="gls-tab"><thead><tr><th>Born</th><th>Applicable age</th><th>First RMD is for the year you turn it</th></tr></thead><tbody><tr><td>Before July 1, 1949</td><td>70&frac12;</td><td>Already begun</td></tr><tr><td>July 1, 1949 &ndash; 1950</td><td>72</td><td>Already begun</td></tr><tr><td>1951 &ndash; 1958</td><td><b>73</b></td><td>2024 through 2031</td></tr><tr><td><b>1959</b></td><td><b>Unresolved &mdash; see below</b></td><td>2032 or 2034</td></tr><tr><td>1960 or later</td><td><b>75</b></td><td>2035 onward</td></tr></tbody></table></div><p>Those cohorts are set out in <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6f8c3724b50e44d/section-1.401(a)(9)-2" target="_blank" rel="noopener">26 CFR &sect; 1.401(a)(9)-2(b)(2)</a>.</p><h3>The 1959 problem, described accurately</h3><p>The SECURE 2.0 Act wrote the new ages into &sect; 401(a)(9)(C)(v) as two clauses. One sets the age at 73 for anyone who <em>&ldquo;attains age 72 after December 31, 2022, and age 73 before January 1, 2033.&rdquo;</em> The other sets it at 75 for anyone who <em>&ldquo;attains age 74 after December 31, 2032.&rdquo;</em> Somebody born in 1959 turns 73 in 2032 and 74 in 2033, satisfying both. The statute gives that one birth year two answers.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Most sources state flatly that 1959 means 73. That is the likely answer, not the settled one. The July 2024 final regulations left &sect; 1.401(a)(9)-2(b)(2)(v) marked <b>[Reserved]</b>, and it is still marked that way. <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14543/required-minimum-distributions" target="_blank" rel="noopener">Proposed regulations issued the same day</a> would fill the gap with one sentence &mdash; <em>&ldquo;In the case of an employee born in 1959, the applicable age is age 73&rdquo;</em> &mdash; but a proposed regulation is a proposal. Nobody born in 1959 reaches either candidate age before 2032, so there is time to settle it.</p></div><h3>The two deadlines</h3><p>Your <b>first</b> distribution is not due in the year you reach your applicable age but by <b>April 1 of the following year</b> &mdash; what the code calls your required beginning date. <b>Every distribution after the first is due by December 31</b> of its own year.</p><p>That April 1 is where the money gets lost. Delaying the first distribution does not skip a year &mdash; it moves it into the same tax year as the second, so two land on one return.</p>
+
+  <h2 id="calc">How the number is set</h2>
+
+  <p>The calculation is one division. There are only two inputs.</p><div class="gls-formula"><code>balance on December 31 of last year &divide; life expectancy factor for your age this year = this year's RMD</code></div><p>The balance is a snapshot, not an average &mdash; the closing value on the last day of the prior year, usually on a December statement. The <a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-required-minimum-distributions-rmds" target="_blank" rel="noopener">IRS states the rule the same way</a>: the RMD is <em>&ldquo;the account balance as of the end of the immediately preceding calendar year divided by a distribution period from the IRS's &lsquo;Uniform Lifetime Table.&rsquo;&rdquo;</em></p><h3>Three tables, and which one is yours</h3><p>All three are in <a href="https://www.law.cornell.edu/cfr/text/26/1.401(a)(9)-9" target="_blank" rel="noopener">26 CFR &sect; 1.401(a)(9)-9</a> and reprinted in Appendix B of Publication 590-B.</p><ul><li><b>Table III, the Uniform Lifetime Table.</b> The one for almost everybody taking distributions from their own account during their own life.</li><li><b>Table II, the Joint Life and Last Survivor Table.</b> Used instead in one narrow case: your <em>sole</em> beneficiary is your spouse and that spouse is more than ten years younger than you. It gives a larger factor, so a smaller required distribution.</li><li><b>Table I, the Single Life Table.</b> For beneficiaries taking distributions from an account they inherited &mdash; not for original owners.</li></ul><p>One point of housekeeping: these tables were rewritten by final regulations published <b>November 12, 2020</b>, effective for distribution calendar years beginning on or after <b>January 1, 2022</b>. They get called the 2022 tables for that reason, but the regulation is a 2020 document, and the <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" target="_blank" rel="noopener">July 2024 final regulations</a> left them alone. If a calculator hands you a factor of 25.6 at age 73 rather than 26.5, it is on the pre-2022 table and it is wrong.</p><h3>What the factor means in percentage terms</h3><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Uniform Lifetime Table factors and the resulting percentage of the account balance"><table class="gls-tab"><thead><tr><th>Age</th><th>Factor</th><th>Share of balance</th><th>On $210,000</th></tr></thead><tbody><tr><td>73</td><td>26.5</td><td>3.77%</td><td>$7,924.53</td></tr><tr><td>75</td><td>24.6</td><td>4.07%</td><td>$8,536.59</td></tr><tr><td>80</td><td>20.2</td><td>4.95%</td><td>$10,396.04</td></tr><tr><td>85</td><td>16.0</td><td>6.25%</td><td>$13,125.00</td></tr><tr><td>90</td><td>12.2</td><td>8.20%</td><td>$17,213.11</td></tr><tr><td>95</td><td>8.9</td><td>11.24%</td><td>$23,595.51</td></tr></tbody></table></div><p>Factors from <a href="https://www.law.cornell.edu/cfr/text/26/1.401(a)(9)-9" target="_blank" rel="noopener">26 CFR &sect; 1.401(a)(9)-9(c)</a>, in force since 2022; the percentages and dollar column are our own arithmetic, holding the balance at $210,000 as an illustration. A real balance moves every year.</p><p>Notice the shape. The required percentage <b>climbs every year for the rest of your life</b>, because the factor is a life expectancy and life expectancy shortens. Somewhere in the eighties it usually passes what a person wants to spend. That is by design.</p>
+
+  <h2 id="example">Worked example: the April 1 trap in dollars</h2>
+
+  <p>Back to the woman with the letter. She is single, turns <b>73 in 2026</b>, and her traditional IRA closed <b>2025</b> at <b>$210,000</b>. To keep the arithmetic visible, assume the account earns nothing over the two years and she takes nothing beyond what is required. Her age-73 factor is <b>26.5</b>.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p><b>Her 2026 RMD:</b> $210,000 &divide; 26.5 = <b>$7,924.53</b>. Due by <b>April 1, 2027</b>, because it is her first one.</p><p class="gls-result">Take it in 2026 and it is 2026 income. Take it in the first three months of 2027 and it is 2027 income &mdash; on top of the 2027 distribution, which is due the same year.</p></div><h3>Path A: she takes it in December 2026</h3><p>She withdraws $7,924.53 in 2026, so the account closes 2026 at $202,075.47. Her age-74 factor is <b>25.5</b>.</p><ul><li>2026 taxable IRA income: <b>$7,924.53</b></li><li>2027 RMD: $202,075.47 &divide; 25.5 = <b>$7,924.53</b>, due December 31, 2027</li><li>Two-year total distributed: <b>$15,849.06</b></li></ul><p>The two matching is a quirk of the flat balance, not a rule.</p><h3>Path B: she uses the April 1 grace</h3><p>She takes nothing in 2026, so the account still closes 2026 at $210,000.</p><ul><li>2026 taxable IRA income: <b>$0</b></li><li>2026 RMD, taken March 2027: <b>$7,924.53</b></li><li>2027 RMD: $210,000 &divide; 25.5 = <b>$8,235.29</b>, due December 31, 2027</li><li>2027 taxable IRA income: $7,924.53 + $8,235.29 = <b>$16,159.82</b></li></ul><p>Her 2027 requirement is also $310.76 <em>larger</em> under Path B, because the balance it was calculated on had never been reduced.</p><h3>What the doubling costs at the margin</h3><p>Suppose her other income leaves her with <b>$40,000 of taxable income</b> before any IRA money. For a single filer in 2026 the 12% bracket runs to $50,400 and the 22% bracket starts above it (<a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill" target="_blank" rel="noopener">IRS inflation adjustments for 2026</a>; these move every year, so check the current ones).</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Taxable income and marginal rate under both paths"><table class="gls-tab"><thead><tr><th></th><th>Path A &mdash; on time</th><th>Path B &mdash; deferred</th></tr></thead><tbody><tr><td>2026 taxable income</td><td>$47,924.53</td><td>$40,000.00</td></tr><tr><td>2027 taxable income</td><td>$47,924.53</td><td>$56,159.82</td></tr><tr><td>Dollars above the 12% band</td><td>$0</td><td><b>$5,759.82</b></td></tr><tr><td>Extra federal tax on those dollars</td><td>$0</td><td><b>$575.98</b></td></tr></tbody></table></div><p>The bracket cost is $5,759.82 taxed at 22% instead of 12%: <b>$575.98</b>, our own calculation from the 2026 single-filer bands. It is worse than it looks, because Path B also left <b>$10,400</b> of 12% bracket room unused in 2026, and that room does not roll over. A doubled year can additionally pull more of a Social Security benefit into taxable income and cross a Medicare surcharge tier, billed two years later &mdash; the <a href="../retirement-withdrawal.html">retirement withdrawal guide</a> covers both.</p><p>The April 1 grace is legal, and it occasionally wins &mdash; if the year you turn your applicable age is unusually high-income and the next is not. It is just never the default, and most people who use it do so by accident.</p>
+
+  <h2 id="accounts">Which accounts have them, and the aggregation rule</h2>
+
+  <p>RMDs attach to accounts holding money that has not been taxed yet. That is the whole logic, and it explains every entry in the table.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Which retirement accounts require lifetime distributions"><table class="gls-tab"><thead><tr><th>Account</th><th>Lifetime RMD?</th><th>Notes</th></tr></thead><tbody><tr><td>Traditional IRA</td><td><b>Yes</b></td><td>From your applicable age, retired or not</td></tr><tr><td>SEP IRA</td><td><b>Yes</b></td><td>Treated as a traditional IRA</td></tr><tr><td>SIMPLE IRA</td><td><b>Yes</b></td><td>Treated as a traditional IRA</td></tr><tr><td>Traditional 401(k), profit sharing</td><td><b>Yes</b></td><td>The still-working delay can apply</td></tr><tr><td>403(b)</td><td><b>Yes</b></td><td>Contracts aggregate with each other</td></tr><tr><td>Governmental 457(b)</td><td><b>Yes</b></td><td>Each plan stands alone</td></tr><tr><td><a href="roth-ira.html">Roth IRA</a></td><td><b>No</b></td><td>Never, while the original owner is alive</td></tr><tr><td>Designated Roth in a 401(k) or 403(b)</td><td><b>No</b></td><td>For taxable years beginning after Dec 31, 2023</td></tr></tbody></table></div><p>The Roth rows are the two most misquoted lines in the subject. A Roth IRA has <em>never</em> had a lifetime required distribution for its original owner. Designated Roth accounts inside an employer plan did, through 2023, until SECURE 2.0 added &sect; 402A(d)(5), which exempts them for taxable years beginning after December 31, 2023. Both exemptions end at death: <b>beneficiaries of Roth accounts do face distribution rules.</b></p><h3>The still-working exception</h3><p>If you are past your applicable age, still employed, and the plan document allows it, you can put off distributions from <b>that employer's plan</b> until the year you retire. Two limits: it does not apply if you own <b>5% or more</b> of the sponsoring business, and it does not exist for IRAs &mdash; the <a href="https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs" target="_blank" rel="noopener">IRS puts it plainly</a>: IRA owners <em>&ldquo;must begin taking RMDs once the account holder is age 73, even if they're retired.&rdquo;</em></p><h3>The aggregation rule, which costs real money</h3><p>This is the most expensive misunderstanding on the page, and it is purely a paperwork problem.</p><ul><li><b>IRAs pool.</b> The IRS: an IRA owner <em>&ldquo;must calculate the RMD separately for each IRA they own but can withdraw the total amount from one or more of the IRAs.&rdquo;</em> Three IRAs, one withdrawal; multiple 403(b) contracts pool the same way.</li><li><b>401(k) and 457(b) plans do not pool.</b> The IRS again: RMDs from those plans <em>&ldquo;must be taken separately from each of those plan accounts.&rdquo;</em></li><li><b>Nothing crosses the line.</b> An IRA withdrawal cannot satisfy a 401(k) requirement, or the reverse, however large it is.</li></ul><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>A man aged <b>75</b> holds three accounts, valued last December 31 at IRA&nbsp;A <b>$80,000</b>, IRA&nbsp;B <b>$40,000</b> and an old 401(k) worth <b>$61,500</b>. His factor is <b>24.6</b>.</p><p>IRA A: $80,000 &divide; 24.6 = $3,252.03. IRA B: $40,000 &divide; 24.6 = $1,626.02. The 401(k): $61,500 &divide; 24.6 = $2,500.00. Total required: <b>$7,378.05</b>.</p><p>He takes the whole $7,378.05 from IRA A, the account with a debit card attached. Both IRAs are satisfied &mdash; their combined $4,878.05 came out of one of them, which is allowed. <b>The 401(k) is short by its full $2,500.</b></p><p class="gls-result">Excise tax at 25%: <b>$625</b>. Corrected inside the window, 10%: <b>$250</b>. He still owes the $2,500 distribution, and income tax on it. The whole bill was avoidable with one extra phone call.</p></div>
+
+  <h2 id="penalty">What happens if you miss one</h2>
+
+  <p>The penalty used to be brutal and is now merely bad. Before 2023 it was <b>50%</b> of whatever you failed to withdraw &mdash; one of the harshest in the code, and it landed mostly on the confused.</p><p>SECURE 2.0 cut it. <a href="https://www.law.cornell.edu/uscode/text/26/4974" target="_blank" rel="noopener">26 U.S.C. &sect; 4974(a)</a> now imposes <em>&ldquo;a tax equal to 25 percent of the amount by which such minimum required distribution exceeds the actual amount distributed.&rdquo;</em> Subsection (e) drops that to <b>10 percent</b> if the shortfall is corrected inside the <b>correction window</b>.</p><h3>How long the window actually is</h3><p>The statute runs it from the date the tax is imposed to the earliest of three events: the IRS mails a notice of deficiency, the IRS assesses the tax, or <em>&ldquo;the last day of the second taxable year that begins after the end of the taxable year in which the tax under subsection (a) is imposed.&rdquo;</em></p><p>In practice: miss a 2026 distribution and the outer edge of the window is <b>December 31, 2028</b>. Two full years &mdash; unless the IRS finds it first, because the moment it assesses the tax or mails a deficiency notice the window shuts and the rate returns to 25%. The cheap version of this mistake is the one you catch yourself.</p><h3>Correcting it</h3><p>Take the missed amount out now, as a separate withdrawal on top of the current year's requirement, then report the shortfall on <b>Form 5329</b>. The IRS's instruction is to file it <em>&ldquo;with their federal tax return for the year in which the full amount of the RMD was required, but not taken&rdquo;</em> &mdash; the missed year, not the year you noticed.</p><div class="gls-box"><span class="gls-lbl">The tax can be waived entirely</span><p>&sect; 4974(d) lets the IRS waive it. You have to establish that the shortfall <em>&ldquo;was due to reasonable error&rdquo;</em> and that <em>&ldquo;reasonable steps are being taken to remedy the shortfall.&rdquo;</em> File Form 5329, attach a short statement of what happened, and request the waiver &mdash; after taking the missed distribution, which is the reasonable step you are pointing to. It is granted for the ordinary reasons: illness, a death in the family, a custodian that never sent a notice.</p></div><p>And one thing worth saying plainly, because the fear of it keeps people from fixing the problem: the tax applies only to the <b>amount you failed to distribute</b>, not to the account. Missing a $7,900 distribution is a $1,975 exposure at 25%, and $790 at 10%. It is not a threat to the balance.</p>
+
+  <h2 id="shrink">Ways the bill gets smaller</h2>
+
+  <p>You cannot opt out. You can change how much sits in the accounts that generate the requirement, and where the distribution lands.</p><h3>Empty the low-tax years on purpose</h3><p>Look at the stretch between the year the paychecks stop and the year your applicable age arrives. Social Security may not have started; nothing is being forced out of anything. For many people those are the lowest-income years of an entire adult life &mdash; and low brackets do not roll over. Voluntary withdrawals or <a href="../roth-conversion-calculator.html">Roth conversions</a> sized to the top of a bracket, taken then, shrink the balance the RMD is eventually calculated on. The <a href="../retirement-withdrawal.html">retirement withdrawal guide</a> and <a href="../stage-5-wealth.html">Stage 5 of the free course</a> both work through it.</p><h3>Send it to a charity instead</h3><p>A <b>qualified charitable distribution</b> under &sect; 408(d)(8) moves money directly from an IRA to a qualifying charity. It never appears in your income at all, which beats a deduction, and once distributions have begun <b>a QCD counts toward the RMD</b>. Three specifics:</p><ul><li>Available from age <b>70&frac12;</b> &mdash; earlier than the RMD age, which is not a typo</li><li>Up to <b>$111,000 for 2026</b>, up from $108,000, and now indexed to inflation (<a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" target="_blank" rel="noopener">IRS Notice 2025-67</a>). A separate one-time election for a split-interest entity is capped at <b>$55,000</b> for 2026</li><li>It has to go <b>directly</b> from the IRA to the charity. Withdraw it first and write a check and you have made a taxable distribution plus a deductible gift &mdash; worse</li></ul><h3>Know what you are allowed to do with it</h3><p>The requirement is that the money leaves the tax-deferred account, not that you consume it. A distribution bigger than your spending can go straight into an ordinary taxable brokerage account and stay in the same funds. What you lose is future tax deferral, not the investment. Money that arrives that way starts a fresh <a href="cost-basis.html">cost basis</a> equal to its value on the day it landed &mdash; which matters later, both for your own capital gains and for what your heirs inherit. What you cannot do is roll an RMD over or convert it to a Roth &mdash; a required amount comes out and stays out.</p>
+
+  <h2 id="inherited">Inherited accounts run on a different clock</h2>
+
+  <p>Everything above is about your own account during your own life. An account you inherit is its own subject and deserves its own page. Here is enough to know whether you have one.</p><p>The old approach let a beneficiary spread distributions across their own life expectancy &mdash; decades, for a young heir. The SECURE Act ended that for most people. Under &sect; 401(a)(9)(H), most beneficiaries now have to <b>empty the account within ten years</b> of the owner's death.</p><p>The exceptions are a defined list &mdash; &sect; 401(a)(9)(E)(ii) calls them <b>eligible designated beneficiaries</b>, determined as of the date of death. Five categories: the <b>surviving spouse</b>; a <b>minor child of the account owner</b>, until majority; a person who is <b>disabled</b> within the meaning of &sect; 72(m)(7); a person who is <b>chronically ill</b> under &sect; 7702B(c)(2); and anyone <b>not more than ten years younger</b> than the deceased owner. Those beneficiaries can still use a life expectancy schedule. Note who is not on the list: an adult child, a grandchild, a sibling more than ten years younger. Most inheritances land in the ten-year rule.</p><div class="gls-box gls-warn"><span class="gls-lbl">The part that changed recently</span><p>For years it was unclear whether a beneficiary under the ten-year rule also had to take something <em>every</em> year, or could wait and empty the account in year ten. The IRS proposed that annual distributions were required, met objections, and waived enforcement for several years running. The <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" target="_blank" rel="noopener">July 2024 final regulations</a> settled it: where the original owner had already reached their required beginning date, the beneficiary <b>must</b> take an annual distribution in years one through nine and empty the account by year ten &mdash; applicable for calendar years beginning on or after <b>January 1, 2025</b>. Guidance written before mid-2024 says otherwise, and a great deal of it is still online.</p></div><p>Two practical notes. Inherited-account distributions use the <b>Single Life Table</b> (Table I), not the Uniform Lifetime Table. And a retirement account passes by <b>beneficiary designation</b>, which overrides a will and generally bypasses <a href="probate.html">probate</a> &mdash; so check that the form on file still names the person you mean.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Taking the whole requirement from one IRA when part of it belongs to a 401(k).</b> The aggregation rule pools IRAs and does not pool employer plans. This is the most common way a compliant-feeling person incurs an excise tax.</li><li><b>Using the April 1 grace by accident.</b> It is not an extension of the deadline &mdash; it is a merger of two tax years. Decide it on purpose or take the first distribution in its own year.</li><li><b>Using last year's factor, or a pre-2022 table.</b> The factor changes every year with your age, and the tables were replaced for distribution years beginning in 2022. A factor of 25.6 at age 73 means a stale source.</li><li><b>Using the wrong balance.</b> It is the closing value on December 31 of the <em>prior</em> year. Not today's, not an average, not the balance on your birthday.</li><li><b>Assuming an old 401(k) is covered by the still-working exception.</b> It only ever applies to the plan of the employer you currently work for, and never if you own 5% or more of that business.</li><li><b>Trying to convert an RMD to a Roth.</b> A required distribution cannot be rolled over or converted. Take it, then convert anything above it.</li><li><b>Writing the charity a check yourself.</b> A qualified charitable distribution has to go straight from the IRA to the charity, or the break disappears.</li><li><b>Hiding from a missed distribution.</b> The exposure is 25% of the amount you missed, dropping to 10% if you fix it in the window, and &sect; 4974(d) lets the IRS waive it outright for reasonable error. Silence is the only version of this that stays expensive.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is a Required Minimum Distribution?</h3>
+    <p>A required minimum distribution is the smallest amount you must withdraw each year from a traditional retirement account once you reach an age set by your year of birth. The requirement comes from 26 U.S.C. section 401(a)(9). It applies to traditional IRAs, SEP and SIMPLE IRAs, 401(k), 403(b) and governmental 457(b) plans. The amount is your account balance on December 31 of the previous year divided by a life expectancy factor from the IRS Uniform Lifetime Table. It is not a tax and it does not force you to spend the money, but the withdrawal itself is ordinary income.</p>
+
+    <h3>At what age do RMDs start?</h3>
+    <p>It depends entirely on your birth year. Under 26 CFR section 1.401(a)(9)-2(b)(2), the applicable age is 73 if you were born from 1951 through 1958, and 75 if you were born after 1959. People born in 1959 are described by both clauses of the statute, and the regulation still leaves that cohort marked Reserved. Proposed regulations issued in July 2024 would set it at 73, but they remain proposals. Nobody born in 1959 reaches either candidate age before 2032, so the question is not urgent yet.</p>
+
+    <h3>Can I delay my first RMD to April 1 of the next year?</h3>
+    <p>Yes, and it is usually a mistake. The first distribution is due by April 1 of the year after you reach your applicable age, which is your required beginning date. Every distribution after the first is due December 31 of its own year. Using the April 1 grace does not skip a year; it puts two distributions in a single tax year, which can push income into a higher bracket, make more of a Social Security benefit taxable, and cross a Medicare income surcharge tier that is billed two years later. It only wins if the earlier year was unusually high-income.</p>
+
+    <h3>Can I take my whole RMD from just one account?</h3>
+    <p>It depends on the account type, and the difference is expensive. IRA amounts are calculated separately for each IRA but the total may be withdrawn from any one or more of them, so several IRAs can be satisfied with a single withdrawal. Multiple 403(b) contracts work the same way among themselves. But 401(k) and 457(b) plans must each pay their own required amount separately, and an IRA withdrawal can never satisfy a 401(k) requirement or the reverse. Missing one plan means a 25% excise tax on that plan's shortfall.</p>
+
+    <h3>Do Roth accounts have required minimum distributions?</h3>
+    <p>Not during the original owner's lifetime. A Roth IRA has never had one. Designated Roth accounts inside a 401(k) or 403(b) did have them through 2023, but SECURE 2.0 added section 402A(d)(5), which exempts them for taxable years beginning after December 31, 2023. Both exemptions apply only while the owner is alive. Beneficiaries who inherit a Roth IRA or a designated Roth account are subject to distribution rules, generally including the ten-year rule.</p>
+
+    <h3>What is the penalty for missing an RMD?</h3>
+    <p>Section 4974(a) imposes an excise tax of 25% of the amount you failed to distribute, reduced to 10% under subsection (e) if you correct the shortfall inside the correction window. That window closes at the last day of the second taxable year beginning after the year of the shortfall, or earlier if the IRS assesses the tax or mails a notice of deficiency first. Report it on Form 5329 for the year you missed. Section 4974(d) also lets the IRS waive the tax where the shortfall was due to reasonable error and reasonable steps are being taken to fix it.</p>
+
+    <h3>Do I have to spend my RMD?</h3>
+    <p>No. The rule only requires that the money leave the tax-deferred account, not that you consume it. If the required amount is more than you need, it can move into an ordinary taxable brokerage account the same day and stay invested in the same holdings. What you give up is future tax deferral, not the investment. The money starts a fresh cost basis equal to its value on the day it arrives. One thing you cannot do is convert a required distribution to a Roth IRA, because a required amount is not eligible to be rolled over.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="roth-ira.html"><b>Roth IRA</b><span>The account this schedule never touches</span></a>
+      <a href="cost-basis.html"><b>Cost Basis</b><span>What you paid, and why the number decides your tax</span></a>
+      <a href="step-up-in-basis.html"><b>Step-Up in Basis</b><span>Why heirs love a brokerage account and dread an IRA</span></a>
+      <a href="probate.html"><b>Probate</b><span>The court process a beneficiary form skips</span></a>
+      <a href="net-worth.html"><b>Net Worth</b><span>The one number that tells you where you stand</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Read <a href="../retirement-withdrawal.html">the retirement withdrawal guide</a> &mdash; withdrawal rates, which account to draw first, and the gap years before this schedule starts. Free, no account.</li>
+      <li>Run your own numbers in the <a href="../retirement-withdrawal-calculator.html">retirement withdrawal calculator</a>, then test shrinking the balance early with the <a href="../roth-conversion-calculator.html">Roth conversion calculator</a>.</li>
+      <li>Work through <a href="../stage-5-wealth.html">Stage 5 &middot; Build Wealth</a>, which covers the tax side of retirement accounts alongside housing and income streams.</li>
+      <li>Starting from behind at 45 or 55? <a href="../starting-late.html">Starting late</a> has the honest arithmetic, including what a small balance means for this rule.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/26/401" target="_blank" rel="noopener">26 U.S.C. &sect; 401(a)(9) &mdash; Required distributions</a> &mdash; the authority for the whole rule: the required beginning date in (C), the two conflicting applicable-age clauses in (C)(v), the eligible designated beneficiary categories in (E)(ii) and the ten-year rule in (H).</li>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/26/4974" target="_blank" rel="noopener">26 U.S.C. &sect; 4974 &mdash; Excise tax on certain accumulations</a> &mdash; the 25% tax in (a), the waiver for reasonable error in (d), and the reduction to 10% and the definition of the correction window in (e).</li>
+      <li>Cornell Legal Information Institute, <a href="https://www.law.cornell.edu/cfr/text/26/1.401(a)(9)-9" target="_blank" rel="noopener">26 CFR &sect; 1.401(a)(9)-9 &mdash; Life expectancy and distribution period tables</a> &mdash; the Single Life Table in (b), the Uniform Lifetime Table in (c) and the Joint and Last Survivor Table in (d), and every factor quoted on this page.</li>
+      <li>Electronic Code of Federal Regulations, <a href="https://www.ecfr.gov/current/title-26/chapter-I/subchapter-A/part-1/subject-group-ECFR6f8c3724b50e44d/section-1.401(a)(9)-2" target="_blank" rel="noopener">26 CFR &sect; 1.401(a)(9)-2 &mdash; Distributions commencing during an employee's lifetime</a> &mdash; the applicable age by birth-year cohort in (b)(2), including the paragraph for employees born in 1959, which currently reads [Reserved].</li>
+      <li>Federal Register, <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14543/required-minimum-distributions" target="_blank" rel="noopener">Required Minimum Distributions, proposed rule, 19 July 2024</a> &mdash; proposed &sect; 1.401(a)(9)-2(b)(2)(v), which would provide that an employee born in 1959 has an applicable age of 73.</li>
+      <li>Federal Register, <a href="https://www.federalregister.gov/documents/2024/07/19/2024-14542/required-minimum-distributions" target="_blank" rel="noopener">Required Minimum Distributions, final rule, 19 July 2024</a> &mdash; confirmation that the life expectancy tables remain those published 12 November 2020 and applicable from 2022, the annual-distribution requirement inside the ten-year window, and the general 1 January 2025 applicability date.</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs" target="_blank" rel="noopener">Retirement plan and IRA required minimum distributions FAQs</a> &mdash; the aggregation rules for IRAs, 403(b) contracts and 401(k) and 457(b) plans, the still-working exception and the 5% owner limit, the 25% and 10% excise tax figures, and the Form 5329 filing instruction.</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/publications/p590b" target="_blank" rel="noopener">Publication 590-B, Distributions from Individual Retirement Arrangements (IRAs)</a> &mdash; the reader-facing document, and Appendix B where Table I (Single Life), Table II (Joint and Last Survivor) and Table III (Uniform Lifetime) are reprinted.</li>
+      <li>Internal Revenue Service, <a href="https://www.irs.gov/pub/irs-drop/n-25-67.pdf" target="_blank" rel="noopener">Notice 2025-67, 2026 amounts relating to retirement plans and IRAs</a> &mdash; the &sect; 408(d)(8) qualified charitable distribution limit rising from $108,000 to $111,000 for 2026, and the one-time split-interest entity limit of $55,000.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it is</a></li>
+      <li><a href="#age">When yours starts</a></li>
+      <li><a href="#calc">How the number is set</a></li>
+      <li><a href="#example">Worked example</a></li>
+      <li><a href="#accounts">Accounts and aggregation</a></li>
+      <li><a href="#penalty">If you miss one</a></li>
+      <li><a href="#shrink">Making the bill smaller</a></li>
+      <li><a href="#inherited">Inherited accounts</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>Put your own prior-year balance and age in and see the required amount, next to what the account looks like once the withdrawals start climbing. Free, no account.</p>
+    <a class="gls-cta" href="../retirement-withdrawal-calculator.html">Retirement withdrawal calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>
