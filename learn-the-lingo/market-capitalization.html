@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Cap: What It Is and What It Isn't | Learn the Lingo</title>
+<meta name="description" content="Market cap is share price times shares outstanding. What it is not: an acquisition price, the company's money, or a price you could get for the shares.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/market-capitalization.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/market-capitalization.html">
+<meta property="og:title" content="Market Capitalization &mdash; Learn the Lingo">
+<meta property="og:description" content="Share price times shares outstanding is the easy part. This page is about the three things market cap is not, and which of a company's several share counts the real number is built on.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Market Capitalization &mdash; Learn the Lingo">
+<meta name="twitter:description" content="Share price times shares outstanding is the easy part. This page is about the three things market cap is not, and which of a company's several share counts the real number is built on.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/market-capitalization.html#term",
+      "name": "Market Capitalization (Market Cap)",
+      "alternateName": ["Market Cap","Market Capitalization","Market Value of Equity","Equity Market Capitalization","Cap"],
+      "description": "Market capitalization is the total market value of a company's outstanding shares, calculated by multiplying the current share price by the number of shares outstanding. It measures only the equity portion of a company's capital structure, so it excludes debt and cash, and it is not money the company holds or received. Index providers usually work with a float-adjusted version that excludes closely held shares.",
+      "url": "https://hustlin.org/learn-the-lingo/market-capitalization.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Market Capitalization: The Formula, the Share Count, and the Three Things It Is Not",
+      "description": "A plain-language explanation of market capitalization: the formula the SEC itself uses, how it differs from enterprise value, why the company never receives the money, and why the number is a per-share price extrapolated to a quantity that could not be sold. Also covers basic versus diluted share counts, treasury shares, multiple share classes, the float-adjusted market cap that index providers actually weight by, and why the large-cap and small-cap size tiers are a convention no regulator defines.",
+      "url": "https://hustlin.org/learn-the-lingo/market-capitalization.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/market-capitalization.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/market-capitalization.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Market Cap", "item": "https://hustlin.org/learn-the-lingo/market-capitalization.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is market capitalization?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Market capitalization, or market cap, is a company's share price multiplied by its number of shares outstanding. The SEC's investor education site defines it as the value of a corporation determined by multiplying the current public market price of one share by the number of total outstanding shares. It is the total market value of the company's equity and nothing else, so it excludes debt and excludes cash. It is the fastest way to sort companies by size, and it makes no adjustment for anything." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a large market cap mean the company has that much money?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and this is the most common misunderstanding about the number. A company receives money from its own shares only when it sells newly created shares in an initial or follow-on offering. Every trade after that is between two investors, so the cash moves between brokerage accounts and the company's bank balance does not change. A company's market cap can rise tenfold without a dollar reaching the business, and it can be cut in half while the company's cash, revenue and payroll are unchanged." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between market cap and enterprise value?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Market cap prices only the equity. Enterprise value adds total debt and subtracts cash, which brings it closer to what buying the whole business would actually cost. Two companies can share an identical three billion dollar market cap and have enterprise values of five point two billion and two billion, because one is carrying heavy debt and the other is holding a lot of cash. Note that enterprise value has no GAAP or SEC definition, so which adjustments get included varies by analyst." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which share count should be used for market cap?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The standard formula uses basic shares outstanding, meaning issued shares minus treasury shares the company holds itself. Diluted counts add the net new shares that employee options and convertible securities would create, so a diluted market cap is larger. Neither is wrong, but comparing one company on a basic count against another on a diluted count is. The authoritative figure is on the company's own Form 10-Q or 10-K cover page, which requires the number of shares outstanding of each class as of the latest practicable date, free on EDGAR." }
+        },
+        {
+          "@type": "Question",
+          "name": "What counts as a large-cap or a small-cap stock?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no legal definition and no regulator that draws the line. FINRA publishes one commonly cited set of ranges: mega cap at two hundred billion dollars or more, large cap from ten to two hundred billion, mid cap from two to ten billion, small cap from two hundred fifty million to two billion, and micro cap below that. FINRA itself says the delineation between each group can vary. Treat any tier label as a convention, and ask whose definition is being used." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is a company's weight in an index different from its market cap?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because index providers weight by float-adjusted market cap, not full market cap. S&amp;P Dow Jones Indices computes an Investable Weight Factor as available float shares divided by total shares outstanding, and it strips out long-term strategic holders including officers and directors, government entities, corporate cross-holdings and any disclosed individual holder at five percent or more. FTSE Russell applies float adjustment to the Russell indexes the same way. A company that is 22 percent closely held carries an index weight set by 78 percent of its market cap." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do small-cap stocks earn higher long-run returns?",
+          "acceptedAnswer": { "@type": "Answer", "text": "That claim is contested, not settled. It traces to Rolf Banz in the Journal of Financial Economics in 1981 and entered practice through the Fama and French three-factor model. It has been challenged repeatedly since, including by Horowitz, Loughran and Savin in the Journal of Empirical Finance in 2000. The 2018 paper that defends the premium, by Asness and co-authors, opens by listing eight objections to it, including a weak historical record and a concentration in microcaps and in January. Anyone stating it as fact is skipping a live argument." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Market Cap</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Valuation</div>
+      <h1 class="hero-h1">Market Capitalization <span>(Market Cap)</span></h1>
+      <p class="hero-sub">The simplest calculation in finance &mdash; one share price multiplied by one share count &mdash; and the most confidently misused. It is not what the company would cost to buy, not money the company has, and not a price anyone could actually collect.</p>
+      <p class="gls-aka"><b>Also called:</b> market cap &middot; market value of equity &middot; equity value &middot; cap &middot; capitalization</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from the SEC's filing rules and investor education pages, FINRA, and the published index methodologies of S&amp;P Dow Jones Indices and FTSE Russell</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Market capitalization is a company's share price multiplied by its number of shares outstanding &mdash; the total market value of its equity, and nothing else.</strong></p>
+    <p>It exists because it is the only measure of company size that can be computed instantly, identically, for every listed company on earth, with no assumptions and no judgment calls. That is a real virtue and it is also the source of every problem with the number. Nothing in the arithmetic accounts for debt, for cash, for who actually owns the shares, or for whether the price of one share could survive somebody trying to sell all of them.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>The formula is share price &times; shares outstanding.</b> The SEC's investor education site defines it exactly that way: &ldquo;the value of a corporation determined by multiplying the current public market price of one share of the corporation by the number of total outstanding shares.&rdquo;</li>
+      <li><b>Market cap is equity only.</b> Enterprise value &mdash; market cap plus debt minus cash &mdash; is closer to what an acquirer pays. Two companies with the same $3.0&nbsp;billion market cap can have enterprise values of $5.2&nbsp;billion and $2.0&nbsp;billion.</li>
+      <li><b>The company never received the money.</b> It books proceeds only in a primary or follow-on offering. Every trade after that moves cash between two investors' accounts and never touches the business.</li>
+      <li><b>The authoritative share count is in the company's own filing.</b> The Form 10-Q and 10-K cover page requires the issuer to &ldquo;indicate the number of shares outstanding of each of the issuer's classes of common stock, as of the latest practicable date.&rdquo; Free on <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">EDGAR</a>.</li>
+      <li><b>Index providers do not weight by full market cap.</b> S&amp;P Dow Jones Indices weights by float-adjusted market cap, where the Investable Weight Factor is &ldquo;(available float shares)/(total shares outstanding)&rdquo; and strategic blocks of 5% or more are stripped out. That is why an index weight is not a market cap.</li>
+      <li><b>The size tiers are convention.</b> No regulator defines &ldquo;large cap.&rdquo; FINRA publishes one set of ranges and says outright that &ldquo;the delineation between each group can vary.&rdquo; FTSE Russell assigns tiers by <em>rank</em>, not by dollar cutoffs.</li>
+      <li><b>The long-run small-cap premium is contested, not settled.</b> Asness and co-authors, writing in the <em>Journal of Financial Economics</em> in 2018, list eight standing objections to it before arguing it survives one specific control.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What the number actually is</h2>
+
+  <p>Two screeners, same company, same minute. One says the company is worth $3.0&nbsp;billion, the other $3.2&nbsp;billion. Neither is broken. A banker pricing that company for a takeover would say $5.2&nbsp;billion and would also not be wrong. The founder, asked what she could actually get for every share she owns, would give a fourth number lower than all of them.</p><p>All four start from the simplest calculation in finance.</p><div class="gls-formula"><span class="gls-lbl">Market capitalization</span><code>market cap  =  share price  &times;  shares outstanding</code></div><p>The SEC's own investor education site defines it exactly that way. Market capitalization is &ldquo;the value of a corporation determined by multiplying the current public market price of one share of the corporation by the number of total outstanding shares.&rdquo; One price, one count, one multiplication. No adjustments, no discounts, no judgment.</p><p>That plainness is why market cap is the first column on every screener, this site's included. It is a genuinely useful number, and the one new investors misread most often.</p><p>Everything that goes wrong comes from two facts sitting inside that formula. <strong>The price is the price of one share</strong> &mdash; the last one that happened to trade. And <strong>the count is not a fact, it is a choice</strong>, because a public company has three or four defensible share counts that do not agree.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>Market cap is what somebody just paid for one share, multiplied by how many shares exist. It is <b>not</b> what the company would cost to buy, <b>not</b> money the company has or ever received, and <b>not</b> a price anyone could actually collect.</p></div><p>Those three denials are the page. Take them in order.</p>
+
+  <h2 id="enterprise">It is not what the company would cost to buy</h2>
+
+  <p>A headline says a company is &ldquo;worth $3&nbsp;billion.&rdquo; The natural reading is that $3&nbsp;billion is roughly what it would take to own the whole thing. It is not, and the gap is not small.</p><p>Buying every share gets you the company's <em>equity</em>, and equity comes attached to whatever the company owes. Debt does not evaporate at closing; you now control a company that has to service it. Cash runs the other way: buy a company sitting on cash and you get the cash, so the real outlay is smaller than the sticker. The construction that accounts for both is <strong>enterprise value</strong>.</p><div class="gls-formula"><span class="gls-lbl">Enterprise value &mdash; the common form</span><code>enterprise value  =  market cap  +  total debt  &minus;  cash and equivalents</code></div><p>Market cap prices the equity. Enterprise value prices the whole capital structure &mdash; what the operating business is worth regardless of who financed it. Two companies can carry an identical market cap and be nothing alike.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; identical market caps, very different companies</span><p>Both hypothetical, both round.</p><p><b>Ridgeline Freight</b> &mdash; 100,000,000 shares at $30, so market cap = $3.0&nbsp;billion. Total debt $2.4&nbsp;billion. Cash $0.2&nbsp;billion.<br>Enterprise value = $3.0B + $2.4B &minus; $0.2B = <b>$5.2 billion</b>.</p><p><b>Kettle Software</b> &mdash; 60,000,000 shares at $50, so market cap = $3.0&nbsp;billion. Total debt $0.1&nbsp;billion. Cash $1.1&nbsp;billion.<br>Enterprise value = $3.0B + $0.1B &minus; $1.1B = <b>$2.0 billion</b>.</p><p class="gls-result">Same $3.0 billion market cap. Enterprise values of $5.2 billion and $2.0 billion &mdash; a 2.6&times; spread. Screen on market cap alone and these two are the same size.</p></div><p>Notice which way the distortion runs. <strong>Debt makes a market cap look small next to the business it controls.</strong> Every valuation ratio built on Ridgeline's market cap makes it look cheaper than Kettle; swap in ratios built on enterprise value and the ranking flips. That is why the valuation stage of <a href="../fundamental-analysis.html">Fundamental Analysis</a> works through the balance sheet before it lets you touch a price multiple.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p><b>Enterprise value is not defined by any authority.</b> No GAAP definition, no SEC rule. Practitioners disagree about whether to add preferred stock, non-controlling interests and lease liabilities, so two analysts can compute two different enterprise values for the same company and both be following normal practice. The formula above is the common core, and it is a <b>convention</b>. Market cap is unambiguous by comparison &mdash; once you fix the share count, which is the next problem.</p></div>
+
+  <h2 id="notmoney">It is not the company's money, and it is not a price you could get</h2>
+
+  <h3>The company never received it</h3><p>This is the most common misunderstanding among people new to investing, so here it is bluntly. <strong>A $3&nbsp;billion market cap does not mean the company raised $3&nbsp;billion, holds $3&nbsp;billion, or has ever touched $3&nbsp;billion.</strong></p><p>A company receives money from its own shares only when it sells newly created shares and books the proceeds &mdash; in its initial offering, and in any later follow-on. That is the list. Every trade after that is <b>secondary</b>: one investor buying from another. The money moves between two brokerage accounts, and the company is not a party to it.</p><p>So a company can go from a $400&nbsp;million market cap to $4&nbsp;billion without a dollar of that increase reaching the business. And a market cap can be halved in a month while the company's cash, revenue and payroll are exactly what they were the day before.</p><p>A rising market cap does help <em>indirectly</em>: the company can issue new shares at a better price and borrow against a thicker equity cushion. And <b>buybacks run the mechanism backwards</b> &mdash; the company spends its own cash to buy shares out of the market, shrinking the count on the right-hand side of the formula.</p><h3>And it is not a price anyone could get</h3><p>Market cap values every share at the price of the last share that traded &mdash; a trade that may have been for a hundred shares. The formula extrapolates that price across the entire outstanding count, a quantity that could never transact at it.</p><p>Anyone who has watched an order book knows why. At any instant only a limited number of shares are bid for near the current price; sell more than that and you take the next bid down, then the one under it. Trying to sell 100&nbsp;million shares into a market that trades 800,000 a day is not a transaction, it is a demolition. That is why large blocks get negotiated off-exchange at a discount and why insider sales are pre-scheduled in tranches. Depth matters as much as price, and <a href="volume.html">volume</a> is a rough proxy for it.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Market cap is a <b>per-share price multiplied by a quantity that could not be sold at that price.</b> It is an accounting convenience, not a valuation and not a liquidation value. Say that once and an entire genre of headline stops working on you &mdash; starting with the ones that add up market caps after a bad afternoon and call the total &ldquo;wealth destroyed.&rdquo; No such sum was ever available to collect.</p></div>
+
+  <h2 id="sharecount">Which share count &mdash; and where the real one lives</h2>
+
+  <p>Here is why two honest screeners print different numbers for the same company at the same moment. <strong>&ldquo;Shares outstanding&rdquo; is not one number.</strong> Which one you pick moves the market cap by low single digits on a normal company, and by much more on one that pays its staff heavily in stock.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="The different share counts a company reports and what each one includes"><table class="gls-tab"><thead><tr><th>Count</th><th>What it includes</th><th>Where it appears</th></tr></thead><tbody><tr><td><b>Issued shares</b></td><td>Every share ever created, including any the company bought back and still holds.</td><td>Balance sheet equity, next to the authorized figure.</td></tr><tr><td><b>Treasury shares</b></td><td>Repurchased shares the company holds. No dividend, no vote. <b>Subtract them.</b></td><td>Balance sheet, a negative line in equity.</td></tr><tr><td><b>Shares outstanding (basic)</b></td><td>Issued minus treasury &mdash; shares held by somebody other than the company. <b>The count in the standard formula.</b></td><td>10-Q and 10-K cover page, and the balance sheet.</td></tr><tr><td><b>Diluted shares</b></td><td>Basic plus the net new shares options, restricted stock and convertibles would add.</td><td>Income statement, diluted EPS line.</td></tr></tbody></table></div><p>The dilution gap surprises people, so here it is with numbers. Under US accounting standards the diluted count uses the treasury stock method: assume the options are exercised, assume the proceeds buy shares back at the current price, count only the difference.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; basic against diluted</span><p>Ridgeline Freight again: 100,000,000 basic shares at $30. Employees hold 10,000,000 options at an average exercise price of $12.</p><p>Assumed proceeds if all are exercised: 10,000,000 &times; $12 = $120,000,000.<br>Shares that buys back at $30: $120,000,000 &divide; $30 = 4,000,000.<br>Net new shares: 10,000,000 &minus; 4,000,000 = 6,000,000.<br>Diluted count: 106,000,000.</p><p class="gls-result">Basic market cap = 100,000,000 &times; $30 = $3.00 billion. Diluted = 106,000,000 &times; $30 = $3.18 billion. A $180 million difference, 6% of the company, entirely from which count the data provider chose.</p></div><h3>Where the authoritative count lives</h3><p>Not in a screener &mdash; in the company's own filing. The <a href="https://www.sec.gov/files/form10-q.pdf" target="_blank" rel="noopener">Form 10-Q</a> and Form 10-K cover pages require the issuer to &ldquo;indicate the number of shares outstanding of each of the issuer's classes of common stock, as of the latest practicable date.&rdquo; That is a signed filing, it is the freshest count the company has, and it is free on the SEC's <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">EDGAR</a>. The balance sheet in the same filing gives the count as of period end &mdash; a slightly older figure, normal rather than an error.</p><p>Two things move the count quietly. <strong>Stock-based compensation adds shares every period</strong>, so unless the company buys back as many as it issues the count drifts upward &mdash; market cap can grow while each share represents a slightly smaller claim on the business. And <strong>a company may have more than one class of common stock</strong>, usually with different voting rights, sometimes with only one class listed, and the listed classes can trade at different prices. Valuing a multi-class company means pricing each class and summing, not applying one class's price to every share in existence.</p>
+
+  <h2 id="float">Full market cap against free float</h2>
+
+  <p>If market cap is a per-share price times a count, a fair question is which shares are even for sale. A founder holding 22% is not offering it. Neither is a government, a family trust, or the private equity firm with two board seats. Those shares exist, they count toward market cap, and they are not part of the tradable market.</p><p><b>S&amp;P Dow Jones Indices</b> defines an Investable Weight Factor as &ldquo;(available float shares)/(total shares outstanding)&rdquo; and weights its indices by <b>float-adjusted market cap</b>: price &times; total shares &times; IWF. Its float adjustment methodology &mdash; published, and one of the few primary sources in this whole subject &mdash; strips out long-term strategic holders: officers and directors, private equity firms, corporate cross-holdings, employee share plans, governments and sovereign wealth funds, and any individual holder disclosed at 5% or more. It states plainly that &ldquo;S&amp;P Dow Jones Indices uses a 5% minimum threshold for strategic blocks.&rdquo; Composite 1500 constituents must also have an IWF of at least 0.1.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; what float adjustment does to the number</span><p>Ridgeline Freight, 100,000,000 shares at $30, full market cap $3.0&nbsp;billion. The founder and a family trust hold 22,000,000 disclosed shares, above the 5% strategic threshold.</p><p>Available float: 100,000,000 &minus; 22,000,000 = 78,000,000.<br>IWF = 78,000,000 &divide; 100,000,000 = <b>0.78</b>.<br>Float-adjusted market cap = 78,000,000 &times; $30 = <b>$2.34 billion</b>.</p><p class="gls-result">Market cap $3.00 billion; index weight set by $2.34 billion &mdash; 22% less. Both numbers are correct. They answer different questions.</p></div><p><b>FTSE Russell</b> does the same on the Russell US indexes, stating that it &ldquo;adjusts its index membership weights for float shares to accurately represent the investable universe.&rdquo; Its reconstitution ran once a year, after the close on the fourth Friday in June; FTSE Russell announced a move to a <b>semi-annual</b> schedule beginning in 2026.</p><p>This idea has a regulatory cousin with legal consequences. Under SEC Rule 12b-2 a company's filing obligations turn on &ldquo;the aggregate worldwide market value of the voting and non-voting common equity held by its non-affiliates&rdquo; &mdash; public float &mdash; measured on the last business day of the most recently completed second fiscal quarter. Cross $75&nbsp;million and the company becomes an accelerated filer; cross $700&nbsp;million and it becomes a large accelerated filer, with faster deadlines and a heavier audit requirement. <strong>A float-based market cap measure is not only an index convention. It sets how much disclosure the company legally owes you.</strong></p><div class="gls-box"><span class="gls-lbl">The takeaway</span><p>A company's index weight is not its market cap and never was. It is its float-adjusted market cap under one provider's published rules.</p></div>
+
+  <h2 id="tiers">The size tiers are a convention, not a rule</h2>
+
+  <p>Large cap, mid cap, small cap, micro cap, mega cap. These sound like defined categories with edges. They are not. <strong>No regulator defines &ldquo;large cap.&rdquo;</strong> No statute, no rule and no filing turns on it. What exist are a few published sets of boundaries that mostly agree, plus the round numbers everybody repeats without saying whose they are.</p><p><b>FINRA publishes one set</b>, with the caveat most articles drop: &ldquo;The delineation between each group can vary, but generally, you'll see them broken down like this.&rdquo; Those are FINRA's words about FINRA's own table, reproduced here.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="FINRA's published market capitalization size tiers"><table class="gls-tab"><thead><tr><th>Tier</th><th>FINRA's stated range</th></tr></thead><tbody><tr><td><b>Mega cap</b></td><td>$200 billion or more</td></tr><tr><td><b>Large cap</b></td><td>$10 billion to $200 billion</td></tr><tr><td><b>Mid cap</b></td><td>$2 billion to $10 billion</td></tr><tr><td><b>Small cap</b></td><td>$250 million to $2 billion</td></tr><tr><td><b>Micro cap</b></td><td>Less than $250 million</td></tr></tbody></table></div><p>Now the reason this page treats the tiers as convention rather than fact. <strong>The people who actually build large-cap and small-cap indices mostly do not use fixed dollar cutoffs at all.</strong></p><p><b>FTSE Russell assigns by rank.</b> On rank day every eligible stock is ranked by total market capitalization in descending order and the largest 4,000 become the Russell 3000E universe; the Russell 1000 takes the large end of that list and the Russell 2000 the rest. There is no dollar line; the boundary sits wherever the thousandth company falls that year.</p><p><b>S&amp;P Dow Jones Indices does use dollar ranges, and revises them.</b> Its methodology states company market capitalization ranges with an effective date, because they are &ldquo;reviewed at the beginning of each calendar quarter and updated as needed to ensure the ranges reflect current market conditions.&rdquo; As of the ranges effective 1 July 2025, carried in the April 2026 edition: S&amp;P 500, US$22.7&nbsp;billion or more; S&amp;P MidCap 400, US$8.0&nbsp;billion to US$22.7&nbsp;billion; S&amp;P SmallCap 600, US$1.2&nbsp;billion to US$8.0&nbsp;billion. <b>Check the current PDF before quoting those</b> &mdash; a figure quoted without its date will quietly go wrong.</p><p>And membership is a policy question, not just a measurement: from 31 July 2017 multiple share class structures were ineligible for the S&amp;P Composite 1500, and on 17 April 2023 S&amp;P announced they would again &ldquo;be considered eligible candidates.&rdquo; Nothing about those companies changed on that date.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>When a fund or a screener says &ldquo;small cap,&rdquo; the honest question is <b>whose definition</b>. A rank-based fund and a fixed-dollar-band fund can hold different companies and both be labeled accurately.</p></div>
+
+  <h2 id="behavior">How size changes the way a stock trades, and how indices use it</h2>
+
+  <p>None of what follows is a reason to prefer one size over another. It is mechanics.</p><h3>Liquidity and the spread</h3><p>Smaller companies have fewer shares available and fewer people trading them, which shows up as a wider gap between the best bid and offer and a price that moves further on an ordinary-sized order. A wide spread is a cost paid on entry and again on exit, and it never appears on a statement as a fee. <a href="volume.html">Volume</a> is the crude reading on it.</p><h3>Coverage, disclosure and index inclusion</h3><p>Analyst coverage thins going down the size scale, so fewer people publish estimates. And under Rule 12b-2 a company below the $75&nbsp;million public float line is a non-accelerated filer with longer deadlines, while a smaller reporting company may scale back certain disclosures. <strong>Less information exists about small companies, by design of the rules and by the economics of the research business.</strong> Whether that is opportunity or hazard depends on whether you can do the work yourself, which is what <a href="../fundamental-analysis.html">Fundamental Analysis</a> is for.</p><p>And because index thresholds are published, crossing one is an event: a company entering a widely tracked index must be bought by every fund tracking it, at a size set by its float-adjusted cap, on an announced schedule. Leaving works in reverse. That flow has nothing to do with the business.</p><h3>Volatility, and the argument about the size premium</h3><p>Smaller companies are typically less diversified, carry shorter operating histories and are repriced on thinner volume, so their prices move more. That much is mechanical. The claim built on top of it is not. That small-cap stocks earn a persistent long-run return premium traces to Rolf Banz in the <em>Journal of Financial Economics</em> in 1981 and entered practice through Eugene Fama and Kenneth French's three-factor model in the early 1990s. <strong>It has been contested ever since</strong> &mdash; Horowitz, Loughran and Savin, &ldquo;Three analyses of the firm size premium,&rdquo; <em>Journal of Empirical Finance</em> 7(2), 2000, is one well-known challenge. The clearest statement of where the argument stands comes from the paper that <em>defends</em> the premium. Asness, Frazzini, Israel, Moskowitz and Pedersen, &ldquo;Size matters, if you control your junk,&rdquo; <em>Journal of Financial Economics</em> 129(3), 2018, opens by listing the charges: the premium has been accused of &ldquo;having a weak historical record, being meager relative to other factors, varying significantly over time, weakening after its discovery, being concentrated among microcap stocks, residing predominantly in January, relying on price-based measures, and being weak internationally.&rdquo; Their argument is that those objections dissolve once you control for firm quality. <strong>A live dispute with named participants on both sides &mdash; not a settled fact.</strong></p><h3>Cap weighting, and what it does mechanically</h3><p>Most broad indices and most index <a href="etf.html">ETFs</a> weight their holdings by float-adjusted market cap. The consequence is arithmetic: as a company's price rises its market cap rises, so its share of the index rises with no trade required, and as it falls its weight falls. A cap-weighted index therefore <strong>concentrates into whatever has gone up</strong> and thins out of whatever has gone down, automatically and continuously.</p><p>That is neither a flaw nor a virtue. It is why such an index needs very little turnover &mdash; much of why these funds are cheap &mdash; and why a handful of very large companies can dominate an index nominally holding five hundred. Weighting is a choice, though, not a law: the Dow Jones Industrial Average is <b>price</b>-weighted, so a share price rather than a market cap sets each member's influence (see <a href="dow-theory.html">Dow Theory</a>). And market cap is nominal, so comparing one across decades without adjusting for <a href="inflation.html">inflation</a> compares two different dollars.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it on this site</span><p>Market cap is a sortable column in the screener on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a>, beside the nine-metric reference covering the ratios built on it. The earnings calendar there <b>filters by market cap</b> &mdash; only companies above $2&nbsp;billion appear, which the page states openly, and which lands exactly on FINRA's small-cap ceiling. For a small account building slowly, <a href="../stage-4-invest.html">Stage 4 of the free Financial Literacy course</a> is the plain-language version. All five stages are free, no account needed.</p></div>
+
+  <h2 id="ledger">What is sourced here and what is not</h2>
+
+  <p>Three kinds of claim appear above. The difference matters more than the content.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confirmed, unverified and convention claims on this page"><table class="gls-tab"><thead><tr><th>Status</th><th>Claim</th><th>What establishes it</th></tr></thead><tbody><tr><td><b>Confirmed</b></td><td>Market cap = price &times; total shares outstanding; and the share count must be disclosed by class on the filing cover page</td><td>The SEC's investor.gov glossary, in those words; SEC Forms 10-Q and 10-K.</td></tr><tr><td><b>Confirmed</b></td><td>Public float is non-affiliate market value measured on the last business day of the second fiscal quarter; $75M and $700M change filer status</td><td>SEC Rule 12b-2, 17 CFR 240.12b-2.</td></tr><tr><td><b>Confirmed</b></td><td>IWF = available float &divide; total shares; 5% strategic-block threshold; IWF at least 0.1 for the Composite 1500; company-level eligibility with per-line weighting; multi-class structures barred 31 July 2017 and readmitted 17 April 2023</td><td>S&amp;P Dow Jones Indices float adjustment methodology, U.S. Indices methodology and announcements.</td></tr><tr><td><b>Confirmed</b></td><td>Russell membership is set by descending rank of total market cap; weights are float-adjusted</td><td>FTSE Russell / LSEG methodology.</td></tr><tr><td><b>Confirmed</b></td><td>The small-cap premium is disputed, and the objections quoted</td><td>Banz 1981; Horowitz, Loughran and Savin 2000; Asness and co-authors 2018, quoted directly.</td></tr><tr><td><b>Unverified</b></td><td>Which tier boundaries are most widely used, and how far a large block sale moves a price. No census of usage was found, and no general figure for block impact &mdash; it is entirely security-specific.</td><td>Nothing. Which is why the table above is named as FINRA's ranges, not &ldquo;the&rdquo; ranges, and why the block point stays qualitative.</td></tr><tr><td><b>Convention</b></td><td>Enterprise value = market cap + debt &minus; cash</td><td>Practice, not GAAP and not an SEC rule. Which adjustments belong varies.</td></tr><tr><td><b>Convention</b></td><td>The round-number tier edges: $250 million, $2 billion, $10 billion, $200 billion &mdash; and using market cap as a proxy for &ldquo;company size&rdquo; at all</td><td>Repetition and habit. FINRA publishes one version and says the delineation can vary; revenue, employees and assets rank companies differently.</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Reading market cap as an acquisition price.</b> It prices the equity. Debt comes with the company and so does the cash; enterprise value accounts for both.</li><li><b>Thinking the company has the money.</b> It received proceeds only in its offerings.</li><li><b>Treating it as a realizable amount.</b> It is one share's price times a count that could not be sold at that price. And multi-class companies need each listed class priced and summed, not one class's price applied to every share in existence.</li><li><b>Comparing a diluted market cap against a basic one.</b> On a company that pays heavily in stock the gap is real money &mdash; 6% in the example above. Check which count your data source used before comparing two companies.</li><li><b>Expecting index weight to match market cap.</b> Indices weight by <em>float-adjusted</em> cap under published rules that exclude closely held blocks &mdash; a 0.78 float factor is a 22% haircut.</li><li><b>Quoting a size-tier dollar range as if it were defined.</b> No regulator defines the tiers. FINRA publishes ranges and says they vary, FTSE Russell uses rank instead, and S&amp;P's dollar bands carry an effective date and get revised.</li><li><b>Assuming a cap-weighted index is diversified because it holds hundreds of names.</b> Weighting by market cap means the largest members carry the outcome &mdash; the mechanism working as designed, not a malfunction.</li><li><b>Assuming small caps outperform because a factor model says so.</b> The defenders' own paper opens by listing eight objections to the premium.</li><li><b>Comparing market caps across decades without adjusting for inflation.</b> A billion dollars in 1990 and a billion now are not the same billion.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is market capitalization?</h3>
+    <p>Market capitalization, or market cap, is a company's share price multiplied by its number of shares outstanding. The SEC's investor education site defines it as the value of a corporation determined by multiplying the current public market price of one share by the number of total outstanding shares. It is the total market value of the company's equity and nothing else, so it excludes debt and excludes cash. It is the fastest way to sort companies by size, and it makes no adjustment for anything.</p>
+
+    <h3>Does a large market cap mean the company has that much money?</h3>
+    <p>No, and this is the most common misunderstanding about the number. A company receives money from its own shares only when it sells newly created shares in an initial or follow-on offering. Every trade after that is between two investors, so the cash moves between brokerage accounts and the company's bank balance does not change. A company's market cap can rise tenfold without a dollar reaching the business, and it can be cut in half while the company's cash, revenue and payroll are unchanged.</p>
+
+    <h3>What is the difference between market cap and enterprise value?</h3>
+    <p>Market cap prices only the equity. Enterprise value adds total debt and subtracts cash, which brings it closer to what buying the whole business would actually cost. Two companies can share an identical three billion dollar market cap and have enterprise values of five point two billion and two billion, because one is carrying heavy debt and the other is holding a lot of cash. Note that enterprise value has no GAAP or SEC definition, so which adjustments get included varies by analyst.</p>
+
+    <h3>Which share count should be used for market cap?</h3>
+    <p>The standard formula uses basic shares outstanding, meaning issued shares minus treasury shares the company holds itself. Diluted counts add the net new shares that employee options and convertible securities would create, so a diluted market cap is larger. Neither is wrong, but comparing one company on a basic count against another on a diluted count is. The authoritative figure is on the company's own Form 10-Q or 10-K cover page, which requires the number of shares outstanding of each class as of the latest practicable date, free on EDGAR.</p>
+
+    <h3>What counts as a large-cap or a small-cap stock?</h3>
+    <p>There is no legal definition and no regulator that draws the line. FINRA publishes one commonly cited set of ranges: mega cap at two hundred billion dollars or more, large cap from ten to two hundred billion, mid cap from two to ten billion, small cap from two hundred fifty million to two billion, and micro cap below that. FINRA itself says the delineation between each group can vary. Treat any tier label as a convention, and ask whose definition is being used.</p>
+
+    <h3>Why is a company's weight in an index different from its market cap?</h3>
+    <p>Because index providers weight by float-adjusted market cap, not full market cap. S&amp;P Dow Jones Indices computes an Investable Weight Factor as available float shares divided by total shares outstanding, and it strips out long-term strategic holders including officers and directors, government entities, corporate cross-holdings and any disclosed individual holder at five percent or more. FTSE Russell applies float adjustment to the Russell indexes the same way. A company that is 22 percent closely held carries an index weight set by 78 percent of its market cap.</p>
+
+    <h3>Do small-cap stocks earn higher long-run returns?</h3>
+    <p>That claim is contested, not settled. It traces to Rolf Banz in the Journal of Financial Economics in 1981 and entered practice through the Fama and French three-factor model. It has been challenged repeatedly since, including by Horowitz, Loughran and Savin in the Journal of Empirical Finance in 2000. The 2018 paper that defends the premium, by Asness and co-authors, opens by listing eight objections to it, including a weak historical record and a concentration in microcaps and in January. Anyone stating it as fact is skipping a live argument.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="etf.html"><b>ETF</b><span>The fund that usually weights its holdings by float-adjusted cap</span></a>
+      <a href="volume.html"><b>Volume</b><span>The depth behind a price, and why market cap could not be sold</span></a>
+      <a href="net-worth.html"><b>Net Worth</b><span>Assets minus liabilities &mdash; what market cap deliberately is not</span></a>
+      <a href="dow-theory.html"><b>Dow Theory</b><span>The famous average that weights by price rather than by size</span></a>
+      <a href="cost-basis.html"><b>Cost Basis</b><span>What you actually paid, against what the market says today</span></a>
+      <a href="inflation.html"><b>Inflation</b><span>Why a market cap from 1990 is not comparable to one now</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Sort live companies by market cap and read the nine metrics built on top of it on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a> &mdash; free, no account.</li>
+      <li>Work through the balance sheet before the price multiple in Stages 3 and 4 of <a href="../fundamental-analysis.html">Fundamental Analysis</a>, which is where enterprise value stops being trivia.</li>
+      <li>Start with what compounding actually does in <a href="../stage-4-invest.html">Stage 4 of the free Financial Literacy course</a> &mdash; all five stages are free and an account is optional.</li>
+      <li>Run the arithmetic on your own money with the <a href="../investment-growth-calculator.html">investment growth calculator</a> or take stock with the <a href="../net-worth-calculator.html">net worth calculator</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/market-capitalization" target="_blank" rel="noopener">Investor.gov glossary: Market Capitalization</a> &mdash; the definition quoted on this page, establishing the formula as current public market price of one share multiplied by total outstanding shares. Note that the SEC's entry gives no size tiers and no dollar ranges.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/files/form10-q.pdf" target="_blank" rel="noopener">Form 10-Q</a> &mdash; the cover page requirement to &ldquo;indicate the number of shares outstanding of each of the issuer's classes of common stock, as of the latest practicable date,&rdquo; plus the filer status check boxes. The authoritative share count for any market cap calculation, retrievable free through <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">EDGAR full-text search</a>.</li>
+      <li>17 CFR &sect; 240.12b-2, <a href="https://www.law.cornell.edu/cfr/text/17/240.12b-2" target="_blank" rel="noopener">SEC Rule 12b-2 (definitions)</a> &mdash; source for the accelerated filer threshold of $75 million and the large accelerated filer threshold of $700 million in aggregate worldwide market value of voting and non-voting common equity held by non-affiliates, and for how that value is computed and on what date.</li>
+      <li>S&amp;P Dow Jones Indices, <a href="https://www.spglobal.com/spdji/en/documents/index-policies/methodology-sp-float-adjustment.pdf" target="_blank" rel="noopener">S&amp;P Float Adjustment Methodology</a> &mdash; source for the Investable Weight Factor as available float shares divided by total shares outstanding, the list of strategic holder categories excluded from float, the 5% minimum threshold for strategic blocks, and the float-adjusted index formula.</li>
+      <li>S&amp;P Dow Jones Indices, <a href="https://www.spglobal.com/spdji/tc/documents/methodologies/methodology-sp-us-indices.pdf" target="_blank" rel="noopener">S&amp;P U.S. Indices Methodology</a> (April 2026 edition) &mdash; source for float-adjusted market cap weighting, the minimum IWF of 0.1 for the S&amp;P Composite 1500, the treatment of multiple share class lines with company-level eligibility and per-line weighting, and the market capitalization ranges effective 1 July 2025 quoted on this page, along with the statement that those ranges are reviewed at the beginning of each calendar quarter.</li>
+      <li>S&amp;P Dow Jones Indices, <a href="https://press.spglobal.com/2023-04-17-S-P-Dow-Jones-Indices-Announces-Results-of-S-P-Composite-1500-Index-Consultation-on-Share-Class-Eligibility-Rules" target="_blank" rel="noopener">Results of S&amp;P Composite 1500 Index Consultation on Share Class Eligibility Rules</a>, 17 April 2023 &mdash; establishes the prior rule in force from 31 July 2017 that multiple share class companies were ineligible, and the reversal making them eligible candidates again.</li>
+      <li>FTSE Russell / LSEG, <a href="https://www.lseg.com/content/dam/ftse-russell/en_us/documents/other/ftse-russell-us-indexes-methodology-overview-cut-sheet.pdf" target="_blank" rel="noopener">Russell US Indexes Methodology Overview</a> &mdash; source for membership set by ranking eligible stocks by total market capitalization in descending order, weighting based on float-adjusted market capitalization, the June reconstitution timing, and the announced move to a semi-annual reconstitution schedule beginning in 2026.</li>
+      <li>FINRA, <a href="https://www.finra.org/investors/insights/market-cap" target="_blank" rel="noopener">Market Cap Explained</a> &mdash; the published size tier ranges reproduced on this page, and the caveat quoted directly from it that &ldquo;the delineation between each group can vary.&rdquo; Cited as one attributable set of ranges rather than as a definition.</li>
+      <li>Clifford S. Asness, Andrea Frazzini, Ronen Israel, Tobias J. Moskowitz and Lasse Heje Pedersen, <a href="https://econpapers.repec.org/RePEc:eee:jfinec:v:129:y:2018:i:3:p:479-509" target="_blank" rel="noopener">&ldquo;Size matters, if you control your junk&rdquo;</a>, <em>Journal of Financial Economics</em> 129(3), 2018, pp. 479&ndash;509 &mdash; source for the list of standing objections to the size premium quoted on this page. Earlier literature referenced: Rolf W. Banz, &ldquo;The relationship between return and market value of common stocks,&rdquo; <em>Journal of Financial Economics</em> 9(1), 1981, pp. 3&ndash;18; and Joel Horowitz, Tim Loughran and N. E. Savin, &ldquo;Three analyses of the firm size premium,&rdquo; <em>Journal of Empirical Finance</em> 7(2), 2000, pp. 143&ndash;153.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it actually is</a></li>
+      <li><a href="#enterprise">Not an acquisition price</a></li>
+      <li><a href="#notmoney">Not the company's money</a></li>
+      <li><a href="#sharecount">Which share count</a></li>
+      <li><a href="#float">Free float</a></li>
+      <li><a href="#tiers">The size tiers</a></li>
+      <li><a href="#behavior">How size changes behavior</a></li>
+      <li><a href="#ledger">Sourcing ledger</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">See it on live data</span>
+    <p>Sort live companies by market cap, then read the nine metrics built on top of it &mdash; with a screener, an earnings calendar and sector context beside them. Free, no account.</p>
+    <a class="gls-cta" href="../markets-fundamental.html">The nine-metric reference, live &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

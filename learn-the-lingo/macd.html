@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACD (Moving Average Convergence Divergence) | Learn the Lingo</title>
+<meta name="description" content="MACD is one subtraction: the 12-period EMA minus the 26-period EMA. The three parts, why it cannot lead, and which of its numbers have a source.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/macd.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/macd.html">
+<meta property="og:title" content="Moving Average Convergence Divergence (MACD) &mdash; Learn the Lingo">
+<meta property="og:description" content="The intimidating name hides one subtraction. Gerald Appel built it around 1977, the histogram is not volume, and no published source explains where 12, 26 and 9 came from.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Moving Average Convergence Divergence (MACD) &mdash; Learn the Lingo">
+<meta name="twitter:description" content="The intimidating name hides one subtraction. Gerald Appel built it around 1977, the histogram is not volume, and no published source explains where 12, 26 and 9 came from.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/macd.html#term",
+      "name": "Moving Average Convergence Divergence (MACD)",
+      "alternateName": ["MACD","MACD indicator","Moving Average Convergence/Divergence","12/26/9 MACD"],
+      "description": "Moving Average Convergence Divergence (MACD) is a momentum indicator built by subtracting a longer exponential moving average of closing price from a shorter one, conventionally the 26-period EMA from the 12-period EMA. It is normally drawn with a signal line, a 9-period exponential moving average of the MACD line itself, and a histogram showing the gap between the two. It was developed by Gerald Appel in the late 1970s.",
+      "url": "https://hustlin.org/learn-the-lingo/macd.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "MACD: The Subtraction Behind the Name, and Where Its Numbers Came From",
+      "description": "A plain-language explanation of Moving Average Convergence Divergence: that the MACD line is one exponential moving average subtracted from another, how the signal line and histogram are built on top of it, and why the histogram is not volume. Covers Gerald Appel's own account of inventing it around 1977, the fact that 12/26/9 has no published derivation, why an indicator built from averages cannot lead price, the difference between a zero-line crossing and a signal-line crossing, and why a MACD reading cannot be compared between two stocks.",
+      "url": "https://hustlin.org/learn-the-lingo/macd.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/macd.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/macd.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "MACD", "item": "https://hustlin.org/learn-the-lingo/macd.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Moving Average Convergence Divergence (MACD)?",
+          "acceptedAnswer": { "@type": "Answer", "text": "MACD is a momentum indicator made of one subtraction: a shorter exponential moving average of closing price minus a longer one, conventionally the 12-period EMA minus the 26-period EMA. That difference is the MACD line. It is normally drawn with a signal line, which is a 9-period exponential moving average of the MACD line itself, and a histogram showing the gap between those two lines. Gerald Appel developed it in the late 1970s and said in a 2003 interview that it was invented in about 1977." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the MACD histogram volume?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. It contains no volume data at all. The confusion is entirely because the histogram is drawn as vertical bars above and below a zero line, which is how volume is drawn too. The histogram is the MACD line minus the signal line, so it measures the distance between two lines in its own panel. Volume counts shares that actually changed hands and comes off the exchange tape. A histogram bar can be at its tallest of the year on a session where hardly any shares traded." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do the MACD settings 12, 26 and 9 come from?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nobody has published a derivation. StockCharts documents 12, 26 and 9 as the standard settings, so the defaults themselves are verifiable, but no source reachable for this page explains why those three numbers rather than any others. They are convention. The widely repeated story that they encode a two-week and one-month lookback from a six-day trading week could not be traced to any primary source. Appel also said the original description used different time frames than are used today, so even attributing 12/26/9 to him personally goes beyond the record." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is MACD a leading or lagging indicator?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Lagging, by construction, despite being filed under momentum. Every input is a closing price that has already printed, and an exponential moving average of past closes cannot contain information that is not in those closes. The lag also happens twice: the two EMAs lag price, the MACD line follows them, and the signal line is an average of the MACD line, so it lags again. Thomas Aspray, who created the histogram, wrote in 1988 that MACD is an excellent indicator but its signals often lag." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a zero-line crossing and a signal-line crossing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They are different events about different things. The MACD line hits zero exactly when the 12-period and 26-period EMAs are equal, so a zero-line crossing is those two moving averages crossing each other, reported on a different axis. A signal-line crossing means the current gap between the averages has moved above or below the recent average size of that gap. It says nothing about where the two averages sit. MACD can cross its signal line while sitting far below zero, with both averages still a long way apart." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is MACD divergence reliable?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no published hit rate for it, and two things argue for caution. Appel said his original description of MACD had no particular references to divergences, so it is not part of the indicator as invented. And StockCharts states that bearish divergences are commonplace in a strong uptrend and bullish divergences occur often in a strong downtrend, meaning the condition is most abundant exactly where acting on it would have cost the most. Charts showing a divergence before a famous top are selected after the fact from the outcome, which proves nothing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you compare MACD values between two different stocks?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and this is the most underexplained thing about the indicator. A MACD reading is one dollar amount subtracted from another, so it is denominated in that particular stock's dollars per share. StockCharts states plainly that MACD values depend on the price of the underlying security and that comparing them across securities with different prices is not possible. A stock near 400 dollars can show a reading of 4.00 while a stock near 8 dollars shows 0.08, and as a percentage of the slower average both are the same 1.005 percent separation." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>MACD</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Indicators</div>
+      <h1 class="hero-h1">Moving Average Convergence Divergence <span>(MACD)</span></h1>
+      <p class="hero-sub">Five syllables of Latin wrapped around a subtraction: one average of recent closing prices, minus a longer one. Everything else on the panel &mdash; the second line, the bars, the colors &mdash; is decoration on that single gap.</p>
+      <p class="gls-aka"><b>Also called:</b> MACD &middot; the MACD &middot; MACD indicator &middot; moving average convergence/divergence &middot; 12/26/9 MACD</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from Gerald Appel&rsquo;s own 2003 interview, Thomas Aspray&rsquo;s 1988 articles and current platform documentation</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>MACD is one number: a short-term average of closing prices minus a longer-term one.</strong> Conventionally the 12-period exponential moving average minus the 26-period exponential moving average. That difference, plotted over time, is the MACD line, and it is the entire indicator.</p>
+    <p>It exists because the eye is bad at judging whether two moving averages are pulling apart or closing in. Drawn on the price chart, a 12 and a 26 sit almost on top of each other and the gap between them is a few pixels. Subtract one from the other and plot the result on its own axis, and that gap becomes readable &mdash; it has a sign, a size and a direction. The name is a literal description of what you are watching: <em>convergence</em> is the two averages closing in on each other, <em>divergence</em> is them pulling apart.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>The MACD line is a subtraction and nothing more:</b> 12-period EMA of closing price &minus; 26-period EMA of closing price. StockCharts&rsquo; ChartSchool documents those as the defaults.</li>
+      <li><b>The signal line is an average of an average</b> &mdash; a 9-period EMA of the MACD line &mdash; which is why it lags twice over. The <b>histogram</b> is simply the MACD line minus the signal line.</li>
+      <li><b>The histogram is not volume.</b> It measures the distance between two lines in its own panel. A tall histogram bar can print on a day almost nothing traded. See <a href="volume.html">volume</a> for the thing people confuse it with.</li>
+      <li><b>Gerald Appel developed it.</b> In a 2003 interview he said MACD &ldquo;was originally invented in about 1977.&rdquo; The <b>histogram was added later by Thomas Aspray</b>, not by Appel.</li>
+      <li><b>12, 26 and 9 have no published derivation.</b> They are convention. The popular story that they encode a six-day trading week is repeated everywhere and traced to no primary source by this page.</li>
+      <li><b>MACD is built from averages of past closes, so it cannot lead price.</b> It is a lagging indicator wearing momentum&rsquo;s clothing, and Aspray &mdash; who built the histogram &mdash; wrote that its &ldquo;signals often lag.&rdquo;</li>
+      <li><b>MACD is unbounded and denominated in the stock&rsquo;s own dollars,</b> so a reading of +4.00 on one stock and +0.08 on another can describe an identical move. Unlike <a href="relative-strength-index-rsi.html">RSI</a>, it is not comparable across stocks or across time.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What MACD actually is</h2>
+
+  <p>Someone shares a chart with you. Under the price there is a second panel: two wiggly lines, a row of bars behind them, and a label reading <b>MACD &mdash; Moving Average Convergence Divergence</b>. The video says it &ldquo;confirmed momentum&rdquo; before the move. You assume there is mathematics in that panel you don&rsquo;t have, and that the name is long because the idea is hard.</p><p>The idea is a subtraction.</p><div class="gls-formula"><span class="gls-lbl">The MACD line &mdash; the entire indicator</span><code>MACD line  =  12-period EMA of close  &minus;  26-period EMA of close</code><p class="gls-where">An <b>EMA</b> is an exponential moving average &mdash; the average closing price over a window, weighted so recent bars count for more. See <a href="moving-average.html">moving average</a> for how that weighting works. TradingView&rsquo;s own documentation states the formula as simply <code>MACD = Fast MA &minus; Slow MA</code>.</p></div><p>That is it. Take the shorter average, take the longer average, subtract. Plot the answer. Everything else on the panel is built out of that one number.</p><p>Now the name makes sense, because the name is literal. Two moving averages of the same price can only do two things relative to each other: close in, or pull apart. <strong>Convergence</strong> is closing in &mdash; the two averages drifting toward the same value, which drives the subtraction toward zero. <strong>Divergence</strong> is pulling apart, which drives it away from zero in whichever direction the shorter average went. MACD is a distance meter between two averages, with a sign on it.</p><p>It comes from <b>Gerald Appel</b>, a money manager and newsletter writer, in the late 1970s. Appel put a date on it himself in a September 2003 interview in <em>Technical Analysis of STOCKS &amp; COMMODITIES</em>: <em>&ldquo;MACD was originally invented in about 1977, but the way I use it has evolved over the years.&rdquo;</em> Thomas Aspray, in the same magazine in 1988, credits it identically &mdash; <em>&ldquo;Convergence/Divergence was developed by Gerald Appel.&rdquo;</em></p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>MACD measures how far apart two averages of the same stock&rsquo;s recent closing prices are, and which way that distance is moving. It measures nothing else.</p></div>
+
+  <h2 id="parts">The three parts, and what each one is made of</h2>
+
+  <p>Most confusion about MACD is really confusion about which of the three things on the panel you are looking at. They are built in a chain, each derived from the one before it.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="The three components of MACD and how each is calculated"><table class="gls-tab"><thead><tr><th>Part</th><th>How it is calculated</th><th>What it measures</th></tr></thead><tbody><tr><td><strong>MACD line</strong></td><td>12-period EMA of close &minus; 26-period EMA of close</td><td>The gap between two averages of price</td></tr><tr><td><strong>Signal line</strong></td><td>9-period EMA <em>of the MACD line</em></td><td>The recent typical size of that gap</td></tr><tr><td><strong>Histogram</strong></td><td>MACD line &minus; signal line</td><td>How far the gap is from its own recent average</td></tr></tbody></table></div><p>Read down that middle column and one thing should jump out. The signal line is <strong>an average of an average</strong>. It is not calculated from price at all &mdash; its only input is the MACD line, which was itself built from two averages of price. Price is two smoothing steps away from it. That is the most important structural fact about this indicator, and the whole of the lag problem lives in it.</p><h3>The histogram is not volume</h3><p>This is the most common misreading of the panel, and it is entirely the fault of the drawing. Vertical bars rising and falling from a zero line look exactly like volume bars, because volume is also drawn as vertical bars.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p><b>The MACD histogram contains no volume data whatsoever.</b> <a href="volume.html">Volume</a> counts shares that changed hands &mdash; it comes off the exchange tape and it lives in its own panel. The histogram is the arithmetic difference between two lines drawn in the panel it appears in. A histogram bar can be at its tallest of the year on a session where barely any shares traded, because nothing in its formula knows or cares how many did.</p></div><p>Two consequences of <code>histogram = MACD &minus; signal</code> follow from the definition and cost nothing to remember. The histogram is <strong>positive whenever the MACD line is above its signal line</strong> and negative whenever it is below. And &mdash; this trips up people who think they are watching two independent things &mdash; the histogram crossing zero and the MACD line crossing its signal line are <strong>one event happening once</strong>. The gap is zero exactly when the two lines touch.</p><p>The histogram also is not Appel&rsquo;s. <b>Thomas Aspray added it</b>, introducing it in <em>Technical Analysis of STOCKS &amp; COMMODITIES</em> as the MACD Histogram/Momentum indicator. The date is genuinely contested: TradingView&rsquo;s documentation says 1986, while the magazine&rsquo;s own author archive lists Aspray&rsquo;s earliest MACD article as August 1988. Both cannot be right. The attribution to Aspray is solid; the year sits in the ledger below as unverified.</p>
+
+  <h2 id="settings">Where 12, 26 and 9 came from</h2>
+
+  <p>Open MACD on any platform and it loads <b>12, 26, 9</b>. The numbers have the settled look of something derived &mdash; as though somebody optimized them, published the work, and the industry adopted the result. Here is the honest position on that.</p><p><strong>The defaults are documented. Their derivation is not.</strong> StockCharts&rsquo; ChartSchool gives the 12-day EMA, the 26-day EMA and the nine-day EMA of the MACD line as the standard configuration, so what your chart loads is verifiable today. What no source reachable for this page publishes is <em>why those three numbers</em>. No derivation, no optimization study, no body that ratified it. It is <b>convention</b> &mdash; true because enough software ships it that enough people look at it.</p><p>You will run into a specific origin story: that 12 and 26 encode a two-week and a one-month lookback from an era when markets traded six days a week including Saturday mornings, making 12 two weeks and 26 roughly a month. It is repeated on forums, in courses and in a great many articles. <strong>This page could not trace it to any primary source</strong> &mdash; not to Appel, not to the magazine that published him, not to a platform&rsquo;s documentation. It may well be true. It is recorded here as <b>unverified</b> rather than laundered into the prose as history.</p><p>Appel&rsquo;s own words complicate it further, in an interesting direction. In 2003 he said the original description of MACD <em>&ldquo;used different combinations of time frames than we use nowadays to a certain degree.&rdquo;</em> Read that carefully: the man who invented the indicator is saying the settings in circulation are <strong>not necessarily the ones he originally published</strong>. So the common claim that &ldquo;Appel chose 12/26/9&rdquo; is doing more work than the record supports.</p><p>One thing Appel <em>is</em> clear about is what he set out to build. Asked why, he said: <em>&ldquo;I was just looking for new indicators! I was looking for a quality indicator that would be readily interpretable, that would not create so many whipsaws as to be confusing, and that would still be relatively simple to maintain.&rdquo;</em> Hold onto that phrase &mdash; <b>&ldquo;not create so many whipsaws&rdquo;</b> &mdash; because whipsaw is still the failure mode this indicator is best known for, by the admission of the person who tried to design it out.</p>
+
+  <h2 id="lagging">Why it cannot lead price</h2>
+
+  <p>MACD is filed under &ldquo;momentum indicators,&rdquo; and momentum sounds forward-looking. The filing is misleading. <strong>MACD is a lagging indicator wearing momentum&rsquo;s clothes,</strong> and that is not a matter of opinion or of how well you read it. It is structural.</p><p>An exponential moving average is a weighted average of closing prices that have already printed. That is its only ingredient. An average of past data cannot contain information that is not in the past data. Subtracting one such average from another does not create foresight; it produces a second quantity that is also entirely a function of prices that already happened. Whatever MACD tells you, price told it first.</p><h3>The double lag</h3><p>Then it happens twice. Price moves. The two EMAs respond with a delay, because they are averages. The MACD line changes only after they do. And the signal line &mdash; a 9-period EMA of the MACD line &mdash; responds only after <em>that</em>. Two smoothing steps between price and the signal line, each paying its own delay.</p><p>The second delay is easy to put a number on. The standard EMA multiplier is <code>2 &divide; (n + 1)</code>, so a 9-period EMA covers 20% of the remaining distance to its input on each new bar. Suppose the MACD line jumps and then holds perfectly still. Here is how much of that finished move the signal line has absorbed, bar by bar &mdash; <b>our own arithmetic from the multiplier, not a sourced figure</b>:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="How much of a completed move in the MACD line the 9-period signal line has absorbed after a given number of bars"><table class="gls-tab"><thead><tr><th>Bars after the MACD line has finished moving</th><th>Share of that move the signal line has caught up to</th></tr></thead><tbody><tr><td>1</td><td>20.0%</td></tr><tr><td>2</td><td>36.0%</td></tr><tr><td>3</td><td>48.8%</td></tr><tr><td>5</td><td>67.2%</td></tr><tr><td>11</td><td>91.4%</td></tr></tbody></table></div><p>Eleven bars to substantially finish reacting to a move that was already over before the first row &mdash; and the MACD line had itself already lagged price to get there. On a daily chart that is most of a month of catching up.</p><p>Nobody has to take this from us. <b>Aspray, who built the histogram, opens his 1988 article by conceding it</b>: the MACD &ldquo;is an excellent indicator, but its signals often lag when run on weekly data.&rdquo; He built the histogram in response to that exact problem.</p><div class="gls-box gls-warn"><span class="gls-lbl">The word &ldquo;early&rdquo; is doing something sneaky</span><p>Platform documentation describes the histogram as sometimes giving &ldquo;an early sign that a crossover is about to happen&rdquo; &mdash; Schwab&rsquo;s thinkorswim reference puts it that way. That is accurate, and narrower than it sounds. The histogram can shrink before the two lines actually touch, so it is early <b>relative to the crossover</b>. It is not early relative to price. <b>Nothing derived from an average of past closes is ever early relative to price.</b></p></div>
+
+  <h2 id="crossings">Zero-line crossings versus signal-line crossings</h2>
+
+  <p>Two different events get called &ldquo;a MACD crossover,&rdquo; they mean different things, and a large share of the articles you will read treat them as interchangeable.</p><h3>A zero-line crossing</h3><p>The MACD line equals zero at exactly the moment the 12-period EMA and the 26-period EMA are equal &mdash; because MACD <em>is</em> the difference between them, and a difference is zero when two things are the same. So MACD crossing zero is not a separate phenomenon needing its own theory. <strong>It is the two moving averages crossing each other, reported on a different axis.</strong> If you already watch a 12 and a 26 cross on the price chart, the zero line tells you nothing new; it is the same event in a different costume.</p><h3>A signal-line crossing</h3><p>This one has no equivalent on the price chart. The MACD line crossing its signal line means the current gap between the two averages has moved above or below <em>the recent average size of that same gap</em>. That is a statement about the rate of change of the gap, not about where the averages sit.</p><p>Which is why a signal-line crossing carries no information about their positions. MACD can be at &minus;3.00 &mdash; both averages far apart, the short one well below the long one &mdash; and still cross above its signal line, because the gap merely stopped widening as fast as it recently had been. Two averages nowhere near each other, no change in their order, and a crossing all the same.</p><div class="gls-box gls-warn"><span class="gls-lbl">Whipsaw: the failure mode Appel set out to prevent</span><p>In a sideways range, the two EMAs sit almost on top of each other. That is what a range means &mdash; no sustained drift for a short average to run ahead into. So <b>the MACD line hovers near zero, and the sign of a number hovering near zero flips on noise.</b> Three days up, cross. Two days down, cross back. The zero line and the signal line can both be crossed repeatedly inside a range that goes nowhere, and the panel will look busy and decisive the entire time.</p><p>This is not a flaw somebody found later. Appel named whipsaws as the thing he was designing <em>against</em> in 1977, and it still does this, because you cannot subtract two averages of a flat price series and get anything but a number wandering around zero. Ranges are also where <a href="support-and-resistance.html">support and resistance</a> is the more natural way to describe what price is doing.</p></div><p><strong>And no, this page will not give you a hit rate.</strong> Not for zero-line crossings, not for signal-line crossings, not for the histogram. No study reachable for this page establishes how often either event is followed by anything in particular, over any horizon, on any instrument. Percentages in this corner of the internet are overwhelmingly invented, and a plausible number with no source behind it is worse than no number at all.</p>
+
+  <h2 id="divergence">Divergence: the most-cited signal and the least reliable</h2>
+
+  <p>Ask about MACD in a trading forum and you will get divergence. It is the signal the indicator is famous for. It also deserves the most suspicion, for two independent reasons.</p><p>First, what it is. <b>Divergence</b> here means price and MACD disagreeing at their extremes. Price grinds out a high that exceeds its previous high, but MACD&rsquo;s matching peak comes in lower than <em>its</em> previous peak. Or price makes a lower low while MACD makes a higher low. Note the terminology collision: this &ldquo;divergence&rdquo; is price-versus-indicator, and it has nothing to do with the &ldquo;divergence&rdquo; in the indicator&rsquo;s own name, which means the two averages pulling apart.</p><p>Mechanically the idea is reasonable. Price reached further this time, but the gap between the two averages did not open as wide as it did last time. The move covered more ground with less separation behind it. As a description of the arithmetic, that is fair.</p><h3>Problem one: it was not in the original</h3><p>Appel, in his own words in 2003, on the tool as he first published it: the original description <em>&ldquo;had no particular references to divergences.&rdquo;</em> The most-cited MACD signal is <strong>not part of the indicator as its inventor introduced it.</strong> It accumulated afterwards. That does not make it wrong &mdash; ideas can be improved by other people, and Appel says in the same breath that interpretation has gotten better over the years. It does mean nobody gets to invoke Appel&rsquo;s authority for it, which is quietly what &ldquo;a classic MACD signal&rdquo; does.</p><h3>Problem two: it persists, and then it gets counted backwards</h3><p>A divergence is not a moment. It can sit there for weeks or months while price keeps going, printing higher high after higher high with MACD peaks stepping down the whole way. StockCharts states the consequence plainly: <em>&ldquo;Divergences should be taken with caution. Bearish divergences are commonplace in a strong uptrend, while bullish divergences occur often in a strong downtrend.&rdquo;</em> Commonplace in a strong uptrend &mdash; the condition is most abundant precisely where acting on it would have been most costly.</p><div class="gls-box gls-warn"><span class="gls-lbl">Why &ldquo;it diverged before the top&rdquo; proves nothing</span><p>The standard demonstration is a chart of a famous top with a divergence marked on it. The demonstration is <b>survivorship bias, and the selection happened before you were shown anything</b>. Somebody started from the tops &mdash; the outcome &mdash; and searched backwards for a preceding divergence. Divergences are common, so one was there.</p><p>The honest test needs the other column: every divergence that formed and was followed by nothing, or by more of the same trend. That column is the majority of cases and it is never in the screenshot. <b>A condition that appears often, in both outcomes, cannot be evaluated from examples of one outcome.</b> The same trap catches <a href="relative-strength-index-rsi.html">RSI</a> divergence, where no primary source establishes a hit rate either.</p></div><p>So: divergence is a real, definable pattern. Treat it as a description of what has already happened on the chart, which is all any of this ever is. Divergence and the tools stacked with it are Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>.</p>
+
+  <h2 id="units">Why a MACD reading is not comparable to anything</h2>
+
+  <p>This is the property almost nobody explains, and it changes what you are allowed to do with the number.</p><p><a href="relative-strength-index-rsi.html">RSI</a> is bounded: its formula cannot produce a value below 0 or above 100, on any instrument, at any price, ever. That bounding is what lets an RSI of 68 mean the same kind of thing on a $9 stock and a $900 stock. <strong>MACD has no bounds at all.</strong> StockCharts puts the consequence directly: <em>&ldquo;Because the MACD is unbounded, it is not particularly useful for identifying overbought and oversold levels.&rdquo;</em> There is no ceiling for a reading to be high relative to.</p><p>The deeper problem is <b>units</b>. MACD is a dollar amount subtracted from a dollar amount, so a reading is denominated in <strong>dollars per share of that particular stock</strong>. Not a percentage, not a ratio, not a score. StockCharts again: MACD values &ldquo;are dependent on the price of the underlying security,&rdquo; and therefore &ldquo;it is not possible to compare MACD values for a group of securities with varying prices.&rdquo;</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Two stocks. <b>Stock A</b> trades around $400: its 12-period EMA is $402.00 and its 26-period EMA is $398.00. <b>Stock B</b> trades around $8: its 12-period EMA is $8.04 and its 26-period EMA is $7.96.</p><p>Stock A&rsquo;s MACD line: $402.00 &minus; $398.00 = <b>+4.00</b>.<br>Stock B&rsquo;s MACD line: $8.04 &minus; $7.96 = <b>+0.08</b>.</p><p>Stock A&rsquo;s reading is <b>fifty times</b> Stock B&rsquo;s. If MACD were a momentum score, A would be in a different universe. Now express each gap as a share of the slower average, which is what makes two price levels comparable:</p><p>Stock A: 4.00 &divide; 398.00 = <b>1.005%</b>.<br>Stock B: 0.08 &divide; 7.96 = <b>1.005%</b>.</p><p class="gls-result">Identical &mdash; the same separation between the same two averages, to three decimal places. MACD reported one as 4.00 and the other as 0.08. The 50&times; difference was the share price, not the momentum.</p></div><p>The same trap runs along the time axis for a single stock. A stock that traded at $20 five years ago and $200 today is a stock whose MACD scale grew roughly tenfold with it. A reading of 1.00 was a substantial separation at $20 and is a rounding error at $200. <strong>&ldquo;MACD is higher than it has been in years&rdquo; can be a statement about nothing but the share price.</strong> Comparing today&rsquo;s reading to one from before a large price change, or from before a split, is comparing two different units.</p><p>The fix is the arithmetic in the example: divide the gap by the slower average and you have a percentage, which travels between stocks and across time. That is exactly what a percentage-based version of this same indicator does, and it is why one exists. It is not what plain MACD gives you.</p><div class="gls-where"><span class="gls-lbl">Where you&rsquo;ll see it</span><p>MACD is a default panel on essentially every charting platform, free and paid, and it sits on the live chart on the <a href="../markets-technical.html">Markets &middot; Technical</a> page alongside S&amp;P 500 breadth and a sector heatmap &mdash; free, no account. Screeners often let you filter on &ldquo;MACD crossover,&rdquo; which is worth remembering the units problem about: that filter compares an event, not a level, precisely because the levels are not comparable.</p></div>
+
+  <h2 id="ledger">What&rsquo;s confirmed, what isn&rsquo;t, and what&rsquo;s only convention</h2>
+
+  <p>Every indicator page on this site carries this breakdown, because a technical indicator mixes documented history with numbers nobody ever justified, and prose alone hides the difference.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="MACD claims sorted into confirmed, unverified and convention"><table class="gls-tab"><thead><tr><th>Claim</th><th>Standing</th><th>What establishes it, or doesn&rsquo;t</th></tr></thead><tbody><tr><td>Gerald Appel developed MACD in the late 1970s</td><td><b>Confirmed</b></td><td>Appel&rsquo;s own words, September 2003: &ldquo;invented in about 1977.&rdquo; Independently credited to him by Aspray in 1988 and by current TradingView and StockCharts documentation.</td></tr><tr><td>MACD line = fast EMA &minus; slow EMA; signal = EMA of MACD; histogram = MACD &minus; signal</td><td><b>Confirmed</b></td><td>TradingView documents all three formulas; StockCharts and Schwab&rsquo;s thinkorswim reference agree.</td></tr><tr><td>12-day EMA, 26-day EMA and 9-day EMA of the MACD line are the standard settings</td><td><b>Confirmed as the default</b></td><td>StockCharts&rsquo; ChartSchool documents all three, and it is what platforms load.</td></tr><tr><td>MACD is unbounded, so it is poor for overbought/oversold and not comparable across securities</td><td><b>Confirmed</b></td><td>StockCharts states both directly, including that values &ldquo;are dependent on the price of the underlying security.&rdquo;</td></tr><tr><td>Thomas Aspray added the histogram, and divergence was not in Appel&rsquo;s original description</td><td><b>Confirmed</b></td><td>Aspray credited by TradingView and by his own &ldquo;MACD momentum&rdquo; articles. Appel, 2003, on his original description: it &ldquo;had no particular references to divergences.&rdquo;</td></tr><tr><td><em>The year the histogram was added</em></td><td><b>Unverified</b></td><td>TradingView says 1986. The magazine&rsquo;s own author archive lists Aspray&rsquo;s earliest MACD article as August 1988. The sources conflict and this page could not settle it.</td></tr><tr><td><em>That 12/26/9 encodes a six-day trading week</em></td><td><b>Unverified</b></td><td>Repeated in a great many articles and forums. Traced to no primary source reachable for this page &mdash; not Appel, not the magazine, not a platform.</td></tr><tr><td><em>That Appel personally selected 12/26/9</em></td><td><b>Unverified, and doubtful</b></td><td>Appel said the original description &ldquo;used different combinations of time frames than we use nowadays,&rdquo; which points the other way.</td></tr><tr><td><em>Any hit rate for a crossover, a divergence or a histogram signal</em></td><td><b>Unverified</b></td><td>No named study reachable for this page publishes one. Percentages you see quoted came from somewhere other than a primary source.</td></tr><tr><td>The 12, 26 and 9 values themselves</td><td><b>Convention</b></td><td>Documented as defaults, never derived. No regulator, exchange or standards body publishes any MACD parameter or level.</td></tr><tr><td>Reading a zero-line cross as a &ldquo;trend change,&rdquo; a signal-line cross as a signal, or shrinking bars as &ldquo;momentum fading&rdquo;</td><td><b>Convention</b></td><td>Standard practice among traders, which is the entire basis. What each event <em>is</em> arithmetically is confirmed; what it means about the future is not.</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Thinking the histogram is volume.</b> Vertical bars around a zero line, so the shape invites it. There is no volume data in MACD at all &mdash; the bars measure the distance between two lines in their own panel. <a href="volume.html">Volume</a> is a separate measurement, off the exchange tape.</li><li><b>Counting a histogram zero-cross and a signal-line cross as two events.</b> They are one event. The histogram <em>is</em> the gap between those two lines, so it reaches zero exactly when they touch.</li><li><b>Confusing a zero-line cross with a signal-line cross.</b> A zero-line cross is the 12 and 26 EMAs crossing each other. A signal-line cross is the gap moving relative to its own recent average, and says nothing about where the averages sit &mdash; MACD can cross its signal line while sitting deep in negative territory.</li><li><b>Expecting an indicator built from past averages to lead.</b> It cannot. Price moves first, the EMAs follow, the MACD line follows them, and the signal line follows that. Two smoothing steps, two delays.</li><li><b>Comparing readings between two stocks, or across years.</b> A reading is denominated in that stock&rsquo;s own dollars, and the scale grows with the share price. +4.00 on a $400 stock and +0.08 on an $8 stock can be the identical move, as the worked example shows exactly.</li><li><b>Running it on a range and trusting the crossings.</b> Flat price means the two averages sit together, which means MACD hovers near zero, which means its sign flips on noise. Appel built the tool trying to reduce whipsaws and it still whipsaws.</li><li><b>Adding a second momentum indicator for &ldquo;confirmation.&rdquo;</b> MACD and <a href="relative-strength-index-rsi.html">RSI</a> are both computed from the same recent closes. Agreement between them is substantially built in, so it feels like a second opinion while mostly being the same one restated.</li><li><b>Believing any percentage attached to it.</b> No named study reachable for this page puts a hit rate on any MACD signal. A confident number with no citation is the loudest warning sign on a trading page.</li><li><b>Trading rent money on it.</b> No indicator changes what a loss does to a household with no cushion under it. The <a href="../markets-behavior.html">behavior side</a> of the market, and its five-question pre-trade checklist, exist for this reason.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is Moving Average Convergence Divergence (MACD)?</h3>
+    <p>MACD is a momentum indicator made of one subtraction: a shorter exponential moving average of closing price minus a longer one, conventionally the 12-period EMA minus the 26-period EMA. That difference is the MACD line. It is normally drawn with a signal line, which is a 9-period exponential moving average of the MACD line itself, and a histogram showing the gap between those two lines. Gerald Appel developed it in the late 1970s and said in a 2003 interview that it was invented in about 1977.</p>
+
+    <h3>Is the MACD histogram volume?</h3>
+    <p>No. It contains no volume data at all. The confusion is entirely because the histogram is drawn as vertical bars above and below a zero line, which is how volume is drawn too. The histogram is the MACD line minus the signal line, so it measures the distance between two lines in its own panel. Volume counts shares that actually changed hands and comes off the exchange tape. A histogram bar can be at its tallest of the year on a session where hardly any shares traded.</p>
+
+    <h3>Where do the MACD settings 12, 26 and 9 come from?</h3>
+    <p>Nobody has published a derivation. StockCharts documents 12, 26 and 9 as the standard settings, so the defaults themselves are verifiable, but no source reachable for this page explains why those three numbers rather than any others. They are convention. The widely repeated story that they encode a two-week and one-month lookback from a six-day trading week could not be traced to any primary source. Appel also said the original description used different time frames than are used today, so even attributing 12/26/9 to him personally goes beyond the record.</p>
+
+    <h3>Is MACD a leading or lagging indicator?</h3>
+    <p>Lagging, by construction, despite being filed under momentum. Every input is a closing price that has already printed, and an exponential moving average of past closes cannot contain information that is not in those closes. The lag also happens twice: the two EMAs lag price, the MACD line follows them, and the signal line is an average of the MACD line, so it lags again. Thomas Aspray, who created the histogram, wrote in 1988 that MACD is an excellent indicator but its signals often lag.</p>
+
+    <h3>What is the difference between a zero-line crossing and a signal-line crossing?</h3>
+    <p>They are different events about different things. The MACD line hits zero exactly when the 12-period and 26-period EMAs are equal, so a zero-line crossing is those two moving averages crossing each other, reported on a different axis. A signal-line crossing means the current gap between the averages has moved above or below the recent average size of that gap. It says nothing about where the two averages sit. MACD can cross its signal line while sitting far below zero, with both averages still a long way apart.</p>
+
+    <h3>Is MACD divergence reliable?</h3>
+    <p>There is no published hit rate for it, and two things argue for caution. Appel said his original description of MACD had no particular references to divergences, so it is not part of the indicator as invented. And StockCharts states that bearish divergences are commonplace in a strong uptrend and bullish divergences occur often in a strong downtrend, meaning the condition is most abundant exactly where acting on it would have cost the most. Charts showing a divergence before a famous top are selected after the fact from the outcome, which proves nothing.</p>
+
+    <h3>Can you compare MACD values between two different stocks?</h3>
+    <p>No, and this is the most underexplained thing about the indicator. A MACD reading is one dollar amount subtracted from another, so it is denominated in that particular stock's dollars per share. StockCharts states plainly that MACD values depend on the price of the underlying security and that comparing them across securities with different prices is not possible. A stock near 400 dollars can show a reading of 4.00 while a stock near 8 dollars shows 0.08, and as a percentage of the slower average both are the same 1.005 percent separation.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="moving-average.html"><b>Moving Average</b><span>The two averages MACD subtracts from each other</span></a>
+      <a href="relative-strength-index-rsi.html"><b>RSI</b><span>The bounded momentum line MACD is usually paired with</span></a>
+      <a href="volume.html"><b>Volume</b><span>The real bar chart people mistake the histogram for</span></a>
+      <a href="support-and-resistance.html"><b>Support and Resistance</b><span>What to describe a range with, where MACD whipsaws</span></a>
+      <a href="bollinger-bands.html"><b>Bollinger Bands</b><span>Another tool whose originator disowned its popular use</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Watch MACD move on a live chart, next to S&amp;P 500 breadth and a sector heatmap, on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account.</li>
+      <li>Work through indicators properly in Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>, where MACD sits beside the tools it is meant to be paired with rather than stacked on.</li>
+      <li>Run the five-question pre-trade checklist on <a href="../markets-behavior.html">Markets &middot; Behavior</a> before any indicator gets a vote.</li>
+      <li>Size the cushion underneath all of this with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, then see what patient money does over the same years in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li><em>Technical Analysis of STOCKS &amp; COMMODITIES</em>, <a href="https://traders.com/documentation/feedbk_docs/2003/09/Abstracts_new/Interview/interview.html" target="_blank" rel="noopener">interview with Gerald Appel, &ldquo;Monitoring The Markets&rdquo;</a>, September 2003 &mdash; the inventor in his own words. The source for &ldquo;MACD was originally invented in about 1977,&rdquo; for his design goal of an indicator &ldquo;that would not create so many whipsaws as to be confusing,&rdquo; and for the two statements this page leans on hardest: that the original description &ldquo;had no particular references to divergences&rdquo; and &ldquo;used different combinations of time frames than we use nowadays.&rdquo;</li>
+      <li>StockCharts.com, <a href="https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/macd-moving-average-convergence-divergence-oscillator" target="_blank" rel="noopener">ChartSchool: MACD (Moving Average Convergence/Divergence Oscillator)</a> &mdash; Appel &ldquo;in the late seventies&rdquo;; the 12-day EMA, 26-day EMA and nine-day EMA of the MACD line as the standard settings; the histogram definition and its sign; that &ldquo;because the MACD is unbounded, it is not particularly useful for identifying overbought and oversold levels&rdquo;; that values &ldquo;are dependent on the price of the underlying security&rdquo; so cross-security comparison is not possible; and the caution that bearish divergences are commonplace in a strong uptrend.</li>
+      <li>TradingView, <a href="https://www.tradingview.com/support/solutions/43000502344-macd-moving-average-convergence-divergence/" target="_blank" rel="noopener">MACD (Moving Average Convergence/Divergence)</a> &mdash; official platform documentation giving the three formulas (MACD = Fast MA &minus; Slow MA, Signal = moving average of MACD, Histogram = MACD &minus; Signal), describing MACD as an &ldquo;unbounded&rdquo; view of the two averages, crediting Gerald Appel in the 1970s, and crediting Thomas Aspray with adding the histogram &mdash; which it dates to 1986, a date this page treats as unverified.</li>
+      <li>Thomas Aspray, <a href="https://store.traders.com/-v06-c08-macd-pdf.html" target="_blank" rel="noopener">&ldquo;MACD Momentum, Part 1&rdquo;</a>, <em>Technical Analysis of STOCKS &amp; COMMODITIES</em> V.6:8 (August 1988), pp.294&ndash;297 &mdash; publisher&rsquo;s record of the article introducing the MACD Histogram/Momentum indicator. The source for &ldquo;Convergence/Divergence was developed by Gerald Appel&rdquo; and for the admission from the histogram&rsquo;s own author that MACD &ldquo;is an excellent indicator, but its signals often lag when run on weekly data.&rdquo; Part 2 ran in V.6:9, September 1988.</li>
+      <li>Traders&rsquo; Resource, <a href="http://technical.traders.com/archive/combo/display5.asp?author=Thomas+Aspray" target="_blank" rel="noopener">Thomas Aspray article archive</a> &mdash; the magazine&rsquo;s own index of his articles, listing &ldquo;MACD momentum&rdquo; Parts 1 and 2 in August and September 1988 as the earliest MACD titles, with no MACD article in 1986. Cited because it conflicts with TradingView&rsquo;s 1986 date for the histogram, and that conflict is why the year sits in the Unverified group rather than in the prose.</li>
+      <li>Charles Schwab &amp; Co. / thinkorswim Learning Center, <a href="https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/M-N/MACD" target="_blank" rel="noopener">MACD study reference</a> &mdash; a live platform&rsquo;s own description of the three plots: the MACD line as &ldquo;the difference between two price averages,&rdquo; the signal line as &ldquo;the moving average of the MACD,&rdquo; and the histogram as the difference between them, which &ldquo;may sometimes give you an early sign that a crossover is about to happen.&rdquo; The source for the narrow reading of &ldquo;early&rdquo; in this page&rsquo;s lag section.</li>
+      <li>Gerald Appel, <a href="https://www.informit.com/store/technical-analysis-power-tools-for-active-investors-9780131951860" target="_blank" rel="noopener"><em>Technical Analysis: Power Tools for Active Investors</em></a> (FT Press, 2005) &mdash; Appel&rsquo;s own book-length treatment, and the primary source that would settle where 12, 26 and 9 came from and what his original parameter set was. It was not read for this page. Listed so the gap is on the record rather than papered over.</li>
+      <li>Arithmetic in the signal-line lag table and the two-stock worked example is <b>this site&rsquo;s own calculation</b>, from the standard EMA multiplier 2 &divide; (n + 1) and from the stated EMA values. No source is claimed for it and none is needed &mdash; check it yourself.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What MACD actually is</a></li>
+      <li><a href="#parts">The three parts</a></li>
+      <li><a href="#settings">Where 12, 26 and 9 came from</a></li>
+      <li><a href="#lagging">Why it cannot lead</a></li>
+      <li><a href="#crossings">The two kinds of crossing</a></li>
+      <li><a href="#divergence">Divergence</a></li>
+      <li><a href="#units">Why readings aren't comparable</a></li>
+      <li><a href="#ledger">Confirmed, unverified, convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">See it on a live chart</span>
+    <p>Watch MACD move on a live chart, with breadth, evidence ratings and a sector heatmap beside it &mdash; so you can see the lag instead of reading about it. Free, no account.</p>
+    <a class="gls-cta" href="../markets-technical.html">Live chart and evidence ratings &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

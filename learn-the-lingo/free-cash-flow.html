@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Cash Flow (FCF): Not a GAAP Number | Learn the Lingo</title>
+<meta name="description" content="Free cash flow is operating cash flow minus capital spending &mdash; and it is not a GAAP line. The SEC says it has no uniform definition. Here is why that matters.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/free-cash-flow.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/free-cash-flow.html">
+<meta property="og:title" content="Free Cash Flow &mdash; Learn the Lingo">
+<meta property="og:description" content="Two sites can report different free cash flow for the same company and both be right &mdash; because there is no official formula, and the SEC has said so in writing.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Cash Flow &mdash; Learn the Lingo">
+<meta name="twitter:description" content="Two sites can report different free cash flow for the same company and both be right &mdash; because there is no official formula, and the SEC has said so in writing.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/free-cash-flow.html#term",
+      "name": "Free Cash Flow (FCF)",
+      "alternateName": ["FCF","Free Cash Flow","Cash Flow After Capital Expenditures","Free Cash Flow to the Firm","Unlevered Free Cash Flow"],
+      "description": "Free cash flow is the cash a company generated from operations after paying for its capital expenditures. It is conventionally calculated as net cash provided by operating activities minus capital expenditures, both of which are lines on the GAAP statement of cash flows. Free cash flow itself is a non-GAAP measure with no uniform definition, so it is governed by the SEC's Regulation G and Item 10(e) of Regulation S-K rather than by accounting standards.",
+      "url": "https://hustlin.org/learn-the-lingo/free-cash-flow.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Free Cash Flow: The Formula, the Capex Judgment Call, and Why It Is Not a GAAP Number",
+      "description": "A plain-language explanation of free cash flow: why it is a non-GAAP measure with no uniform definition in the SEC's own words, which GAAP lines its two inputs come from and where to find them in a 10-K, what Regulation G and Item 10(e) require when a company publishes it, and the maintenance-versus-growth capex problem that has no clean answer. Also covers why cash is harder to manipulate than earnings but not impossible, the stock-based compensation add-back argument with named analysts on both sides, free cash flow against net income, EBITDA and operating cash flow, and worked arithmetic showing negative free cash flow at a healthy company and positive free cash flow at one that is underinvesting.",
+      "url": "https://hustlin.org/learn-the-lingo/free-cash-flow.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/free-cash-flow.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/free-cash-flow.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "FCF", "item": "https://hustlin.org/learn-the-lingo/free-cash-flow.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is free cash flow?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Free cash flow is the cash a company generated from running its business after paying for its capital expenditures. It is conventionally calculated as net cash provided by operating activities minus capital expenditures, both taken from the statement of cash flows. It matters because it is the constraint on everything a company can choose to do with money: dividends, buybacks, debt repayment, acquisitions and reinvestment. It is not a GAAP line item, and no rule requires a company to report it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is free cash flow a GAAP measure?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. It is a non-GAAP financial measure. The SEC's staff guidance on non-GAAP measures addresses it directly at Question 102.07 and states that the measure does not have a uniform definition and that its title does not describe how it is calculated. Its two inputs are GAAP figures from the audited statement of cash flows, which is what makes the standard formula defensible, but the combination is not. Because it is non-GAAP, Regulation G and Item 10(e) of Regulation S-K govern how a company must present and reconcile it." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you calculate free cash flow from a 10-K?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open the statement of cash flows. Take net cash provided by operating activities, the subtotal at the bottom of the first section. Then go to the investing section and find the outflow for purchases of property, plant and equipment, sometimes labeled additions to property and equipment. Subtract the second from the first. Read the whole investing section first, because capitalized software or content spending may sit on its own line and whether it belongs in capital expenditures is a judgment call. A 10-K carries three years of both figures." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is negative free cash flow bad?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not by itself, and most writing on this term implies otherwise. A company with $100 million of operating cash flow that spends $170 million building two plants has free cash flow of negative $70 million and may be perfectly healthy, because it converted cash into productive assets on purpose. It can report positive net income in the same year. The useful question is what the spending bought and whether a return on it is visible yet. A company building plants that fill and one building plants that sit empty look identical in year one." }
+        },
+        {
+          "@type": "Question",
+          "name": "Should stock-based compensation be subtracted from free cash flow?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Analysts disagree, and the effect is large. Stock compensation is a real expense under the FASB's stock compensation standard, but it is non-cash, so it is added back in operating cash flow and free cash flow is flattered by it. Michael Mauboussin and Dan Callahan note that cash flow from operating activities does not reflect it as an expense. Aswath Damodaran rejects the add-back outright. On the example company on this page, subtracting $14 million took free cash flow from $38 million to $24 million. Both camps agree the cost is real and lands on shareholders through the share count." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between free cash flow and EBITDA?",
+          "acceptedAnswer": { "@type": "Answer", "text": "EBITDA is earnings before interest, taxes, depreciation and amortization, and it deliberately ignores capital spending, working capital, interest and taxes. Free cash flow is built from cash actually collected and paid, and then subtracts capital spending. On the example company in this page, EBITDA is $117 million and free cash flow is $38 million, and the $79 million gap is precisely the capital intensity, working capital, interest and tax that EBITDA leaves out. Both are non-GAAP, though EBIT and EBITDA are named explicitly in Item 10(e) of Regulation S-K." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is free cash flow yield?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Free cash flow yield is free cash flow divided by market capitalization, expressed as a percentage. It exists because a dollar figure cannot be compared between a large company and a small one. A company with $38 million of free cash flow and a $1.8 billion market capitalization has a yield of 2.1%. It reads like the inverse of a valuation multiple and is comparable to a dividend yield, except that a dividend is what shareholders were paid while this is what was available beforehand. No authority sets a level at which the yield is attractive." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>FCF</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Cash Flow</div>
+      <h1 class="hero-h1">Free Cash Flow <span>(FCF)</span></h1>
+      <p class="hero-sub">The most trusted number in fundamental analysis is not an accounting line item at all. It has no standard definition, no authoritative formula, and no requirement that anyone report it &mdash; and the SEC has said so in writing.</p>
+      <p class="gls-aka"><b>Also called:</b> FCF &middot; cash flow after capex &middot; simple free cash flow &middot; free cash flow to the firm &middot; free cash flow to equity</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from the SEC's non-GAAP staff guidance, Regulation G, Item 10(e) of Regulation S-K, the FASB's statement of cash flows standard, and named analysts on both sides of the stock-compensation argument</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Free cash flow is the cash a company produced from running its business, after what it spent on property, plant and equipment &mdash; conventionally net cash provided by operating activities minus capital expenditures.</strong> It matters because it is the constraint on everything a company can choose to do: dividends, buybacks, debt paydown, acquisitions, reinvestment. Profit is an opinion about a period. This is what was left in the account.</p>
+    <p>It exists as a concept because net income does not tell you whether the money showed up, and operating cash flow does not tell you what had to be spent to keep the money showing up. But it is not an accounting standard. Nobody publishes an official formula, no rule requires a company to report it, and two companies can both disclose &ldquo;free cash flow&rdquo; computed differently and both be telling the truth. That single fact reorders everything else on this page.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Free cash flow is not a GAAP line item.</b> The SEC's staff guidance on non-GAAP measures says of it, at Question 102.07, that &ldquo;this measure does not have a uniform definition and its title does not describe how it is calculated.&rdquo; There is no official formula to look up.</li>
+      <li><b>Both inputs are GAAP, and that is what makes the convention defensible.</b> Net cash provided by operating activities is a subtotal on the audited statement of cash flows; capital expenditures are the investing outflow the FASB describes as &ldquo;payments&hellip; to acquire property, plant, and equipment and other productive assets.&rdquo; Free on <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">EDGAR</a>.</li>
+      <li><b>Because it is non-GAAP, Regulation G applies.</b> 17 CFR &sect;&nbsp;244.100 requires the most directly comparable GAAP measure plus &ldquo;a reconciliation (by schedule or other clearly understandable method).&rdquo; The reconciliation is how you find out which formula a company used.</li>
+      <li><b>It may not be shown per share in an SEC filing.</b> The same staff guidance states that &ldquo;free cash flow is a liquidity measure that must not be presented on a per share basis.&rdquo; Non-GAAP earnings per share is permitted; non-GAAP cash per share is not.</li>
+      <li><b>Negative free cash flow is not automatically bad.</b> In the worked example on this page, operating cash flow of $100&nbsp;million against capital spending of $170&nbsp;million produces free cash flow of &minus;$70&nbsp;million in a year the company earned $52&nbsp;million of net income and was expanding on purpose.</li>
+      <li><b>Nobody can separate maintenance capex from growth capex from a filing.</b> Companies report one number and no standard requires the split, so subtracting all capex understates what the business could produce standing still, and subtracting none overstates what it can hand out. Analysts genuinely disagree.</li>
+      <li><b>Stock-based compensation flatters it.</b> It is a real expense under the FASB's stock compensation standard, but non-cash, so it is added back in operating cash flow. Subtracting the example company's $14&nbsp;million takes free cash flow from $38&nbsp;million to $24&nbsp;million &mdash; 37% lower, same company, same year.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What the number is, and the fact that outranks the formula</h2>
+
+  <p>You look up the same company on two sites at the same minute. One reports free cash flow of $38&nbsp;million. The other reports $24&nbsp;million. A third page, quoting the company's own earnings release, says $61&nbsp;million. Nobody has made an arithmetic error and nobody is lying.</p><p>That cannot happen with revenue. It cannot happen with net income. It happens constantly with free cash flow, because of the single most important fact about the measure &mdash; and almost no page leads with it.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p><b>Free cash flow is not a GAAP line item.</b> There is no standardized definition, no authoritative formula, and no rule requiring any company to report it at all. Two companies can both publish &ldquo;free cash flow,&rdquo; compute it differently, and both be telling the truth.</p></div><p>That is not this page's inference. The SEC's own staff guidance on non-GAAP financial measures takes up free cash flow directly, at Question 102.07, and says of it: <b>&ldquo;this measure does not have a uniform definition and its title does not describe how it is calculated.&rdquo;</b> The regulator, in writing, about the number your screener prints in a column.</p><p>What exists instead of a definition is a convention &mdash; one formula used so widely that it functions as a definition, and the one this site uses in the nine-metric reference on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a>.</p><div class="gls-formula"><span class="gls-lbl">Free cash flow &mdash; the conventional formula</span><code>free cash flow  =  net cash provided by operating activities  &minus;  capital expenditures</code></div><p>The SEC's guidance describes that same construction as what free cash flow is &ldquo;typically calculated as.&rdquo; Typically is the careful word, and it is the regulator's word, not a hedge added here. Not always, and not by rule.</p><p>So reading a free cash flow figure honestly takes two steps, in this order. First: whose formula is this? Second, and only then: what does it say? A page that skips the first step is doing arithmetic on a number it has not identified.</p>
+
+  <h2 id="inputs">Where the two numbers come from</h2>
+
+  <p>Free cash flow has no official definition. Its two inputs do, and that is the entire reason the convention is defensible rather than arbitrary.</p><h3>The statement of cash flows</h3><p>Every US filer publishes one. The FASB standard that governs it &mdash; Accounting Standards Codification Topic 230 &mdash; requires cash receipts and payments to be sorted into three sections: operating, investing and financing. And under Regulation S-X, a registrant files audited statements of cash flows for each of the three fiscal years preceding its most recent audited balance sheet. One 10-K therefore hands you three years of both inputs, which matters more on this measure than on most.</p><h3>Input one: net cash provided by operating activities</h3><p>The bottom line of the first section, a GAAP subtotal with a standard label. Most companies build it by the indirect method: start at net income, add back the expenses that reduced profit without moving cash &mdash; depreciation, amortization, stock-based compensation, impairments &mdash; then adjust for changes in working capital, meaning receivables, payables and inventory.</p><h3>Input two: capital expenditures</h3><p>Capex is not a single labeled line in the codification. It is the investing-section outflow ASC 230 describes as &ldquo;payments at the time of purchase or soon before or after purchase to acquire property, plant, and equipment and other productive assets, including interest capitalized as part of the cost of those assets.&rdquo; On an actual filing it reads <em>Purchases of property, plant and equipment</em> or <em>Additions to property and equipment</em>, as a negative number.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Companies with heavy software or content spending capitalize part of it, and that spending often sits on its own investing line &mdash; <em>capitalized software development costs</em>, <em>additions to content assets</em>. Whether those lines belong inside &ldquo;capital expenditures&rdquo; is a choice made by whoever computes the number, and one of the main places two free cash flow figures diverge. Read the whole investing section, not only the line labeled capex.</p></div><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>Both inputs are free in any 10-K through the SEC's <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">EDGAR full-text search</a>. On this site, the single-company view on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a> pulls the financial statements for any symbol, and the balance sheet and cash flow stage of <a href="../fundamental-analysis.html">Fundamental Analysis</a> works through the statement line by line.</p></div>
+
+  <h2 id="rules">What the SEC requires when a company publishes it</h2>
+
+  <p>&ldquo;Non-GAAP&rdquo; does not mean unregulated. It means the number is not produced by the accounting rules, so a different set of rules governs how it may be shown to you.</p><p>Item 10(e)(2) of Regulation S-K defines a non-GAAP financial measure as one that &ldquo;excludes amounts, or is subject to adjustments that have the effect of excluding amounts, that are included in the most directly comparable measure&rdquo; calculated under GAAP. Free cash flow subtracts capital expenditures from a GAAP cash flow subtotal, so it sits squarely inside that definition.</p><p>Two provisions then apply. <b>Regulation G</b> (17 CFR &sect;&nbsp;244.100) covers any public disclosure &mdash; earnings release, conference call, investor deck. <b>Item 10(e) of Regulation S-K</b> (17 CFR &sect;&nbsp;229.10(e)) covers documents filed with the Commission. Between them they require:</p><ul><li><b>The comparable GAAP measure, with equal or greater prominence.</b> A company cannot headline free cash flow and bury operating cash flow in a footnote.</li><li><b>A quantitative reconciliation</b> &mdash; Regulation G requires &ldquo;a reconciliation (by schedule or other clearly understandable method)&rdquo; of the differences between the two. This is the paragraph that lets you rebuild the company's figure and see exactly what it did.</li><li><b>A statement of why management believes the measure is useful</b> to investors.</li><li><b>Nothing misleading.</b> Regulation G prohibits a non-GAAP measure that &ldquo;contains an untrue statement of a material fact or omits to state a material fact necessary in order to make the presentation of the non-GAAP financial measure, in light of the circumstances under which it is presented, not misleading.&rdquo;</li></ul><p>The staff guidance adds two limits specific to this measure. First, a company must not use free cash flow in a way that &ldquo;inappropriately implies that the measure represents the residual cash flow available for discretionary expenditures, since many companies have mandatory debt service requirements or other non-discretionary expenditures that are not deducted from the measure.&rdquo; <b>Free cash flow is not spending money.</b> Interest and required principal payments can still be ahead of it.</p><p>Second, and this one surprises people: <b>free cash flow is a liquidity measure and must not be presented on a per share basis</b> in documents filed or furnished with the Commission. Non-GAAP earnings per share is permitted, because the SEC treats it as a performance measure. Cash per share is not. If you see &ldquo;free cash flow per share,&rdquo; it did not come out of a filing.</p><div class="gls-box"><span class="gls-lbl">The practical upshot</span><p>When a company reports free cash flow, <b>the reconciliation is the document</b>, not the headline. It tells you which formula you are holding, and it is the reason the measure is checkable at all.</p></div>
+
+  <h2 id="capex">The capex judgment call, in numbers</h2>
+
+  <p>This is where free cash flow stops being arithmetic and becomes a judgment, and it is the most useful thing on this page.</p><p>Capital spending does two different jobs. Some of it <b>replaces</b> what wears out: the truck at 400,000 miles, the roof, the failed server. Call that maintenance capex &mdash; the cost of staying in business, as unavoidable as payroll. The rest <b>expands</b>: the second plant, the new region, the extra line. Growth capex, optional spending on being bigger later. Economically they are opposites.</p><p><b>Companies do not split them.</b> The investing section shows one number, nothing in ASC 230 requires a breakdown, and no filer volunteers a reliable one &mdash; partly because the line between replacing a machine and upgrading it is genuinely blurry.</p><p>So the conventional formula subtracts all of it, which carries a consequence rarely stated plainly: <b>subtracting all capex understates the cash the business could produce if it stopped growing, and subtracting none of it overstates what the business can actually hand out.</b> Both are wrong in a known direction and there is no clean place to land between them. The best-known attempt is &ldquo;owner earnings,&rdquo; set out by Warren Buffett in an appendix to Berkshire Hathaway's 1986 annual report, which subtracts only the capitalized spending a business needs to hold its competitive position &mdash; and therefore requires estimating a figure no company reports. <b>Analysts disagree here, and this page will not pretend otherwise.</b></p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; the base case</span><p>Cardinal Tool Works is invented and the figures are this site's own arithmetic, not any real filing. Its cash flow statement for the year:</p><p>Net income $52,000,000<br>Add depreciation and amortization $38,000,000<br>Add stock-based compensation $14,000,000<br>Add other non-cash items $5,000,000<br>Less increase in working capital $9,000,000<br><b>Net cash provided by operating activities = $100,000,000</b></p><p>Investing section: purchases of property, plant and equipment, $62,000,000.</p><p class="gls-result">Free cash flow = $100,000,000 &minus; $62,000,000 = $38,000,000.</p></div><h3>Negative free cash flow while the business is working</h3><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; heavy growth capex</span><p>Same company, same year, one different decision: demand is climbing and management builds two plants. Operating cash flow is unchanged at $100,000,000. Capital spending is $170,000,000 &mdash; about $62,000,000 of replacement and $108,000,000 on the new plants, funded by drawing a credit line.</p><p class="gls-result">Free cash flow = $100,000,000 &minus; $170,000,000 = &minus;$70,000,000, while net income is still positive at $52,000,000.</p><p>Positive profit, deeply negative free cash flow, and nothing has gone wrong. The company turned cash into productive assets on purpose.</p></div><p>That is the ordinary shape of a growing capital-intensive business, and most writing on this term implies negative free cash flow is a warning by itself. It is not a warning, it is a question: <b>what did the money buy, and is the return visible yet?</b> Plants that fill and plants that sit empty print the same figure in year one.</p><h3>Positive free cash flow from not investing</h3><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; underinvesting</span><p>Third scenario. Management defers everything deferrable for a year. Operating cash flow $96,000,000; capital spending cut to $18,000,000.</p><p class="gls-result">Free cash flow = $96,000,000 &minus; $18,000,000 = $78,000,000 &mdash; more than double the base case's $38,000,000.</p><p>The tell is a comparison the formula never makes. Depreciation was $38,000,000, so capex at $18,000,000 is 47% of what the company itself says its assets consumed. The roof still needs doing. It is next year's problem, and next year's free cash flow.</p></div><p>Capex running persistently below depreciation is a widely used flag for exactly this, and it is a <b>convention rather than a rule</b> &mdash; legitimately normal for a business shrinking on purpose, or one that has shifted from owning assets to renting them. The reason to read free cash flow across three years instead of one, the guidance printed beside it on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a>, is that a deferral shows up as a spike in one year and a hole in the next.</p>
+
+  <h2 id="quality">Harder to fake than profit, and not impossible</h2>
+
+  <p>The instinct that sends people to cash flow is sound. Net income is assembled from estimates and timing choices: when revenue is recognized, how long an asset is depreciated over, what a receivable is worth, whether a cost belongs to this year or is spread over five. A great deal of legitimate judgment lives inside it, which necessarily leaves room for illegitimate judgment. That is the earnings-quality problem, and it is why the <a href="price-to-earnings-ratio.html">price-to-earnings ratio</a> rests on a denominator management has latitude over in a way a share price is not.</p><p>Cash is different in kind. The money arrived or it did not. <b>But the timing of arrival is movable, and free cash flow is measured over a period with two ends.</b> The mechanics, plainly:</p><ul><li><b>Stretch payables.</b> Pay suppliers on day 75 instead of day 45. Cash that would have left in December leaves in January instead. Operating cash flow rises this period and falls next, and the business is the same business.</li><li><b>Squeeze receivables.</b> Discount for early payment, or push collections hard through the last two weeks of the quarter. The same cash, pulled forward.</li><li><b>Factor receivables.</b> Sell the invoices to a finance company at a discount and collect now. Depending on how the arrangement is structured, that can convert future operating cash into current operating cash &mdash; and the discount is a real cost that never appears looking like one.</li><li><b>Draw down inventory.</b> Stop restocking. Cash builds because you are selling what you already own without replacing it. Unsustainable by construction.</li><li><b>Defer maintenance capex.</b> The lever from the previous section, and the cleanest, because capex is subtracted after operating cash flow is already reported. Nothing in the statement flags it.</li><li><b>Capitalize rather than expense.</b> This one moves the boundary itself: treat a cost as an asset and it leaves the operating section, reappearing in investing as capex. Operating cash flow rises and reported profit rises &mdash; and free cash flow, which subtracts capex, is the one measure <em>not</em> flattered by the switch. That is a genuine structural strength, and much of why free cash flow is the harder number to dress up.</li></ul><p>Notice the pattern. Every lever but the last is <b>a timing shift, not an invention</b>, and timing shifts reverse. A strong year built on payables and inventory arrives with a weak year immediately behind it. Three years of statements defeat nearly all of it, which is the practical argument for reading it that way rather than a stylistic preference.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Cash flow is harder to manipulate than earnings. It is not impossible, and outright fraud sits outside this list entirely &mdash; a fabricated customer paying with borrowed money produces real cash in the operating section. <b>&ldquo;Harder&rdquo; is a comparison, not a guarantee.</b></p></div>
+
+  <h2 id="sbc">The stock-based compensation argument</h2>
+
+  <p>This is the live dispute about free cash flow, and it bites hardest at exactly the companies whose free cash flow gets quoted most.</p><p>Start with what is settled. A company that pays employees in shares must record it as an expense: the SEC's staff accounting guidance on share-based payment describes the requirement that &ldquo;compensation cost resulting from share-based payment transactions be recognized in financial statements at fair value,&rdquo; under the FASB's stock compensation standard. It reduces net income like any other pay.</p><p>Now the mechanics. It is not cash &mdash; the company handed over shares, not dollars &mdash; so on an indirect-method cash flow statement it is added straight back. Michael Mauboussin and Dan Callahan, writing for Morgan Stanley's Counterpoint Global in April 2023, state the consequence flatly: <b>&ldquo;Cash flow from operating activities does not reflect SBC as an expense.&rdquo;</b> Neither, then, does free cash flow.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; what the add-back is worth</span><p>Cardinal Tool Works from the base case. Stock-based compensation was $14,000,000 of that $100,000,000 of operating cash flow.</p><p>As reported: $100,000,000 &minus; $62,000,000 = $38,000,000.<br>Treating stock compensation as the expense the income statement already says it is: $38,000,000 &minus; $14,000,000 = $24,000,000.</p><p class="gls-result">$38 million or $24 million, same company, same year &mdash; a 37% difference produced entirely by one methodological choice.</p></div><p><b>The case for leaving the add-back alone:</b> free cash flow is a cash measure, and no cash left the building. Counting a non-cash item as a cash outflow makes it a different measure than the one it claims to be, and the cost to shareholders is dilution, which belongs in the share count rather than in the cash flow.</p><p><b>The case for subtracting it:</b> the company obtained labor and paid for it with something valuable. Aswath Damodaran of NYU Stern, in &ldquo;Earnings, Cash Flows and Free Cash Flows: A Primer&rdquo; (October 2022), calls free cash flow &ldquo;one of the most dangerous terms in finance&rdquo; and rejects the add-back, on the grounds that a company can neither stop paying its people nor issue equity for free. Mauboussin and Callahan recommend treating it first as an expense reducing operating cash flow and second as equity raised, so the claim on the business is visible somewhere.</p><p>Both sides agree on the substance and differ on the bookkeeping: <b>the cost is real, and it lands on existing shareholders through the share count.</b> Every share issued to an employee makes each existing share a slightly smaller claim &mdash; see <a href="market-capitalization.html">market capitalization</a> for why the basic and diluted counts differ and by how much. And a company that buys back shares to hold the count flat spent cash to do it, out of the same free cash flow.</p>
+
+  <h2 id="compare">Against its neighbors, and against other versions of itself</h2>
+
+  <p>Free cash flow only means something beside the measures it is not. Cardinal Tool Works' base year again, with two more figures from its income statement: interest expense $11,000,000 and income tax expense $16,000,000.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Net income, EBITDA, operating cash flow and free cash flow compared"><table class="gls-tab"><thead><tr><th>Measure</th><th>GAAP?</th><th>Cardinal</th><th>What it includes</th><th>What it leaves out</th></tr></thead><tbody><tr><td><b>Net income</b></td><td>Yes</td><td>$52,000,000</td><td>Every expense, including depreciation, stock compensation, interest and taxes</td><td>Cash timing altogether &mdash; revenue can be booked long before it is collected</td></tr><tr><td><b>EBITDA</b></td><td>No</td><td>$117,000,000</td><td>Operating profit before depreciation and amortization</td><td>Interest, taxes, working capital, and every dollar of capital spending</td></tr><tr><td><b>Net cash from operating activities</b></td><td>Yes</td><td>$100,000,000</td><td>Cash actually collected and paid, including working capital, cash interest and cash taxes</td><td>All capital spending</td></tr><tr><td><b>Free cash flow</b></td><td>No</td><td>$38,000,000</td><td>Operating cash flow after capital spending</td><td>Debt principal, dividends, acquisitions &mdash; and the maintenance / growth split</td></tr></tbody></table></div><p>EBITDA is non-GAAP too, and it is the one non-GAAP measure the SEC names by hand: Item 10(e)(1)(ii) carves out &ldquo;the measures earnings before interest and taxes (EBIT) and earnings before interest, taxes, depreciation, and amortization (EBITDA)&rdquo; from a prohibition that otherwise applies to liquidity measures. The $79&nbsp;million gap between Cardinal's $117&nbsp;million of EBITDA and its $38&nbsp;million of free cash flow <em>is</em> its capital intensity, its working capital, its interest and its taxes &mdash; which is the reason capital-heavy businesses like EBITDA.</p><h3>A loss with positive free cash flow</h3><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; the reverse mismatch</span><p>Fourth scenario. Cardinal writes down $60,000,000 of goodwill from an old acquisition, so net income swings to <b>&minus;$20,000,000</b>. The write-down moved no cash, so it is added back:</p><p>&minus;$20,000,000 + $38,000,000 depreciation + $60,000,000 impairment + $14,000,000 stock compensation &minus; $9,000,000 working capital = <b>$83,000,000</b> of operating cash flow, less capital spending of $62,000,000.</p><p class="gls-result">Free cash flow = $21,000,000, positive, in a year the company reported a $20,000,000 loss.</p></div><p>Both mismatches are ordinary. Profit and cash answer different questions, and the accounting deliberately lets them diverge.</p><h3>Levered, unlevered, and yield</h3><p>Three variants worth recognizing on sight, none of them GAAP, all of them conventions:</p><ul><li><b>Unlevered free cash flow</b>, or free cash flow to the firm &mdash; built before any interest or debt payment, so it describes the operating business regardless of who financed it.</li><li><b>Levered free cash flow</b>, or free cash flow to equity &mdash; after interest and required principal repayment. Closer to what is genuinely left for shareholders, and it moves when borrowing costs move, which ties it to the <a href="interest-rate.html">interest rate</a> environment in a way the unlevered version is built to avoid.</li><li><b>The detail almost nobody mentions:</b> the plain &ldquo;operating cash flow minus capex&rdquo; version is already partly levered, because under US accounting rules cash interest paid runs through the operating section. It is neither cleanly levered nor cleanly unlevered.</li></ul><p>And because a dollar figure cannot be compared across a large company and a small one, the comparison form is <b>free cash flow yield</b>.</p><div class="gls-formula"><span class="gls-lbl">Free cash flow yield</span><code>FCF yield  =  free cash flow  &divide;  market capitalization</code></div><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; the yield</span><p>Cardinal has 40,000,000 shares at $45, so <a href="market-capitalization.html">market capitalization</a> is $1,800,000,000. Base-case free cash flow was $38,000,000.</p><p class="gls-result">$38,000,000 &divide; $1,800,000,000 = 2.1%. Subtract stock compensation and the same company yields 1.3%.</p></div><p>It reads like the inverse of a valuation multiple, and it is directly comparable to a <a href="dividend-yield.html">dividend yield</a> &mdash; with one difference that matters. A dividend yield is what shareholders were actually paid. A free cash flow yield is what was available before management decided what to do with it. <b>There is no level at which a free cash flow yield becomes good.</b> Anyone quoting a threshold is quoting a convention, and usually not saying so.</p>
+
+  <h2 id="ledger">What is sourced here and what is not</h2>
+
+  <p>Three kinds of claim appear above, and the difference between them matters more than the content.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confirmed, unverified and convention claims on this page"><table class="gls-tab"><thead><tr><th>Status</th><th>Claim</th><th>What establishes it</th></tr></thead><tbody><tr><td><b>Confirmed</b></td><td>Free cash flow is non-GAAP, has no uniform definition, is &ldquo;typically calculated as&rdquo; operating cash flow less capex, must not imply residual discretionary cash, and must not be presented per share</td><td>SEC Division of Corporation Finance, Non-GAAP Financial Measures staff guidance, Question 102.07 &mdash; quoted directly.</td></tr><tr><td><b>Confirmed</b></td><td>Any public disclosure of a non-GAAP measure requires the comparable GAAP measure plus a quantitative reconciliation, and must not be misleading</td><td>Regulation G, 17 CFR &sect;&nbsp;244.100(a) and (b).</td></tr><tr><td><b>Confirmed</b></td><td>The definition of a non-GAAP measure; equal-or-greater prominence; EBIT and EBITDA named as the exception</td><td>Item 10(e) of Regulation S-K, 17 CFR &sect;&nbsp;229.10(e).</td></tr><tr><td><b>Confirmed</b></td><td>The three-section statement of cash flows; the quoted capex language; three years of audited statements filed</td><td>FASB ASC Topic 230 (quoted language at ASC 230-10-45-13); Regulation S-X, 17 CFR &sect;&nbsp;210.3-02.</td></tr><tr><td><b>Confirmed</b></td><td>Stock compensation is recognized as compensation cost at fair value, is non-cash, is added back in operating activities &mdash; and named analysts disagree on subtracting it</td><td>SEC Staff Accounting Bulletin Topic 14, on the FASB stock compensation standard; Mauboussin and Callahan (2023) and Damodaran (2022), quoted and linked.</td></tr><tr><td><b>Unverified</b></td><td>How many US filers report free cash flow, how many use a formula other than operating cash flow less capex, and how common deliberate maintenance deferral is</td><td>Nothing traced. No census of reporting practice was found &mdash; which is why this page calls the formula &ldquo;typical,&rdquo; the SEC's word, rather than standard, and describes the deferral mechanism without claiming a frequency.</td></tr><tr><td><b>Convention</b></td><td>Operating cash flow minus capex as <em>the</em> formula; capex below depreciation as a warning flag; reading it over three years rather than one</td><td>Practice and repetition. No agency publishes the depreciation comparison or the three-year rule.</td></tr><tr><td><b>Convention</b></td><td>Levered and unlevered free cash flow, free cash flow yield, and &ldquo;owner earnings&rdquo;</td><td>Practitioner constructions with no authority behind them. Owner earnings is attributable to Warren Buffett's 1986 Berkshire Hathaway annual report; the others have no single author.</td></tr><tr><td><b>Convention</b></td><td>Every dollar figure on this page</td><td>Cardinal Tool Works is invented and the arithmetic is this site's own. Nothing here comes from a real filing, and no threshold on this page is a benchmark.</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Comparing two free cash flow figures without checking the formulas.</b> The whole page in one line. There is no uniform definition, so two numbers for one company are normal, not evidence one source is wrong.</li><li><b>Reading negative free cash flow as a warning by itself.</b> It is the ordinary signature of a business converting cash into capacity. The question is what the spending bought, not the sign in front of the number.</li><li><b>Reading a big positive number as strength.</b> Cutting capex to well under depreciation produces a strong year and a weak one behind it. Above, that lever alone doubled free cash flow.</li><li><b>Treating it as discretionary cash.</b> The SEC's own guidance warns against exactly this, because debt service and other required payments are not deducted from it.</li><li><b>Reading one year.</b> Nearly every timing lever &mdash; payables, receivables, inventory, deferred maintenance &mdash; reverses within a year or two. Three years arrive in the same 10-K.</li><li><b>Ignoring stock compensation at a company that pays heavily in stock.</b> The add-back is not an error, but leaving it unexamined is. It was worth 37% of free cash flow in the example.</li><li><b>Trusting &ldquo;free cash flow per share.&rdquo;</b> It cannot appear in an SEC filing; free cash flow is a liquidity measure and the prohibition is explicit.</li><li><b>Assuming a cash number cannot be gamed.</b> Harder than earnings, yes. Impossible, no &mdash; and fraud is not on the list of ordinary levers at all.</li><li><b>Skipping the reconciliation.</b> It is required, it is in the filing, and it is the only way to know which measure you are holding.</li><li><b>Treating a free cash flow yield as a verdict.</b> No authority sets a level at which one becomes attractive, and a low yield at a company investing heavily means something different than a low yield at one that is not.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is free cash flow?</h3>
+    <p>Free cash flow is the cash a company generated from running its business after paying for its capital expenditures. It is conventionally calculated as net cash provided by operating activities minus capital expenditures, both taken from the statement of cash flows. It matters because it is the constraint on everything a company can choose to do with money: dividends, buybacks, debt repayment, acquisitions and reinvestment. It is not a GAAP line item, and no rule requires a company to report it.</p>
+
+    <h3>Is free cash flow a GAAP measure?</h3>
+    <p>No. It is a non-GAAP financial measure. The SEC's staff guidance on non-GAAP measures addresses it directly at Question 102.07 and states that the measure does not have a uniform definition and that its title does not describe how it is calculated. Its two inputs are GAAP figures from the audited statement of cash flows, which is what makes the standard formula defensible, but the combination is not. Because it is non-GAAP, Regulation G and Item 10(e) of Regulation S-K govern how a company must present and reconcile it.</p>
+
+    <h3>How do you calculate free cash flow from a 10-K?</h3>
+    <p>Open the statement of cash flows. Take net cash provided by operating activities, the subtotal at the bottom of the first section. Then go to the investing section and find the outflow for purchases of property, plant and equipment, sometimes labeled additions to property and equipment. Subtract the second from the first. Read the whole investing section first, because capitalized software or content spending may sit on its own line and whether it belongs in capital expenditures is a judgment call. A 10-K carries three years of both figures.</p>
+
+    <h3>Is negative free cash flow bad?</h3>
+    <p>Not by itself, and most writing on this term implies otherwise. A company with $100 million of operating cash flow that spends $170 million building two plants has free cash flow of negative $70 million and may be perfectly healthy, because it converted cash into productive assets on purpose. It can report positive net income in the same year. The useful question is what the spending bought and whether a return on it is visible yet. A company building plants that fill and one building plants that sit empty look identical in year one.</p>
+
+    <h3>Should stock-based compensation be subtracted from free cash flow?</h3>
+    <p>Analysts disagree, and the effect is large. Stock compensation is a real expense under the FASB's stock compensation standard, but it is non-cash, so it is added back in operating cash flow and free cash flow is flattered by it. Michael Mauboussin and Dan Callahan note that cash flow from operating activities does not reflect it as an expense. Aswath Damodaran rejects the add-back outright. On the example company on this page, subtracting $14 million took free cash flow from $38 million to $24 million. Both camps agree the cost is real and lands on shareholders through the share count.</p>
+
+    <h3>What is the difference between free cash flow and EBITDA?</h3>
+    <p>EBITDA is earnings before interest, taxes, depreciation and amortization, and it deliberately ignores capital spending, working capital, interest and taxes. Free cash flow is built from cash actually collected and paid, and then subtracts capital spending. On the example company in this page, EBITDA is $117 million and free cash flow is $38 million, and the $79 million gap is precisely the capital intensity, working capital, interest and tax that EBITDA leaves out. Both are non-GAAP, though EBIT and EBITDA are named explicitly in Item 10(e) of Regulation S-K.</p>
+
+    <h3>What is free cash flow yield?</h3>
+    <p>Free cash flow yield is free cash flow divided by market capitalization, expressed as a percentage. It exists because a dollar figure cannot be compared between a large company and a small one. A company with $38 million of free cash flow and a $1.8 billion market capitalization has a yield of 2.1%. It reads like the inverse of a valuation multiple and is comparable to a dividend yield, except that a dividend is what shareholders were paid while this is what was available beforehand. No authority sets a level at which the yield is attractive.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="price-to-earnings-ratio.html"><b>P/E Ratio</b><span>The earnings-based number free cash flow is meant to correct</span></a>
+      <a href="market-capitalization.html"><b>Market Cap</b><span>The denominator in free cash flow yield, and where dilution lands</span></a>
+      <a href="dividend-yield.html"><b>Dividend Yield</b><span>What shareholders were actually paid out of the cash</span></a>
+      <a href="interest-rate.html"><b>Interest Rate</b><span>Why levered free cash flow moves when borrowing costs do</span></a>
+      <a href="sinking-fund.html"><b>Sinking Fund</b><span>Saving ahead for a known repair &mdash; maintenance capex, household version</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>Cash left after the bills, for a household rather than a company</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>See free cash flow as one of the nine metric cards, with its formula and its trap, on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a> &mdash; then pull the actual cash flow statement for any symbol in the single-company view.</li>
+      <li>Work through the statements line by line in the balance sheet and cash flow stage of <a href="../fundamental-analysis.html">Fundamental Analysis</a>, which is where the three statements stop being separate documents.</li>
+      <li>Start with what compounding actually does in <a href="../stage-4-invest.html">Stage 4 of the free Financial Literacy course</a> &mdash; all five stages are free and an account is optional.</li>
+      <li>Run the same arithmetic on your own operation with the <a href="../business-cash-flow-calculator.html">business cash flow calculator</a>, or on your own savings with the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, Division of Corporation Finance, <a href="https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures" target="_blank" rel="noopener">Non-GAAP Financial Measures Compliance &amp; Disclosure Interpretations</a> &mdash; Question 102.07 is the spine of this page: that free cash flow is &ldquo;typically calculated as cash flows from operating activities&hellip; less capital expenditures,&rdquo; that &ldquo;this measure does not have a uniform definition and its title does not describe how it is calculated,&rdquo; that it must not imply residual cash available for discretionary expenditures given mandatory debt service, and that it &ldquo;must not be presented on a per share basis.&rdquo;</li>
+      <li>17 CFR Part 244, <a href="https://www.ecfr.gov/current/title-17/chapter-II/part-244/section-244.100" target="_blank" rel="noopener">Regulation G, &sect;&nbsp;244.100</a> &mdash; source for the requirement to present the most directly comparable GAAP measure and &ldquo;a reconciliation (by schedule or other clearly understandable method),&rdquo; and for the prohibition in paragraph (b) on a non-GAAP measure that contains an untrue statement of material fact or omits one necessary to keep the presentation from being misleading.</li>
+      <li>17 CFR &sect;&nbsp;229.10(e), <a href="https://www.law.cornell.edu/cfr/text/17/229.10" target="_blank" rel="noopener">Item 10(e) of Regulation S-K</a> &mdash; source for the definition of a non-GAAP financial measure at (e)(2), the equal-or-greater-prominence requirement, the statement of why management finds the measure useful, and the express carve-out at (e)(1)(ii) for &ldquo;the measures earnings before interest and taxes (EBIT) and earnings before interest, taxes, depreciation, and amortization (EBITDA).&rdquo;</li>
+      <li>Financial Accounting Standards Board, <a href="https://asc.fasb.org/" target="_blank" rel="noopener">Accounting Standards Codification Topic 230, Statement of Cash Flows</a>; the quoted capital-expenditure language at ASC 230-10-45-13 is reproduced in <a href="https://storage.fasb.org/ASU%202016-15.pdf" target="_blank" rel="noopener">Accounting Standards Update 2016-15</a> &mdash; source for the three-section structure of the statement, the indirect method, and the investing outflow for &ldquo;payments at the time of purchase or soon before or after purchase to acquire property, plant, and equipment and other productive assets, including interest capitalized as part of the cost of those assets.&rdquo;</li>
+      <li>17 CFR &sect;&nbsp;210.3-02, <a href="https://www.law.cornell.edu/cfr/text/17/210.3-02" target="_blank" rel="noopener">Regulation S-X Rule 3-02</a> &mdash; establishes that audited statements of cash flows are filed for each of the three fiscal years preceding the most recent audited balance sheet, which is why one 10-K gives three years of both inputs.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">EDGAR full-text search</a> &mdash; the free, primary route to any US filer's statement of cash flows and to the non-GAAP reconciliation in its earnings release. This is where a free cash flow figure is actually checkable.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/interps/account/sabcodet14.htm" target="_blank" rel="noopener">Staff Accounting Bulletin Codification Topic 14: Share-Based Payment</a> &mdash; source for the requirement that &ldquo;compensation cost resulting from share-based payment transactions be recognized in financial statements at fair value&rdquo; under the FASB's stock compensation standard, which is what makes stock compensation an expense that is nevertheless non-cash.</li>
+      <li>Michael J. Mauboussin and Dan Callahan, <a href="https://www.morganstanley.com/im/publication/insights/articles/article_stockbasedcompensation.pdf" target="_blank" rel="noopener">&ldquo;Stock-Based Compensation: Unpacking the Issues&rdquo;</a>, Morgan Stanley Counterpoint Global, 18 April 2023 &mdash; source for the quoted statement that &ldquo;cash flow from operating activities does not reflect SBC as an expense,&rdquo; and for their recommendation to treat it first as an expense reducing operating cash flow and second as equity raised.</li>
+      <li>Aswath Damodaran, <a href="https://aswathdamodaran.substack.com/p/earnings-cash-flows-and-free-cash" target="_blank" rel="noopener">&ldquo;Earnings, Cash Flows and Free Cash Flows: A Primer&rdquo;</a>, 31 October 2022 &mdash; the other named side of the stock-compensation argument, and source for the quoted description of free cash flow as &ldquo;one of the most dangerous terms in finance.&rdquo; Cited as an attributable position, not as an authority.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it actually is</a></li>
+      <li><a href="#inputs">Where the numbers come from</a></li>
+      <li><a href="#rules">What the SEC requires</a></li>
+      <li><a href="#capex">The capex problem</a></li>
+      <li><a href="#quality">Harder to fake than profit</a></li>
+      <li><a href="#sbc">Stock compensation</a></li>
+      <li><a href="#compare">Against its neighbors</a></li>
+      <li><a href="#ledger">Sourcing ledger</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">See it on live data</span>
+    <p>Free cash flow is one of the nine metric cards on Markets &middot; Fundamental, with its formula and the way it misleads printed beside it &mdash; and the single-company view there pulls the actual cash flow statement so you can compute it yourself. Free, no account.</p>
+    <a class="gls-cta" href="../markets-fundamental.html">The nine-metric reference, live &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

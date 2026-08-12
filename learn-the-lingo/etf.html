@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETF (Exchange-Traded Fund): How It Works | Learn the Lingo</title>
+<meta name="description" content="An ETF is a fund whose shares trade on an exchange all day. How creation and redemption keep the price near NAV, what it costs, and why leverage resets daily.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/etf.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/etf.html">
+<meta property="og:title" content="Exchange-Traded Fund (ETF) &mdash; Learn the Lingo">
+<meta property="og:description" content="Most articles say an ETF &ldquo;trades like a stock&rdquo; and stop. Here is the creation and redemption mechanism that actually keeps the price near what the fund holds &mdash; and where it breaks.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exchange-Traded Fund (ETF) &mdash; Learn the Lingo">
+<meta name="twitter:description" content="Most articles say an ETF &ldquo;trades like a stock&rdquo; and stop. Here is the creation and redemption mechanism that actually keeps the price near what the fund holds &mdash; and where it breaks.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/etf.html#term",
+      "name": "Exchange-Traded Fund (ETF)",
+      "alternateName": ["ETF","Exchange Traded Fund","Exchange-Traded Fund","Listed open-end fund"],
+      "description": "An exchange-traded fund is a pooled investment fund registered with the SEC whose shares are listed on a stock exchange and trade throughout the day at market-determined prices. Only large broker-dealers called authorized participants buy and redeem shares directly from the fund, in blocks called creation units, usually by exchanging a basket of securities in kind. That arbitrage mechanism is what keeps the exchange price close to the fund's net asset value, though it does not guarantee the two match.",
+      "url": "https://hustlin.org/learn-the-lingo/etf.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "ETF: The Creation and Redemption Mechanism, the Real Costs, and the Limits",
+      "description": "A plain-language explanation of the exchange-traded fund structure: the Investment Company Act of 1940 and Rule 6c-11 adopted in 2019, how authorized participants exchange baskets of securities for creation units in kind, why that arbitrage keeps market price near net asset value and when it fails, premiums and discounts including the 2 percent seven-day disclosure condition, how ETFs differ from mutual funds on pricing, tax and settlement, what the expense ratio and the bid-ask spread actually cost, and what the SEC and FINRA publish about daily-reset leveraged and inverse products.",
+      "url": "https://hustlin.org/learn-the-lingo/etf.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/etf.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/etf.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "ETF", "item": "https://hustlin.org/learn-the-lingo/etf.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an exchange-traded fund (ETF)?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An exchange-traded fund is a pooled investment fund registered with the SEC whose shares are listed on a stock exchange and trade all day at prices the market sets. The term describes the container, not the contents: a fund holding several thousand US companies and a fund built to deliver three times one industry's daily move are both ETFs. What makes the structure work is that a small group of large broker-dealers, called authorized participants, can exchange baskets of securities for blocks of fund shares directly with the fund." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does an ETF's price stay close to the value of what it holds?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because of the creation and redemption mechanism. Authorized participants can deal directly with the fund at net asset value in large blocks called creation units, and they can also trade on the exchange. When the exchange price rises above NAV, a participant can buy the underlying basket, deliver it to the fund for newly created shares, and sell those shares at the higher price &mdash; which adds supply and pushes the price back down. A discount works in reverse. The SEC calls the gap closing the expected result of that arbitrage, not a guarantee, and no participant is obligated to act." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an ETF trade above or below what it is worth?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Above net asset value is a premium and below is a discount, and the SEC says plainly that for a variety of reasons an ETF's market price may trade at either. The gap is widest when the holdings are hard to price in real time. A fund holding Tokyo-listed stocks has a NAV built from prices set hours earlier. A bond fund's NAV moves slowly because many individual bonds may not trade at all on a given day. The SEC's fixed income advisory committee wrote that larger premiums and discounts in stressed markets are to be expected, not evidence of mispricing." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between an ETF and a mutual fund?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Four things. A mutual fund order fills at the next net asset value computed after the fund receives it, so you do not know your price when you place it; an ETF fills at the market price the moment it trades, which may differ from NAV. A mutual fund sets a minimum investment; an ETF costs the price of one share. A mutual fund raising cash for redemptions may sell appreciated holdings and distribute the capital gains, while an ETF usually hands securities to an authorized participant in kind, which tends to produce fewer such distributions. And you sell an ETF on the exchange, with settlement one business day later." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does an ETF's expense ratio actually cost me?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is deducted from fund assets, so you never see a bill or approve a charge &mdash; it appears only as a slightly lower return, every day you hold the fund. By our own arithmetic, $300 a month for thirty years at an assumed 7% gross return ends near $363,800 if the expense ratio is 0.03% and near $325,500 if it is 0.60%. That is roughly $38,300 on $108,000 of contributions. The 7% is an assumption for the example, not a forecast. The fee table itself is required by Item 3 of Form N-1A and sits in every fund's prospectus." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are leveraged and inverse ETFs the same thing as regular ETFs?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and the SEC treats them differently. Rule 6c-11, the standing rule that lets most ETFs operate without an individual exemptive order, explicitly excludes leveraged and inverse ETFs. Those products reset daily, meaning they are designed to hit their stated multiple over a single day. The SEC and FINRA state that performance over weeks, months or years can differ significantly from that multiple, and they published a case where an index gained 2 percent over four months while a fund seeking twice the daily return fell 6 percent and one seeking twice the inverse fell 25 percent." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a creation unit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is the block size in which an authorized participant transacts directly with the fund. The SEC's investor bulletin gives 50,000 ETF shares as an example, and it is an example rather than a requirement &mdash; each fund sets its own. The participant assembles a designated basket of securities and cash and deposits it with the fund in exchange for a creation unit of shares, and redemption reverses the trade. Because the exchange happens in kind, the fund often avoids selling appreciated holdings for cash, which is the structural reason ETFs tend to distribute fewer capital gains than mutual funds." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>ETF</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Investing</div>
+      <h1 class="hero-h1">Exchange-Traded Fund <span>(ETF)</span></h1>
+      <p class="hero-sub">A fund whose shares trade on an exchange all day, like a share of stock. The structure is standardized and closely regulated. What is inside it is not &mdash; and that is the part most explanations skip.</p>
+      <p class="gls-aka"><b>Also called:</b> ETF &middot; exchange traded fund &middot; exchange-traded index fund &middot; listed open-end fund</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from the SEC &mdash; the Investment Company Act of 1940, Rule 6c-11, Form N-1A, and the SEC and FINRA investor bulletins</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>An exchange-traded fund is a pooled investment fund whose shares are listed on a stock exchange and trade all day at prices the market sets, instead of being bought from and sold back to the fund at one price after the close.</strong> It is registered with the SEC under the Investment Company Act of 1940, and since 2019 most of them operate under a single standing rule rather than a permission slip written just for them.</p>
+    <p>The reason the structure works is a mechanism almost no article explains. A small number of large broker-dealers can swap a basket of the fund's securities for blocks of new fund shares, and swap them back, dealing with the fund directly. When the exchange price drifts away from what the holdings are worth, that swap becomes profitable &mdash; and doing it profitably is what drags the price back. Nobody at the fund manages the price. An incentive does.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li>The governing statute is the <b>Investment Company Act of 1940</b>. <b>Rule 6c-11, the ETF Rule, adopted 26 September 2019 and effective 23 December 2019</b>, is what lets most ETFs operate without applying to the SEC for their own exemptive order.</li>
+      <li><b>You never buy from the fund.</b> Only <b>authorized participants</b> transact directly with it, in blocks the SEC calls <b>creation units</b>, by depositing a designated basket of securities and cash <b>in kind</b> in exchange for shares.</li>
+      <li>That swap is the entire reason an ETF tracks what it holds. The SEC's wording is careful: the &ldquo;expected result of the arbitrage activity is that the market value of the ETF moves back in line with the ETF's NAV per share.&rdquo; <b>Expected, not guaranteed</b>, and no participant is obligated to act.</li>
+      <li>The price can and does diverge. Rule 6c-11 makes the fund post its premium and discount history, its <b>median bid-ask spread over the most recent thirty calendar days</b>, and &mdash; if the premium or discount exceeded <b>2% for more than seven consecutive trading days</b> &mdash; a written explanation of why.</li>
+      <li>The <b>expense ratio is deducted from fund assets, never billed to you.</b> Our own arithmetic: $300 a month for thirty years at an assumed 7% gross return ends near <b>$363,800</b> at a 0.03% expense ratio and near <b>$325,500</b> at 0.60%. That is about <b>$38,300</b> on $108,000 of contributions, and no invoice ever arrives.</li>
+      <li>For a small, regular buyer the <b>bid-ask spread</b> can cost more per year than the expense ratio, because you cross it on every purchase. Check the fund's posted 30-day median spread next to its expense ratio, and check the fund's own <a href="volume.html">volume</a>.</li>
+      <li><b>ETF is a wrapper, not an asset class.</b> Leveraged and inverse funds <b>reset daily</b>; the SEC and FINRA published a four-month stretch in which an index gained 2 percent while a 2x fund fell 6 percent and an inverse fund fell 25 percent. Rule 6c-11 deliberately excludes those products.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What an ETF actually is</h2>
+
+  <p>You finally have $200 a month that isn't already spoken for, and somebody you trust tells you to put it in an ETF. You open a brokerage app and get thousands of results. Two of them sit next to each other. One holds shares in several thousand American companies and charges three hundredths of a percent a year. The other promises three times the daily move of one industry. <b>Both are ETFs</b>, and nothing in the label tells you they are not the same kind of thing.</p><p>An <b>exchange-traded fund</b> is a pooled investment fund, registered with the SEC, whose shares are listed on a stock exchange and trade all day at whatever price buyers and sellers agree on. The SEC's rule describes the funds it covers as registered open-end funds that &ldquo;issue (and redeem) creation units to (and from) authorized participants&rdquo; and &ldquo;issue shares that are listed on a national securities exchange and traded at market-determined prices.&rdquo;</p><p>Notice what is missing. Nothing about stocks, bonds, gold, or what the fund is trying to achieve. Every word is plumbing: how shares get created, where they trade, how the price gets set. <b>ETF describes the container</b>, and the contents are a separate question every time.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>An ETF is a fund you buy the way you buy a share of stock. The structure is standardized and closely regulated. What is inside it is not.</p></div>
+
+  <h2 id="mechanism">The creation and redemption machine</h2>
+
+  <p>If you and I are simply trading shares back and forth on an exchange, what stops the price of an ETF from wandering away from the value of the things it owns? A ticket to a sold-out show trades at four times face value. Why doesn't an ETF?</p><p>Because two markets run at once, and only one of them involves you.</p><p><b>The market you are in.</b> When you buy 10 shares in your app, you buy them from another investor. Your money never reaches the fund; the fund does not know you exist.</p><p><b>The market that fixes the price.</b> A small number of large broker-dealers, called <b>authorized participants</b>, have a signed agreement with the fund and can deal with it directly. The SEC is precise about how narrow that door is: &ldquo;Only Authorized Participants are permitted to purchase and redeem shares directly from the ETF, and they can do so only in large aggregations or blocks (e.g., 50,000 ETF shares) commonly called 'Creation Units.'&rdquo; The exchange happens <b>in kind</b> &mdash; securities for shares, not cash: &ldquo;an Authorized Participant assembles and deposits a designated basket of securities and cash with the fund in exchange for which it receives ETF shares.&rdquo; Redemption runs the film backwards.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>The fund's holdings work out to <b>$100.00</b> per share &mdash; its net asset value. Buying pressure pushes the exchange price to <b>$100.40</b>. A participant buys the underlying basket for $100.00 per share's worth, delivers it to the fund, receives newly created shares, and sells them at $100.40. Forty cents a share, minus trading costs &mdash; and doing it adds new shares, fresh supply pushing the price down. A discount runs the loop in reverse.</p><p class="gls-result">Nobody at the fund manages the price. A profit incentive is pointed at the gap, and the gap closes because closing it pays.</p></div><p>The SEC states the mechanism and then hedges the outcome, which matters: &ldquo;the expected result of the arbitrage activity is that the market value of the ETF moves back in line with the ETF's NAV per share.&rdquo; <b>Expected result.</b> Not required, not guaranteed, and no participant is obligated to show up on any particular day.</p><p>One consequence worth keeping: an ETF's share count is not fixed. It expands with creations and shrinks with redemptions &mdash; unlike a closed-end fund, whose fixed share count can sit at a deep discount for years with nothing to correct it.</p>
+
+  <h2 id="nav">Premium, discount, and when the price comes loose</h2>
+
+  <p>Two numbers describe an ETF at any moment, and they are not the same. <b>Net asset value</b> is accounting: what the fund owns minus what it owes, divided by shares outstanding, computed &ldquo;no less frequently than once daily, Monday through Friday&rdquo; (<a href="https://www.ecfr.gov/current/title-17/chapter-II/part-270/section-270.22c-1" target="_blank" rel="noopener">17 CFR 270.22c-1(b)(1)</a>). <b>Market price</b> is whatever the last trade printed at, and it is the number you actually pay. Above NAV is a <b>premium</b>, below it a <b>discount</b>: &ldquo;For a variety of reasons, an ETF's market price may trade at a premium or a discount to its underlying value.&rdquo;</p><p>The arbitrage above works cleanly only when a participant can buy or sell the basket quickly and knows what it is worth. Anything that makes that harder widens the gap.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Where an ETF's market price and net asset value come apart"><table class="gls-tab"><thead><tr><th>What the fund holds</th><th>Why price and NAV separate</th></tr></thead><tbody><tr><td>Foreign stocks in another time zone</td><td>Tokyo closed hours before New York opened. NAV uses closing prices from a market that stopped trading, while the ETF keeps absorbing news. A timestamp difference, not a mispricing.</td></tr><tr><td>Corporate or municipal bonds</td><td>The SEC's fixed income advisory committee: &ldquo;Staleness in prices and illiquidity means that NAV adjusts more slowly, causing premiums or discounts to widen, particularly in stressed times.&rdquo; The wider spreads on those bonds &ldquo;are reflected in market price deviations from NAV.&rdquo;</td></tr></tbody></table></div><p>The counterintuitive part, from that committee: &ldquo;Larger absolute premiums and discounts to NAV in times of market stress are not evidence of mispricing; they are to be expected.&rdquo; If the bonds a fund holds haven't traded since Tuesday, its NAV is partly an estimate, while the ETF's price is a live number from people willing to transact now. When the two disagree during a panic, it is not obvious which is stale.</p><h3>Where the numbers are published</h3><p>Rule 6c-11 makes the fund publish all of it. An ETF relying on the rule posts on its website: the holdings behind the next NAV calculation, as of the prior business day's close; its current NAV per share, market price and premium or discount; premium and discount history for the most recent calendar year and quarters; its <b>median bid-ask spread over the most recent thirty calendar days</b>; and, if the premium or discount &ldquo;was greater than 2% for more than seven consecutive trading days,&rdquo; a &ldquo;discussion of the factors that are reasonably believed to have materially contributed&rdquo; to it.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>On the fund's page on the sponsor's site, under a Performance or Premium/Discount tab. It is there because a rule requires it, not because the sponsor chose to be generous.</p></div>
+
+  <h2 id="rule">Rule 6c-11, the rule that let most of them exist</h2>
+
+  <p>The statute behind all of this is the <b>Investment Company Act of 1940</b>. Pool money from the public and issue shares in the pool, and that Act governs you.</p><p>An ETF quietly breaks its assumptions. The Act imagines a fund whose shares are <em>redeemable</em>: hand them back, get net asset value. In an ETF almost nobody can &mdash; only authorized participants redeem, only in blocks, and everyone else trades with strangers at whatever the exchange says.</p><p>For roughly a quarter of a century the workaround was an <b>individual exemptive order</b>: each sponsor applied, waited, and received permission on its own terms. Slow, expensive and unequal &mdash; two funds could end up under different conditions for no better reason than the year they filed.</p><p><b>Rule 6c-11 ended that.</b> The SEC adopted it on <b>26 September 2019</b> to &ldquo;permit ETFs that satisfy certain conditions to operate within the scope of the Investment Company Act of 1940&rdquo; without an individual order. It took effect <b>23 December 2019</b>, with form-amendment compliance due by <b>22 December 2020</b>, and it reaches &ldquo;ETFs organized as open-end funds, the structure for the vast majority of ETFs today.&rdquo;</p><p>The conditions are the price of admission: the website disclosures above, written policies if the fund uses <b>custom baskets</b>, and a duty to &ldquo;preserve and maintain copies of all written agreements&rdquo; with authorized participants. That transparency is not a courtesy. It is what the exemption was traded for.</p><h3>Read the exclusion list</h3><p>The rule does not cover everything calling itself an ETF. Outside it: &ldquo;ETFs organized as unit investment trusts (UITs), leveraged or inverse ETFs, ETFs structured as a share class of a multi-class fund, and non-transparent ETFs,&rdquo; plus feeder funds in master-feeder structures. The SEC wrote one standing rule for the plain, transparent, publish-your-holdings-daily version of the structure and deliberately left leveraged and inverse products out. That is a regulator drawing a line in a published document, and it tells you something before you read a page of marketing.</p>
+
+  <h2 id="vs-mutual-fund">ETF or mutual fund: four differences that are real</h2>
+
+  <p>A mutual fund and an ETF can hold identical securities and chase an identical objective. Four structural differences survive.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="ETF compared with a mutual fund on four structural axes"><table class="gls-tab"><thead><tr><th></th><th>Mutual fund</th><th>ETF</th></tr></thead><tbody><tr><td><strong>When your price is set</strong></td><td>Once, at the next NAV computed after your order arrives</td><td>Continuously, at the market price when your order fills</td></tr><tr><td><strong>Getting in</strong></td><td>A minimum set in the prospectus</td><td>The price of one share, or a fraction if your broker allows it</td></tr><tr><td><strong>Getting out</strong></td><td>You redeem with the fund. &sect; 22(e) caps payment at seven days</td><td>You sell on the exchange. Settlement is one business day</td></tr></tbody></table></div><h3>Pricing, and the trade-off nobody names</h3><p>Mutual funds run on <em>forward pricing</em>: under <a href="https://www.ecfr.gov/current/title-17/chapter-II/part-270/section-270.22c-1" target="_blank" rel="noopener">17 CFR 270.22c-1(a)</a> a fund may not sell or redeem shares &ldquo;except at a price based on the current net asset value of such security which is next computed after receipt&rdquo; of the order. So, in the SEC guide's words, &ldquo;the investor won't know what the purchase price is until the next NAV is calculated.&rdquo; An ETF is the mirror image: its shares trade &ldquo;at market prices that may or may not be the same as the NAV of the shares.&rdquo;</p><p>Each structure hands you one certainty and takes the other. A mutual fund guarantees NAV and won't tell you what NAV is. An ETF tells you your price instantly and guarantees nothing about NAV. Two failure modes, not a better and a worse.</p><h3>The tax point, stated carefully</h3><p>A mutual fund facing net redemptions may sell appreciated holdings for cash, realizing capital gains it distributes to everyone still holding shares. The SEC's guide puts the sting plainly: an investor &ldquo;may also have to pay taxes each year on the mutual fund's or ETF's capital gains, even if&rdquo; the fund &ldquo;has had a negative return and the investor hasn't sold any shares.&rdquo; An ETF instead hands securities to an authorized participant, so fewer gains get realized inside the fund. The SEC's language stays comparative and so does ours: ETFs &ldquo;can be more tax efficient than mutual funds because ETF shares generally are redeemable 'in-kind,'&rdquo; and are &ldquo;typically more tax efficient in this regard.&rdquo;</p><p><b>Can be. Typically.</b> A structural tendency, not a promise &mdash; ETFs do sometimes distribute capital gains. And it only matters in a taxable account: inside a <a href="roth-ira.html">Roth IRA</a> there is nothing for a fund-level distribution to be taxed on.</p><h3>Settlement, and the seven-day number</h3><p>Sell an ETF and you have sold to another investor; settlement is <b>one business day after the trade date</b>, the T+1 cycle effective 28 May 2024 under the SEC's amended Rule 15c6-1. Redeem a mutual fund and you deal with the fund, where <a href="https://www.law.cornell.edu/uscode/text/15/80a-22" target="_blank" rel="noopener">Section 22(e)</a> says no registered fund may &ldquo;postpone the date of payment or satisfaction upon redemption&rdquo; for &ldquo;more than seven days after the tender.&rdquo; Most pay far faster. <b>Seven days is the statutory ceiling, not the normal experience</b> &mdash; a distinction comparison articles blur into a scare.</p>
+
+  <h2 id="costs">What it actually costs to own one</h2>
+
+  <p>Three costs, and most people look only at the first.</p><h3>The expense ratio</h3><p>The fund's annual operating cost as a percentage of assets. <b>Item 3 of Form N-1A</b>, the registration form every open-end fund files, requires a fee table headed &ldquo;Annual Fund Operating Expenses (expenses that you pay each year as a percentage of the value of your investment),&rdquo; ending in a line reading &ldquo;Total Annual Fund Operating Expenses.&rdquo;</p><p>And <b>you never get a bill.</b> The SEC's guide calls fund operating expenses &ldquo;regular and recurring fund-wide expenses that are typically paid out of fund assets, which means that investors indirectly pay these costs.&rdquo; The money leaves before your return is calculated &mdash; no charge on your statement, nothing asking approval, just a return slightly lower than it would have been, every day you hold it. Exactly the shape of cost <a href="compound-interest.html">compound interest</a> magnifies.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>$300 a month for 30 years, at a 7% gross annual return compounded monthly, with the expense ratio subtracted from it &mdash; close enough to the real mechanics, which shave it off fund assets daily.</p><p>At <b>0.03%</b> the net return is 6.97% and the ending balance is about <b>$363,800</b>. At <b>0.60%</b> it is 6.40% and about <b>$325,500</b>.</p><p class="gls-result">Same contributions, same market, 0.57 percentage points of difference: about <b>$38,300</b>. You contributed $108,000 over those thirty years, so the gap is more than a third of everything you put in &mdash; and no invoice ever arrived for it.</p></div><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>That is <b>our own arithmetic</b>. The 7% gross return is an assumption chosen to make the mechanism visible &mdash; not a forecast, and no agency publishes an expected return. The expense ratios are round numbers, not quotes from any fund. Change the inputs in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</p></div><h3>The spread, which can outweigh it</h3><p>An ETF has two live prices: a <b>bid</b>, what somebody will pay you, and an <b>ask</b>, what somebody will sell to you for. The SEC's guide calls the difference the spread and &ldquo;a hidden cost to investors since spreads reduce potential returns.&rdquo; You pay the ask buying and take the bid selling. Buy once a year and you cross it once; buy $200 worth every month and you cross it twelve times, which on a thinly traded fund can cost more per year than the expense ratio does. <b>We will not print a number for it</b> &mdash; it depends on the fund and your order, and we found no primary source for a general figure. Check the fund's <b>posted median 30-day spread</b>, required by Rule 6c-11 and sitting beside the expense ratio, along with the fund's own trading <a href="volume.html">volume</a> &mdash; not the volume of the stocks it holds. Shares that barely change hands show a wider spread. Commissions are a third layer.</p><h3>Tracking difference</h3><p>An index-based fund does not match its index; it approximates it. The SEC's guide is careful with the verbs &mdash; such funds &ldquo;seek to track&rdquo; an index and &ldquo;achieve returns that closely correspond&rdquo; to it, and &ldquo;even a passively managed index fund can underperform its index due to fees and taxes.&rdquo; The gap comes from the expense ratio, trading costs when the index changes members, uninvested cash, and the license fee paid to the index provider &mdash; an index being somebody's intellectual property, not a fact of nature.</p>
+
+  <h2 id="wrapper">A wrapper is not an asset class</h2>
+
+  <p>Everything above applies equally to two funds with nothing else in common, which is the most important sentence on this page: <b>ETF describes a legal and mechanical structure, not an investment.</b> Inside the same wrapper: the whole US stock market, one country, one industry, government bonds, gold bullion, currencies, actively managed strategies with a human making calls, and products built to multiply or invert a single day's move. Most broad stock funds weight holdings by <a href="market-capitalization.html">market capitalization</a>, so a handful of the largest companies drive most of the result &mdash; another thing the three letters don't tell you.</p><h3>Leveraged and inverse funds, and the daily reset</h3><p>Name this category out loud, because it is where documented investor harm lives. The SEC's own definition, from that exclusion list: a fund seeking returns &ldquo;that correspond to the performance of a market index by a specified multiple or that have an inverse relationship.&rdquo;</p><p>The SEC and FINRA, jointly: these funds &ldquo;'reset' daily, meaning that they are designed to achieve their stated objectives on a daily basis,&rdquo; and &ldquo;their performance over longer periods of time &mdash; over weeks or months or years &mdash; can differ significantly from the stated multiple of the performance (or inverse of the performance) of their underlying index or benchmark during the same period of time.&rdquo;</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>An index starts at 100, falls 10% to 90, then rises 10% to 99 &mdash; across the two days, <b>down 1%</b>. A fund delivering twice the daily move starts at 100, falls 20% to 80, then rises 20% to 96 &mdash; <b>down 4%</b>.</p><p class="gls-result">Twice the index's two-day loss would be 2%. The fund lost 4%. The multiple applies to each day separately, and each day's move lands on a base the previous day already moved. Over a choppy stretch that path dependence, not the market's direction, can be the dominant effect.</p></div><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>The SEC and FINRA published a real case, not a hypothetical: &ldquo;Over four months, a particular index gained 2 percent. However, a leveraged ETF seeking to deliver twice that index's daily return fell by 6 percent &mdash; and an inverse ETF seeking to deliver twice the inverse of the index's daily return fell by 25 percent.&rdquo; The index went up; both funds went down. Their conclusion: &ldquo;While there may be trading and hedging strategies that justify holding these investments longer than a day, these are specialized products that generally are not suitable for buy-and-hold investors.&rdquo;</p></div><p>This page is not telling you to avoid those products or to use them &mdash; only what they are built to deliver, one day's move, and what their own regulators publish about holding them longer.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>All over this site's <a href="../markets.html">Markets</a> section. The ticker tool overlays a symbol on its own <b>sector ETF</b>, and the <a href="dow-theory.html">Dow Theory</a> overlay on <a href="../markets-technical.html">Markets &middot; Technical</a> uses <code>DIA</code> and <code>IYT</code> instead of the Dow averages, which are licensed. An honest substitution, and tracking difference in real life: <code>DIA</code> is a fund chasing the Dow, minus its costs.</p></div>
+
+  <h2 id="ledger">What is confirmed, what is convention</h2>
+
+  <p>This page mixes hard regulatory facts with things that are merely common. Here is which is which.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confirmed, unverified and convention claims on this page"><table class="gls-tab"><thead><tr><th>Claim</th><th>Status</th><th>Source, or why not</th></tr></thead><tbody><tr><td>Rule 6c-11 adopted 26 September 2019, effective 23 December 2019, form compliance 22 December 2020</td><td><b>Confirmed</b></td><td>SEC press release 2019-190 and the compliance guide</td></tr><tr><td>Only authorized participants transact directly with the fund, in creation units, depositing a basket in kind; and arbitrage is the &ldquo;expected result&rdquo; that moves market value back toward NAV</td><td><b>Confirmed &mdash; note the hedge</b></td><td>SEC Investor Bulletin: ETFs. Expected, not guaranteed</td></tr><tr><td>The 2% over seven consecutive trading days explanation and the 30-day median spread disclosure; and that UITs, leveraged and inverse, share-class and non-transparent ETFs fall outside the rule</td><td><b>Confirmed</b></td><td>Conditions and scope of Rule 6c-11</td></tr><tr><td>Leveraged and inverse funds reset daily; the four-month 2% / 6% / 25% case</td><td><b>Confirmed</b></td><td>SEC and FINRA, Updated Investor Bulletin on those products</td></tr><tr><td>Mutual funds price at the next computed NAV; redemption payment cannot be postponed beyond seven days</td><td><b>Confirmed</b></td><td>17 CFR 270.22c-1(a); 15 U.S.C. &sect; 80a-22(e)</td></tr><tr><td>Bond ETF premiums and discounts widen from stale pricing and illiquidity, and widen further in stress without being mispricing</td><td><b>Confirmed</b></td><td>SEC Fixed Income Market Structure Advisory Committee, ETFs and Bond Funds subcommittee report, 2019</td></tr><tr><td>&ldquo;ETFs are cheaper than mutual funds&rdquo; as a general rule</td><td><b>Unverified</b></td><td>The averages usually quoted come from fund-industry trade groups, not a government publication. Untraced, so no number appears here</td></tr><tr><td>&ldquo;ETFs never distribute capital gains&rdquo;</td><td><b>Unverified, and wrong as stated</b></td><td>The SEC's own language is comparative &mdash; &ldquo;typically more tax efficient.&rdquo; So is ours</td></tr><tr><td>What the bid-ask spread costs a monthly buyer over a year</td><td><b>Unverified</b></td><td>Depends on the fund and the order. No primary source for a general figure. Use the posted median spread</td></tr><tr><td>The 50,000-share creation unit</td><td><b>Convention</b></td><td>The SEC offers it as an example &mdash; &ldquo;e.g.&rdquo; &mdash; not a requirement. Sizes are set fund by fund</td></tr><tr><td>0.03% as &ldquo;cheap,&rdquo; 0.60% as &ldquo;expensive,&rdquo; and the 7% gross return</td><td><b>Convention &mdash; our own assumptions</b></td><td>No agency draws those lines or publishes an expected return. Round numbers, chosen to make the example legible</td></tr><tr><td>&ldquo;Passive&rdquo; and &ldquo;active&rdquo; as clean opposites</td><td><b>Convention</b></td><td>An index is rules somebody wrote and revises. Tracking one is a choice, not the absence of one</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Thinking the letters tell you what you own.</b> ETF describes how the fund is built, priced and traded, not the holdings, the strategy or the risk. Open the holdings list every time.</li><li><b>Buying a leveraged or inverse fund and holding it for months.</b> The multiple is a daily objective. The SEC and FINRA state that returns over weeks, months or years can differ significantly from it, and published a four-month case where the index rose and both funds fell.</li><li><b>Comparing expense ratios and ignoring the spread.</b> Buy a small amount monthly and you cross the bid-ask spread twelve times a year. Check the posted median 30-day spread next to the expense ratio before deciding which fund is cheaper for the way <em>you</em> buy.</li><li><b>Reading a premium or discount as a broken fund.</b> In a fund holding foreign stocks or bonds, price and NAV are measured on different clocks, and the SEC's own advisory committee says wider gaps in stress are to be expected. Related: there is no NAV price available to you. A market order gets you the market price at the moment of the fill.</li><li><b>Waiting for the fee to show up so you can judge it.</b> It never shows up. The expense ratio comes out of fund assets, which is why the number looks trivial and compounds anyway.</li><li><b>Carrying the tax argument into a retirement account.</b> The in-kind mechanism reduces capital gains distributions, which only matters in a taxable brokerage account. Inside a <a href="roth-ira.html">Roth IRA</a> there is nothing to tax. If none of this is settled yet, <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> covers what compounding does first.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is an exchange-traded fund (ETF)?</h3>
+    <p>An exchange-traded fund is a pooled investment fund registered with the SEC whose shares are listed on a stock exchange and trade all day at prices the market sets. The term describes the container, not the contents: a fund holding several thousand US companies and a fund built to deliver three times one industry's daily move are both ETFs. What makes the structure work is that a small group of large broker-dealers, called authorized participants, can exchange baskets of securities for blocks of fund shares directly with the fund.</p>
+
+    <h3>Why does an ETF's price stay close to the value of what it holds?</h3>
+    <p>Because of the creation and redemption mechanism. Authorized participants can deal directly with the fund at net asset value in large blocks called creation units, and they can also trade on the exchange. When the exchange price rises above NAV, a participant can buy the underlying basket, deliver it to the fund for newly created shares, and sell those shares at the higher price &mdash; which adds supply and pushes the price back down. A discount works in reverse. The SEC calls the gap closing the expected result of that arbitrage, not a guarantee, and no participant is obligated to act.</p>
+
+    <h3>Can an ETF trade above or below what it is worth?</h3>
+    <p>Yes. Above net asset value is a premium and below is a discount, and the SEC says plainly that for a variety of reasons an ETF's market price may trade at either. The gap is widest when the holdings are hard to price in real time. A fund holding Tokyo-listed stocks has a NAV built from prices set hours earlier. A bond fund's NAV moves slowly because many individual bonds may not trade at all on a given day. The SEC's fixed income advisory committee wrote that larger premiums and discounts in stressed markets are to be expected, not evidence of mispricing.</p>
+
+    <h3>What is the difference between an ETF and a mutual fund?</h3>
+    <p>Four things. A mutual fund order fills at the next net asset value computed after the fund receives it, so you do not know your price when you place it; an ETF fills at the market price the moment it trades, which may differ from NAV. A mutual fund sets a minimum investment; an ETF costs the price of one share. A mutual fund raising cash for redemptions may sell appreciated holdings and distribute the capital gains, while an ETF usually hands securities to an authorized participant in kind, which tends to produce fewer such distributions. And you sell an ETF on the exchange, with settlement one business day later.</p>
+
+    <h3>What does an ETF's expense ratio actually cost me?</h3>
+    <p>It is deducted from fund assets, so you never see a bill or approve a charge &mdash; it appears only as a slightly lower return, every day you hold the fund. By our own arithmetic, $300 a month for thirty years at an assumed 7% gross return ends near $363,800 if the expense ratio is 0.03% and near $325,500 if it is 0.60%. That is roughly $38,300 on $108,000 of contributions. The 7% is an assumption for the example, not a forecast. The fee table itself is required by Item 3 of Form N-1A and sits in every fund's prospectus.</p>
+
+    <h3>Are leveraged and inverse ETFs the same thing as regular ETFs?</h3>
+    <p>No, and the SEC treats them differently. Rule 6c-11, the standing rule that lets most ETFs operate without an individual exemptive order, explicitly excludes leveraged and inverse ETFs. Those products reset daily, meaning they are designed to hit their stated multiple over a single day. The SEC and FINRA state that performance over weeks, months or years can differ significantly from that multiple, and they published a case where an index gained 2 percent over four months while a fund seeking twice the daily return fell 6 percent and one seeking twice the inverse fell 25 percent.</p>
+
+    <h3>What is a creation unit?</h3>
+    <p>It is the block size in which an authorized participant transacts directly with the fund. The SEC's investor bulletin gives 50,000 ETF shares as an example, and it is an example rather than a requirement &mdash; each fund sets its own. The participant assembles a designated basket of securities and cash and deposits it with the fund in exchange for a creation unit of shares, and redemption reverses the trade. Because the exchange happens in kind, the fund often avoids selling appreciated holdings for cash, which is the structural reason ETFs tend to distribute fewer capital gains than mutual funds.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="compound-interest.html"><b>Compound Interest</b><span>What a small annual drag does across thirty years</span></a>
+      <a href="volume.html"><b>Volume</b><span>How many shares change hands, and why the spread follows</span></a>
+      <a href="market-capitalization.html"><b>Market Cap</b><span>The weighting scheme inside most broad stock funds</span></a>
+      <a href="dow-theory.html"><b>Dow Theory</b><span>Why this site charts DIA and IYT instead of the Dow</span></a>
+      <a href="roth-ira.html"><b>Roth IRA</b><span>The wrapper where fund tax efficiency stops mattering</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Put two expense ratios side by side over thirty years with the <a href="../investment-growth-calculator.html">investment growth calculator</a> &mdash; free, no account.</li>
+      <li>See the compounding underneath it on its own with the <a href="../compound-interest-calculator.html">compound interest calculator</a>.</li>
+      <li>Work through <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> in the free Financial Literacy course &mdash; all five stages, no account needed.</li>
+      <li>Watch sector ETFs and the <code>DIA</code>/<code>IYT</code> Dow Theory overlay running live on <a href="../markets-technical.html">Markets &middot; Technical</a>, or start at the <a href="../markets.html">Markets hub</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/newsroom/press-releases/2019-190" target="_blank" rel="noopener">SEC Adopts New Rule to Modernize Regulation of Exchange-Traded Funds</a>, 26 September 2019 (the adoption date, the purpose of Rule 6c-11 under the Investment Company Act of 1940, the open-end scope, the exclusion of UITs, leveraged and inverse, share-class and non-transparent ETFs, and the premium, discount and bid-ask spread disclosures).</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/investment/exchange-traded-funds-small-entity-compliance-guide" target="_blank" rel="noopener">Exchange-Traded Funds: A Small Entity Compliance Guide</a> (the Rule 6c-11 definition of a covered ETF, the daily holdings and NAV/market price/premium-discount website conditions, the 30-day median bid-ask spread, the 2% for more than seven consecutive trading days explanation, custom-basket policies, the authorized participant agreement recordkeeping duty, the 23 December 2019 effective date and 22 December 2020 compliance date).</li>
+      <li>SEC Office of Investor Education and Advocacy, <a href="https://www.sec.gov/investor/alerts/etfs.pdf" target="_blank" rel="noopener">Investor Bulletin: Exchange-Traded Funds (ETFs)</a> (authorized participants as the only direct buyers and redeemers, the 50,000-share creation unit example, the in-kind basket deposit, the arbitrage and its &ldquo;expected result,&rdquo; premiums and discounts, and in-kind redemption as the source of ETF tax efficiency).</li>
+      <li>SEC and FINRA, <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-alerts/sec" target="_blank" rel="noopener">Updated Investor Bulletin: Leveraged and Inverse ETFs</a> (the daily reset, the statement that longer-horizon performance can differ significantly from the stated multiple, the four-month case where an index gained 2 percent while a 2x fund fell 6 percent and an inverse fund fell 25 percent, and the buy-and-hold suitability language).</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.investor.gov/sites/investorgov/files/2019-02/mutual-funds-ETFs.pdf" target="_blank" rel="noopener">Mutual Funds and ETFs &mdash; A Guide for Investors</a> (operating expenses paid out of fund assets, the Total Annual Fund Operating Expenses line, not knowing a mutual fund purchase price until the next NAV is calculated, ETF intraday market pricing that may differ from NAV, the bid-ask spread as a hidden cost, brokerage commissions, capital gains distributions in a losing year, and index funds seeking rather than matching their index).</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/about/forms/formn-1a.pdf" target="_blank" rel="noopener">Form N-1A</a>, Item 3 (the fee table heading &ldquo;Annual Fund Operating Expenses (expenses that you pay each year as a percentage of the value of your investment),&rdquo; the Total Annual Fund Operating Expenses line, and the required cost example on a $10,000 investment over 1, 3, 5 and 10 years at a 5% assumed return).</li>
+      <li>Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/15/80a-22" target="_blank" rel="noopener">15 U.S.C. &sect; 80a-22(e)</a> (a registered investment company may not postpone payment upon redemption for more than seven days after tender, with narrow exceptions), and eCFR, <a href="https://www.ecfr.gov/current/title-17/chapter-II/part-270/section-270.22c-1" target="_blank" rel="noopener">17 CFR 270.22c-1</a> (forward pricing at the net asset value next computed after receipt of the order, and NAV computed no less frequently than once daily, Monday through Friday).</li>
+      <li>SEC Fixed Income Market Structure Advisory Committee, <a href="https://www.sec.gov/spotlight/fixed-income-advisory-committee/etfs-and-bond-funds-subcommittee-report-041519.pdf" target="_blank" rel="noopener">Report of the Subcommittee on ETFs and Bond Funds</a>, 15 April 2019 (stale pricing and illiquidity slowing NAV adjustment and widening premiums and discounts, wider bid-ask spreads on OTC fixed income securities feeding into deviations from NAV, many individual bonds not trading at all on a given day, and larger premiums and discounts in stressed markets being expected rather than evidence of mispricing).</li>
+      <li>SEC Office of Investor Education and Advocacy, <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin" target="_blank" rel="noopener">New &ldquo;T+1&rdquo; Settlement Cycle &mdash; What Investors Need To Know</a> (standard settlement of one business day after the trade date under the amended Rule 15c6-1, effective 28 May 2024).</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What an ETF is</a></li>
+      <li><a href="#mechanism">Creation and redemption</a></li>
+      <li><a href="#nav">Premium and discount</a></li>
+      <li><a href="#rule">Rule 6c-11</a></li>
+      <li><a href="#vs-mutual-fund">ETF vs mutual fund</a></li>
+      <li><a href="#costs">What it costs</a></li>
+      <li><a href="#wrapper">A wrapper, not an asset class</a></li>
+      <li><a href="#ledger">Confirmed vs convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>See what a 0.03% expense ratio versus 0.60% does to thirty years of monthly contributions. Free, no account.</p>
+    <a class="gls-cta" href="../investment-growth-calculator.html">Investment growth calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volume: What It Actually Measures | Learn the Lingo</title>
+<meta name="description" content="Volume counts shares traded, and every trade has a buyer and a seller. Why relative and dollar volume are the usable forms, and where the number comes from.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/volume.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/volume.html">
+<meta property="og:title" content="Volume &mdash; Learn the Lingo">
+<meta property="og:description" content="&ldquo;More buyers than sellers&rdquo; is impossible &mdash; every trade has both. Here is what volume actually measures, where the number on your screen comes from, and how it fails.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Volume &mdash; Learn the Lingo">
+<meta name="twitter:description" content="&ldquo;More buyers than sellers&rdquo; is impossible &mdash; every trade has both. Here is what volume actually measures, where the number on your screen comes from, and how it fails.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/volume.html#term",
+      "name": "Volume",
+      "alternateName": ["Volume","Trading Volume","Share Volume","Average Daily Volume","Dollar Volume"],
+      "description": "Volume is the number of shares of a security that changed hands during a given period, such as a day. Because every completed trade has both a buyer and a seller, volume measures the amount of trading activity rather than buying or selling pressure, and it carries no direction. In US equities the figure most traders see is aggregated across exchanges and off-exchange venues onto the consolidated tape.",
+      "url": "https://hustlin.org/learn-the-lingo/volume.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Volume: What It Measures, Where the Number Comes From, and What It Cannot Tell You",
+      "description": "A plain-language explanation of trading volume: why every trade has a buyer and a seller so volume can never show buying pressure, how US equity volume is aggregated onto the consolidated tape across exchanges and off-exchange venues, why relative volume and dollar volume are the only usable forms, why an ETF's volume is not comparable to a single stock's, and which volume patterns are genuinely documented. Includes a ledger separating confirmed claims from convention, and a failure-mode section covering block-trade distortion, hindsight labeling and the internal contradiction inside On-Balance Volume.",
+      "url": "https://hustlin.org/learn-the-lingo/volume.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/volume.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/volume.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Volume", "item": "https://hustlin.org/learn-the-lingo/volume.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is volume?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Volume is the number of shares that changed hands in a security over a given period, usually a trading day. Because every completed trade has exactly two sides, a 500-share trade is recorded once as 500 shares, not as 500 bought plus 500 sold. That makes volume a measure of activity rather than of direction: it tells you how much trading happened, not whether buyers or sellers were winning. In US equities the figure most people see is aggregated across exchanges and off-exchange venues onto the consolidated tape." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can there be more buyers than sellers?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Not on any day, in any market, ever. A trade only completes when a buyer and a seller agree, so the shares bought and the shares sold are always identical. The phrase is one of the most repeated errors in market commentary. What people usually mean is that one side was more urgent, and willing to accept a worse price to get filled. That shows up in the price and in the order book, not in the volume figure, and volume cannot be used as evidence for it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do two websites show different volume for the same stock?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because they are consolidating different sets of trade reports. US stocks trade across national securities exchanges plus a large off-exchange market of alternative trading systems and wholesale market makers. Then-SEC Chair Gary Gensler said in October 2024 that approximately 45 percent of share volume was executed in the dark markets as of 2023, up from 25 percent in 2009. A site showing one exchange's prints and a site showing the full consolidated tape will disagree, and providers also differ on odd lots, extended-hours prints and late corrections." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is relative volume, and what counts as high?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Relative volume is today's volume divided by the same stock's average daily volume over a recent window, which strips out the fact that different companies trade at different scales. The window is convention: 20 sessions and 50 sessions are common, and neither has any authority behind it. There is no official threshold for high. The multiples you see quoted, such as one and a half or two times average, are rules of thumb from practice, not published standards. One rule does matter: an intraday reading has to be compared to volume at the same time of day, or it is measuring the clock." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does high volume confirm a breakout?",
+          "acceptedAnswer": { "@type": "Answer", "text": "That is what practitioners hold, and it is convention rather than a sourced rule. No regulator, exchange or standard-setting body defines volume confirmation or publishes a threshold for it. No hit rate is claimed on this page because no source we could reach has one. Two structural problems are worth knowing. A day's volume is not known until the day ends, so heavy volume is identified after the fact. And on an index, volume is the sum of thousands of unrelated prints, which makes it genuinely ambiguous as evidence about anything." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is volume so heavy at the close and on certain Fridays?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Mostly plumbing. Index funds are measured against index closing prices, so they trade in the closing auction. Bogousslavsky and Muravyev measured aggregate closing auction volume at 7.48 percent of daily dollar volume in 2018, up from 3.11 percent in 2010. Quarterly index rebalancing lands on the third Friday of March, June, September and December under S and P Dow Jones Indices methodology, and index futures and options expirations cluster on that same Friday. FTSE Russell reports 217.2 billion dollars traded at the close of its June 2025 reconstitution." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is On-Balance Volume a reliable indicator?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Start with what it does. On-Balance Volume, developed by Joseph E. Granville in 1963, adds a day's entire volume to a running total when the stock closes up and subtracts the entire volume when it closes down. Every one of those shares had a seller, so assigning all of it to buying pressure contradicts the definition of volume. Read as what it actually is, a cumulative tally of volume on up-closes minus volume on down-closes, it is honest and sometimes informative. Read as buying pressure, it is a category error." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Volume</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Chart Basics</div>
+      <h1 class="hero-h1">Volume</h1>
+      <p class="hero-sub">Volume counts shares traded, and every one of those shares had a buyer and a seller. So &ldquo;more buyers than sellers&rdquo; is not an exaggeration &mdash; it is a sentence that cannot be true. Here is what the number measures, where it comes from, and what it can't do.</p>
+      <p class="gls-aka"><b>Also called:</b> trading volume &middot; share volume &middot; average daily volume (ADV) &middot; dollar volume &middot; relative volume</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from the SEC, FINRA, S&amp;P Dow Jones Indices, FTSE Russell, CME Group and named academic research</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Volume is the number of shares that changed hands over a period &mdash; and because every completed trade has a buyer and a seller, volume measures how much activity happened, never which side won.</strong></p>
+    <p>That single fact kills the most repeated sentence in market commentary, and it is why this page exists. What is left after you drop the folklore is still useful, and a fair amount of it is genuinely documented: where trades print, who reports them, why a raw share count can't be compared across two stocks, and which calendar days force enormous volume for reasons that have nothing to do with anybody's opinion. This page separates the sourced part from the craft.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Volume is shares traded, and every trade has a buyer and a seller.</b> &ldquo;More buyers than sellers&rdquo; describes nothing. Volume measures activity &mdash; not direction, not pressure, not conviction.</li>
+      <li><b>Roughly 45% of share volume was executed off-exchange as of 2023, up from 25% in 2009</b>, according to then-SEC Chair Gary Gensler's October 2024 remarks at a SIFMA conference. That is why two data providers can print different volume for the same stock on the same day.</li>
+      <li><b>Odd lots have printed to the public tape only since December 9, 2013</b> (SEC market structure staff). Volume histories that cross that date are not measuring the same thing on both sides of it.</li>
+      <li><b>Raw share counts do not compare across stocks.</b> At $50 million of dollar volume, a $5 stock trades 10,000,000 shares and a $500 stock trades 100,000. Relative volume and dollar volume are the forms that survive comparison.</li>
+      <li><b>An ETF's share count is elastic.</b> SEC Rule 6c-11, effective 23 December 2019, lets a fund issue and redeem creation units to and from authorized participants in exchange for a basket. So <a href="etf.html">ETF</a> volume is not comparable to a single company's.</li>
+      <li><b>The biggest volume days are calendar events, not opinions.</b> Closing auction volume was 7.48% of aggregate daily dollar volume in 2018, up from 3.11% in 2010 (Bogousslavsky and Muravyev), and $217.2 billion traded at the close of the June 2025 Russell reconstitution (FTSE Russell).</li>
+      <li><b>&ldquo;Volume confirms the move&rdquo; is convention</b> &mdash; no threshold, no standard-setter, and no hit rate is claimed here. On-Balance Volume assigns an up day's <i>entire</i> volume to buying pressure, which directly contradicts the first line on this page.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What volume actually counts</h2>
+
+  <p>A stock closes down 6% on what the chart calls huge volume. The video you are watching freezes on the candle and says it: &ldquo;Look at that &mdash; way more sellers than buyers.&rdquo; It sounds like an explanation. It is not one. It cannot be one.</p><p><b>Volume is the number of shares that changed hands over a period</b> &mdash; a minute, a day, a week. Every completed trade has exactly two sides. If 500 shares change hands, somebody sold 500 and somebody bought 500, at the same price, in the same instant. The tape records that once, as 500 shares. Not as 500 bought plus 500 sold.</p><p>So the count is always, mechanically, balanced. There has never been a session with more shares bought than sold, in any stock, ever. &ldquo;More sellers than buyers&rdquo; is not an exaggeration; it is a sentence with no possible referent. What people mean by it is that sellers were more <i>urgent</i> &mdash; willing to accept worse prices to get filled. That is a claim about price and the order book, not about volume.</p><p>So what does volume tell you? <b>Activity.</b> How much of the company's float actually moved, and how many people had a reason to act today rather than wait. Nothing about which way. A day where 40 million shares trade and the stock closes flat and a day where 40 million trade and it falls 9% have the same volume, because volume has no sign.</p><p>The SEC's own glossary keeps the two facts separate. The <a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/consolidated-tape" target="_blank" rel="noopener">consolidated tape</a>, it says, is &ldquo;a high-speed, electronic system that reports the latest price and volume data on sales of exchange-listed stocks.&rdquo; Two numbers on the same wire, and only one has a direction.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>Volume counts shares traded, every trade has a buyer and a seller, so volume measures how much happened and never who won.</p></div>
+
+  <h2 id="tape">Where the number on your screen comes from</h2>
+
+  <p>This is the part almost nobody explains, and it is the part with real sources behind it.</p><p>There is no single place where a US stock trades. There are national securities exchanges, and there is a large off-exchange market: alternative trading systems (ATSs, including the venues people call dark pools) and wholesale market makers that execute retail orders internally rather than sending them to an exchange. Reports from all of it are aggregated onto the <b>consolidated tape</b>, and the number your broker labels &ldquo;volume&rdquo; is the output of that consolidation.</p><p>How much sits off-exchange is not a rounding error. In <a href="https://www.sec.gov/newsroom/speeches-statements/gensler-sifma-102124" target="_blank" rel="noopener">remarks at a SIFMA conference in October 2024</a>, then-SEC Chair Gary Gensler said that &ldquo;as of 2023, approximately 45 percent of share volume was executed in the dark markets, up from 25 percent in 2009.&rdquo; Close to half. A large share of that is retail order flow, which frequently never touches an exchange at all.</p><p>FINRA publishes the off-exchange side, free. Its <a href="https://www.finra.org/filing-reporting/otc-transparency" target="_blank" rel="noopener">OTC Transparency data</a> reports over-the-counter trading on a delayed basis: ATS activity is attributed by name, and lower-volume non-ATS activity is aggregated without attribution. The <a href="https://www.finra.org/filing-reporting/otc-transparency/ats-quarterly-statistics" target="_blank" rel="noopener">quarterly ATS statistics</a> give total shares, total trades and average trade size per ATS, split into Tier 1 NMS stocks, Tier 2 stocks and OTC securities.</p><p>Here is why that reaches you. <b>The volume figure you read depends entirely on what is being consolidated into it.</b> A chart drawing one exchange's prints, a chart drawing the consolidated tape, and a screener on a different vendor's feed can show three different numbers for the same session. None is lying. They count different sets of prints, and they rarely say which.</p><p>The tape's own rules have moved as well. The SEC's market structure staff note that <a href="https://www.sec.gov/about/odd-lot-rates-post-transparency-world" target="_blank" rel="noopener">&ldquo;beginning December 9, 2013, odd lot transactions in all NMS stocks are now reported to the public tape.&rdquo;</a> Before that date, trades of fewer than 100 shares did not print publicly at all. Volume histories crossing that boundary are not measuring the same thing on both sides of it &mdash; and odd lots matter more now, because a $700 share price pushes ordinary orders into odd lots by default.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>Two sites, same ticker, same session, different volume. Check whether one is showing a single venue and the other the consolidated tape before assuming either is broken. The volume bars on <a href="../markets-technical.html">Markets &middot; Technical</a> come from the chart provider's consolidated feed.</p></div>
+
+  <h2 id="relative">Why a raw share count tells you nothing</h2>
+
+  <p>Forty million shares traded today. Is that a lot?</p><p>Unanswerable as asked. Forty million is enormous for one company and a slow morning for another. A raw share count has no scale attached, so it has to be put on one. There are two scales worth knowing.</p><h3>Relative volume</h3><p><b>Relative volume compares today's volume to the same stock's own recent average.</b> It takes the company out of the comparison and leaves the change.</p><div class="gls-formula"><code>relative volume = today's volume / average daily volume over the last N sessions</code></div><p>N is convention. Twenty and fifty sessions are the common windows, neither has an authority behind it, and both are round numbers that loosely mean &ldquo;the last month&rdquo; and &ldquo;the last quarter.&rdquo; Change N and the answer changes, which is a fair measure of how much precision it deserves.</p><p>One trap catches nearly everybody: comparing a partial day to a full day. At 10:15 a stock has traded a fraction of what it will trade by the close, so dividing that by a full-day average always looks quiet. Intraday relative volume has to be measured against volume <i>at the same point in the session</i>, or it is measuring the clock.</p><h3>Dollar volume</h3><p>The second scale is money. <b>Dollar volume is shares traded times price</b>, and it answers a better question: how much capital actually moved?</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Two stocks, same session. Stock A trades at $18.40 and 2,000,000 shares change hands. Stock B trades at $312.00 and 190,000 shares change hands.</p><p>By share count, A looks more than ten times busier: 2,000,000 against 190,000.</p><p>Now price it. A: 2,000,000 &times; $18.40 = <b>$36,800,000</b>. B: 190,000 &times; $312.00 = <b>$59,280,000</b>.</p><p class="gls-result">The stock with roughly a tenth of the share count moved about 61% more money. Share counts and dollar volume can point in opposite directions, and here they do.</p></div><p>At the extremes it gets absurd. Hold dollar volume fixed at $50,000,000 for the day. A $5 stock needs 10,000,000 shares to get there. A $500 stock gets there on 100,000. Same money, one hundred times the share count. Any screen ranking by raw share volume puts the $5 stock near the top every day, which tells you nothing about how actively it trades.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Share volume against dollar volume at the same dollar value traded"><table class="gls-tab"><thead><tr><th>Share price</th><th>Shares traded</th><th>Dollar volume</th></tr></thead><tbody><tr><td>$5.00</td><td>10,000,000</td><td>$50,000,000</td></tr><tr><td>$50.00</td><td>1,000,000</td><td>$50,000,000</td></tr><tr><td>$500.00</td><td>100,000</td><td>$50,000,000</td></tr></tbody></table></div><p>Keep dollar volume separate from <a href="market-capitalization.html">market capitalization</a>, which gets confused with it constantly. Market cap is price times shares <i>outstanding</i> &mdash; a size. Dollar volume is price times shares <i>traded</i> &mdash; an activity. An enormous company can have a dead session and a tiny one a frantic one.</p>
+
+  <h2 id="etfvol">Why an ETF's volume is a different animal</h2>
+
+  <p>Put a single stock and an <a href="etf.html">ETF</a> side by side, compare their volume, and you are comparing two mechanisms rather than two levels of interest.</p><p>A company's shares outstanding is effectively fixed day to day. If you want shares, an existing holder has to hand them over, and that prints as volume. An ETF does not work that way. Under the SEC's ETF rule, <b>Rule 6c-11</b>, effective <b>23 December 2019</b>, an ETF may &ldquo;issue (and redeem) creation units to (and from) authorized participants in exchange for a basket and a cash balancing amount (if any),&rdquo; in the words of the SEC's own <a href="https://www.sec.gov/investment/exchange-traded-funds-small-entity-compliance-guide" target="_blank" rel="noopener">compliance guide for the rule</a>. Authorized participants are large firms with a written agreement in place with the fund, and the rule also permits <b>custom baskets</b> that are not a pro-rata slice of the portfolio, provided the fund adopts written policies governing how baskets are constructed and accepted.</p><p>Two consequences for the volume number.</p><ul><li><b>The share count is elastic.</b> Demand for an ETF does not have to be met by prying shares out of an existing holder. It can be met by creating new shares against a delivery of the underlying securities. So a modest volume figure on an ETF does not carry the &ldquo;nobody is willing to sell&rdquo; implication the same figure would carry on a single stock.</li><li><b>On-screen volume understates the machinery.</b> How much of an ETF you can actually trade depends on how easily the underlying basket can be assembled, not just on printed volume. The reverse holds too: a large ETF trade may be crossed between two investors or met with an in-kind creation, generating little or no trading in the underlying names.</li></ul><p>So &ldquo;this ETF and that stock both trade 4 million shares a day, they are equally liquid&rdquo; is not a valid comparison. Relative volume against an ETF's own history still means something. Volume compared across an ETF and a single company does not.</p>
+
+  <h2 id="confirmation">The claim that volume confirms a move</h2>
+
+  <p>Here is the convention, stated as fairly as it can be, because most readers will hear it from somebody who believes it.</p><p>Practitioners hold that a price move on heavy volume deserves more weight than the same move on light volume: that a <a href="breakout.html">breakout</a> through a level ought to come with a visible expansion in volume, and that a rally on shrinking volume is suspect. This is taught almost everywhere technical analysis is taught, including in stage 2 of our own <a href="../technical-analysis.html">Technical Analysis course</a>, Trend &amp; Volume. The reasoning: volume is an independent series from price, so it works as a second opinion rather than a restatement.</p><p>Now the honest part. <b>&ldquo;Volume confirms&rdquo; is convention.</b> No regulator, exchange or standard-setting body defines it, publishes a threshold for it, or validates it. The figures you will see quoted &mdash; one and a half times average, twice average &mdash; are rules of thumb out of practice, and nobody publishes them as a standard.</p><p>The academic literature on the price-volume relation does exist, and it is more specific than the folklore. Jonathan M. Karpoff's survey <a href="https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/abs/relation-between-price-changes-and-trading-volume-a-survey/DBE2C70FA41E390EB8FA418BBFFD76C8" target="_blank" rel="noopener">&ldquo;The Relation between Price Changes and Trading Volume: A Survey&rdquo;</a> (<i>Journal of Financial and Quantitative Analysis</i> 22(1), 1987, pp. 109&ndash;126) reviews the research and separates two findings: volume correlates positively with the <i>magnitude</i> of a price change regardless of direction, and in equity markets it also correlates positively with the signed change, meaning volume tends to run heavier when prices rise than when they fall.</p><p>Read that carefully, because it is not the trading claim. It says volume and large moves tend to occur together, on average, across big samples over long periods &mdash; not that a volume reading tells you whether the next move holds. And the second half cuts against how volume is usually invoked: if heavy volume on an advance is close to the base rate, treating it as evidence double-counts the ordinary.</p><p>Two more problems are structural rather than statistical. <b>&ldquo;High volume&rdquo; can only be identified after the fact.</b> A session's volume is not known until the session ends. During the day you are extrapolating, and the extrapolation is exactly the partial-day error described above. On a chart of last year the heavy-volume bars are obvious, and that is hindsight wearing a label.</p><p><b>Volume is also ambiguous on an index.</b> The volume behind an index or a broad index ETF is the sum of thousands of unrelated decisions about hundreds of unrelated companies. Calling that aggregate &ldquo;conviction&rdquo; assigns one intention to a crowd that does not have one &mdash; which is why <a href="support-and-resistance.html">support and resistance</a> gets hedged the same way on this site.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>This page gives no hit rate for volume confirmation, because no source we could reach has one. If a page or a video hands you a percentage &mdash; &ldquo;works 73% of the time&rdquo; &mdash; ask who published the study. Invented win rates are the technical analysis internet's house specialty.</p></div>
+
+  <h2 id="patterns">Volume patterns that can actually be sourced</h2>
+
+  <p>Folklore is not the only thing on offer. Some volume behavior is large, repeatable, mechanical and documented by named sources &mdash; and it beats confirmation talk, because it tells you when a volume figure is about plumbing rather than opinion.</p><h3>The closing auction</h3><p>A large and growing share of the day happens in one event at the bell. Vincent Bogousslavsky and Dmitriy Muravyev measured it in <a href="https://static1.squarespace.com/static/6310c0b9bb63a25599f4418c/t/634ffc92f81e226b2c30654f/1666186387645/who-trades-at-the-close_June2021.pdf" target="_blank" rel="noopener">&ldquo;Who Trades at the Close? Implications for Price Discovery and Liquidity&rdquo;</a>: aggregate closing auction volume was <b>7.48% of aggregate daily dollar volume in 2018, up from 3.11% in 2010</b>, roughly $15.2 billion on a typical day. They also found the shift is tighter than &ldquo;late in the day&rdquo;: volume in the 3:30 to 3:55 p.m. window fell as a share of the total, migrating into the last five minutes and the auction itself. Those figures stop in 2018; treat the level as dated and the direction as established.</p><p>The reason is mechanical: index funds are measured against an index's closing price, so they want that price, so they trade in the auction. Not sentiment &mdash; a benchmarking obligation.</p><h3>Rebalancing and quarterly expirations</h3><p>When an index changes what it holds, every fund tracking it has to change what it holds, on the same day, usually at the close. <a href="https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-equity-indices-policies-practices.pdf" target="_blank" rel="noopener">S&amp;P Dow Jones Indices' equity index policies and practices</a> put the quarterly rebalancing effective date on the third Friday of March, June, September and December. FTSE Russell's reconstitution is the largest single instance: LSEG's announcement of the <a href="https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-begins-june-2026-semi-annual-russell-us-indexes-reconstitution" target="_blank" rel="noopener">June 2026 reconstitution</a> states that roughly <b>$12.2 trillion</b> is benchmarked to or invested in products based on the Russell US indexes, that the event &ldquo;culminates in one of the highest-volume trading days of the year across major US equity exchanges,&rdquo; and that <b>$217.2 billion</b> traded at the close of the June 2025 reconstitution. The same release notes it is again semi-annual, in June and December, effective 2026.</p><p>Expirations pile onto the same dates. CME's <a href="https://www.cmegroup.com/trading/equity-index/rolldates.html" target="_blank" rel="noopener">equity index roll dates page</a> anchors the futures roll to &ldquo;the Monday prior to the third Friday of the expiration month,&rdquo; and index futures, index options and single-stock options expirations all cluster on that third Friday, so volume balloons. The nickname, <b>triple witching</b>, is trader slang, not an official term.</p><h3>Two more, both documented</h3><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Documented volume patterns and their sources"><table class="gls-tab"><thead><tr><th>Pattern</th><th>What is documented</th><th>Source</th></tr></thead><tbody><tr><td>The intraday shape</td><td>Volume is heavy at the open, thin through the middle, heavy into the close &mdash; the classic U</td><td>Praveen C. Jain and Gun-Ho Joh, <a href="https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/abs/dependence-between-hourly-prices-and-trading-volume/C305DB5BFB5F2B2D803BB94449AF8B47" target="_blank" rel="noopener">&ldquo;The Dependence between Hourly Prices and Trading Volume&rdquo;</a>, <i>JFQA</i> 23(3), 1988, pp. 269&ndash;283; the standard theory is Anat R. Admati and Paul Pfleiderer, <a href="https://academic.oup.com/rfs/article-abstract/1/1/3/1601212" target="_blank" rel="noopener">&ldquo;A Theory of Intraday Patterns&rdquo;</a>, <i>Review of Financial Studies</i> 1(1), 1988, pp. 3&ndash;40</td></tr><tr><td>The earnings jump</td><td>Trading activity rises sharply in the week a company reports &mdash; the oldest documented case of volume reacting to information</td><td>William H. Beaver, &ldquo;The Information Content of Annual Earnings Announcements,&rdquo; <i>Journal of Accounting Research</i> 6, 1968, pp. 67&ndash;92. Paywalled, so cited here rather than linked</td></tr></tbody></table></div><p>Given the migration to the close, the modern intraday shape is more a J than a U. And the <a href="../markets-fundamental.html">Markets &middot; Fundamental</a> page carries the next week of earnings dates, so you can check whether a spike is news or a calendar entry.</p>
+
+  <h2 id="indicators">What happens when volume becomes an indicator</h2>
+
+  <p>Volume gets packaged into indicators, and the most popular one contradicts the first paragraph of this page. Worth saying out loud.</p><p><b>On-Balance Volume (OBV)</b> was developed by Joseph E. Granville and set out in <a href="https://books.google.com/books/about/Granville_s_New_Key_to_Stock_Market_Prof.html?id=21ukDwAAQBAJ" target="_blank" rel="noopener"><i>Granville's New Key to Stock Market Profits</i></a> (1963). The construction is a running total: if today closes higher than yesterday, add the whole day's volume; if it closes lower, subtract the whole day's volume.</p><div class="gls-formula"><code>OBV today = OBV yesterday + volume (up close), or OBV yesterday - volume (down close)</code></div><p>Look at what that does. Every share in that day's volume was bought by somebody and sold by somebody. OBV assigns <i>all</i> of it to one side on the strength of a single number: where the stock closed. A day that closes up one cent credits 100% of its volume as buying pressure. <b>The premise of the indicator contradicts the definitional fact that volume has no side.</b></p><p>That does not make it worthless, but it changes what it is. OBV is a cumulative tally of volume on up-closes minus volume on down-closes. Described that way it is honest and occasionally informative &mdash; a smoothed picture of whether the busy days have been up days. Described as &ldquo;buying pressure,&rdquo; it is a category error.</p><p>The same critique lands on every &ldquo;buying volume vs selling volume&rdquo; readout on a retail platform, and on accumulation and distribution indicators. Where those splits are not just using the close, they classify each print by whether it happened nearer the bid or the ask, and call bid-side prints seller-initiated. That is an <i>inference about who initiated the trade</i>, not a count of buyers, and it misclassifies plenty of prints &mdash; including much of the off-exchange flow above, which often prints between the quotes.</p><p>Two more things. <b>VWAP</b>, the volume-weighted average price, is arithmetic rather than a signal: total dollars traded divided by total shares traded. Institutions use it as an execution benchmark, which is the honest description of it. And volume is often smoothed with a <a href="moving-average.html">moving average</a> exactly the way price is, so it inherits every property of one including the lag &mdash; same for volume-based <a href="macd.html">MACD</a>-style oscillators. A smoothed volume series is not a more reliable one. It is a later one.</p>
+
+  <h2 id="evidence">What is confirmed and what is convention</h2>
+
+  <p>Claims about volume run the whole range, from a regulator's own words to trading-floor habit. Sorted honestly:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Which claims about volume can be sourced"><table class="gls-tab"><thead><tr><th>Claim</th><th>Standing</th></tr></thead><tbody><tr><td>Volume counts shares traded, and every trade has a buyer and a seller</td><td><b>Confirmed</b> &mdash; definitional; the tape reports one figure per sale, not two</td></tr><tr><td>Roughly 45% of share volume executed off-exchange as of 2023, up from 25% in 2009</td><td><b>Confirmed</b> &mdash; then-SEC Chair Gensler, SIFMA remarks, October 2024</td></tr><tr><td>FINRA publishes per-ATS volume, attributed by name, quarterly</td><td><b>Confirmed</b> &mdash; FINRA OTC Transparency</td></tr><tr><td>Odd lots have printed to the public tape only since December 9, 2013</td><td><b>Confirmed</b> &mdash; SEC market structure staff</td></tr><tr><td>ETF share counts are elastic through creation and redemption by authorized participants</td><td><b>Confirmed</b> &mdash; SEC Rule 6c-11, effective 23 December 2019</td></tr><tr><td>Quarterly index rebalancing lands on the third Friday of March, June, September and December</td><td><b>Confirmed</b> &mdash; S&amp;P Dow Jones Indices methodology</td></tr><tr><td>$217.2 billion traded at the close of the June 2025 Russell reconstitution</td><td><b>Confirmed</b> &mdash; FTSE Russell / LSEG</td></tr><tr><td>Closing auction volume was 7.48% of daily dollar volume in 2018, up from 3.11% in 2010</td><td><b>Confirmed for 2018</b> &mdash; Bogousslavsky and Muravyev</td></tr><tr><td>Volume correlates with the size of a price change, and in equities with its direction too</td><td><b>Confirmed</b> &mdash; Karpoff (1987) survey, as an average across large samples</td></tr><tr><td>The current share of volume going through the closing auction</td><td><b>Unverified</b> &mdash; the sourced series ends in 2018; the trend is documented, the level is not</td></tr><tr><td>How reliably a volume expansion &ldquo;confirms&rdquo; a breakout</td><td><b>Unverified</b> &mdash; no study we could reach establishes a rate, and none is claimed here</td></tr><tr><td>The exact wording of Granville's 1963 construction of OBV</td><td><b>Unverified</b> &mdash; the formula is universally reported; we reached the publisher record, not the text</td></tr><tr><td>A breakout is credible on 1.5 to 2 times average volume, over a 20- or 50-session window</td><td><b>Convention</b> &mdash; rules of thumb; nobody publishes the threshold or the window</td></tr><tr><td>&ldquo;Climax volume,&rdquo; &ldquo;exhaustion volume,&rdquo; &ldquo;volume dry-up&rdquo;</td><td><b>Convention</b> &mdash; labels applied after the move, with no test that could fail</td></tr></tbody></table></div><p>The split is easy to remember. The <i>market structure</i> of volume &mdash; where it prints, who reports it, what is included, which days force it &mdash; is documented and citable. The <i>interpretation</i> of volume is craft. Mixing the two is how a reader ends up trusting a chart annotation as much as a regulatory filing.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Saying &ldquo;more buyers than sellers.&rdquo;</b> There is no such state. If you mean buyers were more urgent, say that, and know you are describing price, not volume.</li><li><b>Comparing raw share counts across stocks.</b> At the same dollar value, a $5 stock out-trades a $500 stock on share count every day. Use relative or dollar volume.</li><li><b>Reading intraday volume against a full-day average.</b> At 10:15 everything looks quiet, because it is 10:15.</li><li><b>Letting one block trade define a day.</b> A single large print can double a thin stock's daily volume without anything having changed about the company. Check the print, not just the bar.</li><li><b>Treating an index's volume as conviction.</b> Thousands of unrelated prints in hundreds of unrelated companies do not add up to a shared intention.</li><li><b>Naming climax volume after the fact.</b> If the label can only be applied once the turn already happened, it described the past.</li><li><b>Believing an indicator solved the two-sided problem.</b> OBV assigns a full day's volume to one side based on the close. Bid/ask classifications infer who initiated. Neither counts buyers, because nothing can.</li><li><b>Assuming your volume number is the volume number.</b> It is whatever your provider consolidates, and providers differ on venues, odd lots, extended hours and late prints.</li><li><b>Reading a calendar event as a signal.</b> Reconstitution days, quarterly expirations and earnings dates produce enormous volume on schedule. Look at the date before you look for a story.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is volume?</h3>
+    <p>Volume is the number of shares that changed hands in a security over a given period, usually a trading day. Because every completed trade has exactly two sides, a 500-share trade is recorded once as 500 shares, not as 500 bought plus 500 sold. That makes volume a measure of activity rather than of direction: it tells you how much trading happened, not whether buyers or sellers were winning. In US equities the figure most people see is aggregated across exchanges and off-exchange venues onto the consolidated tape.</p>
+
+    <h3>Can there be more buyers than sellers?</h3>
+    <p>No. Not on any day, in any market, ever. A trade only completes when a buyer and a seller agree, so the shares bought and the shares sold are always identical. The phrase is one of the most repeated errors in market commentary. What people usually mean is that one side was more urgent, and willing to accept a worse price to get filled. That shows up in the price and in the order book, not in the volume figure, and volume cannot be used as evidence for it.</p>
+
+    <h3>Why do two websites show different volume for the same stock?</h3>
+    <p>Because they are consolidating different sets of trade reports. US stocks trade across national securities exchanges plus a large off-exchange market of alternative trading systems and wholesale market makers. Then-SEC Chair Gary Gensler said in October 2024 that approximately 45 percent of share volume was executed in the dark markets as of 2023, up from 25 percent in 2009. A site showing one exchange's prints and a site showing the full consolidated tape will disagree, and providers also differ on odd lots, extended-hours prints and late corrections.</p>
+
+    <h3>What is relative volume, and what counts as high?</h3>
+    <p>Relative volume is today's volume divided by the same stock's average daily volume over a recent window, which strips out the fact that different companies trade at different scales. The window is convention: 20 sessions and 50 sessions are common, and neither has any authority behind it. There is no official threshold for high. The multiples you see quoted, such as one and a half or two times average, are rules of thumb from practice, not published standards. One rule does matter: an intraday reading has to be compared to volume at the same time of day, or it is measuring the clock.</p>
+
+    <h3>Does high volume confirm a breakout?</h3>
+    <p>That is what practitioners hold, and it is convention rather than a sourced rule. No regulator, exchange or standard-setting body defines volume confirmation or publishes a threshold for it. No hit rate is claimed on this page because no source we could reach has one. Two structural problems are worth knowing. A day's volume is not known until the day ends, so heavy volume is identified after the fact. And on an index, volume is the sum of thousands of unrelated prints, which makes it genuinely ambiguous as evidence about anything.</p>
+
+    <h3>Why is volume so heavy at the close and on certain Fridays?</h3>
+    <p>Mostly plumbing. Index funds are measured against index closing prices, so they trade in the closing auction. Bogousslavsky and Muravyev measured aggregate closing auction volume at 7.48 percent of daily dollar volume in 2018, up from 3.11 percent in 2010. Quarterly index rebalancing lands on the third Friday of March, June, September and December under S and P Dow Jones Indices methodology, and index futures and options expirations cluster on that same Friday. FTSE Russell reports 217.2 billion dollars traded at the close of its June 2025 reconstitution.</p>
+
+    <h3>Is On-Balance Volume a reliable indicator?</h3>
+    <p>Start with what it does. On-Balance Volume, developed by Joseph E. Granville in 1963, adds a day's entire volume to a running total when the stock closes up and subtracts the entire volume when it closes down. Every one of those shares had a seller, so assigning all of it to buying pressure contradicts the definition of volume. Read as what it actually is, a cumulative tally of volume on up-closes minus volume on down-closes, it is honest and sometimes informative. Read as buying pressure, it is a category error.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="breakout.html"><b>Breakout</b><span>Price leaving a range, and how often it doesn't hold</span></a>
+      <a href="support-and-resistance.html"><b>Support and Resistance</b><span>The levels volume is supposed to confirm</span></a>
+      <a href="etf.html"><b>ETF</b><span>A fund that trades like a stock, with an elastic share count</span></a>
+      <a href="market-capitalization.html"><b>Market Cap</b><span>Share price times shares out, and what it isn't</span></a>
+      <a href="moving-average.html"><b>Moving Average</b><span>The average price over a window, rolled forward</span></a>
+      <a href="macd.html"><b>MACD</b><span>Two moving averages turned into a momentum signal</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Watch volume build under a live chart, with S&amp;P breadth and sector context around it, on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account.</li>
+      <li>Check whether a volume spike is news or a calendar entry: the next week of earnings dates sits on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a>.</li>
+      <li>Work volume properly in the <a href="../technical-analysis.html">Technical Analysis course</a> &mdash; stage 2 is Trend &amp; Volume, stage 3 turns it into chart patterns.</li>
+      <li>Start with the day's tape at the <a href="../markets.html">Markets hub</a>, or see what compounding actually does in <a href="../stage-4-invest.html">Stage 4: Invest</a> &mdash; free, no account.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/consolidated-tape" target="_blank" rel="noopener">Investor.gov glossary: Consolidated Tape</a> &mdash; the definition used on this page, and the fact that price and volume are reported as separate data on sales of exchange-listed stocks.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/newsroom/speeches-statements/gensler-sifma-102124" target="_blank" rel="noopener">&ldquo;Modernizing Equity Markets: Even the Leader Must Keep Training,&rdquo; remarks by then-Chair Gary Gensler before SIFMA</a>, 21 October 2024 &mdash; approximately 45 percent of share volume executed in the dark markets as of 2023, up from 25 percent in 2009.</li>
+      <li>FINRA, <a href="https://www.finra.org/filing-reporting/otc-transparency" target="_blank" rel="noopener">OTC (ATS &amp; Non-ATS) Transparency</a> &mdash; establishes that off-exchange volume is published on a delayed basis, attributed per ATS and aggregated without attribution for lower-volume non-ATS activity, under FINRA Rules 6110 and 6610. The <a href="https://www.finra.org/filing-reporting/otc-transparency/ats-quarterly-statistics" target="_blank" rel="noopener">quarterly ATS statistics</a> give total shares, total trades and average trade size per ATS.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/about/odd-lot-rates-post-transparency-world" target="_blank" rel="noopener">Odd Lot Rates in a Post-Transparency World</a> &mdash; &ldquo;beginning December 9, 2013, odd lot transactions in all NMS stocks are now reported to the public tape,&rdquo; which is why volume series that cross that date are not comparable.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/investment/exchange-traded-funds-small-entity-compliance-guide" target="_blank" rel="noopener">Exchange-Traded Funds: A Small Entity Compliance Guide</a> (Rule 6c-11, effective 23 December 2019) &mdash; creation units issued and redeemed to and from authorized participants in exchange for a basket and any cash balancing amount, plus the custom-basket policies requirement.</li>
+      <li>LSEG / FTSE Russell, <a href="https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-begins-june-2026-semi-annual-russell-us-indexes-reconstitution" target="_blank" rel="noopener">FTSE Russell Begins June 2026 Semi-Annual Russell US Indexes Reconstitution</a> &mdash; roughly $12.2 trillion benchmarked, &ldquo;one of the highest-volume trading days of the year across major US equity exchanges,&rdquo; $217.2 billion traded at the close of the June 2025 reconstitution, and the return to a semi-annual schedule.</li>
+      <li>S&amp;P Dow Jones Indices, <a href="https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-equity-indices-policies-practices.pdf" target="_blank" rel="noopener">Equity Indices Policies &amp; Practices Methodology</a> &mdash; the quarterly rebalancing effective date on the third Friday of March, June, September and December. CME Group's <a href="https://www.cmegroup.com/trading/equity-index/rolldates.html" target="_blank" rel="noopener">equity index roll dates</a> anchor the futures roll to the Monday prior to the third Friday of the expiration month.</li>
+      <li>Vincent Bogousslavsky and Dmitriy Muravyev, <a href="https://static1.squarespace.com/static/6310c0b9bb63a25599f4418c/t/634ffc92f81e226b2c30654f/1666186387645/who-trades-at-the-close_June2021.pdf" target="_blank" rel="noopener">&ldquo;Who Trades at the Close? Implications for Price Discovery and Liquidity&rdquo;</a> (working paper, June 2021) &mdash; closing auction volume at 7.48% of aggregate daily dollar volume in 2018 against 3.11% in 2010, about $15.2 billion on a typical 2018 day, and the migration of volume into the final five minutes.</li>
+      <li>Jonathan M. Karpoff, <a href="https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/abs/relation-between-price-changes-and-trading-volume-a-survey/DBE2C70FA41E390EB8FA418BBFFD76C8" target="_blank" rel="noopener">&ldquo;The Relation between Price Changes and Trading Volume: A Survey&rdquo;</a>, <i>Journal of Financial and Quantitative Analysis</i> 22(1), 1987, pp. 109&ndash;126 &mdash; the positive correlation between volume and the magnitude of a price change, and, in equity markets, with the signed change as well. Intraday patterns on this page come from Jain and Joh (<i>JFQA</i> 23(3), 1988) and Admati and Pfleiderer (<i>Review of Financial Studies</i> 1(1), 1988); the earnings-week volume finding is William H. Beaver, <i>Journal of Accounting Research</i> 6 (1968), pp. 67&ndash;92, cited without a link because it is paywalled.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it counts</a></li>
+      <li><a href="#tape">Where the number comes from</a></li>
+      <li><a href="#relative">Relative and dollar volume</a></li>
+      <li><a href="#etfvol">ETFs are different</a></li>
+      <li><a href="#confirmation">Volume confirmation</a></li>
+      <li><a href="#patterns">Sourceable patterns</a></li>
+      <li><a href="#indicators">Volume as an indicator</a></li>
+      <li><a href="#evidence">Confirmed vs convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">See it on a live chart</span>
+    <p>Pull up any ticker and watch the volume bars build under the price, with breadth and sector context around them. Free, no account.</p>
+    <a class="gls-cta" href="../markets-technical.html">Live chart and S&amp;P breadth &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

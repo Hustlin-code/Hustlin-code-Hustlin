@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Position Sizing: How Many Shares to Buy | Learn the Lingo</title>
+<meta name="description" content="Position sizing decides how much you buy, which matters more than what. The recovery math, the risk-per-trade formula, and why the 1% rule is a convention.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/position-sizing.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/position-sizing.html">
+<meta property="og:title" content="Position Sizing &mdash; Learn the Lingo">
+<meta property="og:description" content="Two people can buy the same stock at the same price on the same day and one loses $78 while the other loses $2,397. The only thing that differed was size.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Position Sizing &mdash; Learn the Lingo">
+<meta name="twitter:description" content="Two people can buy the same stock at the same price on the same day and one loses $78 while the other loses $2,397. The only thing that differed was size.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/position-sizing.html#term",
+      "name": "Position Sizing",
+      "alternateName": ["Position Size","Risk Per Trade","Trade Sizing","Bet Sizing","Trade Size"],
+      "description": "Position sizing is the decision of how much of an asset to own in a single trade or holding, usually expressed as a share count or a dollar amount. The common method works backward from a chosen loss: pick the dollars you are willing to lose, measure the distance from your entry price to your exit price, and divide one by the other to get the number of shares. It is the input that determines how large a loss is, independent of whether the trade itself was a good idea.",
+      "url": "https://hustlin.org/learn-the-lingo/position-sizing.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Position Sizing: The Arithmetic of How Much, and Why It Outranks What",
+      "description": "A plain-language explanation of position sizing: the asymmetry between a loss and the gain required to recover it, the risk-per-trade formula and a fully worked share-count example, why the widely taught 1% rule is a convention with no authority behind it, volatility-adjusted sizing using average true range, and the correlation problem that makes six one-percent positions behave like one. Includes a labeled ledger separating checkable arithmetic from trading conventions.",
+      "url": "https://hustlin.org/learn-the-lingo/position-sizing.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/position-sizing.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/position-sizing.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Position Sizing", "item": "https://hustlin.org/learn-the-lingo/position-sizing.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is position sizing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Position sizing is the decision of how much of something to own in a single trade or holding, expressed as a share count or a dollar amount. The standard method works backward from a loss chosen in advance rather than forward from available cash: pick the dollars you are willing to lose, measure the distance from your entry price to your exit price, and divide the first by the second to get the share count. It is the input that determines how large a loss can be, independent of whether the trade idea was any good." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you calculate position size?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Shares equal risk dollars divided by the distance from entry price to stop price, rounded down to a whole share. On an $8,000 account risking 1%, that is $80. With an entry at $42.50 and an exit at $39.50, the risk per share is $3.00, so $80 divided by $3.00 is 26.67, rounded down to 26 shares. Those shares cost $1,105 and risk $78 if the exit fills as intended. Rounding down matters: rounding up would put the position over the risk figure you chose." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does a 50% loss require a 100% gain to recover?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because the gain is calculated on the smaller balance that the loss left behind. Lose half of $10,000 and you have $5,000, and getting from $5,000 back to $10,000 is a doubling, which is a 100% gain. The general formula is gain equals loss divided by one minus loss. It produces 11.1% for a 10% loss, 25% for a 20% loss, 300% for a 75% loss and 900% for a 90% loss. This is arithmetic rather than an opinion about markets, and it is the reason position sizing exists as a discipline." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the 1% rule a real rule?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. It is a widely taught convention with no authority behind it. No exchange, regulator or standard-setting body publishes a risk-per-trade limit for a retail account, and this page could not trace who first put the 1% or 2% figure in print. What is checkable is what the convention implies: ten consecutive losses at 1% of the current balance produce a 9.56% drawdown, not 10%, because each loss is 1% of a smaller number. At 3% per trade, twenty losses leave a hole needing an 83.9% gain to fill." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is volatility-adjusted position sizing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It sets the exit distance from a measure of how much a security actually moves rather than from a round number, so a jumpy stock gets a smaller position than a placid one for the same dollar risk. Average true range is the usual measure, introduced by J. Welles Wilder Jr. in 1978. With $80 of risk and a stop two ATR away, a stock with a $0.60 ATR gets 66 shares while a stock with a $3.00 ATR gets 13, even at the same price. Both risk about $80. The dollars committed differ by roughly five times." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the Kelly criterion tell me my position size?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not usefully, for a discretionary trader. John L. Kelly Jr. published the result in the Bell System Technical Journal in July 1956, and it gives the bet fraction that maximizes the expected logarithm of capital, which is the long-run compound growth rate. The problem is the inputs: it requires your true win probability and true payoff ratio, which a person reading charts does not have. Overstating your edge makes the formula recommend a larger bet, not a smaller one. Full Kelly also produces drawdowns most people cannot sit through." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a stop-loss order guarantee my maximum loss?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The SEC's investor bulletin on stop orders states that a stop order becomes a market order when the stop price is reached, and that the stop price is not the guaranteed execution price. If a stock closes at $40 and opens at $34.10 on overnight news, the order triggers and fills near the open. On a 26-share position with a $39.50 stop, a planned $78 loss becomes $218.40, about 2.8 times the plan. FINRA gives the same warning for volatile markets. Your risk figure is an estimate rather than a cap." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Position Sizing</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Risk Management</div>
+      <h1 class="hero-h1">Position Sizing</h1>
+      <p class="hero-sub">Two people bought the same stock at $42.50 and watched it fall 30%. One lost $78. The other lost $2,397. Nothing about the stock explains the gap &mdash; the only input that differed was how many shares each of them owned.</p>
+      <p class="gls-aka"><b>Also called:</b> size &middot; sizing &middot; risk per trade &middot; trade size &middot; bet sizing</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from arithmetic you can recompute, plus the SEC and FINRA on stop orders, Wilder on volatility and Kelly&rsquo;s 1956 paper</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Position sizing is the decision of how much to own &mdash; how many shares, or how many dollars &mdash; and the standard method works backward from a loss you have chosen in advance rather than forward from how much cash is sitting in the account.</strong></p>
+    <p>It exists because a loss and the gain that undoes it are not the same size. Lose half of an account and you need to double what is left to get back to even. That asymmetry is arithmetic, not opinion, and it means the damage a bad trade does is set by size, not by whether the idea was clever. Size is also the one input a trader controls completely. You do not decide what the stock does. You decide how many shares are exposed to it.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>A 50% loss requires a 100% gain to recover.</b> The relationship is <code>gain = loss &divide; (1 &minus; loss)</code>: a 10% loss needs 11.1%, a 20% loss needs 25%, a 75% loss needs 300%, a 90% loss needs 900%. This is arithmetic and you can check every row.</li>
+      <li><b>The standard sizing formula is one division:</b> <code>shares = risk dollars &divide; (entry price &minus; stop price)</code>. Widen the exit and the share count <em>falls</em>, which is the part most people get backwards.</li>
+      <li><b>The &ldquo;1% rule&rdquo; and the &ldquo;2% rule&rdquo; are conventions, not rules.</b> No exchange, regulator or standard-setting body publishes either one, and this page could not trace who first put them in print.</li>
+      <li><b>Ten consecutive losses at 1% of the balance cost about 9.56%, not 10%</b> &mdash; because each loss is 1% of a smaller number than the one before it. On $8,000 that is $764.94 rather than $800.</li>
+      <li><b>Six positions each risking 1% is not 6% of risk spread out; if they are the same trade in six tickers it is one 6% position.</b> Longin and Solnik found in the <em>Journal of Finance</em> that correlation rises in bear markets and not in bull markets &mdash; diversification thins out exactly when it is needed.</li>
+      <li><b>A stop does not cap a loss.</b> The SEC states plainly that &ldquo;the stop price is not the guaranteed execution price for a stop order.&rdquo; Your risk figure is an estimate.</li>
+      <li><b>The Kelly criterion (John L. Kelly Jr., 1956) maximizes the expected logarithm of capital</b> &mdash; and requires knowing your true edge and win rate, which a discretionary trader does not. It is worth understanding and it is not a tool you can pick up.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">The decision nobody spends any time on</h2>
+
+  <p>Two people with $8,000 accounts buy the same stock at $42.50 on the same morning. They read the same writeup. They have the same opinion. The stock falls 30% over the next three weeks, to $29.75.</p><p>The first one owned <b>26 shares</b> and had written down before entering that she was out at $39.50. She lost <b>$78</b>. That is 0.98% of her account, and a 1% gain on what is left puts her back to even.</p><p>The second one bought &ldquo;a full position&rdquo; &mdash; 188 shares, $7,990, essentially the whole account. He lost <b>$2,397</b>, which is 29.96% of the account, and he now needs a <b>42.8% gain</b> on the $5,603 remaining to get back to where he started.</p><p>Same stock. Same entry. Same decline. One outcome is a rounding error and the other is a year of the account's life. <strong>The difference is 30.7&times;, and none of it came from analysis.</strong> It came from a number chosen in about four seconds by a person who spent nine hours on the chart.</p><p>Position sizing is that number. It is the decision of <b>how much</b> &mdash; how many shares, contracts or dollars &mdash; and the method that produces the first outcome instead of the second runs backward. Rather than starting from what you can afford and buying that much, you start from what you are prepared to lose and let it tell you the share count.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>Analysis decides <em>whether</em> to be in something. Position sizing decides <em>how badly it can hurt</em>. The second question has arithmetic behind it and almost none of the attention.</p></div><p>This page is mostly arithmetic, and every figure on it recomputes exactly &mdash; check them. Where a number is a trading convention rather than a calculation, it is labeled as one in <a href="#ledger">the ledger</a>, because most of the numbers people quote about sizing fall in that second group.
+
+  <h2 id="ruin">Why the size of a loss is not the size of the recovery</h2>
+
+  <p>Here is the whole reason sizing matters, and it is one line of arithmetic. When you lose money, the gain that undoes it is calculated on a <em>smaller</em> balance. So the percentage you need back is always bigger than the percentage you lost, and the gap widens fast.</p><div class="gls-formula"><span class="gls-lbl">The recovery requirement</span><code>gain needed  =  loss &divide; ( 1 &minus; loss )</code><p class="gls-where">Both sides expressed as decimals. Lose 20% and you have 0.80 of the account left, so you need 0.20 &divide; 0.80 = 0.25, or a 25% gain, to get back to 1.00.</p></div><p>Worked across the range, on a $10,000 balance, it looks like this. <strong>This table is our own arithmetic, and it is exact.</strong></p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Percentage loss against the percentage gain required to return to even"><table class="gls-tab"><thead><tr><th>You lose</th><th>$10,000 becomes</th><th>Gain needed to get back</th><th>How much worse than the loss</th></tr></thead><tbody><tr><td>5%</td><td>$9,500</td><td><b>5.26%</b></td><td>1.05&times;</td></tr><tr><td>10%</td><td>$9,000</td><td><b>11.11%</b></td><td>1.11&times;</td></tr><tr><td>20%</td><td>$8,000</td><td><b>25.00%</b></td><td>1.25&times;</td></tr><tr><td>25%</td><td>$7,500</td><td><b>33.33%</b></td><td>1.33&times;</td></tr><tr><td>33.3%</td><td>$6,666.67</td><td><b>50.00%</b></td><td>1.50&times;</td></tr><tr><td>50%</td><td>$5,000</td><td><b>100.00%</b></td><td>2.00&times;</td></tr><tr><td>75%</td><td>$2,500</td><td><b>300.00%</b></td><td>4.00&times;</td></tr><tr><td>90%</td><td>$1,000</td><td><b>900.00%</b></td><td>10.00&times;</td></tr></tbody></table></div><p>Read the bottom rows slowly. <strong>Losing 90% means needing a tenfold return to break even</strong> &mdash; not to profit, to break even. And notice that at the top of the table the penalty is almost nothing: a 5% loss costs you a 5.26% gain, a 5% surcharge on the mistake. The curve is nearly flat until roughly 20% and then it leaves the room.</p><p>That shape is the entire argument for caring about size, and it is why the sizing conventions cluster at small percentages. It is not that small losses are pleasant. It is that <b>small losses are recoverable with ordinary gains and large ones require extraordinary ones.</b> Nothing in a chart pattern or an earnings model changes this. It is division.</p><p>One honest note on the 33.3% row: exactly one-third requires exactly 50%. A 33% loss requires 49.25%. The round numbers people quote are usually the clean fractions.</p>
+
+  <h2 id="calculation">Where the share count comes from</h2>
+
+  <p>The calculation has three inputs and one division. Nothing about it is sophisticated, which is part of why it gets skipped.</p><p><b>One.</b> Decide the dollars you are willing to lose on this one position. Not a percentage yet &mdash; a dollar figure, because a dollar figure is a thing you can picture. <b>Two.</b> Find the distance from your entry price to the price at which you would no longer be in it. That exit is normally a <a href="stop-loss-order.html">stop-loss order</a>, and it has to be chosen for a reason that has nothing to do with the size you want. <b>Three.</b> Divide.</p><div class="gls-formula"><span class="gls-lbl">Risk-based position size</span><code>shares  =  risk dollars  &divide;  ( entry price  &minus;  stop price )</code><p class="gls-where">The denominator is your risk <em>per share</em>. Round the result down to a whole share, never up &mdash; rounding up puts you over the number you chose.</p></div><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>An $8,000 account. The trader has decided that no single position loses more than 1% of it, so <b>risk dollars = $80</b>. Entry is <b>$42.50</b>. The exit she has identified sits at <b>$39.50</b>, which is <b>$3.00</b> per share below entry.</p><p>$80 &divide; $3.00 = 26.67, rounded down to <b>26 shares</b>. Those 26 shares cost 26 &times; $42.50 = <b>$1,105</b>, or 13.8% of the account. If the exit fills as intended, the loss is 26 &times; $3.00 = <b>$78.00</b> &mdash; 0.98% of $8,000, slightly under target because of the rounding.</p><p class="gls-result">26 shares &middot; $1,105 committed &middot; $78 at risk</p></div><h3>The share count falls as the exit widens</h3><p>This is the part that reads backwards the first time. A wider stop means <em>more</em> room for the trade and <em>fewer</em> shares, because each share now carries more risk. Same $80, same $42.50 entry, four different exits:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Share count and position value at four stop distances for the same eighty dollars of risk"><table class="gls-tab"><thead><tr><th>Exit price</th><th>Risk per share</th><th>Shares ($80 &divide; distance)</th><th>Position value</th><th>Share of account</th></tr></thead><tbody><tr><td>$41.50</td><td>$1.00</td><td><b>80</b></td><td>$3,400</td><td>42.5%</td></tr><tr><td>$39.50</td><td>$3.00</td><td><b>26</b></td><td>$1,105</td><td>13.8%</td></tr><tr><td>$37.50</td><td>$5.00</td><td><b>16</b></td><td>$680</td><td>8.5%</td></tr><tr><td>$32.50</td><td>$10.00</td><td><b>8</b></td><td>$340</td><td>4.3%</td></tr></tbody></table></div><p>Every row risks the same $80. The dollars committed swing by <b>ten times</b>, from $340 to $3,400. Two things follow. First, the relationship between how much you put in and how much you can lose is not fixed &mdash; a big position with a tight exit and a small position with a loose one can carry identical risk. Second, <strong>the formula alone will happily hand you a position worth 42.5% of the account</strong>, which is why practitioners usually cap position <em>value</em> as well as risk. That second cap is a convention with no authority behind it, and it is doing real work.</p><p>What you stand to make against what you are risking is a separate ratio with its own page &mdash; see <a href="risk-reward-ratio.html">risk/reward ratio</a>. Sizing does not care about it. Sizing only reads the downside.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this: $78 is an estimate, not a cap</span><p>The SEC's investor bulletin on stop orders states that <b>&ldquo;when the stop price is reached, a stop order becomes a market order&rdquo;</b> and that <b>&ldquo;the stop price is not the guaranteed execution price for a stop order.&rdquo;</b> If the stock closes at $40 and opens at $34.10 on news, the stop triggers and fills near $34.10: 26 &times; $8.40 = <b>$218.40</b>, or 2.8 times the planned loss. FINRA puts it the same way &mdash; a stop order &ldquo;may be executed at a price that's significantly different from your stop price.&rdquo; Nothing in the sizing formula knows about gaps.</p></div>
+
+  <h2 id="onepercent">The 1% rule is a convention, not a rule</h2>
+
+  <p>Everything above needed a risk figure, and the near-universal answer is &ldquo;1% of the account,&rdquo; or 2% for people who describe themselves as aggressive. It is in every course, on every broker's education page, and in the marketing of every proprietary trading firm.</p><p><strong>It is a convention. Nothing publishes it.</strong> No exchange, no regulator and no standard-setting body sets a risk-per-trade limit for a retail account, and this page went looking for who first put the number in print and came back with nothing citable &mdash; the trail leads to broker blogs and prop-firm landing pages that cite each other. That does not make it a bad heuristic. It makes it a heuristic, and it should be labeled as one wherever it appears, including on this site.</p><p>What is worth doing is taking the convention literally and seeing what it implies, because the implication is more interesting than the number. <b>A string of consecutive losses does not add up the way people assume.</b> Ten losses at 1% each is not a 10% drawdown, because the second 1% is 1% of a smaller balance than the first.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>$8,000, risking 1% of the <em>current</em> balance each time, ten losses in a row. The first loss is $80.00. The second is 1% of $7,920, or $79.20. And so on. The multiplier is 0.99 ten times over: 0.99<sup>10</sup> = 0.904382.</p><p>$8,000 &times; 0.904382 = <b>$7,235.06</b>. The drawdown is <b>9.56%</b>, or <b>$764.94</b> &mdash; $35.06 less than the $800 that straight-line arithmetic predicts. Getting back to $8,000 from there needs a 10.57% gain.</p><p class="gls-result">Ten losses at 1% = 9.56% down, not 10%</p></div><p>The same arithmetic at wider risk settings is where the convention earns its keep:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Drawdown after consecutive losses at one, two and three percent risk per trade"><table class="gls-tab"><thead><tr><th>Risk per trade</th><th>5 losses</th><th>10 losses</th><th>20 losses</th><th>Gain needed after 20</th></tr></thead><tbody><tr><td><b>1%</b></td><td>4.90%</td><td>9.56%</td><td>18.21%</td><td>22.26%</td></tr><tr><td><b>2%</b></td><td>9.61%</td><td>18.29%</td><td>33.24%</td><td>49.79%</td></tr><tr><td><b>3%</b></td><td>14.13%</td><td>26.26%</td><td>45.62%</td><td>83.89%</td></tr></tbody></table></div><p>Tripling the risk setting from 1% to 3% does not triple the pain of a bad run &mdash; it takes the twenty-loss hole from something an 22% gain repairs to something needing 84%, which is the region <a href="#ruin">the recovery table</a> says gets ugly. And twenty consecutive losses is not an exotic scenario for anyone who trades often; it is a bad two months.</p>
+
+  <h2 id="refine">Two ways people try to make the number more precise</h2>
+
+  <p>The base formula treats a $3.00 stop as a $3.00 stop regardless of what the stock is. Two refinements try to do better. One is genuinely useful. The other is famous and mostly not usable, and this page will say so.</p><h3>Volatility-adjusted sizing</h3><p>A stock that routinely swings $3 in a day and a stock that swings 40 cents should not get the same stop distance, because a $3.00 stop is a normal Tuesday for one and a meaningful event for the other. The common fix is to set the exit distance from a volatility measure instead of a round number, most often <b>average true range</b>.</p><p>ATR comes from J. Welles Wilder Jr.'s 1978 book <em>New Concepts in Technical Trading Systems</em> &mdash; the same book that produced <a href="relative-strength-index-rsi.html">RSI</a>. True range for a bar is the greatest of three values: the high minus the low, the absolute value of the high minus the previous close, and the absolute value of the low minus the previous close. Averaging that over a window &mdash; 14 bars is the most common length, and that length is convention, not derivation &mdash; gives a typical daily travel distance in dollars. <strong>ATR measures how far a thing moves, not which way</strong>; TradingView's own documentation says the indicator &ldquo;is not used to indicate the direction of price.&rdquo;</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Same $80 of risk. Two stocks both trading at <b>$30.00</b>. Stock A has an ATR of <b>$0.60</b>; stock B has an ATR of <b>$3.00</b>. The trader uses a stop 2&times; ATR away &mdash; a convention, chosen, not derived.</p><p>Stock A: distance 2 &times; $0.60 = $1.20. $80 &divide; $1.20 = 66.67 &rarr; <b>66 shares</b>, $79.20 at risk, <b>$1,980</b> committed. Stock B: distance 2 &times; $3.00 = $6.00. $80 &divide; $6.00 = 13.33 &rarr; <b>13 shares</b>, $78.00 at risk, <b>$390</b> committed.</p><p class="gls-result">Identical risk, identical price, 5.1&times; difference in dollars committed</p></div><p>That is the whole idea: the jumpy stock gets a small position and the placid one gets a large position, and both lose about $80 if they go wrong. The ratio of position sizes is just the inverse ratio of the volatilities.</p><h3>The Kelly criterion</h3><p><b>John L. Kelly Jr.</b> published &ldquo;A New Interpretation of Information Rate&rdquo; in the <em>Bell System Technical Journal</em>, volume 35, July 1956, pages 917&ndash;926. It was a paper about information theory and a gambler with a noisy private wire, not about markets &mdash; stock speculation gets one passing sentence. What it derives is the bet fraction that <b>maximizes the expected logarithm of capital</b>, which is the fraction that maximizes the long-run compound growth rate. Kelly is explicit that the log has nothing to do with a utility function: it is used &ldquo;merely with the fact that it is the logarithm which is additive in repeated bets and to which the law of large numbers applies.&rdquo;</p><p>Now the honest part. <strong>The formula requires your true probability of winning and your true payoff ratio as inputs.</strong> A card counter can know those. A discretionary trader looking at a chart cannot &mdash; they can produce an estimate from a sample of their own past trades, which is a different object, and Kelly's output is highly sensitive to that estimate. Overstate your edge and the formula tells you to bet more, not less.</p><p>And even with perfect inputs, full Kelly is brutal to sit through. In the standard continuous approximation, growth rate is <code>g(f) = &mu;f &minus; &sigma;&sup2;f&sup2;&divide;2</code>, which peaks at the Kelly fraction and comes back to <b>zero</b> at exactly twice it &mdash; bet double Kelly and your long-run growth rate is nil. Half Kelly, by the same arithmetic, delivers <b>three-quarters</b> of the maximum growth rate with half the exposure, which is why &ldquo;half Kelly&rdquo; is the version practitioners talk about. That is a real property of that equation. It is not permission to plug in a win rate you invented.</p>
+
+  <h2 id="correlation">Six 1% positions can be one 6% position</h2>
+
+  <p>This is the largest hole in retail risk management and it gets the least airtime, because it cannot be fixed by a better formula.</p><p>A trader with the $8,000 account holds six positions. Each was sized to risk 1%, $80 apiece, all documented, all disciplined. Total risk on the sheet: 6 &times; $80 = <b>$480</b>, which is <b>6%</b> of the account. He describes that as spread out.</p><p>Whether it is spread out depends entirely on whether those six things move together. Two extremes bracket the answer:</p><ul><li><b>Six genuinely independent bets.</b> If you model risk as a standard deviation, independent risks add in quadrature rather than straight, so the combined figure is the square root of 6 times 1% &mdash; about <b>2.45%</b>. Less than half the headline number. <em>That is a modeling assumption, not a fact about markets, and it is generous.</em></li><li><b>Six versions of the same trade.</b> Six regional banks, or six semiconductor names, or six things that all just need rates to fall. When the thesis is wrong it is wrong in all six at once, and the account loses the full <b>6%</b>. You did not hold six positions. You held one, in six tickers, and paid six commissions for the privilege.</li></ul><p>Real portfolios sit somewhere between, and the uncomfortable part is <strong>where they sit is not fixed &mdash; it moves against you.</strong> Longin and Solnik studied this directly in the <em>Journal of Finance</em> (volume 56, number 2, April 2001) and their conclusion is one sentence long: <b>&ldquo;Correlation increases in bear markets, but not in bull markets.&rdquo;</b> They also rejected the assumption of multivariate normality for the negative tail while failing to reject it for the positive tail &mdash; in plain terms, the tidy statistical model of how things move together holds up reasonably well on the way up and breaks on the way down.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Diversification is measured in calm markets and spent in violent ones. The six positions that looked independent in June are one position in October, and you find out by watching all six stops trigger inside the same hour. <b>The correlation you built the plan on is not the correlation you get when you need it.</b></p></div><p>The SEC's own beginners' guide names the mechanism without the math: the point of holding different things is to hold &ldquo;asset categories with investment returns that move up and down under different market conditions,&rdquo; and it warns that a single fund &ldquo;doesn't necessarily provide instant diversification, especially if the fund focuses on only one particular industry sector.&rdquo; The same warning applies to six hand-picked tickers from one sector, with more force, because you chose them precisely because they had something in common.</p><p>Practitioners handle this with a second cap &mdash; a limit on total risk open at once, and a limit on risk per sector or per theme. Common figures get quoted; none of them is published by anyone. Treat them as conventions. The <a href="../markets-technical.html">technical markets page</a> carries sector breadth across six horizons, which is one way to see how much of the market is currently doing the same thing.</p>
+
+  <h2 id="psychology">Why this is a psychology term wearing a calculator</h2>
+
+  <p>Everything on this page is arithmetic, and almost nobody's sizing failures are arithmetic failures. They are decisions made at the moment of entry by a person who is excited, or behind, or certain.</p><p>Size is where feelings become dollars. Conviction turns into share count. A run of wins turns into a bigger number without anyone deciding to make it bigger. A run of losses turns into a position sized to make the money back, which is the largest position of the sequence arriving at the worst moment in it. None of that shows up as a mistake in a spreadsheet, because the arithmetic was done correctly on a risk figure that had already been quietly moved.</p><p>The reason it lands this way has a documented origin. <a href="loss-aversion.html">Loss aversion</a> &mdash; the finding that losses register more heavily than equivalent gains, from Kahneman and Tversky's 1979 <em>Econometrica</em> paper on prospect theory &mdash; predicts the specific behavior sizing is meant to prevent. If a $500 loss hurts more than a $500 gain pleases, then a position large enough to produce a $500 loss will produce enough discomfort to override the plan that created it. <strong>The stop does not fail. The person watching the stop fails, and the size is what determined how much pressure was on them.</strong></p><p>Which points at the one genuinely useful thing about this whole topic. <b>Size is the only input in a trade that you control completely.</b> You do not control the price, the news, the fill, the gap, the sector, or whether your thesis was right. You control how many shares. A trader with a mediocre read and a small position survives to keep reading. A trader with an excellent read and a position that terrifies them will close it at the wrong moment and never learn that the read was excellent.</p><p>Risk and loss is Stage 3 of the <a href="../trading-psychology.html">Trading Psychology course</a>. The <a href="../markets-behavior.html">behavior page</a> carries a five-question pre-trade checklist that asks the sizing question in plain language before the order goes in, free and with no account.</p>
+
+  <h2 id="ledger">What is sourced here and what is not</h2>
+
+  <p>Most of this page is arithmetic, which is the rare comfortable case: you do not have to trust it, you can recompute it. The sizing <em>settings</em> are a different matter, and mixing the two together is how a convention starts getting quoted as a rule.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Ledger of confirmed, unverified and conventional claims on this page"><table class="gls-tab"><thead><tr><th>Claim</th><th>Standing</th><th>What backs it</th></tr></thead><tbody><tr><td>The recovery table, the share-count formula, the drawdown percentages, the ATR example, the Kelly growth-rate result</td><td><b>Confirmed</b></td><td>Arithmetic. Our own calculation, recomputed for this page. Every figure is reproducible from the formulas shown.</td></tr><tr><td>A stop order becomes a market order when triggered; the stop price is not the guaranteed fill</td><td><b>Confirmed</b></td><td>SEC investor bulletin on stop orders, quoted verbatim; FINRA's volatile-markets guidance in the same terms.</td></tr><tr><td>ATR's origin, the true-range definition, and that it measures volatility rather than direction</td><td><b>Confirmed</b></td><td>Wilder, <em>New Concepts in Technical Trading Systems</em> (1978), and current TradingView documentation.</td></tr><tr><td>Kelly's citation, and that it maximizes the expected logarithm of capital</td><td><b>Confirmed</b></td><td>Kelly's own 1956 paper in the <em>Bell System Technical Journal</em>, read for this page.</td></tr><tr><td>Correlation rises in bear markets and not in bull markets</td><td><b>Confirmed</b></td><td>Longin and Solnik, <em>Journal of Finance</em> 56(2), April 2001. A named, published study, quoted rather than paraphrased into a statistic.</td></tr><tr><td>Loss aversion as the mechanism behind sizing failures</td><td><b>Confirmed</b> as to origin</td><td>Kahneman and Tversky, <em>Econometrica</em> 47(2), 1979. Note that the size of the effect is an experimental estimate and has been contested in the replication literature.</td></tr><tr><td>Who first published the &ldquo;1% rule&rdquo; or the &ldquo;2% rule&rdquo;</td><td><b>Unverified</b></td><td>Could not be traced. Every accessible source restates it without attribution. Widely taught, authored by nobody findable.</td></tr><tr><td>Any hit rate, survival rate or performance claim for sizing discipline</td><td><b>Unverified</b></td><td>No citable study was found and none is quoted here. Numbers of that shape circulate freely and this page will not add one.</td></tr><tr><td>&ldquo;Half Kelly&rdquo; as an established practitioner standard</td><td><b>Unverified</b></td><td>The three-quarters growth-rate result is arithmetic and holds. That practitioners generally use half is repeated everywhere and traced to no primary source here.</td></tr><tr><td>1% or 2% risk per trade &middot; a 2&times; ATR stop distance &middot; a 14-bar ATR &middot; total-risk and per-sector caps &middot; capping position value as well as risk</td><td><b>Convention</b></td><td>True only because enough people do it. No exchange, regulator or standard-setting body publishes any of these figures.</td></tr><tr><td>Independent risks combining as the square root of the count</td><td><b>Convention</b> (modeling assumption)</td><td>Follows from treating risk as a standard deviation and assuming independence. Both assumptions are choices, and the second one is the one that fails in a drawdown.</td></tr></tbody></table></div><p>The distinction that matters: <strong>the arithmetic is not negotiable and the settings are entirely negotiable.</strong> Anyone who presents 1% as a law is overselling, and anyone who dismisses the recovery table as opinion has not done the division.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Sizing from cash available instead of dollars at risk.</b> &ldquo;I have $4,000 free, so that is the position&rdquo; produces a loss set by whatever the stock does next. The formula runs the other direction on purpose.</li><li><b>Widening the exit to justify more shares.</b> The stop gets moved further away, the risk per share goes up, and the trader keeps the share count anyway. Now the risk is whatever it is. The exit has to be chosen before the size, from the chart, not from the size you wanted.</li><li><b>Tightening the exit to buy more shares.</b> The mirror error, and more common. A $1.00 stop instead of $3.00 buys 80 shares instead of 26 on the same $80 &mdash; and a stop that close to entry gets taken out by ordinary noise, so you get stopped out of a position that was going to work.</li><li><b>Ignoring position value.</b> The risk math will hand you a position worth 42.5% of the account and report it as 1% of risk. Both statements are true. Only one of them describes what happens on a gap.</li><li><b>Calling six correlated positions diversification.</b> Six names in one sector risking 1% each is a 6% bet, and correlations tighten exactly when the losses arrive.</li><li><b>Averaging down.</b> Adding to a losing position changes the size after the fact, which means the number you calculated no longer describes the trade you are in. The risk was recalculated by the market, not by you.</li><li><b>Treating the stop as a guarantee.</b> The SEC says the stop price is not the guaranteed execution price. Overnight news does not respect your arithmetic.</li><li><b>Sizing off the high-water mark.</b> Risking 1% of what the account used to be worth means risking more than 1% of what it is worth, at the precise moment that matters.</li><li><b>Sizing anything off money that is already committed.</b> Rent, groceries and the buffer underneath them are not risk capital at any percentage. <a href="net-worth.html">Net worth</a> is the number a trading loss actually comes out of, and a position sized against a balance that also has to pay the electric bill is not sized at all.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is position sizing?</h3>
+    <p>Position sizing is the decision of how much of something to own in a single trade or holding, expressed as a share count or a dollar amount. The standard method works backward from a loss chosen in advance rather than forward from available cash: pick the dollars you are willing to lose, measure the distance from your entry price to your exit price, and divide the first by the second to get the share count. It is the input that determines how large a loss can be, independent of whether the trade idea was any good.</p>
+
+    <h3>How do you calculate position size?</h3>
+    <p>Shares equal risk dollars divided by the distance from entry price to stop price, rounded down to a whole share. On an $8,000 account risking 1%, that is $80. With an entry at $42.50 and an exit at $39.50, the risk per share is $3.00, so $80 divided by $3.00 is 26.67, rounded down to 26 shares. Those shares cost $1,105 and risk $78 if the exit fills as intended. Rounding down matters: rounding up would put the position over the risk figure you chose.</p>
+
+    <h3>Why does a 50% loss require a 100% gain to recover?</h3>
+    <p>Because the gain is calculated on the smaller balance that the loss left behind. Lose half of $10,000 and you have $5,000, and getting from $5,000 back to $10,000 is a doubling, which is a 100% gain. The general formula is gain equals loss divided by one minus loss. It produces 11.1% for a 10% loss, 25% for a 20% loss, 300% for a 75% loss and 900% for a 90% loss. This is arithmetic rather than an opinion about markets, and it is the reason position sizing exists as a discipline.</p>
+
+    <h3>Is the 1% rule a real rule?</h3>
+    <p>No. It is a widely taught convention with no authority behind it. No exchange, regulator or standard-setting body publishes a risk-per-trade limit for a retail account, and this page could not trace who first put the 1% or 2% figure in print. What is checkable is what the convention implies: ten consecutive losses at 1% of the current balance produce a 9.56% drawdown, not 10%, because each loss is 1% of a smaller number. At 3% per trade, twenty losses leave a hole needing an 83.9% gain to fill.</p>
+
+    <h3>What is volatility-adjusted position sizing?</h3>
+    <p>It sets the exit distance from a measure of how much a security actually moves rather than from a round number, so a jumpy stock gets a smaller position than a placid one for the same dollar risk. Average true range is the usual measure, introduced by J. Welles Wilder Jr. in 1978. With $80 of risk and a stop two ATR away, a stock with a $0.60 ATR gets 66 shares while a stock with a $3.00 ATR gets 13, even at the same price. Both risk about $80. The dollars committed differ by roughly five times.</p>
+
+    <h3>Can the Kelly criterion tell me my position size?</h3>
+    <p>Not usefully, for a discretionary trader. John L. Kelly Jr. published the result in the Bell System Technical Journal in July 1956, and it gives the bet fraction that maximizes the expected logarithm of capital, which is the long-run compound growth rate. The problem is the inputs: it requires your true win probability and true payoff ratio, which a person reading charts does not have. Overstating your edge makes the formula recommend a larger bet, not a smaller one. Full Kelly also produces drawdowns most people cannot sit through.</p>
+
+    <h3>Does a stop-loss order guarantee my maximum loss?</h3>
+    <p>No. The SEC's investor bulletin on stop orders states that a stop order becomes a market order when the stop price is reached, and that the stop price is not the guaranteed execution price. If a stock closes at $40 and opens at $34.10 on overnight news, the order triggers and fills near the open. On a 26-share position with a $39.50 stop, a planned $78 loss becomes $218.40, about 2.8 times the plan. FINRA gives the same warning for volatile markets. Your risk figure is an estimate rather than a cap.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="stop-loss-order.html"><b>Stop-Loss Order</b><span>The exit price the sizing formula divides by</span></a>
+      <a href="risk-reward-ratio.html"><b>Risk/Reward Ratio</b><span>What you stand to make against what you risk</span></a>
+      <a href="loss-aversion.html"><b>Loss Aversion</b><span>Why an oversized position gets closed at the worst moment</span></a>
+      <a href="net-worth.html"><b>Net Worth</b><span>The number a trading loss actually comes out of</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>The buffer that decides whether a loss is survivable</span></a>
+      <a href="bollinger-bands.html"><b>Bollinger Bands</b><span>Volatility drawn as a channel around a moving average</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Run the five-question pre-trade checklist on <a href="../markets-behavior.html">Markets &middot; Behavior</a> before the order goes in &mdash; it asks the sizing question in plain language, free and with no account.</li>
+      <li>Work through risk and loss properly in Stage 3 of the <a href="../trading-psychology.html">Trading Psychology course</a>, where size is treated as a decision rather than a formula.</li>
+      <li>See how much of the market is currently doing the same thing on <a href="../markets-technical.html">Markets &middot; Technical</a>, which carries sector breadth across six horizons.</li>
+      <li>Find out what number a loss actually comes out of with the <a href="../net-worth-calculator.html">net worth calculator</a>, then size the buffer underneath it in the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>.</li>
+      <li>See what patient money does without any of this in the <a href="../investment-growth-calculator.html">investment growth calculator</a>, or start at the beginning with <a href="../stage-4-invest.html">Stage 4: Invest</a> &mdash; free, no account.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15" target="_blank" rel="noopener">Investor Bulletin: Stop, Stop-Limit, and Trailing Stop Orders</a> &mdash; the source for &ldquo;when the stop price is reached, a stop order becomes a market order&rdquo; and &ldquo;the stop price is not the guaranteed execution price for a stop order,&rdquo; which is why the risk figure this page calculates is an estimate rather than a cap.</li>
+      <li>FINRA, <a href="https://www.finra.org/investors/insights/stop-orders-factors-consider-during-volatile-markets" target="_blank" rel="noopener">Stop Orders: Factors to Consider During Volatile Markets</a> &mdash; independently states that a stop order &ldquo;may be executed at a price that's significantly different from your stop price,&rdquo; and that a short burst of volatility can trigger a stop before the stock resumes trading at its prior level.</li>
+      <li>J. L. Kelly Jr., <a href="https://archive.org/details/bstj35-4-917" target="_blank" rel="noopener">&ldquo;A New Interpretation of Information Rate&rdquo;</a>, <em>The Bell System Technical Journal</em> 35:4 (July 1956), pp. 917&ndash;926 &mdash; the original paper, read for this page. Source for the citation, for the result being the maximization of the expected logarithm of capital, and for Kelly's own statement that the logarithm is used because it &ldquo;is additive in repeated bets&rdquo; rather than as a utility function. Also the basis for saying the paper is about an information channel and mentions stock speculation only in passing.</li>
+      <li>TradingView, <a href="https://www.tradingview.com/support/solutions/43000501823-average-true-range-atr/" target="_blank" rel="noopener">Average True Range (ATR)</a> &mdash; platform documentation attributing ATR to J. Welles Wilder in <em>New Concepts in Technical Trading Systems</em> (1978), giving the three-part true-range definition, noting that 14 is the most common lookback and stating that ATR &ldquo;is not used to indicate the direction of price.&rdquo;</li>
+      <li>J. Welles Wilder Jr., <a href="https://archive.org/details/newconceptsintec00wild" target="_blank" rel="noopener">New Concepts in Technical Trading Systems</a> (Trend Research, Greensboro NC, 1978) via the Internet Archive &mdash; the origin of average true range. Note that the scanned copy is lending-restricted, so the ATR chapter itself was not read for this page and the definition above rests on the platform documentation.</li>
+      <li>Fran&ccedil;ois M. Longin and Bruno Solnik, <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/0022-1082.00340" target="_blank" rel="noopener">&ldquo;Extreme Correlation of International Equity Markets&rdquo;</a>, <em>The Journal of Finance</em> 56:2 (April 2001), pp. 649&ndash;676 &mdash; the named study behind &ldquo;correlation increases in bear markets, but not in bull markets,&rdquo; and behind the finding that multivariate normality is rejected for the negative tail but not the positive one. Quoted rather than converted into a statistic.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/about/reports-publications/investorpubsassetallocationhtm" target="_blank" rel="noopener">Beginners&rsquo; Guide to Asset Allocation, Diversification, and Rebalancing</a> &mdash; the source for holding things whose returns &ldquo;move up and down under different market conditions,&rdquo; and for the warning that a fund &ldquo;doesn't necessarily provide instant diversification, especially if the fund focuses on only one particular industry sector.&rdquo;</li>
+      <li>Daniel Kahneman and Amos Tversky, <a href="https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk" target="_blank" rel="noopener">&ldquo;Prospect Theory: An Analysis of Decision under Risk&rdquo;</a>, <em>Econometrica</em> 47:2 (1979), pp. 263&ndash;291 &mdash; the origin of loss aversion, cited here for the mechanism rather than for a coefficient. The magnitude of the effect is an experimental estimate and has been actively contested in the replication literature.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">The decision nobody makes</a></li>
+      <li><a href="#ruin">Loss vs. recovery</a></li>
+      <li><a href="#calculation">The share-count formula</a></li>
+      <li><a href="#onepercent">The 1% convention</a></li>
+      <li><a href="#refine">Volatility and Kelly</a></li>
+      <li><a href="#correlation">The correlation hole</a></li>
+      <li><a href="#psychology">Why it's a psychology term</a></li>
+      <li><a href="#ledger">Sourced vs. convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Check yourself first</span>
+    <p>Five questions to answer before the order goes in &mdash; including the one about whether you could actually lose this money. Free, no account.</p>
+    <a class="gls-cta" href="../markets-behavior.html">The five-question pre-trade checklist &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

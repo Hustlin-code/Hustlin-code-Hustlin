@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop-Loss Order: What It Is and How It Fails | Learn the Lingo</title>
+<meta name="description" content="A stop order becomes a market order the moment it triggers, so your stop price is not your fill price. What the gap does to it, worked in dollars.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/stop-loss-order.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/stop-loss-order.html">
+<meta property="og:title" content="Stop-Loss Order &mdash; Learn the Lingo">
+<meta property="og:description" content="The exit you set before you need it &mdash; and the two ways it lets you down: a plain stop fills at whatever is there, and a stop-limit may not fill at all.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stop-Loss Order &mdash; Learn the Lingo">
+<meta name="twitter:description" content="The exit you set before you need it &mdash; and the two ways it lets you down: a plain stop fills at whatever is there, and a stop-limit may not fill at all.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/stop-loss-order.html#term",
+      "name": "Stop-Loss Order",
+      "alternateName": ["Stop Order","Stop-Loss Order","Sell Stop Order","Protective Stop","Stop-Limit Order"],
+      "description": "A stop-loss order is an instruction to a brokerage firm to buy or sell a security once its price reaches a specified stop price. When the stop price is reached, a plain stop order becomes a market order and is executed at whatever price is then available, so the stop price is a trigger rather than a guaranteed execution price. A stop-limit order instead becomes a limit order at a named price, which protects the price but may not execute at all.",
+      "url": "https://hustlin.org/learn-the-lingo/stop-loss-order.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Stop-Loss Orders: How They Trigger, How They Fill and How They Fail",
+      "description": "A plain-language explanation of the stop order and its variants: what happens the instant the stop price is touched, why the stop price is not the execution price, and the opposite failure modes of a stop order and a stop-limit order worked out in dollars. Also the documented history the retail internet gets wrong, from the 6 May 2010 flash crash to the limit up-limit down bands and market-wide circuit breakers built afterward, plus a labeled ledger of which claims on the page have a regulator behind them and which are convention.",
+      "url": "https://hustlin.org/learn-the-lingo/stop-loss-order.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/stop-loss-order.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/stop-loss-order.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Stop-Loss Order", "item": "https://hustlin.org/learn-the-lingo/stop-loss-order.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a stop-loss order?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is a standing instruction to your brokerage firm to buy or sell a security once its price reaches a stop price you name. Until the stock trades at or through that price the order does nothing and is not visible as a bid or offer. When the stop price is reached, the SEC's investor bulletin says the stop order becomes a market order, which means it executes at whatever price is then available. The regulatory term is stop order; stop-loss is what traders call a sell stop placed below a position they own." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a stop-loss order guarantee I get my stop price?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and the regulators say so in plain language. The SEC's bulletin states that the stop price is not the guaranteed execution price for a stop order and that the fill can deviate significantly from the stop price in a fast-moving market. FINRA publishes the same warning under the heading Stop Prices Aren't Guaranteed Execution Prices, adding that the price you receive could be markedly different from your stop price. The stop price decides when the order fires. The market decides what you get." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a stop order and a stop-limit order?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A stop order becomes a market order when triggered, so it will almost certainly execute but at an unknown price. A stop-limit order becomes a limit order at a price you specify, so it will not execute below that price at all. The SEC notes a stop-limit may not be executed if the stock's price moves away from the specified limit price. They are not safe and unsafe versions of the same thing. They fail in opposite directions: one risks a bad price, the other risks no exit." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to my stop-loss order if the stock gaps down overnight?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The stop is passed while the market is closed, so at the open it becomes a market order and fills near the opening price, which can be far below your stop. Worked through on this page: 200 shares bought at 52 dollars with a stop at 47 was a planned 1,000 dollar loss, but a 38 dollar open makes it a 2,800 dollar loss. There is no instant in between at which anything can be done, because no prices existed in between. This is the most important practical fact about stop orders." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does a trailing stop order work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You set the stop a fixed dollar amount or percentage from the market price rather than at a fixed number. The SEC describes it as adjusting or trailing the market price as the security moves in a favorable direction. The key property is that it only ratchets one way: it follows price up and then holds still when price falls back. The SEC also warns that short-term market fluctuations can activate a trailing stop, so a trailing distance narrower than a stock's ordinary swings will exit you on noise." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can market makers see my stop-loss order?",
+          "acceptedAnswer": { "@type": "Answer", "text": "This page found no evidence that anyone identifies and targets individual retail stops, and it does not make that claim. Most retail stops rest inside one firm's systems and are not published to anyone. What is supportable is structural. Orders cluster in the same obvious places, and a study of a foreign-exchange dealing bank's order book by Carol Osler found stop-loss orders bunching just beyond round numbers. A cluster of stops is a pocket of forced market orders, and anyone needing size wants to transact where the other side is compelled rather than optional." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do all brokers and exchanges accept stop orders?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. FINRA Rule 5350(a) states that a member may, but is not obligated to, accept a stop order or stop limit order, and the SEC's bulletin says stop, stop-limit and trailing stop orders may not be available through all brokerage firms. FINRA also notes that the risks involved have prompted certain stock exchanges to cease accepting stop orders. The NYSE removed stop and good-till-canceled orders from its own book beginning 29 February 2016, though brokers may still accept them on a client's behalf and route a market order when one triggers." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Stop-Loss Order</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Risk Management</div>
+      <h1 class="hero-h1">Stop-Loss Order</h1>
+      <p class="hero-sub">You name a price, and if the stock trades through it your order goes to the market at whatever is available. That second half is the whole story, and it is where the money goes.</p>
+      <p class="gls-aka"><b>Also called:</b> Stop order &middot; sell stop &middot; protective stop &middot; stop-loss &middot; stop-limit order (the variant)</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from SEC investor bulletins, FINRA Rule 5350, the SEC and CFTC report on 6 May 2010, and the SEC's own market-structure research</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>A stop-loss order is a standing instruction to your broker: if this stock trades at or through a price I name, turn my order loose at whatever the market will pay.</strong> The price you name decides <em>when</em> the order fires. It does not decide what you get.</p>
+    <p>It exists because you cannot watch a screen all day, and because a number chosen calmly on Tuesday is a better number than one chosen in a panic on Friday. What it cannot do is make the market print a price that is not there. The two ways that shows up &mdash; a plain stop filling far below your number, and a stop-limit not filling at all &mdash; are opposite failures of the same idea, and this page works both of them in dollars.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>A stop order becomes a market order the moment the stop price is reached.</b> The SEC's own investor bulletin states it plainly: &ldquo;The stop price is not the guaranteed execution price for a stop order.&rdquo; FINRA publishes the same warning under the heading &ldquo;Stop Prices Aren't Guaranteed Execution Prices.&rdquo;</li>
+      <li><b>A stop-limit order fails in the opposite direction.</b> Once triggered it becomes a limit order, and the SEC says it &ldquo;may not be executed if the stock's price moves away from the specified limit price.&rdquo; In a genuine collapse that means no fill, and you keep the entire loss.</li>
+      <li><b>An overnight gap goes straight through your stop.</b> Worked below: a $47 stop on a stock that opens at $38 turns a planned $1,000 loss into $2,800, and there is no instant in between at which anything can be done.</li>
+      <li><b>Your broker is not required to accept one.</b> FINRA Rule 5350(a): &ldquo;A member may, but is not obligated to, accept a stop order or stop limit order.&rdquo; The NYSE removed stop orders from its own book beginning 29 February 2016.</li>
+      <li><b>6 May 2010 is documented history, not folklore.</b> The SEC and CFTC report names &ldquo;many retail stop-loss orders&rdquo; among the sell orders that met reduced buying interest, and over 20,000 trades in more than 300 securities printed 60% or more away from their 2:40&nbsp;p.m. prices before being canceled that evening.</li>
+      <li><b>The guardrails built afterward are real, and they are not your protection.</b> Limit up-limit down pauses a single stock for five minutes; market-wide breakers halt everything at 7, 13 and 20 percent of the prior day's S&amp;P 500 close. A pause stops a cascade. It does not un-fill your order.</li>
+      <li><b>No agency, exchange or study publishes a stop distance.</b> Not a percentage, not a multiple of anything, not a level. Every placement rule you will read is convention, which is why this page does not print one.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What a stop order actually is</h2>
+
+  <p>You own 200 shares of something. You paid $52, and you work a shift that covers the entire trading day, so you cannot watch a screen. You have already made the only decision that matters: if this drops to $47, you are out. The problem is that at 10:40 in the morning your phone will be in a locker.</p><p>A stop order is the instruction you leave behind. You give your brokerage firm a price &mdash; the <b>stop price</b> &mdash; and the order sits dormant until the stock trades at or through it. Until then it is not a bid or an offer, and nobody is looking at it. It is a trigger, not a price you have offered anyone.</p><p>Now read the next sentence twice, because it is the whole page. <strong>When the stop price is reached, the stop order becomes a market order.</strong> That is the SEC's own wording, from its investor bulletin on exactly this subject. And a market order has no price condition at all. It transacts at whatever the market is currently showing.</p><p>So the stop price answers one question, <em>when</em>, and answers nothing whatsoever about <em>at what price</em>. The SEC says so in the same bulletin: &ldquo;The stop price is not the guaranteed execution price for a stop order,&rdquo; and the fill &ldquo;can deviate significantly from the stop price in a fast-moving market.&rdquo; FINRA, which writes the rules your brokerage firm operates under, puts the same warning under a heading that leaves nothing to interpret: &ldquo;Stop Prices Aren't Guaranteed Execution Prices.&rdquo;</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>A stop order is a switch, not a floor. Touching your stop price converts your order into a market order, and a market order takes whatever price is there.</p></div><p>One naming note, so the rest of the page reads cleanly. The regulatory term is <b>stop order</b> &mdash; that is the phrase in FINRA Rule 5350 and in the exchange rulebooks. &ldquo;Stop-loss&rdquo; is what traders call a sell stop placed below a position they already own. The SEC and CFTC did use &ldquo;retail stop-loss orders&rdquo; in their report on the 2010 flash crash, so both names are in the official record. They describe the same instrument.</p>
+
+  <h2 id="versus">Stop, stop-limit and trailing stop, side by side</h2>
+
+  <p>Three order types share the stop trigger and differ entirely in what happens after it fires. Every definition in the middle column below is the SEC's, from the same 2017 bulletin.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Stop order, stop-limit order and trailing stop compared, with the failure mode of each"><table class="gls-tab"><thead><tr><th>Order type</th><th>What happens when the stop price is reached</th><th>How it fails you</th></tr></thead><tbody><tr><td><strong>Stop order</strong></td><td>It &ldquo;becomes a market order&rdquo; &mdash; no price condition, executes against whatever is available.</td><td><b>You get out at an unknown price.</b> In a fast market or a gap the fill can sit far below your stop, and you learn the number afterward.</td></tr><tr><td><strong>Stop-limit order</strong></td><td>It &ldquo;becomes a limit order that will be executed at a specified price (or better).&rdquo; The stop price and the limit price do not have to match.</td><td><b>You may not get out at all.</b> The SEC: it &ldquo;may not be executed if the stock's price moves away from the specified limit price.&rdquo; The scenario it is meant to protect you from is the scenario in which it does nothing.</td></tr><tr><td><strong>Trailing stop</strong></td><td>The stop price sits a fixed dollar amount or percentage from the market price and, as price moves in your favor, it &ldquo;adjusts or &lsquo;trails&rsquo; the market price by the specified amount.&rdquo; Then it behaves as a stop or a stop-limit.</td><td><b>Ordinary noise exits you.</b> The SEC again: &ldquo;Short-term market fluctuations in a stock's price can activate a trailing stop order.&rdquo;</td></tr></tbody></table></div><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Neither the stop nor the stop-limit is the safe one. <b>They fail in opposite directions.</b> The stop order guarantees you are out and guarantees nothing about the price. The stop-limit guarantees the price and guarantees nothing about being out. There is no version that guarantees both, because no order type can create a buyer who is not there.</p></div><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; how the ratchet works</span><p>You buy at $40 and attach a trailing stop of 10 percent. The stop starts at $36. The stock runs to $50, and the stop trails up to $45. The stock then slips back to $47 &mdash; and the stop stays at $45. <b>It only ever moves one way.</b> The stock keeps sliding, prints $45, and the order triggers and becomes a market order.</p><p class="gls-result">The trail converted a paper gain into a standing exit instruction without you touching anything. It also means a stock that routinely swings 12 percent in a week gets you out during an ordinary week. The 10 percent here was chosen to make the arithmetic legible &mdash; no agency, exchange or study publishes a correct trailing distance, and this page is not offering one.</p></div>
+
+  <h2 id="gap">The gap, worked in dollars</h2>
+
+  <p>This is the failure that costs retail investors the most money, and it has nothing to do with placing the order wrong.</p><p>Price is not a continuous line. Between the 4:00&nbsp;p.m. close and the 9:30&nbsp;a.m. open there is no trading, but there is plenty of news &mdash; a guidance cut, a lawsuit, an earnings miss, a whole weekend of it. When the market reopens, the first print can be nowhere near the last one. That distance is a <b>gap</b>, and your stop does not skip over it. It is on the far side of it.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; a $47 stop that fills at $38</span><p>200 shares bought at $52. Cost: <b>200 &times; $52 = $10,400</b>.</p><p>Stop price set at $47. The loss you signed up for: <b>($52 &minus; $47) &times; 200 = $1,000</b>, which is 9.6 percent of the position.</p><p>Friday's close is $50. Your stop is three dollars away and untouched. Sunday evening the company cuts its guidance for the year.</p><p>Monday, the first trade of the day is $38. Your $47 stop was passed somewhere in the dark, so at the open it becomes a market order and fills near $38. <b>200 &times; $38 = $7,600</b>.</p><p class="gls-result">Realized loss: $10,400 &minus; $7,600 = <b>$2,800</b>. You planned to lose $1,000. You lost 2.8 times that. There was no moment between $47 and $38 at which any human or any order could have done anything, because there were no prices between $47 and $38.</p></div><p>Nobody made a mistake in that example. The order did precisely what the SEC bulletin says it does. This is also why the same bulletin warns that a stop &ldquo;may be triggered by a short-term, intraday price move&rdquo; producing an execution price &ldquo;substantially worse than the stock's closing price&rdquo; &mdash; the trigger and the fill are two separate events, and only one of them is a number you chose.</p><div class="gls-box gls-warn"><span class="gls-lbl">Now run the same gap through a stop-limit</span><p>Same position, but a stop-limit with the stop at $47 and the limit at $47. The stop is touched, so it becomes a limit order to sell at $47 or better. The stock is trading at $38 and never sees $47 again. <b>The order simply sits there, unfilled.</b> Three weeks later the stock is $30: 200 &times; $30 = $6,000, an open loss of <b>$4,400</b>, and you still own every share. That is the trade-off, and it is not a puzzle with a correct answer. The dollar figures on this page are our own arithmetic on invented prices, not market data.</p></div>
+
+  <h2 id="crash">6 May 2010, and the guardrails built afterward</h2>
+
+  <p>Most of what you read about stop orders and the flash crash is secondhand. It does not need to be. The SEC and the CFTC published joint findings on 30 September 2010, and stop orders are named in them.</p><p>The report's own sentence: &ldquo;sell orders placed for some individual securities and ETFs (including many retail stop-loss orders, triggered by declines in prices of those securities) found reduced buying interest, which led to further price declines in those securities.&rdquo; That is the mechanism in one line. Stops fired, each became a market order, and market orders arrived in a market where the buyers had stepped back.</p><p>The prices that resulted are also on the record. Over <b>20,000 trades across more than 300 securities</b> executed at 60 percent or more away from their 2:40&nbsp;p.m. prices, some as low as one penny and some as high as $100,000. After the close, the exchanges and FINRA met and jointly agreed to cancel &mdash; to <em>break</em> &mdash; all such trades.</p><div class="gls-box gls-warn"><span class="gls-lbl">The part worth sitting with</span><p>Whether a penny fill stood that day was decided by a committee that evening. Not by your order, not by your broker, and not by anything you could have specified in advance. A stop order gave you a trigger price. It did not give you standing.</p></div><p>The regulatory response is equally citable. On 1 June 2012 the SEC approved two mechanisms that still run today:</p><ul><li><b>Limit up-limit down (LULD).</b> Trades in an individual listed security cannot occur outside a price band around a rolling five-minute average price. The band is <b>5 percent</b> for the more liquid names &mdash; S&amp;P 500 and Russell 1000 members and certain exchange-traded products &mdash; and <b>10 percent</b> for other listed securities, and the bands are doubled during the opening and closing periods. If trading cannot occur inside the band for more than <b>15 seconds</b>, the stock pauses for <b>five minutes</b>.</li><li><b>Market-wide circuit breakers.</b> Rebuilt to trigger on declines of <b>7, 13 and 20 percent</b> from the prior day's close, measured on the S&amp;P 500 &mdash; replacing the old 10, 20 and 30 percent on the Dow Jones Industrial Average &mdash; with halts shortened to <b>15 minutes</b> and the day split at 3:25&nbsp;p.m. A 7 or 13 percent decline after 3:25&nbsp;p.m. no longer halts the market; a 20 percent decline closes it for the rest of the session.</li></ul><p>Both are real and both work. Neither is a stop-loss guarantee. A pause interrupts a cascade so that liquidity can reassemble; when the stock reopens, your triggered stop is still a market order and it meets the reopening price. The plumbing got better. The instrument did not change.</p>
+
+  <h2 id="where">Where a stop order reaches, and where it doesn't</h2>
+
+  <p>People assume a stop order is a feature of the market. It is closer to a feature of your brokerage firm, and the difference shows up in four places.</p><h3>Your broker does not have to offer it</h3><p>FINRA Rule 5350(a) is one clause long and settles the question: &ldquo;A member may, but is not obligated to, accept a stop order or stop limit order.&rdquo; The SEC's bulletin says the same thing from the investor's side &mdash; stop, stop-limit and trailing stop orders &ldquo;may not be available through all brokerage firms.&rdquo; What your firm will accept on a leveraged product, an option, a thinly traded over-the-counter stock, or during a pre-market session is a question with a different answer at every firm. It is on the order-entry screen and in the customer agreement, and it is worth reading before you need it rather than after.</p><h3>Some exchanges stopped taking them</h3><p>FINRA states it directly: &ldquo;The inherent risks involved with stop orders have prompted certain stock exchanges to cease accepting stop orders.&rdquo; The NYSE is the concrete case. A client notice dated 28 January 2016 removed <b>stop orders and good-till-canceled orders</b> from NYSE and NYSE MKT beginning 29 February 2016, and canceled the existing ones after the close on 26 February. The same notice adds the detail that matters most: this &ldquo;does not prevent brokers from accepting stop orders on behalf of their clients.&rdquo; So your stop is very likely held on your broker's system, and what arrives at an exchange when it triggers is a market order. Your firm's handling rules, not an exchange rule, decide the behavior in between.</p><h3>Day or good-till-canceled, and neither covers the night</h3><p>A stop carries a time in force like any other order. A <b>day</b> order expires at the close &mdash; which is the exact moment overnight gap risk begins. A <b>good-till-canceled</b> order persists, though FINRA notes firms typically cap how many days that is. On extended hours, be careful: the SEC's extended-hours bulletin says &ldquo;many brokerage firms currently accept only limit orders&rdquo; in those sessions, spreads are wider because there is less trading interest, and &ldquo;certain existing mechanisms that address volatility in specific stocks or in the market as a whole may be limited or not available during extended-hours trading.&rdquo; Read that last clause twice: the LULD band and the circuit breakers are regular-session machinery.</p><h3>An ETF is not a stock, and the data says so</h3><p>On 24 August 2015 the SEC's own research staff counted <b>1,278 LULD trading pauses across 471 securities</b> in a single session. <b>83 percent of them &mdash; 1,058 pauses across 327 exchange-traded products &mdash; were in ETPs</b>, and fewer than 2 percent involved S&amp;P 500 or Nasdaq-100 members. On the same day, 19.2 percent of ETPs fell 20 percent or more, against 4.7 percent of corporate stocks. An <a href="etf.html">ETF</a> is a wrapper whose market price depends on the things inside it being priced; when they are not trading cleanly, the wrapper's price and the value of its holdings can separate. A stop resting under an ETF is exposed to that, and the SEC's numbers are the strongest available evidence for it.</p>
+
+  <h2 id="clustering">Why stops pile up in the same places</h2>
+
+  <p>A stop order is not displayed. It is not a bid, it is not an offer, and in most cases it does not leave your broker's system until it fires. That makes it invisible individually. It does not make it invisible in aggregate, and the reason is boring: people put them in the same places.</p><p>Just under a round number. Just under an obvious <a href="support-and-resistance.html">support level</a>. Just under the line a <a href="breakout.html">breakout</a> came from. Not because of coordination &mdash; because those are the only landmarks a chart offers, and everyone is reading the same chart.</p><p>The best evidence for this is genuinely good and comes from an unexpected place. Carol Osler, working from the complete conditional order book of a major foreign-exchange dealing bank &mdash; 9,667 orders between September 1999 and April 2000 &mdash; found that stop-loss orders cluster on the far side of round numbers. Stop-loss buy orders were roughly twice as common just above a round figure as just below it: <b>14.4 percent</b> of them landed in the range immediately above, against <b>7.4 percent</b> immediately below. She also found that trends gained momentum once support and resistance levels were crossed. The paper ran as a Federal Reserve Bank of New York staff report and then in the <em>Journal of Finance</em> in 2003.</p><p><strong>Be honest about what that is and isn't.</strong> It is currency-dealer data from 1999 and 2000, not U.S. equities in 2026. The behavior is the same species of human behavior and the mechanism transfers plausibly, but no equity study establishes it, because no equity broker publishes its order book.</p><div class="gls-box"><span class="gls-lbl">The honest version of &ldquo;stop hunting&rdquo;</span><p>You will be told that market makers hunt your stop. This page found no evidence for the personal version of that claim and does not make it. What is structurally true is simpler and more useful: <b>a cluster of stop orders is a pocket of forced market orders sitting just past a visible price.</b> Anyone who needs to accumulate size wants to transact where the other side is compelled rather than optional. So price is drawn toward obvious levels because that is where the liquidity is &mdash; not because anyone knows your account number.</p></div><p>That is also one explanation offered for why a move through an obvious level so often reverses immediately: part of the push through was stops converting to market orders, which is mechanical selling with no opinion behind it, and it exhausts. Treat that as an interpretation many practitioners hold, not as an established finding. The false-breakout section of <a href="breakout.html">breakout</a> covers the pattern; nobody has published a rate at which it happens.</p>
+
+  <h2 id="sizing">The stop distance is your position size</h2>
+
+  <p>The stop and the size of the position are not two decisions. They are one decision taken in two halves, and most people only notice the first half.</p><div class="gls-formula"><span class="gls-lbl">The arithmetic everyone uses</span><code>shares  =  dollars you will risk  &divide;  ( entry price  &minus;  stop price )</code></div><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; same risk, double the exposure</span><p>Say the most you will put at risk on one position is $300, and the entry is $52.</p><p>Stop at $47. Risk per share is $5, so <b>$300 &divide; $5 = 60 shares</b>.</p><p>Tighten the stop to $49.50. Risk per share is $2.50, so <b>$300 &divide; $2.50 = 120 shares</b>.</p><p class="gls-result">Identical $300 of intended risk, and twice as much of the company. The stop distance was the input that decided the size &mdash; which is why <a href="position-sizing.html">position sizing</a> and this page are the same subject.</p></div><p>Now the part that formula hides, and it is the reason this section exists. <strong>The arithmetic assumes the stop fills at the stop price.</strong> The SEC has already told us it does not guarantee that. Put the gap from earlier through the tighter version: 120 shares, a stop at $49.50, and an open nine dollars below it is <b>120 &times; $9 = $1,080</b> of realized loss, not $300. The tighter the stop, the larger the position, and the larger the position, the more a gap costs. Tightening a stop does not reduce gap risk. It concentrates it.</p><p>The same caveat runs through the <a href="risk-reward-ratio.html">risk/reward ratio</a>. The stop distance is the denominator. If the stop does not hold, the ratio you computed before you entered was a piece of fiction, and it was the flattering kind.</p><h3>The psychology, said plainly</h3><p>The real value of a stop is not precision, because there is no precision available. It is that it converts an open-ended fear into a decided number, at a moment when you are calm, and writes it down where your future self cannot negotiate with it. That is worth something on its own terms.</p><p>And then there is the way people undo it. Price approaches the stop, and the stop gets moved down to &ldquo;give it room.&rdquo; This is the single most common route from a small loss to a large one. Notice what the act actually is: canceling a decision made calmly, at the precise moment you are least calm, using an argument you would not have accepted an hour earlier. <a href="loss-aversion.html">Loss aversion</a> is why the small loss feels unbearable in that moment and the larger unrealized one somehow does not. The <a href="../trading-psychology.html">Trading Psychology course</a> works this in Stage 3, and the <a href="../markets-behavior.html">behavior page</a> has a five-question checklist meant to be run before the order exists, which is the only time the answers are honest.</p>
+
+  <h2 id="ledger">What's documented here, and what isn't</h2>
+
+  <p>This site labels its confidence rather than flattening everything into the same voice. Here is the accounting for this page.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Ledger of confirmed, unverified and conventional claims on this page"><table class="gls-tab"><thead><tr><th>Claim</th><th>Standing</th><th>What establishes it</th></tr></thead><tbody><tr><td>A stop order becomes a market order when the stop price is reached, and the stop price is not a guaranteed execution price</td><td><b>Confirmed</b></td><td>SEC Office of Investor Education and Advocacy bulletin, 13 July 2017; FINRA investor insight, 26 March 2025</td></tr><tr><td>A stop-limit becomes a limit order and may not be executed if price moves away from the limit</td><td><b>Confirmed</b></td><td>The same SEC bulletin, verbatim</td></tr><tr><td>A brokerage firm is not obligated to accept a stop order at all</td><td><b>Confirmed</b></td><td>FINRA Rule 5350(a)</td></tr><tr><td>The NYSE removed stop orders and GTC orders from its own book beginning 29 February 2016</td><td><b>Confirmed</b></td><td>NYSE client notice, 28 January 2016</td></tr><tr><td>Retail stop-loss orders were triggered on 6 May 2010 and met reduced buying interest; 20,000-plus trades in 300-plus securities printed 60% or more away from 2:40&nbsp;p.m. prices and were canceled that evening</td><td><b>Confirmed</b></td><td>SEC and CFTC joint findings, 30 September 2010</td></tr><tr><td>LULD bands of 5% and 10%, doubled at the open and close, with a five-minute pause after 15 seconds outside the band; market-wide breakers at 7, 13 and 20 percent of the prior S&amp;P 500 close</td><td><b>Confirmed</b></td><td>SEC approval order and press release, 1 June 2012</td></tr><tr><td>83% of the 1,278 LULD pauses on 24 August 2015 were in exchange-traded products</td><td><b>Confirmed</b></td><td>SEC research staff note, December 2015</td></tr><tr><td>Stop-loss orders cluster just beyond round numbers, 14.4% above against 7.4% below</td><td><b>Confirmed &mdash; for the market studied</b></td><td>Osler, FRBNY staff report and <em>Journal of Finance</em> 2003. <b>Foreign exchange, 1999&ndash;2000.</b> Not equities</td></tr><tr><td>That U.S. equity stops cluster the same way</td><td><b>Unverified</b></td><td>Plausible and widely assumed. No equity order-book study reachable for this page establishes it, because broker order books are not public</td></tr><tr><td>Any hit rate &mdash; how often a stop fills near its price, how often a gap beats it, how often a level gets &ldquo;run&rdquo; and reverses</td><td><b>Unverified</b></td><td>Nothing. No agency, exchange or study publishes one. If someone quotes you a percentage, ask where it came from</td></tr><tr><td>That market makers or brokers identify and target individual retail stops</td><td><b>Unverified</b></td><td>No evidence found. This page makes the structural claim about liquidity instead, and declines the personal one</td></tr><tr><td>Whether a &ldquo;day&rdquo; stop is live in your firm's pre-market or post-market session</td><td><b>Unverified &mdash; and per-firm</b></td><td>The SEC says many firms accept only limit orders in extended hours. Your customer agreement is the authority, not this page</td></tr><tr><td>Every stop placement rule &mdash; a fixed percentage, a multiple of average range, &ldquo;just below support,&rdquo; &ldquo;under the last swing low&rdquo;</td><td><b>Convention</b></td><td>Practitioner habit. No agency, exchange or standard-setting body publishes a stop distance, which is why this page prints none</td></tr><tr><td>The 10 percent trailing distance and the dollar figures in the worked examples</td><td><b>Convention and our own arithmetic</b></td><td>Chosen for legible math on invented prices. Not market data and not a suggestion</td></tr><tr><td>That a failed breakout is stops firing rather than real demand</td><td><b>Convention</b></td><td>A widely held interpretation with no published measurement behind it</td></tr></tbody></table></div><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>Every brokerage order-entry screen carries a dropdown with market, limit, stop and stop-limit in it, and a second field for the stop price. The <a href="../markets-technical.html">live technical page</a> shows the round numbers and levels where the orders bunch up, and the <a href="../markets-behavior.html">behavior page</a> covers the state of mind that moves one after it has been set.</p></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Reading the stop price as the price you will get.</b> It is the price that starts the process. The SEC calls it out in one sentence and it is still the most common misunderstanding in retail investing.</li><li><b>Not knowing which of the two you placed.</b> A stop and a stop-limit look almost identical on the order screen and fail in opposite directions. Check the confirmation, not your memory.</li><li><b>Treating a stop-limit as protection in a collapse.</b> The collapse is the case where it does not fill and you keep the entire loss.</li><li><b>Moving it down to give the trade room.</b> The one habit most reliably responsible for turning a planned loss into an unplanned one, and it always arrives dressed as patience.</li><li><b>Tightening the stop and then sizing up.</b> Same nominal risk, more shares, more gap exposure. The formula does not warn you because the formula assumes the fill.</li><li><b>Setting a trailing percentage smaller than the stock's ordinary weekly range.</b> The SEC's own phrasing: short-term fluctuations can activate it. You will be exited by nothing happening.</li><li><b>Assuming a day order covers the night.</b> It expires at the close, which is when gap risk starts.</li><li><b>Assuming every broker takes stops on everything.</b> FINRA Rule 5350 says a member may but is not obliged to accept one, and the NYSE stopped taking them on its own book in 2016.</li><li><b>Assuming a halt or a canceled trade is a safety net.</b> A five-minute pause reassembles liquidity. It does not restore your position, and whether a bad print stands was decided by a committee after the close in 2010.</li><li><b>Using money that has a job.</b> No order type changes what a loss does to a household with no buffer under it. That is what <a href="../stage-2-stabilize.html">Stage 2</a> is for, and it comes first.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is a stop-loss order?</h3>
+    <p>It is a standing instruction to your brokerage firm to buy or sell a security once its price reaches a stop price you name. Until the stock trades at or through that price the order does nothing and is not visible as a bid or offer. When the stop price is reached, the SEC's investor bulletin says the stop order becomes a market order, which means it executes at whatever price is then available. The regulatory term is stop order; stop-loss is what traders call a sell stop placed below a position they own.</p>
+
+    <h3>Does a stop-loss order guarantee I get my stop price?</h3>
+    <p>No, and the regulators say so in plain language. The SEC's bulletin states that the stop price is not the guaranteed execution price for a stop order and that the fill can deviate significantly from the stop price in a fast-moving market. FINRA publishes the same warning under the heading Stop Prices Aren't Guaranteed Execution Prices, adding that the price you receive could be markedly different from your stop price. The stop price decides when the order fires. The market decides what you get.</p>
+
+    <h3>What is the difference between a stop order and a stop-limit order?</h3>
+    <p>A stop order becomes a market order when triggered, so it will almost certainly execute but at an unknown price. A stop-limit order becomes a limit order at a price you specify, so it will not execute below that price at all. The SEC notes a stop-limit may not be executed if the stock's price moves away from the specified limit price. They are not safe and unsafe versions of the same thing. They fail in opposite directions: one risks a bad price, the other risks no exit.</p>
+
+    <h3>What happens to my stop-loss order if the stock gaps down overnight?</h3>
+    <p>The stop is passed while the market is closed, so at the open it becomes a market order and fills near the opening price, which can be far below your stop. Worked through on this page: 200 shares bought at 52 dollars with a stop at 47 was a planned 1,000 dollar loss, but a 38 dollar open makes it a 2,800 dollar loss. There is no instant in between at which anything can be done, because no prices existed in between. This is the most important practical fact about stop orders.</p>
+
+    <h3>How does a trailing stop order work?</h3>
+    <p>You set the stop a fixed dollar amount or percentage from the market price rather than at a fixed number. The SEC describes it as adjusting or trailing the market price as the security moves in a favorable direction. The key property is that it only ratchets one way: it follows price up and then holds still when price falls back. The SEC also warns that short-term market fluctuations can activate a trailing stop, so a trailing distance narrower than a stock's ordinary swings will exit you on noise.</p>
+
+    <h3>Can market makers see my stop-loss order?</h3>
+    <p>This page found no evidence that anyone identifies and targets individual retail stops, and it does not make that claim. Most retail stops rest inside one firm's systems and are not published to anyone. What is supportable is structural. Orders cluster in the same obvious places, and a study of a foreign-exchange dealing bank's order book by Carol Osler found stop-loss orders bunching just beyond round numbers. A cluster of stops is a pocket of forced market orders, and anyone needing size wants to transact where the other side is compelled rather than optional.</p>
+
+    <h3>Do all brokers and exchanges accept stop orders?</h3>
+    <p>No. FINRA Rule 5350(a) states that a member may, but is not obligated to, accept a stop order or stop limit order, and the SEC's bulletin says stop, stop-limit and trailing stop orders may not be available through all brokerage firms. FINRA also notes that the risks involved have prompted certain stock exchanges to cease accepting stop orders. The NYSE removed stop and good-till-canceled orders from its own book beginning 29 February 2016, though brokers may still accept them on a client's behalf and route a market order when one triggers.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="position-sizing.html"><b>Position Sizing</b><span>The other half of the same decision</span></a>
+      <a href="risk-reward-ratio.html"><b>Risk/Reward Ratio</b><span>The ratio your stop distance is the denominator of</span></a>
+      <a href="loss-aversion.html"><b>Loss Aversion</b><span>Why the small loss is the hard one to take</span></a>
+      <a href="support-and-resistance.html"><b>Support and Resistance</b><span>The levels stops get placed just beyond</span></a>
+      <a href="breakout.html"><b>Breakout</b><span>Price leaving a range, partly on stops firing</span></a>
+      <a href="etf.html"><b>ETF</b><span>Took 83% of the trading pauses on one bad day</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Run the five-question pre-trade checklist on <a href="../markets-behavior.html">Markets &middot; Behavior</a> before the order exists &mdash; free, no account, nothing stored.</li>
+      <li>Work the state of mind that moves a stop after it is set in the <a href="../trading-psychology.html">Trading Psychology course</a>, Stage 3: Risk &amp; Loss.</li>
+      <li>See where the round numbers and levels actually sit on <a href="../markets-technical.html">Markets &middot; Technical</a>, including S&amp;P breadth and the sector heatmap.</li>
+      <li>Build the buffer that decides whether a bad fill is survivable with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, and get the debt triage done first in <a href="../stage-2-stabilize.html">Stage 2: Stabilize</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy, <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15" target="_blank" rel="noopener">Investor Bulletin: Stop, Stop-Limit, and Trailing Stop Orders</a> (13 July 2017) &mdash; the source for the core mechanic on this page: &ldquo;When the stop price is reached, a stop order becomes a market order,&rdquo; &ldquo;The stop price is not the guaranteed execution price for a stop order,&rdquo; the stop-limit definition and its warning that it &ldquo;may not be executed if the stock's price moves away from the specified limit price,&rdquo; the trailing-stop definition, and the note that these order types &ldquo;may not be available through all brokerage firms.&rdquo;</li>
+      <li>FINRA, <a href="https://www.finra.org/investors/insights/stop-orders-factors-consider-during-volatile-markets" target="_blank" rel="noopener">Stop Orders: Factors to Consider During Volatile Markets</a> (26 March 2025) &mdash; &ldquo;A stop order becomes a market order once the stop price is reached,&rdquo; the heading &ldquo;Stop Prices Aren't Guaranteed Execution Prices,&rdquo; the warning that the price received &ldquo;could be markedly different than your stop price,&rdquo; and the statement that the risks involved &ldquo;have prompted certain stock exchanges to cease accepting stop orders.&rdquo;</li>
+      <li>FINRA, <a href="https://www.finra.org/rules-guidance/rulebooks/finra-rules/5350" target="_blank" rel="noopener">Rule 5350: Stop Orders</a> &mdash; the rulebook definitions of a stop order and a stop limit order, and the clause this page leans on: &ldquo;A member may, but is not obligated to, accept a stop order or stop limit order.&rdquo;</li>
+      <li>U.S. Securities and Exchange Commission and U.S. Commodity Futures Trading Commission, <a href="https://www.sec.gov/files/marketevents-report.pdf" target="_blank" rel="noopener">Findings Regarding the Market Events of May 6, 2010</a> (30 September 2010) &mdash; the report that names &ldquo;many retail stop-loss orders&rdquo; among sell orders that &ldquo;found reduced buying interest,&rdquo; and the source for the 20,000-plus trades across more than 300 securities executed 60% or more away from their 2:40&nbsp;p.m. prices, the penny and $100,000 extremes, and the joint decision by the exchanges and FINRA to break those trades after the close.</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/newsroom/press-releases/2012-2012-107htm" target="_blank" rel="noopener">SEC Approves Proposals to Address Extraordinary Volatility in Individual Stocks and Broader Stock Market</a> (1 June 2012) and <a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/stock-market-circuit-breakers" target="_blank" rel="noopener">Investor.gov: Stock Market Circuit Breakers</a> &mdash; the limit up-limit down price bands of 5% and 10%, doubled during the opening and closing periods, the 15-second condition and five-minute pause, and the market-wide circuit breaker levels of 7, 13 and 20 percent measured on the S&amp;P 500, with 15-minute halts, the 3:25&nbsp;p.m. cutoff, and a 20 percent decline closing the market for the day.</li>
+      <li>U.S. Securities and Exchange Commission, Division of Trading and Markets, <a href="https://www.sec.gov/marketstructure/research/equity_market_volatility.pdf" target="_blank" rel="noopener">Research Note: Equity Market Volatility on August 24, 2015</a> (December 2015) &mdash; 1,278 limit up-limit down pauses across 471 securities in one session, 83% of them (1,058 pauses across 327 products) in exchange-traded products, fewer than 2% in S&amp;P 500 and Nasdaq-100 members, and 19.2% of ETPs declining 20% or more against 4.7% of corporate stocks.</li>
+      <li>New York Stock Exchange, <a href="https://www.nyse.com/publicdocs/NYSE_Client_Notice_Reminder_of_Removal_of_Stop_and_GTC_Orders.pdf" target="_blank" rel="noopener">Client Notice: Reminder of Removal of Stop and GTC Orders</a> (28 January 2016) &mdash; the removal of stop orders and good-till-canceled orders from NYSE and NYSE MKT beginning 29 February 2016, the cancellation of existing ones after the close on 26 February, and the statement that the change &ldquo;does not prevent brokers from accepting stop orders on behalf of their clients.&rdquo;</li>
+      <li>U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy, <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-42" target="_blank" rel="noopener">Extended-Hours Trading Investor Bulletin</a> (6 June 2022) &mdash; &ldquo;many brokerage firms currently accept only limit orders&rdquo; in extended-hours sessions, less trading interest and wider spreads, and the warning that &ldquo;certain existing mechanisms that address volatility in specific stocks or in the market as a whole may be limited or not available during extended-hours trading.&rdquo;</li>
+      <li>Carol L. Osler, <a href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr125.pdf" target="_blank" rel="noopener">Currency Orders and Exchange-Rate Dynamics: Explaining the Success of Technical Analysis</a>, Federal Reserve Bank of New York staff report, later published in the <em>Journal of Finance</em> 58(5), 2003 &mdash; the 9,667-order conditional order book of a major foreign-exchange dealing bank, September 1999 to April 2000, and the finding that stop-loss orders cluster just beyond round numbers (14.4% just above against 7.4% just below for stop-loss buys). Cited here as evidence from currency markets only; this page does not extend it to U.S. equities.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it actually is</a></li>
+      <li><a href="#versus">Stop vs stop-limit</a></li>
+      <li><a href="#gap">The gap, in dollars</a></li>
+      <li><a href="#crash">6 May 2010</a></li>
+      <li><a href="#where">Where it doesn't reach</a></li>
+      <li><a href="#clustering">Why stops cluster</a></li>
+      <li><a href="#sizing">Stop distance and size</a></li>
+      <li><a href="#ledger">The sourcing ledger</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Check yourself first</span>
+    <p>Five questions to run before the order exists &mdash; including the one about whether you can afford to lose the money at all. Free, no account.</p>
+    <a class="gls-cta" href="../markets-behavior.html">The five-question pre-trade checklist &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

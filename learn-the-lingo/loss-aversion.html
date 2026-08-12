@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loss Aversion: Why Losses Hurt More | Learn the Lingo</title>
+<meta name="description" content="Losses register more strongly than equal gains. Where the 1979 origin paper stands, why the popular 2x figure is contested, and what it costs in real money.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/loss-aversion.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/loss-aversion.html">
+<meta property="og:title" content="Loss Aversion &mdash; Learn the Lingo">
+<meta property="og:description" content="A $200 bill and a $200 raise land on the same bank account in the same month and do not weigh the same. Here is the mechanism, the honest state of the evidence, and where it turns into dollars.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loss Aversion &mdash; Learn the Lingo">
+<meta name="twitter:description" content="A $200 bill and a $200 raise land on the same bank account in the same month and do not weigh the same. Here is the mechanism, the honest state of the evidence, and where it turns into dollars.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/loss-aversion.html#term",
+      "name": "Loss Aversion",
+      "alternateName": ["Loss aversion bias","Losses loom larger than gains","Loss-gain asymmetry","Prospect theory loss aversion"],
+      "description": "Loss aversion is the documented tendency for a loss to register more strongly than a gain of the same size. It comes from prospect theory, introduced by Daniel Kahneman and Amos Tversky in Econometrica in 1979, in which outcomes are evaluated as gains or losses against a reference point rather than as final amounts of wealth. The size of the asymmetry is an experimental estimate that varies by method and is actively contested.",
+      "url": "https://hustlin.org/learn-the-lingo/loss-aversion.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Loss Aversion: The Mechanism, the Contested 2x Figure, and Where It Costs Money",
+      "description": "A plain-language explanation of loss aversion: reference dependence as the actual mechanism, the origin of the concept in Kahneman and Tversky's 1979 prospect theory paper, and an honest accounting of the loss aversion coefficient, whose canonical 2.25 estimate two 2024 meta-analyses put at 1.955 and 1.31. Also covers the difference between loss aversion, risk aversion and the sunk cost fallacy, the disposition effect in real brokerage data, and what pre-commitment through position size and stop orders actually does.",
+      "url": "https://hustlin.org/learn-the-lingo/loss-aversion.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/loss-aversion.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/loss-aversion.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Loss Aversion", "item": "https://hustlin.org/learn-the-lingo/loss-aversion.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is loss aversion?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Loss aversion is the documented tendency for a loss to register more strongly than a gain of the same size. It comes from prospect theory, introduced by Daniel Kahneman and Amos Tversky in Econometrica in 1979. The key idea is reference dependence: people do not evaluate outcomes as final amounts of money but as changes measured from a reference point, and the change downward carries more weight than the change upward. For anything you own, that reference point is usually just the price you paid, which contains no information about what happens next." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do losses really hurt twice as much as gains?",
+          "acceptedAnswer": { "@type": "Answer", "text": "That figure is a median of 2.25 from one 1992 experiment by Tversky and Kahneman, reported without any measure of spread around it, and it has been contested since. A 2024 meta-analysis by Brown, Imai, Vieider and Camerer of 607 estimates from 150 articles put the coefficient at 1.955. A second 2024 meta-analysis by Walasek, Mullett and Stewart, restricted to studies fitting the model to individual mixed-gamble choices, put it at 1.31, and found that in 12 of 19 datasets the confidence interval included no asymmetry at all. The direction is well supported. The number 2 is not a constant." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is loss aversion the same as risk aversion?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and the difference is practical. Risk aversion is about uncertainty: preferring a sure $450 to a coin flip between nothing and $1,000. That is a preference about variance, it requires no reference point, and it is entirely rational to hold. Loss aversion is about which side of a line an outcome falls on: weighing a $500 decline more heavily than a $500 rise, where the line is usually the price you paid. One is a preference you are allowed to have. The other is arithmetic being distorted by a number that carries no information." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is loss aversion the same as the sunk cost fallacy?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They are separate effects that reinforce each other. The sunk cost fallacy, documented by Arkes and Blumer in 1985, is letting money or time already spent change a forward-looking decision. Loss aversion is about the weight given to an outcome depending on which side of a reference point it lands. They connect because money already spent gets absorbed into the reference point, so walking away stops feeling like receiving whatever value remains and starts feeling like booking the entire amount as a loss. That is why the sentence about having already put so much in is so persuasive." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the disposition effect?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The disposition effect is the tendency to sell winning positions too early and hold losing ones too long. It was named by Hersh Shefrin and Meir Statman in the Journal of Finance in 1985. Terrance Odean tested it in 1998 using 10,000 accounts at a large discount brokerage from 1987 through 1993 and found gains were realized at a little over 1.5 times the rate of losses. In December, when booking a loss has a tax use, the pattern reversed, which is evidence the other eleven months are not tax strategy." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you counter loss aversion?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The honest answer is that the documented counters are structural rather than emotional. Decide in advance, write it down, and remove the decision from the moment you would be making it badly: position size set before entry, an exit level named while calm, an automated contribution rather than a monthly judgment call. Haigh and List found professional traders showed more myopic loss aversion than students, so experience is not a reliable fix. Note also that this page found no study measuring how much a written rule actually reduces loss-averse behavior, so treat pre-commitment as a reasoned structural argument, not a proven intervention." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does a small unexpected bill feel like a disaster?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Partly because it can be one. In a household with no buffer, a $200 repair really can end in a missed rent payment, and an alarm that fires in that situation is accurate risk assessment, not a bias. What loss aversion adds is that the alarm keeps firing at the same volume after a buffer exists, because the reference point updates more slowly than the bank balance does. That is an argument for building the buffer on structural grounds: a cushion changes what a $200 loss actually is, whether or not the feeling cooperates." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Loss Aversion</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Cognitive Biases</div>
+      <h1 class="hero-h1">Loss Aversion</h1>
+      <p class="hero-sub">Losing something registers more strongly than gaining the same thing. The direction of that asymmetry is one of the most reproduced findings in decision research &mdash; and the famous number attached to it is genuinely disputed.</p>
+      <p class="gls-aka"><b>Also called:</b> loss-aversion bias &middot; losses loom larger than gains &middot; the loss/gain asymmetry &middot; the lambda coefficient</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from Kahneman and Tversky&rsquo;s original papers, two 2024 meta-analyses that disagree with each other, and Odean&rsquo;s brokerage-account study</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Loss aversion is the documented tendency for losing something to register more strongly than gaining the same thing &mdash; because outcomes are judged as gains or losses against a reference point, not as amounts of money.</strong></p>
+    <p>It exists as a concept because standard economics assumed people evaluate final states: $10,300 is $10,300, however you arrived at it. Daniel Kahneman and Amos Tversky showed that people do not do that. They evaluate the <em>change</em> from wherever they happen to be standing, and the change downward carries more weight than the change upward. The reference point they stand on is usually just the price they paid, which is a number with no information in it about anything that happens next. That is the whole problem, and it is why this bias costs money quietly rather than dramatically.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>The origin is Kahneman and Tversky, &ldquo;Prospect Theory: An Analysis of Decision under Risk,&rdquo; <em>Econometrica</em> 47(2), March 1979, pp. 263&mdash;291.</b> Their words: &ldquo;A salient characteristic of attitudes to changes in welfare is that losses loom larger than gains.&rdquo;</li>
+      <li><b>The 1979 paper never uses the phrase &ldquo;loss aversion.&rdquo;</b> The name arrives in Tversky and Kahneman, &ldquo;Loss Aversion in Riskless Choice: A Reference-Dependent Model,&rdquo; <em>Quarterly Journal of Economics</em> 106(4), 1991.</li>
+      <li><b>The &ldquo;about twice as much&rdquo; figure is a median from one 1992 experiment, and it is contested.</b> A 2024 meta-analysis of 607 estimates puts it at 1.955; a second 2024 meta-analysis restricted to mixed gambles puts it at 1.31. Both are below the quoted 2.25.</li>
+      <li><b>Loss aversion is not risk aversion and it is not the sunk cost fallacy.</b> Risk aversion is about uncertainty. Sunk cost is about money already spent. Loss aversion is about which side of an arbitrary line an outcome falls on.</li>
+      <li><b>The market-visible version is the disposition effect</b> &mdash; named by Shefrin and Statman in 1985. In Terrance Odean&rsquo;s study of 10,000 brokerage accounts from 1987 to 1993, gains were realized at about 1.5 times the rate of losses.</li>
+      <li><b>Experience does not sand it off.</b> Haigh and List tested professional traders from the Chicago Board of Trade against students and found the traders showed <em>more</em> myopic loss aversion, not less.</li>
+      <li>The documented counter is structural, not emotional: <b>a decision made in advance and written down</b> &mdash; position size, an exit level, a rule &mdash; because the same decision is much harder to make while the loss is happening.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What loss aversion actually is</h2>
+
+  <p>Two things happen to the same person in one month. Her hours get bumped and the next check comes in $200 bigger than expected. Three weeks later the water heater dies and the plumber writes $200 at the bottom of the invoice.</p><p>She mentioned the raise to nobody. She thought about the invoice at two in the morning. Same $200, same month, same bank account &mdash; and the two events did not land anywhere close to the same weight.</p><p><strong>That asymmetry is loss aversion.</strong> A loss registers more strongly than a gain of the same size &mdash; not because she is bad with money, and not because she is anxious. Because of how the comparison is built.</p><p>The concept comes from Daniel Kahneman and Amos Tversky, &ldquo;Prospect Theory: An Analysis of Decision under Risk,&rdquo; <em>Econometrica</em> 47(2), March 1979, pages 263 to 291. Their sentence in section 4 is the one everything here hangs from: <b>&ldquo;A salient characteristic of attitudes to changes in welfare is that losses loom larger than gains.&rdquo;</b> A few lines later: &ldquo;the value function for losses is steeper than the value function for gains.&rdquo;</p><p>One detail nearly every article gets wrong. <strong>The 1979 paper does not contain the phrase &ldquo;loss aversion&rdquo;</strong> &mdash; it describes the asymmetry without naming it. The name arrives in Tversky and Kahneman, &ldquo;Loss Aversion in Riskless Choice: A Reference-Dependent Model,&rdquo; <em>Quarterly Journal of Economics</em> 106(4), 1991.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>The same amount of money is weighed differently depending on which direction it moved &mdash; and the direction is measured from wherever you happened to be standing, which is usually just what you paid.</p></div><div class="gls-box gls-warn"><span class="gls-lbl">What this page is not</span><p>This describes a documented pattern in how people in aggregate evaluate outcomes. It is <b>not</b> an assessment of you, a diagnosis or a personality claim, and nothing here is personalized financial advice.</p></div>
+
+  <h2 id="reference">Reference dependence, and why the reference point is arbitrary</h2>
+
+  <p>The mechanism underneath loss aversion is called <strong>reference dependence</strong>, and it is the part worth understanding, because it is where the leverage is.</p><p>Standard economics assumed people evaluate final states. $10,300 in an account is $10,300, whether it got there from $9,000 or from $12,000. Kahneman and Tversky found people do not work that way. In the 1979 paper: &ldquo;An essential feature of the present theory is that the carriers of value are changes in wealth or welfare, rather than final states.&rdquo; And on where the comparison starts: &ldquo;The reference point usually corresponds to the current asset position.&rdquo;</p><p>So an outcome is not simply good or bad. It is a gain or a loss <em>relative to a line</em> &mdash; and for anything you own, that line is the price you paid. <strong>Nothing about that price tells you anything about what happens next.</strong> The market does not know it.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Marcus and Renee each own 40 shares of the same fund, trading at $22 today. Marcus paid $16 a share. Renee paid $31 a share, eight months earlier.</p><p>Marcus is sitting on 40 &times; ($22 &minus; $16) = <b>$240 up</b>. Renee is sitting on 40 &times; ($22 &minus; $31) = <b>$360 down</b>. Same fund, $880 of value each, same everything ahead of them.</p><p class="gls-result">Marcus is deciding whether to protect a gain. Renee is deciding whether to accept a loss. Those feel like two questions and they are one: is $880 in this fund what I want $880 to be doing. The only thing separating them is a number in their own purchase history.</p></div><p>Which is why <a href="cost-basis.html">cost basis</a> is worth knowing beyond taxes. Your basis is the number the tax code tracks &mdash; and, if you are not careful, the number your judgment is anchored to.</p>
+
+  <h2 id="size">How much bigger &mdash; and why that number is disputed</h2>
+
+  <p>Every article on this subject says losses hurt about twice as much as gains feel good. Almost none say where that came from, or that it has been contested for a decade.</p><p>It comes from one experiment: Amos Tversky and Daniel Kahneman, &ldquo;Advances in Prospect Theory: Cumulative Representation of Uncertainty,&rdquo; <em>Journal of Risk and Uncertainty</em> 5(4), 1992. Fitting their model to choices between gambles produced a loss aversion coefficient &mdash; conventionally written lambda &mdash; with a <strong>median of 2.25</strong>. As the 2024 meta-analysis below puts it when quoting the original: &ldquo;The median &mdash; no mean nor statistic of dispersion was reported &mdash; was lambda = 2.25.&rdquo; <b>A median from one study, published with no measure of spread, became the number everyone repeats as though it were a physical constant.</b></p><p>Two meta-analyses published in 2024 went back through the literature. They do not agree with each other, and that is the informative part.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Published estimates of the loss aversion coefficient and what each one is based on"><table class="gls-tab"><thead><tr><th>Estimate</th><th>Source</th><th>What it is based on</th></tr></thead><tbody><tr><td><b>2.25</b> (median)</td><td>Tversky &amp; Kahneman, 1992</td><td>One experiment, model fitted to choices between gambles. <b>No dispersion statistic reported.</b> This is the canonical figure.</td></tr><tr><td><b>1.955</b> &middot; 95% interval 1.820 to 2.102</td><td>Brown, Imai, Vieider &amp; Camerer, <em>Journal of Economic Literature</em> 62(2), 2024</td><td>607 estimates from 150 articles across economics, psychology and neuroscience, published 1992 to 2017. Broad and inclusive.</td></tr><tr><td><b>1.31</b> &middot; 95% interval 1.10 to 1.53</td><td>Walasek, Mullett &amp; Stewart, <em>Journal of Economic Psychology</em> 103, 2024</td><td>Only studies that fitted prospect theory to individual choices over mixed gambles &mdash; the strict test. Narrow and demanding.</td></tr><tr><td><b>No general asymmetry</b></td><td>Gal &amp; Rucker, <em>Journal of Consumer Psychology</em> 28(3), 2018</td><td>A review arguing the classic evidence is confounded. Not a coefficient estimate &mdash; a challenge to the premise.</td></tr></tbody></table></div><p>The third row is the strongest form of the challenge. Walasek, Mullett and Stewart report between-study variation of <b>91.6%</b>, and that in <b>12 of 19 datasets, the confidence interval included loss neutrality</b> &mdash; a lambda of about 1, meaning no asymmetry at all. Their summary: &ldquo;the magnitude of loss aversion ... largely depends on the context determined by the features of the elicitation procedure.&rdquo;</p><p>Gal and Rucker challenge the premise itself: <b>&ldquo;The weight of the evidence does not support a general tendency for losses to be more psychologically impactful than gains.&rdquo;</b> They argue the standard demonstrations &mdash; the endowment effect, status quo bias &mdash; confound losing something with the difference between acting and not acting, and that separating those can make the effect disappear. Their alternative: losses &ldquo;sometimes loom larger than gains, sometimes losses and gains have similar psychological impact, and sometimes gains loom larger.&rdquo; The paper drew published rebuttals in the same issue. The argument is live.</p><div class="gls-box"><span class="gls-lbl">So what survives</span><p><b>Robust:</b> in a great many settings involving money and a clear reference point, people weigh a decline more heavily than an equivalent rise. Every estimate above except Gal and Rucker's points that direction.</p><p><b>Oversold:</b> that the ratio is 2, or that it is a stable property of human beings holding at equal strength for every person, amount and framing. It moves with the method.</p></div><p>This site's <a href="../markets-behavior.html">Markets Behavior</a> page uses &ldquo;roughly twice as strong&rdquo; as shorthand on a card next to seven other biases. That shorthand traces to the 1992 median, and this is where it gets its footnotes.</p>
+
+  <h2 id="notthesame">Three things that get called the same thing</h2>
+
+  <p>Loss aversion, risk aversion and the sunk cost fallacy get conflated constantly. They are three separate mechanisms, and mistaking one for another leads to the wrong fix.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Loss aversion compared with risk aversion and the sunk cost fallacy"><table class="gls-tab"><thead><tr><th>&nbsp;</th><th>What it is about</th><th>The giveaway sentence</th></tr></thead><tbody><tr><td><b>Loss aversion</b></td><td><b>Which side of a line an outcome falls on.</b> A decline of $500 outweighs a rise of $500. Needs a reference point to exist at all, and the reference point is usually the purchase price.</td><td>&ldquo;I'll sell when it gets back to what I paid.&rdquo;</td></tr><tr><td><b>Risk aversion</b></td><td><b>Uncertainty.</b> Preferring a sure $450 to a coin flip between $0 and $1,000, even though the flip is worth $500 on average. It is a preference about variance, it is entirely rational to hold, and it needs no reference point.</td><td>&ldquo;I'd rather take the smaller sure thing.&rdquo;</td></tr><tr><td><b>Sunk cost fallacy</b></td><td><b>Money or time already spent.</b> Letting an unrecoverable past payment change a forward-looking decision. Documented separately by Hal Arkes and Catherine Blumer, &ldquo;The Psychology of Sunk Cost,&rdquo; <em>Organizational Behavior and Human Decision Processes</em> 35(1), 1985, pages 124 to 140.</td><td>&ldquo;I've already put too much into this to walk away.&rdquo;</td></tr></tbody></table></div><p>The clean test: <strong>risk aversion is a preference, loss aversion is a distortion.</strong> Wanting less variance is legitimate, and for somebody rebuilding it is often correct. Weighing the same $500 differently depending on whether it sits above or below an arbitrary historical price is not a preference about anything.</p><p>Loss aversion and sunk cost <em>do</em> interact, which is why they blur: money already spent gets folded into the reference point, so walking away stops feeling like receiving whatever you can still get and starts feeling like <em>booking the whole amount as a loss</em>. That is the machinery behind the next section.</p>
+
+  <h2 id="ordinary">Where it costs ordinary money</h2>
+
+  <p>None of this requires a brokerage account. Loss aversion runs on rent money, cars, credit lines and jobs, and for somebody rebuilding it is more expensive there than it will ever be in a trading account.</p><h3>The car you keep repairing</h3><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Dana bought a used sedan two years ago for <b>$6,800</b>. Over fourteen months she has put <b>$2,600</b> into it &mdash; brakes, a radiator, an alternator. Now the transmission is going and the shop quotes <b>$2,300</b>.</p><p>As it sits, the car is worth about <b>$1,400</b>. Repaired, about <b>$3,200</b>.</p><ul><li>Fix it: worth $3,200, but she paid $2,300 to get there. Net $3,200 &minus; $2,300 = <b>$900</b>.</li><li>Don't fix it: <b>$1,400</b>.</li></ul><p class="gls-result">The two paths differ by $500, and the $6,800 and the $2,600 appear in neither line &mdash; they are gone either way. But the sentence in Dana's head is &ldquo;I have $9,400 in this car,&rdquo; and against that reference point, taking $1,400 does not read as receiving $1,400. It reads as accepting an $8,000 loss. So the repair feels like the option that avoids the loss, when on these numbers it is the option that is $500 worse.</p></div><p>Two qualifications, because this is arithmetic and not a recommendation. If Dana needs a car for work and cannot replace one for $1,900, the calculation is not the whole decision &mdash; transportation has a value that never shows up in resale price. All three figures are estimates too. <strong>The point is narrower than &ldquo;don't fix the car&rdquo;:</strong> the $9,400 already spent belongs in neither column, and it is doing most of the emotional work.</p><h3>The card you won't close</h3><p>A card with a $95 annual fee sits in a drawer, unused for four years, because giving up an available credit line registers as losing something &mdash; even a line never drawn on. Four years at $95 is <b>$380</b> paid for the feeling of still having it. There are real reasons to keep a card open, including what closing it does to <a href="credit-utilization.html">credit utilization</a>. The question is whether that was the reason or the reason found afterwards.</p><h3>The $200 bill that feels like a catastrophe</h3><p>This one is not a bias, and it matters to say so. When a $200 expense genuinely can end in a missed rent payment, the alarm is <em>correct</em> &mdash; accurate risk assessment, not a distortion. What loss aversion adds is that the alarm keeps firing at the same volume after a buffer exists, because the reference point updates more slowly than the bank balance. Which argues for the buffer structurally rather than psychologically: an <a href="emergency-fund.html">emergency fund</a> changes what a $200 loss <em>is</em>, whether or not feelings cooperate. Size one with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>.</p><h3>&ldquo;I've already put so much into this&rdquo;</h3><p>The same sentence keeps people in a lease, a business that has not turned, and a certification going nowhere. It is not a reason. It describes the past.</p>
+
+  <h2 id="disposition">The disposition effect &mdash; what it looks like in real accounts</h2>
+
+  <p>Loss aversion is a laboratory finding. The <strong>disposition effect</strong> is what it looks like in brokerage statements: selling winners too early and holding losers too long.</p><p>It was named by Hersh Shefrin and Meir Statman, &ldquo;The Disposition to Sell Winners Too Early and Ride Losers Too Long: Theory and Evidence,&rdquo; <em>Journal of Finance</em> 40(3), 1985. The clearest test of it is Terrance Odean, &ldquo;Are Investors Reluctant to Realize Their Losses?&rdquo;, <em>Journal of Finance</em> 53(5), 1998, using the records of <b>10,000 accounts at a large discount brokerage, January 1987 through December 1993</b>. He measured the proportion of available gains that got taken, and the same for losses:</p><div class="gls-formula"><span class="gls-lbl">Odean's two ratios, 1998</span><code>PGR = realized gains &divide; ( realized gains + paper gains )</code><code>PLR = realized losses &divide; ( realized losses + paper losses )</code></div><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Odean 1998 findings on the rate at which gains and losses were realized"><table class="gls-tab"><thead><tr><th>Period</th><th>Gains realized (PGR)</th><th>Losses realized (PLR)</th><th>What it says</th></tr></thead><tbody><tr><td>Full year</td><td><b>0.148</b></td><td><b>0.098</b></td><td>Gains taken at &ldquo;a little over 1.5&rdquo; times the rate of losses, in Odean's phrasing.</td></tr><tr><td>December alone</td><td>0.108</td><td><b>0.128</b></td><td>It flips. In the one month where booking a loss has a tax use, losses got realized at the higher rate.</td></tr></tbody></table></div><p>That December flip closes off the obvious alternative explanation. If holding losers were tax strategy, it would look like tax strategy all year. Instead it looks like tax strategy in December and like something else in the other eleven months. Odean is blunt about the cost: for taxable accounts the pattern &ldquo;is suboptimal and leads to lower after-tax returns.&rdquo; He also reports the winners investors sold beat the losers they held by <b>3.4 percentage points of excess return over the following year</b>. One brokerage, one seven-year window &mdash; not a law of nature, but a real measurement on real accounts.</p><p>Why it happens follows from reference dependence. In Odean's words: &ldquo;the investor's belief about expected return must fall further to motivate the sale of a stock that has already declined than one that has appreciated.&rdquo; Selling above your cost closes the book on being right; selling below it closes the book on being wrong.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>In your own account, as a slow drift: winners get trimmed, losers accumulate, and the portfolio becomes a museum of things that have not worked. Never in a day, which is why it is hard to notice.</p></div>
+
+  <h2 id="structure">Where the bias turns into dollars: size and the exit</h2>
+
+  <p>Loss aversion rarely costs money when you buy. It costs money when you have to decide whether to get out &mdash; and that decision arrives exactly when you are least equipped to make it. Two structural answers exist, and both are decisions made <em>before</em> rather than willpower applied <em>during</em>.</p><h3>Position sizing is the upstream one</h3><p><a href="position-sizing.html">Position sizing</a> determines how many dollars a percentage move represents. A 20% decline on $400 is $80; the same 20% on $4,000 is $800. Same percentage, same chart, same information &mdash; and the second is far harder to face calmly, because $800 crosses more thresholds in an ordinary household. <strong>Size sets how strong the bias will be when it arrives</strong>, and it is decided in advance, in a normal frame of mind.</p><h3>The exit level is the downstream one</h3><p>A <a href="stop-loss-order.html">stop-loss order</a> is a standing instruction placed in advance: if price reaches this level, send an order. Its mechanics matter and that page covers them &mdash; a triggered stop becomes a market order and can fill away from the level you named. Its <em>behavioral</em> property is the one relevant here. <b>A stop is a pre-commitment made by the calm version of you, aimed at a moment when the calm version will not be available.</b></p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>The specific failure is moving the level after you set it, and it never announces itself as panic. It arrives dressed as analysis: &ldquo;the stop was too tight,&rdquo; &ldquo;I'm giving it room to breathe,&rdquo; &ldquo;the thesis hasn't changed.&rdquo; Occasionally one of those is true. Notice, though, that the revision only ever runs one direction, and only ever while the position is going against you. <b>&ldquo;Giving it room&rdquo; is loss aversion wearing a strategy costume</b> &mdash; and the tell is not the reasoning, it is that the reasoning is one-directional.</p></div><p>The same logic runs one level up in the <a href="risk-reward-ratio.html">risk/reward ratio</a>: what you are risking against what you stand to make, written down before entry, so neither number gets renegotiated later.</p><h3>Nobody grows out of this</h3><p>The honest literature is not encouraging about willpower. Michael Haigh and John List, &ldquo;Do Professional Traders Exhibit Myopic Loss Aversion? An Experimental Analysis,&rdquo; <em>Journal of Finance</em> 60(1), 2005, ran the standard test on professional traders from the Chicago Board of Trade and on students, expecting the professionals to show less of it. They found the opposite: the traders &ldquo;exhibit behavior consistent with MLA to a greater extent than students.&rdquo;</p><p>One study, one exchange, one design &mdash; hold it loosely. But it is the direct test of &ldquo;experience fixes it,&rdquo; and it came back the wrong way. Which is the argument for structure over insight. <strong>You are not trying to stop feeling it. You are trying to arrange things so the feeling arrives after the decision is already made.</strong> Bias and belief is Stage 2 of the <a href="../trading-psychology.html">Trading Psychology course</a>; free <a href="../stage-4-invest.html">Stage 4 of Financial Literacy</a> covers what patient money does without any of these decisions.</p>
+
+  <h2 id="ledger">What is confirmed, what is contested, what is convention</h2>
+
+  <p>House practice here is to label claims by how well they are established rather than saying all of them in the same voice. On this term it matters unusually much, because the most repeated fact has the least settled support.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confidence ledger for the claims on this page"><table class="gls-tab"><thead><tr><th>Claim</th><th>Status</th><th>What establishes it, or doesn't</th></tr></thead><tbody><tr><td>Prospect theory, reference dependence, and a value function steeper for losses than gains</td><td><b>Confirmed</b></td><td>Kahneman &amp; Tversky, <em>Econometrica</em> 47(2), 1979, quoted above from the published text. The absence of the phrase &ldquo;loss aversion&rdquo; was checked in the same text.</td></tr><tr><td>A median coefficient of <b>2.25</b> in Tversky &amp; Kahneman 1992</td><td><b>Confirmed as a citation</b></td><td>Quoted verbatim in Brown and colleagues' 2024 meta-analysis, including that no measure of dispersion accompanied it. The 1992 article is paywalled and was not read directly here.</td></tr><tr><td>&ldquo;Losses hurt about twice as much as gains&rdquo; as a general magnitude</td><td><b>Contested</b></td><td>Three estimates and one challenge: 2.25, 1.955, 1.31, and Gal &amp; Rucker. <b>Not a constant, not settled.</b> Anyone quoting 2x with no range is quoting a 1992 median.</td></tr><tr><td>The direction of the asymmetry &mdash; that losses generally weigh more</td><td><b>Well supported, with a caveat</b></td><td>Brown and colleagues: 1.955 across 607 estimates. Walasek and colleagues, on the strictest subset, could not rule out loss neutrality in 12 of 19 datasets.</td></tr><tr><td>Gains realized at roughly 1.5&times; the rate of losses</td><td><b>Confirmed for that sample</b></td><td>Odean 1998, 10,000 accounts, 1987 to 1993. One brokerage, one window. A measurement, not a law.</td></tr><tr><td>Professional traders showed more myopic loss aversion than students</td><td><b>Confirmed for that study</b></td><td>Haigh &amp; List 2005. One experiment at one exchange &mdash; a single data point pointing against the &ldquo;experience cures it&rdquo; story.</td></tr><tr><td>Lambda as the symbol, and 2.25 as &ldquo;the&rdquo; value</td><td><b>Convention</b></td><td>Notation and habit. No body defines or publishes a value of lambda, and no regulator appears anywhere on this page.</td></tr><tr><td>&ldquo;Decide in advance and write it down&rdquo; as the counter</td><td><b>Convention, reasoned</b></td><td>It follows from the mechanism, but <b>this page found no study establishing that a written rule reduces loss-averse behavior by any measured amount.</b> A structural argument, not a proven intervention.</td></tr><tr><td>Any figure for what loss aversion costs the average investor per year</td><td><b>Unverified, and widely circulated</b></td><td>Percentages of this kind appear constantly in personal-finance writing. None could be traced to a primary source, so none is printed here.</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Quoting 2x as a fact.</b> It is a median from one 1992 experiment, published without a spread. Two 2024 meta-analyses put it lower, at 1.955 and 1.31, and a 2018 review disputes the general claim.</li><li><b>Calling risk aversion a bias.</b> Preferring less variance is a legitimate preference, often the sensible one for a household with no cushion. Loss aversion is the same dollar weighed differently depending on an arbitrary historical price.</li><li><b>Treating the purchase price as information.</b> &ldquo;I'll sell when it gets back to what I paid&rdquo; is the reference point talking. Nothing outside your own records knows that number.</li><li><b>Folding money already spent into the decision.</b> The $2,600 in repairs is gone under every option, and including it makes the more expensive path feel safer.</li><li><b>Widening a stop and calling it strategy.</b> Watch which direction the revisions run. If they only loosen, and only while the position is losing, the reasoning arrived after the decision.</li><li><b>Sizing on conviction instead of on what the loss would do to you.</b> Size sets how hard the exit will be, and it is set in advance, while calm.</li><li><b>Expecting practice to fix it.</b> Haigh and List found professional traders showed <em>more</em> myopic loss aversion than students. Structure has some claim to working here; insight into your own psychology mostly does not.</li><li><b>Reading a bias list as a character assessment.</b> This is a documented pattern in how outcomes get evaluated. It is not a flaw specific to you, and knowing its name does not remove it.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is loss aversion?</h3>
+    <p>Loss aversion is the documented tendency for a loss to register more strongly than a gain of the same size. It comes from prospect theory, introduced by Daniel Kahneman and Amos Tversky in Econometrica in 1979. The key idea is reference dependence: people do not evaluate outcomes as final amounts of money but as changes measured from a reference point, and the change downward carries more weight than the change upward. For anything you own, that reference point is usually just the price you paid, which contains no information about what happens next.</p>
+
+    <h3>Do losses really hurt twice as much as gains?</h3>
+    <p>That figure is a median of 2.25 from one 1992 experiment by Tversky and Kahneman, reported without any measure of spread around it, and it has been contested since. A 2024 meta-analysis by Brown, Imai, Vieider and Camerer of 607 estimates from 150 articles put the coefficient at 1.955. A second 2024 meta-analysis by Walasek, Mullett and Stewart, restricted to studies fitting the model to individual mixed-gamble choices, put it at 1.31, and found that in 12 of 19 datasets the confidence interval included no asymmetry at all. The direction is well supported. The number 2 is not a constant.</p>
+
+    <h3>Is loss aversion the same as risk aversion?</h3>
+    <p>No, and the difference is practical. Risk aversion is about uncertainty: preferring a sure $450 to a coin flip between nothing and $1,000. That is a preference about variance, it requires no reference point, and it is entirely rational to hold. Loss aversion is about which side of a line an outcome falls on: weighing a $500 decline more heavily than a $500 rise, where the line is usually the price you paid. One is a preference you are allowed to have. The other is arithmetic being distorted by a number that carries no information.</p>
+
+    <h3>Is loss aversion the same as the sunk cost fallacy?</h3>
+    <p>They are separate effects that reinforce each other. The sunk cost fallacy, documented by Arkes and Blumer in 1985, is letting money or time already spent change a forward-looking decision. Loss aversion is about the weight given to an outcome depending on which side of a reference point it lands. They connect because money already spent gets absorbed into the reference point, so walking away stops feeling like receiving whatever value remains and starts feeling like booking the entire amount as a loss. That is why the sentence about having already put so much in is so persuasive.</p>
+
+    <h3>What is the disposition effect?</h3>
+    <p>The disposition effect is the tendency to sell winning positions too early and hold losing ones too long. It was named by Hersh Shefrin and Meir Statman in the Journal of Finance in 1985. Terrance Odean tested it in 1998 using 10,000 accounts at a large discount brokerage from 1987 through 1993 and found gains were realized at a little over 1.5 times the rate of losses. In December, when booking a loss has a tax use, the pattern reversed, which is evidence the other eleven months are not tax strategy.</p>
+
+    <h3>How do you counter loss aversion?</h3>
+    <p>The honest answer is that the documented counters are structural rather than emotional. Decide in advance, write it down, and remove the decision from the moment you would be making it badly: position size set before entry, an exit level named while calm, an automated contribution rather than a monthly judgment call. Haigh and List found professional traders showed more myopic loss aversion than students, so experience is not a reliable fix. Note also that this page found no study measuring how much a written rule actually reduces loss-averse behavior, so treat pre-commitment as a reasoned structural argument, not a proven intervention.</p>
+
+    <h3>Why does a small unexpected bill feel like a disaster?</h3>
+    <p>Partly because it can be one. In a household with no buffer, a $200 repair really can end in a missed rent payment, and an alarm that fires in that situation is accurate risk assessment, not a bias. What loss aversion adds is that the alarm keeps firing at the same volume after a buffer exists, because the reference point updates more slowly than the bank balance does. That is an argument for building the buffer on structural grounds: a cushion changes what a $200 loss actually is, whether or not the feeling cooperates.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="stop-loss-order.html"><b>Stop-Loss Order</b><span>The exit you set before you need it</span></a>
+      <a href="position-sizing.html"><b>Position Sizing</b><span>Deciding how much, which sets how hard the exit will be</span></a>
+      <a href="risk-reward-ratio.html"><b>Risk/Reward Ratio</b><span>What you stand to make against what you risk, decided first</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>The buffer that decides whether a loss is survivable</span></a>
+      <a href="cost-basis.html"><b>Cost Basis</b><span>The purchase price the tax code tracks and your judgment anchors to</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Run the <a href="../markets-behavior.html">five-question pre-trade checklist</a> on Markets &middot; Behavior, alongside the eight biases and live sentiment readings &mdash; free, no account.</li>
+      <li>Work through bias and belief properly in Stage 2 of the <a href="../trading-psychology.html">Trading Psychology course</a>, where this sits next to the rest of the inner game.</li>
+      <li>Change what a loss <em>is</em> rather than how it feels &mdash; size a cushion with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>.</li>
+      <li>See what patient money does without any of these decisions in <a href="../stage-4-invest.html">Stage 4 of Financial Literacy</a>, free and no account.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>Daniel Kahneman and Amos Tversky, <a href="https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_Tversky_1979_Prospect_theory.pdf" target="_blank" rel="noopener">&ldquo;Prospect Theory: An Analysis of Decision under Risk&rdquo;</a>, <em>Econometrica</em> 47(2), March 1979, pp. 263&mdash;291 &mdash; the origin paper. Source for reference dependence (&ldquo;the carriers of value are changes in wealth or welfare, rather than final states&rdquo;), for the reference point corresponding to the current asset position, for &ldquo;losses loom larger than gains,&rdquo; and for the value function being steeper for losses. Also checked for, and confirmed not to contain, the phrase &ldquo;loss aversion.&rdquo;</li>
+      <li>Amos Tversky and Daniel Kahneman, <a href="https://academic.oup.com/qje/article-abstract/106/4/1039/1873382" target="_blank" rel="noopener">&ldquo;Loss Aversion in Riskless Choice: A Reference-Dependent Model&rdquo;</a>, <em>Quarterly Journal of Economics</em> 106(4), 1991, pp. 1039&mdash;1061, and <a href="https://link.springer.com/article/10.1007/BF00122574" target="_blank" rel="noopener">&ldquo;Advances in Prospect Theory: Cumulative Representation of Uncertainty&rdquo;</a>, <em>Journal of Risk and Uncertainty</em> 5(4), October 1992, pp. 297&mdash;323 &mdash; the 1991 paper is where the term &ldquo;loss aversion&rdquo; is named; the 1992 paper is the origin of the median coefficient of 2.25. The 1992 full text is paywalled and was not read directly for this page; the figure is cited here through the Brown and colleagues meta-analysis below, which quotes it verbatim.</li>
+      <li>Alexander L. Brown, Taisuke Imai, Ferdinand M. Vieider and Colin F. Camerer, <a href="https://www.aeaweb.org/articles?id=10.1257%2Fjel.20221698" target="_blank" rel="noopener">&ldquo;Meta-analysis of Empirical Estimates of Loss Aversion&rdquo;</a>, <em>Journal of Economic Literature</em> 62(2), June 2024, pp. 485&mdash;516 &mdash; 607 estimates from 150 articles published 1992 to 2017; mean coefficient 1.955 with a 95% interval of 1.820 to 2.102; weak indications of publication bias; unpublished working papers averaging roughly 0.28 lower. The <a href="https://economics.appstate.edu/sites/default/files/loss_aversion_meta-analysis_1.pdf" target="_blank" rel="noopener">working-paper version</a> was read for this page and carries the verbatim quotation of the 2.25 median.</li>
+      <li>Lukasz Walasek, Timothy L. Mullett and Neil Stewart, <a href="https://wrap.warwick.ac.uk/id/eprint/185745/13/1-s2.0-S0167487024000485-main.pdf" target="_blank" rel="noopener">&ldquo;A Meta-analysis of Loss Aversion in Risky Contexts&rdquo;</a>, <em>Journal of Economic Psychology</em> 103 (2024), article 102740 &mdash; the strict test, restricted to studies fitting prospect theory to individual mixed-gamble choices. Coefficient of 1.31 with a 95% interval of 1.10 to 1.53; between-study heterogeneity of 91.6%; confidence intervals encompassing loss neutrality in 12 of 19 datasets; and the finding that the magnitude &ldquo;largely depends on the context determined by the features of the elicitation procedure.&rdquo;</li>
+      <li>David Gal and Derek D. Rucker, <a href="https://myscp.onlinelibrary.wiley.com/doi/abs/10.1002/jcpy.1047" target="_blank" rel="noopener">&ldquo;The Loss of Loss Aversion: Will It Loom Larger Than Its Gain?&rdquo;</a>, <em>Journal of Consumer Psychology</em> 28(3), 2018, pp. 497&mdash;516 &mdash; the challenge to the premise. Source for &ldquo;the weight of the evidence does not support a general tendency for losses to be more psychologically impactful than gains,&rdquo; for the argument that the endowment effect and status quo bias confound loss with the difference between action and inaction, and for their contextual alternative. Drew published commentary in the same issue; the dispute is live.</li>
+      <li>Hersh Shefrin and Meir Statman, <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.1985.tb05002.x" target="_blank" rel="noopener">&ldquo;The Disposition to Sell Winners Too Early and Ride Losers Too Long: Theory and Evidence&rdquo;</a>, <em>Journal of Finance</em> 40(3), 1985, pp. 777&mdash;790 &mdash; the paper that named the disposition effect. Citation verified; the full text is paywalled and was not read for this page, so the naming is credited here on Odean's own attribution (&ldquo;labeled the disposition effect by Shefrin and Statman (1985)&rdquo;) rather than on the 1985 text.</li>
+      <li>Terrance Odean, <a href="https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/areinvestorsreluctant.pdf" target="_blank" rel="noopener">&ldquo;Are Investors Reluctant to Realize Their Losses?&rdquo;</a>, <em>Journal of Finance</em> 53(5), 1998, pp. 1775&mdash;1798 &mdash; 10,000 accounts at a large discount brokerage, January 1987 through December 1993. Source for the PGR and PLR definitions, the full-year figures of 0.148 and 0.098 and the ratio of &ldquo;a little over 1.5,&rdquo; the December reversal (PLR 0.128, PGR 0.108), the 3.4 percentage-point excess return of sold winners over held losers in the following year, and the conclusion that for taxable accounts the pattern &ldquo;is suboptimal and leads to lower after-tax returns.&rdquo;</li>
+      <li>Michael S. Haigh and John A. List, <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2005.00737.x" target="_blank" rel="noopener">&ldquo;Do Professional Traders Exhibit Myopic Loss Aversion? An Experimental Analysis&rdquo;</a>, <em>Journal of Finance</em> 60(1), February 2005, pp. 523&mdash;534 &mdash; the direct test of whether expertise attenuates the bias, run on professional traders from the Chicago Board of Trade against a student comparison group. Source for the finding that the traders &ldquo;exhibit behavior consistent with MLA to a greater extent than students.&rdquo;</li>
+      <li>Hal R. Arkes and Catherine Blumer, <a href="https://ideas.repec.org/a/eee/jobhdp/v35y1985i1p124-140.html" target="_blank" rel="noopener">&ldquo;The Psychology of Sunk Cost&rdquo;</a>, <em>Organizational Behavior and Human Decision Processes</em> 35(1), 1985, pp. 124&mdash;140 &mdash; cited for the separate documented existence of the sunk cost effect, which this page distinguishes from loss aversion. Citation verified through the RePEc record; the full text is paywalled and no experimental detail from it is claimed here.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it actually is</a></li>
+      <li><a href="#reference">Reference dependence</a></li>
+      <li><a href="#size">The contested 2x figure</a></li>
+      <li><a href="#notthesame">Not risk aversion, not sunk cost</a></li>
+      <li><a href="#ordinary">Where it costs ordinary money</a></li>
+      <li><a href="#disposition">The disposition effect</a></li>
+      <li><a href="#structure">Size and the exit</a></li>
+      <li><a href="#ledger">Confirmed, contested, convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Check yourself first</span>
+    <p>Five questions to answer before a position, including the one about whether you could afford to lose the money. Nothing is stored. Free, no account.</p>
+    <a class="gls-cta" href="../markets-behavior.html">The five-question pre-trade checklist &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

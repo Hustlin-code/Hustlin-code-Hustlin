@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving Average: What It Is and Why It Lags | Learn the Lingo</title>
+<meta name="description" content="A moving average is the mean price over a rolling window. The SMA and EMA arithmetic worked line by line, and why the lag is structural, not a setting.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/moving-average.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/moving-average.html">
+<meta property="og:title" content="Moving Average &mdash; Learn the Lingo">
+<meta property="og:description" content="The average price over a rolling window, worked line by line &mdash; plus the honest part: a 200-day average cannot tell you about today, and the famous window numbers have no derivation at all.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Moving Average &mdash; Learn the Lingo">
+<meta name="twitter:description" content="The average price over a rolling window, worked line by line &mdash; plus the honest part: a 200-day average cannot tell you about today, and the famous window numbers have no derivation at all.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/moving-average.html#term",
+      "name": "Moving Average (Moving Average)",
+      "alternateName": ["Moving Average","MA","Simple Moving Average","SMA","Exponential Moving Average"],
+      "description": "A moving average is the average price of a security over a fixed number of the most recent periods, recalculated each period so that the oldest value drops out as the newest one is added. A simple moving average (SMA) weights every period in the window equally; an exponential moving average (EMA) weights recent periods more heavily using a smoothing constant of 2 divided by the period count plus one. Because every value in it is a past price, a moving average is a lagging indicator by construction.",
+      "url": "https://hustlin.org/learn-the-lingo/moving-average.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Moving Average: The Arithmetic, the Lag, and Where 20, 50 and 200 Came From",
+      "description": "A plain-language explanation of the moving average: the rolling-window arithmetic shown advancing day by day, the exponential moving average smoothing constant of 2 divided by the period count plus one worked numerically, and why the lag in a long average is structural rather than a tuning error. Also the conventional 20, 50 and 200-period windows and the fact that none of them has a derivation, the golden cross and death cross as naming conventions, what index breadth adds that price alone cannot show, and a labeled ledger separating the sourced claims from the conventions.",
+      "url": "https://hustlin.org/learn-the-lingo/moving-average.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/moving-average.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/moving-average.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Moving Average", "item": "https://hustlin.org/learn-the-lingo/moving-average.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a moving average?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A moving average is the average closing price of a security over a fixed number of the most recent periods, recalculated every period. What makes it moving is the roll: each new bar adds the newest price and drops the oldest one, so the window slides forward instead of growing. Plotted on a chart it appears as a smooth line under or through price. Because every value inside it is a price that already happened, it describes the window it covers and nothing beyond it." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a simple and an exponential moving average?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A simple moving average weights every period in its window equally and drops the oldest price completely on each new bar. An exponential moving average weights recent prices more heavily using a smoothing constant of 2 divided by the period count plus one, and it never fully drops an old price; the weights just decay toward zero. StockCharts' ChartSchool states that exponential averages have less lag and therefore turn before simple ones. That is the whole difference, and it is a trade-off rather than an upgrade: turning sooner also means turning on noise sooner." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is a 200-day moving average so slow to change?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because 199 of its 200 inputs are the same as yesterday's. The change from one bar to the next equals the newest price minus the price that just dropped out, divided by the number of periods, so a large period count divides any single day's news down to almost nothing. Worked out: if a stock sat at 30 dollars for 199 sessions and then closed at 80, its 200-day average moves from 30.00 to 30.25. A 167 percent single-day move lifts the average 25 cents." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do the 20, 50 and 200-day windows come from?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Convention, and nothing else. No agency publishes them, no study established them, and the calendar story attached to each one is loose. Twenty sessions really is four trading weeks. Fifty is ten weeks, while a calendar quarter is closer to 63 sessions. Two hundred sessions is about 80 percent of a trading year, since 52 weeks of five sessions less nine or ten market holidays is roughly 250. ChartSchool reports which lengths are popular; popularity is the entire justification." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a golden cross?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is the name for a shorter moving average crossing above a longer one, most famously a 50-day crossing above a 200-day. The opposite crossing is called a death cross. ChartSchool defines both terms, so the naming is documented, but nothing about their reliability is. A crossover lags worse than either line alone, because both sides are averages of past prices and it takes many bars of one-sided movement to drag a shorter mean past a longer one. Any win rate you are quoted needs a named study behind it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do moving average trading rules actually work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The published evidence is thinner than the confidence with which the rules are taught. Brock, Lakonishok and LeBaron found in 1992 that 26 simple rules, moving averages among them, beat the benchmark on 90 years of Dow Jones data through 1986. Sullivan, Timmermann and White revisited that work in 1999 with a method built to correct for testing many rules at once. Some rules survived in the original window, but they reported scant evidence of economic value for 1987 through 1996. That is the state of it, and the newer paper is from 1999." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does market breadth measure?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Breadth measures how many index members are above their own moving average, rather than what the index price is doing. A capitalization-weighted index can be carried by its largest members while most members fall, so the index number alone cannot show you participation. Breadth gives every member one vote instead. Hustlin's Markets Technical page plots three published TradingView series across the 500 largest U.S. companies: S5TW for the 20-day, S5FI for the 50-day and S5TH for the 200-day. Custom lookbacks cannot be embedded in a free widget, which is why those three are the ones shown." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Moving Average</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Indicators</div>
+      <h1 class="hero-h1">Moving Average <span>(MA)</span></h1>
+      <p class="hero-sub">The average closing price over a fixed number of recent bars, recalculated every bar. It is the primitive underneath most of the lines on a chart &mdash; and it can only ever describe the window it covers, never today.</p>
+      <p class="gls-aka"><b>Also called:</b> MA &middot; simple moving average (SMA) &middot; exponential moving average (EMA) &middot; rolling average &middot; running average &middot; moving mean</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from StockCharts&rsquo; ChartSchool, TradingView&rsquo;s own indicator documentation, and two peer-reviewed studies of moving-average trading rules</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>A moving average is the average closing price over a fixed number of the most recent bars, recalculated every bar, so the oldest price drops out of the window as the newest price enters it.</strong></p>
+    <p>It exists because the human eye is bad at averaging a jagged line. Price on a chart moves in every direction at once, and an average of the last twenty or fifty or two hundred closes replaces that noise with one smooth number you can compare today's price against. Everything the tool is good for and everything it cannot do both come from the same fact: <em>every input is a price that already happened.</em> This page is the arithmetic, worked out, plus an honest accounting of which of its famous numbers anybody actually derived.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>The only thing that makes it &ldquo;moving&rdquo; is the roll.</b> Each new bar adds one price and drops the oldest one, which is why a 200-period average changes so little from day to day: 199 of its 200 inputs are the same as yesterday's.</li>
+      <li><b>The EMA smoothing constant is 2 &divide; (n + 1).</b> For a 10-period EMA that is 2 &divide; 11 = 18.18%, the weight given to today's close &mdash; a figure StockCharts' ChartSchool states directly. For a 200-period EMA it is 2 &divide; 201, just under 1%.</li>
+      <li><b>An EMA turns before an SMA, and that is a cost as well as a benefit.</b> ChartSchool puts it plainly: exponential averages &ldquo;have less lag and are, therefore, more sensitive to recent prices.&rdquo; More sensitive means more turns, including the wrong ones.</li>
+      <li><b>Lag is arithmetic, not a misconfiguration.</b> TradingView's own documentation says a moving average &ldquo;is not used as a predictive indicator but rather an interpretive one.&rdquo; A 200-day average describes the last 200 days. That is the whole of what it can do.</li>
+      <li><b>20, 50 and 200 have no derivation.</b> They are conventions. 20 sessions is four trading weeks; 200 sessions is about 80% of a trading year, not a year. A 47-period average would work about as well, and nobody has published a reason it wouldn't.</li>
+      <li><b>&ldquo;Golden cross&rdquo; and &ldquo;death cross&rdquo; are names, not evidence.</b> They describe a shorter average crossing above or below a longer one. <b>No hit rate appears on this page</b>, because the only peer-reviewed work cited here found the historical edge did not carry forward.</li>
+      <li><b>This site plots moving averages as breadth, not just as lines.</b> <a href="../markets-technical.html">Markets &middot; Technical</a> charts the percentage of S&amp;P 500 members above their own 20-day, 50-day and 200-day averages, which is a count the index number itself cannot show.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What a moving average actually is</h2>
+
+  <p>You own 100 shares of something. It closed at $22.00 today. Two weeks ago it was $24.00, and a month before that, $19.00. Is it going up?</p><p>Every honest answer depends on where you start counting, and you have no principled place to start. Zoom out to a year and you see one story; zoom to a month and you see the opposite one. A moving average takes that choice away from your eye and hands it to arithmetic.</p><p>Here is the whole idea. <strong>Pick a number of bars. Average the closing prices of that many most recent bars. Do it again on the next bar. Plot the results.</strong> That is the entire tool. The line is smooth because averaging is what smoothing means, and it trails price because every number in it already printed.</p><p>Two properties are worth fixing in your head first. <strong>A moving average contains no information that price does not already contain</strong> &mdash; it is the same data rearranged so a slow tendency becomes visible underneath a fast one. And <strong>it has no inventor.</strong> Unlike the <a href="relative-strength-index-rsi.html">Relative Strength Index</a>, published by J.&nbsp;Welles Wilder Jr. in 1978, or <a href="bollinger-bands.html">Bollinger Bands</a>, built by John Bollinger in the 1980s, the moving average is a general-purpose statistical smoother that was in use long before anyone pointed one at a stock chart. Who did that first is a question this page could not settle against a primary source, and the ledger below says so instead of guessing.</p><p>Get the primitive right and most of the other furniture on a chart decodes quickly. <a href="macd.html">MACD</a> is two moving averages subtracted and then averaged again. <a href="bollinger-bands.html">Bollinger Bands</a> are a moving average with a volatility channel drawn around it. Half of what a trading course calls a &ldquo;system&rdquo; is two moving averages of different lengths and a rule about which one is on top.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>A moving average answers &ldquo;what has this thing averaged lately,&rdquo; where <em>lately</em> is a number you chose and nobody derived. It does not answer &ldquo;what happens next,&rdquo; and no amount of tuning will make it.</p></div>
+
+  <h2 id="arithmetic">The arithmetic, and the part that makes it move</h2>
+
+  <p>The simple moving average is the mean of a window, and you can compute it on paper.</p><div class="gls-formula"><span class="gls-lbl">Simple moving average</span><code>SMA(n)  =  ( P<sub>1</sub> + P<sub>2</sub> + &hellip; + P<sub>n</sub> )  &divide;  n</code><p class="gls-where">Where <b>P</b> is each bar&rsquo;s closing price and <b>n</b> is how many bars you chose. StockCharts&rsquo; ChartSchool puts it the same way: &ldquo;a simple moving average is formed by computing the average price of a security over a specific number of periods.&rdquo;</p></div><p>Static like that, it is dull. The interesting part is the next bar, and it is the mechanical fact most explanations skip. <strong>The window does not grow. It slides.</strong> Adding the newest close means dropping the oldest one, so the number of inputs never changes and the average always covers the same span of time &mdash; a span that has shifted forward by one.</p><p>Watch it happen. A made-up seven-day series &mdash; our own numbers, not any real security &mdash; with a 5-day SMA advancing three days.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="A 5-day simple moving average advancing three days"><table class="gls-tab"><thead><tr><th>Day</th><th>Close</th><th>The five closes in the window</th><th>Sum</th><th>5-day SMA</th></tr></thead><tbody><tr><td>1&ndash;4</td><td>$20.00 &middot; $21.00 &middot; $22.50 &middot; $21.50</td><td colspan="3">No average yet &mdash; a 5-day average needs five bars</td></tr><tr><td><b>5</b></td><td>$23.00</td><td>20.00 &middot; 21.00 &middot; 22.50 &middot; 21.50 &middot; 23.00</td><td>108.00</td><td><b>$21.60</b></td></tr><tr><td><b>6</b></td><td>$24.00</td><td><em>drops 20.00</em> &middot; 21.00 &middot; 22.50 &middot; 21.50 &middot; 23.00 &middot; <em>adds 24.00</em></td><td>112.00</td><td><b>$22.40</b></td></tr><tr><td><b>7</b></td><td>$22.00</td><td><em>drops 21.00</em> &middot; 22.50 &middot; 21.50 &middot; 23.00 &middot; 24.00 &middot; <em>adds 22.00</em></td><td>113.00</td><td><b>$22.60</b></td></tr></tbody></table></div><p>Three things fall out of that table. <strong>The line starts late</strong> &mdash; no average until day five, which scaled up means a company public for four months has no 200-day average at all. <strong>The average describes any single day badly</strong> &mdash; on day 7 the close was $22.00 and the average $22.60, not because of anything that happened on day 7 but because days 3 and 6 are still in the window. And <strong>the change per bar depends on the price leaving as much as the price arriving.</strong></p><div class="gls-formula"><span class="gls-lbl">How the average moves, per bar</span><code>new SMA  =  old SMA  +  ( newest price &minus; dropped price ) &divide; n</code><p class="gls-where">Our own rearrangement of the definition, not a separate indicator. Check it: day 6 is 21.60 + (24.00 &minus; 20.00) &divide; 5 = <b>22.40</b>; day 7 is 22.40 + (22.00 &minus; 21.00) &divide; 5 = <b>22.60</b>. Both match the table.</p></div><p>That line answers &ldquo;why is my 200-day average so slow.&rdquo; The whole change is one difference divided by <b>n</b>, so make <b>n</b> large and nothing today can move the line much. Not a defect &mdash; it is the same property as the smoothing you asked for. One dial, both jobs.</p>
+
+  <h2 id="ema">EMA versus SMA, and what the extra weight costs</h2>
+
+  <p>The complaint about a simple moving average is that it treats the close from 200 days ago exactly as seriously as the close from an hour ago. The exponential moving average is the standard answer, and it uses a constant you can compute in one line.</p><div class="gls-formula"><span class="gls-lbl">Exponential moving average</span><code>multiplier  =  2 &divide; ( n + 1 )</code><code>EMA  =  ( close &minus; EMA<sub>previous</sub> ) &times; multiplier  +  EMA<sub>previous</sub></code><p class="gls-where">The formulas as ChartSchool gives them; it seeds the first value with an ordinary SMA of the first <b>n</b> bars, then recurses. ChartSchool states the result directly: &ldquo;a 10-period exponential moving average applies an 18.18% weighting to the most recent price.&rdquo;</p></div><p>The multiplier is the share of the gap between today&rsquo;s close and yesterday&rsquo;s average that gets closed today. Larger multiplier, faster line.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="EMA multiplier by period length"><table class="gls-tab"><thead><tr><th>Period (n)</th><th>2 &divide; (n + 1)</th><th>Weight on today&rsquo;s close</th></tr></thead><tbody><tr><td>5</td><td>2 &divide; 6</td><td>33.33%</td></tr><tr><td>10</td><td>2 &divide; 11</td><td>18.18% <em>(ChartSchool)</em></td></tr><tr><td>20</td><td>2 &divide; 21</td><td>9.52% <em>(ChartSchool)</em></td></tr><tr><td>50</td><td>2 &divide; 51</td><td>3.92%</td></tr><tr><td>200</td><td>2 &divide; 201</td><td>just under 1%</td></tr></tbody></table><p class="gls-where">The 18.18% and 9.52% figures are ChartSchool&rsquo;s. The other three rows are the same formula run by us on a calculator, which is all any of them are. Note the bottom row: a 200-period EMA is sold as the responsive alternative to a 200-period SMA, and it is &mdash; by weighting today about 1% instead of half of one percent. Both are slow.</p></div><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; one EMA step, against the SMA above</span><p>Same seven-day series. A <b>5-period EMA</b>, multiplier 2 &divide; 6 = 0.3333, seeded with the day-5 SMA of $21.60 the way ChartSchool seeds it.</p><p><b>Day 6</b>, close $24.00: ( 24.00 &minus; 21.60 ) &times; 0.3333 = 0.80, plus 21.60 = <b>$22.40</b>. The SMA lands on $22.40 that day too &mdash; coincidence of these particular numbers, and they part company at once.</p><p><b>Day 7</b>, close $22.00: ( 22.00 &minus; 22.40 ) &times; 0.3333 = &minus;0.13, plus 22.40 = <b>$22.27</b>.</p><p class="gls-result">On day 7 the EMA has turned down to $22.27 while the SMA is still rising, at $22.60. Same prices, same window length, opposite direction of travel.</p></div><p>That is the whole practical difference, and it cuts both ways. ChartSchool: exponential averages &ldquo;have less lag and are, therefore, more sensitive to recent prices and recent price changes&rdquo; and &ldquo;will turn before simple moving averages.&rdquo; Turning sooner is what you want when a real move is starting and what you do not want when price is chopping sideways, because <strong>the sensitivity that catches a turn early also manufactures turns that were only noise.</strong> No setting gives you the early signal without the false ones. It is one property with two names.</p><p>One structural difference people miss: <strong>an SMA drops the oldest price completely, an EMA never drops anything.</strong> Every price since the seed is still in there, its weight decaying toward zero but never reaching it. So a &ldquo;20-day EMA&rdquo; is not a 20-day window at all &mdash; it is an unbounded window weighted so most of the influence sits in roughly the last 20 bars. That falls out of the formula rather than needing a source, and it is why an SMA can jump on a quiet day: something large just fell out the back.</p>
+
+  <h2 id="lag">Lag is structural, not a setting you got wrong</h2>
+
+  <p>This is the honest core of the page, and the rest follows from it. <strong>A 200-day moving average cannot tell you anything about today. It tells you about the last 200 days.</strong> That is not a limitation of the implementation, or the free version, or your platform&rsquo;s default. It is what the number is.</p><p>TradingView&rsquo;s documentation says it about as bluntly as a vendor can about a tool it ships: a moving average is &ldquo;a price based, lagging (or reactive) indicator,&rdquo; and &ldquo;because a Moving Average is a lagging indicator and reacts to events that have already happened, it is not used as a predictive indicator but rather an interpretive one, used for confirmations and analysis.&rdquo; ChartSchool, from the other side: moving averages &ldquo;are trend-following, or lagging, indicators that will always be a step behind.&rdquo;</p><p>You can see how far behind with one deliberately extreme piece of arithmetic.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; what a 200-day average does with news</span><p>A stock trades at exactly $30.00 for 199 consecutive sessions. You hold 100 shares, worth <b>$3,000</b>. On session 200 it closes at <b>$80.00</b>, a 167% single-day move, and your position is worth <b>$8,000</b>. At that close:</p><p><b>200-day SMA</b> = ( 199 &times; $30.00 + $80.00 ) &divide; 200 = $6,050 &divide; 200 = <b>$30.25</b></p><p><b>5-day SMA</b> = ( 4 &times; $30.00 + $80.00 ) &divide; 5 = $200 &divide; 5 = <b>$40.00</b></p><p class="gls-result">A 167% move lifted the 200-day average by 25 cents. Your position changed by $5,000 and the 200-day average acknowledged $25 of it. It is not wrong &mdash; $30.25 genuinely is the mean of those 200 closes. It is answering a question about the past 200 sessions, which is not the question you asked.</p></div><p>The temptation now is to fix the lag by shortening the window, and the shortcut formula above shows in one step why that fails. The change per bar is one price difference divided by <b>n</b>, so <strong>the smoothing and the lag are the same term.</strong> Cut <b>n</b> to make the line current and you have thrown away the averaging that was the reason to draw it. Raise <b>n</b> for a clean line and you have accepted that it describes a period ending some time ago. No setting gives you both, and anyone selling an &ldquo;optimized&rdquo; length is selling a point on that trade-off, not an escape from it.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>A rule that says &ldquo;act when price crosses the average&rdquo; guarantees you act after the move that caused the crossing. That may still be a defensible way to behave &mdash; late and consistent beats early and wrong &mdash; but <b>it is a choice about behavior, not an information advantage,</b> and nothing in the arithmetic here says it will pay.</p></div>
+
+  <h2 id="windows">20, 50 and 200 &mdash; where those numbers came from</h2>
+
+  <p>Open any chart platform and three lengths are one click away. ChartSchool describes the groupings the way everyone does: short-term averages of 5 to 20 periods, medium-term of 20 to 60 with the 50-day the most popular, and long-term of 100 or more, where the 200-day is &ldquo;perhaps the most popular.&rdquo;</p><p>Now the part that rarely gets said out loud. <strong>None of those three numbers has a derivation.</strong> Nobody optimized them, no agency publishes them, no study established them as the right lengths &mdash; and the round-number story attached to each does not survive contact with a calendar.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="The conventional moving average windows against the trading calendar"><table class="gls-tab"><thead><tr><th>Window</th><th>Said to represent</th><th>What the trading calendar says</th></tr></thead><tbody><tr><td><b>20 sessions</b></td><td>&ldquo;about a month&rdquo;</td><td>Four weeks of five sessions is exactly 20. <b>This one is honest.</b></td></tr><tr><td><b>50 sessions</b></td><td>&ldquo;about a quarter&rdquo;</td><td>Ten weeks. A calendar quarter is closer to 63 sessions, so 50 is short by roughly a fifth.</td></tr><tr><td><b>200 sessions</b></td><td>&ldquo;about a trading year&rdquo;</td><td>52 weeks of five sessions is 260, less the nine or ten holidays U.S. exchanges close for, so a year is about 250 sessions. 200 is roughly <b>80%</b> of one &mdash; about nine and a half calendar months.</td></tr></tbody></table><p class="gls-where">The right-hand column is our own arithmetic off the exchange calendar, not a published finding.</p></div><p>So the most watched line in the market is an average over a period that is not a year, described as a year, chosen by nobody in particular. <strong>A 47-session average would very likely work about as well as a 50, and a 187 about as well as a 200,</strong> and this page can point you at no published work showing otherwise. One small piece of evidence that the numbers are arbitrary: TradingView&rsquo;s generic Moving Average study ships with a default length of <b>9</b> &mdash; a fourth number, from a major platform, that nobody quotes.</p><p>There is a real argument for using the conventional lengths anyway, and it has nothing to do with them being correct: <strong>a level everybody is looking at is a level that can attract behavior.</strong> If enough participants watch the 200-day, it may matter because it is watched, not because 200 is right. That is a plausible mechanism rather than a measured one &mdash; we have put no study behind it, and the ledger files it accordingly. The same idea gets fuller treatment on <a href="support-and-resistance.html">support and resistance</a>.</p>
+
+  <h2 id="crossovers">Crossovers, the golden cross and the death cross</h2>
+
+  <p>Put two averages of different lengths on one chart and they occasionally swap places. That event has famous names, and the names are the best-sourced thing about it. ChartSchool defines both: a bullish crossover &ldquo;occurs when the shorter moving average crosses above the longer moving average&rdquo; and is called a <b>golden cross</b>; a bearish crossover &ldquo;occurs when the shorter moving average crosses below the longer moving average. This is known as a death cross.&rdquo; The famous pairing is the 50 against the 200, which inherits every bit of the arbitrariness above.</p><p><strong>A crossover lags by construction, and worse than either line alone.</strong> Both sides of the comparison are averages of the past, so a crossing is not an event in the market &mdash; it is two backward-looking numbers changing rank. For a 50-day average to climb through a 200-day average, enough price has to accumulate to drag a 50-bar mean past a 200-bar mean, and by the shortcut formula that takes many bars of one-sided movement. The move that produced the cross finished before the cross printed. ChartSchool is direct about the consequence: crossovers &ldquo;produce relatively late signals&rdquo; that &ldquo;work great when a good trend takes hold,&rdquo; but with no strong trend they &ldquo;produce many whipsaws.&rdquo;</p><div class="gls-box gls-warn"><span class="gls-lbl">No win rate appears on this page</span><p>You will be offered one. &ldquo;The golden cross works 70% of the time&rdquo; and its cousins circulate constantly and are almost never attached to a study. When you meet a number like that, ask one question: <b>which study, what index, what date range?</b> No answer means the number was invented. That applies to this site too &mdash; if we ever print a hit rate, hold us to it.</p></div><p>There is real research on moving-average rules, and it is more honest than anything a course will show you. Two papers in the <em>Journal of Finance</em>, on the same data:</p><ul><li><b>Brock, Lakonishok and LeBaron (1992)</b> tested 26 simple technical rules, moving-average rules among them, on 90 years of daily Dow Jones Industrial Average data from 1897 to 1986, and found they generated significantly superior performance against the benchmark. This is the paper most pro-technical arguments are ultimately leaning on, named or not.</li><li><b>Sullivan, Timmermann and White (1999)</b> went back over the same ground with a bootstrap method built to measure <em>data-snooping</em> &mdash; the statistical inflation you get from testing many rules and reporting the winner. In the original 1897&ndash;1986 window some rules did still outperform &ldquo;even after adjustment is made for data-snooping.&rdquo; Then they looked at 1987&ndash;1996, which the earlier paper had not seen, and found &ldquo;scant evidence that technical trading rules were of any economic value during the period 1987&ndash;1996,&rdquo; with the probability that even the best rule failed to beat the benchmark running at &ldquo;nearly 12 percent.&rdquo;</li></ul><p>Read together, the summary is short: the historical result was real in the sample where it was found, it did not carry forward into the following decade, and the newer of the two papers is from 1999. <strong>That is the state of the published evidence, and it is thinner than the confidence with which crossovers get taught.</strong> Crossover logic taken one step further &mdash; two averages subtracted and the difference plotted &mdash; is <a href="macd.html">MACD</a>, and the lag rides along with it.</p>
+
+  <h2 id="breadth">What this site does with them &mdash; S&amp;P 500 breadth</h2>
+
+  <p>Everything so far has been one average on one chart. The more interesting use, and the one running live here, is to compute the average for every member of an index and then count.</p><p>The reason to bother is structural. <strong>The S&amp;P 500 is capitalization-weighted, so a member&rsquo;s influence on the index is its market value</strong> &mdash; see <a href="market-capitalization.html">market capitalization</a> for how that number is arrived at and what it is not. A handful of the largest members can therefore carry the index by themselves. It can print a new high on a day when most of its members fell, because the ones that rose are worth more than the ones that didn&rsquo;t. Price alone can never show you that: the index is a single weighted number, and a single number has nowhere to hide a distribution.</p><p>Breadth fixes the weighting by throwing it away. Each of the 500 gets one vote &mdash; <em>is this member above its own moving average, yes or no?</em> Count the yeses, express it as a percentage, plot it. Three of those series sit on <a href="../markets-technical.html">Markets &middot; Technical</a>, free and with no account:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="The three breadth series used on this site"><table class="gls-tab"><thead><tr><th>Series</th><th>What it counts</th><th>Horizon</th></tr></thead><tbody><tr><td><b>S5TW</b></td><td>% of members above their <b>20-day</b> average</td><td>Short term. Moves fast, and hits extremes often enough that one reading is not remarkable.</td></tr><tr><td><b>S5FI</b></td><td>% above their <b>50-day</b> average</td><td>Intermediate &mdash; and the one that most often disagrees with the index.</td></tr><tr><td><b>S5TH</b></td><td>% above their <b>200-day</b> average</td><td>Long term, slow by construction, since every member&rsquo;s own 200-day average is slow.</td></tr></tbody></table><p class="gls-where">All three are published breadth indices supplied by TradingView and embedded on the page. Read together rather than one at a time &mdash; the information is in whether the three horizons agree.</p></div><div class="gls-where"><span class="gls-lbl">Where you&rsquo;ll see it</span><p>What breadth adds is participation. An index rising while the share of members above their 50-day average falls describes a market where fewer and fewer names are doing the work. The index is not lying; it is correctly reporting a weighted average. It is answering a different question from &ldquo;how many of these companies are actually going up.&rdquo; <a href="dow-theory.html">Dow Theory</a>, overlaid on the same page, is the century-old version of the same instinct &mdash; check a second, independent measure before treating a move as real. <a href="volume.html">Volume</a> is a third angle: breadth counts how many names took part, volume counts how many shares changed hands.</p></div><p>One limit is stated on the page and belongs here. <strong>Custom lookback periods cannot be embedded in a free TradingView widget at all.</strong> The 20, 50 and 200-day versions are used because they exist as published indices with long histories; a 100-day version would have to be recreated inside a full charting account. That is a tooling constraint, not a claim that those three are the right three &mdash; after the previous section it would be strange to argue they are.</p>
+
+  <h2 id="ledger">What is sourced here, and what is convention</h2>
+
+  <p>Moving averages mix two very different kinds of claim: arithmetic that is either right or wrong, and habits that are true only because enough people share them. This is the split.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confirmed, unverified and convention claims about moving averages"><table class="gls-tab"><thead><tr><th>Claim</th><th>Status</th><th>What backs it</th></tr></thead><tbody><tr><td>The SMA is a mean over a rolling window, oldest value dropping as the newest is added</td><td><b>Confirmed</b></td><td>ChartSchool&rsquo;s own 5-day example advancing three days &mdash; and arithmetic you can check by hand on every row of our table.</td></tr><tr><td>EMA multiplier = 2 &divide; (n + 1); 18.18% at 10 periods, 9.52% at 20</td><td><b>Confirmed</b></td><td>ChartSchool states the formula and both percentages. Our 5, 50 and 200-period rows are the same formula, run by us.</td></tr><tr><td>An EMA has less lag and turns before an SMA</td><td><b>Confirmed</b></td><td>ChartSchool, in those words; our day-7 example shows it numerically.</td></tr><tr><td>A moving average is a lagging indicator and is not predictive</td><td><b>Confirmed</b></td><td>TradingView: &ldquo;not used as a predictive indicator but rather an interpretive one.&rdquo; ChartSchool: &ldquo;always be a step behind.&rdquo;</td></tr><tr><td>Crossover systems whipsaw badly when there is no strong trend</td><td><b>Confirmed</b></td><td>ChartSchool, on the same page that teaches the crossover.</td></tr><tr><td>&ldquo;Golden cross&rdquo; = shorter above longer; &ldquo;death cross&rdquo; = shorter below longer</td><td><b>Confirmed</b> as naming only</td><td>ChartSchool defines both terms. The names are documented; nothing about their reliability is.</td></tr><tr><td>These rules beat the benchmark on the Dow 1897&ndash;1986, and showed &ldquo;scant evidence&rdquo; of value 1987&ndash;1996</td><td><b>Confirmed</b></td><td>Brock, Lakonishok and LeBaron (1992); Sullivan, Timmermann and White (1999). Both <em>Journal of Finance</em>, cited in full below.</td></tr><tr><td>This site&rsquo;s breadth uses S5TW, S5FI and S5TH, and custom lookbacks cannot be embedded</td><td><b>Confirmed</b></td><td>Stated on <a href="../markets-technical.html">Markets &middot; Technical</a> itself; the three symbols are published TradingView indices.</td></tr><tr><td>Who first applied a moving average to market prices, and why 200 became the standard</td><td><b>Unverified</b></td><td>Usually credited to mid-century trend followers &mdash; Richard Donchian&rsquo;s 5-and-20-day method, and William Gordon&rsquo;s <em>The Stock Market Indicators</em> (1968) for the long window. Neither was reachable for this page, and unlike RSI or Bollinger Bands there is no origin text to cite.</td></tr><tr><td>Any hit rate for a golden cross, a death cross, or a price-crosses-average rule</td><td><b>Unverified &mdash; treat every quoted figure as invented until named</b></td><td>Nothing reachable establishes one. The two studies above are the closest published work and neither yields a usable forward percentage for a single rule.</td></tr><tr><td>That a watched average matters <em>because</em> it is watched</td><td><b>Unverified</b></td><td>Plausible mechanism, repeated everywhere, no study behind it here. Stated above as an argument, not a finding.</td></tr><tr><td>20, 50 and 200 as the standard windows; 50/200 as the crossover pair</td><td><b>Convention</b></td><td>Popularity only. ChartSchool reports which lengths are popular; nobody derived them, and TradingView&rsquo;s own generic default is 9.</td></tr><tr><td>Using closing prices rather than highs, lows or a bar average</td><td><b>Convention</b></td><td>The default on every platform. Any other input is equally valid arithmetic and draws a different line.</td></tr><tr><td>Reading a touch of the 200-day as &ldquo;support&rdquo;</td><td><b>Convention</b></td><td>Widely done. The failure mode is in the next section.</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Treating a crossover as news.</b> Both lines are averages of prices that already printed. A cross is two backward-looking numbers changing rank, and the movement that caused it is weeks old by the time it appears.</li><li><b>&ldquo;It bounced right off the 200-day.&rdquo;</b> Sometimes. But an average is a line drawn through the middle of the recent range, and price spends much of its life near the middle of its recent range &mdash; so contact is not rare, and continuation is often just a trend doing what it was already doing, with the average drawn through it afterwards. That is the boring null explanation, and nobody demonstrating the bounce on a chart has ruled it out.</li><li><b>Changing the window until the chart agrees with you.</b> There is a length at which almost any conclusion is available. If you tested eleven lengths and are showing one, that is exactly the data-snooping problem Sullivan, Timmermann and White built their method to measure.</li><li><b>Thinking the EMA is the better one.</b> It is the faster one. Faster catches real turns sooner and false ones sooner, in the same proportion.</li><li><b>Stacking a 20, a 50, a 100 and a 200 and calling their agreement confirmation.</b> They share almost all of their inputs, so four averages of overlapping windows are close to one opinion printed four times &mdash; nothing like four independent pieces of evidence.</li><li><b>Using one in a range and blaming the tool.</b> ChartSchool says it outright: securities spend much time in trading ranges, &ldquo;which renders moving averages ineffective.&rdquo; A tool built to describe a trend has nothing to say when there isn&rsquo;t one.</li><li><b>Expecting a line where there is no data.</b> A 200-day average needs 200 sessions. A company public for four months does not have one, and a chart showing you something anyway is showing a shorter average under a longer label.</li><li><b>Running any of it with the rent money.</b> Nothing here changes what a loss does to a household with no cushion under it. That is what <a href="emergency-fund.html">the emergency fund</a> is for, and it is the one part of this that is not a convention.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is a moving average?</h3>
+    <p>A moving average is the average closing price of a security over a fixed number of the most recent periods, recalculated every period. What makes it moving is the roll: each new bar adds the newest price and drops the oldest one, so the window slides forward instead of growing. Plotted on a chart it appears as a smooth line under or through price. Because every value inside it is a price that already happened, it describes the window it covers and nothing beyond it.</p>
+
+    <h3>What is the difference between a simple and an exponential moving average?</h3>
+    <p>A simple moving average weights every period in its window equally and drops the oldest price completely on each new bar. An exponential moving average weights recent prices more heavily using a smoothing constant of 2 divided by the period count plus one, and it never fully drops an old price; the weights just decay toward zero. StockCharts' ChartSchool states that exponential averages have less lag and therefore turn before simple ones. That is the whole difference, and it is a trade-off rather than an upgrade: turning sooner also means turning on noise sooner.</p>
+
+    <h3>Why is a 200-day moving average so slow to change?</h3>
+    <p>Because 199 of its 200 inputs are the same as yesterday's. The change from one bar to the next equals the newest price minus the price that just dropped out, divided by the number of periods, so a large period count divides any single day's news down to almost nothing. Worked out: if a stock sat at 30 dollars for 199 sessions and then closed at 80, its 200-day average moves from 30.00 to 30.25. A 167 percent single-day move lifts the average 25 cents.</p>
+
+    <h3>Where do the 20, 50 and 200-day windows come from?</h3>
+    <p>Convention, and nothing else. No agency publishes them, no study established them, and the calendar story attached to each one is loose. Twenty sessions really is four trading weeks. Fifty is ten weeks, while a calendar quarter is closer to 63 sessions. Two hundred sessions is about 80 percent of a trading year, since 52 weeks of five sessions less nine or ten market holidays is roughly 250. ChartSchool reports which lengths are popular; popularity is the entire justification.</p>
+
+    <h3>What is a golden cross?</h3>
+    <p>It is the name for a shorter moving average crossing above a longer one, most famously a 50-day crossing above a 200-day. The opposite crossing is called a death cross. ChartSchool defines both terms, so the naming is documented, but nothing about their reliability is. A crossover lags worse than either line alone, because both sides are averages of past prices and it takes many bars of one-sided movement to drag a shorter mean past a longer one. Any win rate you are quoted needs a named study behind it.</p>
+
+    <h3>Do moving average trading rules actually work?</h3>
+    <p>The published evidence is thinner than the confidence with which the rules are taught. Brock, Lakonishok and LeBaron found in 1992 that 26 simple rules, moving averages among them, beat the benchmark on 90 years of Dow Jones data through 1986. Sullivan, Timmermann and White revisited that work in 1999 with a method built to correct for testing many rules at once. Some rules survived in the original window, but they reported scant evidence of economic value for 1987 through 1996. That is the state of it, and the newer paper is from 1999.</p>
+
+    <h3>What does market breadth measure?</h3>
+    <p>Breadth measures how many index members are above their own moving average, rather than what the index price is doing. A capitalization-weighted index can be carried by its largest members while most members fall, so the index number alone cannot show you participation. Breadth gives every member one vote instead. Hustlin's Markets Technical page plots three published TradingView series across the 500 largest U.S. companies: S5TW for the 20-day, S5FI for the 50-day and S5TH for the 200-day. Custom lookbacks cannot be embedded in a free widget, which is why those three are the ones shown.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="macd.html"><b>MACD</b><span>Two moving averages subtracted, then averaged again</span></a>
+      <a href="bollinger-bands.html"><b>Bollinger Bands</b><span>A volatility channel drawn around a moving average</span></a>
+      <a href="relative-strength-index-rsi.html"><b>Relative Strength Index</b><span>The momentum line, and which of its levels have a source</span></a>
+      <a href="support-and-resistance.html"><b>Support and Resistance</b><span>Levels people watch, and why watching matters</span></a>
+      <a href="dow-theory.html"><b>Dow Theory</b><span>The century-old habit of confirming a move twice</span></a>
+      <a href="volume.html"><b>Volume</b><span>How many shares moved, next to how many names moved</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Watch all three breadth series and a live chart together on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account, no sign-in.</li>
+      <li>Work through moving averages in context in the <a href="../technical-analysis.html">Technical Analysis course</a>, where they sit in Chart Basics and come back in Indicators &amp; Signals.</li>
+      <li>See what the same market looks like without any chart on it at all on <a href="../markets-economic.html">Markets &middot; Economic</a> &mdash; growth, inflation, rates and labor.</li>
+      <li>Check the part no indicator handles on <a href="../markets-behavior.html">Markets &middot; Behavior</a>, including the five-question checklist you run before a trade.</li>
+      <li>Start with the slow engine instead: <a href="../stage-4-invest.html">Stage 4 of the free course</a> and the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>StockCharts.com, <a href="https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential" target="_blank" rel="noopener">ChartSchool: Moving Averages &mdash; Simple and Exponential</a> &mdash; the source for the SMA definition and its 5-day rolling example, the three-step EMA calculation, the multiplier formula 2 &divide; (time periods + 1) with 18.18% for 10 periods and 9.52% for 20, the statement that exponential averages have less lag and turn before simple ones, the golden cross and death cross definitions, the whipsaw warning on crossover systems, the popularity of the 50-day and 200-day, and the line that trading ranges render moving averages ineffective.</li>
+      <li>TradingView, <a href="https://www.tradingview.com/support/solutions/43000502589-moving-average/" target="_blank" rel="noopener">Moving Average</a> &mdash; official platform documentation describing the indicator as &ldquo;price based, lagging (or reactive),&rdquo; stating that it &ldquo;is not used as a predictive indicator but rather an interpretive one, used for confirmations and analysis,&rdquo; noting that longer timeframes carry more lag, and giving the study's own default length of 9.</li>
+      <li>William Brock, Josef Lakonishok and Blake LeBaron, <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.1992.tb04681.x" target="_blank" rel="noopener">&ldquo;Simple Technical Trading Rules and the Stochastic Properties of Stock Returns&rdquo;</a>, <em>Journal of Finance</em> 47(5), 1992, pp.&nbsp;1731&ndash;1764 &mdash; the study of 26 technical rules, including moving-average rules, on daily Dow Jones Industrial Average data from 1897 to 1986. This is the paper behind most claims that moving-average rules have been shown to work.</li>
+      <li>Ryan Sullivan, Allan Timmermann and Halbert White, <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/0022-1082.00163" target="_blank" rel="noopener">&ldquo;Data-Snooping, Technical Trading Rule Performance, and the Bootstrap&rdquo;</a>, <em>Journal of Finance</em> 54(5), 1999, pp.&nbsp;1647&ndash;1691 &mdash; expands the Brock, Lakonishok and LeBaron rule universe, applies White's Reality Check bootstrap to 100 years of Dow Jones data, finds that some rules outperformed in the 1897&ndash;1986 window &ldquo;even after adjustment is made for data-snooping,&rdquo; and reports &ldquo;scant evidence that technical trading rules were of any economic value during the period 1987&ndash;1996,&rdquo; with the best rule's probability of failing to beat the benchmark in that period at &ldquo;nearly 12 percent.&rdquo; The source for every statement on this page about whether these rules work.</li>
+      <li>TradingView, <a href="https://www.tradingview.com/symbols/INDEX-S5TH/" target="_blank" rel="noopener">S&amp;P 500 Stocks Above 200-Day Average (INDEX:S5TH)</a> &mdash; the published breadth index used on this site's technical page, confirming that the series measures the percentage of S&amp;P 500 constituents trading above their 200-day moving average. Its 20-day and 50-day siblings are S5TW and S5FI.</li>
+      <li>Hustlin', <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; this site's own implementation, and the source for the stated limit that arbitrary lookback periods cannot be embedded in a free charting widget and would have to be recreated inside a charting account. The 20, 50 and 200-day participation indices are used because they exist as published series with long histories.</li>
+      <li>William Gordon, <a href="https://books.google.com/books/about/The_stock_market_indicators.html?id=rk8UAQAAMAAJ" target="_blank" rel="noopener"><em>The Stock Market Indicators: As a Guide to Market Timing</em></a> (Investors' Press, 1968) &mdash; the book most often named as the early testing of long-window moving averages, and the source that would settle where the 200-day convention came from. No readable copy was reachable for this page, which is why the ledger above marks that origin unverified rather than repeating the usual attribution.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it actually is</a></li>
+      <li><a href="#arithmetic">The arithmetic</a></li>
+      <li><a href="#ema">EMA versus SMA</a></li>
+      <li><a href="#lag">Why the lag is structural</a></li>
+      <li><a href="#windows">20, 50 and 200</a></li>
+      <li><a href="#crossovers">Crossovers</a></li>
+      <li><a href="#breadth">Breadth on this site</a></li>
+      <li><a href="#ledger">Sourced vs convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">See it on a live chart</span>
+    <p>See moving averages doing real work &mdash; a live chart plus the share of S&amp;P 500 members above their own 20-day, 50-day and 200-day averages. Free, no account.</p>
+    <a class="gls-cta" href="../markets-technical.html">Live chart and S&amp;P breadth &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

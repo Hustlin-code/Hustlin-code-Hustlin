@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk/Reward Ratio: The Break-Even Win Rate | Learn the Lingo</title>
+<meta name="description" content="Risk/reward compares your target against your stop, and it means nothing without a win rate. The break-even table, the expectancy math, and why 3:1 can lose.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/risk-reward-ratio.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/risk-reward-ratio.html">
+<meta property="og:title" content="Risk/Reward Ratio &mdash; Learn the Lingo">
+<meta property="og:description" content="A 3-to-1 trade makes money if it wins more than a quarter of the time and loses money if it doesn't &mdash; and almost nobody quoting you the ratio mentions that. Here is the table that fills the gap.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Risk/Reward Ratio &mdash; Learn the Lingo">
+<meta name="twitter:description" content="A 3-to-1 trade makes money if it wins more than a quarter of the time and loses money if it doesn't &mdash; and almost nobody quoting you the ratio mentions that. Here is the table that fills the gap.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/risk-reward-ratio.html#term",
+      "name": "Risk/Reward Ratio",
+      "alternateName": ["Reward/Risk Ratio","Reward-to-Risk Ratio","R-Multiple","Risk:Reward","R"],
+      "description": "The risk/reward ratio compares what a trade stands to gain if it reaches its target against what it stands to lose if it reaches its stop. Risk is the entry price minus the stop price, reward is the target price minus the entry price, and the ratio is reward divided by risk. On its own the ratio cannot tell you whether a trade is worth taking, because it carries no information about how often the target is actually reached.",
+      "url": "https://hustlin.org/learn-the-lingo/risk-reward-ratio.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Risk/Reward Ratio: The Break-Even Win Rate Nobody Quotes With It",
+      "description": "A plain-language explanation of the risk/reward ratio: the arithmetic, the notation confusion between 1:3 and 3:1, and the break-even win rate table computed from 1 divided by (1 plus R). Also expectancy, a worked example of a 3-to-1 setup that loses money at a 20% win rate, the three things that corrupt the realized ratio, and why minimum-ratio rules are convention with no authority behind them.",
+      "url": "https://hustlin.org/learn-the-lingo/risk-reward-ratio.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/risk-reward-ratio.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/risk-reward-ratio.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Risk/Reward Ratio", "item": "https://hustlin.org/learn-the-lingo/risk-reward-ratio.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a risk/reward ratio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It compares what a trade stands to make against what it stands to lose. Risk is the entry price minus the stop price, reward is the target price minus the entry price, and the ratio is reward divided by risk. Buying at $42.50 with a stop at $40.00 and a target at $50.00 means risking $2.50 a share to make $7.50 a share, which is three to one. The ratio describes the shape of the two outcomes and says nothing about how often each one happens." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a 3:1 risk/reward ratio good?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is good if you win more than a quarter of the time and bad if you win less often than that. The break-even win rate for any reward-to-risk multiple R is 1 divided by (1 + R), so 3 to 1 breaks even at exactly 25%. That is the whole answer, and it cannot be given without a win rate. A 3-to-1 setup that wins 20% of the time loses money: risking $250 to make $750, ten wins at $750 is $7,500 while forty losses at $250 is $10,000." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you calculate the break-even win rate?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Break-even win rate = 1 divided by (1 + R), where R is reward divided by risk. It comes from setting total winnings equal to total losses over a long run. That gives 50% at 1:1, 40% at 1.5:1, 33.3% at 2:1, 25% at 3:1, 16.7% at 5:1 and 9.1% at 10:1. It is arithmetic rather than a rule of thumb, so no source is needed and none exists. Note that it ignores commissions and spread, both of which raise the bar." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does 1:3 mean the same thing as 3:1?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually yes, and that is the problem. Some writers put the risk first, so risking one unit to make three is 1:3. Others put the reward first, so the same trade is 3:1. A few platforms report a risk/reward field where the same trade shows as 0.33 and a lower number is better, which inverts the intuition entirely. The colon carries no information about which side is which, so state it in words: $250 at risk to make $750 cannot be misread." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is expectancy in trading?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Expectancy is the average dollar result of one trade: (win rate times average win) minus (loss rate times average loss). It is the number that decides whether a way of trading survives, and the risk/reward ratio is a relationship between two of its four inputs rather than a substitute for it. A 3-to-1 trade won 20% of the time has an expectancy of minus $50 per trade at $250 of risk. The term was popularized among traders by Van K. Tharp." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my actual risk/reward worse than I planned?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Three leaks. Taking profit early cuts the reward leg, which removes the arithmetic that justified the trade. Gaps and slippage enlarge the risk leg, because a triggered stop order becomes a market order and FINRA states plainly that the price received can be markedly different from the stop price. Commissions and spread come off the reward and get added to the risk. An intended 3-to-1 can easily realize closer to 1.2-to-1, which moves the break-even win rate from 25% to roughly 46%." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a minimum risk/reward ratio worth taking?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No exchange, regulator or standard-setting body publishes one, and nothing in the break-even curve singles out any particular number. Minimum 2-to-1 and minimum 3-to-1 are conventions. They do force a target to exist before the order goes in, which has value on its own. The cost they leave out is that a target further away is reached less often, so demanding a higher ratio lowers the win rate at the same time. You cannot raise the ratio for free." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Risk/Reward Ratio</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Risk Management</div>
+      <h1 class="hero-h1">Risk/Reward Ratio</h1>
+      <p class="hero-sub">Reward divided by risk. It gets quoted constantly, and almost never alongside the one other number that makes it mean anything &mdash; how often the trade actually wins.</p>
+      <p class="gls-aka"><b>Also called:</b> Reward/Risk Ratio &middot; Reward-to-Risk &middot; R-Multiple &middot; R &middot; Risk:Reward</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from the SEC and FINRA on order execution, Kelly&rsquo;s 1956 paper, published research on the disposition effect, and our own arithmetic where we say so</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>A risk/reward ratio compares what a trade makes if it reaches its target against what it loses if it reaches its stop &mdash; reward divided by risk.</strong> Entry at $42.50, stop at $40.00, target at $50.00: you are risking $2.50 a share to make $7.50 a share, which is 3 to 1.</p>
+    <p>On its own, that number tells you nothing. A 3-to-1 trade makes money if it wins more than a quarter of the time and loses money if it wins less often than that, so the ratio is one half of a two-part answer and it is almost always quoted without the other half. That is why most of this page is a table of break-even win rates, plus one worked example of a perfectly respectable 3-to-1 setup quietly draining an account.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Risk is measured; reward is chosen.</b> The risk leg is anchored to a stop order you can actually place. The reward leg is a target you picked. The ratio is one measured number divided by one imagined one.</li>
+      <li><b>Break-even win rate = 1 &divide; (1 + R)</b>, where R is the reward-to-risk multiple. This is arithmetic, not a rule of thumb: 1:1 needs 50%, 1.5:1 needs 40%, 2:1 needs 33.3%, 3:1 needs 25%, 5:1 needs 16.7%, 10:1 needs 9.1%.</li>
+      <li><b>A 3:1 setup won 20% of the time loses money.</b> Risking $250 to make $750 over fifty trades: ten wins at $750 is $7,500, forty losses at $250 is $10,000, net &minus;$2,500. The ratio was fine. The win rate was under the break-even line.</li>
+      <li><b>Expectancy is the number that decides</b> &mdash; (win rate &times; average win) &minus; (loss rate &times; average loss). The ratio is one of its four inputs, not a substitute for it.</li>
+      <li><b>&ldquo;Minimum 2:1&rdquo; and &ldquo;never below 3:1&rdquo; are conventions with no authority behind them.</b> No exchange, regulator or standard-setting body publishes a minimum ratio, and nothing in the arithmetic singles out 2 or 3.</li>
+      <li><b>Raising the ratio lowers the win rate</b>, because a target further away is reached less often. You cannot improve R without paying for it on the other side of the same equation.</li>
+      <li><b>A stop price is not a guaranteed fill price.</b> FINRA states plainly that &ldquo;the price you receive upon execution ... could be markedly different than your stop price,&rdquo; so the risk leg can come out larger than the number you planned around.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What the ratio is actually comparing</h2>
+
+  <p>Somebody is sharing their screen. They draw two horizontal lines on a chart, circle the gap between them, and say &ldquo;clean setup, three to one risk reward.&rdquo; It lands like a fact about the trade. It is an arithmetic statement about two prices that person typed in a minute ago, and it is roughly half of what you would need to know before doing anything with it.</p><p>A risk/reward ratio needs three prices, and only three: <b>where you get in</b>, <b>where you get out if you are wrong</b>, and <b>where you get out if you are right</b>. Everything else on the chart is decoration for this purpose.</p><div class="gls-formula"><span class="gls-lbl">The arithmetic, in full</span><code>Risk per share&nbsp;&nbsp;=&nbsp;&nbsp;entry price &minus; stop price</code><code>Reward per share&nbsp;&nbsp;=&nbsp;&nbsp;target price &minus; entry price</code><code>Ratio (R)&nbsp;&nbsp;=&nbsp;&nbsp;reward &divide; risk</code><p class="gls-where">For a short position the geometry flips &mdash; the stop sits above the entry and the target below it &mdash; and the ratio is still reward divided by risk, using the distances rather than the signs.</p></div><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>A stock trades at <b>$42.50</b>. You decide in advance that if it trades down to <b>$40.00</b> the idea was wrong and you are out. You decide the target is <b>$50.00</b>. You buy 100 shares.</p><p>Risk per share is $42.50 &minus; $40.00 = <b>$2.50</b>. On 100 shares that is <b>$250</b>.<br>Reward per share is $50.00 &minus; $42.50 = <b>$7.50</b>. On 100 shares that is <b>$750</b>.<br>The ratio is $7.50 &divide; $2.50.</p><p class="gls-result">R = 3.00. You are risking $250 to make $750 &mdash; three to one.</p></div><p>Now the part that causes more trouble than it should. <strong>The colon carries no information about which side is which.</strong> Some writers put risk first, so that trade is &ldquo;1:3&rdquo; &mdash; risking one unit to make three. Others put reward first, so the identical trade is &ldquo;3:1.&rdquo; A few platforms report a &ldquo;risk/reward&rdquo; field where the number is reward divided into risk, so the same trade shows up as <b>0.33</b> and lower is better, which inverts every instinct you just built. All three notations describe one thing: $250 at risk to make $750.</p><p>So do not trust the punctuation. <strong>Say which number is which, in words, every time.</strong> &ldquo;$250 at risk to make $750&rdquo; cannot be misread. &ldquo;3:1&rdquo; can, and regularly is, including by the person who wrote it. Everywhere on this page, <b>R means reward divided by risk</b>, so a bigger R means a target further from the entry relative to the stop.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>The ratio tells you the <em>shape</em> of a trade&rsquo;s two outcomes. It says nothing about how often each one happens, and that second number is the one doing most of the work.</p></div>
+
+  <h2 id="breakeven">The break-even win rate, which is the missing half</h2>
+
+  <p>&ldquo;Is 3 to 1 good?&rdquo; has a real answer, and the answer is a question back: how often does it win? Below a certain hit rate a 3-to-1 trade loses money forever. Above it, the same trade makes money forever. That line has an exact position and you can derive it in two lines of algebra.</p><p>Take a run of trades. Call the win rate <b>w</b>, and measure everything in units of the risk, so a loss costs 1 and a win pays <b>R</b>. Over a long enough run, total winnings are <code>w &times; R</code> and total losses are <code>(1 &minus; w) &times; 1</code>. Set them equal and solve for w:</p><div class="gls-formula"><span class="gls-lbl">Break-even win rate</span><code>w &times; R  =  1 &minus; w</code><code>w &times; (R + 1)  =  1</code><code>w  =  1 &divide; (1 + R)</code><p class="gls-where">Our own arithmetic. There is no source to cite for it and none is needed &mdash; it is division, and you can check every row of the table below on a phone.</p></div><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Break-even win rate for each reward-to-risk multiple"><table class="gls-tab"><thead><tr><th>Reward-to-risk (R)</th><th>Also written as</th><th>Break-even win rate</th><th>In plain terms</th></tr></thead><tbody><tr><td><b>0.5</b></td><td>1:2, or 0.5:1</td><td><b>66.7%</b></td><td>two out of every three, just to stand still</td></tr><tr><td><b>1</b></td><td>1:1</td><td><b>50%</b></td><td>a coin flip</td></tr><tr><td><b>1.5</b></td><td>1:1.5, or 1.5:1</td><td><b>40%</b></td><td>two out of every five</td></tr><tr><td><b>2</b></td><td>1:2, or 2:1</td><td><b>33.3%</b></td><td>one out of every three</td></tr><tr><td><b>3</b></td><td>1:3, or 3:1</td><td><b>25%</b></td><td>one out of every four</td></tr><tr><td><b>5</b></td><td>1:5, or 5:1</td><td><b>16.7%</b></td><td>one out of every six</td></tr><tr><td><b>10</b></td><td>1:10, or 10:1</td><td><b>9.1%</b></td><td>roughly one out of every eleven</td></tr></tbody></table></div><p>Notice that the &ldquo;also written as&rdquo; column contains <b>1:2</b> twice, in two different rows, meaning two opposite trades. That is the notation problem from the previous section, sitting in a table where it can do real damage.</p><p>So: <strong>3 to 1 is good if you win more than a quarter of the time, and it is bad if you don&rsquo;t.</strong> That is the complete answer, and it is not the answer anybody gives you, because giving it requires knowing something about the win rate and the ratio is available for free. A ratio quoted without a win rate is a sentence with the verb missing.</p><p>Read the table the other direction too. The bottom rows are the reason lottery-shaped strategies are not automatically foolish &mdash; a 10-to-1 structure only needs to work about one time in eleven. The top row is the reason the reverse structure is so punishing: at 0.5, you need to be right two thirds of the time before you have made a dollar. Every row here ignores costs, which is a real omission and is handled further down.</p>
+
+  <h2 id="expectancy">Expectancy, the number the ratio is only an input to</h2>
+
+  <p>The break-even table tells you where the line is. Expectancy tells you which side of it you are on, and by how much. It is the average dollar result of one trade, and it is the number that actually decides whether a way of trading survives.</p><div class="gls-formula"><span class="gls-lbl">Expectancy per trade</span><code>Expectancy  =  ( win rate &times; average win )  &minus;  ( loss rate &times; average loss )</code><p class="gls-where">Four inputs, and the risk/reward ratio is a relationship between two of them. The word &ldquo;expectancy&rdquo; and the habit of measuring trades in <b>R-multiples</b> were popularized among traders by Van K. Tharp in <em>Trade Your Way to Financial Freedom</em>; the arithmetic itself is an expected value and belongs to nobody.</p></div><p>Here is the case that changes how the ratio reads. Same trade as above: risk $250, reward $750, a genuine 3 to 1. The break-even table says it needs 25%. Suppose it wins <b>20%</b> of the time &mdash; five percentage points under the line, which is nothing, an amount you would never notice in a run of trades.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; a good ratio losing money</span><p>Win rate 20%, so loss rate 80%. Average win $750, average loss $250.</p><p>0.20 &times; $750 = <b>$150</b><br>0.80 &times; $250 = <b>$200</b><br>$150 &minus; $200 = <b>&minus;$50</b> per trade</p><p>Counted out over fifty trades instead: ten wins &times; $750 = $7,500. Forty losses &times; $250 = $10,000.</p><p class="gls-result">&minus;$2,500 over fifty trades. The ratio was exactly what it said on the tin. The account still shrank.</p></div><p>Now run it the other way, with the ratio everybody dismisses. A 1-to-1 trade &mdash; risk $250 to make $250 &mdash; that wins <b>55%</b> of the time: 0.55 &times; $250 &minus; 0.45 &times; $250 = <b>+$25</b> per trade, or $2,500 over a hundred trades. <strong>The worse-looking ratio made money and the better-looking one lost it,</strong> and no amount of staring at either ratio would have told you which was which.</p><p>Both win rates above are <b>hypothetical numbers chosen to make the arithmetic visible.</b> This page is not claiming that any strategy wins 20% or 55% of the time, and you should be suspicious of any page that does claim a hit rate without naming the study it came from. What is being claimed is narrower and harder to argue with: the ratio and the win rate multiply together, so neither one is interpretable alone.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>A high ratio is not a margin of safety, and it is very commonly sold as one. All it does is <em>lower the win rate you need</em>. It tells you nothing about whether you clear the lower bar, and reaching for a higher ratio usually lowers the win rate at the same time &mdash; which is the next section.</p></div><p>Expectancy also explains a thing beginners find maddening: a strategy can be profitable and still lose money for months. Expectancy is an average over a long run, and a long run contains streaks. That gap between the arithmetic and the experience of living through it is the whole subject of the <a href="../trading-psychology.html">Trading Psychology course</a>, and it is why <a href="loss-aversion.html">loss aversion</a> belongs on a page about a ratio.</p>
+
+  <h2 id="fiction">One measured number divided by one imagined one</h2>
+
+  <p>Time to be blunt about the structure of this thing, because it is the part the ratio&rsquo;s popularity depends on nobody noticing.</p><p><strong>The risk leg is anchored to something real.</strong> A stop price is a number you can put into an order ticket. There is an actual instruction sitting at the broker, and while the fill can come in worse than the price you named, the price you named is tethered to a real object in the world. See <a href="stop-loss-order.html">stop-loss order</a> for how that tether stretches.</p><p><strong>The reward leg is anchored to nothing at all.</strong> A target is a price you decided you would like. Nobody has agreed to pay it. No order exists at it until you place one, and placing one does not make anyone fill it. It is a hope with a decimal point.</p><p>So the ratio is a measured number divided by an imagined number, presented with the confidence of a measurement. And the incentive runs exactly one direction. A setup that computes to 1.4 to 1 looks unappealing. Drag the target further out and it computes to 3 to 1. Same entry, same stop, same chart, same actual trade &mdash; better-looking number. <strong>That is lying to yourself with arithmetic,</strong> and it is easy, private, and produces a spreadsheet that looks disciplined.</p><p>The tell is the order of operations. Three questions that separate an honest ratio from a reverse-engineered one:</p><ul><li><b>Was the target written down before the ratio was computed, or after?</b> If the ratio came first and the target was solved for, the ratio is a restatement of what you wanted.</li><li><b>Is there a reason the target sits at that specific price that has nothing to do with the ratio?</b> A prior high, the far side of a range, a level the stock has turned at repeatedly &mdash; see <a href="support-and-resistance.html">support and resistance</a>. &ldquo;It needed to be there for the math to work&rdquo; is not a reason.</li><li><b>Would the same rule have put the target in the same place on a chart you have never seen?</b> A target chosen by a written rule is a different object from one chosen by eye, even when the price happens to match.</li></ul><p>None of this makes the ratio useless. It makes it a <em>plan</em> rather than a measurement, and plans are worth having. Writing down an exit before you need it is most of what discipline consists of, and a trade with a defined stop and a defined target is a genuinely different act from one with neither. Just do not let the arithmetic launder the guess. A <a href="breakout.html">breakout</a> target set at &ldquo;the height of the range projected upward&rdquo; is still a convention someone invented; it is simply a convention you did not invent on the spot to justify a position.</p>
+
+  <h2 id="corruption">What eats the ratio between the plan and the outcome</h2>
+
+  <p>There are two ratios and people conflate them. The <b>planned</b> ratio comes from three prices you chose. The <b>realized</b> ratio comes from the fills your account actually got. The second is the one that pays for groceries, and it is reliably worse. Three leaks, in the order they cost the most.</p><h3>1. Cutting the winners short</h3><p>The reward leg only pays out at $50.00 if you are still holding at $50.00. Take profit at $46.25 because it felt like enough and you have cut the reward from $7.50 to $3.75 a share &mdash; <strong>you have destroyed the arithmetic that justified taking the trade in the first place.</strong> The break-even win rate you were relying on was computed from a target you did not use.</p><p>This is not a hypothetical failing. Terrance Odean examined trading records for 10,000 accounts at a discount brokerage and found a strong preference for realizing gains over losses &mdash; a proportion of gains realized of <b>0.148</b> against a proportion of losses realized of <b>0.098</b> &mdash; and reported that the winners those investors sold went on to outperform the losers they kept by roughly <b>3.4%</b> over the following year (<em>The Journal of Finance</em>, October 1998). Named study, named numbers, cited below. The usual explanation is <a href="loss-aversion.html">loss aversion</a>: closing a small gain feels like banking a win, and closing a loss feels like admitting one.</p><h3>2. Gaps and slippage on the risk leg</h3><p>The risk leg is anchored to a real order, which is not the same as being guaranteed. The SEC&rsquo;s own investor education site states the mechanism in one sentence: <b>&ldquo;When the stop price is reached, a stop order becomes a market order.&rdquo;</b> A market order fills at whatever is available. FINRA is blunter, under the heading &ldquo;Stop Prices Aren&rsquo;t Guaranteed Execution Prices&rdquo;: <b>&ldquo;the price you receive upon execution ... could be markedly different than your stop price.&rdquo;</b></p><p>Earnings after the close, news overnight, a halt that reopens lower &mdash; your $40.00 stop becomes a $39.40 fill and your $2.50 of risk was really $3.10. You did not do anything wrong. The market simply was not at $40.00 when it was your turn.</p><h3>3. Commissions and the spread, on both legs at once</h3><p>Costs come out of the reward and get added to the risk, which is the worst of both. Even at zero commission you cross a bid-ask spread going in and coming out. Call it five cents a share round trip, all in. That is trivial against a $42.50 stock and not trivial at all against a $2.50 stop.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; a 3:1 plan realizing as 1.2:1</span><p><b>Planned:</b> entry $42.50, stop $40.00, target $50.00, 100 shares. Risk $250, reward $750, R = 3.00, break-even win rate 25%.</p><p><b>What actually happened, on the trades that went each way:</b><br>Winners were closed at $46.25 rather than $50.00 &rarr; gross reward $3.75 a share.<br>Losers gapped through the stop and filled at $39.40 &rarr; gross risk $3.10 a share.<br>Costs of $0.05 a share round trip come off the reward and go onto the risk &rarr; net reward <b>$3.70</b>, net risk <b>$3.15</b>.</p><p>On 100 shares: reward $370, risk $315. Realized R = 370 &divide; 315 = <b>1.17</b>. Break-even win rate = 1 &divide; 2.17 = <b>46.0%</b>.</p><p class="gls-result">A trade taken because it only needed to win one time in four now needs to win closer to one time in two. Nothing about the chart changed. The plan said 3 to 1; the account got about 1.2 to 1.</p></div><p>That is the whole argument for keeping a record of realized ratios rather than planned ones. The planned number is a statement about your intentions. The realized number is a statement about your fills, your nerve and your broker, and it is the only one the break-even table should ever be applied to.</p>
+
+  <h2 id="rules">The minimum-ratio rules, and the trade-off nobody mentions</h2>
+
+  <p>&ldquo;Never take a trade under 2 to 1.&rdquo; &ldquo;Minimum 3 to 1 or I don&rsquo;t touch it.&rdquo; These are everywhere, and they are <b>convention</b>. No exchange publishes a minimum ratio. No regulator publishes one. No standard-setting body publishes one. There is no filing you can look it up in, and nothing in the arithmetic singles out 2 or 3 &mdash; <code>1 &divide; (1 + R)</code> is a smooth curve with no kink anywhere on it.</p><p>Read charitably, the rules are doing two useful things. They are a crude way of saying &ldquo;leave yourself room to be wrong most of the time,&rdquo; which is sound. And they force a target to exist before the order goes in, which is worth something regardless of where the target is. A trader with a bad minimum-ratio rule is still ahead of a trader with no exit plan.</p><p>But here is the cost, and it is left out of essentially every version of this advice. <strong>A target further away is reached less often.</strong> Move the target from $46 to $50 and you have improved R, and in the same motion you have lowered the probability that the target is ever touched, because the price now has further to travel and more opportunities to turn around before it gets there. The break-even table tells you what win rate you <em>need</em>. It has nothing to say about what win rate you will <em>get</em>, and pushing the target moves both numbers in opposite directions.</p><p>So &ldquo;minimum 3 to 1&rdquo; is not free risk management. It is a decision to swap hit rate for payoff size, and whether that swap helped depends entirely on how much hit rate it cost &mdash; a question about your own record, not about the number 3. <b>You cannot raise R without paying for it somewhere.</b></p><p>Two more consequences worth having in advance. High-R rules produce <b>long losing streaks by construction</b>: if break-even is 25%, then losing three, four or six in a row is ordinary and means nothing. Whether a person can sit through that without abandoning the method is a separate question from whether the method works, and it is the harder of the two. And at the other end there is a floor &mdash; any R below 1 requires a win rate above 50% just to stay level, and R of 0.5 requires 66.7%, which is why structures that risk more than they aim to make get called out even by people who otherwise dislike ratio rules.</p><div class="gls-where"><span class="gls-lbl">Where you&rsquo;ll see it</span><p>In a trade journal column headed just <b>R</b>. In an order-ticket preview showing the dollar distance to your stop next to the distance to your target. In broker platform risk tools that draw the two zones in red and green. And in every screen share where somebody circles a gap on a chart and names a ratio without naming a win rate.</p></div>
+
+  <h2 id="sizing">How the ratio composes with position size</h2>
+
+  <p>Two decisions get collapsed into one constantly, and separating them cleanly is most of the practical value of both concepts.</p><ul><li><b>The ratio, together with a win rate, decides whether the trade is worth taking at all.</b> That is a yes-or-no question about expectancy.</li><li><b>The stop distance decides how big the position can be.</b> That is a how-much question, and the ratio has no opinion on it.</li></ul><p>The link between them is the stop, which appears in both. Cap the dollars you are willing to lose on any one trade, and the share count falls straight out of the distance to your stop &mdash; that is the whole of <a href="position-sizing.html">position sizing</a>, and it is division.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; same risk budget, three stop distances</span><p>A $12,000 account with a self-imposed cap of 2% at risk per trade. (The 1% and 2% caps in circulation are conventions, not rules; nobody publishes them.) 2% of $12,000 = <b>$240</b> of risk available.</p><p>Stop $2.50 away &rarr; $240 &divide; $2.50 = <b>96 shares</b><br>Stop $1.00 away &rarr; $240 &divide; $1.00 = <b>240 shares</b><br>Stop $5.00 away &rarr; $240 &divide; $5.00 = <b>48 shares</b></p><p class="gls-result">Three completely different position sizes, identical risk in dollars. The stop distance did all the work.</p></div><p>Now the interaction that catches people, because it looks like a free lunch. Tighten the stop and two good things appear at once: you can hold more shares for the same dollar risk, <em>and</em> for a fixed target your R goes up, because you shrank the denominator. Entry $42.50, target $50.00, stop moved from $40.00 to $41.50 turns a 3.0 into a 5.0.</p><p>It is not free. <strong>A tighter stop is hit more often</strong> &mdash; that is what tighter means. You bought a higher R and a bigger position with a lower win rate, and the break-even table just raised its demand on you from 25% to 16.7% while the actual hit rate fell by an amount you cannot see from here. The stop is a single lever wired to the ratio, the size and the hit rate simultaneously, and moving it never improves all three.</p><p>One last thing, and it is the site&rsquo;s position rather than a piece of arithmetic. None of this changes what a loss does to a household with no cushion underneath it. Expectancy is an average over a long run, and a long run assumes you are still solvent at the end of it. That is what the <a href="../emergency-fund-calculator.html">emergency fund calculator</a> is for, and it is a more consequential number than R.</p>
+
+  <h2 id="ledger">What is arithmetic here, and what is just convention</h2>
+
+  <p>This page mixes two very different kinds of claim: arithmetic you can verify in ten seconds, and rules of thumb that are true only because enough people repeat them. They are separated here on purpose, because the second kind travels dressed as the first.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confirmed, unverified and convention claims on this page"><table class="gls-tab"><thead><tr><th>Claim</th><th>Standing</th><th>What establishes it</th></tr></thead><tbody><tr><td>Risk = entry &minus; stop; reward = target &minus; entry; R = reward &divide; risk</td><td><b>Confirmed</b></td><td>Definitional. This is what the words mean.</td></tr><tr><td>Break-even win rate = 1 &divide; (1 + R), and every row of the table above</td><td><b>Confirmed</b></td><td>Our own arithmetic, derived in the section above and checkable on a phone. No agency publishes it because none needs to.</td></tr><tr><td>Expectancy = (win rate &times; average win) &minus; (loss rate &times; average loss)</td><td><b>Confirmed</b></td><td>An expected value; the arithmetic belongs to nobody. The term &ldquo;expectancy&rdquo; and the R-multiple framing were popularized among traders by Van K. Tharp&rsquo;s <em>Trade Your Way to Financial Freedom</em>.</td></tr><tr><td>A payoff ratio alone is not enough to size a bet &mdash; you need the probability too</td><td><b>Confirmed</b></td><td>J. L. Kelly Jr., <em>Bell System Technical Journal</em> 35(4), July 1956. His growth-optimal fraction is a function of both the odds and the win probability.</td></tr><tr><td>A stop price is not a guaranteed execution price</td><td><b>Confirmed</b></td><td>SEC investor.gov (a triggered stop becomes a market order) and FINRA, 26 March 2025 (&ldquo;Stop Prices Aren&rsquo;t Guaranteed Execution Prices&rdquo;).</td></tr><tr><td>Investors realize gains at a higher rate than losses</td><td><b>Confirmed</b></td><td>Terrance Odean, <em>The Journal of Finance</em>, October 1998; 10,000 discount-brokerage accounts, 0.148 of gains realized against 0.098 of losses.</td></tr><tr><td>That any particular minimum ratio improves results</td><td><b>Unverified</b></td><td>No study reachable for this page tests a minimum-ratio rule in isolation. The rule is asserted constantly and tested nowhere we could find.</td></tr><tr><td>Any specific win rate for any specific setup</td><td><b>Unverified</b></td><td>Every win rate on this page is hypothetical and labeled as such. This site does not publish hit rates, and nobody quoting you one without a named study should be believed.</td></tr><tr><td>&ldquo;Professionals use at least 2 to 1&rdquo;</td><td><b>Unverified</b></td><td>Repeated everywhere. No survey, disclosure or filing this page could reach establishes it.</td></tr><tr><td>&ldquo;Minimum 2:1&rdquo;, &ldquo;never below 3:1&rdquo;, &ldquo;1:3 or skip it&rdquo;</td><td><b>Convention</b></td><td>Rules of thumb with no publishing authority. Nothing in the break-even curve distinguishes 2 or 3 from any other number.</td></tr><tr><td>Writing the ratio as &ldquo;1:3&rdquo; rather than &ldquo;3:1&rdquo;</td><td><b>Convention</b></td><td>Purely notational, both are in wide use for the same trade, and the ambiguity is a genuine source of error rather than a quibble.</td></tr><tr><td>The 1% or 2% per-trade risk cap in the sizing example</td><td><b>Convention</b></td><td>Widely used, published by nobody. It appears above only to make the division concrete.</td></tr><tr><td>Quoting a ratio at all, instead of expectancy</td><td><b>Convention</b></td><td>Habit, plus the fact that the ratio is available before the trade and expectancy is only available after a great many of them.</td></tr></tbody></table></div><p>The pattern in that table is worth naming. <strong>Everything Confirmed is arithmetic or an execution mechanic. Everything about what ratio you ought to demand is convention or unverified.</strong> The arithmetic is the part with no author and no controversy, and it is also the part that gets skipped.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Quoting a ratio without a win rate.</b> The single most common error on this subject, and it makes the number uninterpretable. 3 to 1 needs 25%; whether the setup delivers 25% is a completely separate question and the ratio cannot answer it.</li><li><b>Trusting the colon.</b> &ldquo;1:2&rdquo; appears twice in the break-even table above, in two rows that describe opposite trades. Say which number is the risk and which is the reward, in words, every time.</li><li><b>Solving for the target.</b> Deciding you want 3 to 1 and then placing the target wherever produces 3 to 1 is not analysis. The risk leg is tethered to a real order; the reward leg is tethered to nothing, and that asymmetry is what makes the trick possible.</li><li><b>Treating a high ratio as a margin of safety.</b> It lowers the win rate you need. It does not tell you whether you clear the lower bar, and reaching for it usually lowers the win rate too.</li><li><b>Comparing planned ratios to realized results.</b> If you exit winners early and get gapped through your stops, your realized ratio is not the one you journaled. Apply the break-even table to the fills you got, not the prices you hoped for.</li><li><b>Ignoring costs because they look small.</b> Commission and spread come off the reward and get added to the risk. Five cents a share is nothing against a $42.50 share price and meaningful against a $2.50 stop.</li><li><b>Letting the ratio decide the position size.</b> Different questions. The ratio says whether; the stop distance says how much. See <a href="position-sizing.html">position sizing</a>.</li><li><b>Quitting a sound method during an ordinary streak.</b> At a 25% break-even, several losses in a row carries no information at all. Expecting that in advance is cheaper than discovering it live &mdash; which is the argument for the <a href="../markets-behavior.html">pre-trade checklist</a> and for treating <a href="../trading-psychology.html">the psychology side</a> as part of the method rather than a soft add-on.</li><li><b>Learning this on the money that pays rent.</b> No ratio, no matter how favorable, changes what a loss does to a household with nothing behind it.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is a risk/reward ratio?</h3>
+    <p>It compares what a trade stands to make against what it stands to lose. Risk is the entry price minus the stop price, reward is the target price minus the entry price, and the ratio is reward divided by risk. Buying at $42.50 with a stop at $40.00 and a target at $50.00 means risking $2.50 a share to make $7.50 a share, which is three to one. The ratio describes the shape of the two outcomes and says nothing about how often each one happens.</p>
+
+    <h3>Is a 3:1 risk/reward ratio good?</h3>
+    <p>It is good if you win more than a quarter of the time and bad if you win less often than that. The break-even win rate for any reward-to-risk multiple R is 1 divided by (1 + R), so 3 to 1 breaks even at exactly 25%. That is the whole answer, and it cannot be given without a win rate. A 3-to-1 setup that wins 20% of the time loses money: risking $250 to make $750, ten wins at $750 is $7,500 while forty losses at $250 is $10,000.</p>
+
+    <h3>How do you calculate the break-even win rate?</h3>
+    <p>Break-even win rate = 1 divided by (1 + R), where R is reward divided by risk. It comes from setting total winnings equal to total losses over a long run. That gives 50% at 1:1, 40% at 1.5:1, 33.3% at 2:1, 25% at 3:1, 16.7% at 5:1 and 9.1% at 10:1. It is arithmetic rather than a rule of thumb, so no source is needed and none exists. Note that it ignores commissions and spread, both of which raise the bar.</p>
+
+    <h3>Does 1:3 mean the same thing as 3:1?</h3>
+    <p>Usually yes, and that is the problem. Some writers put the risk first, so risking one unit to make three is 1:3. Others put the reward first, so the same trade is 3:1. A few platforms report a risk/reward field where the same trade shows as 0.33 and a lower number is better, which inverts the intuition entirely. The colon carries no information about which side is which, so state it in words: $250 at risk to make $750 cannot be misread.</p>
+
+    <h3>What is expectancy in trading?</h3>
+    <p>Expectancy is the average dollar result of one trade: (win rate times average win) minus (loss rate times average loss). It is the number that decides whether a way of trading survives, and the risk/reward ratio is a relationship between two of its four inputs rather than a substitute for it. A 3-to-1 trade won 20% of the time has an expectancy of minus $50 per trade at $250 of risk. The term was popularized among traders by Van K. Tharp.</p>
+
+    <h3>Why is my actual risk/reward worse than I planned?</h3>
+    <p>Three leaks. Taking profit early cuts the reward leg, which removes the arithmetic that justified the trade. Gaps and slippage enlarge the risk leg, because a triggered stop order becomes a market order and FINRA states plainly that the price received can be markedly different from the stop price. Commissions and spread come off the reward and get added to the risk. An intended 3-to-1 can easily realize closer to 1.2-to-1, which moves the break-even win rate from 25% to roughly 46%.</p>
+
+    <h3>Is there a minimum risk/reward ratio worth taking?</h3>
+    <p>No exchange, regulator or standard-setting body publishes one, and nothing in the break-even curve singles out any particular number. Minimum 2-to-1 and minimum 3-to-1 are conventions. They do force a target to exist before the order goes in, which has value on its own. The cost they leave out is that a target further away is reached less often, so demanding a higher ratio lowers the win rate at the same time. You cannot raise the ratio for free.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="position-sizing.html"><b>Position Sizing</b><span>The other half of the same decision &mdash; how big, not whether</span></a>
+      <a href="stop-loss-order.html"><b>Stop-Loss Order</b><span>The order the risk leg is measured from, and how it slips</span></a>
+      <a href="loss-aversion.html"><b>Loss Aversion</b><span>Why the reward leg gets cut short and the risk leg gets extended</span></a>
+      <a href="support-and-resistance.html"><b>Support and Resistance</b><span>Where a target price comes from when it isn't reverse-engineered</span></a>
+      <a href="breakout.html"><b>Breakout</b><span>A setup whose target is usually chosen, not derived</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>The buffer that decides whether a losing streak is survivable</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Run the <a href="../markets-behavior.html">five-question pre-trade checklist</a> on Markets &middot; Behavior &mdash; five questions, nothing stored, and a hard stop on &ldquo;could you lose this money&rdquo;.</li>
+      <li>Work through the record-keeping side of this in Stage 3 and Stage 5 of the <a href="../trading-psychology.html">Trading Psychology course</a>, where the ratio meets the person who has to sit through the losing streak.</li>
+      <li>See where targets actually come from on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; live chart, breadth, and evidence ratings, free and no account.</li>
+      <li>Size the buffer underneath any of it with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, and see what unglamorous money does in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders" target="_blank" rel="noopener">Types of Orders</a> (investor.gov) &mdash; the source for the mechanism behind slippage on the risk leg: &ldquo;When the stop price is reached, a stop order becomes a market order,&rdquo; and a market order does not guarantee an execution price.</li>
+      <li>FINRA, <a href="https://www.finra.org/investors/insights/stop-orders-factors-consider-during-volatile-markets" target="_blank" rel="noopener">Stop Orders: Factors to Consider During Volatile Markets</a>, 26 March 2025 &mdash; states that &ldquo;Stop Prices Aren&rsquo;t Guaranteed Execution Prices&rdquo; and that &ldquo;the price you receive upon execution ... could be markedly different than your stop price.&rdquo; Cited for the claim that the measured risk leg can still come out bigger than planned.</li>
+      <li>Terrance Odean, <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/0022-1082.00072" target="_blank" rel="noopener">&ldquo;Are Investors Reluctant to Realize Their Losses?&rdquo;</a>, <em>The Journal of Finance</em> 53(5), October 1998, pp.1775&ndash;1798 &mdash; 10,000 accounts at a discount brokerage; a proportion of gains realized of 0.148 against a proportion of losses realized of 0.098, and winners sold outperforming losers held by about 3.4% over the following year. The named study behind the &ldquo;cutting winners short&rdquo; section, in place of an invented statistic.</li>
+      <li>J. L. Kelly Jr., <a href="https://www.princeton.edu/~wbialek/rome/refs/kelly_56.pdf" target="_blank" rel="noopener">&ldquo;A New Interpretation of Information Rate&rdquo;</a>, <em>The Bell System Technical Journal</em> 35(4), July 1956, pp.917&ndash;926 &mdash; the earliest formal treatment in which the growth-optimal fraction to stake depends on <em>both</em> the payoff odds and the probability of winning. Cited for the central claim of this page: a payoff ratio on its own is not enough information to act on. Kelly&rsquo;s paper is about transmission over a noisy channel; the trading-facing rendering came decades later.</li>
+      <li>Daniel Kahneman and Amos Tversky, <a href="https://www.jstor.org/stable/1914185" target="_blank" rel="noopener">&ldquo;Prospect Theory: An Analysis of Decision under Risk&rdquo;</a>, <em>Econometrica</em> 47(2), March 1979, pp.263&ndash;291 &mdash; the origin paper for loss aversion, the usual explanation for why the reward leg gets cut short and the risk leg gets extended. The size of the loss-to-gain coefficient is an experimental estimate and has been contested in the replication literature.</li>
+      <li>Van K. Tharp, <a href="https://vantharpinstitute.com/product/trade-your-way-to-financial-freedom/" target="_blank" rel="noopener">Trade Your Way to Financial Freedom</a> (McGraw-Hill; first edition 1998, second edition revised) &mdash; the publisher&rsquo;s own page for the book that popularized &ldquo;expectancy&rdquo; and the &ldquo;R-multiple&rdquo; naming among traders, and which states that the second edition added a clearer explanation of the expectancy concept. Cited for the naming and the framing, not for any performance claim.</li>
+      <li>FINRA, <a href="https://www.finra.org/investors/order-six-common-types-stock-orders" target="_blank" rel="noopener">Order Up! Six Common Types of Stock Orders</a> &mdash; background on how stop, stop-limit and limit orders differ, including that a limit order may never execute at all. Relevant because the stop-limit alternative caps the price but not the loss.</li>
+      <li>Hustlin&rsquo;, <a href="../markets-behavior.html">Markets &middot; Behavior</a> &mdash; the site&rsquo;s own five-question pre-trade checklist and its eight-bias reference, which is where the behavioral half of this page is applied rather than explained.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it compares</a></li>
+      <li><a href="#breakeven">Break-even win rate</a></li>
+      <li><a href="#expectancy">Expectancy</a></li>
+      <li><a href="#fiction">Measured over imagined</a></li>
+      <li><a href="#corruption">What eats the ratio</a></li>
+      <li><a href="#rules">Minimum-ratio rules</a></li>
+      <li><a href="#sizing">How it meets position size</a></li>
+      <li><a href="#ledger">Arithmetic vs convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Check yourself first</span>
+    <p>Five questions to answer before the order goes in, including the one about whether you could actually lose this money. Nothing is stored. Free, no account.</p>
+    <a class="gls-cta" href="../markets-behavior.html">The five-question pre-trade checklist &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

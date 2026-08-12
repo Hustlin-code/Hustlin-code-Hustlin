@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index Fund: What It Is and What It Can't Do | Learn the Lingo</title>
+<meta name="description" content="An index fund's stated job is to track an index, not beat it. Where the low cost comes from, what SPIVA measures, and the risk indexing never removes.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/index-fund.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/index-fund.html">
+<meta property="og:title" content="Index Fund &mdash; Learn the Lingo">
+<meta property="og:description" content="Two funds can hold nearly the same companies and charge twenty times different. Here is where the cost advantage comes from, the arithmetic behind indexing, and the risk it never removes.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Index Fund &mdash; Learn the Lingo">
+<meta name="twitter:description" content="Two funds can hold nearly the same companies and charge twenty times different. Here is where the cost advantage comes from, the arithmetic behind indexing, and the risk it never removes.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/index-fund.html#term",
+      "name": "Index Fund",
+      "alternateName": ["Index Fund","Index tracker fund","Passive fund","Indexed fund","Index mutual fund"],
+      "description": "An index fund is a pooled investment fund whose stated objective is to track the return of a specified market index rather than to outperform it. Because the manager follows a published rulebook instead of researching and selecting securities, the fund needs no research staff and trades less, which is where its lower cost comes from. The SEC describes an index fund as following a passive investment strategy designed to achieve approximately the same return as a particular index before fees.",
+      "url": "https://hustlin.org/learn-the-lingo/index-fund.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Index Fund: The Cost Arithmetic, the Evidence, and What It Does Not Protect You From",
+      "description": "A plain-language explanation of index funds: why tracking an index is a strategy while an ETF is a structure, who writes and maintains the index rulebook and how float-adjusted weighting works, where the cost advantage actually comes from, a month-by-month worked example showing that fee drag compounds to roughly double the fees actually deducted, William Sharpe's 1991 arithmetic of active management and what S&amp;P's SPIVA scorecards do and do not measure, the honest sources of tracking difference, and the market risk and concentration risk that diversifying across an index does not remove.",
+      "url": "https://hustlin.org/learn-the-lingo/index-fund.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/index-fund.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/index-fund.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Index Fund", "item": "https://hustlin.org/learn-the-lingo/index-fund.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an index fund?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An index fund is a pooled investment fund whose stated objective is to track a specified market index rather than to beat it. The SEC describes it as following a passive investment strategy designed to achieve approximately the same return as a particular index before fees. Because the manager follows a published rulebook instead of researching and choosing securities, the fund needs no research staff and trades less often, which is where its lower cost comes from. Its success is measured by how small the gap between fund and index is." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between an index fund and an ETF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They describe different things. An index fund is a strategy: track an index instead of picking. An ETF is a structure: shares are listed on an exchange and trade all day at market-determined prices. All four combinations exist, so you can own an indexed mutual fund, an indexed ETF, an actively managed mutual fund or an actively managed ETF. Saying you bought an ETF tells nobody whether a manager is picking stocks, and saying you bought an index fund tells nobody how you will buy or sell it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are index funds cheaper than actively managed funds?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Two reasons, and both are about work that does not get done. There is no research staff to pay, because the fund copies a published list instead of studying companies. And turnover is low, because the fund trades when the index changes rather than when a manager changes an opinion. The SEC's own investor material links the two directly, saying passive management usually translates into less trading, fewer transaction costs, lower realized capital gains and lower fees than actively managed funds." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a higher expense ratio actually cost me?",
+          "acceptedAnswer": { "@type": "Answer", "text": "More than the fee itself, because the fee compounds against you. By our own arithmetic, $150 a month for 30 years at an assumed 7% gross return ends near $182,600 at a 0.04% expense ratio and near $155,700 at 0.85%. The expensive fund deducted about $13,400 more in fees, but you finished about $26,900 behind &mdash; roughly double. Each dollar taken out also stops earning for every year that remains. The 7% is an assumption for the example, not a forecast." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do index funds really beat most active managers?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Over the horizons S&amp;P measures, most active funds have trailed their benchmark. The SPIVA U.S. Scorecard for year-end 2025 reports that roughly 79% of active large-cap U.S. equity funds trailed the S&amp;P 500 in 2025, about 86% over ten years and about 93% over twenty, net of fees, still counting funds closed or merged during the period. But that measures funds over past windows, not your outcome or the future, and S&amp;P Dow Jones Indices is itself an index provider that benefits when indexing grows." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an index fund safe?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, and the distinction matters. Owning a broad index removes single-company risk: one bankruptcy or fraud among thousands of holdings barely registers. It does nothing about market risk. When the whole market falls, a fund built to match the whole market falls with it, by design. Using percentages published in the Economic Report of the President for 2010 and 2011, the S&amp;P 500's March 2009 low works out to roughly 57% below its October 2007 peak. Diversified is not the same as safe." }
+        },
+        {
+          "@type": "Question",
+          "name": "Who decides what is in an index?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A commercial index provider writes and maintains the rules. The main ones in U.S. stocks are S&amp;P Dow Jones Indices, FTSE Russell, CRSP at the University of Chicago Booth School and MSCI internationally. The rules are published and can be read. They are also not purely mechanical: S&amp;P's own methodology states that constituent selection is at the discretion of its Index Committee and that it reserves the right to make exceptions. The rules change on a schedule too, and FTSE Russell moved its U.S. reconstitution to twice a year in 2026." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260812-1055">
+<link rel="stylesheet" href="lingo.css?v=20260812-1055">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn.html">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+        <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+          <a href="../retirement-withdrawal-calculator.html">Retirement withdrawal</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../learn-the-lingo.html">Lingo</a>
+      <!-- THE TERM LIST IS GENERATED, NOT TYPED.
+           The rows below are filled by tools/nav-template.mjs from TERMS in
+           tools/lingo-content.mjs, so adding a glossary term puts it in the nav
+           on every page by construction rather than by remembering — the same
+           contract the calculator count already has. Do not hand-type a term
+           row here: stamp-nav.mjs byte-compares this block against every page
+           and the next build-lingo run would disagree with it.
+
+           Every term is listed rather than a curated subset. The glossary is
+           the site's largest crawlable surface and this panel is its only
+           entry point in the nav — a term that is not linked here is reachable
+           only from the hub's A-Z index. Same reasoning as the note above
+           about links that only exist after a click. -->
+      <div class="nav-panel nav-panel-xwide">
+        <p class="nav-panel-h">Forty-eight terms in plain English</p>
+        <div class="nav-cols nav-cols-3">
+          <a href="../learn-the-lingo/able-account.html">ABLE Account</a>
+          <a href="../learn-the-lingo/amortization.html">Amortization</a>
+          <a href="../learn-the-lingo/apr.html">APR</a>
+          <a href="../learn-the-lingo/apy.html">APY</a>
+          <a href="../learn-the-lingo/bollinger-bands.html">Bollinger Bands</a>
+          <a href="../learn-the-lingo/breakout.html">Breakout</a>
+          <a href="../learn-the-lingo/charge-off.html">Charge-Off</a>
+          <a href="../learn-the-lingo/compound-interest.html">Compound Interest</a>
+          <a href="../learn-the-lingo/cost-basis.html">Cost Basis</a>
+          <a href="../learn-the-lingo/consumer-price-index.html">CPI</a>
+          <a href="../learn-the-lingo/credit-score.html">Credit Score</a>
+          <a href="../learn-the-lingo/discount-points.html">Discount Points</a>
+          <a href="../learn-the-lingo/dividend-yield.html">Dividend Yield</a>
+          <a href="../learn-the-lingo/dow-theory.html">Dow Theory</a>
+          <a href="../learn-the-lingo/emergency-fund.html">Emergency Fund</a>
+          <a href="../learn-the-lingo/etf.html">ETF</a>
+          <a href="../learn-the-lingo/free-cash-flow.html">FCF</a>
+          <a href="../learn-the-lingo/federal-funds-rate.html">Federal Funds Rate</a>
+          <a href="../learn-the-lingo/fibonacci-retracement.html">Fibonacci Retracement</a>
+          <a href="../learn-the-lingo/finance-charge.html">Finance Charge</a>
+          <a href="../learn-the-lingo/grace-period.html">Grace Period</a>
+          <a href="../learn-the-lingo/index-fund.html">Index Fund</a>
+          <a href="../learn-the-lingo/inflation.html">Inflation</a>
+          <a href="../learn-the-lingo/interest-rate.html">Interest Rate</a>
+          <a href="../learn-the-lingo/loss-aversion.html">Loss Aversion</a>
+          <a href="../learn-the-lingo/macd.html">MACD</a>
+          <a href="../learn-the-lingo/market-capitalization.html">Market Cap</a>
+          <a href="../learn-the-lingo/moving-average.html">Moving Average</a>
+          <a href="../learn-the-lingo/net-worth.html">Net Worth</a>
+          <a href="../learn-the-lingo/price-to-earnings-ratio.html">P/E Ratio</a>
+          <a href="../learn-the-lingo/pmi.html">PMI</a>
+          <a href="../learn-the-lingo/position-sizing.html">Position Sizing</a>
+          <a href="../learn-the-lingo/prime-rate.html">Prime Rate</a>
+          <a href="../learn-the-lingo/probate.html">Probate</a>
+          <a href="../learn-the-lingo/recession.html">Recession</a>
+          <a href="../learn-the-lingo/risk-reward-ratio.html">Risk/Reward Ratio</a>
+          <a href="../learn-the-lingo/required-minimum-distribution.html">RMD</a>
+          <a href="../learn-the-lingo/roth-ira.html">Roth IRA</a>
+          <a href="../learn-the-lingo/relative-strength-index-rsi.html">RSI</a>
+          <a href="../learn-the-lingo/secured-credit-card.html">Secured Credit Card</a>
+          <a href="../learn-the-lingo/sinking-fund.html">Sinking Fund</a>
+          <a href="../learn-the-lingo/ssi.html">SSI</a>
+          <a href="../learn-the-lingo/step-up-in-basis.html">Step-Up in Basis</a>
+          <a href="../learn-the-lingo/stop-loss-order.html">Stop-Loss Order</a>
+          <a href="../learn-the-lingo/support-and-resistance.html">Support &amp; Resistance</a>
+          <a href="../learn-the-lingo/credit-utilization.html">Utilization</a>
+          <a href="../learn-the-lingo/volume.html">Volume</a>
+          <a href="../learn-the-lingo/yield-curve-inversion.html">Yield Curve Inversion</a>
+        </div>
+        <a class="nav-panel-all" href="../learn-the-lingo.html">The whole glossary, A to Z &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Index Fund</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Investing</div>
+      <h1 class="hero-h1">Index Fund</h1>
+      <p class="hero-sub">A fund whose stated objective is to match an index, not beat it. That makes its cost knowable in advance, which almost nothing else about investing is. It does not make the fund safe, and this page spends real space on the difference.</p>
+      <p class="gls-aka"><b>Also called:</b> index tracker &middot; passive fund &middot; indexed fund &middot; index tracking fund &middot; index mutual fund</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 12 August 2026</b> &middot; Sourced from the SEC, William Sharpe's 1991 &ldquo;Arithmetic of Active Management,&rdquo; S&amp;P Dow Jones Indices' SPIVA scorecards and published index methodology, FTSE Russell, and the Economic Report of the President</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>An index fund is a fund whose stated objective is to track a specified market index rather than to beat it &mdash; so the manager's job is minimizing the gap between the fund and the index, not picking which companies will do well.</strong> The SEC's own description is that an index fund &ldquo;follow[s] a passive investment strategy that is designed to achieve approximately the same return as a particular index before fees.&rdquo; Read the last two words twice. Approximately, and before fees.</p>
+    <p>It exists because of a piece of arithmetic nobody can argue with. Everybody who is not tracking the market is trading against somebody else who is not tracking the market, and in aggregate those trades cancel &mdash; so before costs, the average active dollar earns the market return, and after costs it earns less. That is not an opinion about which companies are good. It is subtraction. What an index fund does is stop paying for the losing half of that trade.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li>An index fund is a <b>strategy</b>. An <a href="etf.html">ETF</a> is a <b>structure</b>. You can own an indexed mutual fund, an indexed ETF, or an actively managed ETF &mdash; the two words answer different questions, and the reader who conflates them buys the wrong thing.</li>
+      <li><b>Cost is the one input you can know in advance.</b> Our own month-by-month arithmetic: $150 a month for 30 years at an assumed 7% gross return ends near <b>$182,600</b> at a 0.04% expense ratio and near <b>$155,700</b> at 0.85% &mdash; a gap of about <b>$26,900</b> on $54,000 of contributions.</li>
+      <li><b>Fee drag compounds against you the way returns compound for you.</b> In that example the expensive fund deducted about <b>$13,400</b> more in fees, but you finish about <b>$26,900</b> behind &mdash; almost exactly <b>double</b>. The fee dollars leave, and then they never earn anything either.</li>
+      <li><b>The case for indexing is citable, not a slogan.</b> William Sharpe, <em>Financial Analysts' Journal</em> 47(1), 1991: before costs &ldquo;the return on the average actively managed dollar will equal the return on the average passively managed dollar,&rdquo; and after costs it &ldquo;will be less.&rdquo;</li>
+      <li>S&amp;P's <b>SPIVA U.S. Scorecard, Year-End 2025</b> reports that about <b>79%</b> of active large-cap U.S. equity funds trailed the S&amp;P 500 in 2025, about <b>86%</b> over 10 years and about <b>93%</b> over 20 years, net of fees &mdash; and that only about <b>35%</b> of the large-cap funds alive 20 years earlier still existed at the end.</li>
+      <li><b>Diversifying across an index removes single-company risk. It does not remove market risk.</b> From percentages published in the Economic Report of the President for 2010 and 2011, the S&amp;P 500's March 2009 low works out to roughly <b>57% below</b> its 9 October 2007 peak. A fund tracking the whole market went down with it, by design.</li>
+      <li><b>Which index you pick is an active decision.</b> A total-market fund, an S&amp;P 500 fund, a single-sector fund and a thematic fund are all &ldquo;index funds.&rdquo; The label describes the method, not the breadth &mdash; and a thematic index fund is a concentrated bet wearing a reassuring name.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What an index fund actually is</h2>
+
+  <p>You have finished the free course, the <a href="emergency-fund.html">emergency fund</a> is not zero anymore, and there is $150 a month nothing else has a claim on. You search for a fund. Two results sit next to each other holding almost the same list of American companies. One charges four hundredths of a percent a year. The other charges eighty-five hundredths &mdash; roughly twenty times as much. Nothing explains why, and no bill for either number will ever arrive, so it is hard to believe it matters. It matters more than almost anything else you will decide here.</p><p>An <b>index fund</b> is a fund whose stated objective is to <b>track</b> a specified market index rather than to beat it. The SEC's investor education material puts it directly: index funds &ldquo;follow a passive investment strategy that is designed to achieve approximately the same return as a particular index before fees,&rdquo; and such a fund &ldquo;will attempt to achieve its investment objective primarily by investing in the securities of companies that are included in a selected index.&rdquo;</p><p>Notice what the manager's job becomes. Not deciding which companies are undervalued, not timing anything &mdash; the job is <b>minimizing the difference</b> between the fund's return and the index's return, by buying what the rulebook says in the weights it says, cheaply enough that the gap stays small. Success is measured as an absence.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>An index fund copies a published list instead of choosing. Copying is cheap, and cheap is the whole argument.</p></div><p>The words doing the quiet work in that SEC sentence are <b>before fees</b>. An index fund matches the index before its own costs come out &mdash; so after costs it is designed to land slightly below the index, forever. Not a flaw somebody could fix. The size of that shortfall is the only part you get to choose.</p>
+
+  <h2 id="structure">Index fund and ETF are two different questions</h2>
+
+  <p>These two terms get used as if they were the same word. They are not even on the same axis.</p><p><b>&ldquo;Index fund&rdquo; describes the strategy</b> &mdash; what the fund does with your money. <b>&ldquo;<a href="etf.html">ETF</a>&rdquo; describes the structure</b> &mdash; how shares are created, priced and traded. Neither one implies the other.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Strategy and structure are independent: four combinations that all exist"><table class="gls-tab"><thead><tr><th></th><th>Mutual fund structure</th><th>ETF structure</th></tr></thead><tbody><tr><td><strong>Index strategy</strong></td><td>An indexed mutual fund. Priced once a day at net asset value. Common in workplace plans</td><td>An indexed ETF. Trades on an exchange all day. Usually what people mean by &ldquo;index fund&rdquo;</td></tr><tr><td><strong>Active strategy</strong></td><td>A traditional actively managed fund. A manager and research staff pick the holdings</td><td>An actively managed ETF. Trades like a stock, but a human is still picking</td></tr></tbody></table></div><p>All four squares are occupied. So &ldquo;I bought an ETF&rdquo; tells you nothing about whether anybody is picking stocks, and &ldquo;I bought an index fund&rdquo; tells you nothing about how you will buy or sell it. The wrapper mechanics &mdash; how the price stays near what the fund holds, premiums and discounts, the bid-ask spread &mdash; are a page of their own: read <a href="etf.html">ETF</a>. This page stays on the strategy.</p><h3>How a small investor actually buys one</h3><ul><li><b>Minimums.</b> A mutual fund can set a minimum initial investment in its prospectus. An ETF has no minimum beyond the price of one share.</li><li><b>Fractional shares.</b> Many brokers let you buy part of a share, which is how $150 becomes a purchase instead of a rounding problem. Read the SEC's bulletin first: &ldquo;Not every brokerage firm offers fractional share investing,&rdquo; you &ldquo;generally cannot transfer fractional shares to another brokerage firm,&rdquo; and some firms &ldquo;do not guarantee the liquidity of fractional shares.&rdquo; That transfer limit surprises people &mdash; switching brokers can mean your fractions get sold, a taxable event in a regular brokerage account.</li><li><b>Automatic contributions.</b> Recurring purchases are usually simpler in a mutual fund, which transacts at one price a day. Brokers increasingly offer recurring ETF buys too, and this varies entirely by firm.</li><li><b>Where it sits.</b> A fund is not an account. The same index fund can live in a workplace plan, a <a href="roth-ira.html">Roth IRA</a> or a taxable brokerage account, and the tax treatment differs completely in each. In a taxable account you track <a href="cost-basis.html">cost basis</a>; inside a Roth IRA that question never arises.</li></ul><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p><a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> of the free Financial Literacy course covers the account layer &mdash; what goes where, in what order &mdash; before any of this becomes a fund-picking question. On a shorter runway, <a href="../starting-late.html">Starting Late</a> walks the same ground.</p></div>
+
+  <h2 id="index">The index is a rulebook somebody maintains</h2>
+
+  <p>An index fund tracks an index. So the honest next question is what an index is, and who decides what goes in it.</p><p>An index is a <b>published set of rules</b>, written and maintained by a commercial provider, for which securities are included and how much each counts. In U.S. equities the big four are <b>S&amp;P Dow Jones Indices</b> (the S&amp;P 500 family), <b>FTSE Russell</b> (the Russell 1000, 2000 and 3000), <b>CRSP</b> &mdash; the Center for Research in Security Prices at the University of Chicago Booth School of Business, behind widely tracked total-market indexes &mdash; and <b>MSCI</b> internationally. Each publishes its methodology as a document you can download.</p><h3>How much of each company you end up owning</h3><p>Most broad stock indexes weight by <b>float-adjusted market capitalization</b>. S&amp;P's methodology for its U.S. indices states that &ldquo;the indices are weighted by float-adjusted market capitalization,&rdquo; applying an <b>Investable Weight Factor</b> &mdash; the share of a company's stock actually available to public investors, excluding blocks held by founders, governments and other strategic holders. For S&amp;P Composite 1500 eligibility a company must &ldquo;have an IWF of at least 0.1.&rdquo; So your fund owns companies in proportion to their publicly tradable value, and the largest company gets the largest slice automatically. See <a href="market-capitalization.html">market capitalization</a>.</p><h3>The part that surprises people: a committee</h3><p>The S&amp;P 500 is not a mechanical list of the 500 biggest companies. S&amp;P's own methodology says &ldquo;constituent selection is at the discretion of the Index Committee and is based on the eligibility criteria,&rdquo; and that S&amp;P reserves &ldquo;the right to make exceptions when applying the methodology if the need arises.&rdquo;</p><p>The rules also change on a schedule. S&amp;P updates share counts and float factors quarterly, with rebalancings effective &ldquo;after the close of business on the third Friday of March, June, September, and December.&rdquo; FTSE Russell rebuilds its U.S. family in an event called reconstitution, which per FTSE Russell &ldquo;is changing from an annual to a semi-annual schedule in 2026&rdquo;: eligibility was fixed on rank day, Thursday <b>30 April 2026</b>, and the rebuilt indexes took effect after the U.S. market close on <b>26 June 2026</b>.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>&ldquo;The market&rdquo; is not a natural object you can buy. It is a set of methodology choices: which exchanges, which domiciles, what minimum float, what liquidity screen, how often the list is rebuilt, and in the S&amp;P's case a committee with stated discretion. Tracking an index is the decision to accept somebody else's published decisions &mdash; different from a manager guessing, and still not the same as no decision at all.</p></div><h3>Which index you pick is the active part</h3><p>These are all index funds: a total U.S. market fund holding thousands of companies; an S&amp;P 500 fund holding, per the methodology, &ldquo;500 constituent companies&rdquo;; a single-sector fund; a single-country fund; and a thematic fund tracking an index somebody built last year around one idea. The word &ldquo;index&rdquo; does identical work in all five names while describing wildly different amounts of risk.</p><p><b>A thematic index fund is a concentrated bet with an index fund's reassuring name.</b> The rules are published, nobody is picking, the expense ratio may be modest &mdash; and you may still own thirty companies in one industry. Everything the next section says about indexing is about tracking <em>the broad market</em>. It says nothing about whether one theme will do well. This is where the label gets abused, and the abuse is legal, because it is technically accurate.</p>
+
+  <h2 id="cost">Where the cost advantage comes from, and why it compounds</h2>
+
+  <p>The cost gap is not a promotion. It comes from work that does not have to be done.</p><ul><li><b>No research staff.</b> An active fund pays analysts to study companies, managers to decide, traders to execute. An index fund reads a rulebook, and that payroll difference lands in the expense ratio.</li><li><b>Low turnover.</b> An index fund trades when the index changes, not when somebody changes an opinion. The SEC makes the link explicitly: &ldquo;Passive management usually translates into less trading of the fund's portfolio (fewer transaction costs), more favorable income tax consequences (lower realized capital gains), and lower fees than actively managed funds.&rdquo;</li></ul><h3>Cost is the only input you can know in advance</h3><p>You cannot know next decade's return. Nobody can, and any page that says otherwise is selling something. But the expense ratio is <b>printed in the prospectus before you buy</b> &mdash; close to the only number in this subject that behaves that way, and the one lever you can pull with certainty about what pulling it does.</p><p>And you never see it charged. It is deducted from fund assets, so nothing appears on your statement asking approval &mdash; only a return slightly lower than it would have been, every day you hold the fund. Exactly the shape of cost <a href="compound-interest.html">compound interest</a> magnifies.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>$150 a month for 30 years. Assume a 7% gross annual return compounded monthly, with the expense ratio deducted monthly from the balance &mdash; close to how it really works, which is a daily accrual against fund assets. Contributions total <b>$54,000</b>.</p><p>At <b>0.04%</b> the balance ends near <b>$182,600</b>, and the fees deducted across all 30 years total about <b>$743</b>.</p><p>At <b>0.85%</b> it ends near <b>$155,700</b>, and the fees total about <b>$14,150</b>.</p><p class="gls-result">Same contributions, same market. The expensive fund took about <b>$13,400 more</b> in fees &mdash; and you ended up about <b>$26,900</b> behind. Almost exactly <b>double</b> the fees you paid.</p></div><h3>Why the gap is double the fees</h3><p>Because a dollar taken out in year three does not just cost you that dollar. It costs you everything it would have earned over the remaining twenty-seven years. <b>Fee drag compounds against you in exactly the way returns compound for you</b> &mdash; same curve, same math, pointed the other direction. That symmetry is the most useful idea on this page, and it is why 0.85% does not stay small.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Ending balance and total fees deducted at four expense ratios, on 150 dollars a month for 30 years at an assumed 7 percent gross return"><table class="gls-tab"><thead><tr><th>Annual expense ratio</th><th>Ending balance</th><th>Total fees deducted</th><th>Behind the 0.04% fund by</th></tr></thead><tbody><tr><td>0.04%</td><td>$182,602</td><td>$743</td><td>&mdash;</td></tr><tr><td>0.20%</td><td>$176,892</td><td>$3,636</td><td>$5,711</td></tr><tr><td>0.45%</td><td>$168,376</td><td>$7,907</td><td>$14,226</td></tr><tr><td>0.85%</td><td>$155,719</td><td>$14,152</td><td>$26,883</td></tr></tbody></table></div><p>Read the last two columns against each other in every row: the shortfall is right around <b>twice</b> the extra fees, every time. Not specific to these inputs &mdash; that is what a small drag does over thirty years.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>The <b>7% gross return is our own assumption</b>, chosen to make the mechanism visible. It is not a forecast, no agency publishes an expected return, and no real year delivers a smooth 7%. The four expense ratios are round numbers spanning a realistic range, not quotes from any fund. Change every input in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</p></div>
+
+  <h2 id="arithmetic">The arithmetic behind indexing, and what the evidence says</h2>
+
+  <p>Most pages assert that index funds beat active managers. Two things make that checkable rather than a slogan: a piece of logic, and a standing scorecard.</p><h3>Sharpe's arithmetic, 1991</h3><p>William Sharpe laid it out in <em>The Financial Analysts' Journal</em>, Vol. 47, No. 1, January/February 1991, pp. 7 to 9, as <a href="https://web.stanford.edu/~wfsharpe/art/active/active.htm" target="_blank" rel="noopener">&ldquo;The Arithmetic of Active Management.&rdquo;</a> A passive investor is one who &ldquo;holds every security from the market, with each represented in the same manner as in the market&rdquo;; an active investor is &ldquo;one who is not passive,&rdquo; whose portfolio &ldquo;will differ from that of the passive managers.&rdquo; Two conclusions follow. Before costs, &ldquo;the return on the average actively managed dollar will equal the return on the average passively managed dollar.&rdquo; After costs, it &ldquo;will be less.&rdquo;</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>Everybody's holdings added together <em>are</em> the market. So the active investors as a group must hold the market too &mdash; earning its return before costs and less after. The only open question is who inside that group gets which share.</p></div><p>That is an accounting identity, not a claim about skill. It also does <b>not</b> say no manager can outperform. Some do, and some must, because the group averages out: every dollar of outperformance somebody earns is a dollar somebody else lost. What it establishes is that outperformance is a zero-sum pool with costs subtracted from it.</p><h3>SPIVA, and exactly what it counts</h3><p>The standing empirical record is <b>SPIVA</b> &mdash; S&amp;P Indices Versus Active &mdash; published for over two decades by S&amp;P Dow Jones Indices. The <b>SPIVA U.S. Scorecard, Year-End 2025</b>, published 3 March 2026, reports this for actively managed large-cap U.S. equity funds measured against the S&amp;P 500:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Share of active large-cap U.S. equity funds underperforming the S and P 500 by horizon, SPIVA Year-End 2025"><table class="gls-tab"><thead><tr><th>Horizon ending 31 December 2025</th><th>Share of active large-cap funds that trailed the S&amp;P 500</th></tr></thead><tbody><tr><td>1 year (calendar 2025)</td><td>about 79%</td></tr><tr><td>10 years</td><td>about 86%</td></tr><tr><td>15 years</td><td>about 90%</td></tr><tr><td>20 years</td><td>about 93%</td></tr></tbody></table></div><p>Two things make those numbers mean something. Returns are <b>net of fees, excluding loads</b>. And the denominator is <b>survivorship-corrected</b>: SPIVA uses &ldquo;the entire investment opportunity set, made up of all funds in that particular category at the outset of the period,&rdquo; so a fund closed or merged mid-period still counts instead of quietly vanishing. That matters, because the attrition is severe &mdash; of the large-cap funds alive 20 years earlier, only about <b>35%</b> were still operating at the end.</p><h3>What SPIVA does not tell you</h3><ul><li>It measures <b>funds, not your outcome</b>. A percentage of funds is not a percentage of dollars, and not a statement about the fund <em>you</em> would have picked.</li><li>It is <b>backward-looking, and benchmark dependent</b>. Which benchmark a fund is measured against is a methodological choice, SPIVA's approach to it has been challenged in the practitioner literature, and different windows give materially different figures. The companion Persistence Scorecard exists because past winners rarely stay winners.</li><li><b>S&amp;P Dow Jones Indices is an index provider.</b> It licenses the indexes index funds track and earns more as indexing grows. The data is the best standing record available; the conflict of interest is real, and worth stating rather than ignoring.</li></ul>
+
+  <h2 id="tracking">Tracking difference, tracking error, and where the gap comes from</h2>
+
+  <p>An index fund does not equal its index. It approximates it, and the two words for the gap mean different things.</p><div class="gls-formula"><code>tracking difference = fund return - index return &nbsp;(a level: how far behind, over a period)</code></div><div class="gls-formula"><code>tracking error = the variability of that difference &nbsp;(a wobble: how consistent the gap is)</code></div><p>A fund can have a large tracking difference and almost no tracking error &mdash; landing 0.85% behind every single year, reliably, because that is its expense ratio. Another can have a tiny average difference and a jumpy one. The first is a cost problem, the second an execution problem, and sales material rarely distinguishes them.</p><h3>The honest sources of the gap</h3><ul><li><b>The expense ratio.</b> Usually the largest and most predictable piece. The index does not pay operating costs; your fund does &mdash; including the fee it pays the provider to license the index, since an index is somebody's intellectual property.</li><li><b>Sampling versus full replication.</b> A total-market fund may hold every eligible name, or a representative subset chosen to behave like the whole. Sampling exists because the smallest members of a broad index are tiny and thinly traded, so buying them exactly is expensive. It also adds a gap full replication does not have.</li><li><b>Cash drag.</b> The index is a calculation and is always fully invested. A real fund holds a little cash for contributions, redemptions and dividends not yet reinvested. In a rising market that cash lags; in a falling one it helps slightly.</li><li><b>Reconstitution and rebalancing.</b> When the rulebook adds and drops names on a published date, every fund tracking that index trades the same direction at roughly the same time. That costs money, which is why the S&amp;P and Russell calendars get watched closely.</li><li><b>Securities lending, which pushes the other way.</b> A fund may lend portfolio securities for a fee. Per the SEC staff summary, &ldquo;the borrower posts collateral with the fund&rdquo; in &ldquo;an amount at least equal to the value of the borrowed securities, marked to market daily,&rdquo; and the fund's income &ldquo;may come from fees paid to the fund by the borrowers and/or from the reinvestment of the cash collateral.&rdquo; That is fund income, so it offsets costs &mdash; occasionally enough that a fund tracks more closely than its expense ratio alone would suggest. It is not free: it carries counterparty risk and risk in how the cash collateral gets reinvested.</li></ul><p>An index fund is designed to land slightly below its index after costs. One landing meaningfully further below than its expense ratio explains is telling you something about how it is run.</p>
+
+  <h2 id="risk">What an index fund does not protect you from</h2>
+
+  <p>This is the section that matters most for anybody reading this site, and the one most pages skip.</p><p>Diversifying across a broad index does one specific, valuable thing: it <b>removes single-company risk</b>. Own a few thousand companies, and if one commits fraud or goes bankrupt the damage to you is a rounding error. That is most of the case for owning a broad fund instead of five stocks you read about.</p><p>It does <b>nothing at all</b> about market risk. When the whole market falls, a fund built to match the whole market falls with it. That is not a malfunction. That is the fund performing exactly as designed.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>How far can that go? Assemble it from two government publications. The <b>Economic Report of the President (2011)</b> states that the S&amp;P 500 &ldquo;rose 13 percent in 2010, following a 23 percent gain in 2009,&rdquo; and that even so &ldquo;the index at year's end was still 20 percent below its October 9, 2007, peak.&rdquo; The <b>Economic Report of the President (2010)</b> states that at 31 December 2009 the index stood &ldquo;65 percent above its low in March.&rdquo;</p><p>Work backwards. End of 2010 was 80% of the peak. Undo the 13% gain in 2010: end of 2009 was about 71% of the peak. Undo the 65% rise off the March low: the low was about 43% of the peak.</p><p class="gls-result">Which puts the March 2009 bottom roughly <b>57% below</b> the October 2007 top. The market lost more than half its value &mdash; and a fund tracking it perfectly lost more than half, perfectly.</p></div><p>One more figure from the same reports, for scale: &ldquo;household and nonprofit net worth declined 20 percent between December 2007 and December 2008, or by about $13 trillion.&rdquo;</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p><b>Being diversified is not the same as being safe, and it will happen again.</b> Nobody can tell you when or how far. What is knowable in advance is that a broad stock fund can lose roughly half its value and take years to recover, and that the reader who learns this in the middle of it usually sells at the bottom. That is why the order in <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> puts an <a href="emergency-fund.html">emergency fund</a> and high-rate debt ahead of any of this. Money you may need within a few years does not belong in a stock index fund, however diversified it is.</p></div><h3>Concentration: the whole market may be less spread out than it sounds</h3><p>Weight is assigned in proportion to float-adjusted market value. So when a small number of companies grow into a large share of total market value, they become a large share of your fund. Nobody decided that; the weighting rule did what it says. A &ldquo;total market&rdquo; fund holding thousands of companies can still carry much of its value in a handful of the biggest names, often in related businesses. You own many companies. You may not own many <em>independent</em> outcomes, which is what diversification is for.</p><p>And &ldquo;diversified&rdquo; guarantees less in law than it sounds. Under <a href="https://www.law.cornell.edu/uscode/text/15/80a-5" target="_blank" rel="noopener">15 U.S.C. &sect; 80a-5(b)(1)</a>, a fund is a &ldquo;diversified company&rdquo; if &ldquo;at least 75 per centum of the value of its total assets&rdquo; sits in holdings where no single issuer exceeds &ldquo;5 per centum of the value of the total assets.&rdquo; Read the boundary: the <b>other 25%</b> is not constrained by that test at all.</p>
+
+  <h2 id="ledger">What is confirmed, what is convention</h2>
+
+  <p>This page mixes regulatory and academic facts, published index rules, our own arithmetic, and a few things we could not trace.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Confirmed, unverified and convention claims on this page"><table class="gls-tab"><thead><tr><th>Claim</th><th>Status</th><th>Source, or why not</th></tr></thead><tbody><tr><td>A passive strategy &ldquo;designed to achieve approximately the same return as a particular index before fees&rdquo;; passive management usually meaning less trading, lower realized gains and lower fees</td><td><b>Confirmed</b></td><td>SEC, investor.gov. &ldquo;Before fees&rdquo; is their phrase</td></tr><tr><td>Before costs the average active dollar equals the average passive dollar; after costs it earns less</td><td><b>Confirmed</b></td><td>Sharpe, <em>Financial Analysts' Journal</em> 47(1), 1991</td></tr><tr><td>About 79% of active large-cap funds trailed the S&amp;P 500 in 2025; 86% over 10 years, 90% over 15, 93% over 20; net of fees; about 35% survived 20 years</td><td><b>Confirmed</b></td><td>SPIVA U.S. Scorecard Year-End 2025, published 3 March 2026. Rounded here</td></tr><tr><td>Float-adjusted weighting; the IWF and its 0.1 minimum; &ldquo;constituent selection is at the discretion of the Index Committee&rdquo;; quarterly updates; third-Friday rebalancing; 500 constituents</td><td><b>Confirmed</b></td><td>S&amp;P U.S. Indices Methodology</td></tr><tr><td>Russell reconstitution moving from annual to semi-annual in 2026; rank day 30 April; effective after the close on 26 June</td><td><b>Confirmed</b></td><td>FTSE Russell, Russell Reconstitution</td></tr><tr><td>The October 9, 2007 peak; 20% below the peak at end-2010; 65% above the March low at end-2009; net worth down 20% and $13 trillion in 2008</td><td><b>Confirmed</b></td><td>Economic Report of the President, 2010 and 2011</td></tr><tr><td>Lending collateral at least equal to the borrowed securities' value, marked daily; fractional shares broker-dependent and generally non-transferable; &ldquo;diversified company&rdquo; needing 75% of assets with no issuer above 5%</td><td><b>Confirmed</b></td><td>SEC staff summary on securities lending; SEC bulletin on fractional shares; 15 U.S.C. &sect; 80a-5(b)(1)</td></tr><tr><td>The S&amp;P 500 fell about <b>57%</b> from its 9 October 2007 close to its March 2009 low</td><td><b>Confirmed as our own arithmetic, not a quoted figure</b></td><td>Derived here from percentages in the two Economic Reports. We did not take index closing values from a primary source, so treat 57% as approximate</td></tr><tr><td>The ten largest companies' share of S&amp;P 500 weight; &ldquo;index funds beat 90% of active managers&rdquo; as a bare slogan; industry-average expense ratios for index versus active funds</td><td><b>Unverified</b></td><td>S&amp;P publishes the concentration figure in a factsheet that blocks automated retrieval, so <b>no number appears here</b>. The slogan drops the category and horizon, which <em>are</em> the claim. The industry averages usually quoted come from trade groups, not a government publication</td></tr><tr><td>A 7% gross return; 0.04% as &ldquo;cheap&rdquo; and 0.85% as &ldquo;expensive&rdquo;; &ldquo;passive&rdquo; and &ldquo;active&rdquo; as clean opposites; labels like &ldquo;total market&rdquo; and &ldquo;large cap&rdquo;</td><td><b>Convention &mdash; partly our own assumptions</b></td><td>No agency publishes an expected return or draws those cost lines. An index is rules a provider writes and revises, applied by a committee with stated discretion. No regulator defines the tiers, and a &ldquo;total market&rdquo; index still screens on float, liquidity and domicile</td></tr></tbody></table></div>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Treating &ldquo;index fund&rdquo; as a synonym for &ldquo;safe.&rdquo;</b> It removes single-company risk and leaves market risk completely intact. A broad fund can lose roughly half its value, as the arithmetic above shows it did into March 2009, and the reader who did not know that in advance is the reader who sells at the bottom.</li><li><b>Assuming an index fund and an <a href="etf.html">ETF</a> are the same thing, or opposites.</b> One is a strategy, the other a structure. Check both separately: what is it trying to do, and how do shares of it trade.</li><li><b>Counting a thematic or single-sector index fund as diversification.</b> Published rules and no stock-picking is all &ldquo;index fund&rdquo; promises. Thirty companies in one industry is a concentrated bet however transparently the list was assembled.</li><li><b>Comparing two funds on last year's return instead of the expense ratio.</b> Two funds tracking the same index differ mostly by cost, and cost is the number you can know before you buy. An index fund's return last year is mostly a fact about the index.</li><li><b>Waiting to see the fee so you can judge it.</b> It never appears. It comes out of fund assets, which is exactly why 0.85% feels like nothing and compounds into roughly double the fees paid.</li><li><b>Reading SPIVA as a promise.</b> It reports what happened to a category of funds over specific windows, after the fact. It does not say your fund will beat the average, and it says nothing about whether a broad index will go up.</li><li><b>Getting the account wrong before getting the fund right.</b> The same index fund is taxed completely differently in a <a href="roth-ira.html">Roth IRA</a>, a workplace plan and a taxable brokerage account, where you also track <a href="cost-basis.html">cost basis</a>. <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> covers that order first, and it is the bigger decision.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is an index fund?</h3>
+    <p>An index fund is a pooled investment fund whose stated objective is to track a specified market index rather than to beat it. The SEC describes it as following a passive investment strategy designed to achieve approximately the same return as a particular index before fees. Because the manager follows a published rulebook instead of researching and choosing securities, the fund needs no research staff and trades less often, which is where its lower cost comes from. Its success is measured by how small the gap between fund and index is.</p>
+
+    <h3>What is the difference between an index fund and an ETF?</h3>
+    <p>They describe different things. An index fund is a strategy: track an index instead of picking. An ETF is a structure: shares are listed on an exchange and trade all day at market-determined prices. All four combinations exist, so you can own an indexed mutual fund, an indexed ETF, an actively managed mutual fund or an actively managed ETF. Saying you bought an ETF tells nobody whether a manager is picking stocks, and saying you bought an index fund tells nobody how you will buy or sell it.</p>
+
+    <h3>Why are index funds cheaper than actively managed funds?</h3>
+    <p>Two reasons, and both are about work that does not get done. There is no research staff to pay, because the fund copies a published list instead of studying companies. And turnover is low, because the fund trades when the index changes rather than when a manager changes an opinion. The SEC's own investor material links the two directly, saying passive management usually translates into less trading, fewer transaction costs, lower realized capital gains and lower fees than actively managed funds.</p>
+
+    <h3>How much does a higher expense ratio actually cost me?</h3>
+    <p>More than the fee itself, because the fee compounds against you. By our own arithmetic, $150 a month for 30 years at an assumed 7% gross return ends near $182,600 at a 0.04% expense ratio and near $155,700 at 0.85%. The expensive fund deducted about $13,400 more in fees, but you finished about $26,900 behind &mdash; roughly double. Each dollar taken out also stops earning for every year that remains. The 7% is an assumption for the example, not a forecast.</p>
+
+    <h3>Do index funds really beat most active managers?</h3>
+    <p>Over the horizons S&amp;P measures, most active funds have trailed their benchmark. The SPIVA U.S. Scorecard for year-end 2025 reports that roughly 79% of active large-cap U.S. equity funds trailed the S&amp;P 500 in 2025, about 86% over ten years and about 93% over twenty, net of fees, still counting funds closed or merged during the period. But that measures funds over past windows, not your outcome or the future, and S&amp;P Dow Jones Indices is itself an index provider that benefits when indexing grows.</p>
+
+    <h3>Is an index fund safe?</h3>
+    <p>No, and the distinction matters. Owning a broad index removes single-company risk: one bankruptcy or fraud among thousands of holdings barely registers. It does nothing about market risk. When the whole market falls, a fund built to match the whole market falls with it, by design. Using percentages published in the Economic Report of the President for 2010 and 2011, the S&amp;P 500's March 2009 low works out to roughly 57% below its October 2007 peak. Diversified is not the same as safe.</p>
+
+    <h3>Who decides what is in an index?</h3>
+    <p>A commercial index provider writes and maintains the rules. The main ones in U.S. stocks are S&amp;P Dow Jones Indices, FTSE Russell, CRSP at the University of Chicago Booth School and MSCI internationally. The rules are published and can be read. They are also not purely mechanical: S&amp;P's own methodology states that constituent selection is at the discretion of its Index Committee and that it reserves the right to make exceptions. The rules change on a schedule too, and FTSE Russell moved its U.S. reconstitution to twice a year in 2026.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="etf.html"><b>ETF</b><span>The structure an index fund often arrives in</span></a>
+      <a href="compound-interest.html"><b>Compound Interest</b><span>Why a small annual fee turns into a large number</span></a>
+      <a href="market-capitalization.html"><b>Market Cap</b><span>The float-adjusted weight that decides what you own</span></a>
+      <a href="roth-ira.html"><b>Roth IRA</b><span>The account an index fund often sits inside</span></a>
+      <a href="cost-basis.html"><b>Cost Basis</b><span>What you track once the fund is in a taxable account</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>The money that should not be in the market at all</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>Put two expense ratios side by side over thirty years in the <a href="../investment-growth-calculator.html">investment growth calculator</a> &mdash; free, no account.</li>
+      <li>Strip it back to the bare mechanism with the <a href="../compound-interest-calculator.html">compound interest calculator</a>.</li>
+      <li>Work through <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> in the free Financial Literacy course &mdash; all five stages, no account needed.</li>
+      <li>Starting at 40 or 50 with a shorter runway? Read <a href="../starting-late.html">Starting Late</a>.</li>
+      <li>See what the market is doing right now on the <a href="../markets.html">Markets hub</a>, or the breadth and sector views on <a href="../markets-technical.html">Markets &middot; Technical</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-1" target="_blank" rel="noopener">Mutual Funds and Exchange-Traded Funds (ETFs)</a> (index funds following a passive strategy &ldquo;designed to achieve approximately the same return as a particular index before fees&rdquo;; a fund pursuing its objective &ldquo;primarily by investing in the securities of companies that are included in a selected index&rdquo;; and passive management usually meaning less trading, fewer transaction costs, lower realized capital gains and lower fees).</li>
+      <li>William F. Sharpe, <a href="https://web.stanford.edu/~wfsharpe/art/active/active.htm" target="_blank" rel="noopener">&ldquo;The Arithmetic of Active Management&rdquo;</a>, <em>The Financial Analysts' Journal</em>, Vol. 47, No. 1, January/February 1991, pp. 7 to 9 (the definitions of passive and active investors, and the two conclusions that before costs the average actively managed dollar equals the average passively managed dollar and after costs earns less).</li>
+      <li>S&amp;P Dow Jones Indices, <a href="https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-year-end-2025.pdf" target="_blank" rel="noopener">SPIVA U.S. Scorecard, Year-End 2025</a> (the share of active large-cap U.S. equity funds underperforming the S&amp;P 500 over 1, 10, 15 and 20 years, returns net of fees excluding loads, the survivorship correction using the entire investment opportunity set at the outset of the period as the denominator, and the 20-year fund survival rate). See also the <a href="https://www.spglobal.com/spdji/en/spiva/article/spiva-us/" target="_blank" rel="noopener">SPIVA U.S. landing page</a> for the current edition.</li>
+      <li>S&amp;P Dow Jones Indices, <a href="https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf" target="_blank" rel="noopener">S&amp;P U.S. Indices Methodology</a> (float-adjusted market capitalization weighting, the Investable Weight Factor and the 0.1 minimum for S&amp;P Composite 1500 eligibility, &ldquo;constituent selection is at the discretion of the Index Committee,&rdquo; the reserved right to make exceptions, quarterly share and float updates, the third-Friday quarterly rebalancing effective dates, and the 500 constituents of the S&amp;P 500).</li>
+      <li>FTSE Russell, <a href="https://www.lseg.com/en/ftse-russell/russell-reconstitution" target="_blank" rel="noopener">Russell Reconstitution</a> (the Russell US Indexes reconstitution &ldquo;changing from an annual to a semi-annual schedule in 2026,&rdquo; the 2026 rank day of Thursday 30 April, and the rebuilt indexes taking effect after the U.S. market close on 26 June).</li>
+      <li>Economic Report of the President, 2011, <a href="https://www.govinfo.gov/content/pkg/ERP-2011/html/ERP-2011-chapter2.htm" target="_blank" rel="noopener">Chapter 2: The Year in Review and the Years Ahead</a> (the S&amp;P 500 rising 13 percent in 2010 after a 23 percent gain in 2009, and still standing 20 percent below its October 9, 2007 peak at the end of 2010).</li>
+      <li>Economic Report of the President, 2010, <a href="https://www.govinfo.gov/content/pkg/ERP-2010/html/ERP-2010-other-3.htm" target="_blank" rel="noopener">Chapter 2: Rescuing the Economy from the Great Recession</a> (the S&amp;P 500 declining 29 percent in the second half of 2008, standing 65 percent above its March low at the end of 2009, and household and nonprofit net worth falling 20 percent, or about $13 trillion, between December 2007 and December 2008).</li>
+      <li>Legal Information Institute, <a href="https://www.law.cornell.edu/uscode/text/15/80a-5" target="_blank" rel="noopener">15 U.S.C. &sect; 80a-5</a> (the definition of a &ldquo;diversified company&rdquo; at subsection (b)(1) &mdash; at least 75 per centum of total assets with no single issuer above 5 per centum of total assets and no more than 10 per centum of an issuer's voting securities &mdash; and &ldquo;non-diversified company&rdquo; at (b)(2)).</li>
+      <li>U.S. Securities and Exchange Commission, <a href="https://www.sec.gov/investment/divisionsinvestmentsecurities-lending-open-closed-end-investment-companieshtm" target="_blank" rel="noopener">Securities Lending by U.S. Open-End and Closed-End Investment Companies</a> (collateral at least equal to the value of the borrowed securities and marked to market daily, and lending income from borrower fees and/or reinvestment of cash collateral), and SEC Office of Investor Education and Advocacy, <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/fractional-share-investing-buying-slice-instead-whole-share" target="_blank" rel="noopener">Investor Bulletin: Fractional Share Investing</a> (availability varying by firm, fractional shares generally not transferable to another brokerage firm, and liquidity not guaranteed).</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What an index fund is</a></li>
+      <li><a href="#structure">Index fund vs ETF</a></li>
+      <li><a href="#index">The index is a rulebook</a></li>
+      <li><a href="#cost">Where the cost edge comes from</a></li>
+      <li><a href="#arithmetic">The arithmetic and the evidence</a></li>
+      <li><a href="#tracking">Tracking difference</a></li>
+      <li><a href="#risk">What it doesn't protect you from</a></li>
+      <li><a href="#ledger">Confirmed vs convention</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>Run the same monthly contribution at two expense ratios and watch the gap open over thirty years. Free, no account.</p>
+    <a class="gls-cta" href="../investment-growth-calculator.html">Investment growth calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+        <a href="../dmca.html">DMCA &amp; Copyright</a>
+        <a href="../privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>
