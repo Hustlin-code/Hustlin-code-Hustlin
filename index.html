@@ -62,7 +62,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260812-1911">
+<link rel="stylesheet" href="styles.css?v=20260812-1933">
 <style>
 /* ── INDEX PAGE ONLY ── */
 
@@ -1258,7 +1258,7 @@
       You bring the effort; we'll hand you the map.
     </p>
     <div class="ix-ctas" id="join">
-      <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Free Course" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
+      <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start Free Course" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)" width="560" height="196" loading="lazy" decoding="async"></a>
       <a class="ix-mkt-btn" href="markets.html"><span class="live"></span>Markets &amp; Data</a>
     </div>
 
@@ -1436,7 +1436,7 @@
       <p class="ix-feat-p">Banking. Credit. Budgeting. Killing debt. Real investing. Five stages, absolute zero to owning the market — the same ground people sell for the price of a car payment, and here it's <strong>$0</strong>. No account. No card. No catch to find later.</p>
       <p class="ix-feat-p" style="margin-top:14px"><strong>Why free?</strong> Because a person who can't cover rent shouldn't have to buy the book that explains why. Learn it here, and if you ever want the market side — stocks, charts, valuation — that ladder's waiting. It just isn't the toll gate.</p>
       <div class="cta-row" style="margin-top:0">
-        <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start free — all five stages, no account needed" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
+        <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;"><img src="assets/buttons/StartJourney.png" alt="Start free — all five stages, no account needed" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)" width="560" height="196" loading="lazy" decoding="async"></a>
       </div>
       <p style="margin-top:14px;font-size:.84rem;line-height:1.6;color:var(--text-muted)">Stage 1 opens instantly. Nothing to fill in first.</p>
     </div>
@@ -1535,7 +1535,7 @@
     <p class="ix-mission-p">
       Hustlin' exists to teach you how to legally hustle, get what the system was designed to give you, and change the narrative for yourself and everyone around you.
     </p>
-    <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;margin-bottom:16px;"><img src="assets/buttons/StartJourney.png" alt="Take the Free Financial Literacy Resource" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)"></a>
+    <a href="financial-literacy.html" style="display:inline-flex;align-items:center;text-decoration:none;margin-bottom:16px;"><img src="assets/buttons/StartJourney.png" alt="Take the Free Financial Literacy Resource" style="width:240px;max-width:75vw;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35)" width="560" height="196" loading="lazy" decoding="async"></a>
   </div>
 </section>
 
@@ -1580,7 +1580,7 @@
 
     
     <div class="hfy-ft-brand">
-      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'" width="1423" height="572" loading="lazy" decoding="async"></a>
       <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
     </div>
 
@@ -1613,7 +1613,7 @@
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
         <a href="dmca.html">DMCA &amp; Copyright</a>
-        <a href="privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+        <a href="privacy-policy.html#your-privacy-choices" id="hfy-privacy-choices">Your Privacy Choices</a>
       </div>
     </div>
 
@@ -1651,6 +1651,23 @@
     <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
     All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
   </div>
+<script>
+/* "Your Privacy Choices" reopens Google's certified consent message (Privacy &
+   messaging in AdSense) when it is on the page. The href stays a real link so
+   the control still works with JavaScript off and never dead-ends: without the
+   CMP it falls through to section 10 of the Privacy Policy. */
+(function(){
+  var a = document.getElementById('hfy-privacy-choices');
+  if (!a) return;
+  a.addEventListener('click', function (e) {
+    var fc = window.googlefc;
+    if (fc && typeof fc.showRevocationMessage === 'function') {
+      e.preventDefault();
+      fc.showRevocationMessage();
+    }
+  });
+})();
+</script>
 </footer>
 <!-- FOOTER:END -->
 
@@ -1659,11 +1676,11 @@
      config, auth, then the access/buy helpers. Order matters — course-buy.js
      bails with a console error if HFY.auth and HFY.access aren't defined yet. -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=20260812-1911"></script>
-<script src="app.js?v=20260812-1911"></script>
-<script src="auth.js?v=20260812-1911"></script>
-<script src="course-access.js?v=20260812-1911"></script>
-<script src="course-buy.js?v=20260812-1911"></script>
+<script src="supabase-config.js?v=20260812-1933"></script>
+<script src="app.js?v=20260812-1933"></script>
+<script src="auth.js?v=20260812-1933"></script>
+<script src="course-access.js?v=20260812-1933"></script>
+<script src="course-buy.js?v=20260812-1933"></script>
 
 </body>
 </html>

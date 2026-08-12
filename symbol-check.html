@@ -55,7 +55,7 @@
     color:#F5C520;padding:2px 4px 1px}
   .note{font-size:11.5px;color:rgba(255,255,255,.35);padding:0 4px 7px}
 </style>
-  <link rel="stylesheet" href="styles.css?v=20260812-1911">
+  <link rel="stylesheet" href="styles.css?v=20260812-1933">
 </head>
 <body>
 <div class="in">
@@ -214,7 +214,7 @@ document.getElementById('add-go').addEventListener('click', function () {
 
     
     <div class="hfy-ft-brand">
-      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'" width="1423" height="572" loading="lazy" decoding="async"></a>
       <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
     </div>
 
@@ -247,7 +247,7 @@ document.getElementById('add-go').addEventListener('click', function () {
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
         <a href="dmca.html">DMCA &amp; Copyright</a>
-        <a href="privacy-policy.html#your-privacy-choices">Your Privacy Choices</a>
+        <a href="privacy-policy.html#your-privacy-choices" id="hfy-privacy-choices">Your Privacy Choices</a>
       </div>
     </div>
 
@@ -285,6 +285,23 @@ document.getElementById('add-go').addEventListener('click', function () {
     <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
     All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
   </div>
+<script>
+/* "Your Privacy Choices" reopens Google's certified consent message (Privacy &
+   messaging in AdSense) when it is on the page. The href stays a real link so
+   the control still works with JavaScript off and never dead-ends: without the
+   CMP it falls through to section 10 of the Privacy Policy. */
+(function(){
+  var a = document.getElementById('hfy-privacy-choices');
+  if (!a) return;
+  a.addEventListener('click', function (e) {
+    var fc = window.googlefc;
+    if (fc && typeof fc.showRevocationMessage === 'function') {
+      e.preventDefault();
+      fc.showRevocationMessage();
+    }
+  });
+})();
+</script>
 </footer>
 <!-- FOOTER:END -->
 </body>
