@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inflation: What It Is and How It Is Measured | Learn the Lingo</title>
+<meta name="description" content="Inflation is a sustained rise in the general price level. How CPI and PCE are built, why they disagree, and how to turn a nominal return into a real one.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/inflation.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/inflation.html">
+<meta property="og:title" content="Inflation &mdash; Learn the Lingo">
+<meta property="og:description" content="A sustained rise in the general price level &mdash; how it is measured, why two official U.S. measures disagree, and what it does to every number you are quoted.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inflation &mdash; Learn the Lingo">
+<meta name="twitter:description" content="A sustained rise in the general price level &mdash; how it is measured, why two official U.S. measures disagree, and what it does to every number you are quoted.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/inflation.html#term",
+      "name": "Inflation",
+      "alternateName": ["Inflation","Inflation rate","CPI inflation","Rising cost of living"],
+      "description": "Inflation is a sustained rise in the general price level, reported as the percentage change in a price index against the same month a year earlier. In the United States it is measured two ways: the Consumer Price Index from the Bureau of Labor Statistics, and the personal consumption expenditures price index from the Bureau of Economic Analysis.",
+      "url": "https://hustlin.org/learn-the-lingo/inflation.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Inflation: What It Is, How CPI and PCE Measure It, and What It Costs You",
+      "description": "A plain-language explanation of inflation: the year-over-year formula, how the CPI basket is weighted and why shelter dominates it, why the CPI and PCE price indexes disagree in the same month, what core and the alternative core measures actually strip out, how the bond market prices expected inflation, and how to convert a nominal return into a real one.",
+      "url": "https://hustlin.org/learn-the-lingo/inflation.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/inflation.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/inflation.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Inflation", "item": "https://hustlin.org/learn-the-lingo/inflation.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is inflation in simple terms?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Inflation is a sustained rise in the general price level, which is the same thing as your money buying less over time. It is not one product getting expensive &mdash; that is a relative price change, and it tells the market to send more supply to that product. Inflation is the whole price level drifting up together. It is reported as a percentage change against the same month a year earlier, so a 3.5% reading means the average basket costs 3.5% more than it did twelve months ago." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between CPI and PCE?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They are two official U.S. inflation measures from two different agencies. CPI comes from the Bureau of Labor Statistics and measures out-of-pocket spending by households. The PCE price index comes from the Bureau of Economic Analysis and covers spending by and on behalf of the personal sector, including care paid for by employers and government programs. BEA lists four sources of divergence: the index formula, the category weights, the scope of what is covered, and other effects such as seasonal adjustment. Neither reliably runs higher &mdash; in June 2026, PCE was 3.7% against CPI at 3.5%." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which inflation measure does the Federal Reserve target?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The Fed's longer-run objective is 2 percent as measured by the annual change in the price index for personal consumption expenditures &mdash; headline PCE, not core PCE and not CPI. That is stated in the FOMC's Statement on Longer-Run Goals and Monetary Policy Strategy, reaffirmed effective 27 January 2026. Officials reference core PCE constantly as a guide to the underlying trend, but the formal goal is on the headline series. Comparing a CPI print to that 2% figure gives a systematically wrong answer about how far policy has to go." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is core inflation and why does it leave out food and energy?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Core inflation is the price index with food and energy removed. The agencies do not use the word core: BLS publishes it as all items less food and energy, and BEA as the PCE price index excluding food and energy. Those two categories swing on weather, harvests and geopolitics rather than on domestic demand, and interest rates cannot do anything about a drought. Core is an attempt to isolate the persistent trend. It has a real weakness &mdash; a long energy shock eventually feeds into everything else, and core will understate that." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Social Security adjusted for inflation?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, but not on the index most people are watching. The cost-of-living adjustment is set on CPI-W, the Consumer Price Index for Urban Wage Earners and Clerical Workers, comparing a third-quarter average against the third-quarter average of the last year a COLA took effect. CPI-W covers about 30% of the U.S. population; the CPI-U quoted in the news covers over 90%. The 2026 COLA is 2.8%. If your benefit adjustment does not match the headline inflation number, that difference is why." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does official inflation feel lower than my own bills?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The published index reflects an average household's spending pattern, and yours is not average. Shelter alone is 35.625% of the CPI-U on the December 2025 weights, so if your rent moved sharply your lived rate can run well above or below the headline. Categories are weighted by their share of average spending, which means a large move in something you rarely buy barely registers for you while still moving the index. The number is not measuring your basket; it is measuring the average one." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a real return, and how do I calculate one?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A real return is what is left after inflation. The shortcut is nominal return minus the inflation rate, which is close enough at low rates. The exact version divides one plus the nominal return by one plus inflation and subtracts one. The two do not give identical answers, so pick a convention and stay with it. The same subtraction applied to a policy rate tells you whether money is tight: with the federal funds target range at 3-1/2 to 3-3/4 percent and headline PCE inflation at 3.7%, the real policy rate is roughly zero." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260811-2357">
+<link rel="stylesheet" href="lingo.css?v=20260811-2357">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html#guides">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-four calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Inflation</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Inflation</div>
+      <h1 class="hero-h1">Inflation</h1>
+      <p class="hero-sub">A sustained rise in the general price level &mdash; which is the same sentence as a sustained fall in what a dollar buys. Here is how the United States measures it, and why two official measures of the same month disagree.</p>
+      <p class="gls-aka"><b>Also called:</b> the inflation rate &middot; CPI inflation &middot; the price level &middot; cost of living increase &middot; disinflation (when it slows) &middot; deflation (when it goes negative)</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 11 August 2026</b> &middot; Sourced from the BLS, the BEA, the Federal Reserve and the Census Bureau</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>Inflation is a sustained rise in the general price level &mdash; not one price going up, but the whole level drifting up together, which is the same thing as your money buying less each year.</strong></p>
+    <p>It is reported as a percentage change against the same month a year ago. A falling inflation rate does not mean prices are falling; it means they are still rising, more slowly. And every rate of return you are ever quoted &mdash; on savings, bonds, a business, a house &mdash; is a nominal number until you take inflation back out of it.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Inflation is about the general price level, not any one price.</b> One item getting expensive is a relative price change and it tells the market where to send supply. The whole level rising together is a statement about money.</li>
+      <li><b>Shelter is 35.625% of the CPI-U</b> on the BLS December 2025 relative-importance table &mdash; more than a third of the entire index. Owners' equivalent rent alone is 26.204%.</li>
+      <li>The Fed's longer-run goal is <b>2 percent on the annual change in the headline PCE price index</b> &mdash; not core, and not CPI. Holding a CPI print up against that 2% is comparing two different rulers.</li>
+      <li><b>Neither measure reliably runs above the other.</b> For June 2026, PCE came in at 3.7% against CPI at 3.5%, and core PCE at 3.3% against core CPI at 2.6% &mdash; the opposite of the direction most write-ups assume.</li>
+      <li><b>Social Security COLAs are set on CPI-W</b>, the urban wage earner index covering about 30% of the population &mdash; not the CPI-U over 90% figure the headlines quote. The 2026 COLA is 2.8%.</li>
+      <li><b>There is a hole in the series.</b> BLS collected no CPI data from 1 October to 12 November 2025, so any twelve-month comparison spanning that window rests partly on data that was never gathered.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What inflation actually measures</h2>
+
+  <p>Your rent went up at renewal. Ground beef costs more than it did last spring. That is what most people mean by inflation. The official statistic means something narrower: a sustained rise in the <em>general</em> price level &mdash; the same sentence as a sustained fall in what a dollar buys.</p><p>The word general carries the weight. One price rising on a bad harvest or a new tariff is a relative price change, and it signals where to send more supply. Inflation is the whole level drifting up together &mdash; a statement about money, not about beef.</p><div class="gls-formula"><span class="gls-lbl">The inflation rate</span><code>Inflation rate  =  ( <em>Index now</em> &minus; <em>Index a year ago</em> )  &divide;  <em>Index a year ago</em>  &times;  100</code><p class="gls-where">The BLS publishes its headline figures as 12-month percent changes on exactly this basis.</p></div><p>Two things fall out of that arithmetic. A year-over-year rate can drop purely because the month it is measured against was unusually high &mdash; nothing has to happen this month. And a falling rate does not mean falling prices. It means prices are still rising, slower. Prices only fall when the rate goes negative, which is deflation and a different problem.</p>
+
+  <h2 id="basket">How the basket is weighted, and why shelter runs it</h2>
+
+  <p>CPI prices a basket meant to stand in for what an urban household buys &mdash; a population that, in the BLS's words, <em>&ldquo;constitutes over 90 percent of the U.S. population.&rdquo;</em> Each category is weighted by its share of spending, and the weights decide everything: a category at 30% of spending moves the index thirty times as hard as one at 1%.</p><p>Shelter is not a component of the U.S. CPI. It is <em>the</em> component.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Relative importance of major CPI categories, December 2025"><table class="gls-tab"><thead><tr><th>Category</th><th>Relative importance, Dec 2025</th><th>Note</th></tr></thead><tbody><tr><td><strong>Shelter</strong></td><td><b>35.625%</b></td><td>Owners' equivalent rent 26.204%, rent of primary residence 7.840%; whole housing group 44.469%</td></tr><tr><td>Transportation</td><td>16.316%</td><td>Vehicles, fuel, insurance, maintenance</td></tr><tr><td>Food</td><td>13.698%</td><td>At home and away from home</td></tr><tr><td>Medical care</td><td>8.423%</td><td>Weighted far higher in PCE</td></tr><tr><td>Energy</td><td>6.383%</td><td>Drifts up within the year: 7.791% on May 2026 weights</td></tr></tbody></table></div><p>The BLS does not use house prices, because buying a house counts as investment rather than consumption. For the <b>65.0%</b> (&plusmn;0.5) of households who owned their home in the second quarter of 2026, it uses owners' equivalent rent &mdash; an estimate of what the home would rent for. That reflects the average across all existing leases, so it turns months after the housing market does.</p><p><b>Since January 2023 the BLS updates the weights annually</b>, from one calendar year of Consumer Expenditure Survey data on a two-year lag &mdash; which is why the December 2025 table is labelled 2024 weights. Before 2023 the update came every two years, from two years of data.</p>
+
+  <h2 id="cpi-vs-pce">Two official measures of the same month, disagreeing</h2>
+
+  <p>Two agencies publish inflation and they disagree. CPI comes from the Bureau of Labor Statistics. The PCE price index comes from the Bureau of Economic Analysis, inside Personal Income and Outlays. CPI lands first &mdash; for June 2026, CPI on 14 July and PCE on 30 July, a 16-day gap.</p><div class="gls-eg"><span class="gls-lbl">June 2026, twelve-month changes</span><div class="gls-result">CPI, all items                        3.5%
+CPI, all items less food and energy   2.6%
+
+PCE price index                       3.7%
+PCE excluding food and energy         3.3%</div><p>Same month, same country. The two core measures sit <b>0.7 percentage points</b> apart, with PCE on top.</p></div><p>BEA names four reasons they diverge. The <b>formula effect</b> &mdash; PCE uses the Fisher-Ideal formula, CPI a modified Laspeyres. The <b>weight effect</b>. The <b>scope effect</b>: <em>&ldquo;PCE measures spending by and on behalf of the personal sector, which includes both households and nonprofit institutions serving households; the CPI measures out-of-pocket spending by households.&rdquo;</em> And <b>other effects</b>, covering seasonal adjustment and residual differences. Scope is why medical care weighs more in PCE, which counts care an employer or a government program pays for; shelter weighs more in CPI.</p><p>What does not follow is a direction. BEA asserts no general rule about which measure runs higher, and June 2026 has PCE above CPI on both headline and core. The gap is a mechanism, not a constant you can subtract.</p><p>One difference outranks the rest: the Fed's longer-run objective is <b>2 percent on the annual change in the PCE price index</b> &mdash; headline, not core, and not CPI. Holding a CPI print up against that 2% measures with the wrong ruler, and it is done constantly.</p>
+
+  <h2 id="core">Core, and the measures built because core has limits</h2>
+
+  <p>&ldquo;Core&rdquo; is market shorthand. The agencies say <em>all items less food and energy</em> (BLS) and <em>PCE price index excluding food and energy</em> (BEA). Food and energy swing on weather, harvests and geopolitics, and a central bank cannot make it rain, so core is an attempt to see the persistent trend underneath. It is not a claim that food is free &mdash; and it understates a long energy shock, which eventually feeds into everything else.</p><p>Because core has that failure mode, regional Federal Reserve banks publish alternatives that cut the data differently. Cleveland's <b>median CPI</b> is the one-month rate of the component whose expenditure weight sits at the 50th percentile of price changes. Its <b>16% trimmed-mean CPI</b> averages the components whose weights fall between the 8th and 92nd percentiles. Atlanta's <b>sticky-price CPI</b> tracks only components whose prices adjust infrequently &mdash; the cutoff is not published, so nobody outside the bank should be quoting a threshold.</p><div class="gls-eg"><span class="gls-lbl">June 2026, twelve-month changes across measures</span><div class="gls-result">CPI headline               3.5%     Energy   +15.7%
+CPI core                   2.6%     Shelter   +3.3%
+Median CPI                 2.7%
+16% trimmed-mean CPI       2.6%
+Sticky-price CPI           2.8%</div><p>Every alternative sits below headline &mdash; the shape of a narrow, energy-led print rather than a broad one.</p></div><p>There is also core services excluding shelter, informally called supercore, on the reasoning that those prices are mostly wages. The three-way split behind it &mdash; core goods, housing services, and core services other than housing &mdash; is Chair Jerome H. Powell's, from his November 2022 Brookings speech. Powell never used the word supercore. The market attached it afterwards.</p>
+
+  <h2 id="expectations">What the market thinks inflation will be</h2>
+
+  <p>Expectations are not a mood. They are priced daily in the Treasury market. Inflation-protected securities adjust for realised inflation; ordinary Treasuries do not. Subtract one yield from the other at the same maturity and you have the <b>breakeven inflation rate</b>.</p><div class="gls-formula"><span class="gls-lbl">Breakeven inflation</span><code>Breakeven  =  <em>Nominal Treasury yield</em>  &minus;  <em>TIPS yield</em>   (same maturity)</code><p class="gls-where">This is literally how the published series is built: the 10-year constant-maturity yield minus the 10-year inflation-indexed yield.</p></div><p>Three readings show how far apart the sources sit. The 10-year breakeven was <b>2.29%</b> on 10 August 2026. The 5-year, 5-year forward rate &mdash; expected inflation on average over the five years beginning five years from today, far enough out that a current shock has washed through &mdash; was <b>2.33%</b> the same day. The New York Fed's Survey of Consumer Expectations, run monthly on a rotating panel of roughly 1,300 household heads, put the median one-year-ahead expectation at <b>3.6%</b> in July 2026. Households sit well above markets. They usually do.</p><div class="gls-box gls-warn"><span class="gls-lbl">What a lot of written explanations still get wrong</span><p>The Fed is frequently described as an average-inflation targeter that will let inflation run hot to make up for past shortfalls. That framework was removed on 22 August 2025. The current Statement on Longer-Run Goals, reaffirmed effective 27 January 2026, contains neither the average-inflation language nor the &ldquo;shortfalls&rdquo; wording; it says the Committee will <em>&ldquo;act forcefully to ensure that longer-term inflation expectations remain well anchored.&rdquo;</em> The 2 percent PCE goal itself was explicitly not part of that review and did not change.</p></div>
+
+  <h2 id="real">Nominal is what you are quoted. Real is what you keep.</h2>
+
+  <p>A savings account paying 4% while inflation runs 6% loses you purchasing power every month it sits there, however positive the statement looks. This is the one piece of arithmetic worth carrying off this page.</p><div class="gls-formula"><span class="gls-lbl">Real return &mdash; shortcut and exact</span><code>Approximate:  Real  &asymp;  <em>Nominal</em>  &minus;  <em>Inflation</em>
+Exact:        Real  =  ( 1 + <em>Nominal</em> )  &divide;  ( 1 + <em>Inflation</em> )  &minus;  1</code><p class="gls-where">The shortcut is close enough at low rates and drifts as rates rise. Pick one convention and say which &mdash; they do not give the same answer.</p></div><p>Applied to policy, the same subtraction tells you whether money is actually tight. As of 30 July 2026 the federal funds target range is 3-1/2 to 3-3/4 percent, with interest on reserve balances at 3.65%. Headline PCE inflation is 3.7%. On the shortcut convention the real policy rate is roughly <b>zero</b> &mdash; neither restrictive nor stimulative &mdash; behind a nominal rate that sounds high. The 10-year TIPS real yield was 2.40% on 7 August 2026.</p><div class="gls-box gls-warn"><span class="gls-lbl">Tax lands on the nominal gain, including the inflation part</span><p>Earn 6% nominal with 4% inflation at a 25% tax rate. Tax takes 1.5%, leaving 4.5% nominal. <b>On the shortcut convention</b> the real return is 0.5%, and that 1.5% of tax landed on a 2.0% real gain &mdash; an effective rate of <b>75%</b>, not 25%. Run the same case through the exact formula and the pre-tax real gain is 1.923%, the after-tax real return 0.481%, and the effective rate <b>78%</b>. Both are defensible. Mixing them on one page is not.</p></div><p>One further point, offered as reasoning rather than as a sourced figure, because no agency publishes it as a rule: nominal rates cannot fall far below zero, since people would hold cash instead. So when inflation goes negative the real rate is pushed <em>up</em> even at a zero policy rate, and policy tightens exactly when the economy needs the opposite. The related claim that resetting unanchored expectations has historically required deliberately inducing a recession is an interpretation, not a measurement.</p>
+
+  <h2 id="indexed">What is legally tied to the number</h2>
+
+  <p>Inflation is not only a description. Federal payments and contracts are wired to specific index series, and rarely the one in the headline.</p><p><strong>Social Security.</strong> The cost-of-living adjustment is set on <b>CPI-W</b>, the Consumer Price Index for Urban Wage Earners and Clerical Workers &mdash; not the CPI-U everyone quotes &mdash; comparing a third-quarter average against the third-quarter average of the last year a COLA took effect. CPI-W covers about 30% of the U.S. population against CPI-U's over 90%. The 2026 COLA is <b>2.8%</b>.</p><p><strong>TIPS.</strong> They index to the non-seasonally-adjusted CPI-U on a three-month lag, and Treasury's offering circular states it flatly: <em>&ldquo;The Ref CPI for the first day of any calendar month is the CPI for the third preceding calendar month.&rdquo;</em> The protection is real and arrives a quarter late by design.</p><p>So before assuming the headline rate applies to a raise, a benefit letter or a bond prospectus, find which index the document names. CPI-U, CPI-W and headline PCE are three different numbers for the same month.</p>
+
+  <h2 id="gaps">Where the number has holes</h2>
+
+  <p>An honest page about inflation has to say where the statistic has holes.</p><p><strong>Two months are missing.</strong> Because of the lapse in appropriations, the BLS collected no CPI data from 1 October through 12 November 2025. In the agency's words, <em>&ldquo;Missing CPI data affected October and November 2025 indexes,&rdquo;</em> and it propagated forward: <em>&ldquo;Missing October 2025 data also affected April 2026 rent and owner's equivalent rent indexes.&rdquo;</em> The Cleveland Fed had to interpolate October 2025 to keep its median and trimmed-mean series running. Any twelve-month comparison spanning that window rests partly on prices nobody collected.</p><p><strong>Every figure here has a shelf life.</strong> The July 2026 CPI is due at 8:30 a.m. Eastern on 12 August 2026, and it restates the twelve-month rate. That is why each number above carries its as-of date. For live readings rather than dated ones, the <a href="../markets-economic.html">economic pillar</a> pulls CPI, core, PCE and the breakevens straight from the source.</p>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is inflation in simple terms?</h3>
+    <p>Inflation is a sustained rise in the general price level, which is the same thing as your money buying less over time. It is not one product getting expensive &mdash; that is a relative price change, and it tells the market to send more supply to that product. Inflation is the whole price level drifting up together. It is reported as a percentage change against the same month a year earlier, so a 3.5% reading means the average basket costs 3.5% more than it did twelve months ago.</p>
+
+    <h3>What is the difference between CPI and PCE?</h3>
+    <p>They are two official U.S. inflation measures from two different agencies. CPI comes from the Bureau of Labor Statistics and measures out-of-pocket spending by households. The PCE price index comes from the Bureau of Economic Analysis and covers spending by and on behalf of the personal sector, including care paid for by employers and government programs. BEA lists four sources of divergence: the index formula, the category weights, the scope of what is covered, and other effects such as seasonal adjustment. Neither reliably runs higher &mdash; in June 2026, PCE was 3.7% against CPI at 3.5%.</p>
+
+    <h3>Which inflation measure does the Federal Reserve target?</h3>
+    <p>The Fed's longer-run objective is 2 percent as measured by the annual change in the price index for personal consumption expenditures &mdash; headline PCE, not core PCE and not CPI. That is stated in the FOMC's Statement on Longer-Run Goals and Monetary Policy Strategy, reaffirmed effective 27 January 2026. Officials reference core PCE constantly as a guide to the underlying trend, but the formal goal is on the headline series. Comparing a CPI print to that 2% figure gives a systematically wrong answer about how far policy has to go.</p>
+
+    <h3>What is core inflation and why does it leave out food and energy?</h3>
+    <p>Core inflation is the price index with food and energy removed. The agencies do not use the word core: BLS publishes it as all items less food and energy, and BEA as the PCE price index excluding food and energy. Those two categories swing on weather, harvests and geopolitics rather than on domestic demand, and interest rates cannot do anything about a drought. Core is an attempt to isolate the persistent trend. It has a real weakness &mdash; a long energy shock eventually feeds into everything else, and core will understate that.</p>
+
+    <h3>Is Social Security adjusted for inflation?</h3>
+    <p>Yes, but not on the index most people are watching. The cost-of-living adjustment is set on CPI-W, the Consumer Price Index for Urban Wage Earners and Clerical Workers, comparing a third-quarter average against the third-quarter average of the last year a COLA took effect. CPI-W covers about 30% of the U.S. population; the CPI-U quoted in the news covers over 90%. The 2026 COLA is 2.8%. If your benefit adjustment does not match the headline inflation number, that difference is why.</p>
+
+    <h3>Why does official inflation feel lower than my own bills?</h3>
+    <p>The published index reflects an average household's spending pattern, and yours is not average. Shelter alone is 35.625% of the CPI-U on the December 2025 weights, so if your rent moved sharply your lived rate can run well above or below the headline. Categories are weighted by their share of average spending, which means a large move in something you rarely buy barely registers for you while still moving the index. The number is not measuring your basket; it is measuring the average one.</p>
+
+    <h3>What is a real return, and how do I calculate one?</h3>
+    <p>A real return is what is left after inflation. The shortcut is nominal return minus the inflation rate, which is close enough at low rates. The exact version divides one plus the nominal return by one plus inflation and subtracts one. The two do not give identical answers, so pick a convention and stay with it. The same subtraction applied to a policy rate tells you whether money is tight: with the federal funds target range at 3-1/2 to 3-3/4 percent and headline PCE inflation at 3.7%, the real policy rate is roughly zero.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="interest-rate.html"><b>Interest Rate</b><span>The nominal number inflation gets subtracted from</span></a>
+      <a href="yield-curve-inversion.html"><b>Yield Curve Inversion</b><span>What the bond market says about growth and prices ahead</span></a>
+      <a href="apy.html"><b>APY</b><span>What savings earns before inflation takes its share</span></a>
+      <a href="compound-interest.html"><b>Compound Interest</b><span>The same maths that erodes cash also grows it</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>Cash you hold on purpose, knowing it loses ground</span></a>
+      <a href="roth-ira.html"><b>Roth IRA</b><span>Where the tax on a nominal gain gets handled differently</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>See current CPI, core, PCE and breakeven readings on the <a href="../markets-economic.html">live economic pillar</a> &mdash; free, no account.</li>
+      <li>Run a nominal rate forward with the <a href="../compound-interest-calculator.html">compound interest calculator</a>, then subtract inflation to see the real number.</li>
+      <li>Check what a rising price level does to a fixed monthly plan in the <a href="../budget-calculator.html">budget calculator</a>.</li>
+      <li>Work through <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a>, where real returns start to matter, or go deeper in <a href="../economics.html">Economics for Traders</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank" rel="noopener">Consumer Price Index &mdash; June 2026 (USDL-26-1191)</a> and <a href="https://www.bls.gov/news.release/cpi.t01.htm" target="_blank" rel="noopener">Table 1</a>, released 14 July 2026 (all items +3.5%, all items less food and energy +2.6%, shelter +3.3%, energy +15.7%; the 12-month percent change basis).</li>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/cpi/tables/relative-importance/2025.htm" target="_blank" rel="noopener">Relative importance of components in the CPI, U.S. city average, December 2025</a> (shelter 35.625%, owners' equivalent rent 26.204%, rent of primary residence 7.840%, housing 44.469%, transportation 16.316%, food 13.698%, medical care 8.423%, energy 6.383%).</li>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/cpi/tables/relative-importance/home.htm" target="_blank" rel="noopener">Relative Importance and Weight Information for the Consumer Price Indexes</a> and <a href="https://www.bls.gov/cpi/tables/relative-importance/weight-update-comparison-2025.htm" target="_blank" rel="noopener">Comparison of 2025 CPI data using new weights and previous weights</a> (annual weight updates since January 2023, single year of CE data, two-year lag).</li>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/cpi/questions-and-answers.htm" target="_blank" rel="noopener">Consumer Price Index Frequently Asked Questions</a> (CPI-U covers over 90 percent of the U.S. population; CPI-W about 30 percent).</li>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm" target="_blank" rel="noopener">2025 Federal Government Shutdown Impact on Consumer Expenditure Surveys and the CPI</a> (no collection 1 October &ndash; 12 November 2025; effect on April 2026 rent and OER indexes).</li>
+      <li>U.S. Bureau of Economic Analysis, <a href="https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026" target="_blank" rel="noopener">Personal Income and Outlays, June 2026</a>, released 30 July 2026 (PCE price index +3.7%; excluding food and energy +3.3%), and <a href="https://www.bea.gov/help/faq/555" target="_blank" rel="noopener">FAQ 555 on CPI and PCE differences</a> (formula, weight, scope and other effects).</li>
+      <li>Federal Open Market Committee, <a href="https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf" target="_blank" rel="noopener">Statement on Longer-Run Goals and Monetary Policy Strategy</a> (reaffirmed effective 27 January 2026: 2 percent on the annual change in the PCE price index; the &ldquo;act forcefully&rdquo; language), and the <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20250822a.htm" target="_blank" rel="noopener">22 August 2025 framework revision</a> that removed average inflation targeting.</li>
+      <li>Board of Governors of the Federal Reserve System, <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm" target="_blank" rel="noopener">Implementation Note issued 29 July 2026</a> (federal funds target range 3-1/2 to 3-3/4 percent; interest on reserve balances 3.65%), and <a href="https://www.federalreserve.gov/newsevents/speech/powell20221130a.htm" target="_blank" rel="noopener">Chair Powell, &ldquo;Inflation and the Labor Market,&rdquo; 30 November 2022</a> (the core goods / housing services / core services ex-housing decomposition).</li>
+      <li>Federal Reserve Bank of St. Louis (FRED), <a href="https://fred.stlouisfed.org/series/T10YIE" target="_blank" rel="noopener">10-Year Breakeven Inflation Rate</a> (2.29%, 10 August 2026), <a href="https://fred.stlouisfed.org/series/T5YIFR" target="_blank" rel="noopener">5-Year, 5-Year Forward Inflation Expectation Rate</a> (2.33%, 10 August 2026) and <a href="https://fred.stlouisfed.org/series/DFII10" target="_blank" rel="noopener">10-Year Treasury Inflation-Indexed Yield</a> (2.40%, 7 August 2026).</li>
+      <li>Federal Reserve Bank of Cleveland, <a href="https://www.clevelandfed.org/indicators-and-data/median-cpi" target="_blank" rel="noopener">Median CPI and 16% Trimmed-Mean CPI</a> (definitions; 2.7% and 2.6% over 12 months, June 2026), and Federal Reserve Bank of Atlanta, <a href="https://www.atlantafed.org/research-and-data/data/sticky-price-cpi" target="_blank" rel="noopener">Sticky-Price CPI</a> with its <a href="https://www.atlantafed.org/research-and-data/data/sticky-price-cpi/explainer" target="_blank" rel="noopener">explainer</a> (2.8%, June 2026; no published cutoff).</li>
+      <li>Federal Reserve Bank of New York, <a href="https://www.newyorkfed.org/microeconomics/sce" target="_blank" rel="noopener">Survey of Consumer Expectations</a>, July 2026 survey released 7 August 2026 (median one-year-ahead expectation 3.6%; rotating panel of roughly 1,300 household heads).</li>
+      <li>U.S. Social Security Administration, <a href="https://www.ssa.gov/oact/cola/latestCOLA.html" target="_blank" rel="noopener">Latest Cost-of-Living Adjustment</a> (CPI-W basis; 2026 COLA 2.8%); U.S. Department of the Treasury, <a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-II/subchapter-A/part-356/appendix-Appendix%20B%20to%20Part%20356" target="_blank" rel="noopener">31 CFR Part 356, Appendix B</a> (Ref CPI, non-seasonally-adjusted CPI-U, three-month lag); U.S. Census Bureau, <a href="https://www.census.gov/housing/hvs/files/currenthvspress.pdf" target="_blank" rel="noopener">Quarterly Residential Vacancies and Homeownership, Q2 2026</a> (homeownership rate 65.0% &plusmn;0.5); Eurostat, <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Housing_price_statistics_-_owner-occupied_housing_price_index" target="_blank" rel="noopener">owner-occupied housing price index</a> (outside the HICP as of April 2026).</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What it measures</a></li>
+      <li><a href="#basket">How the basket is weighted</a></li>
+      <li><a href="#cpi-vs-pce">CPI vs PCE</a></li>
+      <li><a href="#core">Core and its rivals</a></li>
+      <li><a href="#expectations">What markets expect</a></li>
+      <li><a href="#real">Nominal vs real</a></li>
+      <li><a href="#indexed">What is tied to it</a></li>
+      <li><a href="#gaps">Where it has holes</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>Run a nominal rate forward over five, ten and thirty years &mdash; then subtract inflation to see what is actually left. Free, no account.</p>
+    <a class="gls-cta" href="../compound-interest-calculator.html">Compound interest calculator &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

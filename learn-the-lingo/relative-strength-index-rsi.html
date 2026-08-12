@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSI (Relative Strength Index): What It Is | Learn the Lingo</title>
+<meta name="description" content="RSI scores a stock against its own recent past on a 0 to 100 scale. Where Wilder's 70/30 came from, and which popular levels have no source at all.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html">
+<meta property="og:title" content="Relative Strength Index (RSI) &mdash; Learn the Lingo">
+<meta property="og:description" content="A momentum line that compares a security to its own recent past &mdash; and an honest accounting of which of its famous threshold numbers anyone actually published.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Relative Strength Index (RSI) &mdash; Learn the Lingo">
+<meta name="twitter:description" content="A momentum line that compares a security to its own recent past &mdash; and an honest accounting of which of its famous threshold numbers anyone actually published.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html#term",
+      "name": "Relative Strength Index (RSI) (RSI)",
+      "alternateName": ["RSI","Relative Strength Index","Wilder's RSI","14-day RSI"],
+      "description": "The Relative Strength Index (RSI) is a momentum oscillator introduced by J. Welles Wilder Jr. in his 1978 book New Concepts in Technical Trading Systems. It compares the size of a security's recent gains to the size of its recent losses over a lookback period, normally 14 bars, and plots the result on a fixed scale from 0 to 100.",
+      "url": "https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "RSI (Relative Strength Index): What It Measures and Which of Its Levels Are Sourced",
+      "description": "A plain-language explanation of the Relative Strength Index: the formula, why the scale is bounded at 0 and 100, the 14-period default, and the origin of the 70/30 overbought and oversold levels in Wilder's own published work. Also a direct accounting of the widely quoted RSI thresholds that no primary source, exchange or standard-setting body publishes.",
+      "url": "https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "RSI", "item": "https://hustlin.org/learn-the-lingo/relative-strength-index-rsi.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does RSI mean in stocks?",
+          "acceptedAnswer": { "@type": "Answer", "text": "RSI stands for Relative Strength Index. It is a momentum indicator that compares the size of a security's recent gains to the size of its recent losses over a lookback window, normally 14 bars, and plots the result on a fixed scale from 0 to 100. A high reading means recent bars have been mostly up bars; a low reading means mostly down. It was introduced by J. Welles Wilder Jr. in his 1978 book New Concepts in Technical Trading Systems." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is it called relative strength if it does not compare stocks?",
+          "acceptedAnswer": { "@type": "Answer", "text": "This is the most common misunderstanding about the indicator, and the name is genuinely misleading. The only inputs to the RSI formula are one security's own up closes and down closes over the lookback period. Nothing about another stock, a sector or an index enters the calculation. A stock that is badly underperforming its peers over the year can still print a high RSI if its last fourteen bars happened to be mostly positive. Comparing one market's performance against another is a separate tool with a similar name." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an RSI above 70 a sell signal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Wilder's own published article states that tops are indicated when RSI exceeds 70 and bottoms when it drops below 30, and both TradingView and Schwab's thinkorswim ship those levels as defaults. But a reading above 70 is a description of the bars that have already printed, not a forecast of the next one. Nothing in the formula limits how long RSI can stay above 70 while price keeps rising, and no primary source establishes how often an overbought reading is followed by a decline." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do the 70 and 30 RSI levels come from?",
+          "acceptedAnswer": { "@type": "Answer", "text": "From Wilder himself. The published summary of his article on the Relative Strength Index in Technical Analysis of STOCKS and COMMODITIES states that tops and bottoms are indicated when RSI exceeds 70 or drops below 30, and TradingView attributes the same pair to his 1978 book. That makes 70/30 the one RSI threshold pair with a traceable origin. The other level sets in circulation, including 75/25 and the trend-shifted bull and bear bands, are conventions among traders, and no exchange or standard-setting body publishes any of them." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best RSI setting?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no established best setting, and anyone offering one is offering a preference. What is documented is the default: TradingView's official documentation gives 14 bars as the default and StockCharts gives 14 periods, so 14 is what your platform will load. A shorter lookback averages fewer bars, so each new bar moves the line further and it crosses any given level more often. A longer lookback smooths it. The two settings answer the same question over different amounts of history." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is RSI divergence?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Divergence is when price and RSI disagree about direction. Price makes a higher high than its last one while RSI's matching peak comes in lower than its last one, or price makes a lower low while RSI makes a higher low. It is one of the five uses listed in Wilder's own published summary, so the attribution is solid. What is not established is accuracy: no primary source puts a hit rate on RSI divergence, so treat it as a defined pattern rather than as a prediction with known odds." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an RSI failure swing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The failure swing is one of the five original uses of RSI listed in the published summary of Wilder's own article, alongside tops and bottoms, chart formations on the RSI line, support and resistance, and divergence. It is named here because his list names it. The working definition sits inside Section VI of the 1978 book, which is behind a lending restriction and could not be read for this page, so this glossary names it rather than defining it from a secondhand source." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260811-2357">
+<link rel="stylesheet" href="lingo.css?v=20260811-2357">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html#guides">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-four calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>RSI</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Indicators</div>
+      <h1 class="hero-h1">Relative Strength Index <span>(RSI)</span></h1>
+      <p class="hero-sub">A single line under a price chart, scoring how lopsided the last two weeks of trading have been &mdash; on a fixed scale of 0 to 100, with one famous threshold pair that has a source and several that do not.</p>
+      <p class="gls-aka"><b>Also called:</b> RSI &middot; the RSI &middot; Wilder&rsquo;s RSI &middot; 14-day RSI &middot; 14-period RSI</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 11 August 2026</b> &middot; Sourced from Wilder&rsquo;s 1978 book, his own 1986 article, and current platform documentation</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>RSI is a line plotted under a price chart that scores how much of a security&rsquo;s recent movement has been up versus down, on a fixed scale from 0 to 100.</strong></p>
+    <p>Despite the name, it does not compare one stock to another or to the market. It compares a security only to its own recent past. A high reading means recent bars have been mostly up bars. A low reading means mostly down. What a given reading is supposed to tell you about what happens <em>next</em> is where the sourcing gets thin, and this page is specific about which numbers have a published origin and which ones are just what traders say to each other.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>RSI measures a security against its own price history, not against other stocks or an index.</b> The name misleads nearly everyone the first time. Nothing outside that one chart enters the formula.</li>
+      <li>The scale is fixed at <b>0 to 100</b> by construction, not by choice &mdash; the formula is 100 &minus; 100 &divide; (1 + RS), and RS can never be negative.</li>
+      <li><b>70 and 30 come from Wilder himself.</b> His own bylined article puts tops above 70 and bottoms below 30, and both TradingView and Schwab&rsquo;s thinkorswim ship those defaults today. That pair is attributable.</li>
+      <li><b>14 is the documented default lookback</b> on the major charting platforms. That Wilder personally selected 14 is repeated everywhere and confirmed by no primary source this page could reach.</li>
+      <li><b>No exchange, regulator or standard-setting body publishes any RSI threshold.</b> The other level sets you will see quoted are conventions among traders. Useful, possibly. Audited by nobody.</li>
+      <li>A reading is a description of the recent past, not an instruction. <b>No primary source establishes a hit rate</b> for any RSI signal, divergence included.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What RSI is actually measuring</h2>
+
+  <p>You pull up a chart. The stock closed higher on nine of the last fourteen days, and the up days look bigger than the down days. Is that a lot? Compared with what? Your eye is a bad judge of this. RSI turns the impression into a number.</p><p>It takes a fixed window of recent bars, adds up what price gained on the up bars and what it lost on the down bars, and compares the two. The result is plotted as one line beneath the price chart, on a scale that <strong>cannot go below 0 or above 100</strong>.</p><p>The name is the biggest source of confusion here. <strong>&ldquo;Relative strength&rdquo; does not mean relative to anything else.</strong> Not the S&amp;P 500, not the sector, not a competitor. The only inputs are that one security&rsquo;s own up closes and down closes. A stock can be down 30% for the year, losing badly to every peer it has, and still print a high RSI, because the last fourteen bars happened to be mostly green.</p><p>RSI comes from J. Welles Wilder Jr., who introduced it in his 1978 book <em>New Concepts in Technical Trading Systems</em> (Trend Research, Greensboro NC) as Section VI. He wrote about it again under his own byline in <em>Technical Analysis of STOCKS &amp; COMMODITIES</em> in December 1986, and that article anchors several claims below.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>RSI answers &ldquo;how one-sided has this thing&rsquo;s recent trading been.&rdquo; It does not answer &ldquo;is this a good company&rdquo; or &ldquo;what happens tomorrow.&rdquo;</p></div>
+
+  <h2 id="formula">The formula, and why the scale stops at 0 and 100</h2>
+
+  <p>You will never type this in by hand, but its shape explains the two things people find strangest about RSI.</p><div class="gls-formula"><span class="gls-lbl">Relative Strength Index &mdash; Wilder, 1978</span><code>RSI  =  100  &minus;  100 &divide; ( 1 + <em>RS</em> )</code><p class="gls-where">Where <b>RS</b> is the average gain over the lookback period divided by the average loss over the same period. Both averages run over <b>n</b> bars, and <b>n</b> is 14 unless you change it.</p></div><p>First: <strong>the bounds are arithmetic, not a design decision.</strong> An average gain and an average loss are both sizes, so neither can be negative, so RS can never be negative. Feed in RS = 0, a window with no up closes at all, and you get 100 &minus; 100, which is 0. Push RS toward infinity, no down closes at all, and the subtracted term shrinks toward nothing, so the line approaches 100 without arriving.</p><p>Second: <strong>the lookback is an average, and averages are slow.</strong> With n set to 14, each new bar is one of fourteen inputs. Shorten the window and each bar carries more weight, so the line jumps around more. Lengthen it and the line smooths out.</p><p>On the number 14, be careful what you claim. <strong>14 is documented as the default</strong> &mdash; TradingView&rsquo;s official documentation states that 14 bars is the default, and StockCharts&rsquo; ChartSchool gives 14 periods. That is verifiable today. The further claim that Wilder personally chose 14 days is in almost every article written about RSI and confirmed by no primary source reachable for this page; his Section VI text sits behind a lending restriction. So: 14 has been the standard since Wilder&rsquo;s work and it is what your platform loads. Who picked it, this page cannot tell you.</p>
+
+  <h2 id="levels">70 and 30 &mdash; the one pair with a source behind it</h2>
+
+  <p>Almost everyone meets RSI through two numbers: above 70 is &ldquo;overbought,&rdquo; below 30 is &ldquo;oversold.&rdquo; Of every threshold pair attached to this indicator, that is the one you can trace.</p><p>It comes from Wilder. The published summary of his own article on the Relative Strength Index states that <b>tops and bottoms are indicated when RSI exceeds 70 or drops below 30</b>. That is not folklore grown up around the tool afterwards; it is the creator&rsquo;s own published treatment. Both platforms checked for this page ship it as the default: Schwab&rsquo;s thinkorswim study loads 30 oversold and 70 overbought, and TradingView attributes the same pair to the 1978 book.</p><p>The words mean less than they sound like they mean. <strong>&ldquo;Overbought&rdquo; describes the last fourteen bars. It does not forecast the next one.</strong> An RSI of 74 says gains outweighed losses over the window by enough to push the ratio past that mark. It measures something that already happened.</p><div class="gls-box gls-warn"><span class="gls-lbl">Why a high reading can stay high</span><p>People expect an overbought reading to correct quickly and are surprised when it does not. Look at the formula again and the surprise goes away. <b>Nothing in it caps how long RSI can sit above 70.</b> As long as the up closes in the window keep outweighing the down closes, RS stays large and the line stays high &mdash; for as many bars in a row as that stays true.</p></div>
+
+  <h2 id="conventions">The threshold numbers nobody publishes</h2>
+
+  <p>Past 70/30, RSI collects level sets the way old code collects comments. You will see them in tables and in courses, this site&rsquo;s own included: 75 and 25, bands that shift with the trend, the 50 line as a trend divider. Here is what those tables leave out. <strong>No exchange, no regulator and no standard-setting body publishes any RSI threshold at all.</strong> Each one below is a rough rule of thumb many traders use, and that is the whole of its standing.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="RSI threshold conventions and what backs each one"><table class="gls-tab"><thead><tr><th>Levels</th><th>Attributed to</th><th>What actually backs it</th></tr></thead><tbody><tr><td><strong>70 / 30</strong></td><td>J. Welles Wilder</td><td><b>Sourced.</b> Stated in Wilder&rsquo;s own published article, and shipped as the default on TradingView and thinkorswim.</td></tr><tr><td><strong>75 / 25</strong></td><td>Chuck LeBeau</td><td><b>Not sourced.</b> Commonly cited. The book it would come from was not reachable, and StockCharts&rsquo; RSI page does not mention LeBeau.</td></tr><tr><td><strong>Bands that shift with the trend</strong></td><td>Constance Brown</td><td><b>Contested.</b> StockCharts renders her ranges as roughly 40&ndash;90 in an uptrend and 10&ndash;60 in a downtrend. The CMT Association renders them as uptrend lows near 40&ndash;50 with highs of 80&ndash;90, downtrend lows near 20&ndash;30 with highs around 55&ndash;65. Brown&rsquo;s 1999 book is lending-restricted and could not be read.</td></tr><tr><td><strong>The 50 line</strong></td><td>No named originator</td><td><b>Convention.</b> 50 is the arithmetic midpoint of a 0 to 100 scale, which is trivially true. Reading above 50 as an uptrend and below 50 as a downtrend is widely done, but it is absent from Wilder&rsquo;s published list of uses and no primary source establishes it as a rule.</td></tr></tbody></table></div><p>The Brown row is the useful one. Two respected sources &mdash; a charting platform&rsquo;s reference school and the professional body for technical analysts &mdash; give the same author&rsquo;s work different figures. Somebody has it wrong, and without the book neither this page nor the article you read last week can say who. <strong>The qualitative idea survives the disagreement:</strong> in a sustained uptrend RSI readings tend to sit higher in the range, in a sustained downtrend lower, so a fixed 70/30 pair behaves differently depending on which you are in. The exact band edges are the part to hold loosely.</p>
+
+  <h2 id="divergence">Wilder&rsquo;s own list of uses &mdash; including the one the course skips</h2>
+
+  <p>Overbought and oversold is the use everyone knows. It was one of five. The published summary of Wilder&rsquo;s article lists the set:</p><ul><li><b>Tops and bottoms</b>, indicated above 70 and below 30.</li><li><b>Chart formations on the RSI line itself</b> &mdash; shapes that appear in the indicator without appearing on the bar chart.</li><li><b>Failure swings.</b></li><li><b>Support and resistance</b> that shows up more clearly on RSI than on price.</li><li><b>Divergence between RSI and price action</b>, signalling potential turning points.</li></ul><p>Divergence is the one most traders settle on. Price grinds out a higher high, but RSI&rsquo;s peak this time is lower than its last one. Price went further; the momentum behind it did not. This is genuinely Wilder&rsquo;s, listed under his own name.</p><p>Now the limit, because it matters more than the pattern does. <strong>The attribution confirms the definition and the origin. It confirms nothing about accuracy.</strong> No primary source reachable for this page puts a hit rate on RSI divergence &mdash; not how often it precedes a reversal, not how often it fails, not over what horizon. Anyone quoting you a percentage got it somewhere other than Wilder.</p><p><strong>The failure swing is one of the five, and the course module on RSI never names it.</strong> It is named here because his published list names it. The working definition lives inside Section VI, which was not reachable, so it stays named rather than defined &mdash; a gap this page would rather show than paper over. For levels drawn on the indicator line, see <a href="../markets-technical.html">the live technical page</a>.</p>
+
+  <h2 id="limits">What a reading does not tell you</h2>
+
+  <p>Three things get loaded onto RSI that it cannot carry.</p><p><strong>It knows nothing about the business.</strong> The only inputs are up closes and down closes. Earnings, debt, margins, management, the lawsuit filed this morning &mdash; none of it is in there. A company can be deteriorating and print a rising RSI, because the line summarizes trading, not the company. That work happens on <a href="../markets-fundamental.html">the fundamentals side</a>.</p><p><strong>It does not tell you which direction to take the signal.</strong> This is not a hedge, it is a live disagreement. Wilder&rsquo;s framework reads an extreme as exhaustion. StockCharts credits Andrew Cardwell with the opposite reading &mdash; positive and negative reversals, and a reinterpretation of divergence as behaving differently in bull markets than in bear markets, inverting Wilder&rsquo;s framework. Two credible readings of the same line pointing opposite ways, and no published hit rate for either &mdash; reason enough to distrust anyone who tells you what a reading &ldquo;means&rdquo; without saying whose framework they are using.</p><p><strong>It does not size your risk.</strong> RSI has no opinion about how much money should be behind the trade. That question belongs to <a href="../markets-behavior.html">the behavior side of the market</a>.</p>
+
+  <h2 id="onchart">Where RSI sits among everything else on the chart</h2>
+
+  <p>The instinct after learning one oscillator is to add three more. Resist it, for a structural reason: tools built on similar logic tend to say similar things, so stacking them repeats one opinion in two typefaces while feeling like confirmation. One tool per category is the stronger arrangement &mdash; something reading trend, something reading momentum, something reading volume.</p><p>RSI&rsquo;s slot is the momentum one. The bounded scale makes readings comparable across securities, and the 14-period default means your chart is the chart most other people are looking at. Convention has real effects when enough participants share it, even when nothing official stands behind the numbers.</p><p>Indicators in full are Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>. Live readings across the index sit on <a href="../markets-technical.html">the technical markets page</a>, no account required.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Reading the name literally.</b> RSI compares a security only to its own recent past, not to other securities.</li><li><b>Treating 70 as a sell and 30 as a buy.</b> Those are the levels Wilder published for indicating tops and bottoms. Nothing in his published work turns a reading into an instruction.</li><li><b>Quoting the other numbers as rules.</b> 75/25, the shifting bull and bear bands, the 50 line &mdash; conventions, all of them, and no standard-setting body publishes one.</li><li><b>Assuming an extreme reading has to correct soon.</b> The formula puts no time limit on how long the line can stay above 70 or below 30.</li><li><b>Believing a divergence hit rate.</b> Divergence is Wilder&rsquo;s and it is real as a defined pattern. Any percentage attached to how often it works came from somewhere other than a primary source.</li><li><b>Changing the lookback until the signal looks good.</b> A shorter window makes the line more reactive and produces more crossings of any level. That is arithmetic, not insight.</li><li><b>Using it on the money that pays rent.</b> No indicator changes what a loss does to a household with no buffer underneath it.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What does RSI mean in stocks?</h3>
+    <p>RSI stands for Relative Strength Index. It is a momentum indicator that compares the size of a security's recent gains to the size of its recent losses over a lookback window, normally 14 bars, and plots the result on a fixed scale from 0 to 100. A high reading means recent bars have been mostly up bars; a low reading means mostly down. It was introduced by J. Welles Wilder Jr. in his 1978 book New Concepts in Technical Trading Systems.</p>
+
+    <h3>Why is it called relative strength if it does not compare stocks?</h3>
+    <p>This is the most common misunderstanding about the indicator, and the name is genuinely misleading. The only inputs to the RSI formula are one security's own up closes and down closes over the lookback period. Nothing about another stock, a sector or an index enters the calculation. A stock that is badly underperforming its peers over the year can still print a high RSI if its last fourteen bars happened to be mostly positive. Comparing one market's performance against another is a separate tool with a similar name.</p>
+
+    <h3>Is an RSI above 70 a sell signal?</h3>
+    <p>Wilder's own published article states that tops are indicated when RSI exceeds 70 and bottoms when it drops below 30, and both TradingView and Schwab's thinkorswim ship those levels as defaults. But a reading above 70 is a description of the bars that have already printed, not a forecast of the next one. Nothing in the formula limits how long RSI can stay above 70 while price keeps rising, and no primary source establishes how often an overbought reading is followed by a decline.</p>
+
+    <h3>Where do the 70 and 30 RSI levels come from?</h3>
+    <p>From Wilder himself. The published summary of his article on the Relative Strength Index in Technical Analysis of STOCKS and COMMODITIES states that tops and bottoms are indicated when RSI exceeds 70 or drops below 30, and TradingView attributes the same pair to his 1978 book. That makes 70/30 the one RSI threshold pair with a traceable origin. The other level sets in circulation, including 75/25 and the trend-shifted bull and bear bands, are conventions among traders, and no exchange or standard-setting body publishes any of them.</p>
+
+    <h3>What is the best RSI setting?</h3>
+    <p>There is no established best setting, and anyone offering one is offering a preference. What is documented is the default: TradingView's official documentation gives 14 bars as the default and StockCharts gives 14 periods, so 14 is what your platform will load. A shorter lookback averages fewer bars, so each new bar moves the line further and it crosses any given level more often. A longer lookback smooths it. The two settings answer the same question over different amounts of history.</p>
+
+    <h3>What is RSI divergence?</h3>
+    <p>Divergence is when price and RSI disagree about direction. Price makes a higher high than its last one while RSI's matching peak comes in lower than its last one, or price makes a lower low while RSI makes a higher low. It is one of the five uses listed in Wilder's own published summary, so the attribution is solid. What is not established is accuracy: no primary source puts a hit rate on RSI divergence, so treat it as a defined pattern rather than as a prediction with known odds.</p>
+
+    <h3>What is an RSI failure swing?</h3>
+    <p>The failure swing is one of the five original uses of RSI listed in the published summary of Wilder's own article, alongside tops and bottoms, chart formations on the RSI line, support and resistance, and divergence. It is named here because his list names it. The working definition sits inside Section VI of the 1978 book, which is behind a lending restriction and could not be read for this page, so this glossary names it rather than defining it from a secondhand source.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="support-and-resistance.html"><b>Support and Resistance</b><span>The levels Wilder said show up on the RSI line too</span></a>
+      <a href="yield-curve-inversion.html"><b>Yield Curve Inversion</b><span>Another famous signal, with better data and the same caveat</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>The buffer that decides whether a losing trade is survivable</span></a>
+      <a href="credit-utilization.html"><b>Credit Utilization</b><span>Another percentage read against a threshold nobody legislates</span></a>
+      <a href="inflation.html"><b>Inflation</b><span>The backdrop every chart is priced against</span></a>
+      <a href="compound-interest.html"><b>Compound Interest</b><span>The slower engine that does not need a signal</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>See live indicator and breadth readings across the index on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account.</li>
+      <li>Work through indicators properly in Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>, where RSI sits alongside the tools it is meant to be paired with.</li>
+      <li>Check the sentiment and risk side of the same market on <a href="../markets-behavior.html">Markets &middot; Behavior</a>, including the five-question pre-trade checklist.</li>
+      <li>Size the buffer underneath any of this with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, then see what patient money does in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>J. Welles Wilder Jr., <a href="https://archive.org/details/newconceptsintec00wild" target="_blank" rel="noopener">New Concepts in Technical Trading Systems</a> (Trend Research, Greensboro NC, 1978; ISBN 0-89459-027-8), via the Internet Archive &mdash; title page, copyright and the table of contents listing Section VI, &ldquo;The Relative Strength Index.&rdquo; The book is the origin of RSI. Note: the scanned copy is lending-restricted, and Section VI itself could not be read for this page.</li>
+      <li>J. Welles Wilder Jr., <a href="https://store.traders.com/-v04-c09-rsi-pdf.html" target="_blank" rel="noopener">&ldquo;The Relative Strength Index&rdquo;</a>, <em>Technical Analysis of STOCKS &amp; COMMODITIES</em> V.4:9 (December 1986), pp.343&ndash;346 &mdash; publisher&rsquo;s abstract of Wilder&rsquo;s own bylined article, which is the source for the 70/30 tops-and-bottoms rule and for his five listed uses: tops and bottoms, chart formations on the RSI line, failure swings, support and resistance, and divergence.</li>
+      <li>TradingView, <a href="https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/" target="_blank" rel="noopener">Relative Strength Index (RSI)</a> &mdash; official platform documentation giving the formula RSI = 100 &minus; 100 &divide; (1 + RS) with RS as average gain over average loss, the 0 to 100 scale, &ldquo;14 bars is the default,&rdquo; and the attribution of 70/30 to Wilder&rsquo;s 1978 book.</li>
+      <li>StockCharts.com, <a href="https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi" target="_blank" rel="noopener">ChartSchool: Relative Strength Index (RSI)</a> &mdash; the identical formula, the 14-period default, 70/30, the rendering of Constance Brown&rsquo;s ranges as roughly 40&ndash;90 in a bull market and 10&ndash;60 in a bear market, and the attribution of positive and negative reversals to Andrew Cardwell. Also checked for a LeBeau attribution, which it does not contain.</li>
+      <li>Charles Schwab &amp; Co. / thinkorswim Learning Center, <a href="https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/R-S/RSI" target="_blank" rel="noopener">RSI study reference</a> &mdash; describes RSI as rating strength on a scale from 0 to 100 and ships default levels of 30 oversold and 70 overbought, verified as current.</li>
+      <li>CMT Association, <a href="https://cmtassociation.org/chartadvisor/mastering-the-relative-strength-index-rsi-how-to-read-it-correctly/" target="_blank" rel="noopener">Mastering the Relative Strength Index (RSI): How to Read it Correctly</a>, 9 May 2025 &mdash; the professional body for technical analysts, stating Brown&rsquo;s ranges as uptrend lows of 40&ndash;50 with highs of 80&ndash;90 and downtrend lows of 20&ndash;30 with highs of 55&ndash;65. Cited here because it conflicts with the StockCharts rendering of the same author.</li>
+      <li>Constance M. Brown, <a href="https://archive.org/details/technicalanalysi00brow" target="_blank" rel="noopener">Technical Analysis for the Trading Professional</a> (McGraw-Hill, 1999; ISBN 0-07-012062-5) &mdash; the primary source that would settle the conflicting renderings of her RSI ranges. The Internet Archive item is flagged access-restricted and could not be read for this page. Listed so the gap is on the record.</li>
+      <li>Charles LeBeau and David W. Lucas, <em>Technical Traders Guide to Computer Analysis of the Futures Markets</em> (Irwin, 1992; ISBN 1-55623-468-6) &mdash; the primary source that would support the 75/25 levels commonly attributed to LeBeau. No copy was reachable and no accessible text attributes those levels to him, which is why this page treats 75/25 as unsourced convention rather than as a rule.</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What RSI measures</a></li>
+      <li><a href="#formula">The formula</a></li>
+      <li><a href="#levels">70 and 30</a></li>
+      <li><a href="#conventions">The unpublished thresholds</a></li>
+      <li><a href="#divergence">Wilder's five uses</a></li>
+      <li><a href="#limits">What it cannot tell you</a></li>
+      <li><a href="#onchart">Where it fits on a chart</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>Watch RSI behave on live charts &mdash; with breadth, evidence ratings and a sector heatmap next to it. Free, no account.</p>
+    <a class="gls-cta" href="../markets-technical.html">Live technical dashboard &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

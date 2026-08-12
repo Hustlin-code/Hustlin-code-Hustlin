@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yield Curve Inversion: What It Signals | Learn the Lingo</title>
+<meta name="description" content="Short-term Treasury yields above long-term ones. What inversion signals, the 6-to-24-month lag, and why the 2022-2024 inversion has not produced a recession.">
+<link rel="canonical" href="https://hustlin.org/learn-the-lingo/yield-curve-inversion.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hustlin.org/learn-the-lingo/yield-curve-inversion.html">
+<meta property="og:title" content="Yield Curve Inversion &mdash; Learn the Lingo">
+<meta property="og:description" content="When short-term Treasury yields pay more than long-term ones &mdash; what the bond market is saying, and how good that recession record actually is.">
+<meta property="og:image" content="https://hustlin.org/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yield Curve Inversion &mdash; Learn the Lingo">
+<meta name="twitter:description" content="When short-term Treasury yields pay more than long-term ones &mdash; what the bond market is saying, and how good that recession record actually is.">
+<meta name="twitter:image" content="https://hustlin.org/assets/social-preview.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://hustlin.org/learn-the-lingo/yield-curve-inversion.html#term",
+      "name": "Yield Curve Inversion",
+      "alternateName": ["Yield Curve Inversion","Inverted Yield Curve","Negative Term Spread","Curve Inversion"],
+      "description": "A yield curve inversion is when short-term U.S. Treasury yields exceed long-term ones, producing a negative term spread. It is watched because every U.S. recession in the past sixty years was preceded by one, though the lag has ranged from six to twenty-four months and the most recent inversion has not been followed by a recession dated by the NBER.",
+      "url": "https://hustlin.org/learn-the-lingo/yield-curve-inversion.html",
+      "inDefinedTermSet": { "@id": "https://hustlin.org/learn-the-lingo.html#glossary" }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://hustlin.org/learn-the-lingo.html#glossary",
+      "name": "Learn the Lingo",
+      "description": "A plain-language dictionary of money, credit, investing and market terms, written for people building from the ground up.",
+      "url": "https://hustlin.org/learn-the-lingo.html"
+    },
+    {
+      "@type": "Article",
+      "headline": "Yield Curve Inversion: What It Is, What It Has Predicted, and What It Just Missed",
+      "description": "A plain-language explanation of yield curve inversion: what a negative term spread is, why a normal curve slopes upward, the difference between the 10-year minus 2-year and 10-year minus 3-month spreads, the sixty-year recession record and its documented false signal, the dated history of the 2022 to 2024 inversion that has not been followed by an NBER-dated recession, the New York Fed's recession-probability model, and the Federal Reserve Board research that disputes the signal.",
+      "url": "https://hustlin.org/learn-the-lingo/yield-curve-inversion.html",
+      "image": "https://hustlin.org/assets/social-preview.png",
+      "datePublished": "2026-08-11", "dateModified": "2026-08-11",
+      "inLanguage": "en-US", "isAccessibleForFree": true,
+      "about": { "@id": "https://hustlin.org/learn-the-lingo/yield-curve-inversion.html#term" },
+      "author": { "@id": "https://hustlin.org/#organization" },
+      "publisher": { "@id": "https://hustlin.org/#organization" },
+      "mainEntityOfPage": "https://hustlin.org/learn-the-lingo/yield-curve-inversion.html"
+    },
+    {
+      "@type": "Organization", "@id": "https://hustlin.org/#organization",
+      "name": "Hustlin'", "url": "https://hustlin.org/",
+      "logo": { "@type": "ImageObject", "url": "https://hustlin.org/assets/hustlin-logo.png" },
+      "publishingPrinciples": "https://hustlin.org/about.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hustlin'", "item": "https://hustlin.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn the Lingo", "item": "https://hustlin.org/learn-the-lingo.html" },
+        { "@type": "ListItem", "position": 3, "name": "Yield Curve Inversion", "item": "https://hustlin.org/learn-the-lingo/yield-curve-inversion.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a yield curve inversion?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is when short-term U.S. Treasury yields pay more than long-term ones, so the yield curve slopes down at the front instead of up. Stated as a number, the term spread &mdash; a long yield minus a short yield &mdash; has gone negative. Economically it means the market expects the average short-term interest rate over the coming years to be well below today's, which is a forecast of substantial rate cuts. Central banks cut rates that much when the economy is weakening, which is why an inversion is read as a recession warning." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the yield curve inverted right now?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. On 10 August 2026 the 10-year minus 2-year spread was +0.47 percentage points and the 10-year minus 3-month spread was +0.83. The Treasury par yields that day sloped upward at every maturity checked: 3-month 3.89%, 2-year 4.25%, 10-year 4.72%, 30-year 5.25%. Both spreads are published daily by FRED as T10Y2Y and T10Y3M, and current readings are on the site's economic markets page." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does an inverted yield curve always mean a recession is coming?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Every U.S. recession in the sixty years to 2018 was preceded by an inversion, but the San Francisco Fed also documents one false positive in the mid-1960s, and the 10-year minus 3-month spread fell to similarly low levels in 1995 and 1998 without a recession following soon after. The most recent case is the clearest: the curve inverted in 2022, stayed inverted into 2024, and the NBER has dated no U.S. recession since the April 2020 trough. The historical six-to-twenty-four-month window from that inversion closed in July 2024." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long after an inversion does a recession usually start?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The San Francisco Fed puts it at six to twenty-four months between the term spread turning negative and a recession beginning. That is an enormous range for anyone trying to act on it, which is the practical limitation of the signal. Worth knowing alongside it: recessions have historically tended to begin after the curve un-inverts and returns to a normal slope, because the un-inversion is usually driven by the central bank cutting short rates. Watching only for the inversion means watching the first half of the signal." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between the 10-year minus 2-year and the 10-year minus 3-month spread?",
+          "acceptedAnswer": { "@type": "Answer", "text": "They are the same idea measured against different short maturities, and they do not always invert at the same time. The 10-year minus 2-year spread, FRED series T10Y2Y, is the one most headlines mean. The 10-year minus 3-month spread, T10Y3M, has the stronger academic record and is the input to the New York Fed's recession-probability model. The San Francisco Fed found the 3-month version performs better by a slight margin, while noting that all the common term spreads are fairly accurate and the differences between them are small." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why would anyone lend for ten years at a lower rate than for three months?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because they expect short rates to fall. A ten-year yield is roughly the average short rate the market expects over ten years, plus a term premium for the uncertainty of committing that long. If you believe the three-month rate will be far lower in two years, locking in ten years at today's long yield can beat rolling short-term bills. Everyone acting on that belief at once bids long yields down below short ones, and the curve inverts." }
+        },
+        {
+          "@type": "Question",
+          "name": "Who decides when a recession has actually happened?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In the United States it is the Business Cycle Dating Committee of the National Bureau of Economic Research, not the widely repeated rule about two consecutive quarters of falling GDP. The committee waits for data to be revised and settled before naming a peak or a trough, so announcements come long after the event. It confirmed the April 2020 trough on 19 July 2021, fifteen months later. Its most recent dated turning points are still that February 2020 peak and April 2020 trough." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260811-2357">
+<link rel="stylesheet" href="lingo.css?v=20260811-2357">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAV:START -->
+<!-- ============================================================================
+     THE SHARED NAV — hustlin.org
+     ============================================================================
+     DO NOT EDIT THIS BLOCK INSIDE A PAGE. Edit nav.template.html and run:
+
+         node tools/stamp-nav.mjs
+
+     Same contract as footer.template.html. stamp-nav.mjs --check byte-compares
+     every page's NAV:START/END block against this file and fails the deploy if
+     one has drifted, so a hand-edited copy cannot survive a ship.
+
+     WHY THIS EXISTS
+
+     Before this there were four navs and no owner:
+
+       index.html                 no <nav> at all
+       markets.html               a logo, and nothing else — every route out of
+                                  the Markets section was the footer
+       blog.html / about.html     logo + 2 links
+       stage / FL / guide pages   logo + the 5 stage buttons
+       calculator pages           a logo
+
+     None of them knew the calculators or the situation guides existed. That is
+     why sixteen calculators and six guides were reachable only from the footer:
+     not a design failure, an ownership failure. One template fixes it for every
+     page at once, and makes "add a calculator, it appears site-wide" true by
+     construction rather than by remembering.
+
+     THE PANEL CONTENTS ARE IN THE HTML ON PURPOSE
+
+     Every link below is in the markup and revealed with CSS. Nothing is
+     injected on open. This is the same rule as the blog index's Show-all rows:
+     the crawler never opens a menu, so a link that only exists after a click
+     does not exist. This is the site's main internal linking surface — it has
+     to be readable on first fetch.
+
+     HEIGHT IS LOAD-BEARING. `.nav` is position:fixed at 108px and blog/post.css
+     compensates for it at 108 / 76 / 64. If this markup changes the nav's
+     height, those breakpoints move with it or the breadcrumb clipping on every
+     blog post comes straight back.
+     ========================================================================= -->
+<nav class="nav" aria-label="Main">
+  <!-- width/height MUST match the file's real 1423x572 ratio. They are layout
+       hints that reserve space before the image loads, not a resize: give them
+       a ratio the file does not have and the browser draws the logo squashed
+       to fit. 239x96 is 1423x572 scaled to the 96px bar height, and .nav-home
+       img pins height:96px;width:auto so the aspect holds regardless.
+       mix-blend-mode:screen drops the logo's black backing on the dark bar. -->
+  <a class="nav-home" href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin' — home" width="239" height="96" decoding="async">
+  </a>
+
+  <!-- The drawer toggle. Hidden above 1100px, where the hover panels work.
+       aria-expanded is the state a screen reader actually reads, so the script
+       below keeps it in sync rather than relying on a class. -->
+  <button class="nav-burger" type="button" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html">Learn</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">The free course &mdash; no account</p>
+        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../financial-literacy.html#guides">Guides</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
+        <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
+        <a href="../recovering-from-divorce.html"><b>Recovering from Divorce</b><span>Splits, joint debt, survivor rules</span></a>
+        <a href="../after-financial-collapse.html"><b>After Financial Collapse</b><span>Bankruptcy, collectors, rebuilding</span></a>
+        <a href="../starting-late.html"><b>Starting Late</b><span>The honest arithmetic at 30, 40, 50</span></a>
+        <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
+        <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
+      <!-- Deep links go to the standalone pages, never the hub's fragments.
+           Google indexes documents, not anchors — an anchor cannot rank on its
+           own. Same rule as the course and blog deep links. -->
+      <div class="nav-panel nav-panel-wide">
+        <p class="nav-panel-h">Twenty-four calculators, no sign-up</p>
+        <div class="nav-cols">
+          <a href="../budget-calculator.html">Budget</a>
+          <a href="../debt-payoff-calculator.html">Debt payoff</a>
+          <a href="../debt-overview-calculator.html">Debt overview</a>
+          <a href="../emergency-fund-calculator.html">Emergency fund</a>
+          <a href="../paycheck-calculator.html">Paycheck</a>
+          <a href="../paycheck-split-calculator.html">Paycheck split</a>
+          <a href="../net-worth-calculator.html">Net worth</a>
+          <a href="../credit-utilization-calculator.html">Credit utilization</a>
+          <a href="../sinking-fund-calculator.html">Sinking fund</a>
+          <a href="../life-just-happened-fund-calculator.html">Life Just Happened fund</a>
+          <a href="../compound-interest-calculator.html">Compound interest</a>
+          <a href="../investment-growth-calculator.html">Investment growth</a>
+          <a href="../financial-freedom-calculator.html">Financial freedom</a>
+          <a href="../mortgage-calculator.html">Mortgage</a>
+          <a href="../auto-loan-calculator.html">Auto loan</a>
+          <a href="../roth-conversion-calculator.html">Roth conversion</a>
+        </div>
+        <a class="nav-panel-all" href="../calculate-your-hustle.html">All calculators on one page &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Live data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../index.html#courses">Courses</a>
+      <div class="nav-panel">
+        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-flat"><a class="nav-top" href="../blog.html">Blog</a></li>
+  </ul>
+
+  <!-- The brand button, not a flat pill. The generic yellow rectangle was the
+       one element in this nav that could have belonged to any site; the
+       Hustlin' buttons are the identity. Intrinsic size is 560x196, drawn at
+       178 wide so it sits inside the 108px bar without forcing its height. -->
+  <a class="nav-cta-btn" href="../stage-1-survive.html">
+    <img src="../assets/buttons/StartJourney.png"
+         alt="Start your Hustlin' journey now — free, no account"
+         width="560" height="196" decoding="async">
+  </a>
+</nav>
+<!-- Stage progress, moved off the old per-page .nav-stages strip.
+     ==========================================================================
+     Nineteen pages used to carry a five-button progress strip inside their own
+     <nav>. It duplicated the Learn panel's five stages and its only unique
+     content was STATE: which stage you are on, which are finished. Stacking it
+     under a shared nav would have meant two navigation bars and a change to the
+     108px fixed height that blog/post.css compensates for.
+
+     So the state moves into the panel instead. It is read from localStorage,
+     which is where progress already lived — the strip was never server-rendered
+     either, so nothing SEO-visible is lost and the stamped markup stays
+     byte-identical on every page, which is what lets --check gate it.
+
+     Deliberately inline and dependency-free: this runs on calculator and
+     Markets pages that never load app.js. It only ever adds classes. -->
+<script>
+/* ── MOBILE DRAWER ─────────────────────────────────────────────────────────
+   Below 1100px the hover panels are unusable, so the menu was simply hidden —
+   which meant phone visitors, almost certainly the majority, still could not
+   reach the sixteen calculators or the six guides. That was the original
+   problem left unsolved on most of the traffic.
+
+   The drawer shows every panel expanded rather than as tap-to-open accordions.
+   One more tap between someone and a calculator is the tap where they leave,
+   and the whole point of this nav is that the breadth is visible. It scrolls;
+   that is fine and it is honest.
+
+   No focus TRAP, deliberately. A trap needs to be perfect or it is worse than
+   nothing — get it wrong and a keyboard user is stuck in a menu with no way
+   out. Escape closes, the toggle keeps focus, and tabbing past the last link
+   continues into the page, which is a defensible order rather than a cage. */
+(function(){
+  var nav = document.querySelector('.nav');
+  var btn = nav && nav.querySelector('.nav-burger');
+  if (!nav || !btn) return;
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    // Stop the page scrolling behind an open full-height drawer.
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(nav.classList.contains('is-open') === false);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')){
+      setOpen(false); btn.focus();
+    }
+  });
+
+  // Any navigation closes it. Without this, a same-page anchor leaves the
+  // drawer covering the thing it just jumped to.
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('.nav-menu a')) setOpen(false);
+  });
+
+  // Crossing back above the breakpoint with the drawer open leaves the page
+  // unscrollable and the menu in a state the desktop CSS does not describe.
+  if (window.matchMedia){
+    window.matchMedia('(min-width:1101px)').addEventListener('change', function(m){
+      if (m.matches) setOpen(false);
+    });
+  }
+})();
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem('hfy_progress_v2') || '{}');
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var links = document.querySelectorAll('.nav-panel a[data-stage]');
+    for (var i = 0; i < links.length; i++){
+      var a = links[i], s = p[a.getAttribute('data-stage')];
+      // pct is written by app.js; treat anything at 100 as finished.
+      if (s && Number(s.pct) >= 100) a.classList.add('is-done');
+      if (a.getAttribute('href').split('/').pop() === here) a.classList.add('is-here');
+    }
+  }catch(e){}
+})();
+</script>
+<!-- NAV:END -->
+
+<section class="hero gls-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../learn-the-lingo.html">Learn the Lingo</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Yield Curve Inversion</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> Bonds</div>
+      <h1 class="hero-h1">Yield Curve Inversion</h1>
+      <p class="hero-sub">When lending the government money for three months pays more than lending it for ten years, the bond market is saying it expects the economy to weaken. Here is how good that signal has been &mdash; including the time it just missed.</p>
+      <p class="gls-aka"><b>Also called:</b> inverted yield curve &middot; negative term spread &middot; curve inversion &middot; 10y&ndash;2y inversion &middot; 10y&ndash;3m inversion</p>
+    </div>
+  </div>
+</section>
+
+<div class="gls-shell">
+
+<article class="gls-body">
+
+  <p class="gls-rev"><b>Reviewed 11 August 2026</b> &middot; Sourced from the U.S. Treasury, FRED, the New York and San Francisco Feds, and the NBER</p>
+
+  <div class="gls-def">
+    <span class="gls-lbl">The short version</span>
+    <p><strong>A yield curve inversion is short-term Treasury yields paying more than long-term ones &mdash; the bond market saying it expects the Federal Reserve to be cutting rates hard in a year or two, which it would only do if the economy were in trouble.</strong></p>
+    <p>Every U.S. recession in the past sixty years was preceded by one, which is why the signal gets the attention it does. It is also slow and imprecise: the gap between inversion and recession has run anywhere from six to twenty-four months. And it is not infallible. The most recent inversion, which ran from 2022 into 2024, has not been followed by a recession the NBER has dated. As of 10 August 2026 the curve is not inverted.</p>
+  </div>
+
+  <div class="gls-key">
+    <span class="gls-lbl">Key takeaways</span>
+    <ul>
+      <li><b>Inverted means short yields sit above long ones</b> &mdash; the term spread, a long yield minus a short one, has gone negative. It is the bond market pricing in substantial rate cuts, and cuts of that size mean something has gone wrong.</li>
+      <li>The San Francisco Fed: <em>&ldquo;Every U.S. recession in the past 60 years was preceded by a negative term spread.&rdquo;</em> Over that same span it counts <b>one false positive, in the mid-1960s</b>.</li>
+      <li><b>The most recent inversion has not produced a recession.</b> NBER has dated no U.S. recession since the April 2020 trough, and the historical six-to-twenty-four-month window measured from July 2022 closed in July 2024.</li>
+      <li><b>Two spreads get quoted.</b> 10-year minus 2-year is the famous one; 10-year minus 3-month has the stronger record &mdash; though the SF Fed's own wording is <em>&ldquo;by a slight margin.&rdquo;</em></li>
+      <li><b>Recessions have tended to begin after the curve un-inverts</b>, not while it is inverted. The un-inversion happens because short rates fall, and short rates fall because the central bank has already started cutting.</li>
+      <li><b>The curve is not inverted now.</b> On 10 August 2026 the 10y&ndash;2y spread was +0.47 and the 10y&ndash;3m spread was +0.83 percentage points.</li>
+    </ul>
+  </div>
+
+  <h2 id="definition">What an inverted curve actually is</h2>
+
+  <p>On 4 May 2023, a three-month U.S. Treasury bill paid 5.26% and a ten-year Treasury note paid 3.37%. Lending the government money for three months paid nearly two percentage points more than lending it for ten years. That is backwards from how borrowing works, and it is the whole of what an inverted yield curve is.</p><p>The yield curve is a plot: government bond yields on one axis, time to maturity on the other &mdash; one month, three months, two years, ten years, thirty years. Joined up, those points make a line, and its usual shape slopes upward, because tying money up for longer normally costs more. When the front of that line sits higher than the back &mdash; short yields above long ones &mdash; the curve is <b>inverted</b>. Said in numbers: the <b>term spread</b>, a long yield minus a short one, has gone negative.</p><p>It is watched because of one sentence from the Federal Reserve Bank of San Francisco: <em>&ldquo;Every U.S. recession in the past 60 years was preceded by a negative term spread, that is, an inverted yield curve.&rdquo;</em></p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>An inverted curve is the bond market saying it expects the central bank to cut hard within a couple of years &mdash; and it would only cut that hard if something had broken.</p></div>
+
+  <h2 id="slope">Why the curve normally slopes up</h2>
+
+  <p>Two forces set a long yield. The first is what the market expects short rates to average over the life of the bond &mdash; if you could roll three-month bills for ten years instead, a ten-year note has to beat that expected path or nobody buys it. The second is the <b>term premium</b>, the extra yield investors demand for accepting ten years of uncertainty rather than three months of it. Inflation might run hotter than expected; you might need the money back. That compensation is what normally tilts the curve upward.</p><p>The term premium cannot be observed directly; it has to be modelled. The standard published estimate is the ACM model, built by Tobias Adrian, Richard Crump and Emanuel Moench at the New York Fed &mdash; five factors, no arbitrage, one- to ten-year maturities back to 1961. <b>No current value for it appears here</b>: the New York Fed serves the series through an interactive tool, and an unsourced number is worse than no number.</p><p>Inversion means the first force has overwhelmed the second. For short yields to sit above long ones, the market has to expect the average future short rate to be far enough below today's to swallow the term premium whole. That is a forecast of rate cuts, and rate cuts on that scale are a forecast of trouble.</p>
+
+  <h2 id="spreads">The two spreads, and what they read today</h2>
+
+  <p>Two versions get quoted, and they do not always invert at the same time.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="The two Treasury term spreads compared"><table class="gls-tab"><thead><tr><th>Spread</th><th>FRED series</th><th>10 Aug 2026</th><th>Why it is watched</th></tr></thead><tbody><tr><td><strong>10-year minus 2-year</strong></td><td>T10Y2Y</td><td>+0.47 pp</td><td>The one headlines mean by &ldquo;the yield curve&rdquo;</td></tr><tr><td><strong>10-year minus 3-month</strong></td><td>T10Y3M</td><td>+0.83 pp</td><td>The stronger academic record; the input to the New York Fed's model</td></tr></tbody></table></div><p>Both are daily, and both are positive: the curve is not inverted. The Treasury par yields underneath them that day slope up at every point checked: 1-month 3.79%, 3-month 3.89%, 2-year 4.25%, 10-year 4.72%, 30-year 5.25%.</p><p>One number there is worth a pause. The FOMC target range is 3.50&ndash;3.75%, set on 11 December 2025, and the daily effective federal funds rate was 3.63% on 7 August 2026. The three-month bill at 3.89% sits <em>above</em> it. The front end is pricing tightening, not cuts &mdash; the opposite of the setup that produces an inversion.</p><p>Live readings for both sit on the <a href="../markets-economic.html">economic pillar</a>, with the recession-signal panel. Free, no account.</p>
+
+  <h2 id="record">The record, stated carefully</h2>
+
+  <p>Every U.S. recession in the sixty years to 2018 was preceded by a negative term spread. Over that same span the San Francisco Fed counts <em>&ldquo;only one false positive, in the mid-1960s, when an inversion was followed by an economic slowdown but not an official recession.&rdquo;</em> One miss in sixty years beats almost any other single indicator.</p><p><b>Timing.</b> <em>&ldquo;The delay between the term spread turning negative and the beginning of a recession has ranged between 6 and 24 months.&rdquo;</em> An indicator with an eighteen-month margin of error tells you a season, not a date.</p><p><b>Sample size.</b> Sixty years of U.S. data contains only a handful of recessions. A pattern that holds across a handful of episodes is striking, and is still a handful of episodes.</p><p><b>Near misses.</b> The 10-year minus 3-month spread fell to similarly low levels in 1995 and 1998 without a recession following soon after.</p><p>On which spread is better, the SF Fed's own comparison is less decisive than the argument around it. The 10y&ndash;3m spread <em>&ldquo;performs better than the other three spreads by a slight margin&rdquo;</em> &mdash; and the same authors add that <em>&ldquo;all of these term spreads are fairly accurate predictors... the differences in forecasting accuracy are small.&rdquo;</em></p>
+
+  <h2 id="miss">The 2022 inversion, and what did not happen</h2>
+
+  <p>This is the part most explanations have not updated, so here it is with dates.</p><p>The 10-year minus 2-year spread inverted for a single day on 1 April 2022 (2-year 2.44%, 10-year 2.39%), then inverted persistently from 6 July 2022 (2.97% against 2.93%). It ended on 4 September 2024, the first day the 10-year at 3.77% again paid more than the 2-year at 3.76%. The 10-year minus 3-month spread went negative later and stayed negative longer: first negative day 18 October 2022, sustained from 25 October, last negative day 12 December 2024.</p><p>It went deep. In the months around the trough, the 10y&ndash;2y spread reached &minus;1.08 percentage points on 3 July 2023, and the 10y&ndash;3m spread reached &minus;1.89 percentage points on 4 May 2023.</p><div class="gls-box gls-warn"><span class="gls-lbl">The signal missed. It is not still pending.</span><p>That inversion has not been followed by a recession. The National Bureau of Economic Research dates U.S. business cycles, and its most recent turning points remain a <b>February 2020 peak and an April 2020 trough</b>. Nothing has been dated since. Measured from the July 2022 inversion, the historical six-to-twenty-four-month window ran from January 2023 to July 2024 and closed with no recession in it. The window measured from the September 2024 un-inversion has also elapsed. An indicator with a strong record that just missed is a more useful thing to know than a hedge.</p></div><p>There is more. After un-inverting in December 2024, the 10-year minus 3-month spread went negative again at points during 2025 &mdash; &minus;0.19 on 3 March, &minus;0.27 on 4 April, &minus;0.03 on 16 October &mdash; and no recession followed those either. The 10y&ndash;2y spread stayed positive on every 2025 and 2026 date checked.</p><p>One claim you will meet everywhere and will not meet here: that the 2022&ndash;2024 inversion was the longest on record. It may well have been, but it could not be checked against a primary source, so the verified endpoints are printed above instead of the superlative.</p>
+
+  <h2 id="probability">The New York Fed puts a number on it</h2>
+
+  <p>The yield curve is not only a talking point &mdash; the New York Fed runs it as a published forecast. The model comes from Arturo Estrella and Frederic S. Mishkin, <em>The Yield Curve as a Predictor of U.S. Recessions</em>, June 1996. It takes the 10-year minus 3-month spread and returns a probability of recession four quarters ahead. Their published mapping:</p><div class="gls-result">Term spread (pp)   Recession probability, 12 months ahead
+     +1.21                        5%
+     +0.76                       10%
+     +0.46                       15%
+     +0.22                       20%
+     +0.02                       25%
+     -0.17                       30%
+     -0.50                       40%
+     -0.82                       50%
+     -1.13                       60%
+     -1.46                       70%
+     -1.85                       80%
+     -2.40                       90%</div><p>Two things fall out of that table. The deepest 10y&ndash;3m reading of the last episode, &minus;1.89 on 4 May 2023, sits just past the 80% row. And the model never prints zero: even the most comfortably upward-sloping spread on it still carries 5%.</p><p>The New York Fed maintains the series. Its most recent published reading is <b>July 2026: a spread of 0.7822 percentage points and a recession probability of 15.19%</b>. Note that this does not line up exactly with the 1996 table above; the maintained series is the figure to quote.</p>
+
+  <h2 id="limits">Where the signal is contested</h2>
+
+  <p>The argument about this indicator runs inside the Federal Reserve system, not just outside it. The strongest published challenge is Engstrom and Sharpe, <em>(Don't Fear) The Yield Curve</em>, a FEDS Note from the Board of Governors dated 28 June 2018. They argue a different measure does the actual work &mdash; the near-term forward spread, roughly the six-quarter-ahead forward rate minus the current three-month bill. Once that is in the model, they write, <em>&ldquo;the estimated effect of the competing long-term spread on the probability of recession is economically small and not statistically different from zero.&rdquo;</em> Set against the San Francisco Fed letters of the same year, that is two Fed research groups disagreeing about the same object.</p><p>The second limit is who calls a recession, and when. It is not the two-consecutive-quarters-of-negative-GDP rule people repeat. It is the NBER's Business Cycle Dating Committee, which waits for the data to settle and announces turning points well after the fact. The April 2020 trough was announced on 19 July 2021 &mdash; a fifteen-month lag. A signal with a six-to-twenty-four-month lead is being graded by a scorekeeper who reports a year late.</p>
+
+  <h2 id="reading">How to read a curve without over-reading it</h2>
+
+  <p><b>Watch the un-inversion, not the inversion.</b> Recessions have tended to begin after the curve returns to a normal slope, not while it is inverted &mdash; the un-inversion happens when short rates fall, and short rates fall once the central bank has started cutting. Checked against the last three cycles: the 10y&ndash;3m spread had turned positive by 31 January 2001, ahead of a March 2001 peak; both spreads were positive by 7 June 2007, ahead of a December 2007 peak; and 10y&ndash;3m turned positive on 11 October 2019, ahead of a February 2020 peak. No single Fed publication states the pattern in those words; it is derived here from Treasury daily yields on one side and NBER peak dates on the other.</p><p><b>Being early costs the same as being wrong.</b> Anyone who went defensive on the first day of the 2022 inversion sat there more than two years, and the recession did not arrive.</p><p><b>For most people this is not a trade &mdash; it is a question about months of expenses.</b> A recession forecast, stripped of its vocabulary, asks how long you could go without income. That is answerable in an afternoon, without getting the macro call right. And when a macro signal does move markets, it moves them together &mdash; the mechanism behind <a href="../blog/why-unrelated-stocks-move-together.html">why unrelated stocks move together</a>.</p>
+
+  <h2 id="mistakes">What trips people up</h2>
+
+  <ul><li><b>Reading an inversion as a start date.</b> The documented lead time is 6 to 24 months &mdash; wide enough to contain an entire bull market.</li><li><b>Treating the last inversion as still pending.</b> The window from the July 2022 inversion closed in July 2024. NBER has dated nothing since April 2020.</li><li><b>Quoting one spread as if it were the curve.</b> 10y&ndash;2y and 10y&ndash;3m invert at different times, and disagreed outright in 2025: the 3-month version went negative, the 2-year version did not.</li><li><b>Assuming the curve is still inverted because it was.</b> On 10 August 2026 both spreads were positive, at +0.47 and +0.83.</li><li><b>Using the two-negative-quarters rule.</b> It is not how U.S. recessions are dated. The NBER committee is, and it announces late.</li><li><b>Making it the whole thesis.</b> Fed Board researchers argue the long spread adds nothing statistically once the near-term forward spread is in the model.</li><li><b>Repeating superlatives you have not checked.</b> &ldquo;The longest inversion on record&rdquo; is said constantly and is not verified on this page.</li></ul>
+
+  <section class="gls-faq">
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>What is a yield curve inversion?</h3>
+    <p>It is when short-term U.S. Treasury yields pay more than long-term ones, so the yield curve slopes down at the front instead of up. Stated as a number, the term spread &mdash; a long yield minus a short yield &mdash; has gone negative. Economically it means the market expects the average short-term interest rate over the coming years to be well below today's, which is a forecast of substantial rate cuts. Central banks cut rates that much when the economy is weakening, which is why an inversion is read as a recession warning.</p>
+
+    <h3>Is the yield curve inverted right now?</h3>
+    <p>No. On 10 August 2026 the 10-year minus 2-year spread was +0.47 percentage points and the 10-year minus 3-month spread was +0.83. The Treasury par yields that day sloped upward at every maturity checked: 3-month 3.89%, 2-year 4.25%, 10-year 4.72%, 30-year 5.25%. Both spreads are published daily by FRED as T10Y2Y and T10Y3M, and current readings are on the site's economic markets page.</p>
+
+    <h3>Does an inverted yield curve always mean a recession is coming?</h3>
+    <p>No. Every U.S. recession in the sixty years to 2018 was preceded by an inversion, but the San Francisco Fed also documents one false positive in the mid-1960s, and the 10-year minus 3-month spread fell to similarly low levels in 1995 and 1998 without a recession following soon after. The most recent case is the clearest: the curve inverted in 2022, stayed inverted into 2024, and the NBER has dated no U.S. recession since the April 2020 trough. The historical six-to-twenty-four-month window from that inversion closed in July 2024.</p>
+
+    <h3>How long after an inversion does a recession usually start?</h3>
+    <p>The San Francisco Fed puts it at six to twenty-four months between the term spread turning negative and a recession beginning. That is an enormous range for anyone trying to act on it, which is the practical limitation of the signal. Worth knowing alongside it: recessions have historically tended to begin after the curve un-inverts and returns to a normal slope, because the un-inversion is usually driven by the central bank cutting short rates. Watching only for the inversion means watching the first half of the signal.</p>
+
+    <h3>What is the difference between the 10-year minus 2-year and the 10-year minus 3-month spread?</h3>
+    <p>They are the same idea measured against different short maturities, and they do not always invert at the same time. The 10-year minus 2-year spread, FRED series T10Y2Y, is the one most headlines mean. The 10-year minus 3-month spread, T10Y3M, has the stronger academic record and is the input to the New York Fed's recession-probability model. The San Francisco Fed found the 3-month version performs better by a slight margin, while noting that all the common term spreads are fairly accurate and the differences between them are small.</p>
+
+    <h3>Why would anyone lend for ten years at a lower rate than for three months?</h3>
+    <p>Because they expect short rates to fall. A ten-year yield is roughly the average short rate the market expects over ten years, plus a term premium for the uncertainty of committing that long. If you believe the three-month rate will be far lower in two years, locking in ten years at today's long yield can beat rolling short-term bills. Everyone acting on that belief at once bids long yields down below short ones, and the curve inverts.</p>
+
+    <h3>Who decides when a recession has actually happened?</h3>
+    <p>In the United States it is the Business Cycle Dating Committee of the National Bureau of Economic Research, not the widely repeated rule about two consecutive quarters of falling GDP. The committee waits for data to be revised and settled before naming a peak or a trough, so announcements come long after the event. It confirmed the April 2020 trough on 19 July 2021, fifteen months later. Its most recent dated turning points are still that February 2020 peak and April 2020 trough.</p>
+  </section>
+
+  <section class="gls-rel">
+    <h2>Related terms</h2>
+    <div class="gls-rel-grid">
+      <a href="interest-rate.html"><b>Interest Rate</b><span>The price the whole curve is built out of</span></a>
+      <a href="inflation.html"><b>Inflation</b><span>Half of what a long yield has to compensate for</span></a>
+      <a href="prime-rate.html"><b>Prime Rate</b><span>The short end, translated into what you get charged</span></a>
+      <a href="apy.html"><b>APY</b><span>What the short end pays you on cash</span></a>
+      <a href="emergency-fund.html"><b>Emergency Fund</b><span>What a recession forecast is really asking about</span></a>
+      <a href="compound-interest.html"><b>Compound Interest</b><span>How a yield becomes a return over ten years</span></a>
+    </div>
+  </section>
+
+  <section class="gls-next">
+    <h2>Where to go next</h2>
+    <ul>
+      <li>See both spreads live, with the recession-signal panel, on the <a href="../markets-economic.html">economic pillar</a> &mdash; free, no account.</li>
+      <li>Answer the question a recession forecast is actually asking with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>.</li>
+      <li>Read <a href="../blog/why-unrelated-stocks-move-together.html">why unrelated stocks move together</a>, which is what a macro signal does when it lands.</li>
+      <li>Go deeper on the bond market and the curve in <a href="../economics.html">Economics for Traders</a>, or work through <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a>.</li>
+      <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
+    </ul>
+  </section>
+
+  <section class="gls-src">
+    <span class="gls-lbl">Sources</span>
+    <ol>
+      <li>Federal Reserve Bank of San Francisco, <a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2018/03/economic-forecasts-with-yield-curve/" target="_blank" rel="noopener">Economic Forecasts with the Yield Curve (Economic Letter 2018-07, Bauer &amp; Mertens)</a> (every U.S. recession in 60 years preceded by a negative term spread; the single mid-1960s false positive; the 6-to-24-month lag).</li>
+      <li>Federal Reserve Bank of San Francisco, <a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2018/08/information-in-yield-curve-about-future-recessions/" target="_blank" rel="noopener">Information in the Yield Curve about Future Recessions (Economic Letter 2018-20)</a> (10y&ndash;3m performs better &ldquo;by a slight margin&rdquo;, and the authors' own caveat that the differences are small).</li>
+      <li>Federal Reserve Bank of San Francisco, <a href="https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2019/02/27/did-yield-curve-flip-will-economy-dip/" target="_blank" rel="noopener">Did the Yield Curve Flip? Will the Economy Dip?</a>, 27 February 2019 (the 1995 and 1998 near-miss levels in the 10y&ndash;3m spread).</li>
+      <li>Board of Governors of the Federal Reserve System, <a href="https://www.federalreserve.gov/econres/notes/feds-notes/dont-fear-the-yield-curve-20180628.htm" target="_blank" rel="noopener">(Don't Fear) The Yield Curve &mdash; FEDS Notes (Engstrom &amp; Sharpe)</a>, 28 June 2018 (the near-term forward spread, and the long spread being &ldquo;not statistically different from zero&rdquo; once it is included).</li>
+      <li>Federal Reserve Bank of New York, <a href="https://www.newyorkfed.org/research/capital_markets/ycfaq" target="_blank" rel="noopener">The Yield Curve as a Leading Indicator</a>, and the data file <a href="https://www.newyorkfed.org/medialibrary/media/research/capital_markets/prob_rec.pdf" target="_blank" rel="noopener">Probability of US Recession Predicted by Treasury Spread</a> (July 2026: spread 0.7822 pp, probability 15.19%).</li>
+      <li>Arturo Estrella and Frederic S. Mishkin, <a href="https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf" target="_blank" rel="noopener">The Yield Curve as a Predictor of U.S. Recessions</a>, Federal Reserve Bank of New York, Current Issues in Economics and Finance 2(7), June 1996 (the model, the 10y&ndash;3m input, and the published probability table).</li>
+      <li>National Bureau of Economic Research, <a href="https://www.nber.org/research/business-cycle-dating" target="_blank" rel="noopener">Business Cycle Dating</a> (most recent U.S. turning points: February 2020 peak, April 2020 trough &mdash; nothing dated since).</li>
+      <li>National Bureau of Economic Research, <a href="https://www.nber.org/news/business-cycle-dating-committee-announcement-july-19-2021" target="_blank" rel="noopener">Business Cycle Dating Committee Announcement, July 19, 2021</a> (the April 2020 trough confirmed fifteen months after the fact).</li>
+      <li>U.S. Department of the Treasury, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener">Daily Treasury Par Yield Curve Rates</a> (every dated yield on this page: April and July 2022, March/May/July 2023, September and December 2024, 2025 monthly tables, August 2026).</li>
+      <li>Federal Reserve Bank of St. Louis, <a href="https://fred.stlouisfed.org/series/T10Y2Y" target="_blank" rel="noopener">10-Year Treasury Constant Maturity Minus 2-Year (T10Y2Y)</a> and <a href="https://fred.stlouisfed.org/series/T10Y3M" target="_blank" rel="noopener">Minus 3-Month (T10Y3M)</a> (+0.47 and +0.83 percentage points on 10 August 2026).</li>
+      <li>Board of Governors of the Federal Reserve System, <a href="https://www.federalreserve.gov/monetarypolicy/openmarket.htm" target="_blank" rel="noopener">Open Market Operations</a>, and Federal Reserve Bank of St. Louis, <a href="https://fred.stlouisfed.org/series/DFF" target="_blank" rel="noopener">Federal Funds Effective Rate (DFF)</a> (target range 3.50&ndash;3.75% set 11 December 2025; effective rate 3.63% on 7 August 2026).</li>
+      <li>Federal Reserve Bank of New York, <a href="https://www.newyorkfed.org/research/data_indicators/term-premia-tabs" target="_blank" rel="noopener">Treasury Term Premia (ACM model)</a> (Adrian, Crump and Moench; five-factor no-arbitrage model, 1 to 10 year maturities from 1961 &mdash; values are served through an interactive tool, so none is quoted here).</li>
+    </ol>
+  </section>
+
+  <p class="gls-disc">The figures on this page are checked against the source that publishes them, and dated. Published rates move after the release named above &mdash; the linked source always carries the current number. This page explains a term; it does not recommend a product.</p>
+
+</article>
+
+<aside class="gls-rail">
+  <nav class="gls-toc" aria-label="On this page">
+    <span class="gls-lbl">On this page</span>
+    <ol>
+      <li><a href="#definition">What inversion is</a></li>
+      <li><a href="#slope">Why curves slope up</a></li>
+      <li><a href="#spreads">The two spreads</a></li>
+      <li><a href="#record">The recession record</a></li>
+      <li><a href="#miss">The 2022 inversion</a></li>
+      <li><a href="#probability">Putting a number on it</a></li>
+      <li><a href="#limits">Where it is contested</a></li>
+      <li><a href="#reading">How to read it</a></li>
+      <li><a href="#mistakes">What trips people up</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <div class="gls-tool">
+    <span class="gls-lbl">Run the numbers</span>
+    <p>See the curve as it stands today, alongside five recession signals and the documented failure mode of each. Free, no account.</p>
+    <a class="gls-cta" href="../markets-economic.html">Live economic dashboard &rarr;</a>
+  </div>
+</aside>
+
+</div>
+
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="../index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="../assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="../markets.html">Markets</a>
+        <a href="../technical-analysis.html">Technical Analysis</a>
+        <a href="../fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="../trading-psychology.html">Trading Psychology</a>
+        <a href="../economics.html">Economics for Traders</a>
+        <a href="../index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../about.html">About</a>
+        <a href="../work-with-us.html">Work With Us</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>
