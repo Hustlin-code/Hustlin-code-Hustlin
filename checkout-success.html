@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260811-1846">
+<link rel="stylesheet" href="styles.css?v=20260811-2236">
 <style>
 .auth-wrap{min-height:100vh;background:#060606;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center}
 .auth-logo{margin-bottom:36px}
@@ -36,10 +36,10 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=20260811-1846"></script>
-<script src="app.js?v=20260811-1846"></script>
-<script src="auth.js?v=20260811-1846"></script>
-<script src="course-access.js?v=20260811-1846"></script>
+<script src="supabase-config.js?v=20260811-2236"></script>
+<script src="app.js?v=20260811-2236"></script>
+<script src="auth.js?v=20260811-2236"></script>
+<script src="course-access.js?v=20260811-2236"></script>
 <script>
 (async function(){
   const params = new URLSearchParams(window.location.search);
@@ -65,7 +65,7 @@
     const startAt = await firstPaidStage();
     card.innerHTML =
       '<div class="status-icon">✓</div>' +
-      '<h1>You\'re in!</h1>' +
+      '<h2>You\'re in!</h2>' +
       '<p>' + courseName + ' is now unlocked on your account.</p>' +
       // Added 2026-08-10. This is the one moment where the reciprocity argument
       // can be closed rather than made: they already paid, so it is a thank-you,
@@ -81,14 +81,14 @@
   function renderPending(){
     card.innerHTML =
       '<div class="status-icon">📬</div>' +
-      '<h1>Payment received</h1>' +
+      '<h2>Payment received</h2>' +
       '<p>We\'re still confirming this with Stripe — it can take up to a minute. Refresh this page shortly, or head back to the course and it\'ll unlock automatically once confirmed.</p>' +
       '<a class="btn-a" href="javascript:location.reload()">Refresh</a>';
   }
   function renderSignedOut(){
     card.innerHTML =
       '<div class="status-icon">🔑</div>' +
-      '<h1>Payment received</h1>' +
+      '<h2>Payment received</h2>' +
       '<p>Sign in with the same email you used at checkout to see your unlocked course.</p>' +
       '<a class="btn-a" href="login.html">Sign In</a>';
   }

@@ -1348,7 +1348,7 @@ a{text-decoration:none}
 @media(max-width:480px){.stage-locked-wrap{padding:84px 18px 50px}}
 .stage-locked-inner{max-width:520px}
 .stage-locked-inner .lock-icon{font-size:3rem;margin-bottom:20px}
-.stage-locked-inner h1{font-family:var(--f-body);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-.02em}
+.stage-locked-inner h1,.stage-locked-inner .lock-title{font-family:var(--f-body);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-.02em}
 .stage-locked-inner p{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.7;margin-bottom:32px}
 
 /* ─── CROSS-STAGE DATA CALLOUT ───────────────── */

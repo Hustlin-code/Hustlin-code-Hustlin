@@ -60,17 +60,21 @@
      stranded every inbound link the old FL viewer URLs had accumulated.
      noindex keeps it unlisted; follow lets the value reach the real pages. -->
 <meta name="robots" content="noindex, follow">
-<title>Course — Hustlin'</title>
+<title>Your Course Library — Hustlin'</title>
+<meta name="description" content="Your Hustlin' course library. Open a course you have bought and pick up where you left off. The free Financial Literacy resource needs no account.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260811-1846">
+<link rel="stylesheet" href="styles.css?v=20260811-2236">
 <style>
   #hfy-lesson-styles:empty { display: none }
   .hfy-learn-state {
     min-height: 62vh; display: flex; align-items: center;
     justify-content: center; padding: 48px 24px;
   }
+  .hfy-learn-h1 { font-family: var(--f-body); font-size: 1.35rem; font-weight: 800;
+    color: #fff; letter-spacing: -.01em; margin: 0 0 10px }
+  .hfy-learn-card a { color: #f5c520 }
   .hfy-learn-card {
     max-width: 460px; width: 100%; text-align: center;
     background: #0b0b0b; border: 1px solid rgba(245,197,32,.28);
@@ -185,7 +189,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-top" href="learn.html">Guides</a>
+      <a class="nav-top" href="financial-literacy.html#guides">Guides</a>
       <div class="nav-panel">
         <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
         <a href="starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
@@ -362,8 +366,10 @@
     <div class="hfy-learn-state" id="hfy-state">
       <div class="hfy-learn-card">
         <div class="hfy-learn-spin"></div>
-        <h3>Loading your lesson…</h3>
-        <p>Checking your access.</p>
+        <h1 class="hfy-learn-h1">Your course library</h1>
+        <p>Opening your lesson and checking your access. If you have not bought a course yet,
+        the <a href="financial-literacy.html">free Financial Literacy resource</a> needs no account,
+        and the <a href="calculate-your-hustle.html">calculators</a> are open to everyone.</p>
       </div>
     </div>
   </div>
@@ -402,8 +408,8 @@
         <a href="index.html">Home</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
-        <a href="learn.html">Learn</a>
         <a href="work-with-us.html">Work With Us</a>
+        <a href="contact.html">Contact</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
       </div>
@@ -442,26 +448,26 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=20260811-1846"></script>
+<script src="app.js?v=20260811-2236"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.106.1/dist/umd/supabase.js"></script>
-<script src="supabase-config.js?v=20260811-1846"></script>
-<script src="auth.js?v=20260811-1846"></script>
-<script src="course-access.js?v=20260811-1846"></script>
+<script src="supabase-config.js?v=20260811-2236"></script>
+<script src="auth.js?v=20260811-2236"></script>
+<script src="course-access.js?v=20260811-2236"></script>
 <!-- Module navigation, Next Module / Next Stage buttons, and the call to
      HFY.restoreStage() that arms the wins system. Every stage page loads this
      directly; the viewer must too, because the course-content Edge Function
      strips <script src> tags out of the lesson before sending it. Loaded
      BEFORE learn.js so HFY_COURSE_SHELL.init exists by the time the lesson
      lands; it self-suppresses its DOM-ready init on this page and waits. -->
-<script src="course-shell.js?v=20260811-1846"></script>
+<script src="course-shell.js?v=20260811-2236"></script>
 <!-- Share bar + stage-completion outro (congratulations, account prompt,
      course cross-sell). Same reason as course-shell.js above: the lesson's
      own <script src> tags are stripped, so the viewer has to carry this
      itself. It self-suppresses on DOM ready here and waits for learn.js to
      call HFY_STAGE_OUTRO.init() once the lesson has actually landed. -->
-<script src="stage-outro.js?v=20260811-1846"></script>
-<script src="learn.js?v=20260811-1846"></script>
+<script src="stage-outro.js?v=20260811-2236"></script>
+<script src="learn.js?v=20260811-2236"></script>
 <!-- Wins system. After app.js (completion hooks) and auth.js (account sync). -->
-<script src="rewards.js?v=20260811-1846"></script>
+<script src="rewards.js?v=20260811-2236"></script>
 </body>
 </html>
