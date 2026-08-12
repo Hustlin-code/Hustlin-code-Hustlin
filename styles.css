@@ -3038,7 +3038,11 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   .nav-panel-learn{min-width:0}
   .nav-learn-paid{border-left:none;padding-left:0;margin-top:6px}
   .nav-panel-xwide{min-width:0}
-  .nav-stage-link{display:flex;flex-direction:row;align-items:center;gap:11px}
+  /* .nav-panel a above is (0,1,1) and .nav-stage-link is (0,1,0), so the
+     column rule was winning and the stage buttons stacked above their labels
+     in the drawer. Qualifying the selector restores the row this rule always
+     meant to describe. */
+  .nav-panel a.nav-stage-link{display:flex;flex-direction:row;align-items:center;gap:11px}
   .nav-stage-link b,.nav-stage-link span{display:block}
   .nav-item-flat .nav-panel{display:none}
 }
