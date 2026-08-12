@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Money Calculators — Budget, Debt, Compound | Hustlin'</title>
-<meta name="description" content="Twenty-five free calculators — budget, emergency fund, debt payoff, compound interest, net worth and your freedom number. No account, nothing saved.">
+<meta name="description" content="Twenty-six free calculators — budget, emergency fund, debt payoff, compound interest, net worth and your freedom number. No account, nothing saved.">
 <link rel="canonical" href="https://hustlin.org/calculate-your-hustle.html">
 
 <meta property="og:type" content="website">
@@ -28,7 +28,7 @@
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
       "browserRequirements": "Requires JavaScript",
-      "description": "Twenty-five free personal finance, business and real estate calculators covering budgeting, emergency funds, debt payoff, compound interest, net worth, credit utilization and financial independence. Runs entirely in the browser with no account and no data sent to a server.",
+      "description": "Twenty-six free personal finance, business and real estate calculators covering budgeting, emergency funds, debt payoff, compound interest, net worth, credit utilization and financial independence. Runs entirely in the browser with no account and no data sent to a server.",
       "isAccessibleForFree": true,
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "publisher": { "@id": "https://hustlin.org/#organization" }
@@ -85,11 +85,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260812-0224">
+<link rel="stylesheet" href="styles.css?v=20260812-0241">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="calculators.css?v=20260812-0224">
+<link rel="stylesheet" href="calculators.css?v=20260812-0241">
 </head>
 <body>
 
@@ -187,7 +187,7 @@
            Google indexes documents, not anchors — an anchor cannot rank on its
            own. Same rule as the course and blog deep links. -->
       <div class="nav-panel nav-panel-wide">
-        <p class="nav-panel-h">Twenty-five calculators, no sign-up</p>
+        <p class="nav-panel-h">Twenty-six calculators, no sign-up</p>
         <div class="nav-cols">
           <a href="budget-calculator.html">Budget</a>
           <a href="debt-payoff-calculator.html">Debt payoff</a>
@@ -343,12 +343,12 @@
   <p class="cyh-eye">Free · No Account · Nothing Saved to a Server</p>
   <h1 class="cyh-h1">Calculate <em>Your Hustle.</em></h1>
   <p class="cyh-lede">
-    Twenty-five calculators that run your actual numbers &mdash; not averages, not assumptions.
+    Twenty-six calculators that run your actual numbers &mdash; not averages, not assumptions.
     Budget, debt, compound growth, net worth, and the number that means you never have to
     work again. Everything runs in your browser. Nothing you type leaves your device.
   </p>
   <div class="cyh-badges">
-    <span class="cyh-badge">25 Tools</span>
+    <span class="cyh-badge">26 Tools</span>
     <span class="cyh-badge">$0 Forever</span>
     <span class="cyh-badge">No Signup</span>
     <span class="cyh-badge">Works Offline</span>
@@ -361,9 +361,9 @@
 
 <aside class="cyh-side">
   <details open>
-    <summary class="cyh-side-mobile">All 25 calculators</summary>
+    <summary class="cyh-side-mobile">All 26 calculators</summary>
     <div class="cyh-side-inner">
-      <p class="cyh-side-title cyh-side-desktop-title">All 25 calculators</p>
+      <p class="cyh-side-title cyh-side-desktop-title">All 26 calculators</p>
         <div class="cyh-side-group">Start here</div>
         <a href="budget-calculator.html">Budget</a>
         <a href="paycheck-calculator.html">Paycheck <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
@@ -384,6 +384,7 @@
         <div class="cyh-side-group">Retirement</div>
         <a href="roth-conversion-calculator.html">Roth Conversion <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
         <a href="retirement-withdrawal-calculator.html">Retirement Withdrawal <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
+        <a href="step-up-in-basis-calculator.html">Step-Up in Basis <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
         <div class="cyh-side-group">Big purchases</div>
         <a href="mortgage-calculator.html">Mortgage <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
         <a href="auto-loan-calculator.html">Auto Loan <span style="color:#B8930F;font-size:10px;font-weight:700">NEW</span></a>
@@ -1019,9 +1020,67 @@
   <p style="margin:18px 0 0;font-size:13.5px"><a href="retirement-withdrawal-calculator.html" style="color:#8A6D08;font-weight:700;text-decoration:none">Full guide, worked example and FAQ &rarr;</a></p>
 </section>
 
+<section class="cyh-tool" id="stepup">
+  <span class="cyh-num">Calculator 15</span>
+  <h2>Step-Up in Basis Calculator</h2>
+  <p class="cyh-sub">Die owning an appreciated asset and the gain built up over your lifetime is never taxed &mdash; the heir&rsquo;s cost basis resets to the value on the date of death. Hand the same asset over while you are alive and your old basis goes with it. This prices both, side by side.</p>
+  <div class="cyh-grid">
+    <div>
+      <div class="cyh-field">
+        <label for="cyh-suCost">What the original owner paid ($)</label>
+        <input type="number" id="cyh-suCost" value="30000" oninput="cyhStepUp()">
+        <div class="cyh-hint">The cost basis, plus capital improvements on a property. The number nobody can find afterwards.</div>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-suDod">Value on the date of death ($)</label>
+        <input type="number" id="cyh-suDod" value="300000" oninput="cyhStepUp()">
+        <div class="cyh-hint">For shares, the average of that day&rsquo;s high and low &mdash; not the close. For a house, a written date-of-death appraisal.</div>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-suSale">Sale price ($)</label>
+        <input type="number" id="cyh-suSale" value="300000" oninput="cyhStepUp()">
+        <div class="cyh-hint">Leave it level with the date-of-death value to see the step-up on its own.</div>
+      </div>
+    </div>
+    <div>
+      <div class="cyh-field">
+        <label for="cyh-suStatus">Heir&rsquo;s filing status</label>
+        <select id="cyh-suStatus" onchange="cyhStepUp()">
+          <option value="single" selected>Single</option>
+          <option value="joint">Married filing jointly</option>
+          <option value="hoh">Head of household</option>
+        </select>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-suIncome">Heir&rsquo;s other income this year ($)</label>
+        <input type="number" id="cyh-suIncome" value="60000" oninput="cyhStepUp()">
+        <div class="cyh-hint">Long-term gains stack on top of this, so the same inheritance costs two heirs two different amounts.</div>
+      </div>
+      <div class="cyh-field">
+        <label for="cyh-suState">State tax on the gain (%)</label>
+        <input type="number" id="cyh-suState" value="0" step="0.1" oninput="cyhStepUp()">
+        <div class="cyh-hint">Many states tax capital gains as ordinary income and several do not tax them at all. Leave it at 0 if yours does not.</div>
+      </div>
+    </div>
+  </div>
+  <div class="cyh-out">
+    <div class="cyh-stat pos"><b id="cyh-suInhTax">$0</b><span>Tax If Inherited</span></div>
+    <div class="cyh-stat neg"><b id="cyh-suGiftTax">$0</b><span>Tax If Gifted Instead</span></div>
+    <div class="cyh-stat gold"><b id="cyh-suSaved">$0</b><span>Tax Saved By Inheriting</span></div>
+    <div class="cyh-stat"><b id="cyh-suErased">$0</b><span>Gain Erased At Death</span></div>
+  </div>
+  <div class="cyh-out">
+    <div class="cyh-stat"><b id="cyh-suRate">0%</b><span>Effective Rate If Gifted</span></div>
+    <div class="cyh-stat"><b id="cyh-suNetInh">$0</b><span>Net To Heir &mdash; Inherited</span></div>
+    <div class="cyh-stat"><b id="cyh-suNetGift">$0</b><span>Net To Heir &mdash; Gifted</span></div>
+  </div>
+  <div class="cyh-msg" id="cyh-suMsg"></div>
+  <p style="margin:18px 0 0;font-size:13.5px"><a href="step-up-in-basis-calculator.html" style="color:#8A6D08;font-weight:700;text-decoration:none">Full guide, worked example and FAQ &rarr;</a></p>
+</section>
+
 <!-- ============ 14 MORTGAGE CALCULATOR ============ -->
 <section class="cyh-tool" id="mortgage">
-  <span class="cyh-num">Calculator 15</span>
+  <span class="cyh-num">Calculator 16</span>
   <h2>Mortgage Calculator</h2>
   <p class="cyh-sub">The full monthly payment &mdash; principal, interest, tax, insurance, HOA and PMI. Not the principal-and-interest figure that makes a house look affordable.</p>
   <div class="cyh-ratebox">
@@ -1078,7 +1137,7 @@
 
 <!-- ============ 15 AUTO LOAN CALCULATOR ============ -->
 <section class="cyh-tool" id="auto">
-  <span class="cyh-num">Calculator 16</span>
+  <span class="cyh-num">Calculator 17</span>
   <h2>Auto Loan Calculator</h2>
   <p class="cyh-sub">What the car really costs, and whether the deal clears the 20/4/10 rule. Negotiate the price, never the monthly payment.</p>
   <div class="cyh-ratebox">
@@ -1140,7 +1199,7 @@
 </section>
 
 <section class="cyh-tool" id="pricing">
-  <span class="cyh-num">Calculator 17</span>
+  <span class="cyh-num">Calculator 18</span>
   <h2>Pricing &amp; Breakeven</h2>
   <p class="cyh-sub">What you have to charge, and how many you have to sell before you have made a single dollar. Card fees included, because they come out of every sale whether you count them or not.</p>
 
@@ -1200,7 +1259,7 @@
 </section>
 
 <section class="cyh-tool" id="locpayoff">
-  <span class="cyh-num">Calculator 18</span>
+  <span class="cyh-num">Calculator 19</span>
   <h2>Line of Credit Payoff</h2>
   <p class="cyh-sub">A revolving balance is not a loan with an end date &mdash; it only ends when you stop drawing on it. This runs the balance month by month, including what you keep charging.</p>
 
@@ -1250,7 +1309,7 @@
 </section>
 
 <section class="cyh-tool" id="bizloan">
-  <span class="cyh-num">Calculator 19</span>
+  <span class="cyh-num">Calculator 20</span>
   <h2>Business Loan</h2>
   <p class="cyh-sub">The payment, the real APR once the fees are in, and whether the business actually covers the debt. Plus what a merchant cash advance costs in the same units, so you can compare the two honestly.</p>
 
@@ -1332,7 +1391,7 @@
 </section>
 
 <section class="cyh-tool" id="bizcash">
-  <span class="cyh-num">Calculator 20</span>
+  <span class="cyh-num">Calculator 21</span>
   <h2>Business Cash Flow</h2>
   <p class="cyh-sub">Profit is an opinion; cash is a fact. This splits a month into operating, investing and financing, then tells you how long the cash lasts if nothing changes.</p>
 
@@ -1402,7 +1461,7 @@
 </section>
 
 <section class="cyh-tool" id="bizratios">
-  <span class="cyh-num">Calculator 21</span>
+  <span class="cyh-num">Calculator 22</span>
   <h2>Business Ratios &amp; Working Capital</h2>
   <p class="cyh-sub">Eleven numbers off your own books, turned into the ratios a lender will calculate about you anyway. Every figure comes from your balance sheet and your profit and loss &mdash; nothing here is compared against an industry average, because the honest ones are not published for free.</p>
 
@@ -1477,7 +1536,7 @@
 </section>
 
 <section class="cyh-tool" id="bizlease">
-  <span class="cyh-num">Calculator 22</span>
+  <span class="cyh-num">Calculator 23</span>
   <h2>Equipment: Lease vs. Buy</h2>
   <p class="cyh-sub">Both paths in today&rsquo;s money, so a monthly payment cannot flatter one of them. Then the resale value at which the answer flips.</p>
 
@@ -1547,7 +1606,7 @@
 </section>
 
 <section class="cyh-tool" id="rental">
-  <span class="cyh-num">Calculator 23</span>
+  <span class="cyh-num">Calculator 24</span>
   <h2>Rental Property Analyzer</h2>
   <p class="cyh-sub">Cash flow, cap rate, cash-on-cash and coverage on one screen &mdash; with vacancy, maintenance and capital reserves in the numbers, which is where most back-of-envelope rental math falls apart.</p>
 
@@ -1635,7 +1694,7 @@
 </section>
 
 <section class="cyh-tool" id="flip">
-  <span class="cyh-num">Calculator 24</span>
+  <span class="cyh-num">Calculator 25</span>
   <h2>Fix &amp; Flip / 70% Rule</h2>
   <p class="cyh-sub">The maximum you can pay, what the project really costs once money and time are counted, and the resale price below which the whole thing loses money.</p>
 
@@ -1707,7 +1766,7 @@
 </section>
 
 <section class="cyh-tool" id="brrrr">
-  <span class="cyh-num">Calculator 25</span>
+  <span class="cyh-num">Calculator 26</span>
   <h2>BRRRR Calculator</h2>
   <p class="cyh-sub">Buy, rehab, rent, refinance, repeat. The number that matters is how much of your own money is still stuck in the deal afterwards &mdash; and whether it still cash flows once the new loan is on it.</p>
 
@@ -1928,6 +1987,6 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="calculators.js?v=20260812-0224"></script>
+<script src="calculators.js?v=20260812-0241"></script>
 </body>
 </html>

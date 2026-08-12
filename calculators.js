@@ -473,6 +473,39 @@
   }
 
 
+  /* 2026 long-term capital gains bands, keyed on TAXABLE income, from
+     Rev. Proc. 2025-32 section 4.03. Stored as [maxZeroRate, max15Rate];
+     everything above the second figure is 20%. These are stacked on top
+     of ordinary income, which is the reason the same inherited gain
+     costs two heirs two different amounts. */
+  var LTCG_2026 = {
+    single: [49450, 545500],
+    joint:  [98900, 613700],
+    hoh:    [66200, 579600]
+  };
+  /* Net investment income tax, IRC section 1411. Fixed since 2013 and
+     never indexed, which is why it reaches further every year. */
+  var NIIT_FLOOR = { single: 200000, joint: 250000, hoh: 200000 };
+
+  /* Long-term tax on `gain` sitting on top of `ordTaxable` of ordinary
+     taxable income. Band by band rather than "your bracket x the gain",
+     because a large inherited gain routinely spans two bands and a small
+     one lands entirely inside the 0% band - where the step-up is worth
+     nothing, which the tool has to be able to say. */
+  function ltcgTax(ordTaxable, gain, status) {
+    if (!(gain > 0)) return 0;
+    var b = LTCG_2026[status] || LTCG_2026.single;
+    var bands = [[0, b[0], 0], [b[0], b[1], 0.15], [b[1], Infinity, 0.20]];
+    var lo = Math.max(0, ordTaxable), hi = lo + gain, t = 0;
+    for (var i = 0; i < bands.length; i++) {
+      var overlap = Math.min(hi, bands[i][1]) - Math.max(lo, bands[i][0]);
+      if (overlap > 0) t += overlap * bands[i][2];
+    }
+    return t;
+  }
+
+
+
   /* ================================================================
      ROTH CONVERSION  -  cyhRoth()
      ----------------------------------------------------------------
@@ -586,6 +619,121 @@
         money(rothBase) + " rather than " + money(amt) +
         " - and under 59.5 the withheld amount is itself an early withdrawal and gets penalized.");
     }
+    msg.innerHTML = parts.join(" ");
+  };
+
+
+
+  /* ================================================================
+     STEP-UP IN BASIS  -  cyhStepUp()
+     ----------------------------------------------------------------
+     Prices the same asset twice and subtracts. Everything else about
+     this subject is explanation; the only number a reader wants is
+     what the step-up is worth to them in dollars, and what giving the
+     asset away early costs instead.
+
+       inherited basis = value on the date of death     (IRC 1014)
+       gifted basis    = what the original owner paid   (IRC 1015)
+
+     Three things this models that a generic capital gains calculator
+     does not:
+
+       1. The gain is STACKED on the heir's other income, band by band.
+          "Your bracket times the gain" is wrong in both directions - a
+          large inherited gain usually spans the 15% and 20% bands, and
+          a small one can sit entirely inside the 0% band.
+
+       2. The NIIT is included, and the gain itself is what pushes most
+          heirs over the section 1411 floor. Leaving it out understates
+          a six-figure gain by thousands.
+
+       3. The zero case is a real answer. If the whole gain fits in the
+          0% band the step-up saves nothing, and the tool says so rather
+          than implying a benefit that is not there.
+
+     ACCURACY BOUNDARY, stated on the page too:
+       federal long-term capital gains plus the NIIT, plus whatever flat
+       state rate you type. Assumes the standard deduction, a taxable
+       asset held long-term, no other gains or losses in the year, and
+       no section 121 home-sale exclusion. A traditional IRA or 401(k)
+       is NOT this - it gets no step-up and is ordinary income. Sizing
+       tool, not a filing.
+     ================================================================ */
+  window.cyhStepUp = function () {
+    var cost   = num($("cyh-suCost"));
+    var dod    = num($("cyh-suDod"));
+    var sale   = num($("cyh-suSale"));
+    var status = ($("cyh-suStatus").value) || "single";
+    var income = num($("cyh-suIncome"));
+    var stRate = Math.max(0, num($("cyh-suState")) / 100);
+
+    var std        = STD_2026[status] || STD_2026.single;
+    var ordTaxable = Math.max(0, income - std);
+    var floor      = NIIT_FLOOR[status] || NIIT_FLOOR.single;
+
+    function bill(basis) {
+      var gain = Math.max(0, sale - basis);
+      var fed  = ltcgTax(ordTaxable, gain, status);
+      var over = Math.max(0, (income + gain) - floor);
+      var niit = 0.038 * Math.min(gain, over);
+      var st   = gain * stRate;
+      return { gain: gain, fed: fed, niit: niit, state: st, total: fed + niit + st };
+    }
+
+    var inh    = bill(dod);
+    var gif    = bill(cost);
+    var saved  = gif.total - inh.total;
+    var erased = dod - cost;
+    var rate   = gif.gain > 0 ? gif.total / gif.gain : 0;
+
+    $("cyh-suInhTax").textContent  = money(inh.total);
+    $("cyh-suGiftTax").textContent = money(gif.total);
+    $("cyh-suSaved").textContent   = money(saved);
+    $("cyh-suErased").textContent  = money(Math.max(0, erased));
+    $("cyh-suRate").textContent    = (rate * 100).toFixed(1) + "%";
+    $("cyh-suNetInh").textContent  = money(sale - inh.total);
+    $("cyh-suNetGift").textContent = money(sale - gif.total);
+
+    var msg = $("cyh-suMsg"), parts = [];
+    if (dod <= 0 || sale <= 0) {
+      msg.innerHTML = "Enter a value on the date of death and a sale price.";
+      return;
+    }
+
+    if (erased < 0) {
+      parts.push("<b>This is a step-DOWN, not a step-up.</b> The asset is worth " +
+        money(cost - dod) + " less than it cost, so the basis resets to the lower " +
+        "date-of-death value and that loss disappears. Nobody inherits a capital loss. " +
+        "A loss sold while the owner is alive offsets gains and up to $3,000 of ordinary " +
+        "income a year - held to the end, it is worth nothing to anyone.");
+    } else if (saved <= 0.5) {
+      parts.push("<b>The step-up saves nothing here.</b> " + (gif.gain <= 0
+        ? "There is no gain to erase at this sale price."
+        : "The whole gain sits inside the 0% long-term band at this income, so it would " +
+          "not have been taxed either way. That is the honest limit of this rule: it is " +
+          "worth exactly the tax it avoids, and on a modest gain that is zero. Gifting " +
+          "the asset during your lifetime costs nothing in this situation and is simpler."));
+    } else {
+      parts.push("Inheriting erases <b>" + money(erased) + "</b> of built-up gain and saves <b>" +
+        money(saved) + "</b> in tax, against handing the same asset over during the owner's " +
+        "lifetime. That is the price of signing it early.");
+      if (gif.niit > 0.5) {
+        parts.push("Note what is inside that figure: " + money(gif.fed) +
+          " of long-term capital gains tax at an effective " + (rate * 100).toFixed(1) +
+          "%, plus " + money(gif.niit) + " of net investment income tax - which the gain " +
+          "itself is what pushes this heir over the threshold for." +
+          (gif.state > 0.5 ? " State tax adds " + money(gif.state) + " on top." : ""));
+      } else if (gif.state > 0.5) {
+        parts.push("Of that, " + money(gif.state) + " is state tax at the rate you entered.");
+      }
+    }
+
+    parts.push("<b>This models a taxable asset</b> - stock, a fund, or property. A traditional " +
+      "IRA or 401(k) works the other way: it gets no step-up at all, and heirs pay ordinary " +
+      "income tax on every dollar. Federal long-term rates and the 3.8% surtax only; assumes " +
+      "the standard deduction and no other gains or losses. Educational, not tax advice - " +
+      "price any real transfer with a CPA before anyone signs anything.");
+
     msg.innerHTML = parts.join(" ");
   };
 
@@ -1099,7 +1247,8 @@
      ['cyh-utBal', cyhUtil], ['cyh-ciStart', cyhCompound], ['cyh-igStart', cyhInvest],
      ['cyh-ffSpend', cyhFreedom], ['cyh-whGross', cyhWithhold],
      ['cyh-mgPrice', cyhMortgage], ['cyh-auPrice', cyhAuto],
-     ['cyh-rcAmt', cyhRoth], ['cyh-rwBal', cyhRetDraw]]
+     ['cyh-rcAmt', cyhRoth], ['cyh-rwBal', cyhRetDraw],
+     ['cyh-suCost', cyhStepUp]]
       .forEach(function (pair) { if (has(pair[0])) { try { pair[1](); } catch (e) {} } });
   });
 })();
