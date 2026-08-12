@@ -473,3 +473,24 @@ p.gls-rev b{color:var(--text-dark);font-weight:700}
   .gls-idx{padding:32px 18px 0}
   .gls-idx-rows{grid-template-columns:minmax(0,1fr)}
 }
+
+/* ── BROWSE BY TOPIC ────────────────────────────────────────────────────────
+   Added 2026-08-12 alongside the nav's topic panel. The nav tiles link to the
+   #g-<key> anchors in these sections, and both the tiles and the sections are
+   generated from one GROUPS array in tools/nav-template.mjs, so they cannot
+   disagree. Variables here are the ones already in use above in this file. */
+.gls-topics{margin:0 0 52px}
+.gls-topics-h{
+  font-family:var(--f-display);font-size:1.9rem;color:var(--amber-ink);
+  letter-spacing:.02em;margin:0 0 20px;padding-bottom:8px;
+  border-bottom:2px solid var(--border);scroll-margin-top:132px;
+}
+.gls-top-group{margin-bottom:26px;scroll-margin-top:132px}
+.gls-top-h{
+  font-family:var(--f-body);font-size:1.02rem;font-weight:700;
+  color:var(--text-dark);margin:0 0 8px;
+}
+.gls-top-h span{
+  font-family:var(--f-body);font-size:.8rem;font-weight:400;
+  color:var(--text-muted);margin-left:9px;
+}
