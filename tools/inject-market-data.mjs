@@ -293,7 +293,7 @@ ${rows.map(r => `        <tr><th scope="row">${esc(r.name)}</th><td>${esc(r.symb
 }
 
 /** Same data, plus where each sector has historically tended to lead. The
-    caption does the heavy lifting: this is a textbook generalisation about
+    caption does the heavy lifting: this is a textbook generalization about
     average behaviour across many cycles, and stating it without that caveat
     would be the single most misleading thing on the page. */
 const CYCLE_LABEL = {
@@ -304,7 +304,7 @@ const CYCLE_LABEL = {
 function renderSectorsCycle(rows) {
   if (!rows?.length) return ''
   return `<table class="mkt-table">
-      <caption class="mkt-table-cap">Sector ETFs ranked by today's move, with the phase each has <em>historically tended</em> to lead in. That last column is a long-run generalisation across many cycles, not a claim about this one &mdash; sectors regularly lead out of turn, and one day's move tells you nothing about a phase.</caption>
+      <caption class="mkt-table-cap">Sector ETFs ranked by today's move, with the phase each has <em>historically tended</em> to lead in. That last column is a long-run generalization across many cycles, not a claim about this one &mdash; sectors regularly lead out of turn, and one day's move tells you nothing about a phase.</caption>
       <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th><th scope="col">Historically leads</th></tr></thead>
       <tbody>
 ${rows.map(r => `        <tr><th scope="row">${esc(r.name)}</th><td>${esc(r.symbol)}</td><td class="${(r.changePct ?? 0) >= 0 ? 'up' : 'down'}" data-fill="sector-${esc(r.symbol)}">${esc(r.display)}</td><td>${esc(CYCLE_LABEL[r.cycle] ?? '—')}</td></tr>`).join('\n')}
@@ -337,7 +337,7 @@ ${rows.map(r => {
    90 characters is roughly fifteen words — enough to say what the story is about,
    short enough that it is a pointer rather than a substitute for the article.
    The 2026-08-11 IP scan flagged the previous 150-character clip as reproducing a
-   news organisation's editorial copy. Do not raise it back. */
+   news organization's editorial copy. Do not raise it back. */
 const clip = (t, n) => {
   const s = String(t ?? '').replace(/\s+/g, ' ').trim()
   return s.length <= n ? s : s.slice(0, s.lastIndexOf(' ', n)) + '…'
