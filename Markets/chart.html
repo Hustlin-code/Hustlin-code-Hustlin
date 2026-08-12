@@ -90,7 +90,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260812-1743">
+<link rel="stylesheet" href="../styles.css?v=20260812-1838">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -364,20 +364,50 @@
   </button>
 
   <ul class="nav-menu" id="nav-menu">
+    <!-- HUSTLIN' — the whole course library in one panel.
+         ======================================================================
+         Renamed from "Learn" 2026-08-12. "Learn" was a category label that
+         could belong to any site; the brand is the product here, and the first
+         item in the bar is the one people read as "what is this place".
+
+         Courses folded in at the same time. A separate top-level "Courses"
+         item split the library across two hovers and implied the paid work was
+         a different site section. It is not: it is the same ladder, further
+         up. Free stages on the left, paid courses on the right, one hover.
+         Nothing was deleted — every link that was under Courses is still here,
+         and index.html#courses / #bundle are still reachable from the footer
+         and the homepage. -->
     <li class="nav-item">
-      <a class="nav-top" href="../financial-literacy.html">Learn</a>
-      <div class="nav-panel">
-        <p class="nav-panel-h">The free course &mdash; no account</p>
-        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
-        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
-        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
-        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
-        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      <a class="nav-top" href="../financial-literacy.html">Hustlin'</a>
+      <div class="nav-panel nav-panel-learn">
+        <div class="nav-learn-cols">
+          <div class="nav-learn-free">
+            <p class="nav-panel-h">The free course &mdash; no account</p>
+            <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+            <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+            <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+            <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+            <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+          </div>
+          <div class="nav-learn-paid">
+            <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+            <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+            <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+            <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+            <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+            <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+          </div>
+        </div>
       </div>
     </li>
 
     <li class="nav-item">
-      <a class="nav-top" href="../learn.html">Guides</a>
+      <!-- Points at the guides section of financial-literacy.html, NOT at
+           learn.html. It used to point at learn.html: the noindex, gated
+           course shell, which serves no guide content at all. That put a
+           link to a noindex page on all 120 stamped pages and is part of why
+           Search Console and Bing keep reporting learn.html URLs. -->
+      <a class="nav-top" href="../financial-literacy.html#guides">Guides</a>
       <div class="nav-panel">
         <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
         <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
@@ -387,6 +417,27 @@
         <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
         <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
         <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <!-- "Live data" was the old panel heading. The numbers on these pages are
+           baked at build time from FRED and Finnhub and dated to their own
+           release; only the embedded TradingView widgets stream. Saying "live"
+           promised something the section does not do, and markets.html itself
+           already said "nothing here is live" further down the page. -->
+      <div class="nav-panel">
+        <p class="nav-panel-h">Market data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
       </div>
     </li>
 
@@ -448,34 +499,6 @@
           <a href="../learn-the-lingo.html#g-rights"><b>Benefits &amp; Rights</b><span>3 terms &middot; what they can take, and what they cannot</span></a>
         </div>
         <a class="nav-panel-all" href="../learn-the-lingo.html#atoz">The whole glossary, A to Z &rarr;</a>
-      </div>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <div class="nav-panel">
-        <p class="nav-panel-h">Live data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-top" href="../index.html#courses">Courses</a>
-      <div class="nav-panel">
-        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
-        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
-        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
-        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
-        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
-        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
       </div>
     </li>
 
@@ -754,7 +777,7 @@
 
     <div class="cht-call">
       <span class="cht-call-h">Where this comes from</span>
-      <p>This is the ground covered in Stage 1 of our <a href="../technical-analysis.html">Technical Analysis course</a>. The <a href="../markets-technical.html">free Technical Analysis markets page</a> goes further into trend, volume and market breadth with live data.</p>
+      <p>This is the ground covered in Stage 1 of our <a href="../technical-analysis.html">Technical Analysis course</a>. The <a href="../markets-technical.html">free Technical Analysis markets page</a> goes further into trend, volume and market breadth.</p>
     </div>
   </div>
 </section>
@@ -766,7 +789,7 @@
     <h2>The one thing worth adding first.</h2>
     <p>Volume — the bars along the bottom — counts how many shares changed hands. It is the closest thing a chart has to a measure of conviction. A big move on unusually heavy volume means a lot of participants acted on it. The same move on thin volume might be a handful of trades in a quiet afternoon.</p>
     <p>Used properly, volume is <strong>corroboration, not a signal</strong>. It can tell you a move had participation behind it. It cannot tell you whether that participation was right. Plenty of heavily-traded moves reversed the following week, and the volume bars gave no warning whatsoever.</p>
-    <p>The practical version: when price does something notable and volume is unremarkable, hold the observation more loosely. That's the whole lesson, and it's more useful than most indicators. The same logic scaled up to the whole index is called market breadth, which we track with live data on <a href="../markets-technical.html">the Technical Analysis page</a>.</p>
+    <p>The practical version: when price does something notable and volume is unremarkable, hold the observation more loosely. That's the whole lesson, and it's more useful than most indicators. The same logic scaled up to the whole index is called market breadth, which we track on <a href="../markets-technical.html">the Technical Analysis page</a>.</p>
   </div>
 </section>
 
@@ -815,7 +838,7 @@
     <h2>Where to go from here.</h2>
     <div class="cht-next">
       <a href="../markets-technical.html">
-        <b>Technical Analysis — live →</b>
+        <b>Technical Analysis →</b>
         <span>Trend, volume, moving averages and S&amp;P 500 breadth, with current data and an honest read on each signal. Free.</span>
       </a>
       <a href="compare.html">
@@ -832,7 +855,7 @@
       </a>
       <a href="../markets-economic.html">
         <b>The economy behind the chart →</b>
-        <span>Inflation, rates, jobs and growth — the forces a price chart cannot see. Free, updated with live data.</span>
+        <span>Inflation, rates, jobs and growth — the forces a price chart cannot see. Free, updated every build.</span>
       </a>
       <a href="../technical-analysis.html">
         <b>The full course →</b>
@@ -872,7 +895,7 @@
 
     <div class="cht-call" style="margin-top:34px">
       <span class="cht-call-h">Back to Markets</span>
-      <p>This chart is one piece of the <a href="../markets.html">free Markets hub</a> — live economic data, sector performance, earnings and news, updated daily and written up in plain English.</p>
+      <p>This chart is one piece of the <a href="../markets.html">free Markets hub</a> — economic data, sector performance, earnings and news, updated daily and written up in plain English.</p>
     </div>
   </div>
 </section>
@@ -958,7 +981,7 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="../app.js?v=20260812-1743"></script>
+<script src="../app.js?v=20260812-1838"></script>
 <script>
 HFY.initNavOnly();
 </script>

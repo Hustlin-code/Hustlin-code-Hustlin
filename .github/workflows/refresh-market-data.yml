@@ -109,7 +109,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 20      # the build now pauses ~140s for Finnhub cooldowns
+    timeout-minutes: 20      # the build now pauses ~280s for Finnhub cooldowns
 
     # Promoted to JOB level on purpose. A step cannot read its OWN `env:` block
     # from inside its `if:` condition, and the `secrets` context is not

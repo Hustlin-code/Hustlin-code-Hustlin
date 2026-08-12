@@ -88,7 +88,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260812-1743">
+<link rel="stylesheet" href="../styles.css?v=20260812-1838">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -523,20 +523,50 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
   </button>
 
   <ul class="nav-menu" id="nav-menu">
+    <!-- HUSTLIN' — the whole course library in one panel.
+         ======================================================================
+         Renamed from "Learn" 2026-08-12. "Learn" was a category label that
+         could belong to any site; the brand is the product here, and the first
+         item in the bar is the one people read as "what is this place".
+
+         Courses folded in at the same time. A separate top-level "Courses"
+         item split the library across two hovers and implied the paid work was
+         a different site section. It is not: it is the same ladder, further
+         up. Free stages on the left, paid courses on the right, one hover.
+         Nothing was deleted — every link that was under Courses is still here,
+         and index.html#courses / #bundle are still reachable from the footer
+         and the homepage. -->
     <li class="nav-item">
-      <a class="nav-top" href="../financial-literacy.html">Learn</a>
-      <div class="nav-panel">
-        <p class="nav-panel-h">The free course &mdash; no account</p>
-        <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
-        <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
-        <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
-        <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
-        <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+      <a class="nav-top" href="../financial-literacy.html">Hustlin'</a>
+      <div class="nav-panel nav-panel-learn">
+        <div class="nav-learn-cols">
+          <div class="nav-learn-free">
+            <p class="nav-panel-h">The free course &mdash; no account</p>
+            <a href="../stage-1-survive.html" data-stage="stage1" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Survive.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 1 &middot; Survive</b><span>Banking, income, the next 30 days</span></a>
+            <a href="../stage-2-stabilize.html" data-stage="stage2" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Stabilize.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 2 &middot; Stabilize</b><span>Bills, debt triage, the first cushion</span></a>
+            <a href="../stage-3-rebuild.html" data-stage="stage3" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Rebuild.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 3 &middot; Rebuild</b><span>Credit, records, getting the door open</span></a>
+            <a href="../stage-4-invest.html" data-stage="stage4" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/Invest.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 4 &middot; Invest</b><span>What compounding actually does</span></a>
+            <a href="../stage-5-wealth.html" data-stage="stage5" class="nav-stage-link"><img class="nav-stage-btn" src="../assets/buttons/BuildWealth.png" alt="" aria-hidden="true" width="556" height="200" loading="lazy" decoding="async"><b>Stage 5 &middot; Build Wealth</b><span>Taxes, housing, income streams</span></a>
+          </div>
+          <div class="nav-learn-paid">
+            <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
+            <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
+            <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
+            <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
+            <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
+            <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
+          </div>
+        </div>
       </div>
     </li>
 
     <li class="nav-item">
-      <a class="nav-top" href="../learn.html">Guides</a>
+      <!-- Points at the guides section of financial-literacy.html, NOT at
+           learn.html. It used to point at learn.html: the noindex, gated
+           course shell, which serves no guide content at all. That put a
+           link to a noindex page on all 120 stamped pages and is part of why
+           Search Console and Bing keep reporting learn.html URLs. -->
+      <a class="nav-top" href="../financial-literacy.html#guides">Guides</a>
       <div class="nav-panel">
         <p class="nav-panel-h">Start where you actually are &mdash; all free</p>
         <a href="../starting-over-after-prison.html"><b>Recently Released</b><span>ID, banking, benefits, child support</span></a>
@@ -546,6 +576,27 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
         <a href="../disability-wealth-guide.html"><b>Living With a Disability</b><span>SSDI, SSI, ABLE, Special Needs Trusts</span></a>
         <a href="../death-of-a-spouse.html"><b>After Losing a Spouse</b><span>Survivor benefits, debts, timing</span></a>
         <a href="../retirement-withdrawal.html"><b>Spending It Down</b><span>Withdrawal rates, order, RMDs at 73/75</span></a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-top" href="../markets.html">Markets</a>
+      <!-- "Live data" was the old panel heading. The numbers on these pages are
+           baked at build time from FRED and Finnhub and dated to their own
+           release; only the embedded TradingView widgets stream. Saying "live"
+           promised something the section does not do, and markets.html itself
+           already said "nothing here is live" further down the page. -->
+      <div class="nav-panel">
+        <p class="nav-panel-h">Market data, free, no account</p>
+        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
+        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
+        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
+        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
+        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
+        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
+        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
+        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
+        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
       </div>
     </li>
 
@@ -607,34 +658,6 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
           <a href="../learn-the-lingo.html#g-rights"><b>Benefits &amp; Rights</b><span>3 terms &middot; what they can take, and what they cannot</span></a>
         </div>
         <a class="nav-panel-all" href="../learn-the-lingo.html#atoz">The whole glossary, A to Z &rarr;</a>
-      </div>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <div class="nav-panel">
-        <p class="nav-panel-h">Live data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-top" href="../index.html#courses">Courses</a>
-      <div class="nav-panel">
-        <p class="nav-panel-h">Go deeper &mdash; $37.95 each</p>
-        <a href="../technical-analysis.html"><b>Technical Analysis</b><span>Charts, trend, entries</span></a>
-        <a href="../fundamental-analysis.html"><b>Fundamental Analysis</b><span>Reading a business</span></a>
-        <a href="../trading-psychology.html"><b>Trading Psychology</b><span>The part that loses money</span></a>
-        <a href="../economics.html"><b>Economics</b><span>What drives the cycle</span></a>
-        <a class="nav-panel-all" href="../index.html#bundle">All four for $113.85 &rarr;</a>
       </div>
     </li>
 
@@ -850,7 +873,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
     </ol>
     <div class="cht-call">
       <span class="cht-call-h">This is the course, compressed</span>
-      <p>Each of those steps is a stage of <a href="../fundamental-analysis.html">Fundamental Analysis</a> — income statement, balance sheet and cash flow, valuation, then moats and management. The <a href="../markets-fundamental.html">free Fundamentals page</a> covers the same ground with live sector data.</p>
+      <p>Each of those steps is a stage of <a href="../fundamental-analysis.html">Fundamental Analysis</a> — income statement, balance sheet and cash flow, valuation, then moats and management. The <a href="../markets-fundamental.html">free Fundamentals page</a> covers the same ground with sector data.</p>
     </div>
   </div>
 </section>
@@ -1724,7 +1747,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
     <div class="cht-next">
       <a href="screeners.html"><b>Find candidates →</b><span>Screen the whole market down to companies matching criteria you set — then bring the names back here.</span></a>
       <a href="chart.html"><b>Chart it →</b><span>Full interactive chart for any ticker, plus a plain-English guide to reading one.</span></a>
-      <a href="../markets-fundamental.html"><b>Fundamentals, live →</b><span>Valuation and growth across every sector, updated daily. Free.</span></a>
+      <a href="../markets-fundamental.html"><b>Fundamentals →</b><span>Valuation and growth across every sector, updated daily. Free.</span></a>
       <a href="../fundamental-analysis.html"><b>The full course →</b><span>Statements, cash flow, valuation, moats and management — in working order. $37.95.</span></a>
       <a href="../markets-economic.html"><b>The bigger picture →</b><span>Inflation, rates, jobs and growth — the conditions every company operates inside.</span></a>
       <a href="../financial-literacy.html"><b>Start earlier →</b><span>Researching stocks is a long way down the list. The free five-stage Financial Literacy resource comes first.</span></a>
@@ -1745,7 +1768,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
     </div>
     <div class="cht-call" style="margin-top:34px">
       <span class="cht-call-h">Back to Markets</span>
-      <p>This lookup is part of the <a href="../markets.html">free Markets hub</a> — live economic data, sector performance, earnings and news, refreshed daily.</p>
+      <p>This lookup is part of the <a href="../markets.html">free Markets hub</a> — economic data, sector performance, earnings and news, refreshed daily.</p>
     </div>
   </div>
 </section>
@@ -1982,97 +2005,19 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
     if (field) { try { field.focus({ preventScroll: true }); } catch (err) { field.focus(); } }
   });
 
-  /* ── 2. SORT BY COLUMN ──────────────────────────────────────────────────
-     Click a heading to sort, click again to reverse. First click on a numeric
-     column sorts DESCENDING (largest first), because "biggest surprise" and
-     "biggest revenue" are what anyone actually wants; text columns start
-     ascending. Getting this backwards makes every column need two clicks.
-
-     Sort keys come from data-v, written by the build. That is what keeps
-     "$1.2B" above "$900M" and stops a formatted string being compared as
-     text. Cells with no data carry -Infinity and therefore always sink to the
-     bottom in BOTH directions, which is what you want for a blank — a missing
-     number is not "the smallest number". */
-  function keyOf(cell, numeric) {
-    if (!cell) return numeric ? -Infinity : '';
-    var raw = cell.getAttribute('data-v');
-    if (numeric) {
-      if (raw === null || raw === '') return -Infinity;
-      var n = parseFloat(raw);
-      return isNaN(n) ? -Infinity : n;
-    }
-    return (raw !== null ? raw : cell.textContent).trim().toLowerCase();
-  }
-
-  function sortTable(table, index, numeric, ascending) {
-    var body = table.tBodies[0];
-    if (!body) return;
-    var rows = Array.prototype.slice.call(body.rows);
-
-    /* Decorate–sort–undecorate, with the original position as the tiebreaker.
-       Array.prototype.sort is stable in every browser that matters now, but
-       carrying the index makes ties explicit rather than incidental — two
-       companies with identical market caps keep the build's ordering (session,
-       then size) instead of shuffling on every click. */
-    var decorated = rows.map(function (row, i) {
-      return { row: row, key: keyOf(row.cells[index], numeric), i: i };
-    });
-
-    decorated.sort(function (a, b) {
-      /* MISSING VALUES SINK IN BOTH DIRECTIONS, and this has to be done before
-         the direction flip rather than by picking a clever sentinel. Marking a
-         blank as -Infinity only buries it when sorting descending; ask for
-         ascending and every company that has not reported yet floats to the
-         top, pushing the actual results off the screen. A blank is not "the
-         smallest number", it is "no number", so it is excluded from the
-         ordering entirely and parked at the bottom either way. */
-      var aMissing = numeric && a.key === -Infinity;
-      var bMissing = numeric && b.key === -Infinity;
-      if (aMissing !== bMissing) return aMissing ? 1 : -1;
-      if (aMissing && bMissing) return a.i - b.i;
-
-      var d;
-      if (numeric) {
-        // -Infinity on both sides is NaN under subtraction; compare, don't subtract.
-        d = a.key < b.key ? -1 : a.key > b.key ? 1 : 0;
-      } else {
-        d = a.key.localeCompare(b.key);
-      }
-      if (d === 0) return a.i - b.i;
-      return ascending ? d : -d;
-    });
-
-    // One reflow rather than one per row.
-    var frag = document.createDocumentFragment();
-    decorated.forEach(function (d) { frag.appendChild(d.row); });
-    body.appendChild(frag);
-  }
-
-  Array.prototype.forEach.call(document.querySelectorAll('table.mkt-sortable'), function (table) {
-    var heads = table.tHead ? Array.prototype.slice.call(table.tHead.rows[0].cells) : [];
-
-    heads.forEach(function (th, index) {
-      var btn = th.querySelector('button.mkt-sort');
-      if (!btn) return;                       // "Read it" has no button; skip it
-      var numeric = th.getAttribute('data-type') === 'num';
-
-      btn.addEventListener('click', function () {
-        var current = th.getAttribute('aria-sort');
-        // Numeric columns open descending; text columns open ascending.
-        var ascending = current === 'ascending' ? false
-                      : current === 'descending' ? true
-                      : !numeric;
-
-        heads.forEach(function (h) { h.setAttribute('aria-sort', 'none'); });
-        th.setAttribute('aria-sort', ascending ? 'ascending' : 'descending');
-
-        sortTable(table, index, numeric, ascending);
-      });
-    });
-  });
 })();
 </script>
-<script src="../app.js?v=20260812-1743"></script>
+<!-- ── Sortable columns and page flipping ──────────────────────────────────
+     Section 2 of the block above was a byte-identical copy of the sorter that
+     also sat inline in markets.html and markets-fundamental.html, acting on
+     markup all three get from one function in tools/inject-market-data.mjs —
+     shared markup, forked behavior. It moved to market-tables.js on
+     2026-08-12, together with the 10-row pager. Section 1 stays here: the
+     ticker-to-lookup interception is genuinely specific to this page, because
+     this is the only one of the three that carries a lookup to scroll to.
+     ──────────────────────────────────────────────────────────────────────── -->
+<script src="../market-tables.js?v=20260812-1838"></script>
+<script src="../app.js?v=20260812-1838"></script>
 <script>
 HFY.initNavOnly();
 </script>

@@ -115,6 +115,52 @@ const EARNINGS_MIN_CAP_M = Number(process.env.EARNINGS_MIN_CAP_M ?? 2000)
    scrolls rather than running off the page. */
 const EARNINGS_ROWS = Number(process.env.EARNINGS_ROWS ?? 100)
 
+/* How many rows a reader sees at once before flipping the page. The tables ship
+   COMPLETE — every row is in the HTML — and market-tables.js hides all but the
+   current page on top. So this number is a reading comfort setting and nothing
+   else: with JavaScript off, or to a crawler, every row is still there. */
+const EARNINGS_PAGE_SIZE = Number(process.env.EARNINGS_PAGE_SIZE ?? 10)
+
+/* ────────────────────────── THE CAP CACHE, AND WHY ─────────────────────────
+   Until 2026-08-12 the $2B filter ran inside market-earnings, which can afford
+   36 market-cap lookups per invocation. In earnings season the calendar carries
+   several hundred symbols. So the filter was never "every company above $2B";
+   it was "the up-to-36 we could afford to price this run, minus the ones that
+   came in under" — and which 36 changed every hour, so the tab counts moved and
+   companies came and went for no reason visible on the page.
+
+   The budget was never really the problem. A market cap barely moves; the
+   problem was that nothing remembered it between builds, so every run re-bought
+   the same numbers. This snapshot is committed to the repo hourly, so it is the
+   one place a cache CAN survive. Now the lookups go only to symbols nobody has
+   ever priced, coverage converges on the whole calendar within a few builds,
+   and the filter is finally the one rule it always claimed to be.
+
+   TTL is long on purpose. A refresh is only worth a slot once every unknown
+   symbol has one, which is what the priority order below enforces. A company
+   drifting across $2B between refreshes is a rounding error next to a company
+   missing entirely. */
+const CAP_TTL_DAYS = Number(process.env.EARNINGS_CAP_TTL_DAYS ?? 30)
+const CAP_LOOKUPS = Number(process.env.EARNINGS_CAP_LOOKUPS ?? 45)
+
+/* Watch-list horizons, all in days back from today (Eastern).
+
+   WATCH keeps the accumulated record — it is what makes Today and Tomorrow
+   stable, and what the scoreboard counts. REPORTED is what the "Just reported"
+   tab shows, which has to stay short or the label stops being true. CHASE is
+   how long we keep spending actuals lookups on a company that never resolved;
+   past that it is almost certainly a delisting or a symbol change, and chasing
+   it forever starves companies that just reported. */
+const WATCH_DAYS = Number(process.env.EARNINGS_WATCH_DAYS ?? 45)
+const REPORTED_DAYS = Number(process.env.EARNINGS_REPORTED_DAYS ?? 10)
+const CHASE_DAYS = Number(process.env.EARNINGS_CHASE_DAYS ?? 21)
+
+/* Year-over-year EPS growth, one lookup per company per reported quarter, so
+   this is a trickle rather than a sweep. See the scoreboard note in
+   renderEarnings for what this number is and — more importantly — what it is
+   not allowed to be called. */
+const GROWTH_LOOKUPS = Number(process.env.EARNINGS_GROWTH_LOOKUPS ?? 25)
+
 /* Sector total returns at six horizons, from Yahoo monthly adjusted closes.
    Not available from market-data at all — Finnhub's free tier dropped
    historical candles, so 3Y/5Y/10Y cannot be computed from it. */
@@ -124,7 +170,7 @@ const SECTORS_ENDPOINT = process.env.MARKET_SECTORS_ENDPOINT
 /* Sets served by a market-* function other than market-data. They must not be
    included in the market-data request — it does not know them and there is no
    sense asking. */
-const LOCAL_SETS = new Set(['sectorReturns'])
+const LOCAL_SETS = new Set(['sectorReturns', 'earningsScore'])
 
 /* ---------------------------------------------------------- EASTERN DATES --
    Every date decision about earnings is made in America/New_York, never UTC
@@ -714,7 +760,25 @@ function renderEarnings(input) {
      Estimate and actual side by side. Every row starts the day with the actual
      columns reading "—", and they fill in through the session as companies
      report, because the build now runs hourly. */
-  const todayTable = today.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
+  /* THE PAGINATION WRAPPER.
+     `data-page-size` is the only thing market-tables.js needs; it finds the
+     table itself. The pager UI is created by that script and does not exist in
+     the shipped HTML, which is deliberate — a Prev/Next control that cannot
+     work without JavaScript should not be on the page when JavaScript is off.
+     With the script absent, or to a crawler, every row is simply visible. */
+  const paged = (inner) =>
+    `<div class="mkt-paged" data-page-size="${EARNINGS_PAGE_SIZE}">${inner}</div>`
+
+  /* NO SILENT CAPS. EARNINGS_ROWS is a page-weight limit, not an editorial one,
+     and in a heavy week "Just reported" genuinely exceeds it. A list that stops
+     at 100 without saying so reads as "that is all of them", which is the one
+     thing it must not read as. This line only appears when the cap actually
+     bites, so on a normal day there is nothing to explain. */
+  const cutNote = (total) => total > EARNINGS_ROWS
+    ? `<p class="mkt-cut">Showing the ${EARNINGS_ROWS} largest of ${total} companies above the size floor. The rest are on the calendar and simply do not fit on one page.</p>`
+    : ''
+
+  const todayTable = today.length ? cutNote(today.length) + paged(`<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr>${th('Company','text')}${th('When','text')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('EPS actual','num')}${th('Surprise','num')}${th('Revenue est.','num','mkt-hide-sm')}${th('Revenue actual','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
 ${[...today].sort(bySession).slice(0, EARNINGS_ROWS).map(r => {
@@ -732,13 +796,13 @@ ${[...today].sort(bySession).slice(0, EARNINGS_ROWS).map(r => {
         </tr>`
   }).join('\n')}
       </tbody>
-    </table></div>` : `<p class="mkt-empty">No company above $${(EARNINGS_MIN_CAP_M / 1000).toFixed(0)} billion is scheduled to report today. That is normal — reporting clusters into a few weeks each quarter and thins out to nothing in between. Try the Tomorrow tab, or Just reported for the ones already in.</p>`
+    </table></div>`) : `<p class="mkt-empty">No company above $${(EARNINGS_MIN_CAP_M / 1000).toFixed(0)} billion is scheduled to report today. That is normal — reporting clusters into a few weeks each quarter and thins out to nothing in between. Try the Tomorrow tab, or Just reported for the ones already in.</p>`
 
   /* ── TOMORROW ─────────────────────────────────────────────────────────────
      Estimates only, by definition. No actual columns: a column that is
      structurally always empty is worse than no column, because it reads as
      missing data rather than as data that cannot exist yet. */
-  const tomorrowTable = tomorrow.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
+  const tomorrowTable = tomorrow.length ? cutNote(tomorrow.length) + paged(`<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr>${th('Company','text')}${th('When','text')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('Revenue est.','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
 ${[...tomorrow].sort(bySession).slice(0, EARNINGS_ROWS).map(r => `        <tr>
@@ -750,13 +814,13 @@ ${[...tomorrow].sort(bySession).slice(0, EARNINGS_ROWS).map(r => `        <tr>
           ${readCell(r.symbol)}
         </tr>`).join('\n')}
       </tbody>
-    </table></div>` : `<p class="mkt-empty">Nothing above the size floor is on the calendar for tomorrow yet. Dates move, and companies confirm late — this fills in as they do.</p>`
+    </table></div>`) : `<p class="mkt-empty">Nothing above the size floor is on the calendar for tomorrow yet. Dates move, and companies confirm late — this fills in as they do.</p>`
 
   /* ── JUST REPORTED ────────────────────────────────────────────────────────
      Actual revenue is present for companies caught on their own day and absent
      for older ones, because Finnhub's per-symbol endpoint carries EPS only.
      That gap is explained in the note above the tabs rather than hidden. */
-  const reportedTable = reported.length ? `<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
+  const reportedTable = reported.length ? cutNote(reported.length) + paged(`<div class="mkt-scroll"><table class="mkt-table mkt-sortable">
       <thead><tr>${th('Company','text')}${th('Date','num')}${th('Market cap','num','mkt-hide-sm')}${th('EPS est.','num')}${th('EPS actual','num')}${th('Surprise','num')}${th('Revenue est.','num','mkt-hide-sm')}${th('Revenue actual','num')}<th scope="col">Read it</th></tr></thead>
       <tbody>
 ${reported.slice(0, EARNINGS_ROWS).map(r => {
@@ -774,7 +838,7 @@ ${reported.slice(0, EARNINGS_ROWS).map(r => {
         </tr>`
   }).join('\n')}
       </tbody>
-    </table></div>` : `<p class="mkt-empty">Nothing has dropped through to reported yet. This fills in as each day ends.</p>`
+    </table></div>`) : `<p class="mkt-empty">Nothing has dropped through to reported yet. This fills in as each day ends.</p>`
 
   /* Tabs are three radio inputs and a sibling selector — no JavaScript.
      That matters for more than elegance: ALL THREE tables ship in the HTML and
@@ -787,7 +851,7 @@ ${reported.slice(0, EARNINGS_ROWS).map(r => {
      "Today" is checked by default because that is the question the section
      asks. */
   return `<div class="mkt-filter-note">
-      <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. This shows only those worth more than $2 billion &mdash; because a company below that size can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
+      <p><strong>How this list is filtered, so you know what is missing.</strong> Around 1,500 US companies report in any given week. There is exactly one filter on this list: a company has to be worth more than $2 billion. Nothing else is applied &mdash; not a shortlist, not a selection, not a cap on how many make it in. Below that size a company can double or halve on its results without moving an index, a sector, or anything you are likely to hold.</p>
       <p>That is an editorial choice rather than a judgment about those businesses, and it does mean genuinely interesting small companies are missing. <strong>Estimates</strong> are what analysts expect: a forecast, not a target the company agreed to. <strong>Surprise</strong> is actual EPS minus estimate, in dollars per share. <strong>Release</strong> is the company's own press release in full; <strong>SEC</strong> is that same release as filed with the regulator.</p>
       <p><strong>Two honest limits.</strong> Actual figures appear within about an hour of a company releasing them, not instantly, so a name that has just reported may still show a dash. And <strong>actual revenue is only kept for companies we caught on their own reporting day</strong> &mdash; our data source sells no revenue history, so older rows in Just reported show actual EPS with a dash beside it for revenue. A dash means we do not have it, never that the company did not report it.</p>
     </div>
@@ -859,6 +923,79 @@ ${bench ? line(bench, true) : ''}
       </tbody>
     </table>
     <p class="sec-src">Total return including dividends, from ${esc(payload.source ?? 'monthly adjusted closes')}. Priced ${esc(bench?.asOf ?? '')}. A dash means the fund did not exist for that whole period &mdash; Real Estate launched in 2015 and Communication Services in 2018.</p>`
+}
+
+/* --------------------------------------------------------- earnings score ---
+   THE SCOREBOARD, AND THE ONE THING IT IS NOT.
+
+   Three numbers over the companies WE track: how many came in above the
+   consensus EPS estimate, by how much in the typical case, and how their
+   earnings compare with the same quarter a year ago.
+
+   IT IS NOT THE S&P 500 FIGURE, and the page has to say so in the block
+   itself, not in a footnote. The number FactSet and S&P Dow Jones publish is
+   the change in AGGREGATE DOLLAR EARNINGS across the index — share-count
+   weighted, divisor-adjusted, built from the constituent list. That needs data
+   nobody sells on a free tier, and no rearrangement of per-company figures
+   produces it. Our number is a median across a population we can name: every
+   US company above $2 billion that reported inside the window. It lands in the
+   same range as the published one often enough to be mistaken for it, which is
+   exactly why the label is load-bearing. See standing rule 2: name what you
+   have, do not imply an authority you do not hold.
+
+   Every tile renders the sample size next to the figure. A beat rate is a
+   fraction, and a fraction without its denominator is a rhetorical device.
+
+   A tile whose figure is missing is OMITTED, not shown as a zero or a dash
+   with a percent sign after it. The growth tile in particular depends on an
+   endpoint whose free-tier status is not guaranteed; if it returns nothing the
+   block quietly renders two tiles and reads perfectly well. */
+function renderEarningsScore(s) {
+  if (!s || !s.companies) return ''
+
+  const pct1 = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(1) + '%'
+  const cls = (v) => (v > 0 ? 'up' : v < 0 ? 'down' : '')
+
+  const tiles = []
+
+  tiles.push(`      <div class="mkt-score-tile">
+        <p class="mkt-score-lab">Came in above estimates</p>
+        <p class="mkt-score-fig">${Math.round(s.beatRate)}%</p>
+        <p class="mkt-score-sub">${s.beats} of ${s.companies} companies &middot; ${s.misses} below, ${s.inLine} in line</p>
+      </div>`)
+
+  if (s.surpriseMedian !== null && s.surpriseSample) {
+    tiles.push(`      <div class="mkt-score-tile">
+        <p class="mkt-score-lab">Typical beat, against the estimate</p>
+        <p class="mkt-score-fig ${cls(s.surpriseMedian)}">${esc(pct1(s.surpriseMedian))}</p>
+        <p class="mkt-score-sub">Median of ${s.surpriseSample} &middot; estimates under 10&cent; excluded</p>
+      </div>`)
+  }
+
+  if (s.growthMedian !== null && s.growthSample) {
+    tiles.push(`      <div class="mkt-score-tile">
+        <p class="mkt-score-lab">Earnings vs. a year ago</p>
+        <p class="mkt-score-fig ${cls(s.growthMedian)}">${esc(pct1(s.growthMedian))}</p>
+        <p class="mkt-score-sub">Median of ${s.growthSample} companies we track</p>
+      </div>`)
+  }
+
+  return `<div class="mkt-score">
+      <p class="mkt-score-hd">How this reporting season is going</p>
+      <div class="mkt-score-grid">
+${tiles.join('\n')}
+      </div>
+      <p class="mkt-score-note"><strong>This is our own tally, not the S&amp;P 500 figure.</strong>
+        It covers every US company worth more than $${(s.minCapM / 1000).toFixed(0)} billion that we recorded reporting in the
+        last ${s.days} days &mdash; ${s.companies} of them so far &mdash; and nothing else. The
+        index-wide numbers you see quoted elsewhere are aggregate dollar earnings across the
+        500 index members, weighted by share count. That is a different measurement built from
+        data we do not have, and the two can disagree.</p>
+      <p class="mkt-score-note">Both percentages are <strong>medians</strong>, not averages. A company expected to
+        earn a penny that earns a nickel beat its estimate by 400%, which is arithmetic rather
+        than news; one such company moves an average and cannot move a median. &ldquo;In line&rdquo;
+        means within half a cent either way.</p>
+    </div>`
 }
 
 /* ------------------------------------------------------ earnings headlines --- */
@@ -1173,6 +1310,11 @@ const PAGES = [
       // renderer and same Finnhub set as markets-fundamental.html — two markers
       // sharing one set costs one request, not two.
       earnings: { set: 'earnings', render: renderEarnings },
+      /* The season scoreboard, above the table. Its own set name so it gets
+         its own marker and its own placement, but 'earningsScore' is a LOCAL
+         set — it is computed by the earnings block from the watch list, not
+         requested from anywhere, which is why it is in LOCAL_SETS. */
+      earningsScore: { set: 'earningsScore', render: renderEarningsScore },
       // Reads the same 'news' set as the block above — two markers sharing one
       // set costs one request, not two.
       earningsNews: { set: 'news', render: renderEarningsNews },
@@ -1316,6 +1458,14 @@ async function main() {
      is carried over untouched rather than being wiped. */
   let earningsWatch = null
 
+  /* Same contract as earningsWatch: null means "this run never got far enough
+     to have an opinion", and the writer carries the previous value forward
+     rather than wiping a cache that took days of builds to fill. Losing the
+     cap cache to one failed fetch would put the $2B filter back to guessing
+     for the next several hours, which is the exact failure this replaced. */
+  let earningsCapCache = null
+  let earningsGrowthCache = null
+
   // Which pages exist, and which markers are actually in them.
   const live = []
   for (const p of PAGES) {
@@ -1450,16 +1600,118 @@ async function main() {
       await new Promise(r => setTimeout(r, wait))
     }
     try {
-      /* days=3, not 7. market-earnings spends a fixed budget of 36 profile
-         lookups across whatever window it is given, in revenue order — so a
-         seven-day window spends most of it on companies the page does not
-         show, and today's mid-caps fall off the bottom. Three days keeps the
-         budget on the two days actually displayed plus a little slack. */
-      const r = await fetch(`${EARNINGS_ENDPOINT}?minCapM=${EARNINGS_MIN_CAP_M}&days=3`,
+      /* ── STEP 1: THE WHOLE CALENDAR, UNFILTERED ──────────────────────────
+         ONE Finnhub call, every symbol on it, no market caps attached. The
+         size filter used to happen here, upstream, inside a budget that could
+         only ever price 36 of them — see the CAP_TTL_DAYS note at the top of
+         this file for why that made the filter a sample rather than a rule.
+
+         days=3 forward, and market-earnings reaches four days back on its own,
+         which is what covers a Saturday reporter from a Monday build. */
+      const r = await fetch(`${EARNINGS_ENDPOINT}?raw=1&days=3`,
         { signal: AbortSignal.timeout(45000) })
       if (!r.ok) throw new Error(`HTTP ${r.status}`)
       const ed = await r.json()
-      if (Array.isArray(ed.earnings) && ed.earnings.length) {
+      if (Array.isArray(ed.rows) && ed.rows.length) {
+        const rawRows = ed.rows
+        const todayET = ed.todayET ?? ET_TODAY
+        const tomorrowET = etDayOffset(1)
+
+        /* ── STEP 2: PRICE THE ONES NOBODY HAS EVER PRICED ────────────────
+           Order matters more than the budget does. Unknown symbols come
+           first, because an unknown symbol is a company that CANNOT appear on
+           the page at all — we have no way to test it against the floor, so
+           it is invisible rather than excluded. Only once every unknown has a
+           price do stale entries get refreshed. Getting that order backwards
+           is how you spend forty-five lookups re-pricing Apple. */
+        const capCache = new Map(Object.entries(prevSnapshot?.capCache ?? {}))
+        const capAge = (v) => {
+          const t = Date.parse(v?.at ?? '')
+          return Number.isFinite(t) ? (Date.now() - t) / 864e5 : Infinity
+        }
+
+        /* Today first, then tomorrow, then the days already reported, then
+           anything further out — the same order the page reads in. Size
+           breaks ties, so on a day with more unknowns than budget the ones a
+           reader is most likely to be looking for get priced first. */
+        const dayRank = (row) =>
+          row.date === todayET ? 0 : row.date === tomorrowET ? 1 :
+          String(row.date) < todayET ? 2 : 3
+        const byPriority = (a, b) =>
+          (dayRank(a) - dayRank(b)) ||
+          ((b.revenueEstimate ?? 0) - (a.revenueEstimate ?? 0))
+
+        const unpricedRows = rawRows.filter(x => !capCache.has(x.symbol)).sort(byPriority)
+        const staleRows = rawRows
+          .filter(x => capCache.has(x.symbol) && capAge(capCache.get(x.symbol)) > CAP_TTL_DAYS)
+          .sort(byPriority)
+        const wantCaps = [...unpricedRows, ...staleRows]
+          .slice(0, CAP_LOOKUPS).map(x => x.symbol)
+
+        let capsAdded = 0
+        if (wantCaps.length) {
+          /* Same 60/minute wall as everywhere else in this block. The raw call
+             above cost one; this one costs up to 45. */
+          if (!process.env.MARKET_NO_COOLDOWN) {
+            console.log('  cooling down 70s before the market-cap lookups...')
+            await new Promise(res => setTimeout(res, 70000))
+          }
+          try {
+            const cr = await fetch(`${EARNINGS_ENDPOINT}?caps=${encodeURIComponent(wantCaps.join(','))}`,
+              { signal: AbortSignal.timeout(60000) })
+            if (cr.ok) {
+              const cd = await cr.json()
+              const stamp = new Date().toISOString()
+              for (const [sym, v] of Object.entries(cd.caps ?? {})) {
+                if (!Number.isFinite(v?.capM)) continue
+                capCache.set(sym, { capM: v.capM, name: v.name ?? sym, exchange: v.exchange ?? '', at: stamp })
+                capsAdded++
+              }
+              console.log(`  market caps: ${capsAdded} priced ` +
+                          `(${unpricedRows.length} never seen, ${staleRows.length} over ${CAP_TTL_DAYS}d)`)
+            } else {
+              console.log(`  WARN caps lookup HTTP ${cr.status} — filtering on what the cache already holds.`)
+            }
+          } catch (e) {
+            console.log(`  WARN caps lookup failed (${e.message}) — filtering on what the cache already holds.`)
+          }
+        }
+
+        /* Prune symbols that have not been on a calendar in a long time, so
+           the committed snapshot does not grow without bound. Anything the
+           current window mentions is kept regardless of age. */
+        const onCalendar = new Set(rawRows.map(x => x.symbol))
+        for (const [sym, v] of capCache) {
+          if (!onCalendar.has(sym) && capAge(v) > 180) capCache.delete(sym)
+        }
+
+        /* ── STEP 3: THE FILTER. ONE RULE, APPLIED HERE, TO EVERYTHING ────
+           A symbol with no cached price is NOT excluded — it is unpriced, and
+           it gets priced on a following build. The distinction matters enough
+           to count and log, because "we checked and it is too small" and "we
+           never checked" look identical on the page and are not the same
+           thing. `unpriced` reaching zero is what "the list is complete"
+           actually means. */
+        const priced = rawRows.filter(x => capCache.has(x.symbol))
+        const unpriced = rawRows.length - priced.length
+        const big = priced
+          .filter(x => capCache.get(x.symbol).capM >= EARNINGS_MIN_CAP_M)
+          .map(x => ({
+            ...x,
+            name: capCache.get(x.symbol).name,
+            marketCap: capCache.get(x.symbol).capM * 1e6,
+          }))
+
+        earningsCapCache = Object.fromEntries(capCache)
+
+        /* From here down this is the pre-existing pipeline, unchanged in
+           substance: `ed.kept`-shaped rows go into the watch list, past dates
+           get their actuals chased, and the three buckets come out. The only
+           difference is that `big` is now every company above the floor
+           rather than the subset one invocation could afford to price. */
+        const edKept = big.length
+        const edChecked = priced.length
+        const edConsidered = rawRows.length
         /* THE DAY BOUNDARY IS EASTERN, NOT UTC.
            `ed.today` was the function's UTC date, which between 19:00 and
            midnight Eastern is already TOMORROW. Bucketing on it meant that
@@ -1468,9 +1720,9 @@ async function main() {
            to "just reported" hours before the day had actually ended.
            market-earnings v6 returns todayET; ET_TODAY is the local fallback
            for an older deployed function. */
-        const today = ed.todayET ?? ET_TODAY
-        const tomorrow = etDayOffset(1)
-        const upcoming = ed.upcoming ?? ed.earnings
+        const today = todayET
+        const tomorrow = tomorrowET
+        const upcoming = big
 
         /* ---- THE REPORTED WEEK IS RECONSTRUCTED, NOT QUERIED --------------
            Finnhub's /calendar/earnings is forward-only on this plan. Asked for
@@ -1485,7 +1737,14 @@ async function main() {
            Consequence worth knowing: this starts empty and fills in over the
            following week. That is inherent to the approach, not a fault. */
         const watchPrev = (prevSnapshot?.earningsWatch ?? [])
-        const horizon = new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10)
+        /* WATCH_DAYS, not 14. The watch list is now two jobs: it rebuilds the
+           reported week, and it is the sample the scoreboard counts. A beat
+           rate over 14 days is a fortnight's worth of companies, which in the
+           thin weeks between seasons is a handful — enough to produce a
+           headline percentage off six companies. Six weeks covers a reporting
+           season, which is the period the number is actually about. The tabs
+           are unaffected: "Just reported" cuts at REPORTED_DAYS below. */
+        const horizon = etDayOffset(-WATCH_DAYS)
 
         const watch = new Map()
         for (const w of watchPrev) if (String(w.date) >= horizon) watch.set(w.symbol, w)
@@ -1527,8 +1786,10 @@ async function main() {
            cooldown entirely.
            Largest first, because the budget is finite and a reader cares
            more about the big ones. */
+        const chaseFloor = etDayOffset(-CHASE_DAYS)
         const due = earningsWatch
-          .filter(w => String(w.date) < today && typeof w.epsActual !== 'number')
+          .filter(w => String(w.date) < today && String(w.date) >= chaseFloor &&
+                       typeof w.epsActual !== 'number')
           .sort((a, b) => (b.marketCap || 0) - (a.marketCap || 0))
           .slice(0, 20)
 
@@ -1618,24 +1879,154 @@ async function main() {
         }
         earningsWatch = [...banked.values()]
 
+        /* ── YEAR-OVER-YEAR EPS GROWTH, ONE LOOKUP PER COMPANY PER QUARTER ──
+           Cached on symbol AND reported quarter, so a company is looked up once
+           after it reports and never again for that quarter. That is what keeps
+           this affordable: the cost is proportional to companies reporting
+           today, not to companies in the watch list.
+
+           A miss is cached as a miss (`pct: null`) for the same reason a
+           below-floor market cap is cached — re-asking a question we already
+           got no answer to is the purest waste of the budget there is. It
+           expires with the quarter like everything else here. */
+        const growthCache = new Map(Object.entries(prevSnapshot?.growthCache ?? {}))
+        const gKey = (w) => `${w.symbol}:${w.year ?? '?'}Q${w.quarter ?? '?'}`
+        const reportedThisSeason = earningsWatch
+          .filter(w => String(w.date) < today && typeof w.epsActual === 'number')
+
+        const wantGrowth = reportedThisSeason
+          .filter(w => !growthCache.has(gKey(w)))
+          .sort((a, b) => (b.marketCap || 0) - (a.marketCap || 0))
+          .slice(0, GROWTH_LOOKUPS)
+
+        if (wantGrowth.length) {
+          if (!process.env.MARKET_NO_COOLDOWN) {
+            console.log('  cooling down 70s before the growth lookup...')
+            await new Promise(res => setTimeout(res, 70000))
+          }
+          try {
+            const gr = await fetch(
+              `${EARNINGS_ENDPOINT}?growth=${encodeURIComponent(wantGrowth.map(w => w.symbol).join(','))}`,
+              { signal: AbortSignal.timeout(60000) })
+            if (gr.ok) {
+              const gd = await gr.json()
+              /* Printed every run on purpose. Finnhub's Basic Financials key
+                 names are not stably documented, and if /stock/metric is
+                 premium on this key this line is how you find out — it will
+                 read `undefined` and the scoreboard's third tile will simply
+                 not render. Nothing breaks; the number is absent, which is the
+                 house rule for a figure we do not have. */
+              console.log(`  growth fields Finnhub returned: ${JSON.stringify(gd.growthKeys)}`)
+              const stamp = new Date().toISOString()
+              let got = 0
+              for (const w of wantGrowth) {
+                const g = gd.growth?.[w.symbol]
+                const pct = Number.isFinite(g?.epsGrowthQuarterlyYoy) ? g.epsGrowthQuarterlyYoy
+                          : Number.isFinite(g?.epsGrowthTTMYoy) ? g.epsGrowthTTMYoy
+                          : null
+                if (pct !== null) got++
+                growthCache.set(gKey(w), { pct, at: stamp })
+              }
+              console.log(`  eps growth: ${got} of ${wantGrowth.length} companies resolved`)
+            } else {
+              console.log(`  WARN growth lookup HTTP ${gr.status} — scoreboard uses what is cached.`)
+            }
+          } catch (e) {
+            console.log(`  WARN growth lookup failed (${e.message}) — scoreboard uses what is cached.`)
+          }
+        }
+
+        /* Drop cache entries for quarters nobody in the watch list is in any
+           more, so this does not accumulate a year of dead keys. */
+        const liveKeys = new Set(earningsWatch.map(gKey))
+        for (const k of growthCache.keys()) if (!liveKeys.has(k)) growthCache.delete(k)
+        earningsGrowthCache = Object.fromEntries(growthCache)
+
+        /* ── THE SCOREBOARD ───────────────────────────────────────────────
+           Three numbers computed from OUR OWN TALLY, which is what the page
+           has to say next to them. This is not the S&P 500 figure FactSet
+           publishes and it must never be labelled as one: index earnings
+           growth is aggregate dollar earnings, share-count weighted and
+           divisor-adjusted, and no arrangement of the data on this plan
+           produces it. What we have is every company over $2B that reported
+           in the last WATCH_DAYS days. That is a real, statable population,
+           and stating it is the whole difference between a fact and a fake.
+
+           MEDIAN, not mean, for both percentage figures. A surprise expressed
+           as a percentage of the estimate goes to infinity as the estimate
+           approaches zero — a company expected to earn $0.01 that earns $0.05
+           is "+400%" — and one such company drags any average it touches.
+           Rows with an estimate under 10c are excluded from the percentage
+           entirely for the same reason, and the count that survives is shown
+           so a reader can see how many companies the number rests on. */
+        const scored = reportedThisSeason
+          .filter(w => typeof w.epsEstimate === 'number')
+        const IN_LINE = 0.005
+        const beats = scored.filter(w => w.epsActual - w.epsEstimate > IN_LINE).length
+        const misses = scored.filter(w => w.epsEstimate - w.epsActual > IN_LINE).length
+        const inLine = scored.length - beats - misses
+
+        const median = (xs) => {
+          if (!xs.length) return null
+          const s = [...xs].sort((a, b) => a - b)
+          const m = s.length >> 1
+          return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2
+        }
+        const surprisePcts = scored
+          .filter(w => Math.abs(w.epsEstimate) >= 0.10)
+          .map(w => ((w.epsActual - w.epsEstimate) / Math.abs(w.epsEstimate)) * 100)
+        const growthPcts = reportedThisSeason
+          .map(w => growthCache.get(gKey(w))?.pct)
+          .filter(v => Number.isFinite(v))
+
+        data.earningsScore = scored.length ? {
+          companies: scored.length,
+          beats, misses, inLine,
+          beatRate: (beats / scored.length) * 100,
+          surpriseMedian: median(surprisePcts),
+          surpriseSample: surprisePcts.length,
+          growthMedian: median(growthPcts),
+          growthSample: growthPcts.length,
+          days: WATCH_DAYS,
+          minCapM: EARNINGS_MIN_CAP_M,
+        } : null
+
         /* THE THREE BUCKETS THE PAGE ACTUALLY RENDERS.
            Boundaries are Eastern dates (see `today` above). A company stays in
            `today` for the whole Eastern day even after it has reported — its
            actual EPS and revenue simply fill in beside the estimate — and only
            falls through to `reported` when the date itself has passed. That is
            the behaviour the page promises in its own copy: "everything drops
-           into Just reported at the end of the day." */
+           into Just reported at the end of the day."
+
+           TODAY AND TOMORROW COME FROM THE WATCH LIST, NOT FROM THIS RUN'S
+           CALENDAR. That is the other half of the stability fix. `upcoming` is
+           what this build happened to see and price; the watch list is
+           everything we have EVER seen and priced inside the window, refreshed
+           with this run's rows. Bucketing the watch list means a company does
+           not vanish from Today because one build's lookups went elsewhere or
+           one calendar response came back short. A moved date still propagates
+           — the watch entry is overwritten with the newest row every run. */
+        const reportedFloor = etDayOffset(-REPORTED_DAYS)
         data.earnings = {
-          today: upcoming.filter(r => String(r.date) === today),
-          tomorrow: upcoming.filter(r => String(r.date) === tomorrow),
-          reported,
+          today: earningsWatch.filter(r => String(r.date) === today),
+          tomorrow: earningsWatch.filter(r => String(r.date) === tomorrow),
+          reported: reported.filter(r => String(r.date) >= reportedFloor),
         }
-        const withRev = reported.filter(r => typeof r.revenueActual === 'number').length
-        console.log(`  earnings: ${ed.kept} companies over $${EARNINGS_MIN_CAP_M}M ` +
+        const withRev = data.earnings.reported.filter(r => typeof r.revenueActual === 'number').length
+        console.log(`  earnings: ${edKept} companies over $${EARNINGS_MIN_CAP_M}M ` +
                     `(ET ${today}: ${data.earnings.today.length} today, ` +
                     `${data.earnings.tomorrow.length} tomorrow, ` +
-                    `${reported.length} reported of which ${withRev} with actual revenue, ` +
-                    `watch list ${earningsWatch.length}, checked ${ed.checked} of ${ed.considered})`)
+                    `${data.earnings.reported.length} reported of which ${withRev} with actual revenue, ` +
+                    `watch list ${earningsWatch.length}, priced ${edChecked} of ${edConsidered}` +
+                    `${unpriced ? `, ${unpriced} STILL UNPRICED` : ', full coverage'})`)
+        if (data.earningsScore) {
+          const s = data.earningsScore
+          console.log(`  scoreboard: ${s.beatRate.toFixed(0)}% beat over ${s.companies} companies, ` +
+                      `median surprise ${s.surpriseMedian === null ? 'n/a' : s.surpriseMedian.toFixed(1) + '%'} ` +
+                      `(n=${s.surpriseSample}), median YoY growth ` +
+                      `${s.growthMedian === null ? 'n/a' : s.growthMedian.toFixed(1) + '%'} (n=${s.growthSample})`)
+        }
       } else {
         console.log('  WARN market-earnings returned nothing — keeping market-data earnings.')
       }
@@ -1719,6 +2110,12 @@ async function main() {
     bakedAt: new Date().toISOString(),
     figures: flat,
     earningsWatch: earningsWatch ?? prev?.earningsWatch ?? [],
+    /* The market-cap cache — the file's largest field, and the reason the $2B
+       filter is a rule rather than a sample. See CAP_TTL_DAYS at the top of
+       this file before trimming it: an empty cache means the next several
+       builds show an incomplete calendar while it refills. */
+    capCache: earningsCapCache ?? prev?.capCache ?? {},
+    growthCache: earningsGrowthCache ?? prev?.growthCache ?? {},
   }, null, 2), 'utf8')
   console.log(`  ${live.length} page(s) baked, ${diff ? diff.rows.length : 0} change(s) reported since ${prev?.stamp ?? 'first run'}.`)
   return 0

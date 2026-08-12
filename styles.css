@@ -2951,6 +2951,17 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .nav-panel-xwide{min-width:640px}
 .nav-cols-3{grid-template-columns:1fr 1fr 1fr}
 
+/* THE HUSTLIN PANEL RUNS TWO COLUMNS.
+   Free stages left, paid courses right. The two used to be separate top-level
+   items; folding them into one panel is the whole point of the change, so they
+   have to sit side by side rather than stack - five stage rows carry 74px
+   button images and a stacked panel ran off the bottom of a laptop viewport,
+   which is the same failure the Lingo panel solved with three columns.
+   The left column is wider because its rows carry the images. */
+.nav-panel-learn{min-width:660px}
+.nav-learn-cols{display:grid;grid-template-columns:1.25fr 1fr;gap:0 18px}
+.nav-learn-paid{border-left:1px solid #2a2a2a;padding-left:16px}
+
 /* ── THE DRAWER ────────────────────────────────────────────────────────────
    Above 1100px the burger is hidden and the hover panels do the work. Below
    it the menu becomes a full-height sheet and every panel is shown expanded —
@@ -3021,7 +3032,11 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
   }
   .nav-panel-h{margin:2px 6px 8px}
   .nav-panel a{padding:12px 10px;min-height:44px;display:flex;flex-direction:column;justify-content:center}
-  .nav-cols,.nav-cols-3{grid-template-columns:1fr}
+  .nav-cols,.nav-cols-3,.nav-learn-cols{grid-template-columns:1fr}
+  /* The drawer is one column, so the divider rule and the panel min-width
+     would only push the paid courses off the right edge of a phone. */
+  .nav-panel-learn{min-width:0}
+  .nav-learn-paid{border-left:none;padding-left:0;margin-top:6px}
   .nav-panel-xwide{min-width:0}
   .nav-stage-link{display:flex;flex-direction:row;align-items:center;gap:11px}
   .nav-stage-link b,.nav-stage-link span{display:block}
@@ -3190,3 +3205,72 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
 .tradingview-widget-copyright a{color:#8D887C;text-decoration:none}
 .tradingview-widget-copyright a:hover{color:#F5C520}
 .tradingview-widget-copyright .blue-text{color:#8D887C}
+
+/* ─── EARNINGS TABLE PAGING + SEASON SCOREBOARD (2026-08-12) ──────
+   Shared, because the same renderer in tools/inject-market-data.mjs feeds three
+   pages — markets.html, markets-fundamental.html and Markets/spotlight.html —
+   and the column sorter's styles were pasted into all three inline before this.
+   One copy here is the same reasoning as .mkt-dd.
+
+   All three of those tables sit on a light background (#FAF7F0 / #FFFDF8), so
+   there is one palette. If an earnings table ever lands inside .mkt-dash or
+   .cht-sec.dark, this needs a dark variant — it does not have one and the text
+   would be near-invisible rather than merely wrong. */
+
+/* The pager is created by market-tables.js and does not exist in the shipped
+   HTML. `hidden` is honoured explicitly because `display:flex` below would
+   otherwise beat the UA's `[hidden]{display:none}` and a one-page table would
+   show a pager with both buttons dead. */
+.mkt-pager{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;margin:14px 0 0}
+.mkt-pager[hidden]{display:none}
+.mkt-page-range{font-size:13px;color:#5c574c;margin:0;font-variant-numeric:tabular-nums}
+.mkt-page-btns{display:flex;align-items:center;gap:10px}
+.mkt-page-count{font-size:12.5px;font-weight:700;color:#3d3a33;min-width:96px;
+  text-align:center;font-variant-numeric:tabular-nums}
+.mkt-page-btn{font-family:inherit;font-size:13px;font-weight:700;color:#3d3a33;
+  background:#fff;border:1px solid #E4DFD3;border-radius:9px;padding:8px 14px;
+  cursor:pointer;transition:border-color .18s,background .18s,color .18s}
+.mkt-page-btn:hover:not(:disabled){border-color:#F5C520;background:#FFFBEF;color:#8A6D08}
+.mkt-page-btn:focus-visible{outline:2px solid #F5C520;outline-offset:2px}
+/* Disabled reads as "there is no page that way", so it keeps its shape and
+   loses its contrast rather than disappearing — a control that vanishes at the
+   ends of a list makes the whole bar jump. */
+.mkt-page-btn:disabled{opacity:.4;cursor:default}
+@media(max-width:600px){
+  .mkt-pager{justify-content:center;gap:10px}
+  .mkt-page-btns{width:100%;justify-content:space-between}
+}
+
+/* ── The season scoreboard ──────────────────────────────────────────────────
+   Figures are the point of this block, so they are the only thing at display
+   size; the label above and the sample size below are deliberately small and
+   quiet. The sample size is never optional — see renderEarningsScore. */
+.mkt-score{margin:0 0 26px;padding:22px 22px 18px;background:#fff;
+  border:1px solid #E4DFD3;border-radius:14px}
+.mkt-score-hd{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;
+  color:#060606;margin:0 0 16px;letter-spacing:-.01em}
+.mkt-score-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.mkt-score-tile{padding:0 0 2px}
+.mkt-score-lab{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
+  color:#8b8577;margin:0 0 6px}
+.mkt-score-fig{font-family:var(--f-mono,ui-monospace,monospace);font-size:clamp(26px,4vw,34px);
+  font-weight:700;line-height:1.05;color:#060606;margin:0 0 6px;
+  font-variant-numeric:tabular-nums slashed-zero;letter-spacing:-.02em}
+/* Same green and red as .mkt-table on cream — #2DA02D clears AA there and the
+   lighter #5EDD5E used on the dark cards does not. */
+.mkt-score-fig.up{color:#2DA02D}
+.mkt-score-fig.down{color:#C4381F}
+.mkt-score-sub{font-size:12.5px;line-height:1.5;color:#5c574c;margin:0}
+.mkt-score-note{font-size:12.5px;line-height:1.65;color:#5c574c;margin:16px 0 0;
+  padding-top:14px;border-top:1px solid #EFEBE1;max-width:760px}
+.mkt-score-note + .mkt-score-note{border-top:none;padding-top:0;margin-top:8px}
+.mkt-score-note strong{color:#060606;font-weight:700}
+@media(max-width:600px){
+  .mkt-score{padding:18px 16px 14px}
+  .mkt-score-grid{gap:14px}
+}
+/* Only rendered when EARNINGS_ROWS actually truncates a tab — see cutNote in
+   tools/inject-market-data.mjs. Sits above the table so it is read before the
+   list, not discovered after scrolling to a bottom that isn't one. */
+.mkt-cut{font-size:12.5px;line-height:1.6;color:#8b8577;margin:0 0 10px}
