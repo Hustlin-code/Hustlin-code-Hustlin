@@ -82,12 +82,20 @@
    the term — and it is in the markup on every page rather than injected,
    because a crawler never scrolls and never clicks. */
 .gls-shell{
-  max-width:1100px;margin:0 auto;padding:44px 24px 0;
+  max-width:1160px;margin:0 auto;padding:44px 24px 0;
   display:grid;grid-template-columns:minmax(0,1fr);gap:48px;
   align-items:start;
 }
+/* THE RAIL SITS ON THE LEFT (changed 2026-08-12). It is placed with grid
+   coordinates rather than by moving the <aside> in the markup, so the DOM
+   stays content-first: a crawler and a screen reader both reach the
+   definition before the table of contents. Reordering the source would put
+   nine navigation links ahead of the answer on every term page. Change the
+   column order here, never the markup order in build-lingo.mjs. */
 @media(min-width:1041px){
-  .gls-shell{grid-template-columns:minmax(0,1fr) 268px}
+  .gls-shell{grid-template-columns:248px minmax(0,1fr);gap:52px}
+  .gls-body{grid-column:2;grid-row:1}
+  .gls-rail{grid-column:1;grid-row:1}
 }
 @media(max-width:600px){.gls-shell{padding:32px 18px 0;gap:36px}}
 
@@ -355,12 +363,18 @@ table.gls-tab td em{color:var(--text-muted);font-style:normal}
 }
 .gls-src ol li a{color:var(--amber-ink)}
 
-.gls-rev{
+/* SELECTOR IS `p.gls-rev`, NOT `.gls-rev`, ON PURPOSE. `.gls-body p`
+   further up this file is (0,1,1) and a bare `.gls-rev` is (0,1,0), so the
+   review line lost the cascade and rendered at full body size — 20.8px of
+   bold mono as the first thing under the hero on every term page, which is
+   most of why the section read as zoomed in. Fixed 2026-08-12. Do not
+   simplify this back to a single class. */
+p.gls-rev{
   font-family:var(--f-mono,'Space Mono',monospace);
-  font-size:.72rem;color:var(--text-muted);
+  font-size:.74rem;line-height:1.5;color:var(--text-muted);
   margin:0 0 24px;padding-bottom:18px;border-bottom:1px solid var(--border);
 }
-.gls-rev b{color:var(--text-dark);font-weight:700}
+p.gls-rev b{color:var(--text-dark);font-weight:700}
 
 .gls-disc{
   font-size:.8rem;line-height:1.65;color:var(--text-muted);

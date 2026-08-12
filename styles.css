@@ -40,7 +40,7 @@
 h1,h2,h3,h4,h5,h6{font-family:var(--f-body);letter-spacing:-.01em;line-height:1.25;color:var(--text-dark);-webkit-text-stroke:0;text-shadow:none;font-weight:700}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:130%}
+html{scroll-behavior:smooth;font-size:100%}
 body{font-family:var(--f-body);color:var(--text-dark);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 button{cursor:pointer;font-family:var(--f-body);border:none;background:none}
@@ -2125,9 +2125,12 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
    and keeps every existing ratio intact. Body copy still lands at ~17.5px
    on a phone — comfortably above the 16px floor this audience needs — and
    nothing that was tuned in px moves at all. */
-@media(max-width:900px){ html{font-size:124%} }
-@media(max-width:600px){ html{font-size:118%} }
-@media(max-width:380px){ html{font-size:112%} }
+/* SUPERSEDED 2026-08-12 — the root is now 100% at every width, so there
+   is nothing left to step down from. The three overrides that used to sit
+   here (124% / 118% / 112%) were measured against a 130% desktop root; at
+   a 100% root they would make a phone render LARGER than a laptop, which
+   is the opposite of what they were written to do. Do not restore them
+   without also restoring 130% above. */
 
 /* ─── 2. iOS ZOOM-ON-FOCUS GUARD ────────────────────────────────────────
    Mobile Safari zooms the whole page when a focused input's computed font

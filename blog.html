@@ -157,7 +157,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260812-0042">
+<link rel="stylesheet" href="styles.css?v=20260812-0135">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -969,7 +969,7 @@
 /* — featured panel — */
 .bl-featured-wrap{margin-top:4px}
 .bl-featured-lbl{
-  font-family:var(--f-mono);font-size:.58rem;font-weight:700;
+  font-family:var(--f-mono);font-size:10px;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);
   margin-bottom:12px;
 }
@@ -983,11 +983,11 @@
 .bl-hero:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(0,0,0,.24)}
 .bl-hero-kick{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px}
 .bl-hero-cat{
-  font-family:var(--f-body);font-size:.58rem;font-weight:800;
+  font-family:var(--f-body);font-size:10px;font-weight:800;
   letter-spacing:.13em;text-transform:uppercase;color:var(--amber);
 }
 .bl-hero-series{
-  font-family:var(--f-mono);font-size:.55rem;font-weight:700;
+  font-family:var(--f-mono);font-size:10px;font-weight:700;
   letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);
   border:1px solid rgba(255,255,255,.2);padding:3px 10px;border-radius:100px;
 }
@@ -1032,7 +1032,7 @@
   transition:border-color .18s,color .18s,background .18s;
 }
 .bl-chip:hover{border-color:var(--amber-mid);color:var(--amber-ink);background:var(--cream)}
-.bl-chip-n{font-family:var(--f-mono);font-size:.58rem;color:var(--text-muted)}
+.bl-chip-n{font-family:var(--f-mono);font-size:10px;color:var(--text-muted)}
 @media(max-width:560px){
   .bl-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .bl-chips::-webkit-scrollbar{display:none}
@@ -1068,7 +1068,7 @@
 }
 .bl-row:hover{background:var(--cream);padding-left:10px}
 .bl-row-cat{
-  font-family:var(--f-body);font-size:.56rem;font-weight:800;
+  font-family:var(--f-body);font-size:10px;font-weight:800;
   letter-spacing:.12em;text-transform:uppercase;color:var(--amber-ink);
   padding-top:3px;
 }
@@ -1091,7 +1091,7 @@
 
 .bl-new{
   display:inline-block;vertical-align:middle;margin-left:9px;
-  font-family:var(--f-mono);font-size:.52rem;font-weight:700;
+  font-family:var(--f-mono);font-size:10px;font-weight:700; /* px, not rem: .52rem was 10.8px only because the root was 130% */
   letter-spacing:.1em;text-transform:uppercase;
   color:var(--dark);background:var(--amber);
   padding:2px 7px;border-radius:4px;
@@ -1232,7 +1232,7 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="app.js?v=20260812-0042"></script>
+<script src="app.js?v=20260812-0135"></script>
 <script>
 HFY.initNavOnly();
 
