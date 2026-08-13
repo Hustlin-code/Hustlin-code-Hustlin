@@ -1,6 +1,6 @@
 {
   "stamp": "2026-08-13",
-  "bakedAt": "2026-08-13T09:54:58.483Z",
+  "bakedAt": "2026-08-13T18:40:53.841Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -134,9 +134,9 @@
     },
     "ppi": {
       "label": "Producer Prices (PPI, final demand)",
-      "display": "5.5%",
-      "value": 5.50767,
-      "date": "2026-06-01",
+      "display": "4.7%",
+      "value": 4.65651,
+      "date": "2026-07-01",
       "freq": "m",
       "better": "down",
       "fmt": "pct1",
@@ -214,9 +214,9 @@
     },
     "mortgage30": {
       "label": "30-Year Mortgage",
-      "display": "6.69%",
-      "value": 6.69,
-      "date": "2026-08-06",
+      "display": "6.67%",
+      "value": 6.67,
+      "date": "2026-08-13",
       "freq": "w",
       "better": "down",
       "fmt": "pct2",
@@ -244,9 +244,9 @@
     },
     "hySpread": {
       "label": "High Yield Spread",
-      "display": "2.72%",
-      "value": 2.72,
-      "date": "2026-08-11",
+      "display": "2.71%",
+      "value": 2.71,
+      "date": "2026-08-12",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -274,9 +274,9 @@
     },
     "claims": {
       "label": "Initial Jobless Claims",
-      "display": "199K",
-      "value": 199000,
-      "date": "2026-08-01",
+      "display": "209K",
+      "value": 209000,
+      "date": "2026-08-08",
       "freq": "w",
       "better": "down",
       "fmt": "countK",
@@ -1477,8 +1477,8 @@
       "epsEstimate": -3.6669,
       "revenueEstimate": 25485452964,
       "marketCap": 5064421501.937259,
-      "epsActual": -4.76,
-      "revenueActual": null,
+      "epsActual": -3.240146,
+      "revenueActual": 25537125432,
       "quarter": 2,
       "year": 2026
     },
@@ -1685,8 +1685,8 @@
       "epsEstimate": 0.6695,
       "revenueEstimate": 1716992490,
       "marketCap": 109574158751.97179,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.66,
+      "revenueActual": 19406000000,
       "quarter": 2,
       "year": 2026
     },
@@ -1711,8 +1711,8 @@
       "epsEstimate": 1.2964,
       "revenueEstimate": 1894560828,
       "marketCap": 31062354493.580673,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 1.32,
+      "revenueActual": 1876600000,
       "quarter": 4,
       "year": 2026
     },
@@ -1724,8 +1724,8 @@
       "epsEstimate": 2.9462,
       "revenueEstimate": 1305467167,
       "marketCap": 13020475693.711197,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 3.17,
+      "revenueActual": 1352690000,
       "quarter": 4,
       "year": 2026
     },
@@ -1737,8 +1737,8 @@
       "epsEstimate": 0.3474,
       "revenueEstimate": 1084462482,
       "marketCap": 7420045336.740035,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.17,
+      "revenueActual": 1262130000,
       "quarter": 2,
       "year": 2026
     },
@@ -1893,8 +1893,8 @@
       "epsEstimate": 0.7722,
       "revenueEstimate": 727614225,
       "marketCap": 6756709117.793969,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.745534,
+      "revenueActual": 725144512,
       "quarter": 3,
       "year": 2026
     },
@@ -1906,8 +1906,8 @@
       "epsEstimate": 0.2707,
       "revenueEstimate": 705020400,
       "marketCap": 6312229152.334874,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.3,
+      "revenueActual": 951240000,
       "quarter": 2,
       "year": 2026
     },
@@ -1919,8 +1919,8 @@
       "epsEstimate": 0.2747,
       "revenueEstimate": 689057350,
       "marketCap": 31113041625.624252,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.46,
+      "revenueActual": 704160000,
       "quarter": 2,
       "year": 2026
     },
@@ -1932,8 +1932,8 @@
       "epsEstimate": 0.4918,
       "revenueEstimate": 548004856,
       "marketCap": 2218803557.8782606,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.59,
+      "revenueActual": 549900000,
       "quarter": 1,
       "year": 2027
     },
@@ -1958,8 +1958,8 @@
       "epsEstimate": 0.5561,
       "revenueEstimate": 493770922,
       "marketCap": 3760640000,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.67,
+      "revenueActual": 483870000,
       "quarter": 2,
       "year": 2026
     },
@@ -1971,8 +1971,8 @@
       "epsEstimate": 0.3456,
       "revenueEstimate": 483405482,
       "marketCap": 5145950220.472064,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.41,
+      "revenueActual": 476760000,
       "quarter": 2,
       "year": 2026
     },
@@ -2010,8 +2010,8 @@
       "epsEstimate": 0.1647,
       "revenueEstimate": 282020108,
       "marketCap": 2969720350.6717253,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.32,
+      "revenueActual": 356900000,
       "quarter": 2,
       "year": 2026
     },
@@ -2023,8 +2023,8 @@
       "epsEstimate": 0.6186,
       "revenueEstimate": 225689422,
       "marketCap": 9970397005.332148,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 1.19,
+      "revenueActual": 278750000,
       "quarter": 4,
       "year": 2026
     },
@@ -2036,8 +2036,8 @@
       "epsEstimate": -0.0991,
       "revenueEstimate": 220654335,
       "marketCap": 3678505106.614077,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": -0.16,
+      "revenueActual": 206170000,
       "quarter": 2,
       "year": 2026
     },
@@ -2049,8 +2049,8 @@
       "epsEstimate": 0.2477,
       "revenueEstimate": 211855275,
       "marketCap": 6765424902.689655,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.37,
+      "revenueActual": 218450000,
       "quarter": 2,
       "year": 2026
     },
@@ -2062,8 +2062,8 @@
       "epsEstimate": -0.0724,
       "revenueEstimate": 188016600,
       "marketCap": 4845564448.370786,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": -0.04,
+      "revenueActual": 0,
       "quarter": 2,
       "year": 2026
     },
@@ -2071,12 +2071,12 @@
       "symbol": "GLNG",
       "name": "Golar LNG Ltd",
       "date": "2026-08-13",
-      "hour": "",
+      "hour": "bmo",
       "epsEstimate": 0.494,
       "revenueEstimate": 143719152,
       "marketCap": 5188163723.770849,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.68,
+      "revenueActual": 130479999,
       "quarter": 2,
       "year": 2026
     },
@@ -2088,8 +2088,8 @@
       "epsEstimate": 0.1129,
       "revenueEstimate": 134511225,
       "marketCap": 3803957407.595134,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.11,
+      "revenueActual": 131139999,
       "quarter": 2,
       "year": 2026
     },
@@ -2127,8 +2127,8 @@
       "epsEstimate": 0.1074,
       "revenueEstimate": 90211972,
       "marketCap": 3701943263.345432,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.1,
+      "revenueActual": 92600000,
       "quarter": 2,
       "year": 2026
     },
@@ -2153,8 +2153,8 @@
       "epsEstimate": -0.0884,
       "revenueEstimate": 69329277,
       "marketCap": 5567519999.536962,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": -0.03,
+      "revenueActual": 83770000,
       "quarter": 2,
       "year": 2026
     },
@@ -2179,8 +2179,8 @@
       "epsEstimate": -0.0948,
       "revenueEstimate": 49920670,
       "marketCap": 6928540000,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": -0.15,
+      "revenueActual": 54600000,
       "quarter": 2,
       "year": 2026
     },
@@ -2192,6 +2192,19 @@
       "epsEstimate": -0.102,
       "revenueEstimate": 47219196,
       "marketCap": 2422550037.10562,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "NKTR",
+      "name": "Nektar Therapeutics",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": -2.0243,
+      "revenueEstimate": 10633132,
+      "marketCap": 2568751846.801722,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -3008,6 +3021,276 @@
       "name": "Eagle Point Income Company Inc",
       "exchange": "NEW YORK STOCK EXCHANGE, INC.",
       "at": "2026-08-13T09:53:44.803Z"
+    },
+    "NXPL": {
+      "capM": 18.174081669242657,
+      "name": "NextPlat Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "AEYE": {
+      "capM": 72.58673854483924,
+      "name": "AudioEye Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "BFRI": {
+      "capM": 16.004180327868852,
+      "name": "Biofrontera Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "NKTR": {
+      "capM": 2568.751846801722,
+      "name": "Nektar Therapeutics",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "AFCG": {
+      "capM": 64.32156253090908,
+      "name": "Advanced Flower Capital Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "ZSPC": {
+      "capM": 0.86,
+      "name": "zSpace, Inc.",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "AMS": {
+      "capM": 10.2025,
+      "name": "American Shared Hospital Services",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "HIT": {
+      "capM": 66.84534542857143,
+      "name": "Health In Tech Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "SPCB": {
+      "capM": 67.51486337962963,
+      "name": "Supercom Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "WKHS": {
+      "capM": 34.53,
+      "name": "Workhorse Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "ROC": {
+      "capM": 81.85374333254715,
+      "name": "Rank One Computing Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "BLNE": {
+      "capM": 35.5544811981982,
+      "name": "Beeline Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "IDN": {
+      "capM": 74.72700434482759,
+      "name": "Intellicheck Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "VENU": {
+      "capM": 124.85783942592592,
+      "name": "Venu Holding Corp",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "BLIN": {
+      "capM": 13.733868616071428,
+      "name": "Bridgeline Digital Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "CWD": {
+      "capM": 5.690452198028674,
+      "name": "CaliberCos Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "SRTS": {
+      "capM": 51.52624275161291,
+      "name": "Sensus Healthcare Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "ACOG": {
+      "capM": 194.87822874507594,
+      "name": "Alpha Cognition Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "BCHT": {
+      "capM": 38.93283138686131,
+      "name": "Birchtech Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "CV": {
+      "capM": 342.7501879030304,
+      "name": "CapsoVision Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "BUDA": {
+      "capM": 116.24165723529411,
+      "name": "Buda Juice Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "MRLN": {
+      "capM": 401.5400569614512,
+      "name": "Merlin Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "CYCU": {
+      "capM": 7.113004557048122,
+      "name": "Cycurion Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "VTSI": {
+      "capM": 35.729757,
+      "name": "VirTra Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "FRMM": {
+      "capM": 81.77079730240001,
+      "name": "Forum Markets, Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "ELUT": {
+      "capM": 36.16233587024329,
+      "name": "Elutia Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "MDWD": {
+      "capM": 178.68319071356783,
+      "name": "Mediwound Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "NMTC": {
+      "capM": 13.228532449999998,
+      "name": "NeuroOne Medical Technologies Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "NUWE": {
+      "capM": 4.476938635135134,
+      "name": "Nuwellis Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "IVF": {
+      "capM": 2.372525300970874,
+      "name": "INVO Fertility Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "CRBU": {
+      "capM": 168.6069918343195,
+      "name": "Caribou Biosciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "EMAT": {
+      "capM": 1430.1184523706897,
+      "name": "Evolution Metals & Technologies Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "MSAI": {
+      "capM": 11.268441824299067,
+      "name": "MultiSensor AI Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "KYNB": {
+      "capM": 28.74159536067892,
+      "name": "Kyntra Bio Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "INV": {
+      "capM": 295.837498,
+      "name": "Innventure Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "XAIR": {
+      "capM": 3.91,
+      "name": "Beyond Air Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "CBUS": {
+      "capM": 144.26678766315788,
+      "name": "Cibus Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "TNON": {
+      "capM": 2.80001657980456,
+      "name": "Tenon Medical Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "VUZI": {
+      "capM": 199.16401748712445,
+      "name": "Vuzix Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "FATE": {
+      "capM": 317.0409952116789,
+      "name": "Fate Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "FFAI": {
+      "capM": 9.81811061204819,
+      "name": "Faraday Future Intelligent Electric Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "OXBR": {
+      "capM": 9.64063396153846,
+      "name": "Oxbridge Re Holdings Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "JTAI": {
+      "capM": 2.6301834153005466,
+      "name": "Jet.AI Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "MGRM": {
+      "capM": 243.79,
+      "name": "Monogram Technologies Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
+    },
+    "SWMR": {
+      "capM": 430.608958435774,
+      "name": "Swarmer Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T18:39:40.444Z"
     }
   },
   "growthCache": {
@@ -3310,6 +3593,106 @@
     "ROAD:2026Q3": {
       "pct": 33.74,
       "at": "2026-08-13T09:54:58.121Z"
+    },
+    "ESNT:2026Q2": {
+      "pct": 7.4,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "DOX:2026Q3": {
+      "pct": -11.5,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "HRB:2026Q4": {
+      "pct": 24.29,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "ACMR:2026Q2": {
+      "pct": -18.5,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "ANDG:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "AMTM:2026Q3": {
+      "pct": 1235.76,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "OCTV:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "TBBB:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "EQPT:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "PAGP:2026Q2": {
+      "pct": -76.19,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "CRC:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "KTB:2026Q2": {
+      "pct": 115.82,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "ATMU:2026Q2": {
+      "pct": 9.85,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "MSGE:2026Q4": {
+      "pct": -36.22,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "CLMT:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "CPRX:2026Q2": {
+      "pct": 12.37,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "OGN:2026Q2": {
+      "pct": -28.36,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "REZI:2026Q2": {
+      "pct": 505.43,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "TDS:2026Q2": {
+      "pct": 1935.3,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "BHF:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "NIQ:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "AADX:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "STUB:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "AD:2026Q2": {
+      "pct": 905.23,
+      "at": "2026-08-13T18:40:53.475Z"
+    },
+    "AVEX:2026Q2": {
+      "pct": -9.43,
+      "at": "2026-08-13T18:40:53.475Z"
     }
   }
 }
