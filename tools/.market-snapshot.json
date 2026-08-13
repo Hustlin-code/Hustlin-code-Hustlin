@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-08-12",
-  "bakedAt": "2026-08-12T23:29:34.982Z",
+  "stamp": "2026-08-13",
+  "bakedAt": "2026-08-13T05:58:59.553Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -722,7 +722,11 @@
       "hour": "bmo",
       "epsEstimate": -0.0262,
       "revenueEstimate": 11648716812,
-      "marketCap": 8191801239.634759
+      "marketCap": 8191801239.634759,
+      "epsActual": -0.09,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "AVT",
@@ -731,7 +735,11 @@
       "hour": "bmo",
       "epsEstimate": 1.7882,
       "revenueEstimate": 7593914775,
-      "marketCap": 7287019378.761752
+      "marketCap": 7287019378.761752,
+      "epsActual": 2.28,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
     },
     {
       "symbol": "COP",
@@ -805,7 +813,11 @@
       "hour": "amc",
       "epsEstimate": 4.5046,
       "revenueEstimate": 9659687975,
-      "marketCap": 11074078886.578716
+      "marketCap": 11074078886.578716,
+      "epsActual": 5.45,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "PAGP",
@@ -905,7 +917,11 @@
       "hour": "amc",
       "epsEstimate": 6.5825,
       "revenueEstimate": 6742812318,
-      "marketCap": 15516791954.357306
+      "marketCap": 15516791954.357306,
+      "epsActual": 8.89,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "FERG",
@@ -1172,12 +1188,12 @@
       "name": "Dillard's Inc",
       "date": "2026-08-10",
       "hour": "",
-      "epsEstimate": 4.3666,
+      "epsEstimate": 10.4703,
       "revenueEstimate": 1542256536,
       "marketCap": 9561302992.849918,
-      "epsActual": null,
+      "epsActual": 9.37,
       "revenueActual": null,
-      "quarter": 2,
+      "quarter": 1,
       "year": 2027
     },
     {
@@ -1318,7 +1334,7 @@
       "epsEstimate": 2.2341,
       "revenueEstimate": 1129047690,
       "marketCap": 5822095835.849968,
-      "epsActual": null,
+      "epsActual": 2.38,
       "revenueActual": null,
       "quarter": 4,
       "year": 2026
@@ -1331,7 +1347,7 @@
       "epsEstimate": 0.9273,
       "revenueEstimate": 1581801400,
       "marketCap": 3571488379.985239,
-      "epsActual": null,
+      "epsActual": 0.85,
       "revenueActual": null,
       "quarter": 2,
       "year": 2026
@@ -1341,12 +1357,12 @@
       "name": "PagSeguro Digital Ltd",
       "date": "2026-08-11",
       "hour": "",
-      "epsEstimate": 2.0839,
+      "epsEstimate": 2.0866,
       "revenueEstimate": 5341876680,
       "marketCap": 2519852404.919037,
-      "epsActual": null,
+      "epsActual": 2.03,
       "revenueActual": null,
-      "quarter": 2,
+      "quarter": 1,
       "year": 2026
     },
     {
@@ -1419,12 +1435,12 @@
       "name": "Vipshop Holdings Ltd",
       "date": "2026-08-12",
       "hour": "",
-      "epsEstimate": 3.9617,
+      "epsEstimate": 4.7007,
       "revenueEstimate": 25431113851,
       "marketCap": 7471774980,
-      "epsActual": null,
+      "epsActual": 4.68,
       "revenueActual": null,
-      "quarter": 2,
+      "quarter": 1,
       "year": 2026
     },
     {
@@ -1432,10 +1448,10 @@
       "name": "Amdocs Ltd",
       "date": "2026-08-12",
       "hour": "",
-      "epsEstimate": 1.8604,
+      "epsEstimate": 1.8584,
       "revenueEstimate": 1186858474,
       "marketCap": 6298281886.590832,
-      "epsActual": null,
+      "epsActual": 1.84,
       "revenueActual": null,
       "quarter": 3,
       "year": 2026
@@ -1458,12 +1474,12 @@
       "name": "Bbb Foods Inc",
       "date": "2026-08-12",
       "hour": "amc",
-      "epsEstimate": -3.6669,
+      "epsEstimate": -4.7192,
       "revenueEstimate": 25485452964,
       "marketCap": 5064421501.937259,
-      "epsActual": null,
+      "epsActual": -4.76,
       "revenueActual": null,
-      "quarter": 2,
+      "quarter": 1,
       "year": 2026
     },
     {
@@ -1487,7 +1503,7 @@
       "epsEstimate": 4.9078,
       "revenueEstimate": 2250358780,
       "marketCap": 3492703657.1465335,
-      "epsActual": null,
+      "epsActual": 4.45,
       "revenueActual": null,
       "quarter": 2,
       "year": 2026
@@ -1497,12 +1513,12 @@
       "name": "Youdao Inc",
       "date": "2026-08-12",
       "hour": "bmo",
-      "epsEstimate": 0.508,
+      "epsEstimate": 0.6111,
       "revenueEstimate": 1652816520,
       "marketCap": 2091982754,
-      "epsActual": null,
+      "epsActual": 0.339955,
       "revenueActual": null,
-      "quarter": 2,
+      "quarter": 1,
       "year": 2026
     },
     {
@@ -1577,7 +1593,7 @@
       "hour": "amc",
       "epsEstimate": 3.4544,
       "revenueEstimate": 9175728984,
-      "marketCap": 435153262193.93274,
+      "marketCap": 435208839351.19727,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 3,
@@ -1590,7 +1606,7 @@
       "hour": "amc",
       "epsEstimate": 25.2307,
       "revenueEstimate": 6300719360,
-      "marketCap": 29852350035.60199,
+      "marketCap": 29603809109.62387,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -1668,7 +1684,7 @@
       "hour": "bmo",
       "epsEstimate": 0.6695,
       "revenueEstimate": 1716992490,
-      "marketCap": 109010228196.74796,
+      "marketCap": 109574158751.97179,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -1681,7 +1697,7 @@
       "hour": "",
       "epsEstimate": 0.2087,
       "revenueEstimate": 5383451384,
-      "marketCap": 65103818952.13525,
+      "marketCap": 65501367814.31208,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -1694,7 +1710,7 @@
       "hour": "bmo",
       "epsEstimate": 1.2964,
       "revenueEstimate": 1894560828,
-      "marketCap": 31003761526.212784,
+      "marketCap": 31062354493.580673,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 4,
@@ -1707,7 +1723,7 @@
       "hour": "bmo",
       "epsEstimate": 2.9462,
       "revenueEstimate": 1305467167,
-      "marketCap": 13063984462.017525,
+      "marketCap": 13020475693.711197,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 4,
@@ -1720,7 +1736,7 @@
       "hour": "bmo",
       "epsEstimate": 0.3474,
       "revenueEstimate": 1084462482,
-      "marketCap": 7394116232.476528,
+      "marketCap": 7420045336.740035,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -1733,7 +1749,7 @@
       "hour": "amc",
       "epsEstimate": 2.4558,
       "revenueEstimate": 3736698600,
-      "marketCap": 2398230327.208835,
+      "marketCap": 2432282279.1164656,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -1757,12 +1773,12 @@
       "name": "Octave Intelligence PLC",
       "date": "2026-08-12",
       "hour": "",
-      "epsEstimate": 0.3284,
+      "epsEstimate": 0.306,
       "revenueEstimate": 408051510,
       "marketCap": 5115081734.019271,
-      "epsActual": null,
+      "epsActual": 0.33,
       "revenueActual": null,
-      "quarter": 2,
+      "quarter": 1,
       "year": 2026
     },
     {
@@ -1861,9 +1877,282 @@
       "name": "Catalyst Pharmaceuticals Inc",
       "date": "2026-08-12",
       "hour": "",
-      "epsEstimate": 0.4947,
+      "epsEstimate": 0.4651,
       "revenueEstimate": 158428440,
       "marketCap": 3854925711,
+      "epsActual": 0.5,
+      "revenueActual": null,
+      "quarter": 1,
+      "year": 2026
+    },
+    {
+      "symbol": "BIRK",
+      "name": "Birkenstock Holding PLC",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.7722,
+      "revenueEstimate": 727614225,
+      "marketCap": 6756709117.793969,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
+    },
+    {
+      "symbol": "MWH",
+      "name": "Solv Energy Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.2707,
+      "revenueEstimate": 705020400,
+      "marketCap": 6312229152.334874,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "BSP",
+      "name": "Bending Spoons SpA",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.2747,
+      "revenueEstimate": 689057350,
+      "marketCap": 31113041625.624252,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "MH",
+      "name": "McGraw Hill Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.4918,
+      "revenueEstimate": 548004856,
+      "marketCap": 2218803557.8782606,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 1,
+      "year": 2027
+    },
+    {
+      "symbol": "CAAP",
+      "name": "Corporacion America Airports SA",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 0.5554,
+      "revenueEstimate": 519746355,
+      "marketCap": 4061508708.6018634,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "YETI",
+      "name": "Yeti Holdings Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.5561,
+      "revenueEstimate": 493770922,
+      "marketCap": 3760640000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ALH",
+      "name": "Alliance Laundry Holdings Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.3456,
+      "revenueEstimate": 483405482,
+      "marketCap": 5145950220.472064,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "RNW",
+      "name": "Renew Energy Global PLC",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 0.1212,
+      "revenueEstimate": 432084979,
+      "marketCap": 2481582305.4788322,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 1,
+      "year": 2027
+    },
+    {
+      "symbol": "DLO",
+      "name": "Dlocal Ltd.",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": 0.1892,
+      "revenueEstimate": 372547085,
+      "marketCap": 4211628197.927711,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ARX",
+      "name": "Accelerant Holdings",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.1647,
+      "revenueEstimate": 282020108,
+      "marketCap": 2969720350.6717253,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "MSGS",
+      "name": "Madison Square Garden Sports Corp",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.6186,
+      "revenueEstimate": 225689422,
+      "marketCap": 9970397005.332148,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "LUNR",
+      "name": "Intuitive Machines Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": -0.0991,
+      "revenueEstimate": 220654335,
+      "marketCap": 3678505106.614077,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "FIGR",
+      "name": "Figure Technology Solutions Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.2477,
+      "revenueEstimate": 211855275,
+      "marketCap": 6765424902.689655,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "FRMI",
+      "name": "Fermi Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": -0.0724,
+      "revenueEstimate": 188016600,
+      "marketCap": 4845564448.370786,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "GLNG",
+      "name": "Golar LNG Ltd",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 0.494,
+      "revenueEstimate": 143719152,
+      "marketCap": 5188163723.770849,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "CLBT",
+      "name": "Cellebrite DI Ltd",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.1129,
+      "revenueEstimate": 134511225,
+      "marketCap": 3803957407.595134,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "STEL",
+      "name": "Stellar Bancorp Inc",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": 0.5406,
+      "revenueEstimate": 112362863,
+      "marketCap": 2002200000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "YSS",
+      "name": "York Space Systems Inc",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": -0.1567,
+      "revenueEstimate": 92477620,
+      "marketCap": 2005130000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "BLSH",
+      "name": "Bullish",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.1074,
+      "revenueEstimate": 90211972,
+      "marketCap": 3701943263.345432,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "PS",
+      "name": "Pershing Square Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": 0.1223,
+      "revenueEstimate": 76673333,
+      "marketCap": 15520000159.411615,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ONDS",
+      "name": "Ondas Inc",
+      "date": "2026-08-13",
+      "hour": "bmo",
+      "epsEstimate": -0.0884,
+      "revenueEstimate": 69329277,
+      "marketCap": 5567519999.536962,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -2140,6 +2429,276 @@
       "name": "Comscore Inc",
       "exchange": "NASDAQ NMS - GLOBAL MARKET",
       "at": "2026-08-12T23:27:09.574Z"
+    },
+    "AMAT": {
+      "capM": 435208.83935119724,
+      "name": "Applied Materials Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "BAP": {
+      "capM": 29603.80910962387,
+      "name": "Credicorp Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "NU": {
+      "capM": 65501.36781431208,
+      "name": "Nu Holdings Ltd.",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "STNE": {
+      "capM": 2432.2822791164654,
+      "name": "StoneCo Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "TPR": {
+      "capM": 31062.354493580675,
+      "name": "Tapestry Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "BN": {
+      "capM": 109574.15875197179,
+      "name": "Brookfield Corp",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "GMRS": {
+      "capM": 694.5905830352939,
+      "name": "GMR Solutions Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "ARCO": {
+      "capM": 1645.996478154235,
+      "name": "Arcos Dorados Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "AIT": {
+      "capM": 13020.475693711196,
+      "name": "Applied Industrial Technologies Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "LGN": {
+      "capM": 7420.045336740035,
+      "name": "Legence Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "YSWY": {
+      "capM": 1320.77,
+      "name": "Yesway Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "NOMD": {
+      "capM": 1593.6193020052772,
+      "name": "Nomad Foods Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "BIRK": {
+      "capM": 6756.709117793969,
+      "name": "Birkenstock Holding PLC",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "MWH": {
+      "capM": 6312.229152334874,
+      "name": "Solv Energy Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "KLC": {
+      "capM": 549.507331414226,
+      "name": "Kindercare Learning Companies Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "BSP": {
+      "capM": 31113.041625624253,
+      "name": "Bending Spoons SpA",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "AVAH": {
+      "capM": 1970.6845478659225,
+      "name": "Aveanna Healthcare Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "GLOB": {
+      "capM": 1672.7759021626478,
+      "name": "Globant SA",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "MH": {
+      "capM": 2218.8035578782606,
+      "name": "McGraw Hill Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "CAAP": {
+      "capM": 4061.5087086018634,
+      "name": "Corporacion America Airports SA",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "WWW": {
+      "capM": 1638.15,
+      "name": "Wolverine World Wide Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "YETI": {
+      "capM": 3760.64,
+      "name": "Yeti Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "AEBI": {
+      "capM": 1006.8045730862472,
+      "name": "Aebi Schmidt Holding AG",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "ALH": {
+      "capM": 5145.950220472064,
+      "name": "Alliance Laundry Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "PSFE": {
+      "capM": 352.1071747227867,
+      "name": "Paysafe Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "RNW": {
+      "capM": 2481.582305478832,
+      "name": "Renew Energy Global PLC",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "DLO": {
+      "capM": 4211.628197927711,
+      "name": "Dlocal Ltd.",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "ARX": {
+      "capM": 2969.720350671725,
+      "name": "Accelerant Holdings",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "MFP": {
+      "capM": 1963.22,
+      "name": "Midera Food Processing Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "MSGS": {
+      "capM": 9970.397005332148,
+      "name": "Madison Square Garden Sports Corp",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "LUNR": {
+      "capM": 3678.5051066140772,
+      "name": "Intuitive Machines Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "FIGR": {
+      "capM": 6765.424902689655,
+      "name": "Figure Technology Solutions Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "XBP": {
+      "capM": 36.25,
+      "name": "XBP Global Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "FRMI": {
+      "capM": 4845.564448370786,
+      "name": "Fermi Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "JCAP": {
+      "capM": 1300.0464274952562,
+      "name": "Jefferson Capital Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "GLNG": {
+      "capM": 5188.163723770849,
+      "name": "Golar LNG Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "SSYS": {
+      "capM": 761.765262037736,
+      "name": "Stratasys Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "CLBT": {
+      "capM": 3803.9574075951336,
+      "name": "Cellebrite DI Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "STEL": {
+      "capM": 2002.2,
+      "name": "Stellar Bancorp Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "CRMD": {
+      "capM": 557.0084267808219,
+      "name": "CorMedix Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "YSS": {
+      "capM": 2005.13,
+      "name": "York Space Systems Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "BLSH": {
+      "capM": 3701.9432633454317,
+      "name": "Bullish",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "TSAT": {
+      "capM": 934.4685678512097,
+      "name": "Telesat Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "PS": {
+      "capM": 15520.000159411615,
+      "name": "Pershing Square Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T05:56:34.044Z"
+    },
+    "ONDS": {
+      "capM": 5567.519999536961,
+      "name": "Ondas Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T05:56:34.044Z"
     }
   },
   "growthCache": {
@@ -2242,6 +2801,106 @@
     "WBD:2026Q2": {
       "pct": -90.84,
       "at": "2026-08-12T23:29:34.670Z"
+    },
+    "CSCO:2026Q4": {
+      "pct": 36.1,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "CBRS:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "COHR:2026Q4": {
+      "pct": 863.14,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "MET:2026Q2": {
+      "pct": 5.34,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "COR:2026Q3": {
+      "pct": 11.81,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "NBIS:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "OXY:2026Q2": {
+      "pct": 548.82,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "CAH:2026Q4": {
+      "pct": -19.48,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "MDLN:2026Q2": {
+      "pct": -83.26,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "XYZ:2026Q2": {
+      "pct": -83.29,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "CRWV:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "FERG:2026Q2": {
+      "pct": 2.9,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "TTWO:2027Q1": {
+      "pct": null,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "PRU:2026Q2": {
+      "pct": 88.41,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "KDP:2026Q2": {
+      "pct": -74.07,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "AIG:2026Q2": {
+      "pct": 20.82,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "SYY:2026Q4": {
+      "pct": 4.45,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "ADM:2026Q2": {
+      "pct": 313.75,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "VG:2026Q2": {
+      "pct": 19.48,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "CPNG:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "PPL:2026Q2": {
+      "pct": 6.91,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "SMCI:2026Q4": {
+      "pct": 299.26,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "USFD:2026Q2": {
+      "pct": 29.43,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "AMCR:2026Q4": {
+      "pct": -11.55,
+      "at": "2026-08-13T05:58:59.322Z"
+    },
+    "CDW:2026Q2": {
+      "pct": 5.15,
+      "at": "2026-08-13T05:58:59.322Z"
     }
   }
 }
