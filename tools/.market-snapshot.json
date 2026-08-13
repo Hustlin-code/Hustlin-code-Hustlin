@@ -1,6 +1,6 @@
 {
   "stamp": "2026-08-13",
-  "bakedAt": "2026-08-13T18:40:53.841Z",
+  "bakedAt": "2026-08-13T22:10:43.794Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -16,16 +16,6 @@
       "label": "Core Inflation (ex food & energy)",
       "display": "2.5%",
       "value": 2.46652,
-      "date": "2026-07-01",
-      "freq": "m",
-      "better": "down",
-      "fmt": "pct1",
-      "deltaUnit": "pts"
-    },
-    "unemployment": {
-      "label": "Unemployment Rate",
-      "display": "4.1%",
-      "value": 4.1,
       "date": "2026-07-01",
       "freq": "m",
       "better": "down",
@@ -144,9 +134,9 @@
     },
     "breakeven10": {
       "label": "10-Year Breakeven Inflation",
-      "display": "2.26%",
-      "value": 2.26,
-      "date": "2026-08-12",
+      "display": "2.24%",
+      "value": 2.24,
+      "date": "2026-08-13",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -154,9 +144,9 @@
     },
     "forward5y5y": {
       "label": "5-Year, 5-Year Forward",
-      "display": "2.28%",
-      "value": 2.28,
-      "date": "2026-08-12",
+      "display": "2.27%",
+      "value": 2.27,
+      "date": "2026-08-13",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -164,9 +154,9 @@
     },
     "threeMonth": {
       "label": "3-Month Treasury",
-      "display": "3.89%",
-      "value": 3.89,
-      "date": "2026-08-11",
+      "display": "3.87%",
+      "value": 3.87,
+      "date": "2026-08-12",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -174,9 +164,9 @@
     },
     "twoYear": {
       "label": "2-Year Treasury",
-      "display": "4.22%",
-      "value": 4.22,
-      "date": "2026-08-11",
+      "display": "4.20%",
+      "value": 4.2,
+      "date": "2026-08-12",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -184,9 +174,9 @@
     },
     "tenYear": {
       "label": "10-Year Treasury",
-      "display": "4.70%",
-      "value": 4.7,
-      "date": "2026-08-11",
+      "display": "4.68%",
+      "value": 4.68,
+      "date": "2026-08-12",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -196,7 +186,7 @@
       "label": "30-Year Treasury",
       "display": "5.24%",
       "value": 5.24,
-      "date": "2026-08-11",
+      "date": "2026-08-12",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -204,9 +194,9 @@
     },
     "realTenYear": {
       "label": "10-Year Real Yield (TIPS)",
-      "display": "2.43%",
-      "value": 2.43,
-      "date": "2026-08-11",
+      "display": "2.42%",
+      "value": 2.42,
+      "date": "2026-08-12",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -226,7 +216,7 @@
       "label": "10-Year minus 2-Year",
       "display": "0.48%",
       "value": 0.48,
-      "date": "2026-08-12",
+      "date": "2026-08-13",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -234,9 +224,9 @@
     },
     "curve10y3m": {
       "label": "10-Year minus 3-Month",
-      "display": "0.81%",
-      "value": 0.81,
-      "date": "2026-08-12",
+      "display": "0.76%",
+      "value": 0.76,
+      "date": "2026-08-13",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -250,6 +240,16 @@
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
+      "deltaUnit": "pts"
+    },
+    "unemployment": {
+      "label": "Unemployment Rate",
+      "display": "4.1%",
+      "value": 4.1,
+      "date": "2026-07-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
       "deltaUnit": "pts"
     },
     "u6": {
@@ -354,9 +354,9 @@
     },
     "djia": {
       "label": "Dow Jones Industrial Average",
-      "display": "53,770",
-      "value": 53770.27,
-      "date": "2026-08-12",
+      "display": "53,840",
+      "value": 53839.99,
+      "date": "2026-08-13",
       "freq": "d",
       "better": "up",
       "fmt": "idxK",
@@ -1594,8 +1594,8 @@
       "epsEstimate": 3.4544,
       "revenueEstimate": 9175728984,
       "marketCap": 435208839351.19727,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 3.5,
+      "revenueActual": 9115000000,
       "quarter": 3,
       "year": 2026
     },
@@ -2114,8 +2114,8 @@
       "epsEstimate": -0.1567,
       "revenueEstimate": 92477620,
       "marketCap": 2005130000,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": -0.21,
+      "revenueActual": 92550000,
       "quarter": 2,
       "year": 2026
     },
@@ -2166,8 +2166,8 @@
       "epsEstimate": -0.1364,
       "revenueEstimate": 57775350,
       "marketCap": 2574288838.9590387,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": -0.07,
+      "revenueActual": 64080000,
       "quarter": 2,
       "year": 2026
     },
@@ -2192,8 +2192,8 @@
       "epsEstimate": -0.102,
       "revenueEstimate": 47219196,
       "marketCap": 2422550037.10562,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": -0.07,
+      "revenueActual": 49810000,
       "quarter": 2,
       "year": 2026
     },
@@ -2205,6 +2205,45 @@
       "epsEstimate": -2.0243,
       "revenueEstimate": 10633132,
       "marketCap": 2568751846.801722,
+      "epsActual": -1.23,
+      "revenueActual": 10130000,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "BLTE",
+      "name": "Belite Bio Inc",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": -0.8045,
+      "revenueEstimate": 0,
+      "marketCap": 7118310533,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "CEF",
+      "name": "Sprott Physical Gold and Silver Trust",
+      "date": "2026-08-13",
+      "hour": "",
+      "epsEstimate": null,
+      "revenueEstimate": null,
+      "marketCap": 7517150000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "CELC",
+      "name": "Celcuity Inc",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": -1.1878,
+      "revenueEstimate": 0,
+      "marketCap": 4490399899.699921,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
@@ -3291,6 +3330,276 @@
       "name": "Swarmer Inc",
       "exchange": "NASDAQ NMS - GLOBAL MARKET",
       "at": "2026-08-13T18:39:40.444Z"
+    },
+    "SLGL": {
+      "capM": 233.73285033367557,
+      "name": "Sol Gel Technologies Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "VTIX": {
+      "capM": 53.83346549068323,
+      "name": "Virtuix Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "QSI": {
+      "capM": 182.35236591489883,
+      "name": "Quantum-Si Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "ARAI": {
+      "capM": 13.488616075723831,
+      "name": "Arrive AI Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "IPWR": {
+      "capM": 71.92625551428571,
+      "name": "Ideal Power Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "GWH": {
+      "capM": 16.790031944924408,
+      "name": "ESS Tech Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "BEAT": {
+      "capM": 31.749911735649807,
+      "name": "Heartbeam Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "AEMD": {
+      "capM": 1.9757390188679245,
+      "name": "Aethlon Medical Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "AIRJ": {
+      "capM": 457.5717288,
+      "name": "Airjoule Technologies Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "AMCI": {
+      "capM": 104.18767372072071,
+      "name": "AMC Robotics Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "API": {
+      "capM": 436.695166,
+      "name": "Agora Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "ASFH": {
+      "capM": 14.29,
+      "name": "AsiaFIN Holdings Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "ATVK": {
+      "capM": 75.73215869608826,
+      "name": "Ameritek Ventures Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "AURI": {
+      "capM": 0.7360759999999998,
+      "name": "Auri Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "AUSI": {
+      "capM": 29.19748083718567,
+      "name": "Aura Systems Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "AVX": {
+      "capM": 24.09953453247589,
+      "name": "AVAX One Technology Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "BAFN": {
+      "capM": 25.791362192307687,
+      "name": "Bayfirst Financial Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "BDVC": {
+      "capM": 1135.93,
+      "name": "Franklin BSP Capital Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "BIVI": {
+      "capM": 11.766046960629922,
+      "name": "BioVie Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "BLTE": {
+      "capM": 7118.310533,
+      "name": "Belite Bio Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "BOF": {
+      "capM": 67.23737045754716,
+      "name": "BranchOut Food Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "CABA": {
+      "capM": 464.7061575268818,
+      "name": "Cabaletta Bio Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "CAPR": {
+      "capM": 242.65084713994912,
+      "name": "Capricor Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "CEF": {
+      "capM": 7517.15,
+      "name": "Sprott Physical Gold and Silver Trust",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "CELC": {
+      "capM": 4490.399899699921,
+      "name": "Celcuity Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "CHAI": {
+      "capM": 6.523769880952381,
+      "name": "Core AI Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "CRCW": {
+      "capM": 5.2469385882352935,
+      "name": "Crypto Co",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "CVAC": {
+      "capM": 1049.31,
+      "name": "CureVac NV",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "ECIA": {
+      "capM": 0.720761,
+      "name": "Encision Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "EESE": {
+      "capM": 5.124242424242425,
+      "name": "Energy and Environmental Services Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "EQS": {
+      "capM": 16.2,
+      "name": "EQUUS Total Return Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "EUSP": {
+      "capM": 4.2,
+      "name": "Aivita Group Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "EVTL": {
+      "capM": 105.19840403699526,
+      "name": "Vertical Aerospace Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "GLTK": {
+      "capM": 226.6066433121019,
+      "name": "Globaltech Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "GTEC": {
+      "capM": 16.961758051245038,
+      "name": "Greenland Technologies Holding Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "GTIJF": {
+      "capM": 0.000769,
+      "name": "Graphjet Technology",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "ICCC": {
+      "capM": 99.33384795616438,
+      "name": "ImmuCell Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "INKT": {
+      "capM": 56.59436781478183,
+      "name": "Mink Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "IPSC": {
+      "capM": 353.495423223301,
+      "name": "Century Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "JSDA": {
+      "capM": 39.94753476923077,
+      "name": "Jones Soda Co",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "KLNG": {
+      "capM": 31.103614002006015,
+      "name": "Koil Energy Solutions Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "KULR": {
+      "capM": 137.37449561785715,
+      "name": "KULR Technology Group Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "LASE": {
+      "capM": 60.43230660330578,
+      "name": "Laser Photonics Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "LIVE": {
+      "capM": 33.48105187439614,
+      "name": "Live Ventures Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-13T22:09:32.496Z"
+    },
+    "MAGE": {
+      "capM": 1.739608,
+      "name": "Magellan Copper and Gold Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-13T22:09:32.496Z"
     }
   },
   "growthCache": {
@@ -3693,6 +4002,38 @@
     "AVEX:2026Q2": {
       "pct": -9.43,
       "at": "2026-08-13T18:40:53.475Z"
+    },
+    "PAGS:2026Q1": {
+      "pct": 13.73,
+      "at": "2026-08-13T22:10:43.432Z"
+    },
+    "UAA:2027Q1": {
+      "pct": null,
+      "at": "2026-08-13T22:10:43.432Z"
+    },
+    "TILE:2026Q2": {
+      "pct": -27.41,
+      "at": "2026-08-13T22:10:43.432Z"
+    },
+    "HE:2026Q2": {
+      "pct": 11.84,
+      "at": "2026-08-13T22:10:43.432Z"
+    },
+    "PLGO:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T22:10:43.432Z"
+    },
+    "DAO:2026Q1": {
+      "pct": -50.09,
+      "at": "2026-08-13T22:10:43.432Z"
+    },
+    "SPB:2026Q3": {
+      "pct": 2657.27,
+      "at": "2026-08-13T22:10:43.432Z"
+    },
+    "SGRY:2026Q2": {
+      "pct": null,
+      "at": "2026-08-13T22:10:43.432Z"
     }
   }
 }
