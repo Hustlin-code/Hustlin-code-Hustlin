@@ -1,6 +1,6 @@
 {
   "stamp": "2026-08-14",
-  "bakedAt": "2026-08-14T18:16:27.913Z",
+  "bakedAt": "2026-08-14T20:09:54.832Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -2696,13 +2696,13 @@
       "name": "Sapiens International Corporation NV",
       "date": "2026-08-11",
       "hour": "",
-      "epsEstimate": 0.3539,
+      "epsEstimate": 0.3978,
       "revenueEstimate": 158304000,
       "marketCap": 2476660000,
       "epsActual": 0.36,
       "revenueActual": null,
-      "quarter": 3,
-      "year": 2025
+      "quarter": 2,
+      "year": 2026
     },
     {
       "symbol": "FLY",
@@ -2714,6 +2714,19 @@
       "marketCap": 4481422577.331951,
       "epsActual": -0.42,
       "revenueActual": 117680000,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "EROK",
+      "name": "EagleRock Land LLC",
+      "date": "2026-08-10",
+      "hour": "amc",
+      "epsEstimate": 0.1258,
+      "revenueEstimate": 44045130,
+      "marketCap": 3267720047.524316,
+      "epsActual": 0.94,
+      "revenueActual": 41530000,
       "quarter": 2,
       "year": 2026
     }
@@ -5148,6 +5161,276 @@
       "name": "Caledonia Mining Corporation PLC",
       "exchange": "NYSE MKT LLC",
       "at": "2026-08-14T18:14:04.769Z"
+    },
+    "TH": {
+      "capM": 1620.872994206939,
+      "name": "Target Hospitality Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "SMWB": {
+      "capM": 789.2808637599544,
+      "name": "Similarweb Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "KORE": {
+      "capM": 163.01,
+      "name": "KORE Group Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "QMCO": {
+      "capM": 972.638772996581,
+      "name": "Quantum Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "EML": {
+      "capM": 154.4406263701754,
+      "name": "Eastern Company",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "HROW": {
+      "capM": 1457.1527591265244,
+      "name": "Harrow Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "PFLT": {
+      "capM": 752.0716495721924,
+      "name": "PennantPark Floating Rate Capital Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "MGNX": {
+      "capM": 259.3375352835821,
+      "name": "MacroGenics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "ALTI": {
+      "capM": 635.2787625859565,
+      "name": "AlTi Global, Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "BRCB": {
+      "capM": 395.9976782733901,
+      "name": "Black Rock Coffee Bar Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "BCSF": {
+      "capM": 821.2352790545455,
+      "name": "Bain Capital Specialty Finance Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "PARK": {
+      "capM": 104.07199684059358,
+      "name": "Park Dental Partners Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "RDI": {
+      "capM": 45.87853001388889,
+      "name": "Reading International Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "MLAB": {
+      "capM": 633.4523956879434,
+      "name": "Mesa Laboratories Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "GENK": {
+      "capM": 64.272,
+      "name": "GEN Restaurant Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "HYFM": {
+      "capM": 8.576300357142857,
+      "name": "Hydrofarm Holdings Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "KBDC": {
+      "capM": 908.6803091058823,
+      "name": "Kayne Anderson BDC Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "DH": {
+      "capM": 92.79858793202092,
+      "name": "Definitive Healthcare Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "VFF": {
+      "capM": 237.5317126130653,
+      "name": "Village Farms International Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "KRNT": {
+      "capM": 766.9525997619048,
+      "name": "Kornit Digital Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "JMIA": {
+      "capM": 797.234399,
+      "name": "Jumia Technologies AG",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "BTGO": {
+      "capM": 641.2555008396794,
+      "name": "BitGo Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "KMDA": {
+      "capM": 418.860418816287,
+      "name": "Kamada Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "NGS": {
+      "capM": 473.88300370697175,
+      "name": "Natural Gas Services Group Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "BODI": {
+      "capM": 47.5693389359375,
+      "name": "Beachbody Company Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "GAUZ": {
+      "capM": 8.938601477985946,
+      "name": "Gauzy Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "JRSH": {
+      "capM": 67.69068196685083,
+      "name": "Jerash Holdings (US) Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "TLS": {
+      "capM": 343.7892270046082,
+      "name": "Telos Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "ECC": {
+      "capM": 507.68,
+      "name": "Eagle Point Credit Company Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "AIRS": {
+      "capM": 243.68179991999997,
+      "name": "AirSculpt Technologies Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "SNCR": {
+      "capM": 103.56,
+      "name": "Synchronoss Technologies, Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "AMPY": {
+      "capM": 200.2346353462415,
+      "name": "Amplify Energy Corp",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "EROK": {
+      "capM": 3267.7200475243158,
+      "name": "EagleRock Land LLC",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "BBGI": {
+      "capM": 49.65416561435803,
+      "name": "Beasley Broadcast Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "HRTX": {
+      "capM": 63.48661297506601,
+      "name": "Heron Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "GRWG": {
+      "capM": 108.41362283146069,
+      "name": "GrowGeneration Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "EVLV": {
+      "capM": 1043.2865535104895,
+      "name": "Evolv Technologies Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "CAN": {
+      "capM": 149.155628,
+      "name": "Canaan Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "STIM": {
+      "capM": 230.87757924299063,
+      "name": "Neuronetics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "MRMD": {
+      "capM": 25.952293754879005,
+      "name": "MariMed Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "ULY": {
+      "capM": 12.07,
+      "name": "Urgent.ly Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "QTRX": {
+      "capM": 135.25817717406142,
+      "name": "Quanterix Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "CCAP": {
+      "capM": 417.46466565072205,
+      "name": "Crescent Capital BDC Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "STEM": {
+      "capM": 55.891384601834865,
+      "name": "Stem Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-14T20:08:44.020Z"
+    },
+    "XTIA": {
+      "capM": 58.87,
+      "name": "XTI Aerospace Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-14T20:08:44.020Z"
     }
   },
   "growthCache": {
@@ -5859,13 +6142,17 @@
       "pct": 1012.5,
       "at": "2026-08-14T18:16:27.608Z"
     },
-    "SPNS:2025Q3": {
-      "pct": -22.17,
-      "at": "2026-08-14T18:16:27.608Z"
-    },
     "STEL:2026Q2": {
       "pct": 14,
       "at": "2026-08-14T18:16:27.608Z"
+    },
+    "EROK:2026Q2": {
+      "pct": null,
+      "at": "2026-08-14T20:09:54.509Z"
+    },
+    "SPNS:2026Q2": {
+      "pct": -22.17,
+      "at": "2026-08-14T20:09:54.509Z"
     }
   }
 }
