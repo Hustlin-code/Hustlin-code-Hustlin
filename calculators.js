@@ -239,13 +239,28 @@
       : '');
   }
 
-  /* ---------- 06 payoff ---------- */
+  /* ---------- 06 payoff ----------
+     Interest is the SUM OF THE MONTHLY CHARGES and nothing else. The final
+     month is usually a partial payment, so cap the payment at what is owed
+     (balance + that month's interest) rather than letting the balance go
+     negative and then correcting for it afterwards.
+
+     This used to read `if (bal < 0) { paid += bal; bal = 0; }`, which
+     subtracted the final-month OVERPAYMENT from the interest total. Overpaying
+     principal does not retroactively reduce interest already charged, so every
+     run understated interest by the size of that overshoot — $78.08 on the
+     page's own worked example ($5,000 at 22.9%, $150/mo). Understating is the
+     dangerous direction: it tells a reader their debt is cheaper than it is.
+     Found 2026-08-13. `calculators-business.js` L151 already did this right;
+     this is that pattern. */
   function sim(bal, apr, pay) {
     var r = apr / 100 / 12, m = 0, paid = 0;
     if (pay <= bal * r) return null;           // payment never covers interest
     while (bal > 0 && m < 1200) {
-      var i = bal * r; bal += i - pay; paid += i; m++;
-      if (bal < 0) { paid += bal; bal = 0; }
+      var i = bal * r;
+      paid += i;
+      bal -= Math.min(pay - i, bal);           // final payment capped at what is owed
+      m++;
     }
     return { m: m, interest: paid };
   }
@@ -253,16 +268,16 @@
     var bal = num($('cyh-poBal')), apr = num($('cyh-poApr')),
         pay = num($('cyh-poPay')), ex = num($('cyh-poEx'));
     if (bal <= 0 || pay <= 0) {
-      ['cyh-poTime','cyh-poSaveT'].forEach(function(k){ $(k).textContent = '–'; });
-      ['cyh-poInt','cyh-poSave'].forEach(function(k){ $(k).textContent = '$0'; });
+      ['cyh-poTime','cyh-poSaveT'].forEach(function(k){ $(k).textContent = EMDASH; });
+      ['cyh-poInt','cyh-poSave'].forEach(function(k){ $(k).textContent = EMDASH; });
       show($('cyh-poMsg'), ''); return;
     }
     var base = sim(bal, apr, pay);
     if (!base) {
       $('cyh-poTime').textContent = 'Never';
-      $('cyh-poInt').textContent = '–';
-      $('cyh-poSaveT').textContent = '–';
-      $('cyh-poSave').textContent = '$0';
+      $('cyh-poInt').textContent = EMDASH;
+      $('cyh-poSaveT').textContent = EMDASH;
+      $('cyh-poSave').textContent = EMDASH;
       show($('cyh-poMsg'),
         '<b>This payment never clears the balance.</b> At ' + apr + '% APR the monthly interest alone is ' +
         'about ' + money(bal * apr / 100 / 12) + ', which is more than you are paying. The balance grows ' +
@@ -285,8 +300,8 @@
         return;
       }
     }
-    $('cyh-poSaveT').textContent = '–';
-    $('cyh-poSave').textContent = '$0';
+    $('cyh-poSaveT').textContent = EMDASH;
+    $('cyh-poSave').textContent = EMDASH;
     show($('cyh-poMsg'),
       '<b>You will pay ' + money(base.interest) + ' in interest at this rate.</b> Add even $25 to the extra ' +
       'field above and watch both numbers move — the effect is almost always bigger than it looks.');
@@ -296,9 +311,9 @@
   window.cyhUtil = function () {
     var bal = num($('cyh-utBal')), lim = num($('cyh-utLim'));
     if (lim <= 0) {
-      $('cyh-utPct').textContent = '–';
-      $('cyh-ut30').textContent = '–';
-      $('cyh-ut10').textContent = '–';
+      $('cyh-utPct').textContent = EMDASH;
+      $('cyh-ut30').textContent = EMDASH;
+      $('cyh-ut10').textContent = EMDASH;
       show($('cyh-utMsg'), ''); return;
     }
     var pct = bal / lim * 100;
@@ -331,8 +346,8 @@
     var s = num($('cyh-ciStart')), mo = num($('cyh-ciMo')),
         y = num($('cyh-ciYrs')), r = num($('cyh-ciRate'));
     if (y <= 0) {
-      ['cyh-ciEnd','cyh-ciIn','cyh-ciGain'].forEach(function(k){ $(k).textContent = '$0'; });
-      $('cyh-ciMult').textContent = '–'; show($('cyh-ciMsg'), ''); return;
+      ['cyh-ciEnd','cyh-ciIn','cyh-ciGain'].forEach(function(k){ $(k).textContent = EMDASH; });
+      $('cyh-ciMult').textContent = EMDASH; show($('cyh-ciMsg'), ''); return;
     }
     var end = grow(s, mo, y, r), inp = s + mo * y * 12, gain = end - inp;
     $('cyh-ciEnd').textContent = money(end);
@@ -399,7 +414,7 @@
     $('cyh-ffPct').textContent = target > 0 ? Math.min(100, (have / target * 100)).toFixed(1) + '%' : '0%';
 
     if (target <= 0 || (save <= 0 && have <= 0)) {
-      $('cyh-ffYrs').textContent = '–'; show($('cyh-ffMsg'), ''); return;
+      $('cyh-ffYrs').textContent = EMDASH; show($('cyh-ffMsg'), ''); return;
     }
     var b = have, mr = r / 100 / 12, m = 0;
     while (b < target && m < 1200) { b = b * (1 + mr) + save; m++; }
@@ -1072,7 +1087,7 @@
     $('cyh-mgDownAmt').textContent = money(down);
 
     if (price <= 0 || loan <= 0) {
-      ['cyh-mgPI','cyh-mgTotal','cyh-mgInterest','cyh-mgPmi'].forEach(function (id) { $(id).textContent = '$0'; });
+      ['cyh-mgPI','cyh-mgTotal','cyh-mgInterest','cyh-mgPmi'].forEach(function (id) { $(id).textContent = EMDASH; });
       show($('cyh-mgMsg'), ''); return;
     }
 
@@ -1143,8 +1158,8 @@
     var salesTax = price * (taxPct / 100);
     var loan = Math.max(0, price + salesTax - down - trade);
     if (price <= 0 || loan <= 0) {
-      ['cyh-auPay','cyh-auInterest','cyh-auTotal'].forEach(function (id) { $(id).textContent = '$0'; });
-      $('cyh-auRule').textContent = '–';
+      ['cyh-auPay','cyh-auInterest','cyh-auTotal'].forEach(function (id) { $(id).textContent = EMDASH; });
+      $('cyh-auRule').textContent = EMDASH;
       show($('cyh-auMsg'), ''); return;
     }
 

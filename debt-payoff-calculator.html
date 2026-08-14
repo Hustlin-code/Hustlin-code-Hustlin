@@ -96,7 +96,7 @@
           "name": "How much faster will an extra $25 a month pay off my debt?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On a typical $5,000 credit card balance at 22.9% APR, an extra $25 a month cuts roughly a year off the payoff and saves close to $1,000 in interest. The effect is larger than most people expect because every extra dollar goes entirely to principal, and principal is what generates next month’s interest."
+            "text": "On a typical $5,000 credit card balance at 22.9% APR, an extra $25 a month cuts a full year off the payoff and saves about $727 in interest — roughly $300 back for every $100 extra you put in. The effect is larger than most people expect because every extra dollar goes entirely to principal, and principal is what generates next month’s interest."
           }
         },
         {
@@ -124,8 +124,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260813-1859">
-<link rel="stylesheet" href="calculators.css?v=20260813-1859">
+<link rel="stylesheet" href="styles.css?v=20260814-1542">
+<link rel="stylesheet" href="calculators.css?v=20260814-1542">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -542,11 +542,20 @@
   <h2>How the math works</h2>
   <div class="cyh-formula">Monthly rate  r = APR ÷ 12 ÷ 100
 
-Each month:
-  balance = balance × (1 + r) − payment
+First, the check that has to come before the loop:
+  if payment ≤ balance × r  →  the balance never falls. No answer exists.
 
-Months to payoff = repeat until balance ≤ 0
-Interest paid    = (payment × months) − starting balance</div>
+Each month:
+  interest  = balance × r
+  balance   = balance − min(payment − interest, balance)
+
+Months to payoff = repeat until balance = 0
+Interest paid    = the sum of every monthly interest charge
+
+The last payment is capped at what is still owed, so it is usually
+smaller than the others. Interest is summed as it is charged rather
+than derived from payment × months, which would count that final
+part-payment as a full one.</div>
 
   <h3>How to use it</h3>
   <ol>
@@ -557,7 +566,7 @@ Interest paid    = (payment × months) − starting balance</div>
   </ol>
 
   <h3>A worked example</h3>
-  <div class="cyh-example"><p>A <b>$5,000</b> balance at <b>22.9% APR</b> paying <b>$150</b> a month takes <b>4 years 7 months</b> and costs <b>$3,235</b> in interest. Add <b>$25</b> a month and it becomes <b>3 years 6 months</b> and <b>$2,251</b> — <b>13 months</b> and <b>$984</b> saved for $25. That is a better guaranteed return than any investment on offer, because avoiding 22.9% interest <i>is</i> a 22.9% return.</p></div>
+  <div class="cyh-example"><p>A <b>$5,000</b> balance at <b>22.9% APR</b> paying <b>$150</b> a month takes <b>4 years 6 months</b> and costs <b>$3,021.92</b> in interest. Add <b>$25</b> a month and it becomes <b>3 years 6 months</b> and <b>$2,295.12</b> — <b>12 months</b> and <b>$726.81</b> saved for $25. That is a better guaranteed return than any investment on offer, because avoiding 22.9% interest <i>is</i> a 22.9% return.</p></div>
 
   <h3>Where this sits in the Financial Literacy resource</h3>
   <p>A calculator tells you where you are. It does not tell you what to do next, and a number without a plan behind it tends to produce anxiety rather than progress. These stages are free, need no account, and cover the decision this calculator is measuring.</p>
@@ -587,7 +596,7 @@ Interest paid    = (payment × months) − starting balance</div>
     <h3>Common questions</h3>
       <details>
         <summary>How much faster will an extra $25 a month pay off my debt?</summary>
-        <p>On a typical $5,000 credit card balance at 22.9% APR, an extra $25 a month cuts roughly a year off the payoff and saves close to $1,000 in interest. The effect is larger than most people expect because every extra dollar goes entirely to principal, and principal is what generates next month’s interest.</p>
+        <p>On a typical $5,000 credit card balance at 22.9% APR, an extra $25 a month cuts a full year off the payoff and saves about $727 in interest — roughly $300 back for every $100 extra you put in. The effect is larger than most people expect because every extra dollar goes entirely to principal, and principal is what generates next month’s interest.</p>
       </details>
       <details>
         <summary>Why does paying only the minimum take so long?</summary>
@@ -711,6 +720,6 @@ Interest paid    = (payment × months) − starting balance</div>
 </footer>
 <!-- FOOTER:END -->
 
-<script src="calculators.js?v=20260813-1859"></script>
+<script src="calculators.js?v=20260814-1542"></script>
 </body>
 </html>
