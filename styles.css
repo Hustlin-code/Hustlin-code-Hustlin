@@ -3307,3 +3307,106 @@ html.hfy-gate-pending .course-layout{visibility:hidden}
    tools/inject-market-data.mjs. Sits above the table so it is read before the
    list, not discovered after scrolling to a bottom that isn't one. */
 .mkt-cut{font-size:12.5px;line-height:1.6;color:#8b8577;margin:0 0 10px}
+
+/* ─── LEGAL / POLICY PAGES ────────────────────────────────────────
+   contact.html · dmca.html · privacy-policy.html · terms-of-service.html
+
+   These four carried four inline copies of this block. They agreed today
+   by luck, not by design — the same failure that produced two blog layout
+   systems and nine copies of .breadcrumb, and the reason the house rule is
+   "a class used on more than one page belongs in styles.css." Moved here
+   2026-08-15; the inline copies are gone. Do not paste it back into a page.
+
+   Two things changed on the way in, both to match what the rest of the site
+   already does rather than to invent a new look:
+
+   1. HEADINGS ARE var(--f-body), NOT var(--f-display).
+      .policy-body h2 and .ct-card h3 were Impact at 1.4rem and 1.05rem.
+      Impact is a condensed poster face with one weight, so font-weight:700
+      on it produces a synthesised bold — the counters close up and it reads
+      as a smudge in dark ink on cream. The NUMBERED STEPS BOX above this
+      block was fixed for exactly this reason, and blog/post.css sets .pw h2
+      and .pw h3 to var(--f-body). Sixteen Impact headings down a terms page
+      was the most visible instance left. Display type belongs in the hero
+      banner — which is why .policy-title, on the dark hero, keeps it.
+
+   2. LINKS ARE var(--amber-ink), NOT #1a7a34.
+      The body links were a hardcoded green found nowhere else on the site;
+      every other reading surface uses amber-ink. On a page whose links are
+      mostly "email us" and cross-references to other policies, a second
+      link colour reads as a different kind of link.
+
+   Measure is 43rem minus 40px of padding — about 72 characters at this size,
+   which is inside the comfortable range for dense legal prose and is
+   deliberately narrower than the blog's .pw.
+   ───────────────────────────────────────────────────────────────── */
+.policy-hero{background:#060606;padding:100px 40px 60px;border-bottom:1px solid rgba(255,255,255,.07)}
+.policy-hero-inner{max-width:800px;margin:0 auto}
+.policy-eyebrow{
+  font-family:var(--f-body);font-size:.72rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:12px;
+}
+.policy-title{
+  font-family:var(--f-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;
+  color:#fff;letter-spacing:-.02em;margin-bottom:10px;
+}
+.policy-meta{font-family:var(--f-body);font-size:.88rem;color:rgba(255,255,255,.5)}
+
+.policy-body{max-width:43rem;margin:0 auto;padding:56px 40px 80px;background:var(--white)}
+.policy-body h2{
+  font-family:var(--f-body);font-size:1.35rem;font-weight:800;
+  color:var(--text-dark);margin:44px 0 13px;padding-top:14px;
+  letter-spacing:-.01em;line-height:1.3;scroll-margin-top:132px;
+  border-top:1px solid var(--border);
+}
+.policy-body h2:first-child{margin-top:0;padding-top:0;border-top:none}
+.policy-body h3{
+  font-family:var(--f-body);font-size:.98rem;font-weight:700;
+  color:var(--amber-ink);margin:24px 0 9px;scroll-margin-top:132px;
+}
+.policy-body p{
+  font-family:var(--f-body);font-size:1rem;line-height:1.78;
+  color:var(--text-body);margin:0 0 16px;text-wrap:pretty;
+}
+.policy-body ul{margin:12px 0 22px 22px}
+.policy-body ul li{
+  font-family:var(--f-body);font-size:.97rem;line-height:1.72;
+  color:var(--text-body);margin-bottom:10px;padding-left:4px;text-wrap:pretty;
+}
+.policy-body strong,.policy-body b{color:var(--text-dark);font-weight:700}
+.policy-body a{color:var(--amber-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.policy-body a:hover{color:var(--orange);text-decoration-thickness:2px}
+
+.policy-highlight{
+  background:var(--cream);border-left:4px solid var(--amber);
+  border-radius:var(--r-sm);padding:16px 20px;margin:24px 0;
+}
+.policy-highlight p{margin:0;font-size:1rem;line-height:1.78}
+
+.policy-contact{
+  background:#060606;border:1px solid rgba(245,197,32,.2);
+  border-radius:12px;padding:20px 24px;margin-top:40px;
+}
+.policy-contact p{font-family:var(--f-body);color:rgba(255,255,255,.72);margin:0;font-size:.98rem;line-height:1.75}
+.policy-contact a{color:var(--amber)}
+
+/* contact.html only, but it lives here for the same reason as the rest:
+   one copy, and the next page that wants a contact card gets it free. */
+.ct-cards{display:grid;gap:16px;margin:26px 0 8px}
+.ct-card{
+  border:1px solid rgba(0,0,0,.12);border-left:5px solid var(--amber);
+  border-radius:10px;padding:18px 20px;background:#FFFDF7;
+}
+.ct-card h3{
+  font-family:var(--f-body);font-size:1.05rem;font-weight:800;
+  color:var(--text-dark);margin:0 0 6px;letter-spacing:-.01em;
+}
+.ct-card p{margin:0 0 8px;font-size:.97rem;line-height:1.72;color:var(--text-body)}
+.ct-card p:last-child{margin-bottom:0}
+.ct-mail{font-family:var(--f-mono);font-weight:700}
+
+@media(max-width:560px){
+  .policy-hero{padding:80px 18px 40px}
+  .policy-body{padding:40px 20px 60px}
+  .policy-body h2{font-size:1.22rem;margin:36px 0 12px}
+}
