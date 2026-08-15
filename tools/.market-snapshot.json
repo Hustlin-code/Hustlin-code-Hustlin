@@ -1,6 +1,6 @@
 {
   "stamp": "2026-08-15",
-  "bakedAt": "2026-08-15T06:05:12.652Z",
+  "bakedAt": "2026-08-15T17:43:54.978Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -322,6 +322,16 @@
       "fmt": "pct2",
       "deltaUnit": "pts"
     },
+    "revolving": {
+      "label": "Revolving Credit",
+      "display": "3.8%",
+      "value": 3.7893,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "down",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
+    },
     "dollar": {
       "label": "US Dollar Index (broad)",
       "display": "119.1",
@@ -331,6 +341,16 @@
       "better": "up",
       "fmt": "idx",
       "deltaUnit": "points"
+    },
+    "m2": {
+      "label": "Money Supply (M2)",
+      "display": "5.5%",
+      "value": 5.52576,
+      "date": "2026-06-01",
+      "freq": "m",
+      "better": "up",
+      "fmt": "pct1",
+      "deltaUnit": "pts"
     },
     "djia": {
       "label": "Dow Jones Industrial Average",
@@ -2837,6 +2857,19 @@
       "marketCap": 3285040809.600205,
       "epsActual": -0.18,
       "revenueActual": 1150000,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "FRVO",
+      "name": "Fervo Energy Co",
+      "date": "2026-08-12",
+      "hour": "bmo",
+      "epsEstimate": -0.0816,
+      "revenueEstimate": 428400,
+      "marketCap": 5884059965.005414,
+      "epsActual": -0.38,
+      "revenueActual": 110000,
       "quarter": 2,
       "year": 2026
     }
@@ -6615,6 +6648,270 @@
       "name": "SeaStar Medical Holding Corp",
       "exchange": "NASDAQ NMS - GLOBAL MARKET",
       "at": "2026-08-15T06:04:01.983Z"
+    },
+    "NNE": {
+      "capM": 1056.779477871345,
+      "name": "Nano Nuclear Energy Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "UPB": {
+      "capM": 376.2770235238785,
+      "name": "Upstream Bio Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "FRVO": {
+      "capM": 5884.059965005414,
+      "name": "Fervo Energy Co",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "SINT": {
+      "capM": 10.92983658479532,
+      "name": "SINTX Technologies Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "HYPD": {
+      "capM": 41.2290718303887,
+      "name": "Hyperion DeFi Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "LGVN": {
+      "capM": 23.38564394079702,
+      "name": "Longeveron Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "PXLW": {
+      "capM": 42.22476339275765,
+      "name": "Pixelworks Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "IGC": {
+      "capM": 29.4668855292517,
+      "name": "IGC Pharma Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ZIVO": {
+      "capM": 16.61,
+      "name": "Zivo Bioscience Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "MODD": {
+      "capM": 12.520023871657756,
+      "name": "Modular Medical Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "VYNE": {
+      "capM": 1094.083052,
+      "name": "Vyne Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "CODX": {
+      "capM": 10.260207818120806,
+      "name": "Co-Diagnostics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "SPCE": {
+      "capM": 504.0563897372612,
+      "name": "Virgin Galactic Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "SERA": {
+      "capM": 77.73006394029849,
+      "name": "Sera Prognostics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "MNOV": {
+      "capM": 64.479828,
+      "name": "MediciNova Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "PAVM": {
+      "capM": 36.296302208860766,
+      "name": "PAVmed Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ALLO": {
+      "capM": 711.7112103030304,
+      "name": "Allogene Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ABCP": {
+      "capM": 21.234552,
+      "name": "AmBase Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ABIT": {
+      "capM": 15.151535942857143,
+      "name": "Athena Bitcoin Global",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ABVC": {
+      "capM": 23.98626326891808,
+      "name": "ABVC Biopharma Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ADAP": {
+      "capM": 9.01,
+      "name": "Adaptimmune Therapeutics PLC",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ADIL": {
+      "capM": 8.874240954441913,
+      "name": "Adial Pharmaceuticals Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ADVM": {
+      "capM": 96.26,
+      "name": "Adverum Biotechnologies Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "AERG": {
+      "capM": 279.9303049999999,
+      "name": "Applied Energetics Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "AFJK": {
+      "capM": 38.62925130184804,
+      "name": "Aimei Health Technology Co Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "AKTX": {
+      "capM": 8.012113,
+      "name": "Akari Therapeutics PLC",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ANSC": {
+      "capM": 476.1313420000001,
+      "name": "Agriculture & Natural Solutions Acquisition Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "APLT": {
+      "capM": 15.7,
+      "name": "Applied Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "APTO": {
+      "capM": 4.31,
+      "name": "Aptose Biosciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "AREB": {
+      "capM": 4.927034460338574,
+      "name": "American Rebel Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ATGN": {
+      "capM": 13.35591886015625,
+      "name": "Altigen Communications Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "ATPC": {
+      "capM": 2.47154622,
+      "name": "Agape ATP Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "AWH": {
+      "capM": 14.26,
+      "name": "Aspira Women's Health Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BCAX": {
+      "capM": 1600.0615232247146,
+      "name": "Bicara Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BFRG": {
+      "capM": 10.568741319796953,
+      "name": "Bullfrog AI Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BGMS": {
+      "capM": 4.967510647497567,
+      "name": "Bio Green Med Solution Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BLMH": {
+      "capM": 6.936339,
+      "name": "Blum Holdings Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BMR": {
+      "capM": 20.654705212598426,
+      "name": "Beamr Imaging Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BRN": {
+      "capM": 14.04025388200375,
+      "name": "Barnwell Industries Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BSTT": {
+      "capM": 277.67,
+      "name": "Blackstone Real Estate Income Trust Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BYSD": {
+      "capM": 17.613469321100915,
+      "name": "Bayside Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "BZYR": {
+      "capM": 0.591518,
+      "name": "Burzynski Research Institute Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "CAAS": {
+      "capM": 140.2937624123273,
+      "name": "China Automotive Systems Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
+    },
+    "CARV": {
+      "capM": 8.755684483798216,
+      "name": "Carver Bancorp Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-15T17:42:44.206Z"
     }
   },
   "growthCache": {
@@ -7377,6 +7674,10 @@
     "RLX:2026Q2": {
       "pct": 27.46,
       "at": "2026-08-15T06:05:12.389Z"
+    },
+    "FRVO:2026Q2": {
+      "pct": null,
+      "at": "2026-08-15T17:43:54.636Z"
     }
   }
 }
