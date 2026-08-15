@@ -926,17 +926,23 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
       <input type="radio" name="earnwin" id="earnwin-tomorrow" class="mkt-tab-in">
       <input type="radio" name="earnwin" id="earnwin-reported" class="mkt-tab-in">
       <div class="mkt-tab-btns">
-        <label for="earnwin-today">Today &nbsp;<span>2</span></label>
+        <label for="earnwin-today">Today &nbsp;<span>0</span></label>
         <label for="earnwin-tomorrow">Tomorrow &nbsp;<span>0</span></label>
-        <label for="earnwin-reported">Just reported &nbsp;<span>187</span></label>
+        <label for="earnwin-reported">Just reported &nbsp;<span>174</span></label>
       </div>
       <div class="mkt-tab-panel" data-win="today">
-        <div class="mkt-paged" data-page-size="10"><div class="mkt-scroll"><table class="mkt-table mkt-sortable">
-      <thead><tr><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">Company<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">When<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Market cap<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Surprise<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col">Read it</th></tr></thead>
+        <p class="mkt-empty">No company above $2 billion is scheduled to report today. That is normal — reporting clusters into a few weeks each quarter and thins out to nothing in between. Try the Tomorrow tab, or Just reported for the ones already in.</p>
+      </div>
+      <div class="mkt-tab-panel" data-win="tomorrow">
+        <p class="mkt-empty">Nothing above the size floor is on the calendar for tomorrow yet. Dates move, and companies confirm late — this fills in as they do.</p>
+      </div>
+      <div class="mkt-tab-panel" data-win="reported">
+        <p class="mkt-cut">Showing the 100 largest of 174 companies above the size floor. The rest are on the calendar and simply do not fit on one page.</p><div class="mkt-paged" data-page-size="10"><div class="mkt-scroll"><table class="mkt-table mkt-sortable">
+      <thead><tr><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">Company<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Date<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Market cap<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Surprise<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col">Read it</th></tr></thead>
       <tbody>
         <tr>
           <th scope="row" data-v="SIND"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SIND#lookup" rel="nofollow" title="Look up SIND">SIND</a><span class="mkt-co">Sinda Ltd</span></th>
-          <td data-v="0">Before open</td>
+          <td data-v="20260814">14 Aug</td>
           <td data-v="2699445178.3612237" class="mkt-hide-sm">$2.7B</td>
           <td data-v="-0.0306">$-0.03</td>
           <td data-v="-0.13">$-0.13</td>
@@ -947,7 +953,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
         </tr>
         <tr>
           <th scope="row" data-v="RLX"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=RLX#lookup" rel="nofollow" title="Look up RLX">RLX</a><span class="mkt-co">RLX Technology Inc</span></th>
-          <td data-v="0">Before open</td>
+          <td data-v="20260814">14 Aug</td>
           <td data-v="2458534590" class="mkt-hide-sm">$2.5B</td>
           <td data-v="0.6363">$0.64</td>
           <td data-v="0.20227199999999998">$0.20</td>
@@ -956,16 +962,6 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
           <td data-v="1004078208">$1.00B</td>
           <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/RLX/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=RLX&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
-      </tbody>
-    </table></div></div>
-      </div>
-      <div class="mkt-tab-panel" data-win="tomorrow">
-        <p class="mkt-empty">Nothing above the size floor is on the calendar for tomorrow yet. Dates move, and companies confirm late — this fills in as they do.</p>
-      </div>
-      <div class="mkt-tab-panel" data-win="reported">
-        <p class="mkt-cut">Showing the 100 largest of 187 companies above the size floor. The rest are on the calendar and simply do not fit on one page.</p><div class="mkt-paged" data-page-size="10"><div class="mkt-scroll"><table class="mkt-table mkt-sortable">
-      <thead><tr><th scope="col" aria-sort="none" data-type="text"><button type="button" class="mkt-sort">Company<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Date<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Market cap<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">EPS actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Surprise<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" class="mkt-hide-sm" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue est.<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none" data-type="num"><button type="button" class="mkt-sort">Revenue actual<span class="mkt-arrow" aria-hidden="true"></span></button></th><th scope="col">Read it</th></tr></thead>
-      <tbody>
         <tr>
           <th scope="row" data-v="AMAT"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=AMAT#lookup" rel="nofollow" title="Look up AMAT">AMAT</a><span class="mkt-co">Applied Materials Inc</span></th>
           <td data-v="20260813">13 Aug</td>
@@ -1913,6 +1909,17 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
           <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/EROC/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=EROC&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
         <tr>
+          <th scope="row" data-v="NN"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=NN#lookup" rel="nofollow" title="Look up NN">NN</a><span class="mkt-co">NextNav Inc</span></th>
+          <td data-v="20260811">11 Aug</td>
+          <td data-v="3285040809.600205" class="mkt-hide-sm">$3.3B</td>
+          <td data-v="-0.1597">$-0.16</td>
+          <td data-v="-0.18">$-0.18</td>
+          <td data-v="-0.020299999999999985" class="down">−$0.02</td>
+          <td data-v="927000" class="mkt-hide-sm">$1M</td>
+          <td data-v="1150000">$1M</td>
+          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/NN/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=NN&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
+        </tr>
+        <tr>
           <th scope="row" data-v="SPNS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=SPNS#lookup" rel="nofollow" title="Look up SPNS">SPNS</a><span class="mkt-co">Sapiens International Corporation NV</span></th>
           <td data-v="20260811">11 Aug</td>
           <td data-v="2476660000" class="mkt-hide-sm">$2.5B</td>
@@ -2032,39 +2039,6 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
           <td data-v="23155683159" class="mkt-hide-sm">$23.16B</td>
           <td data-v="23899580000">$23.90B</td>
           <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/JBS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=JBS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
-        </tr>
-        <tr>
-          <th scope="row" data-v="AXSM"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=AXSM#lookup" rel="nofollow" title="Look up AXSM">AXSM</a><span class="mkt-co">Axsome Therapeutics Inc</span></th>
-          <td data-v="20260810">10 Aug</td>
-          <td data-v="11192733256.058138" class="mkt-hide-sm">$11.2B</td>
-          <td data-v="-0.8616">$-0.86</td>
-          <td data-v="-0.99">$-0.99</td>
-          <td data-v="-0.12839999999999996" class="down">−$0.13</td>
-          <td data-v="225654773" class="mkt-hide-sm">$226M</td>
-          <td data-v="218380000">$218M</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/AXSM/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=AXSM&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
-        </tr>
-        <tr>
-          <th scope="row" data-v="DDS"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=DDS#lookup" rel="nofollow" title="Look up DDS">DDS</a><span class="mkt-co">Dillard's Inc</span></th>
-          <td data-v="20260810">10 Aug</td>
-          <td data-v="9587387690.015848" class="mkt-hide-sm">$9.6B</td>
-          <td data-v="4.3295">$4.33</td>
-          <td data-v="9.37">$9.37</td>
-          <td data-v="5.040499999999999" class="up">+$5.04</td>
-          <td data-v="1537415263" class="mkt-hide-sm">$1.54B</td>
-          <td data-v="-Infinity">—</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/DDS/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=DDS&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
-        </tr>
-        <tr>
-          <th scope="row" data-v="ACM"><a class="mkt-sym" href="/Markets/spotlight.html?symbol=ACM#lookup" rel="nofollow" title="Look up ACM">ACM</a><span class="mkt-co">AECOM</span></th>
-          <td data-v="20260810">10 Aug</td>
-          <td data-v="8186379805.797018" class="mkt-hide-sm">$8.2B</td>
-          <td data-v="1.4809">$1.48</td>
-          <td data-v="-0.5">$-0.50</td>
-          <td data-v="-1.9809" class="down">−$1.98</td>
-          <td data-v="2043961815" class="mkt-hide-sm">$2.04B</td>
-          <td data-v="1608900000">$1.61B</td>
-          <td class="mkt-rel"><a href="https://finance.yahoo.com/quote/ACM/press-releases/" target="_blank" rel="noopener nofollow">Release &rarr;</a><a class="sec" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;ticker=ACM&amp;type=8-K&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC</a></td>
         </tr>
       </tbody>
     </table></div></div>
