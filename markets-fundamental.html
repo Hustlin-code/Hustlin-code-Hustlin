@@ -83,7 +83,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260815-2229">
+<link rel="stylesheet" href="styles.css?v=20260815-2347">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -206,6 +206,28 @@
 .eco-sec.dark .eco-call p{color:#3d3a33}
 .eco-sec.dark .eco-call .eco-call-h{color:#060606}
 .eco-call a{color:#8A6D08;font-weight:700}
+/* ------------------------------------------------------------------ */
+/* PROSE LINK COLOR — added 2026-08-16.                                */
+/* An <a> that no rule gives a color to falls back to the user-agent   */
+/* default rgb(0,0,238). Measured across the five Markets pages:       */
+/* 2.01–2.16:1 on the near-black sections, where WCAG AA body text     */
+/* needs 4.5:1, and browser blue on cream, on a brand that has no blue */
+/* in it. Thirty-five links were in that state.                        */
+/* These are DEFAULTS and are deliberately weak. The dark rule is       */
+/* wrapped in :where(), which contributes ZERO specificity, so it sits  */
+/* at (0,0,1) and loses to every explicit rule — .eco-src a, .eco-call  */
+/* a, .eco-rel, .mkt-table a are all untouched. The light-container     */
+/* rule is identical in weight but comes second, so a white .eco-faq or */
+/* .eco-steps nested inside a dark section still wins on source order.  */
+/* Both stay at (0,0,1) on purpose: an earlier draft gave the light     */
+/* rule two classes and it silently repainted 30 .mkt-stat-src source   */
+/* links from #8b8577 to #8A6D08. Measured, caught, reverted.           */
+/* Do not "tidy" the :where()                                          */
+/* away: matching specificity is a fix with an expiry date, which is    */
+/* how the .beh-cash callout silently reverted on 2026-08-16.          */
+/* ------------------------------------------------------------------ */
+:where(.eco-sec.dark,.eco-hero,.eco-buy,.eco-buy-card) :where(p,li,dd) a{color:#F5C520}
+:where(.eco-faq,.eco-steps,.eco-sec.cream,.eco-sec.white) :where(p,li,dd) a{color:#8A6D08}
 .eco-call .eco-call-h{display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
   letter-spacing:.05em;text-transform:uppercase}
 
@@ -1977,7 +1999,8 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
         by TradingView and may be delayed. Figures reported by companies are restated more often
         than people expect &mdash; always check a filing at
         <a href="https://www.sec.gov/edgar/search/" target="_blank" rel="noopener">SEC EDGAR</a>
-        before acting on any number.
+        before acting on any number. This product uses the FRED&reg; API but is not endorsed or certified by the
+        Federal Reserve Bank of St. Louis.
       </p>
       <p>
         <strong>This is not investment advice.</strong> Hustlin' is educational and entertainment
@@ -2175,8 +2198,8 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
      market-tables.js alongside the 10-row pager, and the reasoning for both
      being pure enhancement is in that file's header.
      ──────────────────────────────────────────────────────────────────────── -->
-<script src="market-tables.js?v=20260815-2229"></script>
-<script src="app.js?v=20260815-2229"></script>
+<script src="market-tables.js?v=20260815-2347"></script>
+<script src="app.js?v=20260815-2347"></script>
 <script>
 HFY.initNavOnly();
 </script>

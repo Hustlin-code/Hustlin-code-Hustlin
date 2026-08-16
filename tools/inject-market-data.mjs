@@ -492,6 +492,59 @@ function shortDay(iso) {
   return `${SHORT_MONTHS[Number(m[2]) - 1]} ${Number(m[3])}`
 }
 
+/* WHERE TODAY SITS INSIDE ITS OWN YEAR — added 2026-08-16 at Adam's request.
+   The card already prints the 1-year range; the range on its own makes the
+   reader do the arithmetic. These two figures do it: how far the current print
+   is below the top of its year, and how far it has already come off the bottom.
+   Both are needed. "8% below the high" and "3% above the low" describe very
+   different tapes and either one alone is half the picture.
+
+   NO NEW DATA. price, low52 and high52 are already on every v3 quote row from
+   market-quotes; nothing extra is fetched and no edge function changes.
+
+   A YIELD IS NOT A PRICE. The change figure on these cards is already in basis
+   points, and "3.4% below its high" for a rate invites the reader to hear
+   percentage POINTS — which for a 4.22% yield is a twenty-fold error. Yields
+   therefore get bp, prices and indices get percent, which is exactly the split
+   market-quotes already applies to changeDisplay. Do not unify them.
+
+   MISSING IS MISSING. A v2-shaped fallback row has no low52/high52, so this
+   returns '' and the line is not rendered at all — the same rule as the range
+   line above it. Never a zero: "0.0% below the high" reads as "at the high",
+   which is a lie about a number we do not have.
+
+   AT THE EXTREME. Within half a basis point (or 0.05%) of an end, the honest
+   phrasing is "at its 1-year high", not "0.0% below the high", and the other
+   end is dropped — a reader who has been told a print is at its high does not
+   also need to be told it is 21.9% above the low in the same breath. */
+function rangeGap(r) {
+  // Number(null) and Number('') are both 0, and 0 is finite — so a plain
+  // Number() + isFinite guard lets a MISSING price through as a real zero and
+  // prints "100.0% below the high" for a number we do not have. Caught in
+  // testing 2026-08-16. Reject the empty values before coercing.
+  const num = v => (v === null || v === undefined || v === '' ? NaN : Number(v))
+  const price = num(r?.price), lo = num(r?.low52), hi = num(r?.high52)
+  if (![price, lo, hi].every(Number.isFinite)) return ''
+  if (hi < lo) return ''
+  const yld = r?.kind === 'yield'
+  // A ratio needs a non-zero, same-signed base. Yields are differences, so they
+  // are safe at zero; prices and index levels are not, and a zero low there
+  // means the series is broken, not that something is infinitely above it.
+  if (!yld && (lo <= 0 || hi <= 0 || price <= 0)) return ''
+  // low52/high52 are computed from the same observation window as price, so the
+  // print cannot sit outside its own range. If it does, the row is stitched from
+  // two sources and the gap would be reported with the sign thrown away by the
+  // abs() below — "1% below the high" for something ABOVE it. Say nothing.
+  if (price > hi || price < lo) return ''
+  const belowHi = yld ? (hi - price) * 100 : (1 - price / hi) * 100
+  const aboveLo = yld ? (price - lo) * 100 : (price / lo - 1) * 100
+  const eps = yld ? 0.5 : 0.05
+  if (Math.abs(belowHi) < eps) return 'At its 1-year high'
+  if (Math.abs(aboveLo) < eps) return 'At its 1-year low'
+  const u = v => yld ? `${Math.abs(Math.round(v))} bp` : `${Math.abs(v).toFixed(1)}%`
+  return `${u(belowHi)} below the high · ${u(aboveLo)} above the low`
+}
+
 function renderQuotes(rows) {
   if (!rows?.length) return ''
   return `<div class="mkt-quote-row">
@@ -500,6 +553,7 @@ ${rows.map(r => {
   const fill = r.key ?? r.symbol
   const range = r.rangeDisplay ?? '—'
   const day = shortDay(r.asOf)
+  const gap = rangeGap(r)
   const src = [r.note ?? r.symbol, [r.source, day].filter(Boolean).join(', ')]
     .filter(Boolean).join(' · ')
   return `      <article class="mkt-quote ${up ? 'up' : 'down'}">
@@ -507,7 +561,7 @@ ${rows.map(r => {
         <p class="mkt-quote-px" data-fill="q-${esc(fill)}">${esc(r.display)}</p>
         <p class="mkt-quote-chg">${esc(r.pctDisplay)}</p>
         <p class="mkt-quote-sym">1-year range ${esc(range)}</p>
-        <p class="mkt-quote-sym">${esc(src)}</p>
+${gap ? `        <p class="mkt-quote-gap">${esc(gap)}</p>\n` : ''}        <p class="mkt-quote-sym">${esc(src)}</p>
       </article>`
 }).join('\n')}
 </div>`
@@ -997,17 +1051,28 @@ ${reported.slice(0, EARNINGS_ROWS).map(r => {
       ramp would encode bar length twice and spend the only free visual channel
       on information the bar already carries.
 
-   2. THE MONTH-OVER-MONTH FIGURE IS A LABEL, NOT A SECOND AXIS. The bars are
-      dollars. Putting a percentage on a second y-scale would invent a
-      relationship between two arbitrary scales — the one charting error a
-      reader cannot detect for themselves.
+   2. THE CHANGE FIGURE IS A LABEL, NOT A SECOND AXIS. The bars are dollars.
+      Putting a percentage on a second y-scale would invent a relationship
+      between two arbitrary scales — the one charting error a reader cannot
+      detect for themselves.
 
-   3. MOST ROWS SHOW AN EM DASH, NOT A NUMBER. Real estate, bonds and money
-      funds publish on schedules that cannot produce an honest monthly move.
-      Em dash, never zero — the same rule renderMetric and calculators.js
-      already follow. The dash IS the finding.
+   3. THE COLUMN IS YEAR-OVER-YEAR (changed 2026-08-16, was month-over-month).
+      The reason is cadence. This block bakes on the MONTHLY tier, so a figure
+      whose freshness is measured in days is stale before the next bake runs.
+      Under the old column four of six rows showed an em dash, because their
+      publishers release annually and cannot produce an honest monthly move.
+      All six can produce a year-over-year. The em-dash path below is kept, and
+      still means "no honest figure exists" — never zero, the same rule
+      renderMetric and calculators.js follow.
 
-   4. LINEAR SCALE. Real estate is roughly 175x crypto and the chart looks
+      Two rows were realigned at the same time so that a row's VALUE and its
+      CHANGE come from one publication: money funds moved from ICI's weekly
+      estimate to ICI's monthly Trends table, and crypto moved from a spot read
+      of CoinGecko's global chart to CoinGecko's quarter-end report. Pairing a
+      weekly headline with a monthly change is a basis mismatch, and it is the
+      kind a reader cannot see.
+
+   4. LINEAR SCALE. Real estate is roughly 190x crypto and the chart looks
       lopsided as a result. That lopsidedness is the whole point. A log scale
       would make the bars comparable and the truth invisible, and it is not
       readable by a general audience anyway.
@@ -1015,6 +1080,12 @@ ${reported.slice(0, EARNINGS_ROWS).map(r => {
    Color never carries meaning alone: every move also carries an arrow and a
    sign, because the site's green and red separate by only ΔE 7.9 under
    deuteranopia, which is inside the band where color alone is not enough.
+
+   PRECISION. yoyApprox on a row means its inputs are rounded hard enough that
+   a decimal place would be false precision — the WFE figure is derived from
+   three rounded regional percentages, and CoinGecko publishes one decimal. Those
+   rows print an approximately-sign and a whole number. Standing rule 18: claims
+   with arithmetic in them get checked by readers.
 
    Data is hand-maintained in tools/series/marketcap.json. Nothing fetches it. */
 function renderOwns(payload) {
@@ -1029,10 +1100,23 @@ function renderOwns(payload) {
     ? (r.tonnes * OZ_PER_TONNE * r.pricePerTroyOz) / 1e12
     : r.usdTrillions
 
+  /* Same rule for the change: where the row stores both years of inputs, the
+     percentage is DERIVED here rather than hardcoded, so the file can never
+     drift out of agreement with its own arithmetic. Everything else uses the
+     published figure in `yoy`. */
+  const changeOf = (r) => {
+    if (r.derive === 'tonnes'
+        && Number.isFinite(r.tonnesPrior) && Number.isFinite(r.pricePriorPerTroyOz)) {
+      const prior = (r.tonnesPrior * OZ_PER_TONNE * r.pricePriorPerTroyOz) / 1e12
+      if (prior > 0) return ((valueOf(r) / prior) - 1) * 100
+    }
+    return (r.yoy === null || r.yoy === undefined) ? null : r.yoy
+  }
+
   const money = (t) => "$" + (t >= 10 ? t.toFixed(1) : t.toFixed(2)) + "T"
 
   const sorted = rows
-    .map(r => ({ ...r, _v: valueOf(r) }))
+    .map(r => ({ ...r, _v: valueOf(r), _c: changeOf(r) }))
     .filter(r => Number.isFinite(r._v) && r._v > 0)
     .sort((a, b) => b._v - a._v)
 
@@ -1043,12 +1127,20 @@ function renderOwns(payload) {
      everything else labels outside the end. Never crop. */
   const INSIDE_AT = 62
 
-  const momCell = (r) => {
-    if (r.mom === null || r.mom === undefined) {
-      return `<td class="own-mom own-na"><span aria-hidden="true">&mdash;</span><span class="own-sr">no month-over-month figure is published for this row</span></td>`
+  /* '+10.6%', '&asymp;&minus;40%'. Approximate rows lose the decimal too — an
+     approximately-sign in front of "40.0%" would be arguing with itself. */
+  const pctText = (r) => {
+    const up = r._c >= 0
+    const n = r.yoyApprox ? Math.abs(r._c).toFixed(0) : Math.abs(r._c).toFixed(1)
+    return `${r.yoyApprox ? '&asymp;' : ''}${up ? '+' : '&minus;'}${n}%`
+  }
+
+  const chgCell = (r) => {
+    if (!Number.isFinite(r._c)) {
+      return `<td class="own-chg own-na"><span aria-hidden="true">&mdash;</span><span class="own-sr">no year-over-year figure is published for this row</span></td>`
     }
-    const up = r.mom >= 0
-    return `<td class="own-mom ${up ? 'up' : 'down'}"><span class="own-arrow" aria-hidden="true">${up ? '&#9650;' : '&#9660;'}</span>${up ? '+' : '&minus;'}${Math.abs(r.mom).toFixed(2)}%</td>`
+    const up = r._c >= 0
+    return `<td class="own-chg ${up ? 'up' : 'down'}"><span class="own-arrow" aria-hidden="true">${up ? '&#9650;' : '&#9660;'}</span>${pctText(r)}<span class="own-sr"> over the year, ${esc(r.yoySource ?? 'source not stated')}</span></td>`
   }
 
   const bar = (r) => {
@@ -1065,7 +1157,7 @@ function renderOwns(payload) {
             ${inside ? '' : `<span class="own-val own-val-out">${money(r._v)}</span>`}
           </div>
         </td>
-        ${momCell(r)}
+        ${chgCell(r)}
       </tr>`
   }
 
@@ -1075,12 +1167,12 @@ function renderOwns(payload) {
 
   return `<div class="own-wrap">
     <table class="own-chart">
-      <caption class="own-sr">Asset classes by total value, largest first. Each bar's length is its value in US dollars; the last column is the change over the previous month, where one is published.</caption>
+      <caption class="own-sr">Asset classes by total value, largest first. Each bar's length is its value in US dollars; the last column is the change over the previous year. The rows are not simultaneous — each carries its own date.</caption>
       <thead>
         <tr>
           <th scope="col">Asset class</th>
           <th scope="col">Total value</th>
-          <th scope="col">Month</th>
+          <th scope="col">Year</th>
         </tr>
       </thead>
       <tbody>
@@ -1093,20 +1185,21 @@ ${sorted.map(bar).join('\n')}
     <details class="own-tbl">
       <summary>See the same figures as a table</summary>
       <table class="mkt-table">
-        <thead><tr><th scope="col">Asset class</th><th scope="col">Value</th><th scope="col">As of</th><th scope="col">Month</th><th scope="col">Source</th></tr></thead>
+        <thead><tr><th scope="col">Asset class</th><th scope="col">Value</th><th scope="col">As of</th><th scope="col">Year</th><th scope="col">Whose figure</th><th scope="col">Source</th></tr></thead>
         <tbody>
 ${sorted.map(r => `          <tr>
             <th scope="row">${esc(r.label)}</th>
             <td>${money(r._v)}</td>
             <td>${esc(r.asOf)}</td>
-            <td>${r.mom === null || r.mom === undefined ? '&mdash;' : (r.mom >= 0 ? '+' : '&minus;') + Math.abs(r.mom).toFixed(2) + '%'}</td>
+            <td>${Number.isFinite(r._c) ? pctText(r) : '&mdash;'}</td>
+            <td>${esc(r.yoySource ?? '—')}</td>
             <td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.source)}</a></td>
           </tr>`).join('\n')}
         </tbody>
       </table>
       <dl class="own-what">
 ${sorted.map(r => `        <dt>${esc(r.label)}</dt>
-        <dd>${esc(r.universe)}.${r.momNote ? ' ' + esc(r.momNote) : ''}</dd>`).join('\n')}
+        <dd>${esc(r.universe)}.${r.yoyNote ? ' ' + esc(r.yoyNote) : ''}</dd>`).join('\n')}
       </dl>
     </details>
 
@@ -1118,7 +1211,7 @@ ${omitted.map(o => `        <dt>${esc(o.label)}</dt>
       </dl>
     </div>
 ` : ''}
-    <p class="own-foot">Figures last reviewed ${esc(payload.reviewed ?? '')}. These rows are not simultaneous and each one carries its own date: property is a full year behind, bonds and gold tonnage are annual, share values are a mid-year reading, and money funds and crypto are current. Gold is the World Gold Council's tonnage multiplied by the World Bank's monthly average price &mdash; our own arithmetic, not a published total.${needsGecko ? ' Crypto data <a href="https://www.coingecko.com" target="_blank" rel="noopener">Powered by CoinGecko</a>.' : ''}</p>
+    <p class="own-foot">Figures last reviewed ${esc(payload.reviewed ?? '')}. These rows are not simultaneous and each one carries its own date: property and bonds are annual, share values are a mid-year reading, money funds are month end and crypto is quarter end. Each row's change covers the same year its value is dated to. Where a publisher prints the change itself we use theirs; where the figure is ours, the table above says so. Gold is the World Gold Council's tonnage multiplied by the World Bank's monthly average price &mdash; our own arithmetic, not a published total.${needsGecko ? ' Crypto data <a href="https://www.coingecko.com" target="_blank" rel="noopener">Powered by CoinGecko</a>.' : ''}</p>
   </div>`
 }
 
@@ -2309,8 +2402,13 @@ async function main() {
       const od = JSON.parse(readFileSync(OWNS_FILE, 'utf8'))
       if (Array.isArray(od.rows) && od.rows.length) {
         data.owns = od
-        const noMom = od.rows.filter(r => r.mom === null || r.mom === undefined).length
-        console.log(`  owns: ${od.rows.length} asset classes, ${noMom} with no month-over-month figure, reviewed ${od.reviewed}`)
+        // A row with no change is one with neither a published yoy nor the two years
+        // of gold inputs renderOwns derives from. Counted the same way the renderer
+        // decides, so the log cannot disagree with the page.
+        const noChg = od.rows.filter(r =>
+          !(Number.isFinite(r.tonnesPrior) && Number.isFinite(r.pricePriorPerTroyOz))
+          && (r.yoy === null || r.yoy === undefined)).length
+        console.log(`  owns: ${od.rows.length} asset classes, ${noChg} with no year-over-year figure, reviewed ${od.reviewed}`)
       } else {
         console.log('  WARN marketcap.json has no rows — keeping the baked block.')
       }

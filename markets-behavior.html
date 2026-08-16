@@ -91,7 +91,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260815-2229">
+<link rel="stylesheet" href="styles.css?v=20260815-2347">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -258,6 +258,14 @@
    and where it came from. Adjacent-sibling rather than a second class so the
    four inline copies of this block stay one line apart from each other. */
 .mkt-quote-sym+.mkt-quote-sym{margin-top:4px;opacity:.8}
+/* The range-gap line. Its own class, not a third .mkt-quote-sym, because it is
+   a figure and the lines around it are labels — and because inserting it
+   between the two .mkt-quote-sym siblings would break the adjacent-sibling rule
+   that spaces the source line. Hence the second selector below. Explicit hex,
+   never a variable: measured 8.9:1 on the #111 card. */
+.mkt-quote-gap{font-size:11.5px;color:#B9B2A2;margin:6px 0 0;line-height:1.45;
+  font-variant-numeric:tabular-nums slashed-zero}
+.mkt-quote-gap+.mkt-quote-sym{margin-top:4px;opacity:.8}
 
 /* bias catalogue */
 .beh-bias{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
@@ -304,6 +312,28 @@
   border:1px solid #EFE2B8;border-left:4px solid #F5C520;max-width:760px}
 .eco-call p{margin:0;font-size:14.5px;line-height:1.68;color:#3d3a33}
 .eco-call a{color:#8A6D08;font-weight:700}
+/* ------------------------------------------------------------------ */
+/* PROSE LINK COLOR — added 2026-08-16.                                */
+/* An <a> that no rule gives a color to falls back to the user-agent   */
+/* default rgb(0,0,238). Measured across the five Markets pages:       */
+/* 2.01–2.16:1 on the near-black sections, where WCAG AA body text     */
+/* needs 4.5:1, and browser blue on cream, on a brand that has no blue */
+/* in it. Thirty-five links were in that state.                        */
+/* These are DEFAULTS and are deliberately weak. The dark rule is       */
+/* wrapped in :where(), which contributes ZERO specificity, so it sits  */
+/* at (0,0,1) and loses to every explicit rule — .eco-src a, .eco-call  */
+/* a, .eco-rel, .mkt-table a are all untouched. The light-container     */
+/* rule is identical in weight but comes second, so a white .eco-faq or */
+/* .eco-steps nested inside a dark section still wins on source order.  */
+/* Both stay at (0,0,1) on purpose: an earlier draft gave the light     */
+/* rule two classes and it silently repainted 30 .mkt-stat-src source   */
+/* links from #8b8577 to #8A6D08. Measured, caught, reverted.           */
+/* Do not "tidy" the :where()                                          */
+/* away: matching specificity is a fix with an expiry date, which is    */
+/* how the .beh-cash callout silently reverted on 2026-08-16.          */
+/* ------------------------------------------------------------------ */
+:where(.eco-sec.dark,.eco-hero,.eco-buy,.eco-buy-card) :where(p,li,dd) a{color:#F5C520}
+:where(.eco-faq,.eco-steps,.eco-sec.cream,.eco-sec.white) :where(p,li,dd) a{color:#8A6D08}
 .eco-call .eco-call-h{display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
   letter-spacing:.05em;text-transform:uppercase}
 
@@ -1152,7 +1182,10 @@
         <strong>Sources and method.</strong> Volatility, stress, credit spread and money market
         series come from <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED,
         Federal Reserve Bank of St. Louis</a>, which republishes CBOE, ICE BofA and Federal Reserve
-        Board data. Index quotes come from Finnhub. The put/call ratio is a TradingView embed.
+        Board data. Index levels, Treasury yields, the dollar index, oil and bitcoin in the
+        cross-asset strip also come from FRED; the <a class="lingo-x" href="learn-the-lingo/etf.html">ETF</a> quotes there come from Finnhub. The
+        put/call ratio is a TradingView embed. This product uses the FRED&reg; API but is not endorsed or certified by the
+        Federal Reserve Bank of St. Louis.
       </p>
       <p>
         <strong>How the composite is built.</strong> Four series &mdash; VIX, the Financial Stress
@@ -1418,7 +1451,7 @@
   });
 })();
 </script>
-<script src="app.js?v=20260815-2229"></script>
+<script src="app.js?v=20260815-2347"></script>
 <script>
 HFY.initNavOnly();
 </script>

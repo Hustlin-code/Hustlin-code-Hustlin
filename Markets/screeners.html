@@ -84,7 +84,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260815-2229">
+<link rel="stylesheet" href="../styles.css?v=20260815-2347">
 <style>
 /* ─ Page-specific additions only ─ */
 
@@ -283,6 +283,14 @@
 .mkt-quote.up .mkt-quote-chg{color:#2DA02D}
 .mkt-quote.down .mkt-quote-chg{color:#EF4444}
 .mkt-quote-sym{font-size:11px;color:#6b665c;margin:0}
+/* The range-gap line. Its own class, not a third .mkt-quote-sym, because it is
+   a figure and the lines around it are labels — and because inserting it
+   between the two .mkt-quote-sym siblings would break the adjacent-sibling rule
+   that spaces the source line. Hence the second selector below. Explicit hex,
+   never a variable: measured 8.9:1 on the #111 card. */
+.mkt-quote-gap{font-size:11.5px;color:#B9B2A2;margin:6px 0 0;line-height:1.45;
+  font-variant-numeric:tabular-nums slashed-zero}
+.mkt-quote-gap+.mkt-quote-sym{margin-top:4px;opacity:.8}
 .mkt-quote-note{font-size:12px;color:#6b665c;margin:16px 0 0;line-height:1.6}
 @media(max-width:640px){
   .mkt-table{font-size:13px}
@@ -875,7 +883,7 @@
 </footer>
 <!-- FOOTER:END -->
 
-<script src="../app.js?v=20260815-2229"></script>
+<script src="../app.js?v=20260815-2347"></script>
 <script>
 HFY.initNavOnly();
 </script>

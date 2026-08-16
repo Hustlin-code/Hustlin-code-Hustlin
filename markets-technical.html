@@ -83,7 +83,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260815-2229">
+<link rel="stylesheet" href="styles.css?v=20260815-2347">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -186,6 +186,14 @@
    and where it came from. Adjacent-sibling rather than a second class so the
    four inline copies of this block stay one line apart from each other. */
 .mkt-quote-sym+.mkt-quote-sym{margin-top:4px;opacity:.8}
+/* The range-gap line. Its own class, not a third .mkt-quote-sym, because it is
+   a figure and the lines around it are labels — and because inserting it
+   between the two .mkt-quote-sym siblings would break the adjacent-sibling rule
+   that spaces the source line. Hence the second selector below. Explicit hex,
+   never a variable: measured 8.9:1 on the #111 card. */
+.mkt-quote-gap{font-size:11.5px;color:#B9B2A2;margin:6px 0 0;line-height:1.45;
+  font-variant-numeric:tabular-nums slashed-zero}
+.mkt-quote-gap+.mkt-quote-sym{margin-top:4px;opacity:.8}
 
 .mkt-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E4DFD3;
   border-radius:14px;overflow:hidden;font-size:14px;margin-top:6px}
@@ -222,6 +230,28 @@
 .eco-sec.dark .eco-call p{color:#3d3a33}
 .eco-sec.dark .eco-call .eco-call-h{color:#060606}
 .eco-call a{color:#8A6D08;font-weight:700}
+/* ------------------------------------------------------------------ */
+/* PROSE LINK COLOR — added 2026-08-16.                                */
+/* An <a> that no rule gives a color to falls back to the user-agent   */
+/* default rgb(0,0,238). Measured across the five Markets pages:       */
+/* 2.01–2.16:1 on the near-black sections, where WCAG AA body text     */
+/* needs 4.5:1, and browser blue on cream, on a brand that has no blue */
+/* in it. Thirty-five links were in that state.                        */
+/* These are DEFAULTS and are deliberately weak. The dark rule is       */
+/* wrapped in :where(), which contributes ZERO specificity, so it sits  */
+/* at (0,0,1) and loses to every explicit rule — .eco-src a, .eco-call  */
+/* a, .eco-rel, .mkt-table a are all untouched. The light-container     */
+/* rule is identical in weight but comes second, so a white .eco-faq or */
+/* .eco-steps nested inside a dark section still wins on source order.  */
+/* Both stay at (0,0,1) on purpose: an earlier draft gave the light     */
+/* rule two classes and it silently repainted 30 .mkt-stat-src source   */
+/* links from #8b8577 to #8A6D08. Measured, caught, reverted.           */
+/* Do not "tidy" the :where()                                          */
+/* away: matching specificity is a fix with an expiry date, which is    */
+/* how the .beh-cash callout silently reverted on 2026-08-16.          */
+/* ------------------------------------------------------------------ */
+:where(.eco-sec.dark,.eco-hero,.eco-buy,.eco-buy-card) :where(p,li,dd) a{color:#F5C520}
+:where(.eco-faq,.eco-steps,.eco-sec.cream,.eco-sec.white) :where(p,li,dd) a{color:#8A6D08}
 .eco-call .eco-call-h{display:block;font-weight:800;color:#060606;margin-bottom:6px;font-size:13px;
   letter-spacing:.05em;text-transform:uppercase}
 
@@ -1595,8 +1625,13 @@
     <div class="eco-src">
       <p>
         <strong>Sources and method.</strong> Charts, breadth indices and the heatmap are supplied
-        by TradingView and may be delayed. Index quotes and sector performance come from Finnhub
-        and are written into this page when the site is rebuilt. Breadth uses the published 20,
+        by TradingView and may be delayed. Index levels, Treasury yields, the dollar index, oil
+        and bitcoin come from
+        <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED, Federal
+        Reserve Bank of St. Louis</a>, and the drawdown block is measured on the FRED S&amp;P 500
+        series; the ETF quotes and sector performance come from Finnhub. All of it is written
+        into this page when the site is rebuilt. This product uses the FRED&reg; API but is not endorsed or certified by the
+        Federal Reserve Bank of St. Louis. Breadth uses the published 20,
         50 and 200-day S&amp;P 500 participation indices (S5TW, S5FI, S5TH), which have long
         histories and can be embedded; arbitrary lookback periods cannot be embedded and would
         need recreating inside a charting account.
@@ -1881,7 +1916,7 @@
   if (start) select(start);
 })();
 </script>
-<script src="app.js?v=20260815-2229"></script>
+<script src="app.js?v=20260815-2347"></script>
 <script>
 HFY.initNavOnly();
 </script>
