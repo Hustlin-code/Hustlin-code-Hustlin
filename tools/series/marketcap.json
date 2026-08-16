@@ -1,0 +1,115 @@
+{
+  "_readme": [
+    "HAND-MAINTAINED. This is the data behind the 'What the world owns' block on markets.html.",
+    "Nothing fetches it. Every figure here was read from the named publisher by a human or an",
+    "agent and carries its own as-of date, because the rows are NOT simultaneous: real estate is",
+    "end-2024, bonds are end-2025, equities are mid-2026, money funds and crypto are current-week.",
+    "",
+    "RULES FOR EDITING THIS FILE:",
+    "  1. Never carry a figure forward. If a publisher has not updated, leave the old asOf date.",
+    "  2. mom is a genuine published-or-computable month-over-month percent, or null. Never zero,",
+    "     never interpolated. null renders as an em dash. Five of the seven candidate rows cannot",
+    "     carry one at all — that is the point of the column, not a gap in it.",
+    "  3. Gold is stored as tonnes × price and DERIVED at render time, so the arithmetic is ours",
+    "     and is stated as ours. Do not replace it with a hardcoded dollar total.",
+    "  4. Anything you cannot verify goes in `omitted` with the reason, not in `rows` with a guess."
+  ],
+  "reviewed": "2026-08-16",
+  "rows": [
+    {
+      "key": "realestate",
+      "label": "Real estate",
+      "universe": "All global real estate — residential, commercial and agricultural",
+      "usdTrillions": 393.3,
+      "asOf": "End-2024",
+      "source": "Savills",
+      "url": "https://impacts.savills.com/market-trends/how-much-is-global-real-estate-worth.html",
+      "mom": null,
+      "momNote": "Annual series, published each October with roughly a ten-month lag.",
+      "confidence": "Confirmed"
+    },
+    {
+      "key": "equities",
+      "label": "Listed shares",
+      "universe": "Market value of all domestic listed companies on WFE member exchanges — a total listed measure, not a free-float investable one",
+      "usdTrillions": 167.8,
+      "asOf": "WFE Focus, August 2026 issue",
+      "source": "World Federation of Exchanges",
+      "url": "https://focus.world-exchanges.org/issue/august-2026/dashboard",
+      "mom": 0.84,
+      "momNote": "WFE prints this month-over-month figure itself.",
+      "confidence": "Confirmed"
+    },
+    {
+      "key": "bonds",
+      "label": "Bonds",
+      "universe": "Global fixed income outstanding — the stock of debt, not the year's issuance",
+      "usdTrillions": 160.7,
+      "asOf": "End-2025",
+      "source": "SIFMA Fact Book 2026",
+      "url": "https://www.sifma.org/research/statistics/fact-book",
+      "mom": null,
+      "momNote": "Annual series, published each August.",
+      "confidence": "Confirmed"
+    },
+    {
+      "key": "gold",
+      "label": "Gold",
+      "universe": "Every ounce ever mined and still above ground — jewelry, bars, coins, funds and central bank reserves",
+      "derive": "tonnes",
+      "tonnes": 219891,
+      "tonnesAsOf": "End-2025",
+      "tonnesSource": "World Gold Council",
+      "tonnesUrl": "https://www.gold.org/goldhub/data/how-much-gold",
+      "pricePerTroyOz": 4073,
+      "priceAsOf": "July 2026 monthly average",
+      "priceSource": "World Bank Pink Sheet",
+      "priceUrl": "https://www.worldbank.org/en/research/commodity-markets",
+      "asOf": "Stock end-2025, priced July 2026",
+      "source": "World Gold Council × World Bank price",
+      "url": "https://www.gold.org/goldhub/data/how-much-gold",
+      "mom": -3.67,
+      "momNote": "Price only. The tonnage does not move month to month; this is the June-to-July move in the World Bank monthly average, $4,228 to $4,073.",
+      "confidence": "Confirmed"
+    },
+    {
+      "key": "mmf",
+      "label": "US money market funds",
+      "universe": "Total assets in US money market funds. This is the closest published stand-in for parked cash and it is US-only — it is not global cash",
+      "usdTrillions": 7.927,
+      "asOf": "Week ended 12 August 2026",
+      "source": "Investment Company Institute",
+      "url": "https://www.ici.org/research/stats/mmf",
+      "mom": null,
+      "momNote": "The release we can reach publishes three weeks, not four. A one-month-earlier figure was not verifiable, so no month-over-month is shown rather than one built from the wrong weeks.",
+      "confidence": "Confirmed"
+    },
+    {
+      "key": "crypto",
+      "label": "Crypto",
+      "universe": "Total market capitalization of all tracked cryptocurrencies",
+      "usdTrillions": 2.23,
+      "asOf": "Read 16 August 2026",
+      "source": "CoinGecko",
+      "url": "https://www.coingecko.com/en/global-charts",
+      "mom": null,
+      "momNote": "CoinGecko does not publish a month-ago total on its free surface. The nearest published anchor is $2.1 trillion at 30 June 2026, a quarter-end, which is not a month-over-month comparison.",
+      "confidence": "Confirmed",
+      "attribution": "Powered by CoinGecko"
+    }
+  ],
+  "omitted": [
+    {
+      "label": "Silver",
+      "reason": "There is no authoritative figure for above-ground silver. The Silver Institute puts it at 19.3 billion ounces counting bullion and fabricated products, as of end-2023. CPM Group puts it near 1.7 million metric tons — roughly three times larger — counting jewelry, decorative objects and industrial products too, as of 2018. They are not measuring the same thing, and a single bar would have to pick one and hide that. The silver price is solid; the stock it multiplies is not."
+    },
+    {
+      "label": "Commodities",
+      "reason": "Oil, wheat and copper are consumed rather than held, so there is no stock of value to total. Nobody publishes a figure worth citing, and inventing one to fill the row would be worse than the gap."
+    },
+    {
+      "label": "Art and collectibles",
+      "reason": "The often-quoted art figure of about $59.6 billion is one year's turnover, not the value of the art in the world. It belongs on a different chart. Nobody publishes a total value for the world's art, watches, wine or cards."
+    }
+  ]
+}

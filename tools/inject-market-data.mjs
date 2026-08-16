@@ -170,7 +170,7 @@ const SECTORS_ENDPOINT = process.env.MARKET_SECTORS_ENDPOINT
 /* Sets served by a market-* function other than market-data. They must not be
    included in the market-data request — it does not know them and there is no
    sense asking. */
-const LOCAL_SETS = new Set(['sectorReturns', 'earningsScore'])
+const LOCAL_SETS = new Set(['sectorReturns', 'earningsScore', 'owns'])
 
 /* ---------------------------------------------------------- EASTERN DATES --
    Every date decision about earnings is made in America/New_York, never UTC
@@ -258,6 +258,11 @@ const CADENCE = {
      change meaningfully between builds", which was true when it was written
      and is an argument against refreshing them 125 times a week. */
   sectorReturns: 'monthly',
+  /* Asset-class market caps. Genuinely monthly: the fastest-moving row in it is
+     a weekly ICI release and the slowest is an annual Savills report, so its
+     VALUE is stable between monthly reads. That is the test for this tier — not
+     that the underlying series happen to be labelled monthly. */
+  owns: 'monthly',
 
   // ── daily ──
   // Every FRED-backed set. See the note above on why these are not monthly.
@@ -981,6 +986,142 @@ ${reported.slice(0, EARNINGS_ROWS).map(r => {
    2018 — and renders as a dash rather than a number invented from a shorter
    window.
 */
+/* ------------------------------------------------------------ what we own ---
+   "WHAT THE WORLD OWNS" — asset classes by total value, largest first.
+
+   Every design decision here is recorded in
+   claude/DESIGN-2026-08-15-MARKETS-LANDING-BLOCKS.md. The four that will look
+   like bugs to a future reader, so they are written down here too:
+
+   1. ONE COLOR FOR EVERY BAR. This is a single measure. A per-category color
+      ramp would encode bar length twice and spend the only free visual channel
+      on information the bar already carries.
+
+   2. THE MONTH-OVER-MONTH FIGURE IS A LABEL, NOT A SECOND AXIS. The bars are
+      dollars. Putting a percentage on a second y-scale would invent a
+      relationship between two arbitrary scales — the one charting error a
+      reader cannot detect for themselves.
+
+   3. MOST ROWS SHOW AN EM DASH, NOT A NUMBER. Real estate, bonds and money
+      funds publish on schedules that cannot produce an honest monthly move.
+      Em dash, never zero — the same rule renderMetric and calculators.js
+      already follow. The dash IS the finding.
+
+   4. LINEAR SCALE. Real estate is roughly 175x crypto and the chart looks
+      lopsided as a result. That lopsidedness is the whole point. A log scale
+      would make the bars comparable and the truth invisible, and it is not
+      readable by a general audience anyway.
+
+   Color never carries meaning alone: every move also carries an arrow and a
+   sign, because the site's green and red separate by only ΔE 7.9 under
+   deuteranopia, which is inside the band where color alone is not enough.
+
+   Data is hand-maintained in tools/series/marketcap.json. Nothing fetches it. */
+function renderOwns(payload) {
+  const rows = payload?.rows
+  if (!Array.isArray(rows) || !rows.length) return ''
+
+  const OZ_PER_TONNE = 1e6 / 31.1034768   // grams per tonne / grams per troy oz
+
+  /* Gold is stored as tonnes x price so the arithmetic is ours and can be
+     stated as ours. Every other row is a published total. */
+  const valueOf = (r) => r.derive === 'tonnes'
+    ? (r.tonnes * OZ_PER_TONNE * r.pricePerTroyOz) / 1e12
+    : r.usdTrillions
+
+  const money = (t) => "$" + (t >= 10 ? t.toFixed(1) : t.toFixed(2)) + "T"
+
+  const sorted = rows
+    .map(r => ({ ...r, _v: valueOf(r) }))
+    .filter(r => Number.isFinite(r._v) && r._v > 0)
+    .sort((a, b) => b._v - a._v)
+
+  const max = sorted[0]._v
+
+  /* A label parked outside a bar that already fills its track lands in the next
+     column's gutter. Wide bars label inside, in dark text on the amber fill;
+     everything else labels outside the end. Never crop. */
+  const INSIDE_AT = 62
+
+  const momCell = (r) => {
+    if (r.mom === null || r.mom === undefined) {
+      return `<td class="own-mom own-na"><span aria-hidden="true">&mdash;</span><span class="own-sr">no month-over-month figure is published for this row</span></td>`
+    }
+    const up = r.mom >= 0
+    return `<td class="own-mom ${up ? 'up' : 'down'}"><span class="own-arrow" aria-hidden="true">${up ? '&#9650;' : '&#9660;'}</span>${up ? '+' : '&minus;'}${Math.abs(r.mom).toFixed(2)}%</td>`
+  }
+
+  const bar = (r) => {
+    const pct = (r._v / max) * 100
+    const inside = pct >= INSIDE_AT
+    return `      <tr class="own-row">
+        <th scope="row" class="own-name">
+          <span class="own-label">${esc(r.label)}</span>
+          <span class="own-src">${esc(r.source)} &middot; ${esc(r.asOf)}</span>
+        </th>
+        <td class="own-cell">
+          <div class="own-track">
+            <div class="own-fill" style="width:${pct.toFixed(2)}%">${inside ? `<span class="own-val own-val-in">${money(r._v)}</span>` : ''}</div>
+            ${inside ? '' : `<span class="own-val own-val-out">${money(r._v)}</span>`}
+          </div>
+        </td>
+        ${momCell(r)}
+      </tr>`
+  }
+
+  const omitted = Array.isArray(payload.omitted) ? payload.omitted : []
+  const needsGecko = sorted.some(r => r.attribution)
+  const ratio = Math.round(sorted[0]._v / sorted[sorted.length - 1]._v)
+
+  return `<div class="own-wrap">
+    <table class="own-chart">
+      <caption class="own-sr">Asset classes by total value, largest first. Each bar's length is its value in US dollars; the last column is the change over the previous month, where one is published.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Asset class</th>
+          <th scope="col">Total value</th>
+          <th scope="col">Month</th>
+        </tr>
+      </thead>
+      <tbody>
+${sorted.map(bar).join('\n')}
+      </tbody>
+    </table>
+
+    <p class="own-scale">The bars are to scale against each other. Property is about ${ratio} times the size of the smallest bar on the chart, and it looks lopsided because it is.</p>
+
+    <details class="own-tbl">
+      <summary>See the same figures as a table</summary>
+      <table class="mkt-table">
+        <thead><tr><th scope="col">Asset class</th><th scope="col">Value</th><th scope="col">As of</th><th scope="col">Month</th><th scope="col">Source</th></tr></thead>
+        <tbody>
+${sorted.map(r => `          <tr>
+            <th scope="row">${esc(r.label)}</th>
+            <td>${money(r._v)}</td>
+            <td>${esc(r.asOf)}</td>
+            <td>${r.mom === null || r.mom === undefined ? '&mdash;' : (r.mom >= 0 ? '+' : '&minus;') + Math.abs(r.mom).toFixed(2) + '%'}</td>
+            <td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.source)}</a></td>
+          </tr>`).join('\n')}
+        </tbody>
+      </table>
+      <dl class="own-what">
+${sorted.map(r => `        <dt>${esc(r.label)}</dt>
+        <dd>${esc(r.universe)}.${r.momNote ? ' ' + esc(r.momNote) : ''}</dd>`).join('\n')}
+      </dl>
+    </details>
+
+${omitted.length ? `    <div class="own-gaps">
+      <h3>What is not on this chart, and why</h3>
+      <dl>
+${omitted.map(o => `        <dt>${esc(o.label)}</dt>
+        <dd>${esc(o.reason)}</dd>`).join('\n')}
+      </dl>
+    </div>
+` : ''}
+    <p class="own-foot">Figures last reviewed ${esc(payload.reviewed ?? '')}. These rows are not simultaneous and each one carries its own date: property is a full year behind, bonds and gold tonnage are annual, share values are a mid-year reading, and money funds and crypto are current. Gold is the World Gold Council's tonnage multiplied by the World Bank's monthly average price &mdash; our own arithmetic, not a published total.${needsGecko ? ' Crypto data <a href="https://www.coingecko.com" target="_blank" rel="noopener">Powered by CoinGecko</a>.' : ''}</p>
+  </div>`
+}
+
 function renderSectorReturns(payload) {
   const rows = payload?.sectors
   if (!Array.isArray(rows) || !rows.length) return ''
@@ -1407,6 +1548,10 @@ const PAGES = [
       // New set as of 2026-08-10 — one extra request per build, shared with
       // markets-technical.html. See renderDrawdown.
       drawdown: { set: 'drawdown', render: renderDrawdown },
+      /* Asset-class market caps. A LOCAL set: read from a committed,
+         hand-maintained JSON file, not requested from any endpoint. The
+         editing rules are at the top of tools/series/marketcap.json. */
+      owns:    { set: 'owns',    render: renderOwns },
       changed: { set: null,      render: renderChanged, diff: true },
     },
   },
@@ -2154,6 +2299,26 @@ async function main() {
     }
   }
 
+  /* WHAT THE WORLD OWNS. Hand-maintained, committed, read from disk. There is
+     no endpoint to be down, so the only failure mode is the file being absent
+     or malformed — in which case the page keeps whatever is already baked in,
+     the same failure policy every other set here follows. */
+  if (live.some(p => p.present.includes('owns'))) {
+    const OWNS_FILE = join(ROOT, 'tools', 'series', 'marketcap.json')
+    try {
+      const od = JSON.parse(readFileSync(OWNS_FILE, 'utf8'))
+      if (Array.isArray(od.rows) && od.rows.length) {
+        data.owns = od
+        const noMom = od.rows.filter(r => r.mom === null || r.mom === undefined).length
+        console.log(`  owns: ${od.rows.length} asset classes, ${noMom} with no month-over-month figure, reviewed ${od.reviewed}`)
+      } else {
+        console.log('  WARN marketcap.json has no rows — keeping the baked block.')
+      }
+    } catch (e) {
+      console.log(`  WARN marketcap.json unreadable (${e.message}) — keeping the baked block.`)
+    }
+  }
+
   /* Sector returns live entirely in market-sectors — there is nothing in
      market-data to fall back to, so a failure here means the page keeps its
      previously baked table. Which is the right outcome: ten-year returns do not
@@ -2234,8 +2399,45 @@ async function main() {
      days old. deploy-site.ps1 step 3b reads this field and re-bakes when it is
      older than -MarketMaxAgeHours. Keep it ISO 8601 and keep it UTC. */
   writeFileSync(SNAPSHOT, JSON.stringify({
-    stamp,
-    bakedAt: new Date().toISOString(),
+    /* THE DIFF BASELINE, GATED THE SAME WAY bakedAt IS AND FOR THE SAME REASON.
+       Fixed 2026-08-16, alongside the bakedAt gate below.
+
+       This field is what the "what changed" block measures against and what a
+       tier falls back to when it has no cadenceStamps entry of its own. A run
+       that fetched nothing has moved no figure, so advancing it would set the
+       baseline to today over yesterday's data — and the next real run would
+       then report four days of moves under the label "since today", which is
+       precisely the quietly-wrong label the per-tier stamps were introduced to
+       prevent. Same test as bakedAt: did this run actually get figures. */
+    stamp: Object.keys(flat).length ? stamp : (prev?.stamp ?? stamp),
+    /* ONLY ADVANCE bakedAt WHEN THIS RUN ACTUALLY FETCHED MARKET FIGURES.
+       Fixed 2026-08-16. Stamping it unconditionally cost four days of live data.
+
+       push-to-github.ps1 runs tools/merge-live-data.mjs to stop a deploy from
+       overwriting the figures the hourly Action baked with whatever this working
+       folder last had — this folder never pulls the Action's commits. That tool
+       decides who is fresher by comparing bakedAt, and the newer side wins
+       outright.
+
+       The cadence split made bakedAt able to lie. A monthly-tier run owns no
+       remote sets, so it fetches NOTHING and changes no market figure — and it
+       was still stamping bakedAt with the wall clock. On 2026-08-15 a monthly
+       run stamped 23:00:09Z onto a snapshot whose figures were from 08-12; the
+       ship two hours later saw the local side as "newer", skipped the merge
+       entirely, and pushed four-day-old blocks over the live ones. The exact
+       failure merge-live-data.mjs exists to prevent, running backwards.
+
+       flat is empty when no remote set was fetched, which is the honest test for
+       "did this run get fresh market data". LOCAL sets deliberately do not
+       count: owns and sectorReturns are read off disk and are not what the
+       Action and this folder are competing over.
+
+       Consequence worth keeping in mind: deploy-site.ps1 step 3b reads bakedAt
+       as the deploy's age signal, so a run of a local-only tier no longer resets
+       that clock. That is correct — the market data really is that old. */
+    bakedAt: Object.keys(flat).length
+      ? new Date().toISOString()
+      : (prev?.bakedAt ?? new Date().toISOString()),
     /* MERGE, do not replace. Added 2026-08-15 with the cadence split.
        A cadence-filtered run only fetches some sets, so `flat` holds only
        those figures. Assigning it directly would delete every figure the other

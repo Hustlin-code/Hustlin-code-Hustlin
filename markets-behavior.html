@@ -91,7 +91,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260815-2103">
+<link rel="stylesheet" href="styles.css?v=20260815-2229">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -209,6 +209,26 @@
    Match the dark rule's specificity so a box that brings its own background
    also keeps its own text colour. The dark-variant .eco-call further down sets
    its colours inline, and inline beats all of this, so it is unaffected. */
+/* REGRESSED AND RE-FIXED 2026-08-16. The 08-02 fix above was correct when it
+   was written and stopped working when someone added a :not() to the dark rule.
+
+   `.eco-sec.dark p:not([class*="mkt-"])` is TWO classes + ONE attribute + one
+   element = (0,3,1). `.eco-sec.dark .beh-cash` is three classes = (0,3,0), so
+   it lost by the element selector and the cream callouts went back to
+   rgba(255,255,255,.62) on #FFFBEF — measured at 1.02:1 against a 4.5:1
+   requirement, i.e. invisible. It shipped that way and Adam caught it on the
+   live site.
+
+   MATCHING the ancestor rule's specificity is what failed, because the ancestor
+   rule can grow. EXCEEDING it on class count cannot be beaten by adding more
+   :not() clauses: class count is compared before element count, so (0,4,1)
+   stays ahead of (0,3,1), (0,3,2), (0,3,3) and so on. Hence the extra .eco-in.
+
+   The rule: a box that brings its own background must bring its own text color,
+   and must win outright rather than by a tie. */
+.eco-sec.dark .eco-in p.beh-cash{color:#3d3a33}
+.eco-sec.dark .eco-in .eco-call p{color:#3d3a33}
+.eco-sec.dark .eco-in .eco-call .eco-call-h{color:#060606}
 .eco-sec.dark .beh-cash{color:#3d3a33}
 .eco-sec.dark .eco-call p{color:#3d3a33}
 .eco-sec.dark .eco-call .eco-call-h{color:#060606}
@@ -1398,7 +1418,7 @@
   });
 })();
 </script>
-<script src="app.js?v=20260815-2103"></script>
+<script src="app.js?v=20260815-2229"></script>
 <script>
 HFY.initNavOnly();
 </script>
