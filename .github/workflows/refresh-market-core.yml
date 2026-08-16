@@ -94,6 +94,41 @@ jobs:
           node --version
           node tools/inject-market-data.mjs --cadence=${{ inputs.cadence }}
 
+      # ── FRESHNESS ───────────────────────────────────────────────────────
+      #
+      #  Nothing else in this stack can catch a DEAD series. The fetch returns
+      #  200, the payload is well formed, the shape check passes and the renderer
+      #  renders — and the number has not moved since February 2021, which is
+      #  exactly what WRMFSL was doing on markets-behavior.html until 2026-08-16.
+      #  A frozen figure looks identical to a calm market. That is also why both
+      #  scheduled-refresh outages this month ran four days before a human
+      #  noticed them.
+      #
+      #  So this checks the one thing nothing else looks at: how old the newest
+      #  observation is, and whether that is plausible for a series of that
+      #  frequency. The thresholds are deliberately loose — d:8 w:18 m:120 q:300,
+      #  with documented overrides for DTWEXBGS, UMCSENT and CSUSHPINSA — because
+      #  this is a dead-series detector, not a late-release detector. A gate that
+      #  fires on ordinary release lag gets muted within a week, and a muted gate
+      #  is worse than no gate: it is one everyone has learned to scroll past.
+      #  If a false alarm appears, add a documented override. Do not raise a
+      #  shared threshold.
+      #
+      #  --warn so it never fails the refresh. A stale series is something to
+      #  know about, not a reason to stop baking the sixteen sets that are fine.
+      #  It also exits 0 when market-data is unreachable, because unreachable is
+      #  not stale, and an upstream outage reported as dead data would bury the
+      #  next real dead series in the noise of a bad afternoon.
+      - name: Check that no published series has quietly died
+        run: |
+          if [ -f tools/check-series-freshness.mjs ]; then
+            node tools/check-series-freshness.mjs --warn
+          else
+            echo "::warning::tools/check-series-freshness.mjs is not in the repo, so a"
+            echo "::warning::discontinued series would keep printing as current."
+            echo "::warning::Add it to the tools allowlist in deploy-site.ps1 step 10."
+          fi
+
       # ── THE ARCHIVER — daily tier only ──────────────────────────────────
       #
       #  FRED cut the ICE BofA credit-spread family to a rolling THREE YEAR
