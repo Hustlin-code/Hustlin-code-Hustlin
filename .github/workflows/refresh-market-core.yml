@@ -94,6 +94,50 @@ jobs:
           node --version
           node tools/inject-market-data.mjs --cadence=${{ inputs.cadence }}
 
+      # ── IS ANY SERIES ACTUALLY DEAD? ────────────────────────────────────
+      #
+      #  Added 2026-08-16, after the Market Sentiment page was found printing
+      #
+      #      Cash in Money Market Funds · $1.43T · as of 1 Feb 2021
+      #
+      #  as a current reading. That was FRED's WRMFSL, and 2021-02-01 is not a
+      #  stale cache — it is the series' FINAL observation. The Fed discontinued
+      #  weekly seasonally-adjusted H.6 data after that week, in February 2021.
+      #  The site served a five-and-a-half-year-old number, with a percentile
+      #  rank beside it, for the life of that block.
+      #
+      #  NOTHING ABOVE COULD HAVE CAUGHT IT. The fetch returned 200, the payload
+      #  was well formed, the shape check passed, the renderer rendered. A
+      #  discontinued series is not an error — it is a successful request for a
+      #  number that stopped moving. And a frozen figure looks exactly like a
+      #  calm market, which is why this ran undetected, and why the scheduled
+      #  refresh dying twice in August was also only noticed by a human.
+      #
+      #  WARN, NOT FAIL, and for the same reason as the archive step above: this
+      #  job's purpose is to refresh the Markets pages, and one dead series out
+      #  of forty-odd should not stop the other forty from updating. The whole
+      #  point is that this failure mode is SILENT — so make it loud, not fatal.
+      #  ::warning:: puts it in the run summary where a red X is not needed to
+      #  see it.
+      #
+      #  Runs on every tier. It is one request, it is cheap, and a series can
+      #  die on any day of the week.
+      - name: Check no published series has quietly stopped updating
+        run: |
+          if [ -f tools/check-series-freshness.mjs ]; then
+            node tools/check-series-freshness.mjs --warn | tee /tmp/freshness.txt
+            if grep -q "STALE SERIES" /tmp/freshness.txt; then
+              echo "::warning::A published FRED series has stopped updating and is being"
+              echo "::warning::displayed as current. See the step log for which one, then"
+              echo "::warning::check https://fred.stlouisfed.org/series/<ID> — FRED names"
+              echo "::warning::the replacement series in its notes."
+            fi
+          else
+            echo "::warning::tools/check-series-freshness.mjs is not in the repo, so nothing"
+            echo "::warning::is watching for discontinued series. Add it to the tools"
+            echo "::warning::allowlist in deploy-site.ps1 step 10."
+          fi
+
       # ── THE ARCHIVER — daily tier only ──────────────────────────────────
       #
       #  FRED cut the ICE BofA credit-spread family to a rolling THREE YEAR
