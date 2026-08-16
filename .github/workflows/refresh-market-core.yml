@@ -1,0 +1,329 @@
+# =============================================================================
+#  Refresh market data — SHARED CORE — hustlin.org
+# =============================================================================
+#
+#  This file holds the steps. It has no schedule of its own: it is called by
+#  refresh-market-intraday / -daily / -weekly / -monthly, each of which is a
+#  cron expression and nothing else.
+#
+#  WHY IT IS SPLIT THIS WAY (2026-08-15)
+#
+#  Until today one workflow fetched EVERY set on EVERY run, ~125 times a week.
+#  M2 gains one observation a month and was being requested about five hundred
+#  times per data point. The six FRED groups behind the "what changed" block
+#  were re-read hourly to detect a change that can only happen on a release day.
+#
+#  tools/inject-market-data.mjs now takes --cadence=<tier> and rewrites ONLY the
+#  markers whose data belongs to that tier. The four jobs therefore own disjoint
+#  sets of markers and cannot overwrite each other, which is what makes running
+#  them on separate schedules safe. The tier map and the reasoning for each
+#  assignment live in the CADENCE block at the top of that script — that is the
+#  authority, not this comment.
+#
+#  DO NOT duplicate these steps into the four schedule files. The single
+#  biggest source of drift in a setup like this is four near-identical jobs
+#  where a fix lands in three of them.
+#
+#  NO SECRETS REQUIRED for the data itself. The market-* functions are
+#  deliberately unauthenticated (verify_jwt false); FRED and Finnhub keys live
+#  server-side inside them. The optional Cloudflare purge is the only step that
+#  reads secrets, and it skips cleanly when they are absent.
+#
+#  FAILURE POLICY — unchanged, and load-bearing.
+#
+#  inject-market-data.mjs exits 0 and keeps the existing baked numbers when an
+#  endpoint is unreachable. Slightly stale inflation data is a minor problem; a
+#  Markets page that ships empty because an API blipped is a real one. So an
+#  upstream outage produces no diff, no commit, and a green run. Check the
+#  "as of" dates on the page, not the badge, to spot staleness.
+# =============================================================================
+
+name: Refresh market data (core)
+
+on:
+  workflow_call:
+    inputs:
+      cadence:
+        description: 'intraday | daily | weekly | monthly'
+        required: true
+        type: string
+      archive:
+        description: 'Also run the FRED archiver. Daily tier only.'
+        required: false
+        default: false
+        type: boolean
+      charts:
+        description: 'Also rebake the inline SVG charts from the new snapshot.'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write           # required to push the rebuilt HTML back
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    # The intraday tier still pauses ~70s for the Finnhub cooldown before the
+    # earnings fetch. The other tiers do not touch Finnhub and finish in under
+    # a minute, but one timeout for all four is one fewer thing to keep in sync.
+    timeout-minutes: 20
+
+    # Promoted to JOB level on purpose. A step cannot read its OWN `env:` block
+    # from inside its `if:` condition, and the `secrets` context is not
+    # available in `if:` at all. The purge step originally declared these in its
+    # own env and tested `env.CF_ZONE != ''` — which is always empty there, so
+    # the step would have been skipped forever, even with the secrets set
+    # correctly. Silent, and exactly the kind of thing you only notice weeks
+    # later when the site has been serving stale numbers the whole time.
+    env:
+      CF_ZONE:  ${{ secrets.CLOUDFLARE_ZONE_ID }}
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v6
+
+      # actions/setup-node was removed deliberately, not forgotten.
+      # ubuntu-latest already ships a current Node, and these scripts need
+      # nothing exotic — node:fs, node:path, node:url, global fetch and
+      # AbortController, all standard since Node 18. Pinning a version bought
+      # nothing and cost a second action to keep patched.
+      - name: Bake current figures into the Markets pages
+        run: |
+          node --version
+          node tools/inject-market-data.mjs --cadence=${{ inputs.cadence }}
+
+      # ── THE ARCHIVER — daily tier only ──────────────────────────────────
+      #
+      #  FRED cut the ICE BofA credit-spread family to a rolling THREE YEAR
+      #  window in April 2026. An observation that falls off the back is gone
+      #  from the free feed permanently, because "the source" is ICE and ICE
+      #  licenses it commercially. tools/series/fred/ is the only copy.
+      #
+      #  This is the one step here whose failure genuinely costs something you
+      #  cannot get back, which is why it runs every day rather than on the
+      #  monthly tier where a spreads chart might otherwise suggest it belongs.
+      #  It still exits 0 on an unreachable endpoint — a missed day is
+      #  recoverable while the three-year window still covers it.
+      - name: Archive the FRED series that get withdrawn
+        if: inputs.archive
+        run: |
+          if [ -f tools/archive-fred.mjs ]; then
+            node tools/archive-fred.mjs
+          else
+            echo "::warning::tools/archive-fred.mjs is not in the repo, so the"
+            echo "::warning::credit-spread history is NOT being preserved. Add it"
+            echo "::warning::to the tools allowlist in deploy-site.ps1 step 10."
+          fi
+
+      # ── CHARTS ──────────────────────────────────────────────────────────
+      #
+      #  The Markets pages are not the only thing quoting a live figure. The Dow
+      #  chart in Stage 5 — and the level, price return and dollar figures in the
+      #  prose beside it — are baked by build-charts.mjs from the same snapshot
+      #  inject-market-data.mjs just refreshed.
+      #
+      #  ORDER IS THE SAME AS THE DEPLOY SCRIPT AND FOR THE SAME REASON.
+      #  build-charts writes the masters in "Financial Literacy Course/";
+      #  build-public-stages regenerates the public copies at the site root from
+      #  them. Run them the other way round and the public page ships the
+      #  previous build's chart while --check still passes.
+      #
+      #  build-charts.mjs does NOT read the masters: it WALKS THE REPO and
+      #  rewrites anything carrying <!-- CHART:name:START -->, and the public
+      #  stage-5-wealth.html carries them and is in the repo. So it updates the
+      #  public page directly, with no master in sight.
+      #
+      #  Only build-public-stages.mjs genuinely needs the masters, and
+      #  "Financial Literacy Course/" is gitignored — deliberately, because this
+      #  repo is PUBLIC and those masters are paid course content. So that one
+      #  skips on the runner. Do NOT "fix" this by un-ignoring the course
+      #  folder; that publishes paid content and leaves it in git history
+      #  forever.
+      #
+      #  The guard WARNS rather than fails: this job exists to refresh the
+      #  Markets pages, and a missing chart script should not hold that hostage.
+      - name: Rebake the charts from the new snapshot
+        if: inputs.charts
+        run: |
+          if [ -f tools/build-charts.mjs ]; then
+            node tools/build-charts.mjs
+          else
+            echo "::warning::tools/build-charts.mjs is not in the repo, so the Dow"
+            echo "::warning::chart and the figures beside it are NOT being refreshed."
+            echo "::warning::Add it to the tools allowlist in deploy-site.ps1 step 10."
+          fi
+          if [ -d "Financial Literacy Course" ]; then
+            node tools/build-public-stages.mjs
+          else
+            echo "::notice::Course masters are gitignored and absent on the runner —"
+            echo "::notice::skipping build-public-stages only. The charts above already"
+            echo "::notice::updated the public stage pages directly."
+          fi
+
+      - name: Commit only if something actually changed
+        id: commit
+        run: |
+          git config user.name  "hustlin-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          # tools/.market-snapshot.json must be committed too — the next run
+          # diffs against it to build the "what changed" block on the page.
+          # tools/series/ carries the FRED archive and the committed chart
+          # history; both are inputs to the next build, not outputs of it.
+          #
+          # "Financial Literacy Course/*.html" is deliberately NOT here. That
+          # folder is gitignored, so on the runner it does not exist, and
+          # `git add` treats a pathspec matching nothing as fatal — exit 128,
+          # killing this step the first time there is anything to commit.
+          #
+          # '*.html' is glob-magic in git pathspec terms and already matches at
+          # any depth, so 'Markets/*.html' is redundant — kept only because it
+          # documents what this job is here to update.
+          git add -A '*.html' 'Markets/*.html' \
+                     'tools/.market-snapshot.json' 'tools/series' || true
+
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No change in the baked figures — nothing to commit."
+          else
+            # Record WHICH pages changed, so the purge below can name them
+            # instead of flushing the whole zone. Course masters are excluded:
+            # they live in a folder with a space in its name, have no public
+            # URL, and pasted into a purge list would be a malformed request
+            # that could take the real purges down with it.
+            changed_files=$(git diff --cached --name-only -- '*.html' \
+                            ':(exclude)Financial Literacy Course/*' | tr '\n' ' ')
+            echo "files=${changed_files}" >> "$GITHUB_OUTPUT"
+            echo "Changed pages: ${changed_files:-none}"
+
+            git commit -m "chore: refresh market data (${{ inputs.cadence }}, $(date -u +'%Y-%m-%dT%H:%MZ'))"
+
+            # Rebase before pushing. Two ways this branch goes stale under us:
+            # a "Re-run all jobs" on an older run checks out a commit origin has
+            # since moved past, and — now that there are four schedules — a
+            # sibling tier can land while this job is mid-flight. Either
+            # produces a non-fast-forward rejection and a red X on a job that
+            # did nothing wrong.
+            #
+            # Rebase is safe BECAUSE of the cadence split: each tier only
+            # touches markers no other tier owns, so two tiers never rewrite the
+            # same lines. The snapshot is the one shared file, and it is a merge
+            # rather than a replace for exactly this reason — see the figures
+            # writer in inject-market-data.mjs.
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || {
+              echo "::error::rebase onto origin/${GITHUB_REF_NAME} failed — resolve by hand."
+              exit 1
+            }
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # WAIT FOR PAGES BEFORE PURGING — this ordering is load-bearing.
+      #
+      # Pushing a commit does not update the site. GitHub Pages runs its own
+      # build afterwards, taking roughly a minute. Purging Cloudflare the
+      # instant the push lands clears the cache while the ORIGIN is still
+      # serving the old file — so the next visitor re-caches exactly the stale
+      # page we were trying to replace, and it sticks until the edge TTL
+      # expires. The workflow goes green, the purge reports success, and the
+      # site is stale anyway. That is how chart.html sat on a months-old version
+      # while every page beside it was current.
+      #
+      # 100s is comfortably past a normal Pages build for a static site this
+      # size. If Pages gets slower, the symptom is stale pages with a green run
+      # — raise this first.
+      - name: Wait for GitHub Pages to rebuild
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          echo "Waiting 100s for GitHub Pages to publish before purging the edge..."
+          sleep 100
+
+      - name: Purge Cloudflare cache
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          CHANGED_FILES: ${{ steps.commit.outputs.files }}
+        run: |
+          # Trim whitespace and stray CR/LF. Pasting a Zone ID into the GitHub
+          # secrets box very easily carries a trailing newline, which makes the
+          # URL below malformed and gets curl exit code 3 — an opaque failure
+          # that looks nothing like "your secret has a newline in it".
+          CF_ZONE="$(printf '%s' "$CF_ZONE"  | tr -d '[:space:]')"
+          CF_TOKEN="$(printf '%s' "$CF_TOKEN" | tr -d '[:space:]')"
+
+          if [ -z "$CF_ZONE" ] || [ -z "$CF_TOKEN" ]; then
+            echo "::warning::Cloudflare secrets are not set. The repo was updated"
+            echo "::warning::but visitors keep seeing the CACHED page until the edge"
+            echo "::warning::expires it. Add CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN"
+            echo "::warning::in Settings > Secrets and variables > Actions."
+            exit 0
+          fi
+
+          # A Cloudflare zone id is 32 hex characters. Checking the SHAPE (never
+          # the value) turns "wrong thing pasted in the wrong box" into a clear
+          # message instead of a malformed-URL error.
+          if ! printf '%s' "$CF_ZONE" | grep -qE '^[0-9a-fA-F]{32}$'; then
+            echo "::error::CLOUDFLARE_ZONE_ID is not 32 hex characters (got ${#CF_ZONE} chars)."
+            echo "::error::Cloudflare > hustlin.org > Overview > right sidebar > Zone ID."
+            echo "::error::Check you did not paste the Account ID or the API token by mistake."
+            exit 1
+          fi
+
+          # PURGE BY URL, NOT purge_everything. A refresh only rewrites the
+          # pages carrying MKT markers, and the commit step already knows which.
+          # Flushing the zone instead makes almost every visitor a cache MISS
+          # that GitHub Pages has to serve — the site gets SLOWER the more often
+          # we refresh it, which is the opposite of the intent.
+          #
+          # Free-plan limit is 30 URLs per request; we send at most a handful.
+          # If a page fails to update after a confirmed commit, check that its
+          # path made it into this list before blaming Cloudflare.
+          files_json=""
+          for f in ${CHANGED_FILES}; do
+            files_json="${files_json}\"https://hustlin.org/${f}\","
+            # A directory index is reachable at two URLs and Cloudflare caches
+            # them separately. Purging only /index.html leaves / stale — which
+            # is the copy essentially every visitor actually receives.
+            case "$f" in
+              index.html) files_json="${files_json}\"https://hustlin.org/\"," ;;
+              */index.html) files_json="${files_json}\"https://hustlin.org/${f%index.html}\"," ;;
+            esac
+          done
+          files_json="[${files_json%,}]"
+
+          if [ "$files_json" = "[]" ]; then
+            echo "No HTML changed — nothing to purge."
+            exit 0
+          fi
+
+          echo "Purging: $files_json"
+
+          # Capture curl's own exit code rather than letting bash -e abort on it,
+          # so a transport failure reports as itself instead of as a bare number.
+          set +e
+          resp=$(curl -sS --max-time 30 -X POST \
+            "https://api.cloudflare.com/client/v4/zones/${CF_ZONE}/purge_cache" \
+            -H "Authorization: Bearer ${CF_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data "{\"files\":${files_json}}" 2>&1)
+          rc=$?
+          set -e
+
+          echo "$resp"
+
+          if [ $rc -ne 0 ]; then
+            echo "::error::curl failed with exit code $rc while calling Cloudflare."
+            exit 1
+          fi
+
+          # A purge that silently 403s looks identical to a successful run from
+          # the outside, and the entire point of this step is that nobody checks.
+          case "$resp" in
+            *'"success":true'*)
+              echo "Cache purged." ;;
+            *)
+              echo "::error::Cloudflare rejected the purge — visitors will see stale data."
+              echo "::error::A 403 here usually means the token lacks Zone.Cache Purge on this zone."
+              exit 1 ;;
+          esac

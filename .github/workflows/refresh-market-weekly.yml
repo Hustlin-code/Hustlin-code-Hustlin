@@ -1,0 +1,48 @@
+# =============================================================================
+#  WEEKLY tier — hustlin.org
+# =============================================================================
+#
+#  For data published on a known weekly or fortnightly schedule, where checking
+#  daily would be pure waste because the publisher's calendar is predictable.
+#
+#  WHAT BELONGS HERE
+#
+#    - ICI estimated fund flows        released Tuesdays, week ended prior Weds
+#    - FINRA short interest            twice monthly, 7 business days after
+#                                      settlement
+#    - the reader bull/bear poll       our own, weekly by design
+#
+#  THIS TIER MAY BE EMPTY WHEN YOU READ THIS. That is expected, not broken:
+#  the split shipped 2026-08-15 and the sets above are still being built.
+#  inject-market-data.mjs handles an empty tier explicitly — it logs
+#  "no markers in this tier" and exits 0 WITHOUT calling market-data, because a
+#  blank ?sets= makes that function fall back to its default five and a job that
+#  fetches five sets it never renders is worse than one that does nothing.
+#
+#  Assign a set to this tier in the CADENCE map in tools/inject-market-data.mjs.
+#  That map is the authority; this comment is a description of it.
+#
+#  The steps live in refresh-market-core.yml. Do not copy them here.
+# =============================================================================
+
+name: Refresh market data (weekly)
+
+on:
+  schedule:
+    # Wednesdays 14:31 UTC = 09:31 EST / 10:31 EDT. Wednesday rather than
+    # Tuesday so ICI's Tuesday release has landed and been corrected if needed,
+    # and mid-morning rather than overnight because these are US publishers
+    # posting during US business hours.
+    - cron: '31 14 * * 3'
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-market-weekly
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    uses: ./.github/workflows/refresh-market-core.yml
+    with:
+      cadence: weekly
+    secrets: inherit

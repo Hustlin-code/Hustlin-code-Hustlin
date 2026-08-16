@@ -1,0 +1,68 @@
+# =============================================================================
+#  DAILY tier — hustlin.org
+# =============================================================================
+#
+#  Every FRED-backed set, plus the "what changed" block and the FRED archive.
+#
+#  WHY THE MONTHLY SERIES LIVE ON A DAILY JOB, WHICH LOOKS WRONG UNTIL YOU
+#  THINK ABOUT IT
+#
+#  CPI is monthly. M2 is monthly. Retail sales are monthly. The obvious move is
+#  to put them on the monthly tier, and it is the wrong one, because a monthly
+#  series does not publish on a monthly SCHEDULE you can predict from a cron:
+#  CPI lands mid-month, PCE at month end, payrolls on the first Friday, housing
+#  starts around the 17th. A monthly cron would miss a release by up to thirty
+#  days depending on where the two calendars happened to line up.
+#
+#  It would also never pick up a REVISION. Retail sales' newest month is an
+#  advance estimate from a subsample and gets restated; payrolls are revised
+#  twice; the annual benchmark restates years at once. A monthly fetch freezes
+#  whatever the first print said.
+#
+#  So the rule is: we cannot predict when these publish, therefore we CHECK
+#  daily. That is 7 runs a week instead of 125 — the overhead this split
+#  existed to remove — while catching every release and every revision inside
+#  24 hours.
+#
+#  ── ARCHIVE = TRUE, AND WHY IT IS ON THIS TIER ──
+#
+#  FRED cut the ICE BofA credit-spread family to a rolling THREE YEAR window in
+#  April 2026. Observations that fall off the back are gone from the free feed
+#  permanently — "the source" is ICE, and ICE licenses it commercially.
+#  tools/series/fred/ is the only copy that will ever exist. It runs daily
+#  rather than with the spreads chart it feeds, because the cost of a missed
+#  run is not a stale chart, it is destroyed history.
+#
+#  ── CHARTS = TRUE ──
+#
+#  build-charts.mjs draws from the snapshot this job just refreshed, and the
+#  snapshot's daily FRED series are what its charts are made of. Running it on
+#  the intraday tier would redraw the same SVG eighteen times a day.
+#
+#  The steps live in refresh-market-core.yml. Do not copy them here.
+# =============================================================================
+
+name: Refresh market data (daily)
+
+on:
+  schedule:
+    # 09:47 UTC = 04:47 EST / 05:47 EDT. Before the US morning but after the
+    # overnight FRED updates have posted, and well clear of the 8:30am ET
+    # release window so a run never lands mid-publication and bakes half a
+    # release. Minute 47 for the same oversubscription reason as the intraday
+    # tier's minute 23 — and a different minute so the two never collide.
+    - cron: '47 9 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-market-daily
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    uses: ./.github/workflows/refresh-market-core.yml
+    with:
+      cadence: daily
+      archive: true
+      charts: true
+    secrets: inherit

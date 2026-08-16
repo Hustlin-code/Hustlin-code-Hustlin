@@ -1,0 +1,48 @@
+# =============================================================================
+#  MONTHLY tier — hustlin.org
+# =============================================================================
+#
+#  For data published monthly whose fetch is expensive, and for figures that
+#  genuinely do not move between builds.
+#
+#  WHAT BELONGS HERE
+#
+#    - sector ten-year returns    the renderer's own comment says these "do not
+#                                 change meaningfully between builds", which is
+#                                 an argument against refreshing them 125 times
+#                                 a week
+#    - asset-class market caps    WFE publishes monthly and prints its own
+#                                 month-over-month change
+#    - gold above-ground stock    World Gold Council, annual, priced monthly
+#    - margin debt                FINRA, third week of the following month
+#
+#  Read the FRED note in refresh-market-daily.yml before moving anything here.
+#  "The series is monthly" is NOT a reason to put it on this tier — a monthly
+#  cron cannot predict an irregular release date and never sees a revision.
+#  This tier is for things whose VALUE is stable, not things whose FREQUENCY is
+#  monthly.
+#
+#  The steps live in refresh-market-core.yml. Do not copy them here.
+# =============================================================================
+
+name: Refresh market data (monthly)
+
+on:
+  schedule:
+    # 3rd of the month, 15:19 UTC = 10:19 EST / 11:19 EDT. The 3rd rather than
+    # the 1st because WFE's Focus dashboard for a month lands two to four weeks
+    # after month end, so the 3rd picks up the PREVIOUS month's published
+    # figures rather than racing a publication that has not happened.
+    - cron: '19 15 3 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-market-monthly
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    uses: ./.github/workflows/refresh-market-core.yml
+    with:
+      cadence: monthly
+    secrets: inherit

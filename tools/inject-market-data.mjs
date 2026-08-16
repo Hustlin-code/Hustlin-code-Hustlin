@@ -200,6 +200,92 @@ const ET_TODAY = etDay()
 const checkOnly = process.argv.includes('--check')
 const offline = process.argv.includes('--offline')
 
+/* =============================================================================
+ *  CADENCE — which job refreshes which set. Added 2026-08-15.
+ * =============================================================================
+ *
+ *  THE PROBLEM
+ *
+ *  This script used to fetch EVERY set on EVERY run, and the workflow runs it
+ *  ~125 times a week. So M2 — a series that gains one observation a month —
+ *  was being requested about five hundred times per new data point, and the
+ *  six FRED groups behind the "what changed" block were re-fetched hourly to
+ *  detect a change that can only happen on a release day.
+ *
+ *  THE SPLIT, AND THE REASONING BEHIND EACH TIER
+ *
+ *  intraday  Things that genuinely move during a trading session. Quotes,
+ *            the earnings calendar as actuals land, sector performance,
+ *            headlines. This is the only tier that justifies an hourly cron,
+ *            and it is the tier the hourly schedule was actually built for.
+ *
+ *  daily     Things published on their OWN irregular schedule that we have to
+ *            CHECK for rather than predict. This is where every FRED series
+ *            lives, and putting them here rather than on a monthly cron is a
+ *            deliberate correction, not laziness: CPI lands mid-month, PCE at
+ *            month end, payrolls on the first Friday, claims every Thursday.
+ *            A monthly cron would miss a release by up to thirty days and
+ *            would never pick up a revision at all. Checking daily catches
+ *            every one of them inside 24 hours.
+ *
+ *  weekly    Things published on a known weekly or fortnightly schedule where
+ *            a daily check would be pure waste — ICI flows land Tuesdays,
+ *            FINRA short interest twice a month.
+ *
+ *  monthly   Things published monthly whose fetch is expensive or manual —
+ *            the asset-class market caps, gold tonnage, margin debt.
+ *
+ *  HOW IT IS ENFORCED
+ *
+ *  --cadence=<tier> filters the marker list to sections whose set belongs to
+ *  that tier. A run only ever REWRITES the blocks it refreshed, so four jobs
+ *  can touch the same page without fighting: each owns a disjoint set of
+ *  markers. Anything not listed here is treated as `intraday`, which is the
+ *  safe default — a forgotten set stays as current as it is now rather than
+ *  silently stopping.
+ *
+ *  With no --cadence flag every set runs, which is what a manual deploy wants.
+ *  Do not make a tier the default.
+ * =========================================================================== */
+const CADENCE = {
+  // ── intraday ──
+  quotes: 'intraday', news: 'intraday', earnings: 'intraday',
+  earningsScore: 'intraday', sectorPerf: 'intraday',
+  sectors: 'intraday',
+
+  // ── monthly ──
+  /* Ten-year sector returns. The renderer's own comment says these "do not
+     change meaningfully between builds", which was true when it was written
+     and is an argument against refreshing them 125 times a week. */
+  sectorReturns: 'monthly',
+
+  // ── daily ──
+  // Every FRED-backed set. See the note above on why these are not monthly.
+  macro: 'daily', growth: 'daily', inflation: 'daily', rates: 'daily',
+  labor: 'daily', consumer: 'daily', yields: 'daily', signals: 'daily',
+  mood: 'daily', equity: 'daily', drawdown: 'daily',
+}
+
+/* The "what changed" block reads the six FRED groups, so it belongs to the
+   same tier they do. Left on intraday it would report "nothing has changed"
+   every hour on data that only moves on a release day, and would overwrite the
+   monthly run's own findings an hour later. */
+const DIFF_CADENCE = 'daily'
+
+const cadenceArg = process.argv.find(a => a.startsWith('--cadence='))
+const cadence = cadenceArg ? cadenceArg.slice(10).trim() : null
+const CADENCE_TIERS = ['intraday', 'daily', 'weekly', 'monthly']
+if (cadence && !CADENCE_TIERS.includes(cadence)) {
+  console.error(`  --cadence=${cadence} is not one of: ${CADENCE_TIERS.join(', ')}`)
+  process.exit(2)
+}
+const cadenceOf = (set) => CADENCE[set] ?? 'intraday'
+/* No flag means "everything", which is what a manual deploy and a --check gate
+   both want. A section with no set at all is a diff block, judged separately. */
+const inCadence = (sec) => !cadence
+  || (sec.diff ? DIFF_CADENCE === cadence : cadenceOf(sec.set) === cadence)
+
+
 const esc = (s) => String(s ?? '')
   .replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -1138,7 +1224,7 @@ ${diff.rows.map(r => `      <li class="mkt-chg-item ${esc(r.dir)}">
     </ul>`
 }
 
-function buildDiff(flat, prev, todayISO) {
+function buildDiff(flat, prev, todayISO, sinceISO) {
   if (!prev?.figures) return null
   const rows = []
   for (const [key, cur] of Object.entries(flat)) {
@@ -1164,7 +1250,7 @@ function buildDiff(flat, prev, todayISO) {
   // Biggest movers first, but cap it. A wall of 30 rows is not a "what changed"
   // block, it is the same table again.
   rows.sort((a, b) => (a.dir === 'flat' ? 1 : 0) - (b.dir === 'flat' ? 1 : 0))
-  return { rows: rows.slice(0, 12), since: prev.stamp ?? 'the previous update', now: todayISO }
+  return { rows: rows.slice(0, 12), since: sinceISO ?? prev.stamp ?? 'the previous update', now: todayISO }
 }
 
 /* -------------------------------------------------------------- drawdown ---
@@ -1474,6 +1560,10 @@ async function main() {
     const html = readFileSync(path, 'utf8')
     const present = Object.keys(p.sections)
       .filter(n => new RegExp(`<!--\\s*MKT:${n}:START\\s*-->`).test(html))
+      /* CADENCE FILTER. A run only rewrites the blocks it refreshed, so the
+         four scheduled jobs own disjoint sets of markers and cannot overwrite
+         each other's work. Without a --cadence flag this is a no-op. */
+      .filter(n => inCadence(p.sections[n]))
     const hasStamp = /<!--\s*MKT:stamp:START\s*-->/.test(html)
     if (present.length || hasStamp) live.push({ ...p, path, html, present, hasStamp })
   }
@@ -1509,18 +1599,47 @@ async function main() {
      set yet: the request filter there drops unknown set names, so this comes
      back absent rather than erroring, `flatten` writes no djia key, and the
      chart keeps its year-end ending. */
-  if (!sets.includes('equity')) sets.push('equity')
+  /* Gated on cadence as of 2026-08-15. equity is a daily FRED series, so on an
+     intraday run this would have been the ONLY set fetched — a full round trip
+     every hour to re-read a number that changes once a day. */
+  if (inCadence({ set: 'equity' }) && !sets.includes('equity')) sets.push('equity')
 
-  let data
-  try {
-    const res = await fetch(`${ENDPOINT}?sets=${sets.join(',')}`, { signal: AbortSignal.timeout(30000) })
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    data = await res.json()
-    if (data.errors) for (const [k, v] of Object.entries(data.errors)) console.log(`  upstream warning [${k}]: ${v}`)
-  } catch (e) {
-    // Deliberately non-fatal. See the failure policy in the header.
-    console.log(`  WARN market-data unreachable (${e.message}) — keeping existing baked numbers.`)
+  /* EMPTY SETS IS NOT "FETCH NOTHING" — it is "fetch the default five".
+     market-data falls back to ['macro','yields','sectors','quotes','news'] when
+     the sets parameter is blank, which is right for a browser hitting the
+     endpoint by hand and exactly wrong here: a weekly run whose tier owns no
+     markers yet would silently pull five sets it has no use for, and then
+     rewrite nothing with them. Bail before the request instead. */
+  /* LOCAL_SETS have no entry in `sets` by definition — they are fetched from
+     their own function further down, not from market-data. So "sets is empty"
+     is not the same as "this tier has nothing to do", and checking only `sets`
+     here made the monthly tier bail before it ever reached the market-sectors
+     override that is its entire job. */
+  if (!sets.length && !needsDiff && !live.some(p => p.present.length)) {
+    console.log(`  ${cadence ? '--cadence=' + cadence + ': ' : ''}no markers in this tier — nothing to fetch.`)
     return 0
+  }
+
+  console.log(`  ${cadence ? 'cadence=' + cadence : 'all tiers'}: fetching ${sets.length} set(s) — ${sets.join(', ') || 'none'}`)
+
+  /* SKIP market-data ENTIRELY when this tier owns no sets in it.
+     A blank ?sets= is not "nothing" to that function — it falls back to the
+     default five. So a tier whose only work is a LOCAL_SET (the monthly tier
+     is exactly this) would otherwise pay for five sets it never renders, every
+     month, forever. Start from an empty object and let the overrides below
+     fill it. */
+  let data = {}
+  if (sets.length || needsDiff) {
+    try {
+      const res = await fetch(`${ENDPOINT}?sets=${sets.join(',')}`, { signal: AbortSignal.timeout(30000) })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      data = await res.json()
+      if (data.errors) for (const [k, v] of Object.entries(data.errors)) console.log(`  upstream warning [${k}]: ${v}`)
+    } catch (e) {
+      // Deliberately non-fatal. See the failure policy in the header.
+      console.log(`  WARN market-data unreachable (${e.message}) — keeping existing baked numbers.`)
+      return 0
+    }
   }
 
   /* Override market-data's Finnhub headlines with the RSS aggregate. Kept
@@ -2065,20 +2184,29 @@ async function main() {
   // which also guarantees the diff and the earnings carry-forward are looking
   // at the same snapshot.
   const prev = prevSnapshot
-  const diff = buildDiff(flat, prev, stamp)
+  /* The tier's own previous stamp, falling back to the global one on the first
+     run after this split shipped. See cadenceStamps in the snapshot writer. */
+  const sinceStamp = (cadence && prev?.cadenceStamps?.[cadence]) || prev?.stamp
+  const diff = buildDiff(flat, prev, stamp, sinceStamp)
 
   let stale = false
   for (const p of live) {
     let html = p.html
+    let pageChanged = false
     for (const n of p.present) {
       const sec = p.sections[n]
       const inner = sec.diff ? sec.render(diff) : sec.render(data[sec.set])
       if (!inner) { console.log(`  skip ${p.file} → ${n}: nothing usable returned`); continue }
       const r = replaceBlock(html, n, inner)
       html = r.html
-      if (r.changed) { stale = true; console.log(`  ${checkOnly ? 'STALE' : 'updated'}: ${p.file} → ${n}`) }
+      if (r.changed) { stale = true; pageChanged = true; console.log(`  ${checkOnly ? 'STALE' : 'updated'}: ${p.file} → ${n}`) }
     }
-    if (p.hasStamp) {
+    /* The "as of" stamp follows the DATA, not the build. On a cadence run that
+       refreshed nothing on this page, re-stamping it would claim a freshness
+       the page does not have — and would produce a commit, and a Cloudflare
+       purge, every hour for a page nobody updated. Unflagged runs keep the old
+       behaviour so the deploy gate sees exactly what it always has. */
+    if (p.hasStamp && (!cadence || pageChanged)) {
       const s = replaceBlock(html, 'stamp', `<time datetime="${stamp}">${stamp}</time>`)
       if (s.found) html = s.html
     }
@@ -2108,7 +2236,18 @@ async function main() {
   writeFileSync(SNAPSHOT, JSON.stringify({
     stamp,
     bakedAt: new Date().toISOString(),
-    figures: flat,
+    /* MERGE, do not replace. Added 2026-08-15 with the cadence split.
+       A cadence-filtered run only fetches some sets, so `flat` holds only
+       those figures. Assigning it directly would delete every figure the other
+       three jobs own — and since the snapshot is what the what-changed diff
+       and the Stage 5 Dow chart both read, that loss would show up as blank
+       blocks and a chart reverting to last year, one job at a time. */
+    figures: { ...(prev?.figures ?? {}), ...flat },
+    /* When each tier last ran. The diff compares against the previous run OF
+       THE SAME TIER, because "since yesterday" measured against a different
+       job's timestamp is the exact kind of quietly-wrong label this block was
+       built to avoid. */
+    cadenceStamps: { ...(prev?.cadenceStamps ?? {}), ...(cadence ? { [cadence]: stamp } : {}) },
     earningsWatch: earningsWatch ?? prev?.earningsWatch ?? [],
     /* The market-cap cache — the file's largest field, and the reason the $2B
        filter is a rule rather than a sample. See CAP_TTL_DAYS at the top of
