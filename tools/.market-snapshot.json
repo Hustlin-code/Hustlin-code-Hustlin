@@ -3917,6 +3917,270 @@
       "name": "E Automotive Inc",
       "exchange": "OTC MARKETS",
       "at": "2026-08-17T04:10:05.911Z"
+    },
+    "ELTK": {
+      "capM": 57.95503589364706,
+      "name": "Eltek Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "EP": {
+      "capM": 110.62231997142857,
+      "name": "Empire Petroleum Corp",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "FINV": {
+      "capM": 1102.097259,
+      "name": "FinVolution Group",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "HKHC": {
+      "capM": 489.17717859100884,
+      "name": "Horizon Kinetics Holding Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "IGTA": {
+      "capM": 0.14001055,
+      "name": "Inception Growth Acquisition Ltd",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "JFIN": {
+      "capM": 120.357953,
+      "name": "Jiayin Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "KYTX": {
+      "capM": 509.2807628483911,
+      "name": "Kyverna Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "MTEX": {
+      "capM": 12.060438008130081,
+      "name": "Mannatech Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "NBP": {
+      "capM": 219.225216,
+      "name": "NovaBridge Biosciences",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "NCNA": {
+      "capM": 6.159569,
+      "name": "NuCana PLC",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "NNDM": {
+      "capM": 347.472515,
+      "name": "Nano Dimension Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "OFED": {
+      "capM": 125.52582271794871,
+      "name": "Oconee Federal Financial Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "OVID": {
+      "capM": 521.6590874857144,
+      "name": "Ovid Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "PHYTF": {
+      "capM": 82.18,
+      "name": "Pyrophyte Acquisition Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "PMA": {
+      "capM": 22.45972606851852,
+      "name": "Ming Shing Group Holdings Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "QBAK": {
+      "capM": 11.392045913978492,
+      "name": "Qualstar Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "SSM": {
+      "capM": 6.062327098769231,
+      "name": "Sono Group NV",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "VANI": {
+      "capM": 117.27973501449274,
+      "name": "Vivani Medical Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "WILC": {
+      "capM": 376.4,
+      "name": "G Willi Food International Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "WVVI": {
+      "capM": 13.29,
+      "name": "Willamette Valley Vineyards Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "WKHS": {
+      "capM": 34.53,
+      "name": "Workhorse Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "LFWD": {
+      "capM": 21.354133109563012,
+      "name": "Lifeward Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "ROC": {
+      "capM": 82.807757,
+      "name": "Rank One Computing Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "AMSS": {
+      "capM": 12.156614075181817,
+      "name": "Amass Brands Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "BLNE": {
+      "capM": 32.944976999999994,
+      "name": "Beeline Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "IDN": {
+      "capM": 57.209698759999995,
+      "name": "Intellicheck Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "BRFH": {
+      "capM": 30.995522,
+      "name": "Barfresh Food Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "OTLK": {
+      "capM": 139.5324859712815,
+      "name": "Outlook Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "DUOT": {
+      "capM": 271.7094640865385,
+      "name": "Duos Technologies Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "VENU": {
+      "capM": 124.85783942592592,
+      "name": "Venu Holding Corp",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "BLIN": {
+      "capM": 12.662878486363635,
+      "name": "Bridgeline Digital Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "CWD": {
+      "capM": 4.6897390885962285,
+      "name": "CaliberCos Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "SRTS": {
+      "capM": 47.101244623291144,
+      "name": "Sensus Healthcare Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "ACOG": {
+      "capM": 192.5919452473928,
+      "name": "Alpha Cognition Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "BCHT": {
+      "capM": 33.934697,
+      "name": "Birchtech Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "CV": {
+      "capM": 323.303061,
+      "name": "CapsoVision Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "BUDA": {
+      "capM": 112.220328,
+      "name": "Buda Juice Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "MRLN": {
+      "capM": 366.3087972251131,
+      "name": "Merlin Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "CYCU": {
+      "capM": 7.598294464714286,
+      "name": "Cycurion Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "VTSI": {
+      "capM": 35.729757,
+      "name": "VirTra Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "EDBL": {
+      "capM": 3.2395049101796407,
+      "name": "Edible Garden AG Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "SLE": {
+      "capM": 3.459239940476191,
+      "name": "Super League Enterprise Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "FRMM": {
+      "capM": 80.5818817628205,
+      "name": "Forum Markets, Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
+    },
+    "AIRE": {
+      "capM": 8.583602649006624,
+      "name": "reAlpha Tech Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:04:34.522Z"
     }
   },
   "growthCache": {
