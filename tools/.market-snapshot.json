@@ -2331,6 +2331,45 @@
       "revenueActual": null,
       "quarter": 2,
       "year": 2026
+    },
+    {
+      "symbol": "BLTE",
+      "name": "Belite Bio Inc",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": -0.6484,
+      "revenueEstimate": 0,
+      "marketCap": 6665348883,
+      "epsActual": -0.68,
+      "revenueActual": null,
+      "quarter": 1,
+      "year": 2026
+    },
+    {
+      "symbol": "CEF",
+      "name": "Sprott Physical Gold and Silver Trust",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": null,
+      "revenueEstimate": null,
+      "marketCap": 7517150000,
+      "epsActual": -8.6,
+      "revenueActual": 0,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "CELC",
+      "name": "Celcuity Inc",
+      "date": "2026-08-13",
+      "hour": "amc",
+      "epsEstimate": -1.1878,
+      "revenueEstimate": 0,
+      "marketCap": 4496739407.10993,
+      "epsActual": -1.44,
+      "revenueActual": 0,
+      "quarter": 2,
+      "year": 2026
     }
   ],
   "capCache": {
@@ -4445,6 +4484,270 @@
       "name": "Aura Systems Inc",
       "exchange": "OTC MARKETS",
       "at": "2026-08-17T05:56:58.742Z"
+    },
+    "AVX": {
+      "capM": 23.338741999999996,
+      "name": "AVAX One Technology Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "BAFN": {
+      "capM": 172.83163600000003,
+      "name": "Bayfirst Financial Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "BDVC": {
+      "capM": 1135.93,
+      "name": "Franklin BSP Capital Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "BIVI": {
+      "capM": 10.144444368589742,
+      "name": "BioVie Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "BLTE": {
+      "capM": 6665.348883,
+      "name": "Belite Bio Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "BOF": {
+      "capM": 64.93996672359552,
+      "name": "BranchOut Food Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "CABA": {
+      "capM": 448.40069086715863,
+      "name": "Cabaletta Bio Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "CAPR": {
+      "capM": 383.95587180285037,
+      "name": "Capricor Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "CEF": {
+      "capM": 7517.15,
+      "name": "Sprott Physical Gold and Silver Trust",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "CELC": {
+      "capM": 4496.73940710993,
+      "name": "Celcuity Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "CHAI": {
+      "capM": 6.515013258319039,
+      "name": "Core AI Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "CRCW": {
+      "capM": 4.955441999999999,
+      "name": "Crypto Co",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "CVAC": {
+      "capM": 1049.31,
+      "name": "CureVac NV",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "ECIA": {
+      "capM": 0.720761,
+      "name": "Encision Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "EESE": {
+      "capM": 5.124243,
+      "name": "Energy and Environmental Services Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "EQS": {
+      "capM": 16.2,
+      "name": "EQUUS Total Return Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "EUSP": {
+      "capM": 4.2,
+      "name": "Aivita Group Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "EVTL": {
+      "capM": 105.605852,
+      "name": "Vertical Aerospace Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "GLTK": {
+      "capM": 216.033246,
+      "name": "Globaltech Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "GTEC": {
+      "capM": 18.846397,
+      "name": "Greenland Technologies Holding Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "GTIJF": {
+      "capM": 0.000769,
+      "name": "Graphjet Technology",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "ICCC": {
+      "capM": 91.27608300000001,
+      "name": "ImmuCell Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "INKT": {
+      "capM": 57.24201742090909,
+      "name": "Mink Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "IPSC": {
+      "capM": 347.664631,
+      "name": "Century Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "JSDA": {
+      "capM": 40.29663,
+      "name": "Jones Soda Co",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "KLNG": {
+      "capM": 35.543502237956204,
+      "name": "Koil Energy Solutions Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "KULR": {
+      "capM": 121.41685517676764,
+      "name": "KULR Technology Group Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "LASE": {
+      "capM": 69.94920319708028,
+      "name": "Laser Photonics Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "LIVE": {
+      "capM": 31.96058159381237,
+      "name": "Live Ventures Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "MAGE": {
+      "capM": 4.517787,
+      "name": "Magellan Copper and Gold Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "MDBH": {
+      "capM": 31.107123999999995,
+      "name": "MDB Capital Holdings LLC",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "MFON": {
+      "capM": 2.5891810000000004,
+      "name": "Mobivity Holdings Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "MOB": {
+      "capM": 77.063564,
+      "name": "Mobilicom Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "MOBQ": {
+      "capM": 23.087600769910388,
+      "name": "Mobiquity Technologies Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "NA": {
+      "capM": 43.17820623433243,
+      "name": "Nano Labs Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "NPWR": {
+      "capM": 447.2759918271604,
+      "name": "NET Power Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "OCLN": {
+      "capM": 12.169718,
+      "name": "OriginClear Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "OPTX": {
+      "capM": 354.4629490285714,
+      "name": "Syntec Optics Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "OSTX": {
+      "capM": 75.18509373124999,
+      "name": "OS Therapies Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "PAYD": {
+      "capM": 20.84889280645161,
+      "name": "Paid Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "PDSB": {
+      "capM": 13.063333722126929,
+      "name": "PDS Biotechnology Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "PETS": {
+      "capM": 39.110542743842366,
+      "name": "Petmed Express Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "PMN": {
+      "capM": 133.25992,
+      "name": "ProMIS Neurosciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T07:29:46.372Z"
+    },
+    "PREM": {
+      "capM": 13.417526,
+      "name": "Premier Air Charter Holdings Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T07:29:46.372Z"
     }
   },
   "growthCache": {
@@ -4975,6 +5278,18 @@
     "STEL:2026Q2": {
       "pct": 14,
       "at": "2026-08-17T04:11:16.637Z"
+    },
+    "CEF:2026Q2": {
+      "pct": -28.47,
+      "at": "2026-08-17T07:32:07.048Z"
+    },
+    "BLTE:2026Q1": {
+      "pct": null,
+      "at": "2026-08-17T07:32:07.048Z"
+    },
+    "CELC:2026Q2": {
+      "pct": null,
+      "at": "2026-08-17T07:32:07.048Z"
     }
   }
 }
