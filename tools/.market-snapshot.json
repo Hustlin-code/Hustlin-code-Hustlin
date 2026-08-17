@@ -1516,14 +1516,14 @@
     {
       "symbol": "DAO",
       "name": "Youdao Inc",
-      "date": "2026-08-12",
+      "date": "2026-08-20",
       "hour": "bmo",
-      "epsEstimate": 0.6111,
+      "epsEstimate": 0.508,
       "revenueEstimate": 1652816520,
-      "marketCap": 2091982754,
+      "marketCap": 2082440995.9999998,
       "epsActual": 0.339955,
       "revenueActual": null,
-      "quarter": 1,
+      "quarter": 2,
       "year": 2026
     },
     {
@@ -2487,6 +2487,227 @@
       "revenueActual": null,
       "quarter": 2,
       "year": 2026
+    },
+    {
+      "symbol": "ROST",
+      "name": "Ross Stores Inc",
+      "date": "2026-08-19",
+      "hour": "",
+      "epsEstimate": 1.9686,
+      "revenueEstimate": 6290429647,
+      "marketCap": 78726091594.81549,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
+    },
+    {
+      "symbol": "ADI",
+      "name": "Analog Devices Inc",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": 3.3681,
+      "revenueEstimate": 3958820462,
+      "marketCap": 188410143083.56226,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
+    },
+    {
+      "symbol": "EL",
+      "name": "Estee Lauder Companies Inc",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": 0.3295,
+      "revenueEstimate": 3649958006,
+      "marketCap": 31199385369.225895,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "YMM",
+      "name": "Full Truck Alliance Co Ltd",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": 1.2409,
+      "revenueEstimate": 3171904666,
+      "marketCap": 9918920000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "KC",
+      "name": "Kingsoft Cloud Holdings Ltd",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": -0.573,
+      "revenueEstimate": 3117576911,
+      "marketCap": 3464096573.5012007,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "VIK",
+      "name": "Viking Holdings Ltd(Pembroke)",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": 1.2712,
+      "revenueEstimate": 2165925375,
+      "marketCap": 47970811005,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ZIM",
+      "name": "ZIM Integrated Shipping Services Ltd",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": -0.3283,
+      "revenueEstimate": 1571601743,
+      "marketCap": 2980450000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "COTY",
+      "name": "Coty Inc",
+      "date": "2026-08-19",
+      "hour": "amc",
+      "epsEstimate": -0.0073,
+      "revenueEstimate": 1218292998,
+      "marketCap": 2504926994.9018183,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "NDSN",
+      "name": "Nordson Corp",
+      "date": "2026-08-19",
+      "hour": "amc",
+      "epsEstimate": 3.1657,
+      "revenueEstimate": 795681936,
+      "marketCap": 17217402851.783607,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
+    },
+    {
+      "symbol": "BILL",
+      "name": "BILL Holdings Inc",
+      "date": "2026-08-19",
+      "hour": "amc",
+      "epsEstimate": 0.7187,
+      "revenueEstimate": 439163570,
+      "marketCap": 4958821496.524653,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "BULL",
+      "name": "Webull Corp",
+      "date": "2026-08-19",
+      "hour": "amc",
+      "epsEstimate": 0.034,
+      "revenueEstimate": 187267583,
+      "marketCap": 4257208277.642769,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ATAT",
+      "name": "Atour Lifestyle Holdings Ltd",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 3.7919,
+      "revenueEstimate": 3288086422,
+      "marketCap": 4545811925,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "AAP",
+      "name": "Advance Auto Parts Inc",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 0.8047,
+      "revenueEstimate": 2060469185,
+      "marketCap": 3423230993.0720015,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "SPR",
+      "name": "Spirit AeroSystems Holdings Inc",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 0.2525,
+      "revenueEstimate": 1949638350,
+      "marketCap": 4642170000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ATHM",
+      "name": "Autohome Inc",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 2.0579,
+      "revenueEstimate": 1217737710,
+      "marketCap": 2823225230.5894003,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "OSIS",
+      "name": "OSI Systems Inc",
+      "date": "2026-08-20",
+      "hour": "amc",
+      "epsEstimate": 3.8461,
+      "revenueEstimate": 540266755,
+      "marketCap": 3787933159.635369,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "BKE",
+      "name": "Buckle Inc",
+      "date": "2026-08-20",
+      "hour": "",
+      "epsEstimate": 0.8333,
+      "revenueEstimate": 317200600,
+      "marketCap": 2270917192.012494,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
     }
   ],
   "capCache": {
@@ -5129,6 +5350,270 @@
       "name": "Futu Holdings Ltd",
       "exchange": "NASDAQ NMS - GLOBAL MARKET",
       "at": "2026-08-17T09:07:02.819Z"
+    },
+    "ROST": {
+      "capM": 78726.09159481549,
+      "name": "Ross Stores Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "ADI": {
+      "capM": 188410.14308356226,
+      "name": "Analog Devices Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "EL": {
+      "capM": 31199.385369225896,
+      "name": "Estee Lauder Companies Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "ATAT": {
+      "capM": 4545.811925,
+      "name": "Atour Lifestyle Holdings Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "YMM": {
+      "capM": 9918.92,
+      "name": "Full Truck Alliance Co Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "KC": {
+      "capM": 3464.0965735012005,
+      "name": "Kingsoft Cloud Holdings Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "VIK": {
+      "capM": 47970.811005,
+      "name": "Viking Holdings Ltd(Pembroke)",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "AAP": {
+      "capM": 3423.2309930720016,
+      "name": "Advance Auto Parts Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "SPR": {
+      "capM": 4642.17,
+      "name": "Spirit AeroSystems Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "DAO": {
+      "capM": 2082.440996,
+      "name": "Youdao Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "ZIM": {
+      "capM": 2980.45,
+      "name": "ZIM Integrated Shipping Services Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "FLO": {
+      "capM": 1588.88938038247,
+      "name": "Flowers Foods Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "COTY": {
+      "capM": 2504.9269949018185,
+      "name": "Coty Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "ATHM": {
+      "capM": 2823.2252305894003,
+      "name": "Autohome Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "SCSC": {
+      "capM": 1077.4033546481942,
+      "name": "Scansource Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "NDSN": {
+      "capM": 17217.40285178361,
+      "name": "Nordson Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "HOV": {
+      "capM": 756.78894342788,
+      "name": "Hovnanian Enterprises Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "OSIS": {
+      "capM": 3787.9331596353686,
+      "name": "OSI Systems Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "BILL": {
+      "capM": 4958.821496524653,
+      "name": "BILL Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "BKE": {
+      "capM": 2270.917192012494,
+      "name": "Buckle Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "JBSS": {
+      "capM": 1013.8369320425655,
+      "name": "John B Sanfilippo & Son Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "HAIN": {
+      "capM": 52.90207960893573,
+      "name": "Hain Celestial Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "WOLF": {
+      "capM": 1236.42,
+      "name": "Wolfspeed Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "LYTS": {
+      "capM": 908.8155257809983,
+      "name": "LSI Industries Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "TOYO": {
+      "capM": 257.80884618992934,
+      "name": "TOYO Co., Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "DQ": {
+      "capM": 1009.578766,
+      "name": "Daqo New Energy Corp",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "BULL": {
+      "capM": 4257.208277642769,
+      "name": "Webull Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "MOV": {
+      "capM": 567.3069316511303,
+      "name": "Movado Group Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "ALVO": {
+      "capM": 1587.1039341968215,
+      "name": "Alvotech SA",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "ARAY": {
+      "capM": 33.596626957894735,
+      "name": "Accuray Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "TWIN": {
+      "capM": 352.4217731046752,
+      "name": "Twin Disc Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "FLYX": {
+      "capM": 126.63043232812501,
+      "name": "Flyexclusive Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "FLNG": {
+      "capM": 1636.8648943236951,
+      "name": "FLEX LNG Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "DOMO": {
+      "capM": 184.3817552763819,
+      "name": "Domo Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "DVLT": {
+      "capM": 270.4431530780864,
+      "name": "Datavault AI Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "MSS": {
+      "capM": 1.180367829787234,
+      "name": "Maison Solutions Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "PDEX": {
+      "capM": 214.10642535463919,
+      "name": "Pro-Dex Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "RDZN": {
+      "capM": 121.77014191304349,
+      "name": "Roadzen Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "IVVD": {
+      "capM": 213.0011879684993,
+      "name": "Invivyd Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "ANTA": {
+      "capM": 85.89320512037462,
+      "name": "Antalpha Platform Holding Co",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "BOSC": {
+      "capM": 32.14713450997783,
+      "name": "BOS Better Online Solutions Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "NAKA": {
+      "capM": 86.83668946930693,
+      "name": "Nakamoto Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "BEEM": {
+      "capM": 25.289825721130434,
+      "name": "Beam Global",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:04:02.610Z"
+    },
+    "QMCI": {
+      "capM": 13.662176831675353,
+      "name": "QuoteMedia Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:04:02.610Z"
     }
   },
   "growthCache": {
@@ -5634,10 +6119,6 @@
     },
     "HE:2026Q2": {
       "pct": 11.84,
-      "at": "2026-08-17T04:11:16.637Z"
-    },
-    "DAO:2026Q1": {
-      "pct": -50.09,
       "at": "2026-08-17T04:11:16.637Z"
     },
     "SPB:2026Q3": {
