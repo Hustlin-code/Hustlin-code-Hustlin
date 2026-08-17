@@ -4181,6 +4181,270 @@
       "name": "reAlpha Tech Corp",
       "exchange": "NASDAQ NMS - GLOBAL MARKET",
       "at": "2026-08-17T05:04:34.522Z"
+    },
+    "MSGM": {
+      "capM": 21.93324810267857,
+      "name": "Motorsport Games Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "ELUT": {
+      "capM": 41.59994600000001,
+      "name": "Elutia Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "MDWD": {
+      "capM": 173.03109117294898,
+      "name": "Mediwound Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "NMTC": {
+      "capM": 17.231904295081964,
+      "name": "NeuroOne Medical Technologies Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "NWTG": {
+      "capM": 5.831919856060606,
+      "name": "Newton Golf Company Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "NUWE": {
+      "capM": 4.1629179856923075,
+      "name": "Nuwellis Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "IVF": {
+      "capM": 2.244268183280074,
+      "name": "INVO Fertility Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "PWCM": {
+      "capM": 0.8537316710526315,
+      "name": "LM Funding America Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "CRBU": {
+      "capM": 157.6971233850932,
+      "name": "Caribou Biosciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "EMAT": {
+      "capM": 1896.4614730530973,
+      "name": "Evolution Metals & Technologies Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "MSAI": {
+      "capM": 10.900500676811095,
+      "name": "MultiSensor AI Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "KYNB": {
+      "capM": 28.62015135795455,
+      "name": "Kyntra Bio Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "INV": {
+      "capM": 302.561079,
+      "name": "Innventure Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "XAIR": {
+      "capM": 3.91,
+      "name": "Beyond Air Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "TOMZ": {
+      "capM": 14.982177368983956,
+      "name": "TOMI Environmental Solutions Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "BKYI": {
+      "capM": 4.567574,
+      "name": "BIO-Key International Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "CBUS": {
+      "capM": 134.3284089574737,
+      "name": "Cibus Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "TNON": {
+      "capM": 2.5865403406040266,
+      "name": "Tenon Medical Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "VUZI": {
+      "capM": 199.16401748712445,
+      "name": "Vuzix Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "FATE": {
+      "capM": 307.938725,
+      "name": "Fate Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "FFAI": {
+      "capM": 10.55061310897436,
+      "name": "Faraday Future Intelligent Electric Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "OXBR": {
+      "capM": 12.452023,
+      "name": "Oxbridge Re Holdings Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "JTAI": {
+      "capM": 2.416926089385475,
+      "name": "Jet.AI Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "MGRM": {
+      "capM": 243.79,
+      "name": "Monogram Technologies Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "SWMR": {
+      "capM": 452.758287376134,
+      "name": "Swarmer Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "SLGL": {
+      "capM": 276.8508550000001,
+      "name": "Sol Gel Technologies Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "VNRX": {
+      "capM": 8.64904,
+      "name": "VolitionRX Ltd",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "NUAI": {
+      "capM": 508.9869198798799,
+      "name": "New Era Energy & Digital Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "DTST": {
+      "capM": 7.363874664804469,
+      "name": "Data Storage Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "STEX": {
+      "capM": 108.445807,
+      "name": "Streamex Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "ATHR": {
+      "capM": 44.668917,
+      "name": "Aether Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "QSI": {
+      "capM": 162.7321738112658,
+      "name": "Quantum-Si Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "ARAI": {
+      "capM": 13.467872112916668,
+      "name": "Arrive AI Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "IPWR": {
+      "capM": 85.55612507042252,
+      "name": "Ideal Power Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "GWH": {
+      "capM": 20.408446,
+      "name": "ESS Tech Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "BEAT": {
+      "capM": 27.9143879328586,
+      "name": "Heartbeam Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "AEMD": {
+      "capM": 1.842506170648464,
+      "name": "Aethlon Medical Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "AIRJ": {
+      "capM": 438.38557839003164,
+      "name": "Airjoule Technologies Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "AMCI": {
+      "capM": 106.67371136798337,
+      "name": "AMC Robotics Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "API": {
+      "capM": 451.656871,
+      "name": "Agora Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "ASFH": {
+      "capM": 14.29,
+      "name": "AsiaFIN Holdings Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "ATVK": {
+      "capM": 76.188378,
+      "name": "Ameritek Ventures Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "AURI": {
+      "capM": 0.007361000000000001,
+      "name": "Auri Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:56:58.742Z"
+    },
+    "AUSI": {
+      "capM": 27.18573571180832,
+      "name": "Aura Systems Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T05:56:58.742Z"
     }
   },
   "growthCache": {
