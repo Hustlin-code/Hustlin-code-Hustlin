@@ -2708,6 +2708,58 @@
       "revenueActual": null,
       "quarter": 2,
       "year": 2027
+    },
+    {
+      "symbol": "ALMS",
+      "name": "Alumis Inc",
+      "date": "2026-08-19",
+      "hour": "",
+      "epsEstimate": -0.7436,
+      "revenueEstimate": 3537023,
+      "marketCap": 3202598414.3154445,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "IMNM",
+      "name": "Immunome Inc",
+      "date": "2026-08-19",
+      "hour": "",
+      "epsEstimate": -0.5326,
+      "revenueEstimate": 185456,
+      "marketCap": 3093854625.115821,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "KOD",
+      "name": "Kodiak Sciences Inc",
+      "date": "2026-08-19",
+      "hour": "",
+      "epsEstimate": -0.9656,
+      "revenueEstimate": 0,
+      "marketCap": 2593250590.7073536,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "PHVS",
+      "name": "Pharvaris NV",
+      "date": "2026-08-19",
+      "hour": "amc",
+      "epsEstimate": -0.6651,
+      "revenueEstimate": 0,
+      "marketCap": 2449420883.2350173,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     }
   ],
   "capCache": {
@@ -5614,6 +5666,270 @@
       "name": "QuoteMedia Inc",
       "exchange": "OTC MARKETS",
       "at": "2026-08-17T10:04:02.610Z"
+    },
+    "CCIF": {
+      "capM": 58.3,
+      "name": "Carlyle Credit Income Fund",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "CLGN": {
+      "capM": 6.052517311676083,
+      "name": "Collplant Biotechnologies Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "ICG": {
+      "capM": 53.274716,
+      "name": "Intchains Group Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "ALMS": {
+      "capM": 3202.5984143154446,
+      "name": "Alumis Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "MGX": {
+      "capM": 46.08807191869919,
+      "name": "Metagenomi Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "TCRX": {
+      "capM": 49.86267562046632,
+      "name": "TScan Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "CLIR": {
+      "capM": 29.455815124705886,
+      "name": "ClearSign Technologies Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "VTIX": {
+      "capM": 53.83346549068323,
+      "name": "Virtuix Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "POET": {
+      "capM": 1646.5085368282828,
+      "name": "POET Technologies Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "IMNM": {
+      "capM": 3093.854625115821,
+      "name": "Immunome Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "PYXS": {
+      "capM": 191.33354980066446,
+      "name": "Pyxis Oncology Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "AARD": {
+      "capM": 142.68919097659904,
+      "name": "Aardvark Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "ACRV": {
+      "capM": 83.56405937837837,
+      "name": "Acrivon Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "ADGM": {
+      "capM": 15.769425159420289,
+      "name": "Adagio Medical Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "BCG": {
+      "capM": 26.055701999999997,
+      "name": "Binah Capital Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "CADL": {
+      "capM": 859.826289273305,
+      "name": "Candel Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "CATO": {
+      "capM": 67.46093728742515,
+      "name": "Cato Corp",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "CHUC": {
+      "capM": 72.80356889400001,
+      "name": "Charlie's Holdings Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "CTGO": {
+      "capM": 651.3136053880904,
+      "name": "Contango Silver & Gold Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "DDL": {
+      "capM": 511.65764,
+      "name": "Dingdong (Cayman) Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "FBYD": {
+      "capM": 1207.5723966210937,
+      "name": "Falcon's Beyond Global Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "FIEE": {
+      "capM": 43.085624071910566,
+      "name": "FiEE Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "GFR": {
+      "capM": 864.8236948428781,
+      "name": "Greenfire Resources Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "GRO": {
+      "capM": 136.074715,
+      "name": "Brazil Potash Corp",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "INBX": {
+      "capM": 1301.3341818699103,
+      "name": "Inhibrx Biosciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "INVU": {
+      "capM": 38.759155,
+      "name": "Investview Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "KLRS": {
+      "capM": 89.3265476572165,
+      "name": "Kalaris Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "KOD": {
+      "capM": 2593.2505907073537,
+      "name": "Kodiak Sciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "LWAC": {
+      "capM": 311.276269,
+      "name": "LightWave Acquisition Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "LXEO": {
+      "capM": 399.15504352217744,
+      "name": "Lexeo Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "NEGG": {
+      "capM": 394.8178725990491,
+      "name": "Newegg Commerce Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "NROM": {
+      "capM": 13.624649882720878,
+      "name": "Noble Roman's Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "PHVS": {
+      "capM": 2449.4208832350173,
+      "name": "Pharvaris NV",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "PRLD": {
+      "capM": 443.62438958582084,
+      "name": "Prelude Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "RMCO": {
+      "capM": 47.11558127540983,
+      "name": "Royalty Management Holding Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "SCND": {
+      "capM": 8.230733144063752,
+      "name": "Scientific Industries Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "SEBC": {
+      "capM": 90.96003,
+      "name": "Southeastern Banking Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "SGMT": {
+      "capM": 626.8332473389008,
+      "name": "Sagimet Biosciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "VIP": {
+      "capM": 37.08655092592593,
+      "name": "Greenidge Generation Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "YRD": {
+      "capM": 97.99,
+      "name": "Yiren Digital Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "YSG": {
+      "capM": 326.65,
+      "name": "Yatsen Holding Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "ZDPY": {
+      "capM": 6.1,
+      "name": "Zoned Properties Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "ZURA": {
+      "capM": 526.29,
+      "name": "Zura Bio Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T10:54:27.496Z"
+    },
+    "AGTX": {
+      "capM": 0.801339,
+      "name": "Agentix Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T10:54:27.496Z"
     }
   },
   "growthCache": {
