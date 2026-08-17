@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/WALCL",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-16",
+"updated": "2026-08-17",
 "count": 1235,
 "obs": [
 ["2002-12-18",719542],

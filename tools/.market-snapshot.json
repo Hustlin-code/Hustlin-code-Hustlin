@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-08-16",
-  "bakedAt": "2026-08-16T09:59:22.842Z",
+  "stamp": "2026-08-17",
+  "bakedAt": "2026-08-17T10:15:40.086Z",
   "figures": {
     "inflation": {
       "label": "Inflation (CPI, YoY)",
@@ -365,7 +365,7 @@
   },
   "cadenceStamps": {
     "monthly": "2026-08-15",
-    "daily": "2026-08-16",
+    "daily": "2026-08-17",
     "intraday": "2026-08-17"
   },
   "earningsWatch": [
