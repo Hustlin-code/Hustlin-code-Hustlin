@@ -118,7 +118,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260816-2210">
+<link rel="stylesheet" href="styles.css?v=20260816-2316">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -272,11 +272,36 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
    wrapper rather than unwound, so the closing tags at the foot still balance. */
 .mkt-layout{
   display:block;
-  margin-top:108px;
+  margin-top:0;
 }
 .mkt-main{min-width:0}
-@media(max-width:900px){.mkt-layout{margin-top:76px}}
-@media(max-width:480px){.mkt-layout{margin-top:64px}}
+
+/* Pillar quick-nav — added 2026-08-17 so the hub carries the same pill row as
+   the four discipline pages. Rules copied verbatim from markets-economic.html
+   so the two render identically; explicit hex, never a CSS variable name.
+   The 108px offset moved here from .mkt-layout: .nav is position:fixed at
+   108px and something has to clear it. Do not put it back on both. */
+.eco-quicknav{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  padding:12px 40px;background:#060606;
+  border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);
+  position:sticky;top:108px;z-index:40;margin-top:108px;
+}
+.eco-quicknav a{
+  font-size:.74rem;font-weight:700;letter-spacing:.03em;
+  color:rgba(255,255,255,.5);background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);padding:7px 14px;border-radius:20px;
+  transition:all .2s;white-space:nowrap;text-decoration:none;
+}
+.eco-quicknav a:hover{color:#F5C520;border-color:rgba(245,197,32,.4);background:rgba(245,197,32,.08)}
+.eco-quicknav a.active{color:#F5C520;border-color:rgba(245,197,32,.45);background:rgba(245,197,32,.1)}
+@media(max-width:900px){
+  .eco-quicknav{top:76px;margin-top:76px;padding:12px 16px;flex-wrap:nowrap;
+    justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .eco-quicknav::-webkit-scrollbar{display:none}
+  .eco-quicknav a{flex-shrink:0}
+}
+@media(max-width:480px){.eco-quicknav{top:64px;margin-top:64px;padding:10px 14px;gap:6px}}
 
 /* The .mkt-hero min-height and padding overrides that lived here existed to
    stop the hero eating the fold. The hero is gone as of 2026-08-02 and so are
@@ -626,6 +651,17 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
 })();
 </script>
 <!-- NAV:END -->
+
+<!-- PILLAR NAV -->
+<div class="eco-quicknav">
+  <a href="markets.html" class="active">Markets</a>
+  <a href="markets-economic.html">Economic</a>
+  <a href="markets-fundamental.html">Fundamental</a>
+  <a href="markets-technical.html">Technical</a>
+  <a href="markets-behavior.html">Behavior</a>
+  <a href="#calendar">Calendar</a>
+  <a href="Markets/screeners.html">Screeners</a>
+</div>
 
 <div class="mkt-layout">
 
@@ -3659,8 +3695,8 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
      market-tables.js alongside the 10-row pager, and the reasoning for both
      being pure enhancement is in that file's header.
      ──────────────────────────────────────────────────────────────────────── -->
-<script src="market-tables.js?v=20260816-2210"></script>
-<script src="app.js?v=20260816-2210"></script>
+<script src="market-tables.js?v=20260816-2316"></script>
+<script src="app.js?v=20260816-2316"></script>
 <script>
 HFY.initNavOnly();
 </script>
