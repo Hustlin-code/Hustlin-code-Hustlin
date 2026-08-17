@@ -2110,6 +2110,227 @@
       "revenueActual": 10130000,
       "quarter": 2,
       "year": 2026
+    },
+    {
+      "symbol": "HD",
+      "name": "Home Depot Inc",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": 4.8762,
+      "revenueEstimate": 48694759166,
+      "marketCap": 337548743238.5344,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
+    },
+    {
+      "symbol": "BIDU",
+      "name": "Baidu Inc",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": 11.0525,
+      "revenueEstimate": 32797167403,
+      "marketCap": 36271401814.174805,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "XP",
+      "name": "XP Inc",
+      "date": "2026-08-18",
+      "hour": "",
+      "epsEstimate": 2.6967,
+      "revenueEstimate": 5013897448,
+      "marketCap": 8886850000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "VNET",
+      "name": "VNET Group Inc",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": 1.275,
+      "revenueEstimate": 2789951124,
+      "marketCap": 2041239102,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "TOL",
+      "name": "Toll Brothers Inc",
+      "date": "2026-08-18",
+      "hour": "amc",
+      "epsEstimate": 2.9446,
+      "revenueEstimate": 2637261500,
+      "marketCap": 13859879752.882998,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
+    },
+    {
+      "symbol": "BZ",
+      "name": "Kanzhun Ltd",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": 2.1754,
+      "revenueEstimate": 2479348596,
+      "marketCap": 7667526647.016601,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "KEYS",
+      "name": "Keysight Technologies Inc",
+      "date": "2026-08-18",
+      "hour": "amc",
+      "epsEstimate": 2.5248,
+      "revenueEstimate": 1772093940,
+      "marketCap": 61344603247.23876,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
+    },
+    {
+      "symbol": "AS",
+      "name": "Amer Sports Inc",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": 0.1098,
+      "revenueEstimate": 1589222792,
+      "marketCap": 19088751157.20169,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "KLAR",
+      "name": "Klarna Group PLC",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": -0.0432,
+      "revenueEstimate": 1013463156,
+      "marketCap": 7872927455.183995,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "HSAI",
+      "name": "Hesai Group",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": 0.5838,
+      "revenueEstimate": 886421136,
+      "marketCap": 2978963931.9258003,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "JKHY",
+      "name": "Jack Henry & Associates Inc",
+      "date": "2026-08-18",
+      "hour": "amc",
+      "epsEstimate": 1.4743,
+      "revenueEstimate": 642048098,
+      "marketCap": 10899900394.255676,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "CAAP",
+      "name": "Corporacion America Airports SA",
+      "date": "2026-08-18",
+      "hour": "",
+      "epsEstimate": 0.5554,
+      "revenueEstimate": 519746355,
+      "marketCap": 3986446613.5052333,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "IHS",
+      "name": "IHS Holding Ltd",
+      "date": "2026-08-18",
+      "hour": "",
+      "epsEstimate": 0.1212,
+      "revenueEstimate": 455874610,
+      "marketCap": 2811202908.2791815,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "RNW",
+      "name": "Renew Energy Global PLC",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": 0.1212,
+      "revenueEstimate": 432084979,
+      "marketCap": 2479760396.5169115,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 1,
+      "year": 2027
+    },
+    {
+      "symbol": "MRCY",
+      "name": "Mercury Systems Inc",
+      "date": "2026-08-18",
+      "hour": "amc",
+      "epsEstimate": 0.3933,
+      "revenueEstimate": 271856407,
+      "marketCap": 6619471630.335777,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "PONY",
+      "name": "Pony AI Inc",
+      "date": "2026-08-18",
+      "hour": "bmo",
+      "epsEstimate": -0.151,
+      "revenueEstimate": 34433925,
+      "marketCap": 3539267549.2356005,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "ZBIO",
+      "name": "Zenas Biopharma Inc",
+      "date": "2026-08-18",
+      "hour": "",
+      "epsEstimate": -1.147,
+      "revenueEstimate": 19125000,
+      "marketCap": 2037310000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
     }
   ],
   "capCache": {
@@ -3432,6 +3653,270 @@
       "name": "Supercom Ltd",
       "exchange": "NASDAQ NMS - GLOBAL MARKET",
       "at": "2026-08-17T03:18:20.068Z"
+    },
+    "HD": {
+      "capM": 337548.74323853443,
+      "name": "Home Depot Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "BIDU": {
+      "capM": 36271.4018141748,
+      "name": "Baidu Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "IQ": {
+      "capM": 1312.433679,
+      "name": "iQIYI Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "XP": {
+      "capM": 8886.85,
+      "name": "XP Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "VNET": {
+      "capM": 2041.239102,
+      "name": "VNET Group Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "TOL": {
+      "capM": 13859.879752882998,
+      "name": "Toll Brothers Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "BZ": {
+      "capM": 7667.526647016601,
+      "name": "Kanzhun Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "KEYS": {
+      "capM": 61344.60324723876,
+      "name": "Keysight Technologies Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "AS": {
+      "capM": 19088.751157201692,
+      "name": "Amer Sports Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "AUNA": {
+      "capM": 390.7884543516069,
+      "name": "Auna SA",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "KLAR": {
+      "capM": 7872.927455183995,
+      "name": "Klarna Group PLC",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "HSAI": {
+      "capM": 2978.9639319258004,
+      "name": "Hesai Group",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "JKHY": {
+      "capM": 10899.900394255676,
+      "name": "Jack Henry & Associates Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "CAAP": {
+      "capM": 3986.4466135052335,
+      "name": "Corporacion America Airports SA",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "LZB": {
+      "capM": 1673.6688619623683,
+      "name": "La-Z-Boy Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "IHS": {
+      "capM": 2811.2029082791814,
+      "name": "IHS Holding Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "RNW": {
+      "capM": 2479.7603965169114,
+      "name": "Renew Energy Global PLC",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "MRCY": {
+      "capM": 6619.471630335777,
+      "name": "Mercury Systems Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "UFI": {
+      "capM": 121.74651183436532,
+      "name": "Unifi Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "PROP": {
+      "capM": 97.63057041416667,
+      "name": "Prairie Operating Co",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "PRE": {
+      "capM": 337.8119593203046,
+      "name": "Prenetics Global Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "PONY": {
+      "capM": 3539.2675492356007,
+      "name": "Pony AI Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "ZBIO": {
+      "capM": 2037.31,
+      "name": "Zenas Biopharma Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "IRIX": {
+      "capM": 14.882572388059701,
+      "name": "IRIDEX Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "NNOX": {
+      "capM": 73.55480632446701,
+      "name": "Nano-X Imaging Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "ELWT": {
+      "capM": 54.9608567,
+      "name": "Elauwit Connection Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "NXGL": {
+      "capM": 6.731838796807856,
+      "name": "Nexgel Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "CUE": {
+      "capM": 139.32536510070787,
+      "name": "Cue Biopharma Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "VRME": {
+      "capM": 9.381443000000003,
+      "name": "VerifyMe Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "MLSS": {
+      "capM": 45.83448545207956,
+      "name": "Milestone Scientific Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "CTOR": {
+      "capM": 84.12009146492503,
+      "name": "Citius Oncology Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "MAZE": {
+      "capM": 1533.1570769853606,
+      "name": "Maze Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "ARMP": {
+      "capM": 169.73574570850622,
+      "name": "Armata Pharmaceuticals Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "EVGN": {
+      "capM": 9.465042832565285,
+      "name": "Evogene Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "DRTS": {
+      "capM": 1283.53067444,
+      "name": "Alpha Tau Medical Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "COYA": {
+      "capM": 113.06683648394005,
+      "name": "Coya Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "ABHBY": {
+      "capM": 320.1218135984,
+      "name": "Alfen NV",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "ACRG": {
+      "capM": 112.810547,
+      "name": "American Clean Resources Group Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "ASII": {
+      "capM": 0.384497,
+      "name": "Accredited Solutions Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "AVBP": {
+      "capM": 1468.3842480406668,
+      "name": "ArriVent BioPharma Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "CALC": {
+      "capM": 20.728628447284343,
+      "name": "CalciMedica Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "CFNB": {
+      "capM": 304.85,
+      "name": "California First Leasing Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "DOMH": {
+      "capM": 64.46385893172413,
+      "name": "Dominari Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T04:10:05.911Z"
+    },
+    "EICCF": {
+      "capM": 0.59,
+      "name": "E Automotive Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T04:10:05.911Z"
     }
   },
   "growthCache": {
@@ -3930,6 +4415,38 @@
     "HAWK:2026Q2": {
       "pct": null,
       "at": "2026-08-17T03:19:33.114Z"
+    },
+    "TILE:2026Q2": {
+      "pct": -27.41,
+      "at": "2026-08-17T04:11:16.637Z"
+    },
+    "HE:2026Q2": {
+      "pct": 11.84,
+      "at": "2026-08-17T04:11:16.637Z"
+    },
+    "DAO:2026Q1": {
+      "pct": -50.09,
+      "at": "2026-08-17T04:11:16.637Z"
+    },
+    "SPB:2026Q3": {
+      "pct": 2657.27,
+      "at": "2026-08-17T04:11:16.637Z"
+    },
+    "SGRY:2026Q2": {
+      "pct": null,
+      "at": "2026-08-17T04:11:16.637Z"
+    },
+    "PLGO:2026Q2": {
+      "pct": null,
+      "at": "2026-08-17T04:11:16.637Z"
+    },
+    "YSS:2026Q2": {
+      "pct": null,
+      "at": "2026-08-17T04:11:16.637Z"
+    },
+    "STEL:2026Q2": {
+      "pct": 14,
+      "at": "2026-08-17T04:11:16.637Z"
     }
   }
 }
