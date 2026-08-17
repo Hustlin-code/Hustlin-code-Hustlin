@@ -2337,12 +2337,12 @@
       "name": "Belite Bio Inc",
       "date": "2026-08-13",
       "hour": "amc",
-      "epsEstimate": -0.6484,
+      "epsEstimate": -0.8045,
       "revenueEstimate": 0,
       "marketCap": 6665348883,
       "epsActual": -0.68,
       "revenueActual": null,
-      "quarter": 1,
+      "quarter": 2,
       "year": 2026
     },
     {
@@ -2368,6 +2368,123 @@
       "marketCap": 4496739407.10993,
       "epsActual": -1.44,
       "revenueActual": 0,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "SIND",
+      "name": "Sinda Ltd",
+      "date": "2026-08-14",
+      "hour": "bmo",
+      "epsEstimate": -0.0306,
+      "revenueEstimate": null,
+      "marketCap": 2632753014.7176466,
+      "epsActual": -0.13,
+      "revenueActual": 0,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "LOW",
+      "name": "Lowe's Companies Inc",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": 4.2878,
+      "revenueEstimate": 26507792390,
+      "marketCap": 122335074079.18314,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
+    },
+    {
+      "symbol": "TGT",
+      "name": "Target Corp",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": 2.3095,
+      "revenueEstimate": 26324568724,
+      "marketCap": 70326952331.58229,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
+    },
+    {
+      "symbol": "TJX",
+      "name": "TJX Companies Inc",
+      "date": "2026-08-19",
+      "hour": "bmo",
+      "epsEstimate": 1.2036,
+      "revenueEstimate": 15344410860,
+      "marketCap": 168014499836.59186,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
+    },
+    {
+      "symbol": "BABA",
+      "name": "Alibaba Group Holding Ltd",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 10.6209,
+      "revenueEstimate": 274323619551,
+      "marketCap": 297788722234.6582,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 1,
+      "year": 2027
+    },
+    {
+      "symbol": "WMT",
+      "name": "Walmart Inc",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 0.7493,
+      "revenueEstimate": 188787837469,
+      "marketCap": 884142590000,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
+    },
+    {
+      "symbol": "NTES",
+      "name": "NetEase Inc",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 15.5105,
+      "revenueEstimate": 29989572564,
+      "marketCap": 77776203077.77321,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "DE",
+      "name": "Deere & Co",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 4.8353,
+      "revenueEstimate": 11052327851,
+      "marketCap": 164806255612.1398,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 3,
+      "year": 2026
+    },
+    {
+      "symbol": "FUTU",
+      "name": "Futu Holdings Ltd",
+      "date": "2026-08-20",
+      "hour": "bmo",
+      "epsEstimate": 21.3027,
+      "revenueEstimate": 6478655796,
+      "marketCap": 14664343192,
+      "epsActual": null,
+      "revenueActual": null,
       "quarter": 2,
       "year": 2026
     }
@@ -4748,6 +4865,270 @@
       "name": "Premier Air Charter Holdings Inc",
       "exchange": "OTC MARKETS",
       "at": "2026-08-17T07:29:46.372Z"
+    },
+    "RMHI": {
+      "capM": 27.97501917255298,
+      "name": "Retrieve Medical Holdings Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SBDS": {
+      "capM": 9.784117999999998,
+      "name": "Solo Brands Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SBSAA": {
+      "capM": 0.0000062094499999999995,
+      "name": "Spanish Broadcasting System Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SDST": {
+      "capM": 7.2169604119117645,
+      "name": "Stardust Power Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SMEV": {
+      "capM": 5.981944999999999,
+      "name": "Simulated Environment Concepts Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SRXH": {
+      "capM": 37.47424,
+      "name": "Srx Health Solutions Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TMC": {
+      "capM": 1732.8844616780043,
+      "name": "TMC the metals company Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TOUR": {
+      "capM": 50.622002,
+      "name": "Tuniu Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TPCS": {
+      "capM": 60.50085700000001,
+      "name": "TechPrecision Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TVRD": {
+      "capM": 17.52997846937853,
+      "name": "Tvardi Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "WWR": {
+      "capM": 52.12,
+      "name": "Westwater Resources Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "YXT": {
+      "capM": 18.15,
+      "name": "YXT.Com Group Holding Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "ACTU": {
+      "capM": 24.166306517177727,
+      "name": "Actuate Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "ACXP": {
+      "capM": 5.9308782162162155,
+      "name": "Acurx Pharmaceuticals Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "CREG": {
+      "capM": 0.543169,
+      "name": "Smart Powerr Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "CSPI": {
+      "capM": 80.67649789876795,
+      "name": "CSP Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "GPUS": {
+      "capM": 43.21083676460177,
+      "name": "Hyperscale Data Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "HURA": {
+      "capM": 155.38535940869568,
+      "name": "TuHURA Biosciences Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "KFII": {
+      "capM": 416.506769,
+      "name": "K&F Growth Acquisition II Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "LEAT": {
+      "capM": 73.05141614242424,
+      "name": "Leatt Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "LTRN": {
+      "capM": 34.95293155228137,
+      "name": "Lantern Pharma Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "MCIC": {
+      "capM": 0.9124769999999999,
+      "name": "Multicorp International Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "MTBLY": {
+      "capM": 8.373655,
+      "name": "Moatable Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "NVVE": {
+      "capM": 0.5890069999999998,
+      "name": "Nuvve Holding Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "ONVC": {
+      "capM": 26.387999,
+      "name": "Online Vacation Center Holdings Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SCWO": {
+      "capM": 44.29540079365079,
+      "name": "374Water Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SIDU": {
+      "capM": 259.92146198622044,
+      "name": "Sidus Space Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SIND": {
+      "capM": 2632.7530147176467,
+      "name": "Sinda Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SLAI": {
+      "capM": 2.92,
+      "name": "SOLAI Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SMNR": {
+      "capM": 150.81000508663584,
+      "name": "Semnur Pharmaceuticals Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "SOWG": {
+      "capM": 66.798788,
+      "name": "Sow Good Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TKMO": {
+      "capM": 0.158389,
+      "name": "Tekumo Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TMS": {
+      "capM": 662.2080285657142,
+      "name": "Teamshares Inc.",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "YIYU": {
+      "capM": 463.33,
+      "name": "Yiyou Holdings Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "ALLR": {
+      "capM": 21.638584,
+      "name": "Allarity Therapeutics Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "BABA": {
+      "capM": 297788.7222346582,
+      "name": "Alibaba Group Holding Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "WMT": {
+      "capM": 884142.59,
+      "name": "Walmart Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "NTES": {
+      "capM": 77776.20307777321,
+      "name": "NetEase Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "LOW": {
+      "capM": 122335.07407918313,
+      "name": "Lowe's Companies Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TGT": {
+      "capM": 70326.95233158229,
+      "name": "Target Corp",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "TJX": {
+      "capM": 168014.49983659186,
+      "name": "TJX Companies Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "DE": {
+      "capM": 164806.2556121398,
+      "name": "Deere & Co",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "RERE": {
+      "capM": 1009.738175,
+      "name": "ATRenew Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T09:07:02.819Z"
+    },
+    "FUTU": {
+      "capM": 14664.343192,
+      "name": "Futu Holdings Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T09:07:02.819Z"
     }
   },
   "growthCache": {
@@ -5283,13 +5664,17 @@
       "pct": -28.47,
       "at": "2026-08-17T07:32:07.048Z"
     },
-    "BLTE:2026Q1": {
-      "pct": null,
-      "at": "2026-08-17T07:32:07.048Z"
-    },
     "CELC:2026Q2": {
       "pct": null,
       "at": "2026-08-17T07:32:07.048Z"
+    },
+    "BLTE:2026Q2": {
+      "pct": null,
+      "at": "2026-08-17T09:08:13.144Z"
+    },
+    "SIND:2026Q2": {
+      "pct": null,
+      "at": "2026-08-17T09:08:13.144Z"
     }
   }
 }
