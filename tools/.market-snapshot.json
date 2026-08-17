@@ -5930,6 +5930,72 @@
       "name": "Agentix Corp",
       "exchange": "OTC MARKETS",
       "at": "2026-08-17T10:54:27.496Z"
+    },
+    "AXIL": {
+      "capM": 41.588073068965514,
+      "name": "AXIL Brands Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "BRID": {
+      "capM": 58.27325923051948,
+      "name": "Bridgford Foods Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "ELLO": {
+      "capM": 281.17790353953023,
+      "name": "Ellomay Capital Ltd",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "EVAX": {
+      "capM": 26.779594,
+      "name": "Evaxion A/S",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "FECOF": {
+      "capM": 1.62794,
+      "name": "FEC Resources Inc",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "FTII": {
+      "capM": 48.82,
+      "name": "Futuretech II Acquisition Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "IGR": {
+      "capM": 717.64,
+      "name": "CBRE Global Real Estate Income Fund",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "JG": {
+      "capM": 31.488729,
+      "name": "Aurora Mobile Ltd",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "KOSS": {
+      "capM": 35.26248311307903,
+      "name": "Koss Corp",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "SCPX": {
+      "capM": 0.061143,
+      "name": "Scorpius Holdings Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-17T11:47:30.477Z"
+    },
+    "UCLE": {
+      "capM": 2.2176260924369746,
+      "name": "US Nuclear Corp",
+      "exchange": "OTC MARKETS",
+      "at": "2026-08-17T11:47:30.477Z"
     }
   },
   "growthCache": {
