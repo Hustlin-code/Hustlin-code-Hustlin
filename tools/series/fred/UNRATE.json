@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/UNRATE",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-17",
+"updated": "2026-08-16",
 "count": 943,
 "obs": [
 ["1948-01-01",3.4],

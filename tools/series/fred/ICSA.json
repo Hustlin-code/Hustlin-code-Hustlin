@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/ICSA",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-17",
+"updated": "2026-08-16",
 "count": 3110,
 "obs": [
 ["1967-01-07",208000],

@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/BAMLC0A4CBBB",
 "note": "FRED serves only a rolling three-year window for this series as of April 2026. This archive is the only copy of anything older. Append-only: never delete rows.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-17",
+"updated": "2026-08-16",
 "count": 795,
 "obs": [
 ["2023-08-15",1.52],
