@@ -2288,8 +2288,8 @@
       "epsEstimate": 0.1212,
       "revenueEstimate": 432084979,
       "marketCap": 2479760396.5169115,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 16.269000000000002,
+      "revenueActual": 48424200000,
       "quarter": 1,
       "year": 2027
     },
