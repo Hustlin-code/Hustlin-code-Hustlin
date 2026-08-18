@@ -2197,8 +2197,8 @@
       "epsEstimate": 2.5248,
       "revenueEstimate": 1772093940,
       "marketCap": 61344603247.23876,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 3.07,
+      "revenueActual": 1846000000,
       "quarter": 3,
       "year": 2026
     },
@@ -2301,8 +2301,8 @@
       "epsEstimate": 0.3933,
       "revenueEstimate": 271856407,
       "marketCap": 6619471630.335777,
-      "epsActual": null,
-      "revenueActual": null,
+      "epsActual": 0.37,
+      "revenueActual": 289780000,
       "quarter": 4,
       "year": 2026
     },
