@@ -366,7 +366,7 @@
   "cadenceStamps": {
     "monthly": "2026-08-15",
     "daily": "2026-08-17",
-    "intraday": "2026-08-17"
+    "intraday": "2026-08-18"
   },
   "earningsWatch": [
     {
@@ -2759,6 +2759,32 @@
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
+      "year": 2026
+    },
+    {
+      "symbol": "BJ",
+      "name": "BJ's Wholesale Club Holdings Inc",
+      "date": "2026-08-21",
+      "hour": "bmo",
+      "epsEstimate": 1.1951,
+      "revenueEstimate": 6122130243,
+      "marketCap": 12058143474.790173,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
+      "year": 2027
+    },
+    {
+      "symbol": "UI",
+      "name": "Ubiquiti Inc",
+      "date": "2026-08-21",
+      "hour": "bmo",
+      "epsEstimate": 4.154,
+      "revenueEstimate": 876011910,
+      "marketCap": 35324925822.717354,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 4,
       "year": 2026
     }
   ],
@@ -5996,6 +6022,24 @@
       "name": "US Nuclear Corp",
       "exchange": "OTC MARKETS",
       "at": "2026-08-17T11:47:30.477Z"
+    },
+    "BJ": {
+      "capM": 12058.143474790173,
+      "name": "BJ's Wholesale Club Holdings Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-18T01:56:46.229Z"
+    },
+    "UI": {
+      "capM": 35324.925822717356,
+      "name": "Ubiquiti Inc",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-18T01:56:46.229Z"
+    },
+    "ZKH": {
+      "capM": 460.89,
+      "name": "ZKH Group Ltd",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-18T01:56:46.229Z"
     }
   },
   "growthCache": {
