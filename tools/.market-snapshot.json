@@ -2402,13 +2402,13 @@
       "name": "Target Corp",
       "date": "2026-08-19",
       "hour": "bmo",
-      "epsEstimate": 2.3095,
-      "revenueEstimate": 26324568724,
+      "epsEstimate": null,
+      "revenueEstimate": null,
       "marketCap": 70326952331.58229,
       "epsActual": null,
       "revenueActual": null,
       "quarter": 2,
-      "year": 2027
+      "year": 2026
     },
     {
       "symbol": "TJX",
@@ -2785,6 +2785,19 @@
       "epsActual": null,
       "revenueActual": null,
       "quarter": 4,
+      "year": 2026
+    },
+    {
+      "symbol": "NMM",
+      "name": "Navios Maritime Partners LP",
+      "date": "2026-08-20",
+      "hour": "",
+      "epsEstimate": 4.6151,
+      "revenueEstimate": 365383407,
+      "marketCap": 2352705691.6630435,
+      "epsActual": null,
+      "revenueActual": null,
+      "quarter": 2,
       "year": 2026
     }
   ],
@@ -6040,6 +6053,24 @@
       "name": "ZKH Group Ltd",
       "exchange": "NEW YORK STOCK EXCHANGE, INC.",
       "at": "2026-08-18T01:56:46.229Z"
+    },
+    "MRT": {
+      "capM": 158.3186088888889,
+      "name": "Marti Technologies Inc",
+      "exchange": "NYSE MKT LLC",
+      "at": "2026-08-18T09:55:30.520Z"
+    },
+    "NMM": {
+      "capM": 2352.7056916630436,
+      "name": "Navios Maritime Partners LP",
+      "exchange": "NEW YORK STOCK EXCHANGE, INC.",
+      "at": "2026-08-18T09:55:30.520Z"
+    },
+    "OWLS": {
+      "capM": 479.6504263026315,
+      "name": "OBOOK Holdings Inc",
+      "exchange": "NASDAQ NMS - GLOBAL MARKET",
+      "at": "2026-08-18T09:55:30.520Z"
     }
   },
   "growthCache": {
