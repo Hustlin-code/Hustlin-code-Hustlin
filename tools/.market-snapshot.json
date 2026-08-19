@@ -2142,12 +2142,12 @@
       "name": "XP Inc",
       "date": "2026-08-18",
       "hour": "",
-      "epsEstimate": 2.637,
+      "epsEstimate": 2.6967,
       "revenueEstimate": 5013897448,
       "marketCap": 8886850000,
       "epsActual": 2.49,
       "revenueActual": null,
-      "quarter": 1,
+      "quarter": 2,
       "year": 2026
     },
     {
@@ -2181,12 +2181,12 @@
       "name": "Kanzhun Ltd",
       "date": "2026-08-18",
       "hour": "bmo",
-      "epsEstimate": 1.7791,
+      "epsEstimate": 2.1754,
       "revenueEstimate": 2479348596,
       "marketCap": 7667526647.016601,
       "epsActual": 1.87,
       "revenueActual": null,
-      "quarter": 1,
+      "quarter": 2,
       "year": 2026
     },
     {
@@ -2272,12 +2272,12 @@
       "name": "IHS Holding Ltd",
       "date": "2026-08-18",
       "hour": "",
-      "epsEstimate": 0.4848,
+      "epsEstimate": 0.1212,
       "revenueEstimate": 455874610,
       "marketCap": 2811202908.2791815,
       "epsActual": 0.22,
       "revenueActual": null,
-      "quarter": 1,
+      "quarter": 2,
       "year": 2026
     },
     {
@@ -2324,12 +2324,12 @@
       "name": "Zenas Biopharma Inc",
       "date": "2026-08-18",
       "hour": "",
-      "epsEstimate": -1.6177,
+      "epsEstimate": -1.147,
       "revenueEstimate": 19125000,
       "marketCap": 2037310000,
       "epsActual": -1.46,
       "revenueActual": null,
-      "quarter": 1,
+      "quarter": 2,
       "year": 2026
     },
     {
@@ -6642,16 +6642,8 @@
       "pct": 12.2,
       "at": "2026-08-19T04:08:26.892Z"
     },
-    "XP:2026Q1": {
-      "pct": 8.86,
-      "at": "2026-08-19T04:08:26.892Z"
-    },
     "KLAR:2026Q2": {
       "pct": null,
-      "at": "2026-08-19T04:08:26.892Z"
-    },
-    "BZ:2026Q1": {
-      "pct": 110.89,
       "at": "2026-08-19T04:08:26.892Z"
     },
     "MRCY:2026Q4": {
@@ -6670,10 +6662,6 @@
       "pct": null,
       "at": "2026-08-19T04:08:26.892Z"
     },
-    "IHS:2026Q1": {
-      "pct": 127.62,
-      "at": "2026-08-19T04:08:26.892Z"
-    },
     "RNW:2027Q1": {
       "pct": -90.1,
       "at": "2026-08-19T04:08:26.892Z"
@@ -6682,9 +6670,21 @@
       "pct": null,
       "at": "2026-08-19T04:08:26.892Z"
     },
-    "ZBIO:2026Q1": {
+    "XP:2026Q2": {
+      "pct": 8.86,
+      "at": "2026-08-19T05:00:51.408Z"
+    },
+    "BZ:2026Q2": {
+      "pct": 110.89,
+      "at": "2026-08-19T05:00:51.408Z"
+    },
+    "IHS:2026Q2": {
+      "pct": 127.62,
+      "at": "2026-08-19T05:00:51.408Z"
+    },
+    "ZBIO:2026Q2": {
       "pct": null,
-      "at": "2026-08-19T04:08:26.892Z"
+      "at": "2026-08-19T05:00:51.408Z"
     }
   }
 }
