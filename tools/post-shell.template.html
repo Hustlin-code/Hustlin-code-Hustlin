@@ -1,0 +1,71 @@
+<!--
+  post-shell.template.html — the parts of a blog post that must be identical
+  on every blog post.
+
+  Stamped into blog/*.html by tools/stamp-post-shell.mjs, which fills the
+  {{PLACEHOLDERS}} from that post's entry in tools/blog-content.mjs. This
+  file is the only place these markup blocks are hand-edited; editing them
+  inside a post is overwritten on the next stamp and fails --check before
+  then.
+
+  Two blocks, stamped into two different marker pairs:
+
+    POST-HEAD   the shared <head> tail  — fonts, stylesheets, AdSense
+    POST-SHELL  nav + hero
+
+  What is deliberately NOT here: <title>, meta description, canonical, the
+  OG/Twitter tags and the Article/BreadcrumbList/FAQPage JSON-LD. Those are
+  genuinely per-post prose and they live above the POST-HEAD marker in each
+  file, hand-written. Stamping them would mean moving every FAQ answer into
+  the manifest, which turns a content file into a database for no gain.
+
+  ONE EXCEPTION, added 2026-08-12: the Article node's "author" is NOT per-post
+  prose — it is the same Person on every post. tools/stamp-post-author.mjs owns
+  that single property and injects the matching Person node, so it stays out of
+  this template but is still generated rather than hand-typed. Add a post, run
+  that script; its --check fails the deploy if a post's author is stale.
+
+  Blog posts sit one level down, so every internal path here is "../".
+-->
+
+<!-- ===== POST-HEAD ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=20260818-2310">
+<link rel="stylesheet" href="post.css?v=20260818-2310">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
+     crossorigin="anonymous"></script>
+
+<!-- ===== POST-SHELL ===== -->
+<nav class="nav">
+  <a href="../index.html">
+    <img src="../assets/hustlin-logo.png" alt="Hustlin'" width="1423" height="572" decoding="async" style="height:96px;width:auto;display:block;mix-blend-mode:screen">
+  </a>
+  <a class="nav-market-btn" href="../markets.html">See Full Market Data &rarr;</a>
+</nav>
+
+<section class="hero post-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Hustlin'</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="../blog.html">Blog</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>{{CRUMB}}</span>
+      </div>
+      <div class="eyebrow"><span>&#9679;</span> {{CATEGORY}}</div>
+      <h1 class="hero-h1">{{H1}}</h1>
+      <p class="hero-sub">{{HERO_SUB}}</p>
+      <!-- Byline. Identical on every post because every post has the same author.
+           The machine-readable half is the Person @id that
+           tools/stamp-post-author.mjs writes into each post's Article JSON-LD.
+           Colors are hardcoded: this hero is a dark surface and the light-surface
+           tokens are wrong here. Do not convert to CSS variables. -->
+      <p class="post-byline" style="margin:14px 0 0;font-size:.82rem;line-height:1.5;color:#B8B8B8">
+        By <a href="../about.html#author" rel="author" style="color:#F0C030;text-decoration:none;font-weight:600">Adam</a><span aria-hidden="true" style="color:#5A5A5A;margin:0 7px">&middot;</span>Founder, Hustlin&rsquo;
+      </p>
+    </div>
+  </div>
+</section>

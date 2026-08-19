@@ -1,0 +1,372 @@
+{
+  "_readme": "Sources rows and in-text links for Financial Literacy modules that shipped without them. Applied by tools/apply-module-sources.mjs, which is idempotent. Every URL here was fetched and confirmed live on 2026-08-11; anything that could not be confirmed was dropped rather than guessed. Labels are emoji + org + em dash + short description, under 60 characters, matching the rows already on the site.",
+  "stage-1-survive.html": {
+    "m1": {
+      "sources": [
+        ["🏦", "CFPB — denied a bank account? what to do", "https://www.consumerfinance.gov/ask-cfpb/i-was-denied-a-checking-account-because-of-a-report-what-can-i-do-en-1113/"],
+        ["🏛️", "FDIC — how to open a low-cost bank account", "https://www.fdic.gov/getbanked"],
+        ["🤝", "NCUA — find a credit union near you", "https://mycreditunion.gov/"]
+      ],
+      "inline": [["ChexSystems", "https://www.chexsystems.com/"]]
+    },
+    "m2": {
+      "sources": [
+        ["📊", "CFPB — what a credit score is and how it works", "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-score-en-315/"],
+        ["📋", "FTC — free credit reports, the official site", "https://consumer.ftc.gov/articles/free-credit-reports"],
+        ["🔧", "CFPB — how to rebuild credit", "https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/how-to-rebuild-your-credit/"]
+      ],
+      "inline": [["AnnualCreditReport.com", "https://www.annualcreditreport.com/index.action"]]
+    },
+    "m4": {
+      "sources": [
+        ["💸", "CFPB — what a payday loan really costs", "https://www.consumerfinance.gov/ask-cfpb/what-is-a-payday-loan-en-1567/"],
+        ["🛋️", "FTC — rent-to-own can cost twice the price", "https://consumer.ftc.gov/articles/buy-now-pay-later-rent-own-lease-own-and-layaway"],
+        ["🤝", "NCUA — payday alternative loans", "https://mycreditunion.gov/manage-your-money/consumer-loans-credit-cards/payday-alternative-loans"]
+      ],
+      "inline": []
+    },
+    "m20": {
+      "sources": [
+        ["🍎", "USDA — SNAP eligibility and how to apply", "https://www.fns.usda.gov/snap/recipient/eligibility"],
+        ["👶", "USDA — WIC: who qualifies, income limits", "https://www.fna.usda.gov/wic/eligibility"],
+        ["🍽️", "USDA — free and reduced-price school meals", "https://www.fna.usda.gov/nslp"]
+      ],
+      "inline": []
+    },
+    "m21": {
+      "sources": [
+        ["🔥", "HHS — LIHEAP, help paying energy bills", "https://www.acf.hhs.gov/ocs/programs/liheap"],
+        ["🏚️", "DOE — how to apply for weatherization", "https://www.energy.gov/cmei/scep/wap/how-apply-weatherization-assistance"],
+        ["🏛️", "USAGov — find your state's energy bill help", "https://www.usa.gov/help-with-energy-bills"]
+      ],
+      "inline": [
+        ["Low Income Home Energy Assistance Program", "https://www.acf.hhs.gov/ocs/programs/liheap"],
+        ["Weatherization Assistance Program", "https://www.energy.gov/scep/wap/weatherization-assistance-program"]
+      ]
+    },
+    "m22": {
+      "sources": [
+        ["🏛️", "HUD — Coordinated Entry, how it works", "https://www.hudexchange.info/homelessness-assistance/coordinated-entry/"],
+        ["🏢", "HUD — find your local housing authority", "https://www.hud.gov/contactus/public-housing-contacts"],
+        ["🔑", "HUD — Housing Choice Vouchers (Section 8)", "https://www.hud.gov/helping-americans/housing-choice-vouchers"]
+      ],
+      "inline": [["Coordinated Entry", "https://www.hudexchange.info/homelessness-assistance/coordinated-entry/"]]
+    },
+    "m23": {
+      "sources": [
+        ["🏥", "HRSA — health centers' sliding fee rules", "https://bphc.hrsa.gov/compliance/compliance-manual/chapter9"],
+        ["🚑", "CMS — EMTALA: the ER must stabilize you", "https://www.cms.gov/medicare/regulations-guidance/legislation/emergency-medical-treatment-labor-act"],
+        ["🧾", "IRS — hospitals must publish financial aid", "https://www.irs.gov/charities-non-profits/financial-assistance-policy-and-emergency-medical-care-policy-section-501r4"],
+        ["📋", "HealthCare.gov — apply for Medicaid any day", "https://www.healthcare.gov/medicaid-chip/getting-medicaid-chip/"]
+      ],
+      "inline": [
+        ["EMTALA", "https://www.cms.gov/medicare/regulations-guidance/legislation/emergency-medical-treatment-labor-act"],
+        ["Special Enrollment Period", "https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/"]
+      ]
+    },
+    "m34": {
+      "sources": [
+        ["👓", "FTC — the Eyeglass Rule: the Rx is yours", "https://www.ftc.gov/legal-library/browse/rules/eyeglass-rule"],
+        ["🦷", "NIDCR — where to find low-cost dental care", "https://www.nidcr.nih.gov/health-info/finding-dental-care"],
+        ["🩺", "Medicaid — kids' dental and vision covered", "https://www.medicaid.gov/medicaid/benefits/early-and-periodic-screening-diagnostic-and-treatment"],
+        ["⚠️", "CFPB — how deferred interest really works", "https://www.consumerfinance.gov/ask-cfpb/what-should-i-know-about-medical-credit-cards-and-payment-plans-for-medical-bills-en-1827/"]
+      ],
+      "inline": [
+        ["EyeCare America", "https://www.aao.org/eyecare-america"],
+        ["Remote Area Medical", "https://www.ramusa.org/"],
+        ["Dental Lifeline Network", "https://dentallifeline.org/"]
+      ]
+    },
+    "m24": {
+      "sources": [
+        ["📶", "FCC — Lifeline discount amounts and rules", "https://www.fcc.gov/lifeline-consumers"],
+        ["⚠️", "FCC — the ACP ended, no new sign-ups", "https://www.fcc.gov/affordable-connectivity-program-consumer-faq"],
+        ["📱", "USAC — apply for Lifeline, never pay a fee", "https://www.lifelinesupport.org/"]
+      ],
+      "inline": [["Internet Essentials", "https://www.internetessentials.com/"]]
+    },
+    "m33": {
+      "sources": [],
+      "inline": [
+        ["Vehicles for Change", "https://www.vehiclesforchange.org/"],
+        ["Good News Garage", "https://www.goodnewsgarage.org/"],
+        ["Working Cars for Working Families", "https://www.workingcarsforworkingfamilies.org/"]
+      ]
+    },
+    "m25": {
+      "sources": [
+        ["🧸", "HHS — child care subsidy eligibility rules", "https://childcareta.acf.hhs.gov/understanding-federal-eligibility-requirements"],
+        ["🎒", "Head Start — who qualifies, and how to apply", "https://headstart.gov/ersea/article/poverty-guidelines-determining-eligibility-participation-head-start-programs"],
+        ["🩹", "Medicaid — CHIP for kids above Medicaid limits", "https://www.medicaid.gov/chip"],
+        ["🥪", "USDA — Summer EBT for school-age children", "https://www.fna.usda.gov/sebt"]
+      ],
+      "inline": [
+        ["Child Care Aware", "https://www.childcareaware.org/"],
+        ["Frankie's Friends", "https://frankiesfriends.org/"]
+      ]
+    }
+  },
+  "stage-2-stabilize.html": {
+    "m1": {
+      "sources": [
+        ["🛟", "CFPB — how to build an emergency fund", "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"],
+        ["📊", "Federal Reserve — who actually has savings", "https://www.federalreserve.gov/publications/2026-economic-well-being-of-us-households-in-2025-savings-investments.htm"],
+        ["💰", "FTC — saving up, plain-language basics", "https://consumer.ftc.gov/topics/saving"]
+      ],
+      "inline": []
+    },
+    "m5": {
+      "sources": [
+        ["⚖️", "FTC — the FDCPA, the full text of the law", "https://www.ftc.gov/legal-library/browse/rules/fair-debt-collection-practices-act-text"],
+        ["📞", "FTC — what a collector can and can't do", "https://consumer.ftc.gov/articles/debt-collection-faqs"],
+        ["⏳", "CFPB — statute of limitations on old debt", "https://www.consumerfinance.gov/ask-cfpb/what-is-a-statute-of-limitations-on-a-debt-en-1389/"]
+      ],
+      "inline": [["Fair Debt Collection Practices Act", "https://www.ftc.gov/legal-library/browse/rules/fair-debt-collection-practices-act-text"]]
+    },
+    "m10": {
+      "sources": [
+        ["🏛️", "DOL — WIOA, the law that pays for training", "https://www.dol.gov/agencies/eta/wioa"],
+        ["🏢", "DOL — American Job Centers, free in person", "https://www.dol.gov/agencies/eta/american-job-centers"],
+        ["🔧", "Apprenticeship.gov — get paid while you learn", "https://www.apprenticeship.gov/career-seekers"],
+        ["📊", "BLS — median pay by occupation", "https://www.bls.gov/ooh/"]
+      ],
+      "inline": [
+        ["Workforce Innovation and Opportunity Act (WIOA)", "https://www.dol.gov/agencies/eta/wioa"],
+        ["American Job Center", "https://www.dol.gov/agencies/eta/american-job-centers"],
+        ["The Federal Bonding Program", "https://www.dol.gov/agencies/eta/federal-bonding-program"],
+        ["The Work Opportunity Tax Credit (WOTC)", "https://www.irs.gov/businesses/small-businesses-self-employed/work-opportunity-tax-credit"]
+      ]
+    },
+    "m11": {
+      "sources": [
+        ["📋", "StudentAid.gov — aid you never pay back", "https://studentaid.gov/understand-aid/types/grants"],
+        ["📊", "College Scorecard — cost vs. graduate pay", "https://collegescorecard.ed.gov/"],
+        ["🏛️", "CFPB — federal vs. private student loans", "https://www.consumerfinance.gov/consumer-tools/student-loans/"]
+      ],
+      "inline": [
+        ["Free Application for Federal Student Aid (FAFSA)", "https://studentaid.gov/h/apply-for-aid/fafsa"],
+        ["Public Service Loan Forgiveness (PSLF)", "https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service"],
+        ["College Scorecard", "https://collegescorecard.ed.gov/"]
+      ]
+    },
+    "m12": {
+      "sources": [
+        ["📊", "Federal Register — 2026 poverty guidelines", "https://www.federalregister.gov/documents/2026/01/15/2026-00755/annual-update-of-the-hhs-poverty-guidelines"],
+        ["📈", "BLS — what households actually spend", "https://www.bls.gov/cex/"]
+      ],
+      "inline": [["Consumer Expenditure Survey", "https://www.bls.gov/cex/"]]
+    }
+  },
+  "stage-3-rebuild.html": {
+    "m1": {
+      "sources": [
+        ["🔍", "FTC — disputing credit report errors", "https://consumer.ftc.gov/articles/disputing-errors-your-credit-reports"],
+        ["🏛️", "CFPB — how to dispute a report error", "https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-an-error-on-my-credit-report-en-314/"],
+        ["⚠️", "FTC — credit repair scams", "https://consumer.ftc.gov/articles/credit-repair-scams"]
+      ],
+      "inline": [
+        ["AnnualCreditReport.com", "https://www.annualcreditreport.com/index.action"],
+        ["Credit Repair Organizations Act", "https://www.ftc.gov/legal-library/browse/statutes/credit-repair-organizations-act"]
+      ]
+    },
+    "m2": {
+      "sources": [
+        ["🕗", "CFPB — how long negative marks stay", "https://www.consumerfinance.gov/ask-cfpb/how-long-does-negative-information-remain-on-my-credit-report-en-323/"],
+        ["⚖️", "US Courts — bankruptcy basics", "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics"],
+        ["📋", "CFPB — credit reports and scores", "https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/"]
+      ],
+      "inline": [["Fair Credit Reporting Act", "https://www.ftc.gov/legal-library/browse/statutes/fair-credit-reporting-act"]]
+    },
+    "m9": {
+      "sources": [
+        ["💳", "CFPB — $130B in card interest and fees", "https://www.consumerfinance.gov/archive/newsroom/cfpb-report-finds-credit-card-companies-charged-consumers-record-high-130-billion-in-interest-and-fees-in-2022/"],
+        ["🏛️", "Fed — G.19 credit card interest rates", "https://www.federalreserve.gov/releases/g19/current/"],
+        ["📊", "FRED — average credit card rate", "https://fred.stlouisfed.org/series/TERMCBCCALLNS"]
+      ],
+      "inline": []
+    },
+    "m13": {
+      "sources": [
+        ["📋", "IRS — interest income is taxable", "https://www.irs.gov/taxtopics/tc403"],
+        ["📈", "IRS — capital gains tax rates", "https://www.irs.gov/taxtopics/tc409"],
+        ["📊", "BLS — Consumer Price Index", "https://www.bls.gov/cpi/"]
+      ],
+      "inline": []
+    },
+    "m4": {
+      "sources": [
+        ["🏛️", "SEC — how to open a brokerage account", "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-43"],
+        ["🛡️", "SEC — SIPC protection basics", "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/investor-bulletin-sipc-protection-part-1-sipc-basics"],
+        ["🔎", "SIPC — what SIPC protects", "https://www.sipc.org/for-investors/what-sipc-protects"]
+      ],
+      "inline": []
+    },
+    "m6": {
+      "sources": [
+        ["📊", "SEC — what an index fund is", "https://www.investor.gov/introduction-investing/investing-basics/glossary/index-fund"],
+        ["💼", "SEC — mutual funds and ETFs basics", "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-1"],
+        ["🗂️", "SEC — EDGAR, read a fund's filings", "https://www.sec.gov/edgar/search/"]
+      ],
+      "inline": [["S&P Dow Jones Indices", "https://www.spglobal.com/spdji/en/"]]
+    },
+    "m5": {
+      "sources": [
+        ["📋", "IRS — 2026 IRA and 401(k) limits", "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"],
+        ["🏦", "IRS — Pub 590-B, Roth withdrawals", "https://www.irs.gov/publications/p590b"],
+        ["📊", "IRS — current IRA contribution limits", "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits"]
+      ],
+      "inline": [["Roth 401(k)", "https://www.irs.gov/retirement-plans/roth-acct-in-your-retirement-plan"]]
+    },
+    "m51": {
+      "sources": [
+        ["📋", "IRS — 2026 retirement plan limits", "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"],
+        ["📄", "IRS — Notice 2025-67, the 2026 numbers", "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"],
+        ["🧾", "IRS — Form 8606, nondeductible IRAs", "https://www.irs.gov/forms-pubs/about-form-8606"],
+        ["🔁", "IRS — Pub 590-A, Roth conversions", "https://www.irs.gov/publications/p590a"]
+      ],
+      "inline": [["IRS Form 8606", "https://www.irs.gov/forms-pubs/about-form-8606"]]
+    },
+    "m14": {
+      "sources": [
+        ["📋", "IRS — Pub 969, HSA rules", "https://www.irs.gov/publications/p969"],
+        ["📊", "IRS — 2026 HSA and HDHP limits", "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf"],
+        ["🏥", "HealthCare.gov — what an HDHP is", "https://www.healthcare.gov/high-deductible-health-plan/"]
+      ],
+      "inline": [["High Deductible Health Plan (HDHP)", "https://www.healthcare.gov/high-deductible-health-plan/"]]
+    },
+    "m10": {
+      "sources": [
+        ["🚗", "FTC — buying a used car from a dealer", "https://consumer.ftc.gov/articles/buying-used-car-dealer"],
+        ["🏦", "CFPB — auto loans and loan terms", "https://www.consumerfinance.gov/consumer-tools/auto-loans/"],
+        ["⚠️", "NHTSA — check recalls by VIN", "https://www.nhtsa.gov/recalls"]
+      ],
+      "inline": [["NHTSA recall database", "https://www.nhtsa.gov/recalls"]]
+    }
+  },
+  "stage-4-invest.html": {
+    "m5": {
+      "sources": [
+        ["📘", "Investor.gov — dollar-cost averaging defined", "https://www.investor.gov/introduction-investing/investing-basics/glossary/dollar-cost-averaging"],
+        ["📋", "Federal Register — auto-enrollment rules", "https://www.federalregister.gov/documents/2025/01/14/2025-00501/automatic-enrollment-requirements-under-section-414a"],
+        ["📊", "FRED — U.S. wages and salaries", "https://fred.stlouisfed.org/series/A576RC1"]
+      ],
+      "inline": [["Thrift Savings Plan", "https://www.tsp.gov/"]]
+    },
+    "m3": {
+      "sources": [
+        ["📘", "Investor.gov — how ex-dividend dates work", "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and"],
+        ["🏛️", "FINRA — how companies use cash: dividends", "https://www.finra.org/investors/insights/how-companies-use-their-cash-dividends"],
+        ["📊", "S&P DJI — total return vs. price return", "https://www.spglobal.com/spdji/en/documents/methodologies/methodology-index-math.pdf"]
+      ],
+      "inline": []
+    },
+    "m9": {
+      "sources": [
+        ["📊", "NYU Stern — S&P 500 returns since 1928", "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html"],
+        ["📈", "Shiller — monthly S&P data since 1871", "https://shillerdata.com/"],
+        ["📉", "FRED — S&P 500 daily closing level", "https://fred.stlouisfed.org/series/SP500"]
+      ],
+      "inline": []
+    },
+    "m63": {
+      "sources": [
+        ["📊", "FRED — Dow Jones Industrial Average", "https://fred.stlouisfed.org/series/DJIA"],
+        ["📈", "S&P DJI — the Dow, official index page", "https://www.spglobal.com/spdji/en/indices/equity/dow-jones-industrial-average/"],
+        ["🏛️", "NBER — U.S. recession dates since 1854", "https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions"]
+      ],
+      "inline": []
+    },
+    "m61": {
+      "sources": [
+        ["📊", "NYU Stern — S&P 500 annual total returns", "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html"],
+        ["📉", "FRED — S&P 500 daily closing level", "https://fred.stlouisfed.org/series/SP500"],
+        ["🏦", "FRED — 3-month Treasury bill rate", "https://fred.stlouisfed.org/series/TB3MS"]
+      ],
+      "inline": []
+    },
+    "m12": {
+      "sources": [
+        ["📊", "NYU Stern — stocks, bonds, gold, real estate", "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html"],
+        ["📈", "BLS — Consumer Price Index", "https://www.bls.gov/cpi/"],
+        ["💰", "IRS — the 28% collectibles rate", "https://www.irs.gov/taxtopics/tc409"]
+      ],
+      "inline": []
+    },
+    "m13": {
+      "sources": [
+        ["🏛️", "IRS — Trump Accounts overview", "https://www.irs.gov/trumpaccounts"],
+        ["📋", "IRS — Notice 2025-68, the account rules", "https://www.irs.gov/pub/irs-drop/n-25-68.pdf"],
+        ["📄", "IRS — About Form 4547", "https://www.irs.gov/forms-pubs/about-form-4547"],
+        ["⚖️", "GovInfo — Public Law 119-21, July 4, 2025", "https://www.govinfo.gov/app/details/PLAW-119publ21"]
+      ],
+      "inline": [
+        ["Form 4547", "https://www.irs.gov/forms-pubs/about-form-4547"],
+        ["TrumpAccounts.gov", "https://trumpaccounts.gov/"]
+      ]
+    },
+    "m14": {
+      "sources": [
+        ["📄", "NBER — Buffett's Alpha, Frazzini et al.", "https://www.nber.org/papers/w19681"],
+        ["📘", "SEC — past performance is no guarantee", "https://www.sec.gov/investor/pubs/mfperform.htm"],
+        ["🏦", "Investor.gov — hedge funds, and who can invest", "https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds/hedge-funds"]
+      ],
+      "inline": []
+    },
+    "m8": {
+      "sources": [
+        ["🚨", "Investor.gov — types of investment fraud", "https://www.investor.gov/protect-your-investments/fraud/types-fraud"],
+        ["⚠️", "SEC — red flags of investment fraud", "https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud/red-flags-investment-fraud-checklist"],
+        ["🛡️", "FTC — how investment scams work", "https://consumer.ftc.gov/articles/investment-scams"]
+      ],
+      "inline": []
+    }
+  },
+  "stage-5-wealth.html": {
+    "m10": {
+      "sources": [
+        ["📊", "Federal Reserve — Distributional Accounts", "https://www.federalreserve.gov/releases/z1/dataviz/dfa/"],
+        ["🏛️", "CBO — distribution of family wealth", "https://www.cbo.gov/publication/58533"],
+        ["📈", "Federal Reserve — Survey of Consumer Finances", "https://www.federalreserve.gov/econres/scfindex.htm"]
+      ],
+      "inline": []
+    },
+    "m72": {
+      "sources": [
+        ["📋", "IRS — IRA FAQs, including conversions", "https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-iras"],
+        ["📘", "IRS — Pub 590-B, IRA distributions", "https://www.irs.gov/publications/p590b"],
+        ["📊", "IRS — 2026 inflation adjustments", "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill"],
+        ["🏥", "SSA — Medicare premiums and IRMAA", "https://www.ssa.gov/benefits/medicare/medicare-premiums.html"]
+      ],
+      "inline": [["Medicare Part B and Part D", "https://www.ssa.gov/benefits/medicare/medicare-premiums.html"]]
+    },
+    "m12": {
+      "sources": [
+        ["🏠", "CFPB — what private mortgage insurance is", "https://www.consumerfinance.gov/ask-cfpb/what-is-private-mortgage-insurance-en-122/"],
+        ["🏛️", "CFPB — the Owning a Home mortgage guide", "https://www.consumerfinance.gov/owning-a-home/"],
+        ["📈", "FRED — 30-year fixed mortgage rate", "https://fred.stlouisfed.org/series/MORTGAGE30US"],
+        ["🏘️", "HUD — FHA loans and down payments", "https://www.hud.gov/helping-americans/loans"]
+      ],
+      "inline": [["VA loans", "https://www.va.gov/housing-assistance/home-loans/"]]
+    },
+    "m6": {
+      "sources": [
+        ["👨‍👩‍👧", "CFPB — Money as You Grow, by age", "https://www.consumerfinance.gov/consumer-tools/money-as-you-grow/"],
+        ["🏫", "CFPB — youth financial education, K-12", "https://www.consumerfinance.gov/consumer-tools/educator-tools/youth-financial-education/"],
+        ["🏦", "FDIC — Money Smart for Young People", "https://www.fdic.gov/consumer-resource-center/money-smart-young-people"]
+      ],
+      "inline": []
+    },
+    "m11": {
+      "sources": [
+        ["❤️", "IRS — how donor advised funds work", "https://www.irs.gov/charities-non-profits/charitable-organizations/donor-advised-funds"],
+        ["📘", "IRS — Pub 526, charitable contributions", "https://www.irs.gov/publications/p526"],
+        ["📊", "IRS — Notice 2025-67, the 2026 QCD limit", "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"],
+        ["📋", "IRS — Topic 506, charitable contributions", "https://www.irs.gov/taxtopics/tc506"]
+      ],
+      "inline": [
+        ["Donor Advised Fund", "https://www.irs.gov/charities-non-profits/charitable-organizations/donor-advised-funds"],
+        ["Charitable Remainder Trust (CRT)", "https://www.irs.gov/charities-non-profits/charitable-remainder-trusts"]
+      ]
+    }
+  }
+}

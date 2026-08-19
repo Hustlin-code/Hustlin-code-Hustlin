@@ -1,0 +1,2292 @@
+{
+ "generated": "2026-08-11",
+ "note": "Research stage of the first Learn the Lingo batch. Facts checked against primary sources; status is confirmed | corrected | unverifiable. The write stage never ran (session limit), so no pages came from this. Reusable as-is.",
+ "terms": {
+  "apr": {
+   "facts": [
+    {
+     "claim": "APR (annual percentage rate) is legally defined as \"a measure of the cost of credit, expressed as a yearly rate, that relates the amount and timing of value received by the consumer to the amount and timing of payments made\" \u2014 the closed-end credit definition in Regulation Z.",
+     "status": "confirmed",
+     "source": "12 CFR 1026.22(a)(1), Regulation Z (eCFR) \u2014 https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-C/section-1026.22"
+    },
+    {
+     "claim": "APR disclosure is required by the Truth in Lending Act, enacted as Pub. L. 90-321, title I, May 29, 1968, 82 Stat. 149; the APR determination rule is 15 U.S.C. 1606.",
+     "status": "confirmed",
+     "source": "15 U.S.C. 1606, source credit Pub. L. 90-321 \u00a7107, May 29, 1968 (U.S. House Office of the Law Revision Counsel) \u2014 https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section1606&num=0&edition=prelim"
+    },
+    {
+     "claim": "A disclosed APR is legally \"accurate\" within a tolerance of 1/8 of 1 percentage point above or below the true rate for regular transactions, and 1/4 of 1 percentage point for irregular transactions (multiple advances, irregular payment periods or amounts).",
+     "status": "confirmed",
+     "source": "12 CFR 1026.22(a)(2)-(3); 15 U.S.C. 1606(c) \u2014 https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-C/section-1026.22"
+    },
+    {
+     "claim": "Manifest gloss: APR is the \"yearly cost of borrowing, including interest and fees.\" This is true for closed-end credit (mortgages, auto, personal loans) but NOT for credit cards. For open-end credit the APR is computed \"by multiplying each periodic rate by the number of periods in a year\" (1026.14(b)), and Regulation Z expressly excludes annual/participation fees from the finance charge (1026.4(c)(4)) \u2014 so a card's annual fee is disclosed separately and is not inside its APR.",
+     "status": "corrected",
+     "corrected_to": "APR is the yearly cost of borrowing. On closed-end loans it folds in interest plus most loan fees (points, loan fees, finder's fees, credit insurance \u2014 12 CFR 1026.4(b)). On a credit card, the APR is just the periodic interest rate annualized; the annual fee, late fees and over-limit fees are excluded from the finance charge and therefore are NOT in the APR.",
+     "source": "12 CFR 1026.14(b) and 12 CFR 1026.4(a)-(c), Regulation Z (eCFR) \u2014 https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4"
+    },
+    {
+     "claim": "On a mortgage, the APR is higher than the interest rate because it \"reflects the mortgage interest rate plus other charges\" \u2014 points, mortgage broker fees and other charges to obtain the loan \u2014 while the interest rate alone \"does not reflect fees or any other charges.\"",
+     "status": "confirmed",
+     "source": "CFPB Ask CFPB, \"What is the difference between a mortgage interest rate and an APR?\" \u2014 https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-mortgage-interest-rate-and-an-apr-en-135/"
+    },
+    {
+     "claim": "The average credit card APR across all commercial-bank credit card accounts is 20.94%.",
+     "status": "confirmed",
+     "source": "Federal Reserve G.19 Consumer Credit, Terms of Credit \u2014 credit card plans, all accounts, Q2 2026; release dated 7 August 2026 \u2014 https://www.federalreserve.gov/releases/g19/current/",
+     "asOf": "2026-08-07"
+    },
+    {
+     "claim": "The average rate on credit card accounts that actually carried interest (accounts assessed interest) is 22.15%.",
+     "status": "confirmed",
+     "source": "Federal Reserve G.19 Consumer Credit, Terms of Credit \u2014 credit card plans, accounts assessed interest, Q2 2026; release dated 7 August 2026 \u2014 https://www.federalreserve.gov/releases/g19/current/",
+     "asOf": "2026-08-07"
+    },
+    {
+     "claim": "Course text (FL Stage 3, stage-3-rebuild.html): \"The average credit card APR hit 21.5% in 2024 \u2014 a 40-year high.\" The 2024 figure is right (Q2 2024 = 21.51%, series peak 21.76% in Aug 2024), but \"40-year high\" is not supportable: the Federal Reserve's credit card rate series begins November 1994 with a documented break in series, so only ~31 years of data exist. It was a record high for the published series, not a 40-year high. The number is also now stale \u2014 the rate has fallen to 20.94% as of Q2 2026.",
+     "status": "corrected",
+     "corrected_to": "The average credit card APR peaked at 21.76% in August 2024 \u2014 the highest in the Federal Reserve's series, which begins in November 1994. As of Q2 2026 it is 20.94%.",
+     "source": "Federal Reserve G.19 historical terms of credit, credit card plans (earliest observation 1994 Q4 = 15.69%, \"break in series in November 1994\") \u2014 https://www.federalreserve.gov/releases/g19/hist/cc_hist_tc_levels.html ; FRED TERMCBCCALLNS data table \u2014 https://fred.stlouisfed.org/data/TERMCBCCALLNS",
+     "asOf": "2026-08-07"
+    },
+    {
+     "claim": "A second, higher primary measure exists and should not be confused with the Fed's: CFPB reports the average APR on general purpose credit cards rose to about 25% in 2023 and was 24.9% in Q4 2024, with the average APR margin (APR minus prime) at a record 16.4% in 2024.",
+     "status": "confirmed",
+     "source": "CFPB, The Consumer Credit Card Market report to Congress (December 2025) \u2014 https://files.consumerfinance.gov/f/documents/cfpb_consumer-credit-card-market-report_2025.pdf",
+     "asOf": "2025-12-31"
+    },
+    {
+     "claim": "Course text (FL Stage 1, stage-1-survive.html): a payday loan at \"400% APR.\" CFPB states a fee of $15 per $100 borrowed on a two-week loan \"equates to an APR of almost 400 percent\" \u2014 approximately 391% \u2014 and that payday fees run $10 to $30 per $100 borrowed depending on state law, with $15 per $100 being common.",
+     "status": "confirmed",
+     "source": "CFPB Ask CFPB, \"What is an annual percentage rate (APR) and why is it higher than the interest rate for my payday loan?\" \u2014 https://www.consumerfinance.gov/ask-cfpb/what-is-an-annual-percentage-rate-apr-and-why-is-it-higher-than-the-interest-rate-for-my-payday-loan-en-1625/ ; \"What are the costs and fees for a payday loan?\" \u2014 https://www.consumerfinance.gov/ask-cfpb/what-are-the-costs-and-fees-for-a-payday-loan-en-1589/"
+    },
+    {
+     "claim": "The Military Lending Act caps the Military Annual Percentage Rate (MAPR) at 36% on consumer credit to active-duty servicemembers and their dependents, and the MAPR must include credit insurance premiums, debt cancellation/suspension fees, ancillary product fees, finance charges, application fees and participation fees \u2014 \"even if that charge would be excluded from the finance charge under Regulation Z.\"",
+     "status": "confirmed",
+     "source": "32 CFR 232.4, Department of Defense, Limitations on terms of consumer credit extended to Service members and dependents (eCFR) \u2014 https://www.ecfr.gov/current/title-32/subtitle-A/chapter-I/subchapter-M/part-232/section-232.4"
+    },
+    {
+     "claim": "Federal credit unions are subject to an 18% APR ceiling on most loans, extended by the NCUA Board through 10 September 2027. The statutory default ceiling absent NCUA action is 15%.",
+     "status": "confirmed",
+     "source": "NCUA press release, \"NCUA Board Extends Loan Interest Rate Ceiling,\" 6 February 2026 \u2014 https://ncua.gov/newsroom/press-release/2026/ncua-board-extends-loan-interest-rate-ceiling",
+     "asOf": "2026-02-06"
+    },
+    {
+     "claim": "The Credit CARD Act \u2014 which restricts APR increases on existing balances \u2014 is Public Law 111-24, enacted 22 May 2009.",
+     "status": "confirmed",
+     "source": "GovInfo, Public Law 111-24 (Credit Card Accountability Responsibility and Disclosure Act of 2009), approved May 22, 2009 \u2014 https://www.govinfo.gov/app/details/PLAW-111publ24"
+    },
+    {
+     "claim": "In a credit card application or solicitation (the \"Schumer box\"), the APR for purchases must be disclosed in at least 16-point type, with exceptions only for oral disclosures and penalty rates.",
+     "status": "confirmed",
+     "source": "12 CFR 1026.60(b)(1), Regulation Z (eCFR) \u2014 https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-G/section-1026.60"
+    },
+    {
+     "claim": "APR is not APY. Regulation DD defines annual percentage yield as \"a percentage rate reflecting the total amount of interest paid on an account, based on the interest rate and the frequency of compounding for a 365-day period,\" while an interest rate is \"the annual rate of interest paid on an account which does not reflect compounding.\" APR governs what you pay to borrow (Reg Z); APY governs what a deposit account pays you (Reg DD).",
+     "status": "confirmed",
+     "source": "12 CFR 1030.2, Regulation DD (eCFR) \u2014 https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.2"
+    },
+    {
+     "claim": "Most credit card APRs are variable and are quoted as the prime rate plus a margin. The bank prime loan rate is 6.75%, so the 20.94% all-accounts average implies a margin of roughly 14.2 percentage points.",
+     "status": "confirmed",
+     "source": "Federal Reserve H.15 Selected Interest Rates, bank prime loan rate effective 7 August 2026 (page released 10 August 2026) \u2014 https://www.federalreserve.gov/releases/h15/",
+     "asOf": "2026-08-07"
+    },
+    {
+     "claim": "Course text (FL Stage 3): \"Someone who carries a $5,000 balance at 21% and makes minimum payments will pay over $3,000 in interest before it's gone.\" The claim is true as a floor but badly understates the damage. Under the common minimum-payment formula (interest plus 1% of principal, $25 floor) $5,000 at 21% costs about $7,700 in interest over roughly 19 years; at a flat 3% of balance it is about $6,300 over ~16 years. Regulation Z leaves the minimum-payment formula to the issuer, so no single federal figure exists.",
+     "status": "confirmed",
+     "source": "Computed from the Regulation Z repayment-disclosure framework, 12 CFR Part 1026 Appendix M1 (\"card issuers must use the minimum payment formula(s) that apply to a cardholder's account\") \u2014 https://www.consumerfinance.gov/rules-policy/regulations/1026/m1/"
+    },
+    {
+     "claim": "Course text (FL Stage 2, stage-2-stabilize.html): \"A 0% APR balance transfer card can pause interest for 12\u201321 months.\" CFPB's own market data describes introductory zero-percent APR offers running \"between six and 21 months in duration\" \u2014 the 21-month ceiling is right, but the floor is six months, not 12, so a reader shopping offers will see shorter promos than the course implies.",
+     "status": "corrected",
+     "corrected_to": "Introductory 0% APR periods run roughly six to 21 months.",
+     "source": "CFPB, The Consumer Credit Card Market report to Congress (December 2025) \u2014 https://files.consumerfinance.gov/f/documents/cfpb_consumer-credit-card-market-report_2025.pdf",
+     "asOf": "2025-12-31"
+    },
+    {
+     "claim": "Course text (FL Stage 2): balance transfer fees are \"usually 3\u20135%.\" No federal body publishes a balance-transfer-fee distribution; the CFPB 2025 Consumer Credit Card Market Report does not carry this figure. Do not state a range on primary-source authority.",
+     "status": "unverifiable",
+     "source": "Searched CFPB, The Consumer Credit Card Market report to Congress (December 2025) \u2014 no balance transfer fee percentage published \u2014 https://files.consumerfinance.gov/f/documents/cfpb_consumer-credit-card-market-report_2025.pdf"
+    }
+   ],
+   "sources": [
+    {
+     "title": "12 CFR 1026.22 \u2014 Determination of the annual percentage rate (Regulation Z)",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-C/section-1026.22",
+     "publisher": "Consumer Financial Protection Bureau / eCFR",
+     "year": "2026"
+    },
+    {
+     "title": "12 CFR 1026.14 \u2014 Determination of annual percentage rate (open-end credit)",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.14",
+     "publisher": "Consumer Financial Protection Bureau / eCFR",
+     "year": "2026"
+    },
+    {
+     "title": "12 CFR 1026.4 \u2014 Finance charge",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-A/section-1026.4",
+     "publisher": "Consumer Financial Protection Bureau / eCFR",
+     "year": "2026"
+    },
+    {
+     "title": "12 CFR 1026.60 \u2014 Credit and charge card applications and solicitations",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-G/section-1026.60",
+     "publisher": "Consumer Financial Protection Bureau / eCFR",
+     "year": "2026"
+    },
+    {
+     "title": "15 U.S.C. 1606 \u2014 Determination of annual percentage rate (Truth in Lending Act)",
+     "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section1606&num=0&edition=prelim",
+     "publisher": "Office of the Law Revision Counsel, U.S. House of Representatives",
+     "year": "2026"
+    },
+    {
+     "title": "12 CFR 1030.2 \u2014 Definitions (Regulation DD, annual percentage yield)",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1030/section-1030.2",
+     "publisher": "Consumer Financial Protection Bureau / eCFR",
+     "year": "2026"
+    },
+    {
+     "title": "G.19 Consumer Credit \u2014 Terms of Credit, credit card plans (current release)",
+     "url": "https://www.federalreserve.gov/releases/g19/current/",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "G.19 Consumer Credit \u2014 Historical terms of credit, credit card plans",
+     "url": "https://www.federalreserve.gov/releases/g19/hist/cc_hist_tc_levels.html",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "Commercial Bank Interest Rate on Credit Card Plans, All Accounts (TERMCBCCALLNS) \u2014 data table",
+     "url": "https://fred.stlouisfed.org/data/TERMCBCCALLNS",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED)",
+     "year": "2026"
+    },
+    {
+     "title": "H.15 Selected Interest Rates \u2014 bank prime loan rate",
+     "url": "https://www.federalreserve.gov/releases/h15/",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "What is an annual percentage rate (APR) and why is it higher than the interest rate for my payday loan?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-an-annual-percentage-rate-apr-and-why-is-it-higher-than-the-interest-rate-for-my-payday-loan-en-1625/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "What are the costs and fees for a payday loan?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-are-the-costs-and-fees-for-a-payday-loan-en-1589/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "What is the difference between a mortgage interest rate and an APR?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-mortgage-interest-rate-and-an-apr-en-135/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "What is a credit card interest rate? What does APR mean?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-card-interest-rate-what-does-apr-mean-en-44/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "The Consumer Credit Card Market \u2014 Report to Congress",
+     "url": "https://files.consumerfinance.gov/f/documents/cfpb_consumer-credit-card-market-report_2025.pdf",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2025"
+    },
+    {
+     "title": "Appendix M1 to Part 1026 \u2014 Repayment Disclosures",
+     "url": "https://www.consumerfinance.gov/rules-policy/regulations/1026/m1/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "32 CFR 232.4 \u2014 Terms of consumer credit extended to covered borrowers (Military Lending Act, 36% MAPR)",
+     "url": "https://www.ecfr.gov/current/title-32/subtitle-A/chapter-I/subchapter-M/part-232/section-232.4",
+     "publisher": "U.S. Department of Defense / eCFR",
+     "year": "2026"
+    },
+    {
+     "title": "NCUA Board Extends Loan Interest Rate Ceiling",
+     "url": "https://ncua.gov/newsroom/press-release/2026/ncua-board-extends-loan-interest-rate-ceiling",
+     "publisher": "National Credit Union Administration",
+     "year": "2026"
+    },
+    {
+     "title": "Public Law 111-24 \u2014 Credit Card Accountability Responsibility and Disclosure Act of 2009",
+     "url": "https://www.govinfo.gov/app/details/PLAW-111publ24",
+     "publisher": "U.S. Government Publishing Office (GovInfo)",
+     "year": "2009"
+    }
+   ]
+  },
+  "compound-interest": {
+   "facts": [
+    {
+     "claim": "Compound interest is 'interest paid on principal and on accumulated interest' \u2014 i.e. return earned on your original amount plus every return already earned (FL Stage 3, Module 05).",
+     "status": "confirmed",
+     "source": "SEC Investor.gov glossary entry, 'Compound Interest'. The SEC's exact wording is: \"Interest paid on principal and on accumulated interest.\" This matches the course's plain-language framing and the manifest gloss 'Growth earned on your growth, not just your principal'. Note: the Investor.gov glossary page itself gives NO formula and NO worked example \u2014 if the glossary page wants to cite a government source for the formula, use Reg DD Appendix A (below), not this page.",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "By federal rule, a deposit account's Annual Percentage Yield (APY) already builds in compounding frequency, while the plain 'interest rate' does not \u2014 which is why APY is the number to compare.",
+     "status": "confirmed",
+     "source": "12 CFR 1030.2(c) (Regulation DD, Truth in Savings, CFPB) via eCFR: \"Annual percentage yield means a percentage rate reflecting the total amount of interest paid on an account, based on the interest rate and the frequency of compounding for a 365-day period and calculated according to the rules in appendix A of this part.\" 12 CFR 1030.4(b)(1) requires institutions to disclose BOTH \"the 'annual percentage yield' and the 'interest rate,' using those terms.\" This is the single most useful legal rule for a compound-interest glossary page and the course does not currently state it."
+    },
+    {
+     "claim": "The general APY formula fixed by federal regulation is APY = 100 [(1 + Interest/Principal)^(365/Days in term) \u2212 1], assuming all principal and interest stay on deposit for the full term with no other transactions.",
+     "status": "confirmed",
+     "source": "12 CFR Part 1030, Appendix A, Part I.A (Regulation DD, CFPB) via eCFR. Appendix A states the assumption explicitly: \"all principal and interest remain on deposit for the entire term and that no other transactions (deposits or withdrawals) occur during the term.\" This is the closest thing to a government-published compounding formula and is a better citation than the commonly-used A = P(1 + r/n)^(nt), which no US regulator publishes."
+    },
+    {
+     "claim": "A credit card's disclosed APR does NOT include compounding \u2014 it is the periodic rate multiplied by the number of periods in a year, so the rate you actually pay on a revolving balance is higher than the stated APR.",
+     "status": "confirmed",
+     "source": "12 CFR 1026.14 (Regulation Z, Truth in Lending, CFPB) via eCFR: for open-end credit the annual percentage rate is \"computed by multiplying each periodic rate by the number of periods in a year.\" A 1.5% monthly periodic rate discloses as 18% APR with no compounding adjustment. This is the exact mirror image of the Reg DD APY rule and is the sharpest way to make the course's 'same formula, opposite sign' point precise. Neither FL Stage 3 Module 05 nor Module 06 currently says this."
+    },
+    {
+     "claim": "The average rate on credit card accounts assessed interest is 22.15% (FL Stage 3, Module 06 chart: 'Owed on a card at 22.15%', described as 'the Federal Reserve figure for accounts actually carrying a balance').",
+     "status": "confirmed",
+     "source": "Federal Reserve Board G.19 Consumer Credit statistical release, 'Commercial bank interest rates \u2014 Credit card plans, Accounts assessed interest', Q2 2026, released 7 August 2026. Independently confirmed at FRED series TERMCBCCINTNS (Board of Governors of the Federal Reserve System), latest observation 22.15%, May 2026, last updated 8 July 2026. The Fed defines this as \"the annualized ratio of total finance charges at all reporting banks to the total average daily balances against which the finance charges were assessed\" \u2014 because it is already an annualized realized rate, the course's decision to compound it annually in the chart is defensible. The course's attribution of the figure to the Federal Reserve is correct and the figure is current as of today.",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "The rate across ALL credit card accounts (not just those carrying a balance) is 20.94% \u2014 the relevant contrast figure if the glossary page quotes 22.15%.",
+     "status": "confirmed",
+     "source": "Federal Reserve Board G.19 Consumer Credit release, 'Commercial bank interest rates \u2014 Credit card plans, All accounts', Q2 2026, released 7 August 2026. Defined by the Fed as \"the stated APR averaged across all credit card accounts at all reporting banks.\" The course's separate illustrative '24% APR' example (FL Stage 3, Module 05) is above both published figures; it is framed as a hypothetical card rather than an average, so it is not an error, but a glossary page should not present 24% as the average.",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Warren Buffett compounded at roughly 19.7% a year from 1965 to 2025 \u2014 sixty years (FL Stage 3, Module 05, '20% column' warning box).",
+     "status": "confirmed",
+     "source": "Berkshire Hathaway Inc. 2025 Annual Report, 'Berkshire's Performance vs. the S&P 500' table, first page: Compounded Annual Gain 1965\u20132025, Berkshire per-share market value = 19.7%; Overall Gain 1964\u20132025 = 6,099,294%. This is the original source \u2014 Berkshire publishes this table itself and files it with the SEC. Course figure is exact."
+    },
+    {
+     "claim": "Over the same sixty years (1965\u20132025) the S&P 500 returned about 10.5% (FL Stage 3, Module 05).",
+     "status": "confirmed",
+     "source": "Berkshire Hathaway Inc. 2025 Annual Report, same performance table: Compounded Annual Gain 1965\u20132025, S&P 500 with dividends included = 10.5%; Overall Gain 1964\u20132025 = 46,061%. Course figure is exact, and the 'with dividends included' qualifier matters \u2014 a glossary page quoting 10.5% should carry it."
+    },
+    {
+     "claim": "Buffett tells ordinary investors to buy index funds rather than try to copy him (FL Stage 3, Module 05).",
+     "status": "confirmed",
+     "source": "Berkshire Hathaway 2013 Shareholder Letter (berkshirehathaway.com/letters/2013ltr.pdf), Buffett describing the instructions in his own will for the trustee managing money left to his wife: \"Put 10% of the cash in short-term government bonds and 90% in a very low-cost S&P 500 index fund. (I suggest Vanguard's.)\" He adds that for non-professionals \"a low-cost S&P 500 index fund will achieve this goal\" and that \"the 'know-nothing' investor who both diversifies and keeps his costs minimal is virtually certain to get satisfactory results.\" The course's attribution is accurate and this letter is the primary citation to use."
+    },
+    {
+     "claim": "Inflation has averaged around 3% per year historically (FL Stage 3, Module 04).",
+     "status": "confirmed",
+     "source": "Calculated directly from BLS Consumer Price Index for All Urban Consumers (CPI-U), U.S. city average, all items, 1982-84=100, annual-average index values published in the BLS Historical CPI-U supplemental table: 1926 annual average = 17.7, 2023 annual average = 304.702. That is a compound annual rate of 2.98% over 97 years. The course's 'around 3%' is accurate for the century-scale framing it uses. Caveat worth stating on the glossary page: over the shorter 1965\u20132023 window the same BLS series gives 3.99%/yr, so the 3% figure depends on starting in the 1920s.",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "The broad U.S. market has averaged roughly 10% a year before inflation and roughly 7% after it (FL Stage 3, Module 05, 'Plan on 7%. Be delighted by 10.').",
+     "status": "confirmed",
+     "source": "Cross-derived from two primary sources: Berkshire Hathaway 2025 Annual Report (S&P 500 with dividends, 10.5% compounded annually 1965\u20132025) and BLS CPI-U annual averages (2.98%/yr 1926\u20132023). Geometric real return of 10.0% nominal against 2.95% inflation = 6.85%, which rounds to the course's 7%. The pairing is internally consistent. Note that against the higher 1965\u20132025 inflation rate (3.94%/yr) the real return on a 10.5% nominal is 6.3%, not 7% \u2014 so the 10%/7% pair should be presented as the century-scale figures the course explicitly frames them as, not as a 60-year result.",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "The most recent 12-month CPI inflation reading is 3.5%.",
+     "status": "confirmed",
+     "source": "BLS Consumer Price Index news release, June 2026: CPI-U \"rose 3.5 percent over the last 12 months, not seasonally adjusted.\" Needed if the glossary page contrasts today's inflation against the long-run 3% average or against deposit yields.",
+     "asOf": "2026-06-30"
+    },
+    {
+     "claim": "The Rule of 72: divide 72 by your annual return to estimate years to double; at 7% that is about 10 years (FL Stage 3, Module 05).",
+     "status": "confirmed",
+     "source": "Verified mathematically rather than by publication, because it is a heuristic with no issuing body. 72/7 = 10.29 years; the exact answer is ln(2)/ln(1.07) = 10.24 years \u2014 the shortcut is off by about 0.6%, so 'about 10 years' is correct. The course makes no attribution for the rule (it does not name Pacioli or anyone else), so there is no attribution claim to check. If the glossary page adds an attribution, it will need its own sourcing; the rule's accuracy degrades outside roughly the 6\u201310% band."
+    },
+    {
+     "claim": "$250/month for 30 years, compounded monthly, produces $173,512 at 4%, $304,993 at 7%, $565,122 at 10%, $1,730,820 at 15% and $5,744,459 at 20%, on $90,000 contributed (FL Stage 3, Module 05 table).",
+     "status": "confirmed",
+     "source": "Recomputed independently with the standard ordinary-annuity future-value formula FV = PMT \u00d7 [((1+r/12)^(12t) \u2212 1)/(r/12)]. Every one of the five figures reproduces to the dollar. The growth-share column (48%, 70%, 84%, 95%, 98%) also checks out. Same verification passes for the $100/month years table and the start-age delay table ($1,581,020 at 25, $949,160 at 30, $565,122 at 35, $331,708 at 40, $189,842 at 45)."
+    },
+    {
+     "claim": "The $250/month table footnote states the money is '$250/month contributed at the start of each month, compounded monthly'.",
+     "status": "corrected",
+     "corrected_to": "The figures are end-of-month (ordinary annuity) contributions, not start-of-month. Start-of-month (annuity-due) contributions at the same rates would give $174,091 / $306,772 / $569,831 / $1,752,455 / $5,840,200 \u2014 every published number is lower than that and matches the end-of-month formula exactly. Fix is one word in the footnote: change 'at the start of each month' to 'at the end of each month'. Do not change the numbers; they are right and are used consistently across all three tables and both stages.",
+     "source": "Recomputed both annuity conventions from first principles. The end-of-month formula reproduces all five table values to the dollar; the start-of-month formula reproduces none of them. Confirmed the same end-of-month convention is used in the $100/month table (10yr@4% = $14,725) and the start-age table, so this is a footnote wording error, not a calculation error."
+    },
+    {
+     "claim": "Someone investing $200/month from 25 to 35 and then stopping ends with $280,968 at 65, versus $243,994 for someone investing $200/month from 35 to 65 \u2014 the earlier saver puts in a third of the money and finishes about $37,000 ahead, at 7% (FL Stage 3, Module 05).",
+     "status": "confirmed",
+     "source": "Recomputed independently: $200/month end-of-month for 10 years at 7% compounded monthly = $34,617, grown a further 30 years at 7%/12 = $280,968. $200/month for 30 years at 7% = $243,994. Difference $36,974, i.e. 'about $37,000'. Both figures reproduce to the dollar. This is the strongest single illustration on the page and it is arithmetically sound."
+    },
+    {
+     "claim": "$200/month in an S&P 500 index fund at the historical average return over 30 years grows to approximately $407,000, of which $72,000 is out of pocket and $335,000 is compound growth (FL Stage 4, Module 10).",
+     "status": "corrected",
+     "corrected_to": "At the 10% 'historical average return' the course itself uses everywhere else, $200/month for 30 years compounded monthly is approximately $452,100 \u2014 of which $72,000 is contributed and $380,100 is growth. The published $407,000 implies a 9.50% return, which appears nowhere else in the course. This also contradicts FL Stage 3 Module 05, where $250/month for 30 years at 10% is correctly given as $565,122; scaling that to $200/month gives $452,098, not $407,000. Either raise the figure to ~$452,000 and the growth line to ~$380,000, or state the 9.5% assumption explicitly.",
+     "source": "Recomputed with the same end-of-month annuity formula that reproduces every other table in the course to the dollar, and cross-checked against the course's own $250/month@10% figure. Underlying 10% assumption is itself supported by Berkshire Hathaway's 2025 Annual Report (S&P 500 with dividends, 10.5% compounded 1965\u20132025). The internal inconsistency is the finding \u2014 one of these two numbers has to move."
+    },
+    {
+     "claim": "$5,000 owed on a card at 22.15% reaches $36,975 in ten years, while $5,000 in the market at 10% reaches $12,969 (FL Stage 3, Module 06 chart, plus the year-by-year table).",
+     "status": "confirmed",
+     "source": "Recomputed: 5000 \u00d7 1.2215^10 = $36,975 and 5000 \u00d7 1.10^10 = $12,969, both exact, and all the intermediate year-2/4/6/8 values in the disclosed table reproduce as well. One caveat for the glossary page: this compounds the card rate ANNUALLY. Real cards compound monthly or daily, which on a 22.15% nominal rate would reach $44,891 over ten years \u2014 so the chart, if anything, understates the debt side. Because the Fed's 'accounts assessed interest' series is already an annualized realized ratio of finance charges to balances, annual compounding is the defensible reading; but do not re-describe 22.15% as an 'APR' compounded monthly, because that would double-count."
+    },
+    {
+     "claim": "The magic penny doubling daily for 30 days reaches $5,368,709.12 on day 30, having been at $5,242.88 on day 20 and $1,342,177.28 on day 28 (FL Stage 4, Module 10).",
+     "status": "confirmed",
+     "source": "Recomputed: $0.01 \u00d7 2^29 = $5,368,709.12 exactly; day 20 = 0.01 \u00d7 2^19 = $5,242.88; day 28 = 0.01 \u00d7 2^27 = $1,342,177.28. Every row of the table is exact. The course already labels it 'a mathematical illustration, not a market prediction', which is the correct disclaimer to carry across to the glossary page."
+    },
+    {
+     "claim": "$1,000 invested at birth at a 10% historical average return is approximately $5,560 by age 18 (FL Stage 4, Module 11).",
+     "status": "confirmed",
+     "source": "Recomputed: 1000 \u00d7 1.10^18 = $5,560 exactly, using annual compounding. Note the compounding convention differs from the rest of the course (monthly) \u2014 with monthly compounding the same inputs give $6,005. Worth standardising if the glossary page reuses this figure."
+    },
+    {
+     "claim": "Adding $100/month through childhood reaches approximately $61,000 by age 18, and that $61,000 left invested from 18 to 65 at a 7% real return becomes approximately $1.6 million (FL Stage 4, Module 11).",
+     "status": "corrected",
+     "corrected_to": "The two figures use different compounding conventions and do not chain cleanly. $100/month for 18 years at 10% compounded monthly is $60,056 on its own \u2014 the '$61,000' evidently counts only the monthly contributions and silently drops the $1,000 birth seed, which would add $5,560\u2013$6,005 for a true total of roughly $65,600. And $61,000 compounded from 18 to 65 (47 years) at 7% gives $1.47 million with annual compounding; the stated $1.6 million only appears with monthly compounding ($1.62 million). Pick one convention \u2014 monthly, to match the rest of the course \u2014 and restate as roughly $65,600 by age 18 growing to roughly $1.74 million by 65.",
+     "source": "Recomputed all four variants (seed included/excluded \u00d7 annual/monthly compounding) with the same formulas that reproduce the Stage 3 tables exactly. No combination produces both $61,000 and $1.6 million simultaneously. This is a smaller error than the $407,000 one but sits in the same family: the compounding convention drifts between modules."
+    },
+    {
+     "claim": "A savings account yielding 4.5% might net you about 3% in real purchasing power after taxes and inflation; the course's table also labels 4% as 'a good savings account' (FL Stage 3, Module 04 and Module 05).",
+     "status": "corrected",
+     "corrected_to": "The FDIC national deposit rate for savings accounts is 0.38% as of July 2026 \u2014 roughly one twelfth of the 4.5% figure. 4%\u20134.5% describes competitive online high-yield savings accounts, not a typical savings account. The course hedges with 'might', so this is not a flat error, but a glossary page must not state 4.5% unqualified. Recommended framing: 'the FDIC national average savings rate is 0.38% (July 2026); high-yield online accounts pay several percentage points more, which is the entire reason the distinction matters.'",
+     "source": "FDIC National Rates and Rate Caps, National Rate: Savings, July 2026 = 0.38%, retrieved via FRED series SNDR (source organization: Federal Deposit Insurance Corporation; last updated 22 July 2026). The FDIC's own national-rates pages returned HTTP 403 to direct fetching, so the figure was taken from the Federal Reserve Bank of St. Louis's redistribution of the FDIC series rather than from fdic.gov directly.",
+     "asOf": "2026-07-31"
+    },
+    {
+     "claim": "$1,000 invested in the S&P 500 in 1980 with dividends reinvested became approximately $150,000+ by 2025, with most of that growth in the last 15 years (FL Stage 4, Module 10).",
+     "status": "unverifiable",
+     "source": "Could not confirm against a primary source. S&P Dow Jones Indices \u2014 the index publisher and therefore the primary body \u2014 does not expose a 1980-to-date total-return figure on its public S&P 500 page, and the S&P 500 Total Return index series is behind its data licensing. The claim implies an 11.78% compound annual total return over 45 years, which is plausible but above the 10.5% that Berkshire's 2025 Annual Report reports for 1965\u20132025, so it is not self-evidently right either. Recommend either dropping this figure from the glossary page or replacing it with the Berkshire-sourced 10.5% since 1965, which is verifiable. The secondary trailing claim that 'most of that growth happened in the last 15 years' is a mathematical property of any compounding curve and needs no separate sourcing."
+    },
+    {
+     "claim": "Paying off a credit card balance is a guaranteed, tax-free, risk-free return equal to the card's rate \u2014 clearing a $3,000 balance at 22% earns exactly 22% (FL Stage 3, Module 06), and no legal investment reliably offers that.",
+     "status": "confirmed",
+     "source": "This is an arithmetic identity rather than a published statistic: avoiding an interest charge of r on a balance is numerically identical to earning r on the same amount, and because it is an avoided expense rather than income it is not taxable. The 'no legal investment reliably offers 22%' half is supported by Berkshire Hathaway's 2025 Annual Report, which shows that the single most celebrated long-run record in finance \u2014 Buffett's own, 1965\u20132025 \u2014 is 19.7%, below the current 22.15% card rate on accounts assessed interest (Federal Reserve G.19, Q2 2026). That juxtaposition is the strongest verifiable version of the claim and both halves of it are primary-sourced.",
+     "asOf": "2026-08-11"
+    }
+   ],
+   "sources": [
+    {
+     "title": "Compound Interest \u2014 Investor.gov Glossary",
+     "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/compound-interest",
+     "publisher": "U.S. Securities and Exchange Commission (SEC), Office of Investor Education and Advocacy",
+     "year": "2026"
+    },
+    {
+     "title": "Compound Interest Calculator",
+     "url": "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
+     "publisher": "U.S. Securities and Exchange Commission (SEC), Investor.gov",
+     "year": "2026"
+    },
+    {
+     "title": "12 CFR Part 1030 \u2014 Truth in Savings (Regulation DD), including \u00a71030.2(c) definition of annual percentage yield, \u00a71030.4(b)(1) disclosure requirement, and Appendix A APY formula",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1030",
+     "publisher": "Consumer Financial Protection Bureau, via the Electronic Code of Federal Regulations (eCFR)",
+     "year": "2026"
+    },
+    {
+     "title": "12 CFR \u00a71026.14 \u2014 Determination of annual percentage rate (Regulation Z, Truth in Lending), open-end credit",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-B/section-1026.14",
+     "publisher": "Consumer Financial Protection Bureau, via the Electronic Code of Federal Regulations (eCFR)",
+     "year": "2026"
+    },
+    {
+     "title": "G.19 Consumer Credit \u2014 Commercial Bank Interest Rates on Credit Card Plans (All Accounts 20.94%; Accounts Assessed Interest 22.15%), Q2 2026, released 7 August 2026",
+     "url": "https://www.federalreserve.gov/releases/g19/current/",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "Commercial Bank Interest Rate on Credit Card Plans, Accounts Assessed Interest (TERMCBCCINTNS) \u2014 22.15%, May 2026",
+     "url": "https://fred.stlouisfed.org/series/TERMCBCCINTNS",
+     "publisher": "Board of Governors of the Federal Reserve System, via FRED (Federal Reserve Bank of St. Louis)",
+     "year": "2026"
+    },
+    {
+     "title": "Berkshire Hathaway Inc. 2025 Annual Report \u2014 'Berkshire's Performance vs. the S&P 500' (Berkshire 19.7% and S&P 500 with dividends 10.5%, compounded annual gain 1965\u20132025)",
+     "url": "https://www.berkshirehathaway.com/2025ar/2025ar.pdf",
+     "publisher": "Berkshire Hathaway Inc.",
+     "year": "2026"
+    },
+    {
+     "title": "Berkshire Hathaway 2013 Shareholder Letter \u2014 Buffett's will instructions: 90% low-cost S&P 500 index fund, 10% short-term government bonds",
+     "url": "https://www.berkshirehathaway.com/letters/2013ltr.pdf",
+     "publisher": "Berkshire Hathaway Inc.",
+     "year": "2014"
+    },
+    {
+     "title": "Historical Consumer Price Index for All Urban Consumers (CPI-U), U.S. city average, all items, 1982-84=100 \u2014 annual averages (1926 = 17.7; 2023 = 304.702)",
+     "url": "https://www.bls.gov/cpi/tables/supplemental-files/historical-cpi-u-202402.pdf",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2024"
+    },
+    {
+     "title": "Consumer Price Index \u2014 June 2026 news release (CPI-U up 3.5% over the last 12 months, not seasonally adjusted)",
+     "url": "https://www.bls.gov/cpi/",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "National Rate: Savings (SNDR) \u2014 0.38%, July 2026",
+     "url": "https://fred.stlouisfed.org/series/SNDR",
+     "publisher": "Federal Deposit Insurance Corporation (FDIC), via FRED (Federal Reserve Bank of St. Louis)",
+     "year": "2026"
+    },
+    {
+     "title": "National Rates and Rate Caps",
+     "url": "https://www.fdic.gov/national-rates-and-rate-caps",
+     "publisher": "Federal Deposit Insurance Corporation (FDIC)",
+     "year": "2026"
+    }
+   ]
+  },
+  "credit-score": {
+   "facts": [
+    {
+     "claim": "A credit score is a 300\u2013850 number lenders use to predict how likely you are to repay. (Manifest gloss; FL Stage 1 Module 04: 'Your credit score (300\u2013850) tells lenders how likely you are to repay money.')",
+     "status": "confirmed",
+     "source": "CFPB, 'What is a credit score?' \u2014 'A credit score is a prediction of your credit behavior, such as how likely you are to pay a loan back on time' and scores 'typically span from 300 to 850.' Corroborated by FICO's own consumer site: 'FICO Scores generally range from 300 to 850.'",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Glossary precision point: 300\u2013850 is not universal. CFPB: 'Many scores range from 300 to 850, but different companies use different ranges.' FICO notes some industry-specific score types (auto, bankcard) use a broader range.",
+     "status": "confirmed",
+     "source": "CFPB 'Understand your credit score'; ficoscore.com FAQs ('some score types have slightly broader ranges')",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "The five FICO factors and their weights: Payment History 35%, Amounts Owed 30%, Length of Credit History 15%, Credit Mix 10%, New Credit 10%. (FL Stage 1 Module 04 states exactly these.)",
+     "status": "confirmed",
+     "source": "myFICO, 'How are FICO Scores Calculated?' \u2014 FICO is the model's author, so this is primary. Caveat FICO states and the course omits: 'The percentages shown are for the general population and may be different for different credit profiles.'"
+    },
+    {
+     "claim": "FICO score tiers: 300\u2013579 Poor, 580\u2013669 Fair, 670\u2013739 Good, 740\u2013799 Very Good, 800\u2013850 Exceptional. This validates the course's Stage 3 action step 'once your credit score is above 670' as the Good threshold.",
+     "status": "confirmed",
+     "source": "ficoscore.com, 'FAQs About FICO Scores in the US' (Fair Isaac's own consumer site)"
+    },
+    {
+     "claim": "Keep credit utilization below 30% of your total credit limit. (FL Stage 1 Module 04: 'Keep it below 30%.')",
+     "status": "confirmed",
+     "source": "CFPB, 'How do I get and keep a good credit score?' \u2014 'Experts advise keeping your use of credit at no more than 30 percent of your total credit limit.' (page reviewed Dec 12, 2024)",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "'Below 10% is ideal' for credit utilization. (FL Stage 1 Module 04.)",
+     "status": "unverifiable",
+     "source": "No primary source states a 10% threshold. CFPB publishes only the 30% figure; FICO's 'Amounts Owed' page gives no numeric target. Widely repeated by secondary sites but not set or published by CFPB, FICO, or VantageScore. Recommend the glossary state 30% as the sourced threshold and present 'lower is better' qualitatively rather than as a published number."
+    },
+    {
+     "claim": "You can get a free credit report from all three nationwide bureaus weekly at AnnualCreditReport.com, and it is the only federally authorized site. (FL Stage 1 Module 04 and Stage 3 Module 01.)",
+     "status": "corrected",
+     "corrected_to": "Weekly access is real and permanent, but the legal entitlement is narrower than 'you're entitled to.' FCRA 15 U.S.C. \u00a71681j(a)(1)(A) entitles a consumer to one free file disclosure 'once during any 12-month period upon request.' Weekly free access is a voluntary program the three bureaus have permanently extended, not a statutory right \u2014 the bureaus could in principle narrow it back to the statutory annual minimum. Accurate phrasing: 'Federal law guarantees one free report per bureau every 12 months; the three bureaus have permanently extended that to one per week.'",
+     "source": "15 U.S.C. \u00a71681j(a)(1)(A) (Cornell LII); FTC Consumer Advice, 'Free Credit Reports' \u2014 'All three nationwide credit bureaus have permanently extended a program that lets you check your credit report from each once a week for free at AnnualCreditReport.com' and 'Only one website \u2014 AnnualCreditReport.com \u2014 is authorized to fill orders for the free annual credit reports you are entitled to by law.'",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "'Roughly 1 in 5 credit reports contains an error significant enough to affect your score, according to FTC research.' (FL Stage 3 Module 01.)",
+     "status": "corrected",
+     "corrected_to": "Two errors in one sentence. The FTC's 2013 study (1,001 participants, 2,968 reports) found (a) one in five CONSUMERS had an error on at least one of their three reports \u2014 not one in five reports \u2014 and (b) the share with errors serious enough to matter was FIVE PERCENT, not 20%: 'Five percent of consumers had errors on one of their three major credit reports that could lead to them paying more for products such as auto loans and insurance.' Separately, 'slightly more than one in 10 consumers saw a change in their credit score after the CRAs modified errors,' and 'four out of five consumers who filed disputes experienced some modification to their credit report.' Accurate phrasing: 'In an FTC study, one in five consumers had an error on at least one of their three credit reports, and one in twenty had an error serious enough to cost them money on a loan or insurance.'",
+     "source": "FTC press release, 'In FTC Study, Five Percent of Consumers Had Errors on Their Credit Reports That Could Result in Less Favorable Terms for Loans,' February 11, 2013"
+    },
+    {
+     "claim": "Credit bureaus have 30 days to investigate a dispute and respond. (FL Stage 3 Module 01.)",
+     "status": "confirmed",
+     "source": "15 U.S.C. \u00a71681i(a)(1) (Cornell LII) \u2014 reinvestigation must complete 'before the end of the 30-day period beginning on the date on which the agency receives the notice of the dispute.' Worth adding to the glossary: the 30 days 'may be extended for not more than 15 additional days if the consumer reporting agency receives information from the consumer during that 30-day period that is relevant to the reinvestigation' \u2014 a 45-day maximum."
+    },
+    {
+     "claim": "Late payments and collections generally fall off your report after 7 years from the original delinquency date. (FL Stage 3 Module 02.)",
+     "status": "confirmed",
+     "source": "15 U.S.C. \u00a71681c(a)(4) \u2014 'Accounts placed for collection or charged to profit and loss which antedate the report by more than seven years.' Precision note from \u00a71681c(c)(1): the seven-year clock actually begins 'upon the expiration of the 180-day period beginning on the date of the commencement of the delinquency,' so the true outside limit is roughly seven years plus 180 days."
+    },
+    {
+     "claim": "'Chapter 7 bankruptcy stays 10 years; Chapter 13 stays 7.' (FL Stage 3 Module 02.)",
+     "status": "corrected",
+     "corrected_to": "The 10-year figure is statutory; the 7-year figure is not. FCRA 15 U.S.C. \u00a71681c(a)(1) sets a single 10-year limit for ALL bankruptcies \u2014 'Cases under title 11 ... that, from the date of entry of the order for relief or the date of adjudication ... antedate the report by more than 10 years' \u2014 with no distinction between Chapter 7 and Chapter 13. The 7-year removal of completed Chapter 13 filings is a voluntary policy of the nationwide credit bureaus, not a legal requirement. Accurate phrasing: 'Federal law lets any bankruptcy stay on your report for up to 10 years. In practice the bureaus remove a completed Chapter 13 after 7 years as a matter of their own policy \u2014 that is a courtesy, not a right you can enforce.'",
+     "source": "15 U.S.C. \u00a71681c(a)(1) (Cornell LII)"
+    },
+    {
+     "claim": "'One late payment can drop your score 50\u2013100 points.' (FL Stage 1 Module 04.)",
+     "status": "corrected",
+     "corrected_to": "No FICO primary source supports a universal 50\u2013100 point figure, and FICO's own material cuts against the framing. myFICO's payment-history page states: 'A few late payments are not an automatic score-killer. An overall good credit history can outweigh one or two instances of late credit card payments.' FICO's blog 'How Credit Actions Impact FICO Scores' (June 4, 2019, FICO Score 9) declines to publish standardized point drops, stating 'the impact to FICO Score of a given credit action is highly dependent on the starting credit profile of the consumer.' Accurate phrasing: 'A missed payment is the single most damaging routine credit event, and the higher your score is to begin with, the more points you lose. FICO does not publish a fixed number, because the drop depends on your starting profile.'",
+     "source": "myFICO, 'How Payment History Impacts Your Credit Score'; FICO blog, 'How Credit Actions Impact FICO Scores' (2019-06-04)"
+    },
+    {
+     "claim": "Each credit application causes a hard inquiry that temporarily dips your score. (FL Stage 1 Module 04 and Stage 3 Module 03.)",
+     "status": "confirmed",
+     "source": "myFICO, 'Credit Checks and Inquiries' \u2014 quantified figures the glossary should carry: 'one additional credit inquiry will take less than five points off their FICO Scores'; inquiries stay on the report 'up to two years, but they only affect the FICO Scores for a year'; rate-shopping for the same loan type is deduplicated within 'any 14-day span' (older FICO versions) or 'any 45-day span' (newer versions); and 'FICO Scores ignore inquiries made in the 30 days prior to scoring' for mortgage, auto, and student loans. CFPB corroborates the 30-day and 14\u201345 day windows."
+    },
+    {
+     "claim": "Accurate negative information cannot legally be removed early, and a credit repair company that guarantees a specific score increase is a red flag under the Credit Repair Organizations Act. (FL Stage 3 Module 01.)",
+     "status": "confirmed",
+     "source": "15 U.S.C. \u00a71679b (Cornell LII) \u2014 CROA prohibits statements that are 'untrue or misleading' about a consumer's creditworthiness, and \u00a71679b(b) bars charging in advance: 'No credit repair organization may charge or receive any money or other valuable consideration for the performance of any service ... before such service is fully performed.' The advance-fee ban is the sharper consumer-facing test and is worth adding to the glossary alongside the guarantee red flag."
+    },
+    {
+     "claim": "You can opt out of pre-screened credit offers for five years, free, at OptOutPrescreen.com \u2014 the official site named in the Fair Credit Reporting Act. (FL Stage 3 Module 02.)",
+     "status": "confirmed",
+     "source": "FTC Consumer Advice, 'What To Know About Prescreened Offers for Credit and Insurance' \u2014 optoutprescreen.com or 1-888-5-OPT-OUT (1-888-567-8688) opts you out 'for five years'; a permanent opt-out requires signing and returning the Permanent Opt-Out Election form obtained online. Requests are processed within five days."
+    },
+    {
+     "claim": "The average US FICO Score is 714. (Not currently stated in the course; a 2026 glossary page should carry it.)",
+     "status": "confirmed",
+     "source": "FICO (Fair Isaac Corporation) investor newsroom, 'FICO Score Credit Insights Report: Average FICO Score Dips to 714,' released March 24, 2026 \u2014 down 2 points year over year and on a downward trend since 2023, driven by resumed student-loan delinquency reporting and rising mortgage delinquencies. Also from the same release: 48.1% of US consumers now score 750 or higher, up from 43.3% in 2019.",
+     "asOf": "2026-03-24"
+    },
+    {
+     "claim": "There are three nationwide credit bureaus \u2014 Equifax, Experian, TransUnion \u2014 and you have more than one credit score, not one.",
+     "status": "confirmed",
+     "source": "CFPB, 'Understand your credit score' \u2014 'The three biggest are Equifax, Experian, and TransUnion' and 'You can have more than one score, because: Lenders use different scores for different products; There are many different credit scoring formulas; Information can come from different credit reporting sources.'",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "VantageScore uses the same 300\u2013850 range as FICO.",
+     "status": "confirmed",
+     "source": "VantageScore's own consumer FAQ (vantagescore.com/consumers/consumer-faqs) \u2014 'Scores usually range from 300 to 850.' Note: the FAQ states this generally and does not break the range out by model version, so the glossary should not attribute the range specifically to VantageScore 4.0 without the model's user guide."
+    },
+    {
+     "claim": "'Under current federal rules, medical debt is treated differently by credit reporting agencies than other debt.' (FL Stage 1, medical-bills passage.)",
+     "status": "corrected",
+     "corrected_to": "There is no federal rule doing this as of 11 August 2026. The CFPB finalized a rule on January 7, 2025 to ban medical bills from credit reports, but a US District Court VACATED it on July 11, 2025, holding it 'exceeded the Bureau's statutory authority and was contrary to the Fair Credit Reporting Act' \u2014 the CFPB's own page now carries that banner. What still applies is a VOLUNTARY change by Equifax, Experian and TransUnion: all paid medical collections removed, unpaid medical collections under $500 removed (effective April 11, 2023), and a one-year wait from the date of service before any unpaid medical debt can appear. Accurate phrasing: 'The three bureaus voluntarily removed paid medical collections and unpaid ones under $500, and wait a year before reporting any medical debt. That is bureau policy, not federal law \u2014 the CFPB rule that would have made it law was struck down in July 2025.'",
+     "source": "CFPB, 'CFPB Finalizes Rule to Remove Medical Bills from Credit Reports' (archived, carries the vacatur banner dated July 11, 2025); CFPB blog, 'Have medical debt? Anything already paid or under $500 should no longer be on your credit report'",
+     "asOf": "2026-08-11"
+    }
+   ],
+   "sources": [
+    {
+     "title": "What is a credit score?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-score-en-315/",
+     "publisher": "Consumer Financial Protection Bureau (CFPB)",
+     "year": "2026"
+    },
+    {
+     "title": "Understand your credit score",
+     "url": "https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/understand-your-credit-score/",
+     "publisher": "Consumer Financial Protection Bureau (CFPB)",
+     "year": "2026"
+    },
+    {
+     "title": "How do I get and keep a good credit score?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-do-i-get-and-keep-a-good-credit-score-en-318/",
+     "publisher": "Consumer Financial Protection Bureau (CFPB)",
+     "year": "2024"
+    },
+    {
+     "title": "What kind of credit inquiry has no effect on my credit score?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-kind-of-credit-inquiry-has-no-effect-on-my-credit-score-en-321/",
+     "publisher": "Consumer Financial Protection Bureau (CFPB)",
+     "year": "2026"
+    },
+    {
+     "title": "How are FICO Scores Calculated? (What's in your credit score)",
+     "url": "https://www.myfico.com/credit-education/whats-in-your-credit-score",
+     "publisher": "Fair Isaac Corporation (FICO) \u2014 model author",
+     "year": "2026"
+    },
+    {
+     "title": "FAQs About FICO Scores in the US (score ranges and tiers)",
+     "url": "https://www.ficoscore.com/faqs-about-fico-scores-us",
+     "publisher": "Fair Isaac Corporation (FICO) \u2014 model author",
+     "year": "2026"
+    },
+    {
+     "title": "Credit Checks and Inquiries",
+     "url": "https://www.myfico.com/credit-education/credit-reports/credit-checks-and-inquiries",
+     "publisher": "Fair Isaac Corporation (FICO) \u2014 model author",
+     "year": "2026"
+    },
+    {
+     "title": "How Payment History Impacts Your Credit Score",
+     "url": "https://www.myfico.com/credit-education/credit-scores/payment-history",
+     "publisher": "Fair Isaac Corporation (FICO) \u2014 model author",
+     "year": "2026"
+    },
+    {
+     "title": "How Credit Actions Impact FICO Scores",
+     "url": "https://www.fico.com/blogs/how-credit-actions-impact-fico-scores",
+     "publisher": "Fair Isaac Corporation (FICO) \u2014 model author",
+     "year": "2019"
+    },
+    {
+     "title": "FICO Score Credit Insights Report: Average FICO Score Dips to 714",
+     "url": "https://investors.fico.com/news-releases/news-release-details/ficor-score-credit-insights-report-average-fico-score-dips-714",
+     "publisher": "Fair Isaac Corporation (FICO)",
+     "year": "2026"
+    },
+    {
+     "title": "Free Credit Reports",
+     "url": "https://consumer.ftc.gov/articles/free-credit-reports",
+     "publisher": "Federal Trade Commission (FTC)",
+     "year": "2026"
+    },
+    {
+     "title": "In FTC Study, Five Percent of Consumers Had Errors on Their Credit Reports That Could Result in Less Favorable Terms for Loans",
+     "url": "https://www.ftc.gov/news-events/news/press-releases/2013/02/ftc-study-five-percent-consumers-had-errors-their-credit-reports-could-result-less-favorable-terms",
+     "publisher": "Federal Trade Commission (FTC)",
+     "year": "2013"
+    },
+    {
+     "title": "What To Know About Prescreened Offers for Credit and Insurance",
+     "url": "https://consumer.ftc.gov/articles/what-know-about-prescreened-offers-credit-and-insurance",
+     "publisher": "Federal Trade Commission (FTC)",
+     "year": "2026"
+    },
+    {
+     "title": "15 U.S.C. \u00a7 1681c \u2014 Requirements relating to information contained in consumer reports",
+     "url": "https://www.law.cornell.edu/uscode/text/15/1681c",
+     "publisher": "Fair Credit Reporting Act, via Cornell Legal Information Institute",
+     "year": "2026"
+    },
+    {
+     "title": "15 U.S.C. \u00a7 1681i \u2014 Procedure in case of disputed accuracy",
+     "url": "https://www.law.cornell.edu/uscode/text/15/1681i",
+     "publisher": "Fair Credit Reporting Act, via Cornell Legal Information Institute",
+     "year": "2026"
+    },
+    {
+     "title": "15 U.S.C. \u00a7 1681j \u2014 Charges for certain disclosures",
+     "url": "https://www.law.cornell.edu/uscode/text/15/1681j",
+     "publisher": "Fair Credit Reporting Act, via Cornell Legal Information Institute",
+     "year": "2026"
+    },
+    {
+     "title": "15 U.S.C. \u00a7 1679b \u2014 Prohibited practices (Credit Repair Organizations Act)",
+     "url": "https://www.law.cornell.edu/uscode/text/15/1679b",
+     "publisher": "Credit Repair Organizations Act, via Cornell Legal Information Institute",
+     "year": "2026"
+    },
+    {
+     "title": "CFPB Finalizes Rule to Remove Medical Bills from Credit Reports (archived \u2014 carries July 11, 2025 vacatur banner)",
+     "url": "https://www.consumerfinance.gov/archive/newsroom/cfpb-finalizes-rule-to-remove-medical-bills-from-credit-reports/",
+     "publisher": "Consumer Financial Protection Bureau (CFPB)",
+     "year": "2025"
+    },
+    {
+     "title": "Have medical debt? Anything already paid or under $500 should no longer be on your credit report",
+     "url": "https://www.consumerfinance.gov/about-us/blog/medical-debt-anything-already-paid-or-under-500-should-no-longer-be-on-your-credit-report/",
+     "publisher": "Consumer Financial Protection Bureau (CFPB)",
+     "year": "2023"
+    },
+    {
+     "title": "Consumer FAQs (VantageScore range)",
+     "url": "https://vantagescore.com/consumers/consumer-faqs",
+     "publisher": "VantageScore Solutions \u2014 model author",
+     "year": "2026"
+    }
+   ]
+  },
+  "credit-utilization": {
+   "facts": [
+    {
+     "claim": "Credit utilization is the balance reported on a revolving account divided by that account's credit limit ($300 \u00f7 $1,000 = 30%).",
+     "status": "confirmed",
+     "source": "myFICO, 'How FICO Scores Look at Credit Card Limits' \u2014 'credit utilization rate is calculated by dividing an account's outstanding balance by its credit limit'; CFPB, 'Does it hurt my credit to close a credit card?' \u2014 'the amount of credit you're using, divided by the total amount you have available'"
+    },
+    {
+     "claim": "'Amounts owed' \u2014 the category credit utilization dominates \u2014 is approximately 30% of a FICO Score.",
+     "status": "confirmed",
+     "source": "FICO Score Fact Sheet (fico.com/en/resource-access/download/4292): 'Amount Owed \u2014 approximately 30% of a FICO Score'"
+    },
+    {
+     "claim": "Payment history is approximately 35% of a FICO Score; length of credit history 15%; new credit 10%; types of credit (mix) 10%.",
+     "status": "confirmed",
+     "source": "FICO Score Fact Sheet; myFICO 'How are FICO Scores Calculated?' \u2014 35/30/15/10/10"
+    },
+    {
+     "claim": "FICO Scores most often fall within a 300\u2013850 range.",
+     "status": "confirmed",
+     "source": "FICO Score Fact Sheet: 'FICO Scores most often fall within a 300\u2013850 score range'"
+    },
+    {
+     "claim": "Course text: 'Keep it below 30%.' The 30% figure is expert guidance, not a scoring threshold \u2014 there is no cliff at 30%.",
+     "status": "confirmed",
+     "source": "CFPB, 'How do I get and keep a good credit score?' \u2014 'Experts advise keeping your use of credit at no more than 30 percent of your total credit limit'; myFICO, 'What Should My Credit Utilization Ratio Be?' \u2014 'the data doesn't support the implication that your credit score will dip once your utilization ratio crosses the 30% threshold'"
+    },
+    {
+     "claim": "Course text: 'Below 10% is ideal.' FICO states this in its own words.",
+     "status": "confirmed",
+     "source": "myFICO, 'What Should My Credit Utilization Ratio Be?' \u2014 'Generally, keeping it below 10% (and consistently paying bills on time) can help you build and maintain a good FICO Score'"
+    },
+    {
+     "claim": "Utilization applies to revolving accounts (credit cards, lines of credit) only \u2014 installment debt such as car and student loans does not count toward it.",
+     "status": "confirmed",
+     "source": "myFICO, 'How Owing Money Can Impact Your Credit Score' \u2014 'Your credit utilization ratio on revolving accounts\u2014the percentage of your available credit you're using\u2014is an important factor in your FICO Scores'; VantageScore, 'Credit Utilization Ratio' knowledge-center article (revolving accounts only)"
+    },
+    {
+     "claim": "Utilization is measured both per card and across all cards combined, and both are scored \u2014 so a single maxed card is a separate negative signal even when the aggregate ratio looks healthy.",
+     "status": "confirmed",
+     "source": "myFICO, 'What Should My Credit Utilization Ratio Be?' \u2014 calculates both an individual per-card ratio and an aggregate ratio; VantageScore knowledge-center article \u2014 'total utilization across all cards, calculating individual account ratios'"
+    },
+    {
+     "claim": "Card issuers report the balance to the bureaus based on the statement closing balance, not the balance after the due-date payment \u2014 which is why paying before the statement closes lowers reported utilization.",
+     "status": "confirmed",
+     "source": "myFICO, 'What Should My Credit Utilization Ratio Be?' \u2014 'Credit card companies typically report card balances to the credit reporting agencies based on your balance each month when your statement closes'; VantageScore \u2014 'typically monthly statement balances rather than current balances'"
+    },
+    {
+     "claim": "Blog text: the due date is 'roughly three weeks' after the statement closing date. This is the federal regulatory minimum, not merely an issuer habit.",
+     "status": "confirmed",
+     "source": "Regulation Z, 12 CFR 1026.5(b)(2)(ii) \u2014 periodic statements must be 'mailed or delivered at least 21 days prior to the payment due date' (and 21 days before any grace period expires)"
+    },
+    {
+     "claim": "Blog text: 'Consumers around a 800 FICO average roughly 7%' utilization.",
+     "status": "confirmed",
+     "source": "myFICO blog, 'The Traits of the 800 FICO Credit Score Holder' \u2014 'On average, \"exceptional\" credit score holders use about 7% of their available credit'",
+     "asOf": "2017-03-08 (FICO's own figure; FICO has not republished it since \u2014 label the year on the page)"
+    },
+    {
+     "claim": "The national average credit card utilization rate is 35.5%.",
+     "status": "confirmed",
+     "source": "FICO Score Credit Insights Report (inaugural), published 16 September 2025 \u2014 average credit card utilization rate 35.5%. FICO's 24 March 2026 update did not restate the figure.",
+     "asOf": "2025-09-16"
+    },
+    {
+     "claim": "The average U.S. FICO Score is 714 (down from 715), with 48.1% of consumers at 750 or higher.",
+     "status": "confirmed",
+     "source": "FICO Score Credit Insights Report, published 24 March 2026 \u2014 average FICO Score 714; 48.1% of U.S. consumers at 750+, up from 43.3% in 2019",
+     "asOf": "2026-03-24"
+    },
+    {
+     "claim": "Closing a credit card raises your utilization ratio (it removes that card's limit from your available credit) and can lower your score.",
+     "status": "confirmed",
+     "source": "CFPB, 'Does it hurt my credit to close a credit card?' \u2014 'Closing an existing card can increase your credit utilization ratio and lower your score'"
+    },
+    {
+     "claim": "You do not need to carry a balance to build or keep a good score.",
+     "status": "confirmed",
+     "source": "CFPB, 'How do I get and keep a good credit score?' \u2014 'You don't need to carry a balance on credit cards to get a good score'; CFPB credit-score-myths blog \u2014 'Paying off your credit cards in full every month is the best way to improve a credit score'"
+    },
+    {
+     "claim": "Consumers can get a free credit report from each of the three nationwide bureaus every week at AnnualCreditReport.com, and this is permanent.",
+     "status": "confirmed",
+     "source": "FTC Consumer Advice alert, 'You now have permanent access to free weekly credit reports' (13 October 2023) \u2014 'The program was extended twice and is now permanent'"
+    },
+    {
+     "claim": "Course text (Stage 3): 'Roughly 1 in 5 credit reports contains an error significant enough to affect your score, according to FTC research.' This merges two separate FTC findings into one wrong number.",
+     "status": "corrected",
+     "corrected_to": "The FTC's 2013 study found 1 in 5 consumers had an error on at least one of their three credit reports; only 5% (1 in 20) had errors serious enough to result in less favorable loan or insurance terms. Sample: 1,001 participants, 2,968 reports. Rewrite as: 'About 1 in 5 consumers has an error on at least one of their three reports, and about 1 in 20 has one serious enough to cost them money.'",
+     "source": "FTC press release, 'In FTC Study, Five Percent of Consumers Had Errors on Their Credit Reports That Could Result in Less Favorable Terms for Loans' (11 February 2013)"
+    },
+    {
+     "claim": "Course text (Stage 1): 'One late payment can drop your score 50\u2013100 points.'",
+     "status": "corrected",
+     "corrected_to": "The drop depends heavily on the starting score, and 50\u2013100 is wrong at the low end. FICO's own published simulation: a 30-day late took a 793 score to 710\u2013730 (a 63\u201383 point drop) and a 607 score to 570\u2013590 (a 17\u201337 point drop). Rewrite as: 'A single 30-day late can cost roughly 15\u201335 points from a mid-600s score and 60\u201385 points from a high-700s score \u2014 the cleaner your history, the more it hurts.' This matters because the 607 case is the reader this course is written for.",
+     "source": "myFICO, 'How Credit Actions Impact FICO Scores' (FICO's own damage-point simulation, Sophia 607 and Maria 793 profiles)"
+    },
+    {
+     "claim": "Course text (Stage 3): 'Chapter 7 bankruptcy stays 10 years; Chapter 13 stays 7.' The 7-year Chapter 13 figure is not what the statute says.",
+     "status": "corrected",
+     "corrected_to": "The FCRA sets a single 10-year limit for all 'cases under title 11' \u2014 it does not distinguish Chapter 7 from Chapter 13. The 7-year removal of Chapter 13 is a voluntary policy of the credit bureaus, not a legal right. State it as bureau practice, not law. The 7-year limit for collections, charge-offs and other adverse items IS statutory.",
+     "source": "Fair Credit Reporting Act \u00a7 605, 15 U.S.C. \u00a7 1681c(a)(1)\u2013(4), FTC-published text revised March 2026 \u2014 title 11 cases 'more than 10 years'; 'accounts placed for collection or charged to profit and loss which antedate the report by more than seven years'; 'any other adverse item of information ... more than seven years'"
+    },
+    {
+     "claim": "Course text (Stage 3): 'Bureaus have 30 days to investigate and respond.' True but incomplete.",
+     "status": "corrected",
+     "corrected_to": "30 days, extendable to 45 \u2014 the 30-day period 'may be extended for not more than 15 additional days if the consumer reporting agency receives information from the consumer during that 30-day period that is relevant to the reinvestigation.' Say '30 days, up to 45 if you send more documents mid-dispute' so readers don't think a 40-day response is a violation.",
+     "source": "Fair Credit Reporting Act \u00a7 611, 15 U.S.C. \u00a7 1681i(a)(1)(A)\u2013(B)"
+    },
+    {
+     "claim": "Course text: a credit repair company guaranteeing a specific score increase is a red flag under the Credit Repair Organizations Act.",
+     "status": "confirmed",
+     "source": "Credit Repair Organizations Act, 15 U.S.C. \u00a7 1679b(a)(1) \u2014 prohibits any 'statement ... which is untrue or misleading' about a consumer's creditworthiness, credit standing or credit capacity; \u00a7 1679b(b) \u2014 'No credit repair organization may charge or receive any money or other valuable consideration for the performance of any service' before the service is fully performed. The advance-fee ban is the cleaner, more checkable rule to cite."
+    },
+    {
+     "claim": "Blog text: the average credit card rate used in the compounding chart is 22.15%.",
+     "status": "confirmed",
+     "source": "Federal Reserve G.19 Consumer Credit release, series TERMCBCCINTNS (Commercial Bank Interest Rate on Credit Card Plans, Accounts Assessed Interest) via FRED \u2014 22.15%",
+     "asOf": "2026-05 (latest observation; series is quarterly \u2014 Feb/May/Aug/Nov \u2014 so re-check after the August 2026 print)"
+    },
+    {
+     "claim": "Supporting context figure if the page cites a card APR: the CFPB reports a higher average because it measures a different thing.",
+     "status": "confirmed",
+     "source": "CFPB, 'The Consumer Credit Card Market' (December 2025) \u2014 average general-purpose card APR 25.2% and private label 31.3% in 2024, 'the highest levels since at least 2015'; the Fed's 22.15% covers only accounts assessed interest at commercial banks. Do not present the two as interchangeable.",
+     "asOf": "2025-12 (data year 2024)"
+    },
+    {
+     "claim": "VantageScore weights utilization differently from FICO \u2014 the blog's disclaimer says so and that is accurate.",
+     "status": "confirmed",
+     "source": "VantageScore, 'Credit Utilization Ratio: The Lesser Known Key to Your Credit Health' \u2014 the ratio 'can account for up to 30% of your credit score'; recommends 'at or below 30% of their assigned credit limits' and single digits for an excellent score"
+    },
+    {
+     "claim": "FICO Scores are used in 90% of U.S. lending decisions \u2014 useful for establishing why FICO's weights are the ones to quote.",
+     "status": "confirmed",
+     "source": "FICO Score Fact Sheet \u2014 'FICO Scores are used in 90% US of lending decisions'"
+    },
+    {
+     "claim": "Blog text: utilization 'has no memory' \u2014 it is recalculated from scratch every time your balance is reported, and last month's 90% is not averaged in.",
+     "status": "unverifiable",
+     "source": "No FICO or VantageScore publication states this in those terms. The closest primary support is the FICO Score Fact Sheet: FICO Scores are a snapshot that 'change only when credit report information changes.' The mechanism is right but the phrasing is folk wisdom from the myFICO user forums, not a FICO statement. Recommend rephrasing to FICO's own snapshot language rather than sourcing 'no memory' to FICO."
+    },
+    {
+     "claim": "Blog text: reporting 0% on every card scores slightly worse than reporting a small balance (1\u20139%) on one card.",
+     "status": "unverifiable",
+     "source": "Neither FICO nor VantageScore publishes this. FICO says only that low utilization helps and that you need not carry a balance; CFPB says paying in full every month is the best approach. Widely repeated by secondary sites but not confirmable at a primary source \u2014 either drop the table row or label it explicitly as an unconfirmed community observation."
+    },
+    {
+     "claim": "Blog text: a credit limit increase lowers utilization without paying anything, and many issuers grant one with a soft pull.",
+     "status": "unverifiable",
+     "source": "The arithmetic is trivially true (raising the denominator lowers the fraction), but no federal regulator or scoring model publishes whether issuers use soft or hard pulls for limit-increase requests \u2014 it varies by issuer and is not a rule anyone sets. The blog already tells readers to ask their issuer, which is the correct handling; keep that caveat."
+    }
+   ],
+   "sources": [
+    {
+     "title": "FICO Score Fact Sheet \u2014 Basic facts about FICO Scores",
+     "url": "https://www.fico.com/en/resource-access/download/4292",
+     "publisher": "Fair Isaac Corporation (FICO)",
+     "year": "2026"
+    },
+    {
+     "title": "How are FICO Scores Calculated?",
+     "url": "https://www.myfico.com/credit-education/whats-in-your-credit-score",
+     "publisher": "myFICO (Fair Isaac Corporation)",
+     "year": "2026"
+    },
+    {
+     "title": "What Should My Credit Utilization Ratio Be?",
+     "url": "https://www.myfico.com/credit-education/blog/credit-utilization-be",
+     "publisher": "myFICO (Fair Isaac Corporation)",
+     "year": "2026"
+    },
+    {
+     "title": "How Owing Money Can Impact Your Credit Score",
+     "url": "https://www.myfico.com/credit-education/credit-scores/amount-of-debt",
+     "publisher": "myFICO (Fair Isaac Corporation)",
+     "year": "2026"
+    },
+    {
+     "title": "The Traits of the 800 FICO Credit Score Holder",
+     "url": "https://www.myfico.com/credit-education/blog/traits-of-the-800-fico-credit-score-holder",
+     "publisher": "myFICO (Fair Isaac Corporation)",
+     "year": "2017"
+    },
+    {
+     "title": "How Credit Actions Impact FICO Scores",
+     "url": "https://www.myfico.com/credit-education/faq/affects-of-credit-actions",
+     "publisher": "myFICO (Fair Isaac Corporation)",
+     "year": "2026"
+    },
+    {
+     "title": "FICO Score Credit Insights Report: Average FICO Score Dips to 714",
+     "url": "https://www.fico.com/en/newsroom/fico-score-credit-insights-report-average-fico-score-dips-714",
+     "publisher": "Fair Isaac Corporation (FICO)",
+     "year": "2026"
+    },
+    {
+     "title": "FICO Releases Inaugural FICO Score Credit Insights Report (national credit card utilization rate 35.5%)",
+     "url": "https://investors.fico.com/news-releases/news-release-details/fico-releases-inaugural-fico-scorer-credit-insights-report",
+     "publisher": "Fair Isaac Corporation (FICO)",
+     "year": "2025"
+    },
+    {
+     "title": "How do I get and keep a good credit score?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-do-i-get-and-keep-a-good-credit-score-en-318/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "Does it hurt my credit to close a credit card?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/does-it-hurt-my-credit-to-close-a-credit-card-en-1231/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "Credit score myths that might be holding you back from improving your credit",
+     "url": "https://www.consumerfinance.gov/about-us/blog/credit-score-myths-might-be-holding-you-back-improving-your-credit/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "The Consumer Credit Card Market (December 2025)",
+     "url": "https://files.consumerfinance.gov/f/documents/cfpb_consumer-credit-card-market-report_2025.pdf",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2025"
+    },
+    {
+     "title": "Fair Credit Reporting Act, 15 U.S.C. \u00a7 1681 (revised March 2026) \u2014 \u00a7 605 reporting time limits",
+     "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/fcra-march-2026.pdf",
+     "publisher": "Federal Trade Commission",
+     "year": "2026"
+    },
+    {
+     "title": "15 U.S. Code \u00a7 1681i \u2014 Procedure in case of disputed accuracy (30-day reinvestigation, 15-day extension)",
+     "url": "https://www.law.cornell.edu/uscode/text/15/1681i",
+     "publisher": "U.S. Code / Legal Information Institute, Cornell Law School",
+     "year": "2026"
+    },
+    {
+     "title": "15 U.S. Code \u00a7 1679b \u2014 Prohibited practices (Credit Repair Organizations Act)",
+     "url": "https://www.law.cornell.edu/uscode/text/15/1679b",
+     "publisher": "U.S. Code / Legal Information Institute, Cornell Law School",
+     "year": "2026"
+    },
+    {
+     "title": "In FTC Study, Five Percent of Consumers Had Errors on Their Credit Reports That Could Result in Less Favorable Terms for Loans",
+     "url": "https://www.ftc.gov/news-events/news/press-releases/2013/02/ftc-study-five-percent-consumers-had-errors-their-credit-reports-could-result-less-favorable-terms",
+     "publisher": "Federal Trade Commission",
+     "year": "2013"
+    },
+    {
+     "title": "You now have permanent access to free weekly credit reports",
+     "url": "https://consumer.ftc.gov/consumer-alerts/2023/10/you-now-have-permanent-access-free-weekly-credit-reports",
+     "publisher": "Federal Trade Commission (Consumer Advice)",
+     "year": "2023"
+    },
+    {
+     "title": "12 CFR \u00a7 1026.5 \u2014 General disclosure requirements (Regulation Z, 21-day statement rule)",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1026/subpart-B/section-1026.5",
+     "publisher": "Electronic Code of Federal Regulations / Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "Commercial Bank Interest Rate on Credit Card Plans, Accounts Assessed Interest (TERMCBCCINTNS)",
+     "url": "https://fred.stlouisfed.org/series/TERMCBCCINTNS",
+     "publisher": "Board of Governors of the Federal Reserve System, G.19 release (via FRED, Federal Reserve Bank of St. Louis)",
+     "year": "2026"
+    },
+    {
+     "title": "Credit Utilization Ratio: The Lesser Known Key to Your Credit Health",
+     "url": "https://vantagescore.com/resources/knowledge-center/credit-utilization-ratio-the-lesser-known-key-to-your-credit-health",
+     "publisher": "VantageScore Solutions, LLC",
+     "year": "2026"
+    }
+   ]
+  },
+  "emergency-fund": {
+   "facts": [
+    {
+     "claim": "An emergency fund is a cash reserve covering three to six months of essential expenses (manifest gloss; Stage 1 Module 08 'Tier 3 \u2014 The Emergency Fund: 3\u20136 Months of Expenses'; Stage 4 'Roughly: three to six months of expenses').",
+     "status": "corrected",
+     "corrected_to": "The 3\u20136 month range is Ramsey Solutions' Baby Step 3 ('3\u20136 months of expenses in a fully funded emergency fund'), not a government standard \u2014 and it is the LOW end of federal guidance. FDIC consumer guidance says 'at least six months of living expenses in a federally insured product.' SEC Investor.gov says 'up to six months of their income.' CFPB deliberately sets no number: 'The amount you need to have in an emergency savings fund depends on your situation.' The page should present 3\u20136 months as a widely used convention with a named origin, note that FDIC and SEC both anchor at six, and note that CFPB declines to set a universal target.",
+     "source": "Ramsey Solutions, 7 Baby Steps (original author's own definition); FDIC Consumer Resource Center, 'Saving for the Unexpected and Your Future' (Jan 2025); SEC Investor.gov, 'Save for a Rainy Day'; CFPB, 'An essential guide to building an emergency fund'",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Stage 1 Module 08: 'For employees with stable income: aim for 3 months of essential expenses. For gig workers, freelancers, or single-income households: aim for 6 months minimum.'",
+     "status": "unverifiable",
+     "corrected_to": "No primary source sets this employment-type split. The FDIC's published figure ('at least six months of living expenses') carries no stable-employment carve-out, so the 3-month tier for salaried workers is below the only federal number available. BLS data supports sizing by job-search risk rather than job type: median duration of unemployment was 10.5 weeks (~2.4 months) in July 2026, but 1.8 million people \u2014 25.5% of all unemployed \u2014 had been jobless 27 weeks or more, so a 3-month fund covers the median case and fails the quarter of cases that run long.",
+     "source": "FDIC Consumer Resource Center, 'Saving for the Unexpected and Your Future'; BLS Employment Situation, July 2026 (released 2026-08-07); FRED series UEMPMED (BLS median duration of unemployment)",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Stage 2 Module 01 targets a '$1,000 emergency fund' as the first real milestone, presented without attribution.",
+     "status": "corrected",
+     "corrected_to": "$1,000 is Ramsey Solutions' Baby Step 1 verbatim \u2014 'Save $1,000 for your starter emergency fund.' It is a named commercial program's figure, not a federal or regulatory benchmark, and the glossary page should attribute it. No government body publishes a starter-fund dollar target; CFPB's position is that 'even a small amount can provide some financial security.'",
+     "source": "Ramsey Solutions, 7 Baby Steps; CFPB, 'An essential guide to building an emergency fund'",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Stage 1 Module 08: 'Tier 1 \u2014 The Micro Buffer: $100 to $500.'",
+     "status": "unverifiable",
+     "corrected_to": "No primary source sets a $100\u2013$500 threshold; it is a house convention. It is directionally consistent with CFPB guidance that building savings 'of any size' is valuable and that 'even a small amount can provide some financial security,' but the specific range is not a published figure and should not be presented as one.",
+     "source": "CFPB, 'An essential guide to building an emergency fund'"
+    },
+    {
+     "claim": "Emergency savings belong in an FDIC-insured deposit account, and that insurance covers $250,000.",
+     "status": "confirmed",
+     "corrected_to": "Standard FDIC deposit insurance is $250,000 per depositor, per insured bank, for each account ownership category. Coverage is automatic on opening a deposit account at an insured bank.",
+     "source": "FDIC, Deposit Insurance resource page",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "The same $250,000 protection applies at a credit union (relevant because Stage 1 Module 09 routes readers to credit unions).",
+     "status": "confirmed",
+     "corrected_to": "NCUA Share Insurance Fund covers $250,000 per member, per insured credit union, per ownership category \u2014 identical limit and structure to FDIC.",
+     "source": "NCUA, Share Insurance Coverage",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Most Americans could handle a $400 emergency expense \u2014 the standard framing statistic for why an emergency fund matters.",
+     "status": "confirmed",
+     "corrected_to": "63% of adults said they would cover a hypothetical $400 emergency expense entirely using cash or its equivalent (cash, savings, or a credit card paid off at the next statement) \u2014 meaning 37% could not. Unchanged from prior years. From the 2025 SHED, fielded 17\u201328 October 2025, published 19 May 2026.",
+     "source": "Federal Reserve, Report on the Economic Well-Being of U.S. Households in 2025 (SHED), Executive Summary and Savings and Investments section",
+     "asOf": "2026-05-19"
+    },
+    {
+     "claim": "Most people do not have three months of expenses saved (the core statistic a page on this term needs).",
+     "status": "confirmed",
+     "corrected_to": "55% of adults said they had set aside money to cover three months of expenses in 2025 \u2014 unchanged from 2024, down from 59% in 2021. 30% of adults said they could not cover three months of expenses by ANY means (savings, borrowing, or selling assets).",
+     "source": "Federal Reserve, Report on the Economic Well-Being of U.S. Households in 2025 (SHED), Savings and Investments section",
+     "asOf": "2026-05-19"
+    },
+    {
+     "claim": "Stage 1 Module 09: a payday loan gives you $300 and charges $345\u2013400 in two weeks, 'That is a 400% annual interest rate' (echoed in Stage 4 as 'a 400% loan').",
+     "status": "corrected",
+     "corrected_to": "The APR is right; the top of the dollar range is too high. CFPB: a typical two-week payday loan carries a $15 per $100 fee, which 'equates to an annual percentage rate (APR) of almost 400 percent' \u2014 CFPB research puts the median at 391% APR on a 14-day loan. On $300 that is a $45 fee, so $345 is correct. $400 implies roughly $33 per $100, above the $10\u2013$30 per $100 range CFPB cites for state fee caps. Use '$345, roughly a 400% APR' rather than a $345\u2013400 range.",
+     "source": "CFPB, 'What is a payday loan?' (Ask CFPB); CFPB, 'Highlights from CFPB Research: Payday Loans'",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Stage 1 Module 09: 'The average borrower takes out 8 loans per year.'",
+     "status": "corrected",
+     "corrected_to": "10, not 8. CFPB's payday lending factsheet reports a median of 10 transactions by borrowers over 12 months, a median storefront loan size of $350, median fees of $15 per $100 on a typical 14-day loan, $458 in fees over the course of a year, and nearly 200 days per year in debt. 14% of borrowers take 20 or more loans annually. Note this is a median, not an average \u2014 the course says 'average.'",
+     "source": "CFPB, Payday Loans factsheet (April 2013) and CFPB Data Point: Payday Lending (March 2014)"
+    },
+    {
+     "claim": "A high-yield savings account (HYSA) pays meaningfully more than an ordinary savings account, so an emergency fund should sit in one (Stage 1 Module 08, Stage 2 Module 01).",
+     "status": "confirmed",
+     "corrected_to": "The gap is real and large, and can be stated from primary data without quoting any bank's rate: the FDIC national deposit rate for savings was 0.38% in July 2026, while the FOMC's federal funds target range is 3.50\u20133.75% (set 11 December 2025). Individual HYSA APYs are bank-specific and set by no public body \u2014 do not publish a specific '4%' style figure as a verified number; cite the 0.38% national average and the fed funds range as the bracket.",
+     "source": "FDIC National Rates and Rate Caps via FRED series SNDR (July 2026); Federal Reserve, Open Market Operations / FOMC target range",
+     "asOf": "2026-07-31"
+    },
+    {
+     "claim": "Cash held in an emergency fund loses purchasing power to inflation (Stage 4: 'you are paying a small, certain cost every year, in lost purchasing power').",
+     "status": "confirmed",
+     "corrected_to": "Correct and quantifiable as of the latest print: CPI-U rose 3.5% over the 12 months ending June 2026 (core, all items less food and energy, +2.6%), against a 0.38% national average savings rate \u2014 so an ordinary savings account lost roughly 3.1 percentage points of purchasing power over the year. Released 14 July 2026; the July CPI print was not yet out as of 11 August 2026.",
+     "source": "BLS, Consumer Price Index news release, June 2026; FDIC National Rate: Savings via FRED (SNDR)",
+     "asOf": "2026-06-30"
+    },
+    {
+     "claim": "Americans are saving too little to build a fund quickly (context for the Stage 2 '30-day sprint' framing).",
+     "status": "confirmed",
+     "corrected_to": "The personal saving rate was 2.7% of disposable personal income in June 2026 (BEA, released 30 July 2026). At that rate a household would need years, not a 30-day sprint, to reach a 3-month fund from savings alone \u2014 which is the honest case for the course's sell-things-and-pick-up-hours approach.",
+     "source": "BEA, Personal Saving Rate",
+     "asOf": "2026-06-30"
+    },
+    {
+     "claim": "Interest earned on an emergency fund in a savings account is taxable.",
+     "status": "confirmed",
+     "corrected_to": "Yes. A payer must issue Form 1099-INT at $10 or more of interest, but the IRS is explicit that the obligation does not depend on the form: 'You must report all taxable and tax-exempt interest on your federal income tax return, even if you don't receive a Form 1099-INT or Form 1099-OID.' Interest on bank accounts, money market accounts and CDs is taxable interest.",
+     "source": "IRS, Topic no. 403, Interest received",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Raiding a retirement account instead of holding an emergency fund is expensive (Stage 4: 'income tax on the whole balance plus a 10% early-withdrawal penalty under 59\u00bd').",
+     "status": "confirmed",
+     "corrected_to": "Correct: a 10% additional tax on early distributions applies to withdrawals before age 59\u00bd, on top of ordinary income tax, unless an exception applies. Exceptions relevant to an emergency-fund page include separation from service at age 55+, unreimbursed medical expenses above 7.5% of AGI, health insurance premiums while unemployed, disability, and up to $5,000 per child for birth or adoption.",
+     "source": "IRS, Retirement topics \u2014 Tax on early distributions",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Stage 1 Module 09 and Stage 2 direct readers to call 211 as the alternative when there is no emergency fund.",
+     "status": "confirmed",
+     "corrected_to": "211 was assigned by the FCC as a national abbreviated dialing code for access to community information and referral services, in the Third Report and Order released 31 July 2000. It is a nationwide assignment; actual service availability is delivered by local providers.",
+     "source": "FCC Third Report and Order, FCC 00-256 (released 2000-07-31); FCC consumer guide, 'Dial 211 for Essential Community Services'"
+    }
+   ],
+   "sources": [
+    {
+     "title": "Report on the Economic Well-Being of U.S. Households in 2025 \u2014 Executive Summary",
+     "url": "https://www.federalreserve.gov/publications/2026-economic-well-being-of-us-households-in-2025-executive-summary.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "Report on the Economic Well-Being of U.S. Households in 2025 \u2014 Savings and Investments",
+     "url": "https://www.federalreserve.gov/publications/2026-economic-well-being-of-us-households-in-2025-savings-investments.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "Deposit Insurance \u2014 standard coverage $250,000",
+     "url": "https://www.fdic.gov/resources/deposit-insurance/",
+     "publisher": "Federal Deposit Insurance Corporation",
+     "year": "2026"
+    },
+    {
+     "title": "Saving for the Unexpected and Your Future",
+     "url": "https://www.fdic.gov/consumer-resource-center/2025-01/saving-unexpected-and-your-future",
+     "publisher": "Federal Deposit Insurance Corporation",
+     "year": "2025"
+    },
+    {
+     "title": "National Rate: Savings (SNDR) \u2014 FDIC data series",
+     "url": "https://fred.stlouisfed.org/series/SNDR",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED) / FDIC",
+     "year": "2026"
+    },
+    {
+     "title": "Share Insurance Coverage",
+     "url": "https://www.ncua.gov/consumers/share-insurance-coverage",
+     "publisher": "National Credit Union Administration",
+     "year": "2026"
+    },
+    {
+     "title": "An essential guide to building an emergency fund",
+     "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "What is a payday loan? (Ask CFPB)",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-payday-loan-en-1567/",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "Payday Loans factsheet \u2014 median 10 transactions over 12 months, $350 median loan, $458 annual fees",
+     "url": "https://files.consumerfinance.gov/f/201304_cfpb_payday-factsheet.pdf",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2013"
+    },
+    {
+     "title": "Highlights from CFPB Research: Payday Loans",
+     "url": "https://files.consumerfinance.gov/f/documents/Payday_Loans_Highlights_From_CFPB_Research.pdf",
+     "publisher": "Consumer Financial Protection Bureau",
+     "year": "2016"
+    },
+    {
+     "title": "Save for a Rainy Day",
+     "url": "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/save-rainy-day",
+     "publisher": "U.S. Securities and Exchange Commission (Investor.gov)",
+     "year": "2026"
+    },
+    {
+     "title": "Employment Situation \u2014 July 2026",
+     "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Median Duration of Unemployment (UEMPMED)",
+     "url": "https://fred.stlouisfed.org/series/UEMPMED",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED) / U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Consumer Price Index \u2014 June 2026",
+     "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Personal Saving Rate",
+     "url": "https://www.bea.gov/data/income-saving/personal-saving-rate",
+     "publisher": "U.S. Bureau of Economic Analysis",
+     "year": "2026"
+    },
+    {
+     "title": "Open Market Operations \u2014 FOMC federal funds target range",
+     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "Topic no. 403, Interest received",
+     "url": "https://www.irs.gov/taxtopics/tc403",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Retirement topics \u2014 Tax on early distributions",
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-tax-on-early-distributions",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Third Report and Order, FCC 00-256 \u2014 assignment of 211",
+     "url": "https://docs.fcc.gov/public/attachments/FCC-00-256A1.pdf",
+     "publisher": "Federal Communications Commission",
+     "year": "2000"
+    },
+    {
+     "title": "Dial 211 for Essential Community Services",
+     "url": "https://www.fcc.gov/consumers/guides/dial-211-essential-community-services",
+     "publisher": "Federal Communications Commission",
+     "year": "2026"
+    },
+    {
+     "title": "Dave Ramsey's 7 Baby Steps (origin of the $1,000 starter fund and the 3\u20136 month target)",
+     "url": "https://www.ramseysolutions.com/dave-ramsey-7-baby-steps",
+     "publisher": "Ramsey Solutions",
+     "year": "2026"
+    }
+   ]
+  },
+  "inflation": {
+   "facts": [
+    {
+     "claim": "Inflation rate is computed as (price index now \u2212 price index a year ago) \u00f7 price index a year ago \u00d7 100, reported year-over-year.",
+     "status": "confirmed",
+     "source": "BLS, Consumer Price Index News Release, June 2026 (12-month percent changes, not seasonally adjusted) \u2014 https://www.bls.gov/news.release/cpi.nr0.htm",
+     "asOf": "2026-07-14"
+    },
+    {
+     "claim": "CPI is published by the Bureau of Labor Statistics; the PCE price index is published by the Bureau of Economic Analysis as part of the Personal Income and Outlays report.",
+     "status": "confirmed",
+     "source": "BLS CPI news release https://www.bls.gov/news.release/cpi.nr0.htm and BEA, Personal Income and Outlays, June 2026 https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026"
+    },
+    {
+     "claim": "The Federal Reserve's longer-run inflation objective is 2 percent as measured by the annual change in the price index for personal consumption expenditures (headline PCE, not core, and not CPI).",
+     "status": "confirmed",
+     "source": "FOMC, Statement on Longer-Run Goals and Monetary Policy Strategy \u2014 adopted effective January 24, 2012, as reaffirmed effective January 27, 2026 \u2014 https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf",
+     "asOf": "2026-01-27"
+    },
+    {
+     "claim": "The Fed still frames its 2% goal as 'average inflation of 2 percent over time' with a makeup strategy, and pledges to respond to 'shortfalls' of employment.",
+     "status": "corrected",
+     "corrected_to": "The current Statement on Longer-Run Goals contains neither phrase. The August 22, 2025 framework revision removed flexible average inflation targeting and the 'shortfalls' language; the 2 percent PCE goal itself was explicitly not part of that review. The statement now says the Committee will 'act forcefully to ensure that longer-term inflation expectations remain well anchored.' Any glossary copy describing the Fed as an average-inflation targeter is stale by roughly a year.",
+     "source": "FOMC Statement on Longer-Run Goals (reaffirmed 2026-01-27) https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf ; Federal Reserve press release, August 22, 2025 https://www.federalreserve.gov/newsevents/pressreleases/monetary20250822a.htm",
+     "asOf": "2026-01-27"
+    },
+    {
+     "claim": "Course text (EconomicsCourse stage 2, Module 02 table): shelter is '~33\u201335%' of the CPI and 'around a third of the total index'.",
+     "status": "corrected",
+     "corrected_to": "35.625% of CPI-U (December 2025 relative importance, 2024 expenditure weights). The June 2026 news release shows 35.149% on May 2026 relative importance. Shelter is meaningfully more than a third; the course band's top end sits below the actual figure.",
+     "source": "BLS, Relative importance of components in the CPI, U.S. city average, December 2025 (Table 1, 2024 Weights) \u2014 https://www.bls.gov/cpi/tables/relative-importance/2025.htm",
+     "asOf": "2025-12"
+    },
+    {
+     "claim": "Within the CPI, owners' equivalent rent of residences is 26.204% of all items and rent of primary residence is 7.840%; the whole Housing group is 44.469%.",
+     "status": "confirmed",
+     "source": "BLS, Relative importance of CPI components, December 2025 \u2014 https://www.bls.gov/cpi/tables/relative-importance/2025.htm",
+     "asOf": "2025-12"
+    },
+    {
+     "claim": "Course text: food ~13%, transportation ~16%, medical care ~8%, energy ~7% of the CPI.",
+     "status": "confirmed",
+     "corrected_to": "Exact December 2025 relative importance: Food 13.698%, Transportation 16.316%, Medical care 8.423%, Energy 6.383%. Energy's relative importance drifts up during the year with energy prices \u2014 the June 2026 release shows 7.791% on May 2026 weights \u2014 so the course's ~7% is inside the observed range. Use the exact figures on the glossary page.",
+     "source": "BLS, Relative importance of CPI components, December 2025 https://www.bls.gov/cpi/tables/relative-importance/2025.htm ; BLS CPI Table 1, June 2026 https://www.bls.gov/news.release/cpi.t01.htm",
+     "asOf": "2025-12"
+    },
+    {
+     "claim": "Course text: 'CPI weights are updated on a fixed schedule and held constant in between' / 'Periodic, fixed in between' / 'updated periodically'.",
+     "status": "corrected",
+     "corrected_to": "Since January 2023 BLS updates CPI spending weights ANNUALLY, using a single calendar year of Consumer Expenditure Survey data with a two-year lag (2021 spending \u2192 2023 indexes; 2023 spending \u2192 2025 indexes; the December 2025 table is labelled '2024 Weights'). Before 2023 the update was biennial and used two years of CE data. 'Periodic' is vague enough to read as the pre-2023 regime.",
+     "source": "BLS, Relative Importance and Weight Information for the Consumer Price Indexes https://www.bls.gov/cpi/tables/relative-importance/home.htm ; BLS, Comparison of 2025 CPI data using new weights and previous weights https://www.bls.gov/cpi/tables/relative-importance/weight-update-comparison-2025.htm",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Course text: 'CPI is used to index Social Security'.",
+     "status": "corrected",
+     "corrected_to": "The Social Security COLA is set on the CPI-W (Consumer Price Index for Urban Wage Earners and Clerical Workers), NOT the headline CPI-U that the media quotes, comparing the third-quarter average to the third-quarter average of the last year a COLA took effect. The 2026 COLA is 2.8%. CPI-W covers about 30% of the U.S. population; CPI-U covers over 90%.",
+     "source": "SSA, Latest Cost-of-Living Adjustment https://www.ssa.gov/oact/cola/latestCOLA.html ; BLS CPI Questions and Answers https://www.bls.gov/cpi/questions-and-answers.htm",
+     "asOf": "2026"
+    },
+    {
+     "claim": "TIPS are indexed to the CPI.",
+     "status": "confirmed",
+     "corrected_to": "Specifically the non-seasonally adjusted CPI-U, with a three-month lag: 'The Ref CPI for the first day of any calendar month is the CPI for the third preceding calendar month.'",
+     "source": "31 CFR Part 356, Appendix B (Uniform Offering Circular, Formulas and Examples for Inflation-Protected Securities) \u2014 https://www.ecfr.gov/current/title-31/subtitle-B/chapter-II/subchapter-A/part-356/appendix-Appendix%20B%20to%20Part%20356"
+    },
+    {
+     "claim": "CPI-U measures the spending of a 'typical urban household'.",
+     "status": "confirmed",
+     "corrected_to": "BLS wording: 'The CPI-U population constitutes over 90 percent of the U.S. population and covers households in all areas of the United States.' Use 'over 90 percent', not the older '87%' or '93%' figures still circulating on secondary sites.",
+     "source": "BLS, Consumer Price Index Frequently Asked Questions \u2014 https://www.bls.gov/cpi/questions-and-answers.htm"
+    },
+    {
+     "claim": "Course text: owners' equivalent rent is used for 'the roughly two thirds of households that own their home'.",
+     "status": "confirmed",
+     "corrected_to": "The U.S. homeownership rate is 65.0% (\u00b10.5), second quarter 2026, unchanged from Q2 2025. 'Roughly two thirds' is a fair rounding of 65.0%; give the exact figure with its as-of date on the glossary page.",
+     "source": "U.S. Census Bureau, Quarterly Residential Vacancies and Homeownership, Second Quarter 2026, released July 28, 2026 \u2014 https://www.census.gov/housing/hvs/files/currenthvspress.pdf",
+     "asOf": "2026-Q2"
+    },
+    {
+     "claim": "Latest published U.S. CPI reading a 2026 reader needs.",
+     "status": "confirmed",
+     "corrected_to": "June 2026 CPI, released July 14, 2026: all items +3.5% over 12 months (NSA); all items less food and energy +2.6%; shelter +3.3%; energy +15.7%. NOTE FOR PUBLISHING: the July 2026 CPI is scheduled for Wednesday, August 12, 2026 at 8:30 a.m. ET \u2014 one day after today. Any hard number baked into the page will be stale within 24 hours; use the live market-data feed or a dated 'as of' line.",
+     "source": "BLS, Consumer Price Index \u2014 June 2026 (USDL-26-1191) https://www.bls.gov/news.release/cpi.nr0.htm and Table 1 https://www.bls.gov/news.release/cpi.t01.htm",
+     "asOf": "2026-06"
+    },
+    {
+     "claim": "Latest published U.S. PCE reading a 2026 reader needs.",
+     "status": "confirmed",
+     "corrected_to": "June 2026 PCE, released July 30, 2026: headline PCE price index +3.7% from one year ago; PCE excluding food and energy (core PCE) +3.3% from one year ago.",
+     "source": "BEA, Personal Income and Outlays, June 2026 \u2014 https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026",
+     "asOf": "2026-06"
+    },
+    {
+     "claim": "Course text: PCE's continuously-updating weights 'generally makes PCE run slightly below CPI'.",
+     "status": "corrected",
+     "corrected_to": "Not true in the current data and should not be stated as a standing rule. On the June 2026 releases PCE is ABOVE CPI: headline 3.7% vs 3.5%, and core PCE 3.3% vs core CPI 2.6% \u2014 a 0.7 percentage point gap in the opposite direction from the one the course describes. BEA itself names four effects (formula, weight, scope, other) and asserts no general direction. Write the mechanism, not a direction.",
+     "source": "BEA, Personal Income and Outlays, June 2026 https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026 ; BLS CPI June 2026 https://www.bls.gov/news.release/cpi.nr0.htm ; BEA FAQ 555 https://www.bea.gov/help/faq/555",
+     "asOf": "2026-06"
+    },
+    {
+     "claim": "CPI and PCE diverge because of differences in scope, weights and index formula.",
+     "status": "confirmed",
+     "corrected_to": "BEA names four effects precisely: FORMULA effect (PCE uses the Fisher-Ideal formula, CPI a modified Laspeyres); WEIGHT effect; SCOPE effect ('PCE measures spending by and on behalf of the personal sector, which includes both households and nonprofit institutions serving households; the CPI measures out-of-pocket spending by households'); and OTHER effects (seasonal adjustment, price and residual differences). The course omits the fourth.",
+     "source": "BEA, 'What accounts for the differences in the PCE price index and the Consumer Price Index?' FAQ 555 \u2014 https://www.bea.gov/help/faq/555"
+    },
+    {
+     "claim": "Shelter has a larger weight in CPI than in PCE; medical care has a larger weight in PCE because PCE includes care paid for on households' behalf.",
+     "status": "confirmed",
+     "source": "BLS, 'Differences between the Consumer Price Index and the Personal Consumption Expenditures Price Index', Beyond the Numbers, May 2011 \u2014 https://www.bls.gov/opub/btn/archive/differences-between-the-consumer-price-index-and-the-personal-consumption-expenditures-price-index.pdf"
+    },
+    {
+     "claim": "CPI is released earlier in the month than PCE.",
+     "status": "confirmed",
+     "corrected_to": "Confirmed by the June 2026 reference month: CPI released July 14, 2026; PCE released July 30, 2026 \u2014 a 16-day gap.",
+     "source": "BLS https://www.bls.gov/news.release/cpi.nr0.htm ; BEA https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026",
+     "asOf": "2026-06"
+    },
+    {
+     "claim": "There is a hole in the U.S. CPI series: October and November 2025.",
+     "status": "confirmed",
+     "corrected_to": "BLS did not collect CPI data from October 1, 2025 through November 12, 2025 because of the lapse in appropriations. 'Missing CPI data affected October and November 2025 indexes.' The effect also propagated forward: 'Missing October 2025 data also affected April 2026 rent and owner's equivalent rent indexes.' The Cleveland Fed had to interpolate October 2025 to keep median and trimmed-mean CPI running. THE COURSE DOES NOT MENTION THIS AT ALL, and it matters directly to the course's own Module 01 teaching on year-over-year base effects \u2014 any 12-month comparison spanning that window rests on non-collected data.",
+     "source": "BLS, '2025 Federal Government Shutdown Impact on Consumer Expenditure Surveys (CE) and Consumer Price Index (CPI)' https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm ; Cleveland Fed Median CPI https://www.clevelandfed.org/indicators-and-data/median-cpi",
+     "asOf": "2025-10"
+    },
+    {
+     "claim": "Core inflation excludes food and energy.",
+     "status": "confirmed",
+     "corrected_to": "BLS publishes it as 'all items less food and energy'; BEA as 'PCE price index excluding food and energy'. 'Core' is the market shorthand, not the agency label.",
+     "source": "BLS CPI Table 1 https://www.bls.gov/news.release/cpi.t01.htm ; BEA Personal Income and Outlays, June 2026 https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026"
+    },
+    {
+     "claim": "'Supercore' means core services excluding shelter/housing, and the concept traces to Fed Chair Jerome Powell.",
+     "status": "confirmed",
+     "corrected_to": "The three-way decomposition \u2014 'core goods inflation, housing services inflation, and inflation in core services other than housing' \u2014 is from Chair Jerome H. Powell, 'Inflation and the Labor Market', Hutchins Center on Fiscal and Monetary Policy, Brookings Institution, Washington D.C., November 30, 2022. Powell does NOT use the word 'supercore' anywhere in that speech; it is market shorthand applied afterward. The course already flags it as 'informally called supercore' \u2014 that framing is correct and should be preserved verbatim on the glossary page.",
+     "source": "Federal Reserve, Speech by Chair Powell on inflation and the labor market, November 30, 2022 \u2014 https://www.federalreserve.gov/newsevents/speech/powell20221130a.htm",
+     "asOf": "2022-11-30"
+    },
+    {
+     "claim": "Median CPI and trimmed-mean CPI are alternative core measures published by the Cleveland Fed.",
+     "status": "confirmed",
+     "corrected_to": "Cleveland Fed definitions: median CPI is 'the one-month inflation rate of the component whose expenditure weight is in the 50th percentile of price changes'; the 16% trimmed-mean CPI is 'a weighted average of one-month inflation rates of components whose expenditure weights fall below the 92nd percentile and above the 8th percentile of price changes'. Latest (June 2026): median CPI 2.7% and 16% trimmed-mean CPI 2.6% over 12 months \u2014 both below headline CPI at 3.5%, consistent with a narrow, energy-led print.",
+     "source": "Federal Reserve Bank of Cleveland, Median CPI \u2014 https://www.clevelandfed.org/indicators-and-data/median-cpi",
+     "asOf": "2026-06"
+    },
+    {
+     "claim": "Sticky-price CPI tracks only categories whose prices change infrequently.",
+     "status": "confirmed",
+     "corrected_to": "Confirmed as a concept and as a live series: the Atlanta Fed sorts CPI components 'based on the frequency of their price adjustment', and the sticky-price CPI rose 2.8% over 12 months in June 2026. The specific numeric cutoff separating sticky from flexible components is not stated on the Atlanta Fed's public pages \u2014 do not put a threshold number on the glossary page.",
+     "source": "Federal Reserve Bank of Atlanta, Sticky-Price CPI https://www.atlantafed.org/research-and-data/data/sticky-price-cpi and explainer https://www.atlantafed.org/research-and-data/data/sticky-price-cpi/explainer",
+     "asOf": "2026-06"
+    },
+    {
+     "claim": "Breakeven inflation = nominal Treasury yield \u2212 TIPS yield at the same maturity.",
+     "status": "confirmed",
+     "corrected_to": "Confirmed as the construction of the published series: FRED's 10-Year Breakeven Inflation Rate (T10YIE) is DGS10 minus DFII10. Latest value 2.29% on August 10, 2026.",
+     "source": "FRED, 10-Year Breakeven Inflation Rate (T10YIE), Federal Reserve Bank of St. Louis \u2014 https://fred.stlouisfed.org/series/T10YIE",
+     "asOf": "2026-08-10"
+    },
+    {
+     "claim": "The 5y5y forward breakeven measures expected average inflation for the five years beginning five years from now, and is the cleanest read on whether expectations are anchored.",
+     "status": "confirmed",
+     "corrected_to": "Definition confirmed: FRED T5YIFR measures 'expected inflation (on average) over the five-year period that begins five years from today', derived from 10-year and 5-year nominal and inflation-indexed Treasury yields. Latest value 2.33% on August 10, 2026 \u2014 i.e. essentially at the Fed's 2% PCE goal (breakevens are CPI-referenced, so they sit structurally above a PCE target) while spot CPI runs 3.5%. Expectations are anchored on this measure as of today.",
+     "source": "FRED, 5-Year, 5-Year Forward Inflation Expectation Rate (T5YIFR), Federal Reserve Bank of St. Louis \u2014 https://fred.stlouisfed.org/series/T5YIFR",
+     "asOf": "2026-08-10"
+    },
+    {
+     "claim": "The New York Fed's consumer expectations survey is one of the survey-based measures of inflation expectations.",
+     "status": "confirmed",
+     "corrected_to": "The Survey of Consumer Expectations is run monthly by the New York Fed's Center for Microeconomic Data on a rotating panel of roughly 1,300 household heads. Median one-year-ahead inflation expectation was 3.6% in the July 2026 survey, released August 7, 2026 \u2014 well above the 2.29% ten-year market breakeven, the classic households-above-markets gap.",
+     "source": "Federal Reserve Bank of New York, Survey of Consumer Expectations \u2014 https://www.newyorkfed.org/microeconomics/sce",
+     "asOf": "2026-07"
+    },
+    {
+     "claim": "The real interest rate, not the nominal policy rate, determines whether policy is tight or loose \u2014 worth a live example.",
+     "status": "confirmed",
+     "corrected_to": "Current values for a worked example: federal funds target range 3-1/2 to 3-3/4 percent and interest on reserve balances 3.65%, both effective July 30, 2026; headline PCE inflation 3.7%; 10-year TIPS real yield 2.40% (August 7, 2026). On the course's own subtraction convention the real policy rate is approximately zero (3.625% midpoint \u2212 3.7% inflation), i.e. neither restrictive nor stimulative \u2014 a live illustration of exactly the Module 07 point.",
+     "source": "Federal Reserve, Implementation Note issued July 29, 2026 https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm ; BEA https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026 ; FRED DFII10 https://fred.stlouisfed.org/series/DFII10",
+     "asOf": "2026-08-10"
+    },
+    {
+     "claim": "Course text: 'The euro area's HICP excludes owners' equivalent rent entirely', making euro-area and U.S. inflation non-comparable during a housing cycle.",
+     "status": "confirmed",
+     "corrected_to": "Confirmed, with the precise mechanism: owner-occupied housing costs are outside the HICP. A 2018 European Commission report 'assessed that the OOHPI was not suitable for integration into the coverage of the HICP', and it remains outside as of April 2026 despite an ECB recommendation to include it. Eurostat publishes a separate Owner-Occupied Housing Price Index on a net-acquisitions basis \u2014 a different concept from the CPI's rental-equivalence approach, not merely a different weight.",
+     "source": "Eurostat, Statistics Explained: Housing price statistics \u2014 owner-occupied housing price index \u2014 https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Housing_price_statistics_-_owner-occupied_housing_price_index",
+     "asOf": "2026-04"
+    },
+    {
+     "claim": "Course text, Module 07: 'Earn 6% nominal with 4% inflation and a 25% tax rate: you pay 1.5% in tax, leaving 4.5% nominal and just 0.5% real. The effective tax rate on your actual gain was 75%, not 25%.'",
+     "status": "confirmed",
+     "corrected_to": "Arithmetic is internally consistent on the subtraction (approximate) convention the course uses: tax = 0.25 \u00d7 6% = 1.5%; after-tax nominal 4.5%; real 4.5% \u2212 4% = 0.5%; 1.5 \u00f7 2.0 = 75%. Under the exact Fisher formula the module itself states earlier \u2014 (1+nominal)\u00f7(1+inflation)\u22121 \u2014 the pre-tax real gain is 1.923% and the effective rate on the real gain is 78%, and the after-tax real return is 0.481%. Both are defensible; the page should say which convention it is using rather than mixing the exact formula and the subtraction shortcut on the same page as the course does.",
+     "source": "Arithmetic verification of the course example against the exact Fisher relation stated in the same module (EconomicsCourse stage 2, Module 07)"
+    },
+    {
+     "claim": "Deflation forces the real interest rate up even with the policy rate at zero, because nominal rates cannot fall far below zero.",
+     "status": "unverifiable",
+     "corrected_to": "The mechanism follows directly from the confirmed Fisher relation (real = nominal \u2212 inflation), so it is arithmetically sound, but it is a theoretical proposition rather than a published figure and no primary body 'sets' it. Present it as reasoning, not as a sourced fact. The related empirical claim in the course \u2014 that unanchoring expectations 'historically has required deliberately inducing a recession' \u2014 is likewise an interpretive claim with no primary-source number behind it and should not be given a citation-flavoured presentation.",
+     "source": "No primary source publishes this as a figure or rule; flagged deliberately rather than sourced to a secondary explainer"
+    }
+   ],
+   "sources": [
+    {
+     "title": "Relative importance of components in the Consumer Price Indexes: U.S. city average, December 2025 (Table 1, 2024 Weights)",
+     "url": "https://www.bls.gov/cpi/tables/relative-importance/2025.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Relative Importance and Weight Information for the Consumer Price Indexes",
+     "url": "https://www.bls.gov/cpi/tables/relative-importance/home.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Comparison of 2025 CPI data using new weights and previous weights",
+     "url": "https://www.bls.gov/cpi/tables/relative-importance/weight-update-comparison-2025.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2025"
+    },
+    {
+     "title": "Consumer Price Index \u2014 June 2026 (USDL-26-1191), released July 14, 2026",
+     "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Table 1. Consumer Price Index for All Urban Consumers (CPI-U): U.S. city average, by expenditure category \u2014 2026 M06 Results",
+     "url": "https://www.bls.gov/news.release/cpi.t01.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Consumer Price Index Frequently Asked Questions",
+     "url": "https://www.bls.gov/cpi/questions-and-answers.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "2025 Federal Government Shutdown Impact on Consumer Expenditure Surveys (CE) and Consumer Price Index (CPI)",
+     "url": "https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2026"
+    },
+    {
+     "title": "Differences between the Consumer Price Index and the Personal Consumption Expenditures Price Index (Beyond the Numbers)",
+     "url": "https://www.bls.gov/opub/btn/archive/differences-between-the-consumer-price-index-and-the-personal-consumption-expenditures-price-index.pdf",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "year": "2011"
+    },
+    {
+     "title": "Personal Income and Outlays, June 2026 (released July 30, 2026)",
+     "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-june-2026",
+     "publisher": "U.S. Bureau of Economic Analysis",
+     "year": "2026"
+    },
+    {
+     "title": "What accounts for the differences in the PCE price index and the Consumer Price Index? (FAQ 555)",
+     "url": "https://www.bea.gov/help/faq/555",
+     "publisher": "U.S. Bureau of Economic Analysis",
+     "year": "2026"
+    },
+    {
+     "title": "Statement on Longer-Run Goals and Monetary Policy Strategy (adopted effective January 24, 2012; reaffirmed effective January 27, 2026)",
+     "url": "https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf",
+     "publisher": "Federal Open Market Committee / Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "FOMC announces approval of updates to its Statement on Longer-Run Goals and Monetary Policy Strategy (August 22, 2025)",
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250822a.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2025"
+    },
+    {
+     "title": "Implementation Note issued July 29, 2026 (federal funds target range 3-1/2 to 3-3/4 percent)",
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a1.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "Speech by Chair Powell on Inflation and the Labor Market, Hutchins Center, Brookings Institution, November 30, 2022",
+     "url": "https://www.federalreserve.gov/newsevents/speech/powell20221130a.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2022"
+    },
+    {
+     "title": "10-Year Breakeven Inflation Rate (T10YIE)",
+     "url": "https://fred.stlouisfed.org/series/T10YIE",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED)",
+     "year": "2026"
+    },
+    {
+     "title": "5-Year, 5-Year Forward Inflation Expectation Rate (T5YIFR)",
+     "url": "https://fred.stlouisfed.org/series/T5YIFR",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED)",
+     "year": "2026"
+    },
+    {
+     "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Inflation-Indexed (DFII10)",
+     "url": "https://fred.stlouisfed.org/series/DFII10",
+     "publisher": "Board of Governors of the Federal Reserve System, via FRED",
+     "year": "2026"
+    },
+    {
+     "title": "Latest Cost-of-Living Adjustment (COLA)",
+     "url": "https://www.ssa.gov/oact/cola/latestCOLA.html",
+     "publisher": "U.S. Social Security Administration",
+     "year": "2026"
+    },
+    {
+     "title": "Quarterly Residential Vacancies and Homeownership, Second Quarter 2026 (released July 28, 2026)",
+     "url": "https://www.census.gov/housing/hvs/files/currenthvspress.pdf",
+     "publisher": "U.S. Census Bureau",
+     "year": "2026"
+    },
+    {
+     "title": "Median CPI and 16% Trimmed-Mean CPI",
+     "url": "https://www.clevelandfed.org/indicators-and-data/median-cpi",
+     "publisher": "Federal Reserve Bank of Cleveland",
+     "year": "2026"
+    },
+    {
+     "title": "Sticky-Price CPI",
+     "url": "https://www.atlantafed.org/research-and-data/data/sticky-price-cpi",
+     "publisher": "Federal Reserve Bank of Atlanta",
+     "year": "2026"
+    },
+    {
+     "title": "What is the Sticky-Price Consumer Price Index (CPI)? \u2014 explainer",
+     "url": "https://www.atlantafed.org/research-and-data/data/sticky-price-cpi/explainer",
+     "publisher": "Federal Reserve Bank of Atlanta",
+     "year": "2026"
+    },
+    {
+     "title": "Survey of Consumer Expectations (July 2026 survey, released August 7, 2026)",
+     "url": "https://www.newyorkfed.org/microeconomics/sce",
+     "publisher": "Federal Reserve Bank of New York",
+     "year": "2026"
+    },
+    {
+     "title": "Housing price statistics \u2014 owner-occupied housing price index (Statistics Explained)",
+     "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Housing_price_statistics_-_owner-occupied_housing_price_index",
+     "publisher": "Eurostat / European Commission",
+     "year": "2026"
+    },
+    {
+     "title": "31 CFR Part 356, Appendix B \u2014 Formulas and Examples for Treasury Inflation-Protected Securities (Ref CPI, non-seasonally adjusted CPI-U, three-month lag)",
+     "url": "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-II/subchapter-A/part-356/appendix-Appendix%20B%20to%20Part%20356",
+     "publisher": "U.S. Department of the Treasury / Electronic Code of Federal Regulations",
+     "year": "2026"
+    }
+   ]
+  },
+  "relative-strength-index-rsi": {
+   "facts": [
+    {
+     "claim": "The Relative Strength Index was created by J. Welles Wilder Jr.",
+     "status": "confirmed",
+     "source": "Primary: the work itself. Internet Archive scan of Wilder, J. Welles Jr., 'New Concepts in Technical Trading Systems' (Trend Research, Greensboro NC, 1978, ISBN 0-89459-027-8) \u2014 title page/copyright 1978 and table of contents listing Section VI 'The Relative Strength Index'. Corroborated by Wilder's own signed article, 'The Relative Strength Index', Technical Analysis of STOCKS & COMMODITIES V.4:9, pp.343-346."
+    },
+    {
+     "claim": "Course text (TA Stage 4, Module 02): 'The Relative Strength Index, or RSI, was introduced by J. Welles Wilder in a 1978 magazine article.'",
+     "status": "corrected",
+     "corrected_to": "Cite the book, not a magazine article: Wilder introduced RSI in his 1978 book 'New Concepts in Technical Trading Systems' (Trend Research, Greensboro NC; ISBN 0-89459-027-8), where it is Section VI. The frequently repeated claim of a June 1978 Commodities magazine article could not be confirmed against any primary source \u2014 no issue, page range or archival record was reachable. Wilder's own bylined magazine treatment of RSI that IS documented is a later one: Technical Analysis of STOCKS & COMMODITIES, Vol. 4 Issue 9, pp.343-346, December 1986. The 1978 book is the safe, verifiable citation.",
+     "source": "Internet Archive catalogue record and scan of the 1978 Trend Research edition (archive.org/details/newconceptsintec00wild); TradingView official RSI documentation, which also attributes RSI to the 1978 book; store.traders.com product record for the 1986 S&C article."
+    },
+    {
+     "claim": "RSI oscillates on a fixed scale from 0 to 100.",
+     "status": "confirmed",
+     "source": "Deductive from the defining formula RSI = 100 - 100/(1+RS) with RS >= 0, which bounds the output to [0,100]. Independently stated in Schwab/thinkorswim Learning Center RSI study reference ('rates the strength of a security on a scale from 0 to 100') and TradingView official docs ('RSI operates between a scale of 0 and 100')."
+    },
+    {
+     "claim": "Wilder's original rule: RSI above 70 signals overbought/tops, RSI below 30 signals oversold/bottoms.",
+     "status": "confirmed",
+     "source": "Primary: Wilder, J. Welles Jr., 'The Relative Strength Index', Technical Analysis of STOCKS & COMMODITIES V.4:9 (Dec 1986), pp.343-346 \u2014 the publisher's abstract of Wilder's own article states tops and bottoms are indicated when RSI exceeds 70 or drops below 30. Corroborated by TradingView official docs and by Schwab/thinkorswim, whose RSI study ships default levels of 70 and 30."
+    },
+    {
+     "claim": "The RSI formula is RSI = 100 - 100/(1 + RS), where RS = average gain over the lookback / average loss over the lookback.",
+     "status": "confirmed",
+     "source": "TradingView official RSI documentation gives 'RSI = 100 - 100/(1 + RS); RS = Average Gain of n days UP / Average Loss of n days DOWN'; StockCharts ChartSchool gives the identical pair. NOTE ON PRIMACY: Wilder's own Section VI text was NOT reachable \u2014 the unrestricted archive.org scan truncates mid-Section V, the 1978 lending copy is access-restricted, and Wilder's 1986 S&C article is paywalled ($4.95). Two independent normative implementations state it identically, so state it with attribution to Wilder's 1978 book.",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "The lookback period is 14, and 14 remains the default on essentially every charting platform.",
+     "status": "confirmed",
+     "source": "TradingView official RSI documentation: '14 bars is the default.' StockCharts ChartSchool: default 14 periods. Verified as the platform default as of today.",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Wilder himself chose 14 days as the averaging period.",
+     "status": "unverifiable",
+     "source": "Wilder's Section VI text could not be read (archive.org unrestricted copy truncates before Section VI; the 1978 lending copy at archive.org/details/newconceptsintec00wild is access-restricted; the 1986 S&C article is paywalled). Universally restated but not primary-confirmed here. Safe phrasing: 'the 14-period default that has been standard since Wilder's work', not 'Wilder used 14 days' as a sourced quotation."
+    },
+    {
+     "claim": "Wilder's own published list of RSI uses includes: tops and bottoms at 70/30, chart formations that appear on the RSI line but not on the bar chart, failure swings, support and resistance that shows on RSI more clearly than on price, and divergence between RSI and price signalling turning points.",
+     "status": "confirmed",
+     "source": "Primary: publisher's abstract of Wilder's own article, 'The Relative Strength Index', Technical Analysis of STOCKS & COMMODITIES V.4:9 (Dec 1986), pp.343-346, store.traders.com. This confirms the course's claims that RSI forms chart-pattern-like shapes, that traders read trendlines/support-resistance on the RSI line, and that divergence is an original Wilder use. GAP: 'failure swing' is one of Wilder's five original uses and the course passage never names it \u2014 the glossary page should."
+    },
+    {
+     "claim": "Divergence \u2014 price making a higher high while RSI makes a lower high \u2014 is a recognised RSI reversal warning that originates with Wilder.",
+     "status": "confirmed",
+     "source": "Primary: same Wilder 1986 S&C article abstract, which lists 'divergence between RSI and price action signalling potential turning points'. This confirms attribution and definition only. It is NOT a confirmation that divergence predicts reversals \u2014 no primary source establishes a hit rate, so the page must not imply one."
+    },
+    {
+     "claim": "Course table: 'Chuck LeBeau \u2014 overbought 75, oversold 25.'",
+     "status": "unverifiable",
+     "source": "No primary source found. The primary would be LeBeau & Lucas, 'Technical Traders Guide to Computer Analysis of the Futures Markets' (Irwin, 1992, ISBN 1-55623-468-6); it is not on the Internet Archive (advanced-search returned 0 records) and no reachable text attributes 75/25 to LeBeau. StockCharts ChartSchool's RSI page does not mention LeBeau at all. Recommend dropping the named attribution or labelling it 'commonly cited' rather than sourced."
+    },
+    {
+     "claim": "Course table: 'Constance Brown \u2014 uptrend 90/40, downtrend 60/10.'",
+     "status": "unverifiable",
+     "corrected_to": "Two authoritative secondary sources disagree on Brown's numbers. StockCharts ChartSchool: 'RSI tends to fluctuate between 40 and 90 in a bull market (uptrend) with the 40-50 zone acting as support' and 'between 10 and 60 in a bear market (downtrend) with the 50-60 zone acting as resistance' \u2014 this matches the course table. CMT Association (the technical-analysis professional body), 'Mastering the Relative Strength Index', 9 May 2025: 'In an uptrend, RSI operates in a bullish range with lows near 40-50 and highs between 80-90. In a downtrend, RSI stays in a bearish range with lows around 20-30 and highs limited to 55-65.' The primary source, Brown, 'Technical Analysis for the Trading Professional' (McGraw-Hill, 1999, ISBN 0-07-012062-5), is access-restricted on the Internet Archive and could not be read. Do not print 90/40 and 60/10 as hard figures; either attribute the exact rendering to StockCharts or describe the idea qualitatively (RSI ranges shift upward in uptrends and downward in downtrends).",
+     "source": "StockCharts ChartSchool RSI page vs CMT Association ChartAdvisor RSI article (2025-05-09); primary Brown 1999 unreachable (archive.org item technicalanalysi00brow, access-restricted-item: true)."
+    },
+    {
+     "claim": "Course text: 'Some analysts even trade the opposite: buying strength when RSI pushes past 75 in an uptrend.'",
+     "status": "unverifiable",
+     "corrected_to": "No named source and no primary source for the number 75. The named practitioner behind this school of thought is Andrew Cardwell, whom StockCharts ChartSchool credits with 'positive and negative reversals for RSI' and with reinterpreting divergences as bull/bear-market phenomena \u2014 the opposite of Wilder's original framework. If the page keeps this idea, attribute it to Cardwell and drop the unsourced 75 threshold.",
+     "source": "StockCharts ChartSchool RSI page (Cardwell attribution). No primary Cardwell publication reachable."
+    },
+    {
+     "claim": "RSI measures a security against its own price history, not against other stocks or an index (i.e. it is not comparative 'relative strength').",
+     "status": "confirmed",
+     "source": "Follows directly from the formula, which takes only that security's own up-closes and down-closes as inputs (TradingView official docs; StockCharts ChartSchool). This is a genuine and common point of confusion and is worth keeping prominent on the glossary page."
+    },
+    {
+     "claim": "RSI's midpoint is 50, and readings above 50 indicate an uptrend while readings below 50 indicate a downtrend.",
+     "status": "unverifiable",
+     "source": "50 as the arithmetic midpoint of a 0-100 scale is trivially true. The trend-direction interpretation is a widely used convention with no primary source establishing it as Wilder's rule and no primary source establishing predictive accuracy; Wilder's own published list of RSI uses (S&C V.4:9) does not include a 50-line trend filter. Present it as a common convention, not as Wilder's rule or as an established statistical fact."
+    },
+    {
+     "claim": "Stochastic's traditional overbought/oversold levels are 80 and 20, tighter than RSI's 70/30 (comparison stated inside the RSI passage).",
+     "status": "unverifiable",
+     "source": "The RSI half (70/30) is confirmed via Wilder's 1986 S&C article abstract and thinkorswim defaults. The stochastic half (80/20) was not verified against its primary source, George C. Lane, in this pass \u2014 it belongs to the stochastic-oscillator glossary entry and should be fact-checked there before the RSI page asserts it."
+    },
+    {
+     "claim": "There is no annually-updated figure on this term.",
+     "status": "confirmed",
+     "source": "RSI is a fixed mathematical construct: the formula, the 0-100 range, the 14 default and the 70/30 levels have not changed since 1978. Nothing on this page needs a 2026 refresh; the only values that could drift are platform defaults, verified current as of today against TradingView and Schwab/thinkorswim documentation.",
+     "asOf": "2026-08-11"
+    }
+   ],
+   "sources": [
+    {
+     "title": "New Concepts in Technical Trading Systems (1978) \u2014 scanned original, title page, copyright and table of contents listing Section VI 'The Relative Strength Index'",
+     "url": "https://archive.org/details/newconceptsintec00wild",
+     "publisher": "J. Welles Wilder Jr. / Trend Research, Greensboro NC (via Internet Archive)",
+     "year": "1978"
+    },
+    {
+     "title": "The Relative Strength Index \u2014 Wilder's own article, V.4:9, pp.343-346 (publisher's abstract: tops/bottoms above 70 and below 30, chart formations, failure swings, support/resistance, divergence)",
+     "url": "https://store.traders.com/-v04-c09-rsi-pdf.html",
+     "publisher": "Technical Analysis of STOCKS & COMMODITIES / Technical Analysis, Inc.",
+     "year": "1986"
+    },
+    {
+     "title": "Relative Strength Index (RSI) \u2014 official platform documentation: formula RSI = 100 - 100/(1+RS), RS = Average Gain of n days UP / Average Loss of n days DOWN; '14 bars is the default'; 0-100 scale; 70/30 attributed to Wilder's 1978 book",
+     "url": "https://www.tradingview.com/support/solutions/43000502338-relative-strength-index-rsi/",
+     "publisher": "TradingView",
+     "year": "2026"
+    },
+    {
+     "title": "Relative Strength Index (RSI) \u2014 ChartSchool: formula, 14-period default, 70/30, Constance Brown bull 40-90 / bear 10-60, Andrew Cardwell positive and negative reversals",
+     "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi",
+     "publisher": "StockCharts.com",
+     "year": "2026"
+    },
+    {
+     "title": "RSI study reference \u2014 'rates the strength of a security on a scale from 0 to 100'; default values of 30 oversold and 70 overbought; Wilder's moving average used in the calculation",
+     "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/R-S/RSI",
+     "publisher": "Charles Schwab & Co. / thinkorswim Learning Center",
+     "year": "2026"
+    },
+    {
+     "title": "Mastering the Relative Strength Index (RSI): How to Read it Correctly \u2014 states Brown's ranges as uptrend lows 40-50 / highs 80-90 and downtrend lows 20-30 / highs 55-65, conflicting with StockCharts",
+     "url": "https://cmtassociation.org/chartadvisor/mastering-the-relative-strength-index-rsi-how-to-read-it-correctly/",
+     "publisher": "CMT Association",
+     "year": "2025"
+    },
+    {
+     "title": "Technical Analysis for the Trading Professional \u2014 the primary source for the Brown RSI range claim; access-restricted (lending only), could not be read",
+     "url": "https://archive.org/details/technicalanalysi00brow",
+     "publisher": "Constance M. Brown / McGraw-Hill (via Internet Archive)",
+     "year": "1999"
+    }
+   ]
+  },
+  "roth-ira": {
+   "facts": [
+    {
+     "claim": "The 2026 IRA contribution limit is $7,500, and it is a combined cap across all of a person's traditional and Roth IRAs, not per account.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS IR-2025-111 (Nov 13, 2025) and IRS Notice 2025-67 (section 219(b)(5)(A)); IRS 'Retirement topics - IRA contribution limits' confirms the combined-cap wording: 'the total contributions you make each year to all of your traditional IRAs and Roth IRAs can't be more than' the limit. Course text (FL Stage 3, Module 10) states $7,500 \u2014 correct.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "The 2026 IRA catch-up contribution for people age 50 and over is $1,100, for a total of $8,600.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS IR-2025-111: catch-up 'increased to $1,100, up from $1,000 for 2025'; Notice 2025-67, section 219(b)(5)(B)(ii). Course states $1,100 (Module 10) and $8,600 for 50+ (Module 11) \u2014 both correct.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "For 2026 the Roth IRA contribution phase-out range is $153,000-$168,000 of MAGI for single and head-of-household filers.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS IR-2025-111 (Nov 13, 2025); IRS Notice 2025-67, section 408A(c)(3)(A)(ii). Course states $153,000-$168,000 \u2014 correct.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "For 2026 the Roth IRA contribution phase-out range is $242,000-$252,000 of MAGI for married filing jointly.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS IR-2025-111 (Nov 13, 2025); IRS Notice 2025-67. Course states $242,000-$252,000 \u2014 correct.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "For married filing separately (living with spouse), the 2026 Roth phase-out range is $0-$10,000 \u2014 effectively no direct Roth contribution.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS IR-2025-111; IRS Notice 2025-67 ('remains $0 to $10,000'). NOTE: the course omits this filing status entirely \u2014 the glossary page should state it.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "A Roth IRA contribution cannot exceed the person's taxable compensation for the year, and there is no upper age limit on contributing.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS 'Retirement topics - IRA contribution limits': limit is '$7,500 ... or if less, your taxable compensation for the year'; 'For 2020 and later, there is no age limit on making regular contributions to traditional or Roth IRAs.' Supports the course's custodial-Roth-for-a-working-teen point (Stage 5, Module 11).",
+     "asOf": "2026"
+    },
+    {
+     "claim": "A contribution for a tax year can be made up to the due date of that year's return, not including extensions \u2014 so 15 April 2027 for the 2026 tax year.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-A: 'Contributions can be made to your traditional IRA for a year at any time during the year or by the due date for filing your return for that year, not including extensions.' Same rule applies to Roth IRAs.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "Roth IRA contributions are never deductible, and qualified distributions are tax-free.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS 'Roth IRAs' topic page: 'You cannot deduct contributions to a Roth IRA' and 'If you satisfy the requirements, qualified distributions are tax-free.'",
+     "asOf": ""
+    },
+    {
+     "claim": "Roth IRA distributions follow a fixed ordering: regular contributions come out first, then conversions, then earnings.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-B, 'Ordering Rules for Distributions' \u2014 regular contributions first, then conversion and rollover contributions, then earnings. This is the mechanism behind the course's central Module 10 claim.",
+     "asOf": ""
+    },
+    {
+     "claim": "You can withdraw your own Roth contributions at any age, for any reason, with no tax and no 10% penalty; the 10% additional tax applies only to amounts includible in gross income (i.e. earnings).",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Tax Topic 557: 'The 10% additional tax applies to the part of the distribution that you have to include in gross income. It's in addition to any regular income tax on that amount.' Combined with the Pub 590-B ordering rules, contributions come out first and are not includible. Course claim verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "A qualified (fully tax-free) Roth distribution requires the 5-year period plus one of four conditions: age 59-1/2, death, disability, or first-time home purchase.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-B, 'What Are Qualified Distributions?' \u2014 5-year period beginning with the first tax year a contribution was made, plus one of the four listed conditions.",
+     "asOf": ""
+    },
+    {
+     "claim": "The first-time homebuyer exception is capped at $10,000 over a lifetime.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-B ($10,000 lifetime maximum) and IRS Tax Topic 557: 'Not in excess of $10,000 used in a qualified first-time home purchase.' Course table states $10,000 \u2014 correct.",
+     "asOf": ""
+    },
+    {
+     "claim": "Roth IRAs have no required minimum distributions during the original owner's lifetime.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-B: 'If you are the original owner of a Roth IRA, you don't have to take distributions regardless of your age.' IRS RMD FAQs: 'The RMD rules do not apply to Roth IRAs or Designated Roth accounts while the owner is alive.' Course claim verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "A Traditional IRA forces distributions out from 'your mid-seventies' (course wording, Stage 3 Module 11 and Stage 5 Module 07).",
+     "status": "corrected",
+     "corrected_to": "Age 73. IRS: 'you generally must start taking withdrawals from your traditional IRA, SEP IRA, SIMPLE IRA, and retirement plan accounts when you reach age 73.' (Rises to 75 in 2033 under SECURE 2.0.) The glossary should say 73, not 'mid-seventies'.",
+     "source": "IRS 'Retirement plan and IRA required minimum distributions FAQs'",
+     "asOf": "2026"
+    },
+    {
+     "claim": "There is no income limit on converting a Traditional IRA to a Roth IRA; the old $100,000 MAGI cap was removed in 2010 and never reinstated.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590 (2010), What's New: 'Beginning in 2010, the modified AGI and filing status requirements for converting a traditional IRA to a Roth IRA are eliminated.' Current Publication 590-A carries no MAGI limit on conversions. Course claim (Module 11) verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "A Roth conversion cannot be undone \u2014 recharacterization was eliminated for conversions made in 2018 or later.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-A: 'No recharacterizations of conversions made in 2018 or later.' Course claim verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "The pro-rata rule aggregates ALL traditional, SEP and SIMPLE IRAs, valued as of 31 December of the conversion year; Roth IRAs and employer plan balances such as a 401(k) are excluded from that value.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "Instructions for Form 8606, line 6: 'Enter the total value of all your traditional IRAs as of December 31, ... plus any outstanding rollovers' \u2014 covering traditional, SEP and SIMPLE IRAs only; Roth IRAs are handled separately in Part III and employer plans are not included. Course claim (Module 11) verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "Pre-tax IRA money can be rolled into a current employer's qualified plan (401(k)), which is the standard fix for the pro-rata problem before a backdoor Roth.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Rollover Chart (irs.gov/pub/irs-tege/rollover_chart.pdf) \u2014 Traditional IRA to Qualified Plan: Yes. Course action step verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "Form 8606 must be filed to report nondeductible traditional IRA contributions and Roth conversions; failing to file carries a $50 penalty and overstating nondeductible contributions carries a $100 penalty.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "Instructions for Form 8606: 'you must pay a $50 penalty, unless you can show reasonable cause' for failure to file; '$100 penalty' for overstating nondeductible contributions. The course tells readers to file 8606 but does not state the penalties \u2014 worth adding.",
+     "asOf": ""
+    },
+    {
+     "claim": "Each Roth conversion carries its own 5-year clock; converted amounts withdrawn before age 59-1/2 within that period are subject to the 10% additional tax.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-B \u2014 distribution of converted amounts within the 5-year period beginning with the conversion year is subject to the 10% additional tax on early distributions. Course claim (Stage 5, Module 07) verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "Most non-spouse beneficiaries must empty an inherited Roth IRA within 10 years, by 31 December of the year containing the 10th anniversary of the owner's death; this applies to deaths after 31 December 2019.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Publication 590-B: 'The 10-year rule requires the IRA beneficiaries who are not taking life expectancy payments to withdraw the entire balance of the IRA by December 31 of the year containing the 10th anniversary of the owner's death.' IRS Notice 2024-35 confirms the SECURE Act replaced the 5-year rule with a 10-year rule for most designated beneficiaries of owners dying after 31 December 2019; eligible designated beneficiaries (surviving spouse, minor child, disabled, chronically ill, or not more than 10 years younger) are excepted. Course claim verified.",
+     "asOf": ""
+    },
+    {
+     "claim": "Course claim: 'Money you pull out of a Roth cannot be put back \u2014 you do not get that contribution room again, ever.'",
+     "status": "corrected",
+     "corrected_to": "Overstated as an absolute. A distribution can be returned via a 60-day rollover: 'You have 60 days from the date you receive an IRA or retirement plan distribution to roll it over,' limited to 'only one rollover from an IRA to another (or the same) IRA in any 12-month period, regardless of the number of IRAs you own,' aggregating all traditional, SEP, SIMPLE and Roth IRAs. Beyond 60 days the course's statement is correct. The glossary should state the 60-day / one-per-12-months carve-out.",
+     "source": "IRS 'Rollovers of retirement plan and IRA distributions'",
+     "asOf": ""
+    },
+    {
+     "claim": "The 2026 401(k) elective deferral limit is $24,500 and the total annual additions limit (the mega-backdoor ceiling) is $72,000.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS IR-2025-111 ($24,500 deferral limit) and Notice 2025-67, section 415(c)(1)(A) ($72,000). Course figures in Module 11 verified.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "For 2026, catch-up contributions must be designated Roth if the participant's prior-year (2025) wages from the employer sponsoring the plan exceeded $150,000.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Notice 2025-67: 'The Roth catch-up wage threshold for 2025, which under section 414(v)(7)(A) is used to determine whether an individual's catch-up contributions to an applicable employer plan ... for 2026 must be designated as Roth contributions, is increased from $145,000 to $150,000.' The course's phrasing ('exceeded $150,000 in the prior year') matches the IRS construction exactly. Note the statute uses FICA wages from that employer, so a self-employed person with no such wages is not caught.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "Unused 529 funds can be rolled into the beneficiary's Roth IRA, subject to a $35,000 lifetime limit, a 15-year account-age requirement, a 5-year contribution look-back, and the annual Roth contribution limit; effective for distributions after 31 December 2023.",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS Tax Topic 313 (Qualified tuition programs): 'subject to the Roth IRA annual contribution limit and a $35,000 lifetime limit'; account 'open for at least 15 years'; 'may not exceed the amount contributed to the QTP (and attributable earnings) before the 5 year period ending on the date of the distribution'; 'Effective with respect to distributions made after Dec. 31, 2023.' Must be a direct trustee-to-trustee transfer. Course (Stage 5, Module 11) says 'since 2024 ... under specific limits and conditions' \u2014 correct but vague; the glossary should state $35,000 and the 15-year rule.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "There is no income limit on making a nondeductible Traditional IRA contribution \u2014 income only limits the deduction. (The premise of the backdoor Roth.)",
+     "status": "confirmed",
+     "corrected_to": "",
+     "source": "IRS IR-2025-111 frames the 2026 income ranges as 'phase-out ranges for determining deductibility'; Instructions for Form 8606 exist specifically to report 'nondeductible contributions to a traditional IRA', and Pub 590-A imposes only a compensation requirement, not an income ceiling, on the contribution itself. Course claim verified.",
+     "asOf": "2026"
+    },
+    {
+     "claim": "Course claim (Stage 3, Module 11): 'Congress was told about [the backdoor Roth] in plain language in the 2017 tax bill's conference report and chose to leave it alone.'",
+     "status": "unverifiable",
+     "corrected_to": "",
+     "source": "I confirmed that H. Rept. 115-466 (TCJA conference report, govinfo.gov) contains the section 'Repeal of special rule permitting recharacterization of IRA contributions (sec. 1501 of the House bill, sec. 13611 of the Senate amendment, and sec. 408A of the Code)' at p. 288, but neither govinfo's HTML nor its PDF returned the explanatory footnote text, and congress.gov blocks automated fetching. Do NOT assert the 'Congress was told in plain language' framing on the glossary page without a human reading p. 288 of the report; state the legal position (no MAGI limit on conversions) instead, which is fully sourced.",
+     "asOf": ""
+    },
+    {
+     "claim": "Course claim (Stage 3, Module 10): a Roth 401(k) at work 'follows different, stricter withdrawal rules' than a Roth IRA.",
+     "status": "unverifiable",
+     "corrected_to": "",
+     "source": "Directionally right \u2014 designated Roth accounts do not use the Roth IRA contributions-first ordering, and in-service access is plan-dependent \u2014 but the IRS 'Designated Roth accounts in retirement plans' page returned 404 on fetch and I did not confirm the mechanism in Publication 575. Either verify against Pub 575 before stating a mechanism, or keep the glossary wording at the level of 'different rules; check your plan.'",
+     "asOf": ""
+    },
+    {
+     "claim": "ADJACENT ERROR FOUND: FL Stage 5, Module 12 states the qualified charitable distribution cap is 'up to $108,000/year in 2026'.",
+     "status": "corrected",
+     "corrected_to": "$111,000 for 2026. IRS Notice 2025-67: 'The aggregate amount of qualified charitable distributions that are not includible in gross income under section 408(d)(8)(A) is increased from $108,000 to $111,000.' $108,000 was the 2025 figure. This is a Traditional IRA fact, not a Roth one, but it is a wrong 2026 number sitting in the same course cluster and should be fixed in stage-5-wealth.html.",
+     "source": "IRS Notice 2025-67",
+     "asOf": "2026"
+    }
+   ],
+   "sources": [
+    {
+     "title": "401(k) limit increases to $24,500 for 2026, IRA limit increases to $7,500 (IR-2025-111)",
+     "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+     "publisher": "Internal Revenue Service",
+     "year": "2025"
+    },
+    {
+     "title": "Notice 2025-67: 2026 Amounts Relating to Retirement Plans and IRAs, as Adjusted for Changes in Cost-of-Living",
+     "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+     "publisher": "Internal Revenue Service",
+     "year": "2025"
+    },
+    {
+     "title": "Publication 590-A, Contributions to Individual Retirement Arrangements (IRAs)",
+     "url": "https://www.irs.gov/publications/p590a",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Publication 590-B, Distributions from Individual Retirement Arrangements (IRAs)",
+     "url": "https://www.irs.gov/pub/irs-pdf/p590b.pdf",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Retirement topics - IRA contribution limits",
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Roth IRAs",
+     "url": "https://www.irs.gov/retirement-plans/roth-iras",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Instructions for Form 8606, Nondeductible IRAs",
+     "url": "https://www.irs.gov/instructions/i8606",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Tax Topic 557 - Additional tax on early distributions from traditional and Roth IRAs",
+     "url": "https://www.irs.gov/taxtopics/tc557",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Retirement plan and IRA required minimum distributions FAQs",
+     "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Rollovers of retirement plan and IRA distributions (60-day rule and one-rollover-per-12-months)",
+     "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "IRA Rollover Chart",
+     "url": "https://www.irs.gov/pub/irs-tege/rollover_chart.pdf",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Tax Topic 313 - Qualified tuition programs (QTPs), including 529-to-Roth rollovers",
+     "url": "https://www.irs.gov/taxtopics/tc313",
+     "publisher": "Internal Revenue Service",
+     "year": "2026"
+    },
+    {
+     "title": "Publication 590 (2010) - What's New: elimination of the modified AGI and filing status requirements for Roth conversions",
+     "url": "https://www.irs.gov/pub/irs-prior/p590--2010.pdf",
+     "publisher": "Internal Revenue Service",
+     "year": "2010"
+    },
+    {
+     "title": "Notice 2024-35: Certain Required Minimum Distributions for 2024 (SECURE Act 10-year rule)",
+     "url": "https://www.irs.gov/pub/irs-drop/n-24-35.pdf",
+     "publisher": "Internal Revenue Service",
+     "year": "2024"
+    },
+    {
+     "title": "H. Rept. 115-466, Conference Report to accompany H.R. 1 (Tax Cuts and Jobs Act) - recharacterization repeal, sec. 408A, p. 288",
+     "url": "https://www.govinfo.gov/content/pkg/CRPT-115hrpt466/pdf/CRPT-115hrpt466.pdf",
+     "publisher": "U.S. Government Publishing Office",
+     "year": "2017"
+    }
+   ]
+  },
+  "support-and-resistance": {
+   "facts": [
+    {
+     "claim": "Manifest gloss is accurate to what the course teaches: support and resistance are price zones where buying or selling repeatedly stops moves. Taught in TA Course Stage 1, Module 5 ('Support and Resistance \u2014 The Foundation of All Analysis'), with applied use in Stage 2 (breakouts/false breakouts), Stage 3 (double/triple tops, ascending/descending triangles, breakaway gaps) and Stage 5 (P&F double-top/triple-top signals).",
+     "status": "confirmed",
+     "source": "/mnt/user-data/uploads/Hustlin-main/TA Course/stage-1-chart-basics.html (Module 05); stage-2-trend-volume.html; stage-3-chart-patterns.html; stage-5-advanced-methods.html"
+    },
+    {
+     "claim": "NOTHING on a support-and-resistance glossary page depends on an annually-updated government figure. There is no IRS/SSA/BLS/HHS/FRED number in scope. Every checkable claim here is either a book attribution, a market-mechanics rule, or an unsourced trading rule of thumb. No 2026 figure refresh is needed.",
+     "status": "confirmed",
+     "source": "Scope review of the TA Course Stage 1 Module 5 passage and adjacent modules",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "The concept is codified in Robert D. Edwards and John Magee, 'Technical Analysis of Stock Trends', first written in 1948; the book is still in print, now in its 11th edition (2019), published by Routledge / Taylor & Francis with W.H.C. Bassetti as third author.",
+     "status": "confirmed",
+     "source": "Routledge (publisher) product page for Technical Analysis of Stock Trends, 11th Edition \u2014 https://www.routledge.com/Technical-Analysis-of-Stock-Trends/Edwards-Magee-Bassetti/p/book/9781032241821",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Support and resistance is Chapter 13 of Edwards & Magee, titled 'Support and Resistance', with a second treatment at Chapter 30, 'Use of Support and Resistance'. The chapter's own contents line reads 'Definition of Support and Resistance Levels \u2014 How They Reverse Their Roles', which establishes that role reversal (broken resistance becomes support, and vice versa) originates with Edwards & Magee and is not a modern invention. The chapter opens 'As illustrated by Figures 13.1 through 13.12, the phenomena that we shall study in this chapter are markedly different in kind from...'.",
+     "status": "confirmed",
+     "source": "Routledge publisher table of contents; the book's own front-matter table of contents (Internet Archive OCR of the 9th edition); Taylor & Francis chapter record \u2014 https://www.taylorfrancis.com/chapters/mono/10.1201/b14301-23/support-resistance-christine-hooper-christine-thompson-catherine-laver-bradbury-chris-gale",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "COURSE CITATION GAP (not a wrong number, but a sourcing defect the glossary must not inherit). TA Stage 1 Module 5 puts a direct quotation in quote marks \u2014 support and resistance are 'nearly but not quite synonymous with demand and supply' \u2014 and attributes it only to 'one classic technical analysis text'. The source is almost certainly Edwards & Magee, Chapter 13, but I could not confirm the exact wording against the book: archive.org full-text search, Open Library search-inside, HathiTrust full-text search and Google Books are all robots-disallowed or blocked from this environment, and the one reachable full-text scan truncates before Chapter 13. Do NOT reproduce this as a verbatim quotation on the glossary page unless someone checks a copy of the book and cites chapter and page. Either name the source properly or paraphrase without quote marks. hustlin.org's about.html publicly commits to citing source and year, so an unnamed quoted source is a live inconsistency.",
+     "status": "unverifiable",
+     "source": "Course text: /mnt/user-data/uploads/Hustlin-main/TA Course/stage-1-chart-basics.html, Module 05. Primary text unreachable \u2014 archive.org, Open Library, HathiTrust, Google Books all robots-disallowed via WebFetch"
+    },
+    {
+     "claim": "Edwards & Magee's formal definitions, widely reproduced as: support is 'buying, either actual or potential, in sufficient volume to prevent any further downward movement in prices for an appreciable period'; resistance is 'selling, either actual or potential, in sufficient volume to satisfy all bids, thereby preventing prices from going any higher for a while.'",
+     "status": "unverifiable",
+     "source": "Reproduced in Stuart Evens, 'Support And Resistance', Technical Analysis of Stocks & Commodities v17:1 (Jan 1999), pp. 55-58, hosted at fidelity.com \u2014 https://www.fidelity.com/bin-public/060_www_fidelity_com/documents/SupportandResistance.pdf. This is a SECONDARY source quoting the book; the book itself was not reachable. Safe to paraphrase the substance (support = demand concentration halting a decline; resistance = supply concentration halting an advance), unsafe to publish as a verbatim quote."
+    },
+    {
+     "claim": "COURSE CLAIM, TA Stage 1 Module 7 and Stage 2: a breakout through support or resistance is credible when volume is 'roughly 1.5 to 2 times the average daily volume'. No standard-setting body, exchange, regulator, or original author publishes this threshold. Every source restating it is commercial or secondary. The course already hedges it ('often cited as roughly'); the glossary must keep an equivalent hedge and must never state it as a rule or a test.",
+     "status": "unverifiable",
+     "source": "Searched for any primary/authoritative origin; only commercial trading sites returned. Course text: /mnt/user-data/uploads/Hustlin-main/TA Course/stage-1-chart-basics.html, Module 07"
+    },
+    {
+     "claim": "COURSE CLAIM, TA Stage 1 Module 5: support and resistance are 'usually zones a few percent wide, not exact prices'. No primary source sets a width. This is a hedged rule of thumb and is fine to repeat as such \u2014 but do NOT convert 'a few percent' into a specific number or range on the glossary page, because there is nothing to cite behind it.",
+     "status": "unverifiable",
+     "source": "No standard-setting body publishes a zone width. Course text: TA Course/stage-1-chart-basics.html, Module 05"
+    },
+    {
+     "claim": "COURSE CLAIM, TA Stage 1 Module 5: a level needs at least two reversals to be drawn, and 'the more times price has respected a level, and the more volume that traded there, the more significant that level tends to be'. The two-touch minimum is definitional (a horizontal line needs two points). The 'more touches = more significant' claim is a convention with no primary authority and mixed academic support \u2014 the only reachable statement of it is secondary.",
+     "status": "unverifiable",
+     "source": "Stuart Evens, Technical Analysis of Stocks & Commodities v17:1 (Jan 1999) \u2014 secondary. https://www.fidelity.com/bin-public/060_www_fidelity_com/documents/SupportandResistance.pdf"
+    },
+    {
+     "claim": "If the glossary page mentions placing a stop-loss just below support (the standard practical use of the concept), the mechanics are: a stop order becomes a MARKET order once the stop price is reached; the stop price is NOT the guaranteed execution price; the execution price can deviate significantly from the stop price in a fast-moving market; and a stop can be triggered by a short-term intraday move at a price substantially worse than the stock's closing price for the day.",
+     "status": "confirmed",
+     "source": "SEC Office of Investor Education and Advocacy, 'Investor Bulletin: Stop, Stop-Limit, and Trailing Stop Orders', 13 July 2017 \u2014 https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Support and resistance is not a regulated, standardized, or regulator-defined term. No SEC, FINRA or CFTC publication defines it or sets any threshold for it \u2014 Investor.gov's own day-trading entry does not mention technical analysis, charts, or chart levels at all, and warns only that 'Day trading is extremely risky and can result in substantial financial losses in a very short period of time.' This supports the site's standing educational-commentary disclaimer and means no claim on this page should be framed as an official or authoritative standard.",
+     "status": "confirmed",
+     "source": "SEC Investor.gov glossary entry, 'Day Trading' \u2014 https://www.investor.gov/introduction-investing/investing-basics/glossary/day-trading",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Adjacent claim carried in the same stage that a glossary page on this term may reach for (trendlines act as dynamic support/resistance): 'a trendline technically needs two established lows... A trendline earns real credibility once price touches it a third time.' Same status as the touch-count claim above \u2014 a convention from the classical literature with no primary source reachable to confirm the three-touch figure.",
+     "status": "unverifiable",
+     "source": "Course text: /mnt/user-data/uploads/Hustlin-main/TA Course/stage-1-chart-basics.html, Module 06. No primary source located"
+    }
+   ],
+   "sources": [
+    {
+     "title": "Technical Analysis of Stock Trends, 11th Edition (Edwards, Magee, Bassetti) \u2014 publisher page: authors, 11th ed. 2019, 'first written by Robert D. Edwards and John Magee in 1948', Ch. 13 'Support and Resistance', Ch. 30 'Use of Support and Resistance'",
+     "url": "https://www.routledge.com/Technical-Analysis-of-Stock-Trends/Edwards-Magee-Bassetti/p/book/9781032241821",
+     "publisher": "Routledge / Taylor & Francis (publisher of the originating text)",
+     "year": "2019"
+    },
+    {
+     "title": "Chapter: Support and Resistance \u2014 Technical Analysis of Stock Trends (publisher chapter record; confirms Chapter 13 figures 13.1-13.12 and the chapter's opening line)",
+     "url": "https://www.taylorfrancis.com/chapters/mono/10.1201/b14301-23/support-resistance-christine-hooper-christine-thompson-catherine-laver-bradbury-chris-gale",
+     "publisher": "Taylor & Francis",
+     "year": "2026"
+    },
+    {
+     "title": "Investor Bulletin: Stop, Stop-Limit, and Trailing Stop Orders \u2014 stop order becomes a market order; stop price is not the guaranteed execution price; intraday moves can trigger stops at prices far worse than the close",
+     "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-15",
+     "publisher": "U.S. Securities and Exchange Commission, Office of Investor Education and Advocacy",
+     "year": "2017"
+    },
+    {
+     "title": "Glossary: Day Trading \u2014 no mention of technical analysis or chart levels; risk warning language",
+     "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/day-trading",
+     "publisher": "U.S. Securities and Exchange Commission (Investor.gov)",
+     "year": "2026"
+    },
+    {
+     "title": "Technical Analysis of Stock Trends (J. Magee, Springfield, Mass., 1958) \u2014 catalogue record confirming early edition, publisher and place",
+     "url": "https://archive.org/metadata/technicalanalysi00edwa",
+     "publisher": "Internet Archive (bibliographic record of the original edition)",
+     "year": "1958"
+    },
+    {
+     "title": "Technical Analysis of Stock Trends, 9th edition scan \u2014 the book's own table of contents, listing Chapter 13 'Support and Resistance' with the contents line 'Definition of Support and Resistance Levels \u2014 How They Reverse Their Roles'",
+     "url": "https://archive.org/download/technical-analysis-of-stock-trends-9th/technical-analysis-of-stock-trends-9th_djvu.txt",
+     "publisher": "Internet Archive (OCR of the originating text; chapter body truncated before Ch. 13)",
+     "year": "2024"
+    },
+    {
+     "title": "Stuart Evens, 'Support And Resistance', Technical Analysis of Stocks & Commodities v17:1, pp. 55-58 \u2014 quotes the Edwards & Magee definitions. SECONDARY, flagged as such; do not cite as primary",
+     "url": "https://www.fidelity.com/bin-public/060_www_fidelity_com/documents/SupportandResistance.pdf",
+     "publisher": "Technical Analysis, Inc. (hosted by Fidelity Investments)",
+     "year": "1999"
+    }
+   ]
+  },
+  "yield-curve-inversion": {
+   "facts": [
+    {
+     "claim": "Definition: a yield curve is inverted when short-term Treasury yields exceed long-term ones \u2014 equivalently, a negative term spread. Taught in EconomicsCourse/stage-3-rates-central-banks-bonds.html, Module 04 'The Yield Curve'.",
+     "status": "confirmed",
+     "source": "San Francisco Fed Economic Letter 2018-07 (Bauer & Mertens): 'Every U.S. recession in the past 60 years was preceded by a negative term spread, that is, an inverted yield curve.' https://www.frbsf.org/research-and-insights/publications/economic-letter/2018/03/economic-forecasts-with-yield-curve/"
+    },
+    {
+     "claim": "CURRENT STATE (what a 2026 reader needs): the US curve is NOT inverted. 10-year minus 2-year = +0.47 percentage points and 10-year minus 3-month = +0.83 percentage points on 10 Aug 2026. Underlying Treasury par yields that day: 1 Mo 3.79, 3 Mo 3.89, 2 Yr 4.25, 10 Yr 4.72, 30 Yr 5.25 \u2014 an upward-sloping (normal) curve at every point checked.",
+     "status": "confirmed",
+     "source": "FRED T10Y2Y (2026-08-10 = 0.47) and T10Y3M (2026-08-10 = 0.83); cross-checked against U.S. Treasury Daily Par Yield Curve Rates, August 2026",
+     "asOf": "2026-08-10"
+    },
+    {
+     "claim": "The course's 'record' framing needs a 2026 update: the 2022\u20132024 inversion has NOT been followed by an NBER-dated recession. NBER's most recent business-cycle turning points remain the February 2020 peak and April 2020 trough \u2014 no US recession has been dated since. The historical 6-to-24-month lead window measured from the July 2022 inversion (Jan 2023 \u2013 Jul 2024) has fully elapsed, and so has the window from the September 2024 un-inversion.",
+     "status": "corrected",
+     "corrected_to": "As of 11 August 2026 the most recent inversion signal (2022\u20132024) has not been followed by a recession within its historical lead time. The glossary page must say the curve is currently normal and that the last inversion has so far not produced a dated recession \u2014 not repeat the course's implicit 'the record is intact' framing.",
+     "source": "NBER Business Cycle Dating (most recent peak Feb 2020, trough Apr 2020) https://www.nber.org/research/business-cycle-dating",
+     "asOf": "2026-08-11"
+    },
+    {
+     "claim": "Course claim: 'the lag is long and highly variable \u2014 historically anywhere from roughly six months to two years between inversion and recession.' Also stated as '6\u201324 months, highly variable' in the stage-4 leading-indicator table.",
+     "status": "confirmed",
+     "source": "San Francisco Fed Economic Letter 2018-07 (Bauer & Mertens): 'The delay between the term spread turning negative and the beginning of a recession has ranged between 6 and 24 months.'"
+    },
+    {
+     "claim": "Course claim: 'the 3-month version has the stronger academic record' (10y\u22123m vs 10y\u22122y).",
+     "status": "confirmed",
+     "source": "San Francisco Fed Economic Letter 2018-20, Bauer & Mertens, 27 Aug 2018: 'The traditional 10y\u20133m spread performs better than the other three spreads by a slight margin' \u2014 with their own caveat that 'all of these term spreads are fairly accurate predictors... the differences in forecasting accuracy are small.' https://www.frbsf.org/research-and-insights/publications/economic-letter/2018/08/information-in-yield-curve-about-future-recessions/"
+    },
+    {
+     "claim": "Course claim: inversion 'has produced false signals.' The primary count: one false positive, in the mid-1960s, over the 60 years to 2018. Separately, the 10y\u22123m spread fell to similarly low levels in 1995 and 1998 without a recession following soon after.",
+     "status": "confirmed",
+     "source": "SF Fed Economic Letter 2018-07: 'had only one false positive, in the mid-1960s, when an inversion was followed by an economic slowdown but not an official recession'; SF Fed Blog, Bauer & Mertens, 27 Feb 2019 (1995 and 1998 levels) https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2019/02/27/did-yield-curve-flip-will-economy-dip/"
+    },
+    {
+     "claim": "Course claim: 'recessions have tended to begin AFTER the curve un-inverts and returns to a normal slope, not while it is inverted.' Verified by deriving sign changes from Treasury daily par yields against NBER peak dates for the last three recessions: 10y\u22123m turned positive by 31 Jan 2001 (peak March 2001); both spreads were positive by 7 June 2007 (peak December 2007); 10y\u22123m turned positive on 11 Oct 2019 (peak February 2020).",
+     "status": "confirmed",
+     "source": "Derived from U.S. Treasury Daily Par Yield Curve Rates (Jan 2001, Jun 2007, Oct 2019) and NBER business-cycle peak dates. No single Fed publication stating the pattern was located; the derivation is from primary data on both sides."
+    },
+    {
+     "claim": "Most recent 10y\u22122y inversion episode: first (one-day) inversion 1 April 2022 (2 Yr 2.44 vs 10 Yr 2.39); persistent inversion from 5\u20136 July 2022 (5 Jul: both 2.82; 6 Jul: 2 Yr 2.97 vs 10 Yr 2.93); ended 4 September 2024, the first day 10 Yr (3.77) exceeded 2 Yr (3.76). Day-by-day continuity across the whole span was not checked, only the endpoints.",
+     "status": "confirmed",
+     "source": "U.S. Treasury Daily Par Yield Curve Rates, monthly tables for April 2022, July 2022 and September 2024 https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+    },
+    {
+     "claim": "Most recent 10y\u22123m inversion episode: first negative day 18 Oct 2022 (10 Yr 4.01 vs 3 Mo 4.04); sustained from 25 Oct 2022 (4.10 vs 4.14); last negative day 12 Dec 2024 (4.32 vs 4.35); positive from 13 Dec 2024 (4.40 vs 4.34).",
+     "status": "confirmed",
+     "source": "U.S. Treasury Daily Par Yield Curve Rates, monthly tables for October 2022 and December 2024",
+     "asOf": "2024-12-13"
+    },
+    {
+     "claim": "IMPORTANT AND NEWER THAN THE COURSE TEXT: the 10y\u22123m spread went negative again at points during 2025, after un-inverting in December 2024, with no recession following. Examples from Treasury daily data: 3 Mar 2025 (10 Yr 4.16 vs 3 Mo 4.35 = \u22120.19), 4 Apr 2025 (4.01 vs 4.28 = \u22120.27), 16 Oct 2025 (3.99 vs 4.02 = \u22120.03). The 10y\u22122y spread stayed positive on every 2025 and 2026 date checked.",
+     "status": "confirmed",
+     "source": "U.S. Treasury Daily Par Yield Curve Rates, monthly tables for Feb/Mar/Apr/Jul/Oct 2025",
+     "asOf": "2025-10-16"
+    },
+    {
+     "claim": "Deepest readings of the 2022\u20132024 episode: 10y\u22122y reached \u22121.08 percentage points on 3 July 2023 (2 Yr 4.94, 10 Yr 3.86); 10y\u22123m reached \u22121.89 percentage points on 4 May 2023 (3 Mo 5.26, 10 Yr 3.37). Troughs identified from the three candidate months sampled (March, May, July 2023).",
+     "status": "confirmed",
+     "source": "U.S. Treasury Daily Par Yield Curve Rates, monthly tables for March, May and July 2023"
+    },
+    {
+     "claim": "The New York Fed publishes a recession-probability model built on the yield curve: it uses the term spread to compute the probability of recession twelve months ahead. Latest published reading: July 2026, spread 0.7822 percentage points, probability 15.19 per cent.",
+     "status": "confirmed",
+     "source": "NY Fed, 'The Yield Curve as a Leading Indicator' https://www.newyorkfed.org/research/capital_markets/ycfaq and the data file 'Probability of US Recession Predicted by Treasury Spread' https://www.newyorkfed.org/medialibrary/media/research/capital_markets/prob_rec.pdf",
+     "asOf": "2026-07-31"
+    },
+    {
+     "claim": "Attribution of the model: Arturo Estrella and Frederic S. Mishkin, 'The Yield Curve as a Predictor of U.S. Recessions', Federal Reserve Bank of New York, Current Issues in Economics and Finance, Vol. 2 No. 7, June 1996. Uses the 10-year note minus 3-month bill spread, forecasting four quarters ahead. Their published probability table: spread +1.21 \u2192 5%; +0.76 \u2192 10%; +0.46 \u2192 15%; +0.22 \u2192 20%; +0.02 \u2192 25%; \u22120.17 \u2192 30%; \u22120.50 \u2192 40%; \u22120.82 \u2192 50%; \u22121.13 \u2192 60%; \u22121.46 \u2192 70%; \u22121.85 \u2192 80%; \u22122.40 \u2192 90%.",
+     "status": "confirmed",
+     "source": "Estrella & Mishkin (1996), NY Fed Current Issues in Economics and Finance 2(7) https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf"
+    },
+    {
+     "claim": "Caveat worth carrying: the Federal Reserve Board's own research argues the near-term forward spread (six-quarter-ahead forward rate minus the current 3-month bill) dominates the long-term spread. Once it is included, 'the estimated effect of the competing long-term spread on the probability of recession is economically small and not statistically different from zero.'",
+     "status": "confirmed",
+     "source": "Engstrom & Sharpe, '(Don't Fear) The Yield Curve', FEDS Notes, Board of Governors of the Federal Reserve System, 28 June 2018 https://www.federalreserve.gov/econres/notes/feds-notes/dont-fear-the-yield-curve-20180628.htm"
+    },
+    {
+     "claim": "The FRED series a reader should chart are T10Y2Y ('10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity') and T10Y3M ('10-Year ... Minus 3-Month ...'), both daily, in percent, not seasonally adjusted \u2014 the two series the course's action steps point students to.",
+     "status": "confirmed",
+     "source": "FRED series pages https://fred.stlouisfed.org/series/T10Y2Y and https://fred.stlouisfed.org/series/T10Y3M"
+    },
+    {
+     "claim": "US recessions are dated by the NBER Business Cycle Dating Committee, not by the two-consecutive-quarters-of-negative-GDP rule; the committee waits for data and announces turning points well after the fact. Concrete case: the April 2020 trough was announced on 19 July 2021 \u2014 a 15-month lag. (The course's stage-1 line 'sometimes a year or more after the fact' holds.)",
+     "status": "confirmed",
+     "source": "NBER Business Cycle Dating https://www.nber.org/research/business-cycle-dating and NBER announcement of 19 July 2021 https://www.nber.org/news/business-cycle-dating-committee-announcement-july-19-2021"
+    },
+    {
+     "claim": "Policy-rate context for a 2026 page: the FOMC target range is 3.50\u20133.75 per cent, set at the 11 December 2025 meeting (25bp cut); no 2026 changes are listed. The daily effective federal funds rate was 3.63 per cent on 7 Aug 2026. Note the 3-month bill at 3.89 per cent on 10 Aug 2026 sits above the effective funds rate \u2014 the front end is pricing tightening, not cuts.",
+     "status": "confirmed",
+     "source": "Federal Reserve Board, Open Market Operations https://www.federalreserve.gov/monetarypolicy/openmarket.htm and FRED DFF (Federal Funds Effective Rate)",
+     "asOf": "2026-08-10"
+    },
+    {
+     "claim": "Term premium (used in the course's explanation of why a normal curve slopes up): the standard published estimate is the ACM model, developed by Tobias Adrian, Richard Crump and Emanuel Moench of the New York Fed, a five-factor no-arbitrage term-structure model covering 1 to 10 year maturities from 1961.",
+     "status": "confirmed",
+     "source": "NY Fed, Treasury Term Premia https://www.newyorkfed.org/research/data_indicators/term-premia-tabs"
+    },
+    {
+     "claim": "The current numeric value of the 10-year ACM term premium could not be read: the NY Fed page serves it through an interactive data tool whose values are not in the page text.",
+     "status": "unverifiable",
+     "source": "NY Fed Treasury Term Premia page (interactive tool; no figures in fetched text)"
+    },
+    {
+     "claim": "The common assertion that the 2022\u20132024 inversion was 'the longest on record' could not be checked against a primary source \u2014 the full FRED T10Y2Y history was not retrievable (CSV and .txt downloads returned unusable/truncated content through the proxy). Do not state it on the page; state the verified endpoints instead.",
+     "status": "unverifiable",
+     "source": "FRED T10Y2Y full-history download attempts (fredgraph.csv and data/T10Y2Y.txt) failed to return parseable data"
+    }
+   ],
+   "sources": [
+    {
+     "title": "10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity (T10Y2Y)",
+     "url": "https://fred.stlouisfed.org/series/T10Y2Y",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED)",
+     "year": "2026"
+    },
+    {
+     "title": "10-Year Treasury Constant Maturity Minus 3-Month Treasury Constant Maturity (T10Y3M)",
+     "url": "https://fred.stlouisfed.org/series/T10Y3M",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED)",
+     "year": "2026"
+    },
+    {
+     "title": "Federal Funds Effective Rate (DFF)",
+     "url": "https://fred.stlouisfed.org/series/DFF",
+     "publisher": "Federal Reserve Bank of St. Louis (FRED)",
+     "year": "2026"
+    },
+    {
+     "title": "Daily Treasury Par Yield Curve Rates",
+     "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+     "publisher": "U.S. Department of the Treasury",
+     "year": "2026"
+    },
+    {
+     "title": "The Yield Curve as a Leading Indicator (FAQ and model)",
+     "url": "https://www.newyorkfed.org/research/capital_markets/ycfaq",
+     "publisher": "Federal Reserve Bank of New York",
+     "year": "2026"
+    },
+    {
+     "title": "Probability of US Recession Predicted by Treasury Spread",
+     "url": "https://www.newyorkfed.org/medialibrary/media/research/capital_markets/prob_rec.pdf",
+     "publisher": "Federal Reserve Bank of New York",
+     "year": "2026"
+    },
+    {
+     "title": "The Yield Curve as a Predictor of U.S. Recessions (Estrella & Mishkin), Current Issues in Economics and Finance 2(7)",
+     "url": "https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf",
+     "publisher": "Federal Reserve Bank of New York",
+     "year": "1996"
+    },
+    {
+     "title": "Economic Forecasts with the Yield Curve (Economic Letter 2018-07, Bauer & Mertens)",
+     "url": "https://www.frbsf.org/research-and-insights/publications/economic-letter/2018/03/economic-forecasts-with-yield-curve/",
+     "publisher": "Federal Reserve Bank of San Francisco",
+     "year": "2018"
+    },
+    {
+     "title": "Information in the Yield Curve about Future Recessions (Economic Letter 2018-20, Bauer & Mertens)",
+     "url": "https://www.frbsf.org/research-and-insights/publications/economic-letter/2018/08/information-in-yield-curve-about-future-recessions/",
+     "publisher": "Federal Reserve Bank of San Francisco",
+     "year": "2018"
+    },
+    {
+     "title": "Did the Yield Curve Flip? Will the Economy Dip? (SF Fed Blog, Bauer & Mertens)",
+     "url": "https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2019/02/27/did-yield-curve-flip-will-economy-dip/",
+     "publisher": "Federal Reserve Bank of San Francisco",
+     "year": "2019"
+    },
+    {
+     "title": "(Don't Fear) The Yield Curve \u2014 FEDS Notes (Engstrom & Sharpe)",
+     "url": "https://www.federalreserve.gov/econres/notes/feds-notes/dont-fear-the-yield-curve-20180628.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2018"
+    },
+    {
+     "title": "Business Cycle Dating",
+     "url": "https://www.nber.org/research/business-cycle-dating",
+     "publisher": "National Bureau of Economic Research",
+     "year": "2026"
+    },
+    {
+     "title": "Business Cycle Dating Committee Announcement July 19, 2021",
+     "url": "https://www.nber.org/news/business-cycle-dating-committee-announcement-july-19-2021",
+     "publisher": "National Bureau of Economic Research",
+     "year": "2021"
+    },
+    {
+     "title": "Open Market Operations (FOMC target range history)",
+     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+     "publisher": "Board of Governors of the Federal Reserve System",
+     "year": "2026"
+    },
+    {
+     "title": "Treasury Term Premia (ACM model \u2014 Adrian, Crump, Moench)",
+     "url": "https://www.newyorkfed.org/research/data_indicators/term-premia-tabs",
+     "publisher": "Federal Reserve Bank of New York",
+     "year": "2026"
+    }
+   ]
+  }
+ }
+}

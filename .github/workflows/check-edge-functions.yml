@@ -1,0 +1,99 @@
+# =============================================================================
+#  EDGE FUNCTION DRIFT CHECK — hustlin.org
+# =============================================================================
+#
+#  Is the Edge Function that is RUNNING the same as the one in the repo?
+#
+#  WHY THIS IS A SEPARATE WORKFLOW AND NOT A STEP IN THE MARKET REFRESH
+#
+#  It has nothing to do with baking market data. It needs a different secret
+#  (a Supabase management token, not the FRED/Finnhub keys), it runs on its own
+#  cadence, and — most importantly — it must not be able to break the bake. The
+#  market refresh is the job that keeps the Markets pages ranking; bolting an
+#  unrelated network call onto it buys a new way for that to fail.
+#
+#  WHY IT IS NOT IN deploy-site.ps1
+#
+#  ship has to work on a laptop with a flaky connection. A gate that fails when
+#  the wifi drops is a gate people learn to bypass, and then it is worse than no
+#  gate. Same trade check-series-freshness.mjs makes.
+#
+#  WHAT IT CAUGHT THE DAY IT WAS WRITTEN
+#
+#  Nothing — because it did not exist yet. On 2026-08-19 the deployed
+#  market-quotes was found BY HAND to be a version behind the repo, missing a
+#  2026-08-13 fix, six days after that fix was written. ship does not touch
+#  supabase/functions/, so nothing could have noticed. That is the gap this
+#  closes.
+#
+#  IT DRIFTS BOTH WAYS. A repo copy that was never deployed and a dashboard
+#  edit that was never committed produce an identical report. Read the diff
+#  before deciding which side is right.
+# =============================================================================
+
+name: Check edge functions match the repo
+
+on:
+  schedule:
+    # 06:13 UTC. Deliberately clear of the market jobs — intraday is on :23,
+    # daily on 09:47 — so a slow run here never queues behind the bake. Minute
+    # 13 for the same oversubscription reason those avoid minute 0.
+    - cron: '13 6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: check-edge-functions
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # --warn, ALWAYS. Read this before tightening it.
+      #
+      # Drift is a thing to look at, not a thing to stop the world for. This job
+      # deploys nothing and blocks nothing, so failing it red would only train
+      # everyone to ignore a red X on a repo whose other red X's are real.
+      #
+      # The annotations below are what actually surfaces: GitHub shows
+      # ::warning:: on the run summary and on the Actions tab, which is where a
+      # human will see it without going looking.
+      - name: Compare deployed Edge Functions against the repo
+        id: check
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: zddtobudaxyrndjgvhfd
+        run: |
+          if [ ! -f tools/check-edge-functions.mjs ]; then
+            echo "::warning::tools/check-edge-functions.mjs is not in the repo, so"
+            echo "::warning::nothing is comparing the deployed functions to their source."
+            exit 0
+          fi
+
+          set +e
+          node tools/check-edge-functions.mjs --warn | tee /tmp/edge.txt
+          set -e
+
+          if grep -q "SKIPPED" /tmp/edge.txt; then
+            echo "::warning::SUPABASE_ACCESS_TOKEN is not set on this repo, so no Edge"
+            echo "::warning::Function was compared. Add it at Settings -> Secrets and"
+            echo "::warning::variables -> Actions. Create the token at"
+            echo "::warning::https://supabase.com/dashboard/account/tokens"
+          fi
+
+          if grep -q "HAVE DRIFTED" /tmp/edge.txt; then
+            echo "::warning::An Edge Function running on Supabase does not match the copy"
+            echo "::warning::in this repo. See the log above for the first differing line."
+            echo "::warning::Decide which side is right before deploying — this drifts both ways."
+          fi
+
+          if grep -q "could not be compared" /tmp/edge.txt; then
+            echo "::warning::At least one Edge Function could not be compared. That is not"
+            echo "::warning::the same as being in sync — read the log."
+          fi

@@ -78,6 +78,21 @@ Disallow: /Fundemental%20Course/
 Disallow: /EconomicsCourse/
 Disallow: /TradingPsycologycourse/
 
+# Build system. ADDED 2026-08-19, when the _deploy/tools filter became a
+# denylist so the 31 unversioned generators could finally get git history.
+# These are .mjs/.json/.py build inputs and one HTML FRAGMENT
+# (post-shell.template.html) that has no <head>, no canonical and no noindex —
+# exactly the thin-page shape footer.template.html and nav.template.html are
+# kept out of _deploy to avoid. Nothing links to any of it and none of it is in
+# the sitemap, so this is belt-and-braces rather than a fix for a live problem.
+#
+# A Disallow is the right tool HERE and the wrong tool for a thin PAGE. The
+# distinction is whether you want the URL consolidated: a thin page needs
+# noindex so Google can fetch it, read the tag and pass equity on. These are
+# not pages, there is nothing to consolidate, and never fetching them is the
+# whole intent.
+Disallow: /tools/
+
 # ---------------------------------------------------------------
 # AI crawlers — ALLOWED
 #
@@ -170,6 +185,21 @@ Disallow: /TA%20Course/
 Disallow: /Fundemental%20Course/
 Disallow: /EconomicsCourse/
 Disallow: /TradingPsycologycourse/
+
+# Build system. ADDED 2026-08-19, when the _deploy/tools filter became a
+# denylist so the 31 unversioned generators could finally get git history.
+# These are .mjs/.json/.py build inputs and one HTML FRAGMENT
+# (post-shell.template.html) that has no <head>, no canonical and no noindex —
+# exactly the thin-page shape footer.template.html and nav.template.html are
+# kept out of _deploy to avoid. Nothing links to any of it and none of it is in
+# the sitemap, so this is belt-and-braces rather than a fix for a live problem.
+#
+# A Disallow is the right tool HERE and the wrong tool for a thin PAGE. The
+# distinction is whether you want the URL consolidated: a thin page needs
+# noindex so Google can fetch it, read the tag and pass equity on. These are
+# not pages, there is nothing to consolidate, and never fetching them is the
+# whole intent.
+Disallow: /tools/
 
 # Common Crawl — feeds many downstream models and research datasets
 User-agent: CCBot

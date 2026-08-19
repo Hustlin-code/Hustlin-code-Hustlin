@@ -258,17 +258,38 @@ const CADENCE = {
      change meaningfully between builds", which was true when it was written
      and is an argument against refreshing them 125 times a week. */
   sectorReturns: 'monthly',
-  /* Asset-class market caps. Genuinely monthly: the fastest-moving row in it is
-     a weekly ICI release and the slowest is an annual Savills report, so its
-     VALUE is stable between monthly reads. That is the test for this tier — not
-     that the underlying series happen to be labelled monthly. */
-  owns: 'monthly',
 
   // ── daily ──
   // Every FRED-backed set. See the note above on why these are not monthly.
   macro: 'daily', growth: 'daily', inflation: 'daily', rates: 'daily',
   labor: 'daily', consumer: 'daily', yields: 'daily', signals: 'daily',
   mood: 'daily', equity: 'daily', drawdown: 'daily',
+
+  /* Asset-class market caps. MOVED FROM monthly TO daily, 2026-08-19.
+
+     The monthly placement was argued from how often the DATA changes — the
+     fastest row is a weekly ICI release and the slowest an annual Savills
+     report, so the VALUE really is stable between monthly reads. That argument
+     was about the wrong cost.
+
+     owns is the one set that fetches NOTHING. renderOwns is a pure function of
+     tools/series/marketcap.json and nothing else: no clock, no price lookup, no
+     network. So a daily run costs one file read, and if the file has not
+     changed the block is byte-identical, pageChanged stays false, and no commit
+     is made. Monthly bought nothing.
+
+     What monthly COST was a two-week window in which the repo could hold this
+     file and a table rendered from an older version of it. On 2026-08-18 that
+     window opened for real: the ship pushed a rewritten marketcap.json and
+     merge-live-data.mjs spliced the previous month's table back over it, and
+     nothing would have reconciled the two until 3 September. HOLD_LOCAL in
+     merge-live-data.mjs closes that from the ship side; this closes it from the
+     Action side, so the block is never more than 24 hours behind its own file
+     no matter which path last touched the page.
+
+     The tier test for a set that fetches nothing is not "how often does it
+     move". It is "how long can the repo disagree with the file". */
+  owns: 'daily',
 }
 
 /* The "what changed" block reads the six FRED groups, so it belongs to the
