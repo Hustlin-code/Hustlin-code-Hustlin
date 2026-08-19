@@ -118,7 +118,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260818-2310">
+<link rel="stylesheet" href="styles.css?v=20260819-0026">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -805,6 +805,15 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
 .mkt-quote-gap{font-size:11.5px;color:#B9B2A2;margin:6px 0 0;line-height:1.45;
   font-variant-numeric:tabular-nums slashed-zero}
 .mkt-quote-gap+.mkt-quote-sym{margin-top:4px;opacity:.8}
+/* THE TIMESTAMP LINE, added 2026-08-19. Its own class rather than a third
+   .mkt-quote-sym, because the adjacent-sibling rules above dim the SECOND
+   .mkt-quote-sym to opacity .8 — a third would inherit that and the time, which
+   is the thing this card was rebuilt to carry, would be the faintest text on it.
+   Monospace so a column of eleven stamps lines up instead of ragging. */
+.mkt-quote-time{font-family:'Space Mono',monospace;font-size:10.5px;color:#8A8479;
+  margin:6px 0 0;line-height:1.4;letter-spacing:.01em}
+.mkt-quote-time time{white-space:nowrap}
+.mkt-quote-foot{font-size:12px;color:#6b665c;margin:14px 0 0;line-height:1.65;max-width:68ch}
 .mkt-quote-note{font-size:12px;color:#6b665c;margin:16px 0 0;line-height:1.6}
 
 .mkt-mot{background:radial-gradient(ellipse at 50% 0%,#1a1a1a 0%,#060606 70%);padding:52px 22px;text-align:center;border-top:1px solid #1c1c1c}
@@ -940,6 +949,16 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
 .mkt-chg-move{font-family:'Space Mono',monospace;font-size:14px;color:rgba(255,255,255,.75);text-align:right}
 .mkt-chg-move strong{color:#F5C520}
 .mkt-chg-note{grid-column:1/-1;font-size:12px;color:rgba(255,255,255,.38)}
+/* GROUPS, added 2026-08-19. The block used to be one flat <ul> of twelve rows
+   drawn from seven datasets, so a housing start sat next to the 10-year. The
+   heading is a real h3; the rule under it is the only decoration, because the
+   left border on each item is already carrying the good/bad signal and a second
+   colour here would compete with it. */
+.mkt-chg-groups{display:grid;gap:30px}
+.mkt-chg-group{margin:0}
+.mkt-chg-head{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:#F5C520;margin:0 0 12px;
+  padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.09)}
 .mkt-chg-more{margin-top:22px;font-size:14px}
 .mkt-chg-more a{color:#F5C520;font-weight:700}
 @media(max-width:560px){.mkt-chg-item{grid-template-columns:1fr}.mkt-chg-move{text-align:left}}
@@ -1097,15 +1116,20 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
 </div>
     <!-- MKT:quotes:END -->
     <p class="mkt-quote-note">
-      Eight of these eleven cards are the real thing, not a fund that tracks it: the actual index
-      level, spot WTI crude per barrel, bitcoin in dollars, the Treasury yields themselves and the
-      Federal Reserve's own dollar index. Those come from
-      <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED</a>, the St. Louis
-      Fed's public database. Three are proxies and say so on the card &mdash; Russell 2000 is the
-      <a class="lingo-x" href="learn-the-lingo/etf.html">ETF</a> IWM, gold is GLD, copper is CPER
-      &mdash; because no free source publishes the Russell index, the London gold benchmark or a
-      copper futures price. Those three carry Finnhub's 52-week high and low; the rest have their
-      range computed from a full year of daily history.
+      All eleven of these cards are the instrument itself rather than a fund that tracks it. Nine
+      &mdash; the four index levels, the ICE dollar index, NYMEX front-month WTI, COMEX gold and
+      copper, and bitcoin in dollars &mdash; come from
+      <a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Yahoo Finance</a>, each
+      stamped with the moment that price printed. The two Treasury yields come from the
+      <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener">U.S.&nbsp;Treasury</a>'s
+      own daily par yield curve, which it publishes the same afternoon rather than the next
+      morning. The three <a class="lingo-x" href="learn-the-lingo/etf.html">ETF</a> stand-ins this
+      tape used to run &mdash; IWM for the Russell, GLD for gold, CPER for copper &mdash; are gone:
+      a card headed GOLD that prints a fund's share price is telling you a number that is not the
+      gold price. Each range is computed from a full year of daily history. If a source cannot be
+      reached when the page is built, that card falls back to
+      <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED</a> or to its old
+      fund and the credit line on the card changes to say which.
     </p>
     <p class="mkt-quote-note">
       Three things worth knowing before you read them. A yield moves in basis points, not percent,
@@ -3984,8 +4008,8 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
      market-tables.js alongside the 10-row pager, and the reasoning for both
      being pure enhancement is in that file's header.
      ──────────────────────────────────────────────────────────────────────── -->
-<script src="market-tables.js?v=20260818-2310"></script>
-<script src="app.js?v=20260818-2310"></script>
+<script src="market-tables.js?v=20260819-0026"></script>
+<script src="app.js?v=20260819-0026"></script>
 <script>
 HFY.initNavOnly();
 </script>

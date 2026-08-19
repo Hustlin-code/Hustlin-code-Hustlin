@@ -139,6 +139,32 @@ async function deployedSource (slug) {
 
   const res = await api(`/projects/${REF}/functions/${slug}/body`)
   if (res.status === 404) return { missing: true }
+
+  /* 401/403 is not a transient blip and must not read like one. A Supabase
+     personal access token can be created WITH AN EXPIRY.
+
+     THIS PROJECT DELIBERATELY USES ONE WITH NO EXPIRY, decided 2026-08-19. The
+     first token was minted with a 30-day life, and a 30-day credential on an
+     unattended nightly job is a check that dies in a month with nobody watching.
+     The trade is explicit: a leaked token stays valid until it is revoked by
+     hand, which is acceptable for a secret that lives only in GitHub Secrets and
+     is never written to a file. If that stops being true, REVOKE it at the link
+     below rather than reaching for a short expiry.
+
+     Should an expiring token be used anyway, the day it lapses every
+     function reports "could not be compared" — which is technically true, looks
+     like a network wobble, and would leave the drift check dead while its job
+     kept going green.
+
+     Name the actual cause instead. This whole tool exists because something
+     stopped happening quietly for six days; it does not get to fail the same
+     way. */
+  if (res.status === 401 || res.status === 403) {
+    return { error: `HTTP ${res.status} — SUPABASE_ACCESS_TOKEN is invalid, revoked or EXPIRED. ` +
+                    `Personal access tokens can carry an expiry date. Mint a new one at ` +
+                    `https://supabase.com/dashboard/account/tokens and update the repo secret.` }
+  }
+
   if (!res.ok) return { error: `HTTP ${res.status}` }
 
   const buf = Buffer.from(await res.arrayBuffer())

@@ -93,6 +93,12 @@ jobs:
             echo "::warning::Decide which side is right before deploying — this drifts both ways."
           fi
 
+          if grep -q "EXPIRED" /tmp/edge.txt; then
+            echo "::warning::SUPABASE_ACCESS_TOKEN is expired, revoked or invalid. NOTHING was"
+            echo "::warning::compared. Mint a new token at https://supabase.com/dashboard/account/tokens"
+            echo "::warning::and update the repo secret under Settings -> Secrets and variables -> Actions."
+          fi
+
           if grep -q "could not be compared" /tmp/edge.txt; then
             echo "::warning::At least one Edge Function could not be compared. That is not"
             echo "::warning::the same as being in sync — read the log."

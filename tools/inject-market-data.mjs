@@ -440,10 +440,32 @@ ${y.series.map(s => `        <tr><th scope="row">${esc(s.label)}</th><td data-fi
     </p>`
 }
 
+/* WHEN THE SECTOR ROW LAST TRADED.
+
+   Adam, 2026-08-19: "I need a date and time stamp on these sector moves too."
+   A table headed TODAY with no time on it is the same defect as the tape had:
+   on a Monday morning it is showing Friday's close and saying "today".
+
+   market-data v13 puts Finnhub's quote timestamp on every sector row. All
+   eleven normally carry the SAME stamp — they are eleven ETFs on one exchange
+   closing at one bell — so the caption takes one stamp for the table rather
+   than repeating it eleven times. If they ever disagree, the newest wins and
+   that is the honest choice: it is the latest moment any of these numbers is
+   known to be true.
+
+   Returns '' when no row carries a stamp, so an older market-data deploy
+   degrades to the caption it has always had rather than to an empty "as of". */
+function sectorAsOf(rows) {
+  const ms = (rows ?? []).map(r => Number(r.asOfMs)).filter(n => Number.isFinite(n) && n > 0)
+  if (!ms.length) return ''
+  const stamp = etStamp(Math.max(...ms))
+  return stamp ? ` Prices as of ${stamp}.` : ''
+}
+
 function renderSectors(rows) {
   if (!rows?.length) return ''
   return `<table class="mkt-table">
-      <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.</caption>
+      <caption class="mkt-table-cap">Sector ETFs, ranked by today's move. These funds are how a retail investor actually buys a sector.${sectorAsOf(rows)}</caption>
       <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th></tr></thead>
       <tbody>
 ${rows.map(r => `        <tr><th scope="row">${esc(r.name)}</th><td>${esc(r.symbol)}</td><td class="${(r.changePct ?? 0) >= 0 ? 'up' : 'down'}" data-fill="sector-${esc(r.symbol)}">${esc(r.display)}</td></tr>`).join('\n')}
@@ -463,7 +485,7 @@ const CYCLE_LABEL = {
 function renderSectorsCycle(rows) {
   if (!rows?.length) return ''
   return `<table class="mkt-table">
-      <caption class="mkt-table-cap">Sector ETFs ranked by today's move, with the phase each has <em>historically tended</em> to lead in. That last column is a long-run generalization across many cycles, not a claim about this one &mdash; sectors regularly lead out of turn, and one day's move tells you nothing about a phase.</caption>
+      <caption class="mkt-table-cap">Sector ETFs ranked by today's move, with the phase each has <em>historically tended</em> to lead in. That last column is a long-run generalization across many cycles, not a claim about this one &mdash; sectors regularly lead out of turn, and one day's move tells you nothing about a phase.${sectorAsOf(rows)}</caption>
       <thead><tr><th scope="col">Sector</th><th scope="col">ETF</th><th scope="col">Today</th><th scope="col">Historically leads</th></tr></thead>
       <tbody>
 ${rows.map(r => `        <tr><th scope="row">${esc(r.name)}</th><td>${esc(r.symbol)}</td><td class="${(r.changePct ?? 0) >= 0 ? 'up' : 'down'}" data-fill="sector-${esc(r.symbol)}">${esc(r.display)}</td><td>${esc(CYCLE_LABEL[r.cycle] ?? '—')}</td></tr>`).join('\n')}
@@ -502,6 +524,35 @@ ${rows.map(r => `        <tr><th scope="row">${esc(r.name)}</th><td>${esc(r.symb
    range line then prints an em dash rather than silently falling back to a day
    range under a "1-year range" label. Same rule as everywhere else on this
    site — a missing number is a gap, a mislabeled one is a lie. */
+/* ─────────────────────────────────────────────────────── THE CLOCK ─────
+   Adam, 2026-08-19: "there is no time of day on when the price was gathered."
+
+   Until market-quotes v6 there was nothing to print — a FRED observation is a
+   date and nothing else. v6 stamps every tape card with `asOfDisplay`, the
+   moment that price actually printed, in New York time, and market-data v13
+   carries Finnhub's quote timestamp onto every sector row.
+
+   THE ONE THING THIS MUST NOT DO IS PRINT THE BUILD TIME. The build time says
+   when we asked; the reader is asking when the market last spoke. Those are the
+   same number only during a session, and on a Sunday they are two days apart.
+   Everything below formats a timestamp the SOURCE gave us. Where a source gives
+   none, the line is omitted — never filled with now(). */
+const ET_ZONE = 'America/New_York'
+
+const ET_STAMP = new Intl.DateTimeFormat('en-US', {
+  timeZone: ET_ZONE, month: 'short', day: 'numeric',
+  hour: 'numeric', minute: '2-digit', hour12: true,
+})
+
+/* 'Aug 18, 4:00 PM' -> 'Aug 18, 4:00 pm ET'. Same shape market-quotes already
+   emits, so a card whose stamp came from the function and a table whose stamp
+   we formatted here read identically. */
+function etStamp(ms) {
+  const n = Number(ms)
+  if (!Number.isFinite(n) || n <= 0) return ''
+  return ET_STAMP.format(new Date(n)).replace(/\bAM\b/, 'am').replace(/\bPM\b/, 'pm') + ' ET'
+}
+
 const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
                       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -575,17 +626,52 @@ ${rows.map(r => {
   const range = r.rangeDisplay ?? '—'
   const day = shortDay(r.asOf)
   const gap = rangeGap(r)
-  const src = [r.note ?? r.symbol, [r.source, day].filter(Boolean).join(', ')]
-    .filter(Boolean).join(' · ')
+  /* THE SOURCE LINE LOST ITS DATE, AND THE DATE GAINED A CLOCK.
+
+     It used to read "Dow 30 index · FRED, Aug 18" — a source and a bare day
+     jammed together, which is all a FRED observation could support. Now the
+     source and the timestamp are two lines, because the timestamp is a real
+     one and burying it inside a source credit is the reason nobody could find
+     it. `asOfDisplay` comes from market-quotes; `shortDay` is the fallback for
+     a row that only carries a date, which is any card that degraded to FRED. */
+  const src = [r.note ?? r.symbol, r.source].filter(Boolean).join(' · ')
+  const when = r.asOfDisplay
+    ? (r.asOfApprox ? `approx. ${r.asOfDisplay}` : r.asOfDisplay)
+    : (day || '')
   return `      <article class="mkt-quote ${up ? 'up' : 'down'}">
         <h3 class="mkt-quote-name">${esc(r.name)}</h3>
         <p class="mkt-quote-px" data-fill="q-${esc(fill)}">${esc(r.display)}</p>
         <p class="mkt-quote-chg">${esc(r.pctDisplay)}</p>
         <p class="mkt-quote-sym">1-year range ${esc(range)}</p>
 ${gap ? `        <p class="mkt-quote-gap">${esc(gap)}</p>\n` : ''}        <p class="mkt-quote-sym">${esc(src)}</p>
-      </article>`
+${when ? `        <p class="mkt-quote-time"><time>${esc(when)}</time></p>\n` : ''}      </article>`
 }).join('\n')}
-</div>`
+</div>
+${quotesFoot(rows)}`
+}
+
+/* WHAT THE READER NEEDS TOLD ONCE, UNDER THE GRID.
+
+   Two facts, and neither is decoration. First, that the time on each card is
+   when the PRICE printed, not when the page was built — without that a reader
+   who loads the page at noon and sees "4:00 pm ET" reasonably concludes the
+   site is broken. Second, that a stamp can legitimately be old, because the
+   market was shut. A page that only ever explains freshness has no way to
+   explain a weekend.
+
+   NO BUILD TIME HERE EITHER, deliberately. It would be the most prominent
+   number in the block and the least useful one. */
+function quotesFoot(rows) {
+  const stamped = rows.filter(r => r.asOfDisplay).length
+  if (!stamped) return ''
+  const srcs = [...new Set(rows.map(r => r.source).filter(Boolean))].sort()
+  const srcLine = srcs.length === 1
+    ? `All of it from ${esc(srcs[0])}.`
+    : `Sources: ${esc(srcs.join(', '))}.`
+  return `<p class="mkt-quote-foot">The time under each card is when that price
+    printed, in New York time &mdash; not when this page was built. ${srcLine}
+    These figures are refreshed hourly through the trading week, so a stamp from
+    the previous close means the market is shut, not that the page has stopped.</p>`
 }
 
 /* Headlines. Summaries are truncated hard: the point is to send the reader to
@@ -1448,15 +1534,62 @@ ${m.rows.map(r => {
    tools/build-charts.mjs reads to put a live final point on the Dow chart in
    Stage 5. Nothing on a Markets page renders it. Remove it from here and the
    chart silently reverts to ending at the last completed year. */
+/* THE SET IS THE GROUPING, AND IT WAS ALREADY HERE.
+
+   Adam, 2026-08-19, on the what-changed block: "I don't need the housing data
+   with the yields or the Dow, I almost don't understand that panel." He is
+   describing a flat list of twelve rows drawn from seven different datasets,
+   sorted only by whether they moved. Housing Starts next to the 10-year next to
+   the Dow is not a panel, it is a shuffle.
+
+   Every figure already knows which set it came from — this function was reading
+   the set name to iterate and then discarding it. Recording it costs one field
+   and gives the block its headings for free. No new data, no new fetch, no
+   mapping table to keep in sync with market-data's GROUPS.
+
+   LAST SET WINS, and that is the useful direction. `macro` is a headline
+   dashboard that repeats six series the specific sets also carry, so iterating
+   it first means `fedFunds` ends up filed under rates rather than under a
+   catch-all, and `unemployment` under jobs. Do not reorder this list without
+   reading that sentence again. */
 function flatten(data) {
   const out = {}
   for (const set of ['macro', 'growth', 'inflation', 'rates', 'labor', 'consumer', 'equity']) {
     for (const r of data[set] ?? []) {
-      out[r.key] = { label: r.label, display: r.display, value: r.value, date: r.date, freq: r.freq, better: r.better, fmt: r.fmt, deltaUnit: r.deltaUnit }
+      out[r.key] = { set, label: r.label, display: r.display, value: r.value, date: r.date, freq: r.freq, better: r.better, fmt: r.fmt, deltaUnit: r.deltaUnit }
     }
   }
   return out
 }
+
+/* Reading order, not alphabetical and not market-data's declaration order.
+   Rates first because that is what moves everything else and what a reader
+   checks first; markets last because the live cards at the top of the page
+   already carry those numbers with a timestamp, so here they are a footnote
+   rather than the headline.
+
+   The label has to describe the CONTENTS, not the set name. `growth` carries
+   housing starts and capacity utilization, so calling it "Growth" and leaving
+   a reader to find housing under it is the same failure at a smaller scale. */
+const CHG_GROUPS = [
+  ['rates',     'Rates and credit'],
+  ['inflation', 'Inflation'],
+  ['labor',     'Jobs'],
+  ['growth',    'Growth, output and housing'],
+  ['consumer',  'Households'],
+  ['equity',    'Markets'],
+  ['macro',     'Headline indicators'],
+]
+
+/* Per group, not overall. A single cap across the whole block let one busy
+   dataset — the daily rates series, always — crowd out a monthly jobs revision
+   that is the more interesting news. Eight is enough to show a genuine sweep
+   across the curve without the group becoming the rates table again.
+
+   AND IT SAYS WHEN IT DROPS SOMETHING. A block that silently truncates reads
+   as "this is everything that changed", which is the one thing it must not
+   imply on a page about being able to trust the numbers. */
+const CHG_PER_GROUP = 8
 
 function renderChanged(diff) {
   // First ever build: there is no previous snapshot to compare against. Say so
@@ -1466,17 +1599,34 @@ function renderChanged(diff) {
   if (!diff) {
     return `<p class="mkt-chg-none">This is the first update since change tracking was switched on, so there is nothing to compare against yet. From the next update onward this block lists every figure that moved and names both dates.</p>`
   }
-  if (!diff.rows.length) {
+  const groups = diff.groups ?? (diff.rows?.length ? [{ set: 'all', label: '', rows: diff.rows }] : [])
+  if (!groups.length) {
     return `<p class="mkt-chg-none">Nothing on this page has been revised since ${esc(diff.since)}. That is normal &mdash; most of these series report monthly, and a page that claimed something new every day would be making it up.</p>`
   }
-  return `<p class="mkt-chg-since">Comparing this update (${esc(diff.now)}) against the previous one (${esc(diff.since)}).</p>
-    <ul class="mkt-chg-list">
-${diff.rows.map(r => `      <li class="mkt-chg-item ${esc(r.dir)}">
-        <span class="mkt-chg-label">${esc(r.label)}</span>
-        <span class="mkt-chg-move">${esc(r.was)} <span aria-hidden="true">→</span> <strong>${esc(r.now)}</strong></span>
-        <span class="mkt-chg-note">${esc(r.note)}</span>
-      </li>`).join('\n')}
-    </ul>`
+
+  /* GROUPED, 2026-08-19. Same rows, same order within a group, headings added.
+     The heading is a real <h3> rather than a styled span so the block has a
+     structure a screen reader can move through, and so the page's heading
+     outline still makes sense with the block collapsed. */
+  const body = groups.map(g => `      <section class="mkt-chg-group">
+${g.label ? `        <h3 class="mkt-chg-head">${esc(g.label)}</h3>\n` : ''}        <ul class="mkt-chg-list">
+${g.rows.map(r => `          <li class="mkt-chg-item ${esc(r.dir)}">
+            <span class="mkt-chg-label">${esc(r.label)}</span>
+            <span class="mkt-chg-move">${esc(r.was)} <span aria-hidden="true">&rarr;</span> <strong>${esc(r.now)}</strong></span>
+            <span class="mkt-chg-note">${esc(r.note)}</span>
+          </li>`).join('\n')}
+        </ul>
+      </section>`).join('\n')
+
+  const more = diff.dropped
+    ? `<p class="mkt-chg-more">${esc(String(diff.dropped))} further ${diff.dropped === 1 ? 'reading' : 'readings'} moved and ${diff.dropped === 1 ? 'is' : 'are'} not listed &mdash; each group shows its ${esc(String(CHG_PER_GROUP))} most recent.</p>`
+    : ''
+
+  return `<p class="mkt-chg-since">Comparing this update (${esc(diff.now)}) against the previous one (${esc(diff.since)}). Grouped by what the figure measures &mdash; a mortgage rate and a housing start are not the same kind of news.</p>
+    <div class="mkt-chg-groups">
+${body}
+    </div>
+    ${more}`
 }
 
 function buildDiff(flat, prev, todayISO, sinceISO) {
@@ -1495,17 +1645,41 @@ function buildDiff(flat, prev, todayISO, sinceISO) {
     const rising = delta !== null && delta > 0
     const good = delta === null ? null : (rising && cur.better === 'up') || (!rising && cur.better === 'down')
     rows.push({
-      key, label: cur.label, was: old.display, now: cur.display,
+      key, set: cur.set ?? 'macro', label: cur.label, was: old.display, now: cur.display,
       dir: delta === null ? 'flat' : good ? 'good' : 'bad',
       note: old.date === cur.date
         ? 'revised for the same reference period'
         : `new reading for ${refDate(cur.date, cur.freq)}`,
     })
   }
-  // Biggest movers first, but cap it. A wall of 30 rows is not a "what changed"
-  // block, it is the same table again.
+  // Within a group, anything that actually moved before anything that only got
+  // revised. Across groups, CHG_GROUPS order decides — see the comment there.
   rows.sort((a, b) => (a.dir === 'flat' ? 1 : 0) - (b.dir === 'flat' ? 1 : 0))
-  return { rows: rows.slice(0, 12), since: sinceISO ?? prev.stamp ?? 'the previous update', now: todayISO }
+
+  const groups = []
+  let dropped = 0
+  for (const [set, label] of CHG_GROUPS) {
+    const mine = rows.filter(r => r.set === set)
+    if (!mine.length) continue
+    if (mine.length > CHG_PER_GROUP) dropped += mine.length - CHG_PER_GROUP
+    groups.push({ set, label, rows: mine.slice(0, CHG_PER_GROUP) })
+  }
+  // A set that is not in CHG_GROUPS at all would otherwise vanish without trace.
+  // That should never happen — CHG_GROUPS covers every set flatten() reads — but
+  // "should never happen" is how the last three silent-drop bugs started.
+  const known = new Set(CHG_GROUPS.map(g => g[0]))
+  const orphans = rows.filter(r => !known.has(r.set))
+  if (orphans.length) groups.push({ set: 'other', label: 'Everything else', rows: orphans })
+
+  return {
+    groups,
+    dropped,
+    total: rows.length,
+    // Kept for anything still reading the flat shape.
+    rows: groups.flatMap(g => g.rows),
+    since: sinceISO ?? prev.stamp ?? 'the previous update',
+    now: todayISO,
+  }
 }
 
 /* -------------------------------------------------------------- drawdown ---
