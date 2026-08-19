@@ -85,7 +85,11 @@ const IGNORE = new Set(['adsbygoogle', 'grecaptcha-badge']);
  * reproduces is reported as stale below, so this list cannot quietly outlive
  * the problem it describes.
  *
- *   .mkt-filter-note  markets-fundamental.html has one and no rule for it.
+ *   (.mkt-filter-note was here until 2026-08-19. The element lived inside the
+ *   earnings-calendar block, which was withdrawn for licensing, so the
+ *   exception stopped reproducing and this gate asked for it back. That is
+ *   the gate working: a KNOWN entry that no longer fires is a lie about the
+ *   state of the code.)
  *   .sym              markets-economic.html has one; only symbol-check.html
  *                     styles .sym standalone.
  */
@@ -95,7 +99,6 @@ const IGNORE = new Set(['adsbygoogle', 'grecaptcha-badge']);
    now gets them like every other page. The stale-entry check is what forced
    the issue — it went red the moment the finding stopped reproducing. */
 const KNOWN = new Map([
-  ['mkt-filter-note', ['markets-fundamental.html']],
   ['sym', ['markets-economic.html']],
 ]);
 

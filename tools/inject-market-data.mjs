@@ -1811,6 +1811,78 @@ function renderDrawdownStage4(d) {
 
 /* ----------------------------------------------------------------- pages --- */
 
+/* ══════════════════════════════════════════════════════════════════════════
+   WITHDRAWN BLOCKS — 2026-08-19
+
+   Adam: "lets strip and ship so we dont get in trouble."
+
+   Every block named here was built on data this site does not hold a licence to
+   republish. The audit is in `claude/FINDINGS-2026-08-19-FREE-MARKET-DATA-SOURCING.md`;
+   the short version is three findings, each from a primary source:
+
+     FRED HAS THREE USAGE TAGS, NOT TWO. Most of this site's 42 FRED series are
+     "Public Domain: Citation Requested" and a further ten are "Copyrighted:
+     Citation Required" — copyrighted but redistributable WITH attribution, no
+     permission needed. Those are all fine and none of them are touched here.
+     Only SP500, DJIA, NASDAQ100, CSUSHPINSA and the three ICE BofA spreads are
+     "Copyrighted: PRE-APPROVAL REQUIRED", and SP500's notice reads
+     "Reproduction of S&P 500 in any form is prohibited except with the prior
+     written permission of S&P Dow Jones Indices LLC."
+
+     FINNHUB'S TERMS BAR DERIVED RESULTS BY NAME: "not redistribute or share
+     access to data or derived results from the data … without written approval
+     from Finnhub", and "All plan listed on Finnhub website is strictly for
+     personal use." Every Finnhub-fed block goes.
+
+     YAHOO'S TERMS prohibit automated collection and building a data feed.
+
+   THE ONE THING THIS FILE MUST NOT DO IS QUIETLY EMPTY A BLOCK. An empty marker
+   leaves whatever was baked there last time — which on this site would be the
+   licensed number, still published, with nothing saying so. Setting `set: null`
+   here does two things at once: the union in main() stops REQUESTING the set,
+   and the block renders a visible notice that replaces the old figures.
+
+   THIS IS REVERSIBLE AND MEANT TO BE. Written permission from any one of these
+   sources re-opens its blocks — delete the entry, nothing else. Finnhub's own
+   clause says "without written approval", so approval is a defined route that
+   has never been tried. Do not delete the renderers.
+
+   NOT WITHDRAWN, and each for a checked reason: the tape (`quotes`) survives
+   because market-quotes v7 was cut back to public-domain rows only; `mood`
+   survives because VIX and VXN are Citation Required, and market-data drops
+   only its three ICE spreads; `growth` survives minus CSUSHPINSA; `news`
+   survives because a headline and a link out is not republication of a dataset.
+   ══════════════════════════════════════════════════════════════════════════ */
+const WITHDRAWN = {
+  drawdown:      'how far the S&P 500 sits below its record high',
+  techDrawdown:  'how far the S&P 500 sits below its record high',
+  ddStage4:      'how far the S&P 500 sits below its record high',
+  sectors:       "the sector ETF table, ranked by today's move",
+  econSectors:   'the sector ETF table with cycle context',
+  fundSectors:   "the sector ETF table, ranked by today's move",
+  screenSectors: "the sector ETF table, ranked by today's move",
+  techSectors:   'sector breadth across six horizons',
+  sectorReturns: 'sector total returns across six horizons',
+  earnings:      'the earnings calendar',
+  fundEarnings:  'the earnings calendar',
+  spotEarnings:  'the earnings calendar',
+  earningsScore: 'the earnings-season scoreboard',
+}
+
+/* Colour is INHERITED and dimmed rather than set, because these blocks land on
+   both the dark Markets pages and the light Economic one, and a hex that reads
+   on #0B0B0B is invisible on #FAF7F2. `currentColor` and `opacity` adapt to
+   whichever they are dropped into. No class, deliberately — a class with no
+   rule anywhere would trip the shared-CSS gate on every page that used it. */
+function renderWithdrawn(what) {
+  return `<p style="margin:0;padding:14px 18px;border-left:3px solid currentColor;opacity:.72;font-size:14px;line-height:1.65">
+      <strong>Withdrawn.</strong> This showed ${esc(what)}. It came from a source whose licence
+      does not permit us to republish it, so we took it down rather than publish a number we
+      cannot show a right to publish. We would rather have a gap here than a figure we cannot
+      stand behind. The rest of this page runs on public-domain government data and is unchanged.
+    </p>`
+}
+
 const PAGES = [
   {
     file: 'markets.html',
@@ -1987,6 +2059,17 @@ async function main() {
 
   // Which pages exist, and which markers are actually in them.
   const live = []
+  /* Applied here rather than by hand-editing thirteen entries above, so the
+     PAGES map still records what each marker IS and one list records what is
+     currently withheld. `set: null` is what stops main() requesting the data. */
+  for (const p of PAGES) {
+    for (const name of Object.keys(p.sections)) {
+      if (!(name in WITHDRAWN)) continue
+      const what = WITHDRAWN[name]
+      p.sections[name] = { set: null, render: () => renderWithdrawn(what) }
+    }
+  }
+
   for (const p of PAGES) {
     const path = join(ROOT, p.file)
     if (!existsSync(path)) { console.log(`  skip ${p.file}: not in the repo`); continue }
@@ -2112,6 +2195,21 @@ async function main() {
       const qd = await r.json()
       if (qd.errors) {
         for (const [k, v] of Object.entries(qd.errors)) console.log(`  quote warning [${k}]: ${v}`)
+      }
+      /* DEGRADED IS NOT THE SAME AS MISSING, and until 2026-08-19 only missing
+         was reported. A fallback SUCCEEDS: when Yahoo rate-limits the tape every
+         card quietly returns a FRED number under a FRED label, `errors` is empty,
+         `returned` equals `requested`, and this block logged a clean green line
+         about a page that had just reverted to day-old data.
+
+         `::warning::` rather than console.log, because a plain log line is
+         scrollback nobody opens and a workflow warning lands on the Action's
+         summary page. GitHub ignores the annotation syntax when it is not
+         running in Actions, so a local run just sees the text. */
+      if (qd.degraded) {
+        const keys = Object.keys(qd.degraded)
+        console.log(`::warning title=Tape degraded::${keys.length} of ${qd.requested} card(s) fell back to a slower source: ${keys.join(', ')}`)
+        for (const [k, v] of Object.entries(qd.degraded)) console.log(`  DEGRADED [${k}]: ${v}`)
       }
       if (Array.isArray(qd.quotes) && qd.quotes.length) {
         data.quotes = qd.quotes

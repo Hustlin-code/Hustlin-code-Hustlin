@@ -118,7 +118,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="styles.css?v=20260819-0026">
+<link rel="stylesheet" href="styles.css?v=20260819-0214">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 <style>
@@ -1068,20 +1068,27 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
     the previous close means the market is shut, not that the page has stopped.</p>
     <!-- MKT:quotes:END -->
     <p class="mkt-quote-note">
-      All eleven of these cards are the instrument itself rather than a fund that tracks it. Nine
-      &mdash; the four index levels, the ICE dollar index, NYMEX front-month WTI, COMEX gold and
-      copper, and bitcoin in dollars &mdash; come from
-      <a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Yahoo Finance</a>, each
-      stamped with the moment that price printed. The two Treasury yields come from the
+      <strong>This tape is deliberately short.</strong> Every figure on it comes from a U.S.
+      government source that publishes in the public domain, and we removed the ones that did not.
+      The two Treasury yields come from the
       <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener">U.S.&nbsp;Treasury</a>'s
-      own daily par yield curve, which it publishes the same afternoon rather than the next
-      morning. The three <a class="lingo-x" href="learn-the-lingo/etf.html">ETF</a> stand-ins this
-      tape used to run &mdash; IWM for the Russell, GLD for gold, CPER for copper &mdash; are gone:
-      a card headed GOLD that prints a fund's share price is telling you a number that is not the
-      gold price. Each range is computed from a full year of daily history. If a source cannot be
-      reached when the page is built, that card falls back to
-      <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED</a> or to its old
-      fund and the credit line on the card changes to say which.
+      own daily par yield curve, published the same afternoon rather than the next morning. The
+      dollar figure is the Federal Reserve's broad dollar index &mdash; a trade-weighted basket the
+      Fed publishes itself, <em>not</em> the ICE index quoted on financial television, which is a
+      different basket at a different level. Oil is the EIA's West Texas Intermediate spot price.
+      Both come through <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED</a>,
+      the St.&nbsp;Louis Fed's public database. Each range is computed from a full year of daily
+      history, and each card carries the time its own figure was published.
+    </p>
+    <p class="mkt-quote-note">
+      <strong>Why there is no S&amp;P 500, Dow or Nasdaq here.</strong> Index levels are licensed
+      products &mdash; they belong to the companies that build the indexes, and publishing them
+      requires written permission we have not asked for and do not hold. The same is true of the
+      gold and copper futures prices and of the ICE dollar index. We would rather show you four
+      numbers we can stand behind than eleven we cannot. If you want the headline indexes right
+      now, your brokerage app has them. What this page is for is the material underneath them:
+      rates, <a class="lingo-x" href="learn-the-lingo/inflation.html">inflation</a>, jobs, credit and housing &mdash; all of it public, all of it free, and most
+      of it more useful for deciding anything than a number that changes every second.
     </p>
     <p class="mkt-quote-note">
       Three things worth knowing before you read them. A yield moves in basis points, not percent,
@@ -1522,7 +1529,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
     <p class="eye">Economic Analysis</p>
     <h2>The numbers that move everything else.</h2>
     <p class="lede">
-      Before any chart pattern or earnings report matters, these do. <a class="lingo-x" href="learn-the-lingo/inflation.html">Inflation</a> sets what
+      Before any chart pattern or earnings report matters, these do. Inflation sets what
       your money is worth, the Fed funds rate sets what borrowing costs, and the gap
       between short and long bonds has front-run most modern recessions. Updated from the
       Federal Reserve's own data, with the source date on every figure.
@@ -3289,7 +3296,7 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
       The honest limits. Relative strength is descriptive, not predictive &mdash; leadership
       persists more often than chance for intermediate horizons, and reverses hard at turning
       points. Sector ETFs are also imperfect proxies: a company can be classified into a sector it
-      barely resembles, and the largest holdings dominate the ETF's return, so a small company is
+      barely resembles, and the largest holdings dominate the <a class="lingo-x" href="learn-the-lingo/etf.html">ETF</a>'s return, so a small company is
       being compared against its biggest competitors. Read it as context, not a verdict.
     </p>
 
@@ -3960,8 +3967,8 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
      market-tables.js alongside the 10-row pager, and the reasoning for both
      being pure enhancement is in that file's header.
      ──────────────────────────────────────────────────────────────────────── -->
-<script src="market-tables.js?v=20260819-0026"></script>
-<script src="app.js?v=20260819-0026"></script>
+<script src="market-tables.js?v=20260819-0214"></script>
+<script src="app.js?v=20260819-0214"></script>
 <script>
 HFY.initNavOnly();
 </script>

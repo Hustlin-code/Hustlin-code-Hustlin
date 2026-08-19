@@ -702,8 +702,19 @@ function djiaInline() {
   }
 }
 
+/* The inline figures are the same licensing problem in a smaller font — a
+   sentence reading "the Dow is at 53,343" republishes the index level just as a
+   chart does. Every data-djia span is replaced with an em dash, which is this
+   site's standing convention for a number we do not have: a gap, never a zero
+   and never a stale figure left in place. The surrounding prose on those pages
+   needs a read; that is noted in the session doc. */
 function stampInline(html) {
   if (!/data-djia="/.test(html)) return html
+  if (WITHDRAWN_CHARTS.has('djia')) {
+    return html.replace(
+      /(<span data-djia="[a-z]+"[^>]*>)([\s\S]*?)(<\/span>)/g,
+      (_m, open, _body, close) => open + '&mdash;' + close)
+  }
   const v = djiaInline()
   return html.replace(
     /(<span data-djia="([a-z]+)"[^>]*>)([\s\S]*?)(<\/span>)/g,
@@ -724,6 +735,38 @@ function walk(dir, out = []) {
   return out
 }
 
+/* ── WITHDRAWN CHARTS — 2026-08-19 ─────────────────────────────────────────
+   `djia` drew the Dow Jones Industrial Average from tools/series/djia-annual.json
+   plus the live level. FRED tags DJIA "Copyrighted: Pre-Approval Required" and
+   its notice reads: "Copyright © 2016, S&P Dow Jones Indices LLC. All rights
+   reserved. Reproduction of Dow Jones Industrial Average in any form is
+   prohibited except with the prior written permission of S&P Dow Jones Indices
+   LLC." Drawing our own SVG of it does not change what is being reproduced —
+   the chart IS the index level, plotted.
+
+   DRAWING IT OURSELVES WAS THE RIGHT CALL FOR A DIFFERENT REASON and that
+   reasoning still holds: an iframe credits the third party, not hustlin.org.
+   The problem was never the rendering, it was the underlying licence.
+
+   `chances` IS DELIBERATELY NOT WITHDRAWN. It plots the historical probability
+   of a loss over holding periods — an aggregate statistic that cannot be
+   reverse-engineered back to any S&P 500 value, which is the recognised
+   non-substitutive-derived-data line. It is also core Stage 4 course content.
+   Withdrawing it would gut a module for no real reduction in exposure. Flagged
+   for Adam in `claude/SESSION-2026-08-19-LICENSING-STRIP.md` rather than
+   decided silently — if he wants it out, add 'chances' to the set below.
+
+   NOT DELETED. The CHARTS entry, the renderer and the data file handling all
+   still work. Written permission from S&P DJI re-enables the chart by emptying
+   this set. */
+const WITHDRAWN_CHARTS = new Set(['djia'])
+
+const WITHDRAWN_NOTE =
+  '<p style="margin:0;padding:14px 18px;border-left:3px solid currentColor;opacity:.72;' +
+  'font-size:14px;line-height:1.65"><strong>Withdrawn.</strong> This chart plotted an index ' +
+  'whose owner does not license us to republish it. We took it down rather than publish ' +
+  'something we cannot show a right to publish.</p>'
+
 let written = 0, same = 0, missing = []
 const names = Object.keys(CHARTS)
 
@@ -733,7 +776,8 @@ for (const file of walk(ROOT)) {
   for (const n of names) {
     const re = new RegExp(`(<!--\\s*CHART:${n}:START\\s*-->)([\\s\\S]*?)(<!--\\s*CHART:${n}:END\\s*-->)`)
     if (!re.test(out)) continue
-    out = out.replace(re, (_m, a, _body, b) => a + renderBlock(n) + b)
+    out = out.replace(re, (_m, a, _body, b) =>
+      a + (WITHDRAWN_CHARTS.has(n) ? WITHDRAWN_NOTE : renderBlock(n)) + b)
   }
   // Runs on every file, not only ones carrying a CHART marker: a page can
   // quote the level in prose without drawing the chart.

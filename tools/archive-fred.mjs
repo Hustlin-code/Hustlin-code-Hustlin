@@ -85,11 +85,23 @@ const only = onlyArg ? onlyArg.slice(7).split(',').map(s => s.trim().toUpperCase
  * refuses anything else, deliberately — it is a public unauthenticated endpoint
  * and without the allowlist it is an open proxy to our FRED quota. */
 const SERIES = [
-  // ── Being withdrawn: three-year rolling window since April 2026 ──────────
-  { id: 'BAMLH0A0HYM2', urgent: true, label: 'High yield OAS' },
-  { id: 'BAMLC0A0CM',   urgent: true, label: 'Investment grade OAS' },
-  { id: 'BAMLH0A3HYC',  urgent: true, label: 'CCC & lower OAS' },
-  { id: 'BAMLC0A4CBBB', urgent: true, label: 'BBB OAS' },
+  /* ── THE FOUR ICE BofA SPREADS WERE REMOVED 2026-08-19 ────────────────────
+     BAMLH0A0HYM2, BAMLC0A0CM, BAMLH0A3HYC and BAMLC0A4CBBB were archived here
+     precisely BECAUSE FRED cut them to a rolling three-year window in April
+     2026 — the whole point was to keep history before it disappeared.
+
+     A licensing audit then read their FRED tag: "Copyrighted: Pre-Approval
+     Required", with the notice "Reproduction of this data in any form is
+     prohibited except with the prior written permission of ICE Data Indices."
+
+     Which recasts what this archive was. Keeping a private copy of data whose
+     publisher is withdrawing it is one thing; keeping it in a PUBLIC GitHub
+     repository, which this is, is republication. The committed JSON files were
+     moved out on the same day.
+
+     Not a judgement about whether the three-year window was a good decision by
+     FRED. It is a judgement that we cannot hold the mirror in public.
+     ──────────────────────────────────────────────────────────────────────── */
 
   // ── Public domain. Archived so our own charts have history deeper than
   //    whatever window a single API call happens to return. ──
