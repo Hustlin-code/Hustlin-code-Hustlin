@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-08-19",
-  "bakedAt": "2026-08-19T10:04:22.579Z",
+  "stamp": "2026-08-20",
+  "bakedAt": "2026-08-20T10:05:46.776Z",
   "figures": {
     "inflation": {
       "set": "inflation",
@@ -80,6 +80,7 @@
       "deltaUnit": "pts"
     },
     "retailSales": {
+      "set": "growth",
       "label": "Retail Sales",
       "display": "5.0%",
       "value": 5.00924,
@@ -159,7 +160,7 @@
       "label": "10-Year Breakeven Inflation",
       "display": "2.30%",
       "value": 2.3,
-      "date": "2026-08-18",
+      "date": "2026-08-19",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -168,9 +169,9 @@
     "forward5y5y": {
       "set": "inflation",
       "label": "5-Year, 5-Year Forward",
-      "display": "2.33%",
-      "value": 2.33,
-      "date": "2026-08-18",
+      "display": "2.32%",
+      "value": 2.32,
+      "date": "2026-08-19",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -179,9 +180,9 @@
     "threeMonth": {
       "set": "rates",
       "label": "3-Month Treasury",
-      "display": "3.87%",
-      "value": 3.87,
-      "date": "2026-08-17",
+      "display": "3.86%",
+      "value": 3.86,
+      "date": "2026-08-18",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -192,17 +193,18 @@
       "label": "2-Year Treasury",
       "display": "4.19%",
       "value": 4.19,
-      "date": "2026-08-17",
+      "date": "2026-08-18",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
       "deltaUnit": "pts"
     },
     "tenYear": {
+      "set": "rates",
       "label": "10-Year Treasury",
-      "display": "4.72%",
-      "value": 4.72,
-      "date": "2026-08-17",
+      "display": "4.71%",
+      "value": 4.71,
+      "date": "2026-08-18",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -211,19 +213,20 @@
     "thirtyYear": {
       "set": "rates",
       "label": "30-Year Treasury",
-      "display": "5.31%",
-      "value": 5.31,
-      "date": "2026-08-17",
+      "display": "5.28%",
+      "value": 5.28,
+      "date": "2026-08-18",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
       "deltaUnit": "pts"
     },
     "realTenYear": {
+      "set": "rates",
       "label": "10-Year Real Yield (TIPS)",
-      "display": "2.44%",
-      "value": 2.44,
-      "date": "2026-08-17",
+      "display": "2.41%",
+      "value": 2.41,
+      "date": "2026-08-18",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -243,9 +246,9 @@
     "curve10y2y": {
       "set": "rates",
       "label": "10-Year minus 2-Year",
-      "display": "0.52%",
-      "value": 0.52,
-      "date": "2026-08-18",
+      "display": "0.46%",
+      "value": 0.46,
+      "date": "2026-08-19",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -254,9 +257,9 @@
     "curve10y3m": {
       "set": "rates",
       "label": "10-Year minus 3-Month",
-      "display": "0.85%",
-      "value": 0.85,
-      "date": "2026-08-18",
+      "display": "0.79%",
+      "value": 0.79,
+      "date": "2026-08-19",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -317,6 +320,7 @@
       "deltaUnit": "thousand"
     },
     "participation": {
+      "set": "labor",
       "label": "Labor Force Participation",
       "display": "61.4%",
       "value": 61.4,
@@ -394,7 +398,7 @@
   },
   "cadenceStamps": {
     "monthly": "2026-08-15",
-    "daily": "2026-08-19",
+    "daily": "2026-08-20",
     "intraday": "2026-08-20"
   },
   "earningsWatch": [

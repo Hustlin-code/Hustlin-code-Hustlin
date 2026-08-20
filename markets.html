@@ -1426,7 +1426,55 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
       have to guess how fresh a number is.
     </p>
     <!-- MKT:changed:START -->
-    <p class="mkt-chg-none">Nothing on this page has been revised since 2026-08-19. That is normal &mdash; most of these series report monthly, and a page that claimed something new every day would be making it up.</p>
+    <p class="mkt-chg-since">Comparing this update (2026-08-20) against the previous one (2026-08-19). Grouped by what the figure measures &mdash; a mortgage rate and a housing start are not the same kind of news.</p>
+    <div class="mkt-chg-groups">
+      <section class="mkt-chg-group">
+        <h3 class="mkt-chg-head">Rates and credit</h3>
+        <ul class="mkt-chg-list">
+          <li class="mkt-chg-item good">
+            <span class="mkt-chg-label">3-Month Treasury</span>
+            <span class="mkt-chg-move">3.87% <span aria-hidden="true">&rarr;</span> <strong>3.86%</strong></span>
+            <span class="mkt-chg-note">new reading for 18 Aug 2026</span>
+          </li>
+          <li class="mkt-chg-item good">
+            <span class="mkt-chg-label">10-Year Treasury</span>
+            <span class="mkt-chg-move">4.72% <span aria-hidden="true">&rarr;</span> <strong>4.71%</strong></span>
+            <span class="mkt-chg-note">new reading for 18 Aug 2026</span>
+          </li>
+          <li class="mkt-chg-item good">
+            <span class="mkt-chg-label">30-Year Treasury</span>
+            <span class="mkt-chg-move">5.31% <span aria-hidden="true">&rarr;</span> <strong>5.28%</strong></span>
+            <span class="mkt-chg-note">new reading for 18 Aug 2026</span>
+          </li>
+          <li class="mkt-chg-item good">
+            <span class="mkt-chg-label">10-Year Real Yield (TIPS)</span>
+            <span class="mkt-chg-move">2.44% <span aria-hidden="true">&rarr;</span> <strong>2.41%</strong></span>
+            <span class="mkt-chg-note">new reading for 18 Aug 2026</span>
+          </li>
+          <li class="mkt-chg-item bad">
+            <span class="mkt-chg-label">10-Year minus 2-Year</span>
+            <span class="mkt-chg-move">0.52% <span aria-hidden="true">&rarr;</span> <strong>0.46%</strong></span>
+            <span class="mkt-chg-note">new reading for 19 Aug 2026</span>
+          </li>
+          <li class="mkt-chg-item bad">
+            <span class="mkt-chg-label">10-Year minus 3-Month</span>
+            <span class="mkt-chg-move">0.85% <span aria-hidden="true">&rarr;</span> <strong>0.79%</strong></span>
+            <span class="mkt-chg-note">new reading for 19 Aug 2026</span>
+          </li>
+        </ul>
+      </section>
+      <section class="mkt-chg-group">
+        <h3 class="mkt-chg-head">Inflation</h3>
+        <ul class="mkt-chg-list">
+          <li class="mkt-chg-item good">
+            <span class="mkt-chg-label">5-Year, 5-Year Forward</span>
+            <span class="mkt-chg-move">2.33% <span aria-hidden="true">&rarr;</span> <strong>2.32%</strong></span>
+            <span class="mkt-chg-note">new reading for 19 Aug 2026</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+    
     <!-- MKT:changed:END -->
     <p class="mkt-chg-more">
       <a href="markets-economic.html">See all thirty indicators, read in order →</a>
@@ -1475,6 +1523,13 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
         <p class="mkt-stat-blurb">The rate the Fed sets. Mortgages, card APRs and savings yields all move off it.</p>
         <p class="mkt-stat-src">Jul 2026 · <a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">FRED FEDFUNDS</a></p>
       </article>
+      <article class="mkt-stat" data-series="A191RL1Q225SBEA">
+        <h3 class="mkt-stat-label">GDP Growth (annualised)</h3>
+        <p class="mkt-stat-value" data-fill="gdp">1.5%</p>
+        <p class="mkt-stat-trend bad"><span aria-hidden="true">↓</span> down 2.3 pts vs a year ago</p>
+        <p class="mkt-stat-blurb">How fast the whole economy grew last quarter.</p>
+        <p class="mkt-stat-src">Q2 2026 · <a href="https://fred.stlouisfed.org/series/A191RL1Q225SBEA" target="_blank" rel="noopener">FRED A191RL1Q225SBEA</a></p>
+      </article>
       <article class="mkt-stat" data-series="PSAVERT">
         <h3 class="mkt-stat-label">Personal Savings Rate</h3>
         <p class="mkt-stat-value" data-fill="savingsRate">2.7%</p>
@@ -1491,13 +1546,13 @@ th[aria-sort="ascending"],th[aria-sort="descending"]{color:#060606}
       <caption class="mkt-table-cap">Rates, and what the gap between them is saying</caption>
       <thead><tr><th scope="col">Rate</th><th scope="col">Now</th><th scope="col">As of</th></tr></thead>
       <tbody>
-        <tr><th scope="row">2-Year Treasury</th><td data-fill="twoYear">4.19%</td><td>17 Aug 2026</td></tr>
-        <tr><th scope="row">10-Year Treasury</th><td data-fill="tenYear">4.72%</td><td>17 Aug 2026</td></tr>
+        <tr><th scope="row">2-Year Treasury</th><td data-fill="twoYear">4.19%</td><td>18 Aug 2026</td></tr>
+        <tr><th scope="row">10-Year Treasury</th><td data-fill="tenYear">4.71%</td><td>18 Aug 2026</td></tr>
         <tr><th scope="row">30-Year Mortgage</th><td data-fill="mortgage30">6.67%</td><td>13 Aug 2026</td></tr>
       </tbody>
     </table>
     <p class="mkt-spread normal">
-      <strong>10-year minus 2-year: <span data-fill="spread">+0.53%</span></strong><br>
+      <strong>10-year minus 2-year: <span data-fill="spread">+0.52%</span></strong><br>
       The curve is normal — longer bonds pay more than shorter ones, which is what you would expect when investors are compensated for tying money up.
     </p>
     <!-- MKT:yields:END -->
