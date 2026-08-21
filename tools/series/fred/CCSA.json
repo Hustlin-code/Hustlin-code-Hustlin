@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/CCSA",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-20",
-"count": 3109,
+"updated": "2026-08-21",
+"count": 3110,
 "obs": [
 ["1967-01-07",1134000],
 ["1967-01-14",1119000],
@@ -3115,6 +3115,7 @@
 ["2026-07-11",1789000],
 ["2026-07-18",1777000],
 ["2026-07-25",1799000],
-["2026-08-01",1777000]
+["2026-08-01",1781000],
+["2026-08-08",1799000]
 ]
 }

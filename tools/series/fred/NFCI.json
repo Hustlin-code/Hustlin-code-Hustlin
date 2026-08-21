@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/NFCI",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-20",
+"updated": "2026-08-21",
 "count": 2902,
 "obs": [
 ["1971-01-08",0.598],
