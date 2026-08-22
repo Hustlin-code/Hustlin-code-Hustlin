@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/M2SL",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-21",
+"updated": "2026-08-22",
 "count": 810,
 "obs": [
 ["1959-01-01",286.6],

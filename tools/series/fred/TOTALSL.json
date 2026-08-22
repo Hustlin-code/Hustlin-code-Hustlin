@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/TOTALSL",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-21",
+"updated": "2026-08-22",
 "count": 1002,
 "obs": [
 ["1943-01-01",6577.83],
