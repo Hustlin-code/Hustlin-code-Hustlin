@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/T10Y2Y",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-25",
-"count": 13105,
+"updated": "2026-08-26",
+"count": 13106,
 "obs": [
 ["1976-06-01",0.68],
 ["1976-06-02",0.71],
@@ -13111,6 +13111,7 @@
 ["2026-08-19",0.46],
 ["2026-08-20",0.5],
 ["2026-08-21",0.5],
-["2026-08-24",0.46]
+["2026-08-24",0.46],
+["2026-08-25",0.47]
 ]
 }
