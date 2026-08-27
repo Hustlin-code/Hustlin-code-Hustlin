@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/PSAVERT",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-26",
-"count": 810,
+"updated": "2026-08-27",
+"count": 811,
 "obs": [
 ["1959-01-01",11.3],
 ["1959-02-01",10.6],
@@ -814,8 +814,9 @@
 ["2026-01-01",4.4],
 ["2026-02-01",3.8],
 ["2026-03-01",3.5],
-["2026-04-01",3],
+["2026-04-01",2.9],
 ["2026-05-01",2.8],
-["2026-06-01",2.7]
+["2026-06-01",2.6],
+["2026-07-01",3]
 ]
 }
