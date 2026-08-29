@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-08-28",
-  "bakedAt": "2026-08-28T20:59:14.308Z",
+  "stamp": "2026-08-29",
+  "bakedAt": "2026-08-29T14:41:48.879Z",
   "figures": {
     "inflation": {
       "set": "inflation",
@@ -158,9 +158,9 @@
     "breakeven10": {
       "set": "inflation",
       "label": "10-Year Breakeven Inflation",
-      "display": "2.33%",
-      "value": 2.33,
-      "date": "2026-08-27",
+      "display": "2.31%",
+      "value": 2.31,
+      "date": "2026-08-28",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -169,9 +169,9 @@
     "forward5y5y": {
       "set": "inflation",
       "label": "5-Year, 5-Year Forward",
-      "display": "2.35%",
-      "value": 2.35,
-      "date": "2026-08-27",
+      "display": "2.32%",
+      "value": 2.32,
+      "date": "2026-08-28",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -246,9 +246,9 @@
     "curve10y2y": {
       "set": "rates",
       "label": "10-Year minus 2-Year",
-      "display": "0.47%",
-      "value": 0.47,
-      "date": "2026-08-27",
+      "display": "0.39%",
+      "value": 0.39,
+      "date": "2026-08-28",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -259,7 +259,7 @@
       "label": "10-Year minus 3-Month",
       "display": "0.83%",
       "value": 0.83,
-      "date": "2026-08-27",
+      "date": "2026-08-28",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -398,7 +398,7 @@
   },
   "cadenceStamps": {
     "monthly": "2026-08-15",
-    "daily": "2026-08-28",
+    "daily": "2026-08-29",
     "intraday": "2026-08-29"
   },
   "earningsWatch": [
