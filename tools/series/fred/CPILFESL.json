@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/CPILFESL",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-08-29",
+"updated": "2026-08-30",
 "count": 835,
 "obs": [
 ["1957-01-01",28.5],
