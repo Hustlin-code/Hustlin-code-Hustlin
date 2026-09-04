@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/VIXCLS",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-09-03",
-"count": 9567,
+"updated": "2026-09-04",
+"count": 9568,
 "obs": [
 ["1990-01-02",17.24],
 ["1990-01-03",18.19],
@@ -9573,6 +9573,7 @@
 ["2026-08-28",14.43],
 ["2026-08-31",14.92],
 ["2026-09-01",16.34],
-["2026-09-02",15.2]
+["2026-09-02",15.2],
+["2026-09-03",14.32]
 ]
 }
