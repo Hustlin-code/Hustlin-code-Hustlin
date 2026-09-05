@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/BUSLOANS",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-09-04",
+"updated": "2026-09-05",
 "count": 955,
 "obs": [
 ["1947-01-01",11.2894],
@@ -960,7 +960,7 @@
 ["2026-03-01",2823.5111],
 ["2026-04-01",2859.6739],
 ["2026-05-01",2888.448],
-["2026-06-01",2905.1413],
-["2026-07-01",2899.3274]
+["2026-06-01",2905.135],
+["2026-07-01",2899.3252]
 ]
 }
