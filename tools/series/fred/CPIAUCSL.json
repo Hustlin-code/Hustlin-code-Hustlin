@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/CPIAUCSL",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-09-10",
-"count": 955,
+"updated": "2026-09-11",
+"count": 956,
 "obs": [
 ["1947-01-01",21.48],
 ["1947-02-01",21.62],
@@ -961,6 +961,7 @@
 ["2026-04-01",332.407],
 ["2026-05-01",333.979],
 ["2026-06-01",332.568],
-["2026-07-01",332.813]
+["2026-07-01",332.813],
+["2026-08-01",334.131]
 ]
 }

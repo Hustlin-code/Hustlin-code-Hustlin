@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/WALCL",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-09-10",
-"count": 1238,
+"updated": "2026-09-11",
+"count": 1239,
 "obs": [
 ["2002-12-18",719542],
 ["2002-12-25",732059],
@@ -1244,6 +1244,7 @@
 ["2026-08-12",6759955],
 ["2026-08-19",6745699],
 ["2026-08-26",6730912],
-["2026-09-02",6737204]
+["2026-09-02",6737204],
+["2026-09-09",6740619]
 ]
 }
