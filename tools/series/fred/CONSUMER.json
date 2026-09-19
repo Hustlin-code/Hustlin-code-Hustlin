@@ -4,7 +4,7 @@
 "source": "https://fred.stlouisfed.org/series/CONSUMER",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-09-18",
+"updated": "2026-09-19",
 "count": 956,
 "obs": [
 ["1947-01-01",4.1612],
@@ -961,7 +961,7 @@
 ["2026-04-01",1887.8114],
 ["2026-05-01",1893.7241],
 ["2026-06-01",1900.5001],
-["2026-07-01",1911.5107],
-["2026-08-01",1917.5494]
+["2026-07-01",1911.5096],
+["2026-08-01",1917.586]
 ]
 }
