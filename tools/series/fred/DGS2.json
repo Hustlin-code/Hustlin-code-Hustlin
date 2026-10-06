@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/DGS2",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-10-05",
-"count": 13132,
+"updated": "2026-10-06",
+"count": 13133,
 "obs": [
 ["1976-06-01",7.26],
 ["1976-06-02",7.23],
@@ -13138,6 +13138,7 @@
 ["2026-09-28",4.92],
 ["2026-09-29",4.89],
 ["2026-09-30",4.88],
-["2026-10-01",4.78]
+["2026-10-01",4.78],
+["2026-10-02",4.83]
 ]
 }
