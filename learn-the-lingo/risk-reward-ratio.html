@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -491,7 +475,7 @@
 
   <h2 id="mistakes">What trips people up</h2>
 
-  <ul><li><b>Quoting a ratio without a win rate.</b> The single most common error on this subject, and it makes the number uninterpretable. 3 to 1 needs 25%; whether the setup delivers 25% is a completely separate question and the ratio cannot answer it.</li><li><b>Trusting the colon.</b> &ldquo;1:2&rdquo; appears twice in the break-even table above, in two rows that describe opposite trades. Say which number is the risk and which is the reward, in words, every time.</li><li><b>Solving for the target.</b> Deciding you want 3 to 1 and then placing the target wherever produces 3 to 1 is not analysis. The risk leg is tethered to a real order; the reward leg is tethered to nothing, and that asymmetry is what makes the trick possible.</li><li><b>Treating a high ratio as a margin of safety.</b> It lowers the win rate you need. It does not tell you whether you clear the lower bar, and reaching for it usually lowers the win rate too.</li><li><b>Comparing planned ratios to realized results.</b> If you exit winners early and get gapped through your stops, your realized ratio is not the one you journaled. Apply the break-even table to the fills you got, not the prices you hoped for.</li><li><b>Ignoring costs because they look small.</b> Commission and spread come off the reward and get added to the risk. Five cents a share is nothing against a $42.50 share price and meaningful against a $2.50 stop.</li><li><b>Letting the ratio decide the position size.</b> Different questions. The ratio says whether; the stop distance says how much. See <a href="position-sizing.html">position sizing</a>.</li><li><b>Quitting a sound method during an ordinary streak.</b> At a 25% break-even, several losses in a row carries no information at all. Expecting that in advance is cheaper than discovering it live &mdash; which is the argument for the <a href="../markets-behavior.html">pre-trade checklist</a> and for treating <a href="../trading-psychology.html">the psychology side</a> as part of the method rather than a soft add-on.</li><li><b>Learning this on the money that pays rent.</b> No ratio, no matter how favorable, changes what a loss does to a household with nothing behind it.</li></ul>
+  <ul><li><b>Quoting a ratio without a win rate.</b> The single most common error on this subject, and it makes the number uninterpretable. 3 to 1 needs 25%; whether the setup delivers 25% is a completely separate question and the ratio cannot answer it.</li><li><b>Trusting the colon.</b> &ldquo;1:2&rdquo; appears twice in the break-even table above, in two rows that describe opposite trades. Say which number is the risk and which is the reward, in words, every time.</li><li><b>Solving for the target.</b> Deciding you want 3 to 1 and then placing the target wherever produces 3 to 1 is not analysis. The risk leg is tethered to a real order; the reward leg is tethered to nothing, and that asymmetry is what makes the trick possible.</li><li><b>Treating a high ratio as a margin of safety.</b> It lowers the win rate you need. It does not tell you whether you clear the lower bar, and reaching for it usually lowers the win rate too.</li><li><b>Comparing planned ratios to realized results.</b> If you exit winners early and get gapped through your stops, your realized ratio is not the one you journaled. Apply the break-even table to the fills you got, not the prices you hoped for.</li><li><b>Ignoring costs because they look small.</b> Commission and spread come off the reward and get added to the risk. Five cents a share is nothing against a $42.50 share price and meaningful against a $2.50 stop.</li><li><b>Letting the ratio decide the position size.</b> Different questions. The ratio says whether; the stop distance says how much. See <a href="position-sizing.html">position sizing</a>.</li><li><b>Quitting a sound method during an ordinary streak.</b> At a 25% break-even, several losses in a row carries no information at all. Expecting that in advance is cheaper than discovering it live &mdash; which is the argument for a written pre-trade checklist and for treating <a href="../trading-psychology.html">the psychology side</a> as part of the method rather than a soft add-on.</li><li><b>Learning this on the money that pays rent.</b> No ratio, no matter how favorable, changes what a loss does to a household with nothing behind it.</li></ul>
 
   <section class="gls-faq">
     <h2 id="faq">Frequently asked questions</h2>
@@ -533,9 +517,8 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>Run the <a href="../markets-behavior.html">five-question pre-trade checklist</a> on Markets &middot; Behavior &mdash; five questions, nothing stored, and a hard stop on &ldquo;could you lose this money&rdquo;.</li>
       <li>Work through the record-keeping side of this in Stage 3 and Stage 5 of the <a href="../trading-psychology.html">Trading Psychology course</a>, where the ratio meets the person who has to sit through the losing streak.</li>
-      <li>See where targets actually come from on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; live chart, breadth, and evidence ratings, free and no account.</li>
+      <li>See where targets actually come from &mdash; levels and chart patterns &mdash; in Stages 1 and 3 of the <a href="../technical-analysis.html">Technical Analysis course</a>.</li>
       <li>Size the buffer underneath any of it with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, and see what unglamorous money does in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
       <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
     </ul>
@@ -551,7 +534,6 @@
       <li>Daniel Kahneman and Amos Tversky, <a href="https://www.jstor.org/stable/1914185" target="_blank" rel="noopener">&ldquo;Prospect Theory: An Analysis of Decision under Risk&rdquo;</a>, <em>Econometrica</em> 47(2), March 1979, pp.263&ndash;291 &mdash; the origin paper for loss aversion, the usual explanation for why the reward leg gets cut short and the risk leg gets extended. The size of the loss-to-gain coefficient is an experimental estimate and has been contested in the replication literature.</li>
       <li>Van K. Tharp, <a href="https://vantharpinstitute.com/product/trade-your-way-to-financial-freedom/" target="_blank" rel="noopener">Trade Your Way to Financial Freedom</a> (McGraw-Hill; first edition 1998, second edition revised) &mdash; the publisher&rsquo;s own page for the book that popularized &ldquo;expectancy&rdquo; and the &ldquo;R-multiple&rdquo; naming among traders, and which states that the second edition added a clearer explanation of the expectancy concept. Cited for the naming and the framing, not for any performance claim.</li>
       <li>FINRA, <a href="https://www.finra.org/investors/order-six-common-types-stock-orders" target="_blank" rel="noopener">Order Up! Six Common Types of Stock Orders</a> &mdash; background on how stop, stop-limit and limit orders differ, including that a limit order may never execute at all. Relevant because the stop-limit alternative caps the price but not the loss.</li>
-      <li>Hustlin&rsquo;, <a href="../markets-behavior.html">Markets &middot; Behavior</a> &mdash; the site&rsquo;s own five-question pre-trade checklist and its eight-bias reference, which is where the behavioral half of this page is applied rather than explained.</li>
     </ol>
   </section>
 
@@ -577,9 +559,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">Check yourself first</span>
-    <p>Five questions to answer before the order goes in, including the one about whether you could actually lose this money. Nothing is stored. Free, no account.</p>
-    <a class="gls-cta" href="../markets-behavior.html">The five-question pre-trade checklist &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stages 3 and 5 are where the ratio meets the person who has to sit through the losing streak.</p>
+    <a class="gls-cta" href="../trading-psychology.html">Trading Psychology course &rarr;</a>
   </div>
 </aside>
 
@@ -602,7 +584,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

@@ -1884,139 +1884,36 @@ function renderWithdrawn(what) {
 }
 
 const PAGES = [
-  {
-    file: 'markets.html',
-    sections: {
-      macro:   { set: 'macro',   render: renderMacro },
-      yields:  { set: 'yields',  render: renderYields },
-      sectors: { set: 'sectors', render: renderSectors },
-      quotes:  { set: 'quotes',  render: renderQuotes },
-      news:    { set: 'news',    render: renderNews },
-      // The Markets page carries the earnings calendar as of 2026-08-02, after
-      // the TradingView economic calendar moved to markets-economic.html. Same
-      // renderer and same Finnhub set as markets-fundamental.html — two markers
-      // sharing one set costs one request, not two.
-      earnings: { set: 'earnings', render: renderEarnings },
-      /* The season scoreboard, above the table. Its own set name so it gets
-         its own marker and its own placement, but 'earningsScore' is a LOCAL
-         set — it is computed by the earnings block from the watch list, not
-         requested from anywhere, which is why it is in LOCAL_SETS. */
-      earningsScore: { set: 'earningsScore', render: renderEarningsScore },
-      // Reads the same 'news' set as the block above — two markers sharing one
-      // set costs one request, not two.
-      earningsNews: { set: 'news', render: renderEarningsNews },
-      // New set as of 2026-08-10 — one extra request per build, shared with
-      // markets-technical.html. See renderDrawdown.
-      drawdown: { set: 'drawdown', render: renderDrawdown },
-      /* Asset-class market caps. A LOCAL set: read from a committed,
-         hand-maintained JSON file, not requested from any endpoint. The
-         editing rules are at the top of tools/series/marketcap.json. */
-      owns:    { set: 'owns',    render: renderOwns },
-      changed: { set: null,      render: renderChanged, diff: true },
-    },
-  },
-  {
-    file: 'markets-economic.html',
-    sections: {
-      econSignals:   { set: 'signals',   render: renderSignals },
-      econGrowth:    { set: 'growth',    render: renderGrowth },
-      econInflation: { set: 'inflation', render: renderInflation },
-      econRates:     { set: 'rates',     render: renderRates },
-      econLabor:     { set: 'labor',     render: renderLabor },
-      econConsumer:  { set: 'consumer',  render: renderConsumer },
-      econSectors:   { set: 'sectors',   render: renderSectorsCycle },
-      econChanged:   { set: null,        render: renderChanged, diff: true },
-    },
-  },
-  {
-    // Sector comparison. The only page whose data comes entirely from a
-    // market-* function other than market-data — see LOCAL_SETS.
-    file: 'Markets/compare.html',
-    sections: {
-      sectorReturns: { set: 'sectorReturns', render: renderSectorReturns },
-    },
-  },
-  {
-    file: 'markets-fundamental.html',
-    sections: {
-      fundEarnings: { set: 'earnings', render: renderEarnings },
-      fundSectors:  { set: 'sectors',  render: renderSectors },
-      fundRates:    { set: 'rates',    render: renderRates },
-    },
-  },
-  {
-    // Breadth (S5TW/S5FI/S5TH) and the Dow Theory overlay are TradingView
-    // embeds — no free API publishes S&P 500 participation. So the crawlable
-    // text on this page is quotes + sectors plus the prose around them, which
-    // is why the prose has to carry it. See the AdSense note at the top.
-    file: 'markets-technical.html',
-    sections: {
-      techQuotes:  { set: 'quotes',     render: renderQuotes },
-      techSectors: { set: 'sectorPerf', render: renderSectorBreadth },
-      // Shares the 'drawdown' set with markets.html — one request, two markers.
-      techDrawdown: { set: 'drawdown', render: renderDrawdown },
-    },
-  },
-  {
-    /* Stage 4 Module 09 asks "what if the market is already down?" and answers
-       it with a table of historical odds by drawdown depth. The table is fixed;
-       the row that APPLIES today is not, so the page needs the live reading.
+  /* MARKETS SECTION REMOVED 2026-10-09. The hub, the four pillar pages and the
+     Markets/ viewers are now redirect stubs to the homepage and carry no
+     markers, so their PAGES entries are gone. The render functions above are
+     left in place on purpose: unused code is harmless and keeps the diff small.
 
-       THIS IS THE MASTER, NOT THE PUBLIC PAGE. build-public-stages.mjs
-       regenerates stage-4-invest.html at the site root from this file. The
-       workflow runs inject-market-data BEFORE build-public-stages for exactly
-       this reason — reverse them and the public copy ships one build behind
-       while --check still passes. Same trap the Dow chart hit. */
-    file: 'Financial Literacy Course/stage-4-invest.html',
+     What this file still does: refresh tools/.market-snapshot.json, which
+     feeds the FL Stage 3/4 charts (build-charts.mjs, figures.djia) and the
+     calculators' baked mortgage rate (build-calculators.mjs,
+     figures.mortgage30), and own the Stage 4 drawdown block. `equity` and
+     `rates` are requested unconditionally in main() for exactly that reason. */
+
+  /* Stage 4 Module 09 asks "what if the market is already down?" and answers
+     it with a table of historical odds by drawdown depth.
+
+     The PUBLIC page at the site root. This is the only entry that exists on
+     the GitHub runner: the master folder below is gitignored there. */
+  {
+    file: 'stage-4-invest.html',
     sections: {
-      // Third marker on the shared 'drawdown' set. Still one request.
       ddStage4: { set: 'drawdown', render: renderDrawdownStage4 },
     },
   },
   {
-    file: 'markets-behavior.html',
+    /* THE MASTER. build-public-stages.mjs regenerates stage-4-invest.html at
+       the site root from this file, so on the authoring machine both are
+       baked and the rebuild cannot put a stale block back. Absent on the
+       runner, where it is skipped. */
+    file: 'Financial Literacy Course/stage-4-invest.html',
     sections: {
-      behavMood:   { set: 'mood',   render: renderMood },
-      behavQuotes: { set: 'quotes', render: renderQuotes },
-    },
-  },
-
-  // ---------------------------------------------------------------------
-  //  The three viewer pages, added 2026-08-02.
-  //
-  //  These came off noindex the same day, having been rewritten from ~200
-  //  words of chrome into 1,150-1,780 words each. Their widgets are live in
-  //  the visitor's browser but live inside an iframe, so a crawler saw only
-  //  the prose — permanently static text on pages that are supposed to be
-  //  about current markets.
-  //
-  //  Every set below is ALREADY FETCHED for another page. Sets are requested
-  //  once and shared across all markers that name them, so these three pages
-  //  cost zero additional API calls. Adding a marker that names a NEW set
-  //  would not be free; adding one that reuses an existing set is.
-  // ---------------------------------------------------------------------
-  {
-    // Cross-asset tape under the chart: what moved, before you go chart it.
-    // Same set as markets.html quotes and markets-technical techQuotes.
-    file: 'Markets/chart.html',
-    sections: {
-      chartQuotes: { set: 'quotes', render: renderQuotes },
-    },
-  },
-  {
-    // Sector fundamentals. Sits directly beneath the section arguing that
-    // ratio norms are industry-specific, because it is the evidence for it.
-    file: 'Markets/screeners.html',
-    sections: {
-      screenSectors: { set: 'sectors', render: renderSectors },
-    },
-  },
-  {
-    // Upcoming earnings. Follows the year-over-year section, which is the
-    // method this table is meant to be read with.
-    file: 'Markets/spotlight.html',
-    sections: {
-      spotEarnings: { set: 'earnings', render: renderEarnings },
+      ddStage4: { set: 'drawdown', render: renderDrawdownStage4 },
     },
   },
 ]
@@ -2084,12 +1981,14 @@ async function main() {
     if (present.length || hasStamp) live.push({ ...p, path, html, present, hasStamp })
   }
 
-  if (!live.length) {
-    console.log('  No MKT: markers found in any Markets page — nothing to inject.')
-    console.log('  Add marker pairs where you want the data, e.g.:')
-    console.log('    <!-- MKT:macro:START --><!-- MKT:macro:END -->')
-    return 0
-  }
+  /* NO EARLY RETURN HERE, as of 2026-10-09. This used to `return 0` when no page
+     carried markers — which is every run on the GitHub runner once the Markets
+     pages were removed, and it sat BEFORE the unconditional equity/rates
+     requests below. The snapshot (djia for the Stage 3/4 Dow chart, mortgage30
+     for the calculators) would have silently stopped refreshing with no error.
+     A run with zero live pages must still fetch those sets and write the
+     snapshot. */
+  if (!live.length) console.log('  No MKT: markers in any page — refreshing the snapshot only.')
 
   if (offline) { console.log('  --offline: keeping the baked numbers already in the pages.'); return 0 }
 
@@ -2119,6 +2018,10 @@ async function main() {
      intraday run this would have been the ONLY set fetched — a full round trip
      every hour to re-read a number that changes once a day. */
   if (inCadence({ set: 'equity' }) && !sets.includes('equity')) sets.push('equity')
+  /* `rates` is requested unconditionally for the same reason, added 2026-10-09:
+     no page renders it any more, but it produces mortgage30, which
+     build-calculators.mjs reads from the snapshot. Same cadence gate. */
+  if (inCadence({ set: 'rates' }) && !sets.includes('rates')) sets.push('rates')
 
   /* EMPTY SETS IS NOT "FETCH NOTHING" — it is "fetch the default five".
      market-data falls back to ['macro','yields','sectors','quotes','news'] when

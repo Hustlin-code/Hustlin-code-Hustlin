@@ -60,6 +60,11 @@ Allow: /
 #
 # If you ever add a new thin viewer page, give it a noindex meta tag. Do not
 # reach for a Disallow — noindex is what you actually mean.
+#
+# CHANGED 2026-10-09 — the whole Markets section was removed. markets.html, the
+# four markets-*.html pillar pages and every page under /Markets/ are now
+# noindex+follow redirect stubs to the homepage. Still no Disallow, on purpose:
+# Google has to be able to fetch the stubs to see the redirect and the noindex.
 
 # Account flows — no reason to crawl, already noindex
 Disallow: /login.html

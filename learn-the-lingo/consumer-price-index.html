@@ -94,7 +94,7 @@
         {
           "@type": "Question",
           "name": "Does the Federal Reserve target CPI inflation?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. The Federal Open Market Committee's longer-run objective of 2 percent is stated on the annual change in the personal consumption expenditures price index, published by the Bureau of Economic Analysis, not on the CPI. The two measures use different scopes, different weights and different formulas, so they routinely disagree for the same month. Comparing a CPI print to the 2 percent figure gives a systematically wrong answer about how far policy has to go. This site's live economic pillar carries both series so you can read them side by side." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The Federal Open Market Committee's longer-run objective of 2 percent is stated on the annual change in the personal consumption expenditures price index, published by the Bureau of Economic Analysis, not on the CPI. The two measures use different scopes, different weights and different formulas, so they routinely disagree for the same month. Comparing a CPI print to the 2 percent figure gives a systematically wrong answer about how far policy has to go. Both series are published free on FRED, so you can read them side by side." }
         },
         {
           "@type": "Question",
@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -483,7 +467,7 @@
 
   <h2 id="notcoli">What the CPI is not</h2>
 
-  <p>Three things the CPI gets used for that it does not actually claim to do. BLS says so about two of them in print.</p><h3>Not a cost-of-living index</h3><p>This is BLS's own position, not a critic's. &ldquo;The CPI frequently is called a cost-of-living index, but it differs in important ways from a complete cost-of-living measure,&rdquo; and it is &ldquo;sometimes termed a conditional cost-of-living index.&rdquo; The Handbook agrees: &ldquo;the CPI only approximates a cost-of-living index&rdquo; because &ldquo;the cost of living is affected by many things not captured in market transactions.&rdquo; A longer commute, a worse school, water quality, crime, the closure of the only clinic in town &mdash; none of that is a market transaction and none of it is in the index. The irony stands: the adjustment on a benefit letter is called a <em>cost-of-living</em> adjustment and is computed from an index BLS declines to call one.</p><h3>Not your inflation rate</h3><p>Also BLS's own language: &ldquo;The CPI does not necessarily measure your own experience with price change&hellip; BLS bases the market baskets and pricing procedures on the experience of the relevant average household, not of any specific family or individual.&rdquo; Shelter is 35.6% of the index; if rent is 55% of your budget, a hard move in rent hits you half again as hard as it hits the index, and if you own outright it barely touches you while still moving the headline. Neither case is an error. The index was never measuring your basket.</p><h3>Not PCE, and PCE is what the Fed targets</h3><p>The second official U.S. inflation measure is the PCE price index, from the Bureau of Economic Analysis &mdash; different agency, scope, weights and formula. It matters because the Federal Open Market Committee's longer-run 2 percent objective is stated on the annual change in the <em>PCE</em> price index, not the CPI. Holding a CPI print against 2% measures with the wrong ruler, and it is done constantly. The <a href="inflation.html">inflation page</a> covers the four reasons BEA gives for the two diverging; this site's <a href="../markets-economic.html">economic pillar</a> carries both side by side.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>On a benefit letter as a COLA, from CPI-W. In a lease or service contract as an escalation clause, almost always the unadjusted CPI-U. Inside a TIPS bond, indexed to non-seasonally-adjusted CPI-U on a three-month lag written into Treasury's offering terms. In union contracts and pension formulas. In your tax brackets, through C-CPI-U.</p><p>And further out: the CPI print is one input the FOMC weighs when it sets the <a href="federal-funds-rate.html">federal funds rate</a>, which flows into every <a href="interest-rate.html">interest rate</a> you are quoted &mdash; and the <a href="apy.html">APY</a> on your savings is nominal until you subtract a price index back out of it.</p></div>
+  <p>Three things the CPI gets used for that it does not actually claim to do. BLS says so about two of them in print.</p><h3>Not a cost-of-living index</h3><p>This is BLS's own position, not a critic's. &ldquo;The CPI frequently is called a cost-of-living index, but it differs in important ways from a complete cost-of-living measure,&rdquo; and it is &ldquo;sometimes termed a conditional cost-of-living index.&rdquo; The Handbook agrees: &ldquo;the CPI only approximates a cost-of-living index&rdquo; because &ldquo;the cost of living is affected by many things not captured in market transactions.&rdquo; A longer commute, a worse school, water quality, crime, the closure of the only clinic in town &mdash; none of that is a market transaction and none of it is in the index. The irony stands: the adjustment on a benefit letter is called a <em>cost-of-living</em> adjustment and is computed from an index BLS declines to call one.</p><h3>Not your inflation rate</h3><p>Also BLS's own language: &ldquo;The CPI does not necessarily measure your own experience with price change&hellip; BLS bases the market baskets and pricing procedures on the experience of the relevant average household, not of any specific family or individual.&rdquo; Shelter is 35.6% of the index; if rent is 55% of your budget, a hard move in rent hits you half again as hard as it hits the index, and if you own outright it barely touches you while still moving the headline. Neither case is an error. The index was never measuring your basket.</p><h3>Not PCE, and PCE is what the Fed targets</h3><p>The second official U.S. inflation measure is the PCE price index, from the Bureau of Economic Analysis &mdash; different agency, scope, weights and formula. It matters because the Federal Open Market Committee's longer-run 2 percent objective is stated on the annual change in the <em>PCE</em> price index, not the CPI. Holding a CPI print against 2% measures with the wrong ruler, and it is done constantly. The <a href="inflation.html">inflation page</a> covers the four reasons BEA gives for the two diverging; Stage 2 of <a href="../economics.html">Economics for Traders</a> works through both.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>On a benefit letter as a COLA, from CPI-W. In a lease or service contract as an escalation clause, almost always the unadjusted CPI-U. Inside a TIPS bond, indexed to non-seasonally-adjusted CPI-U on a three-month lag written into Treasury's offering terms. In union contracts and pension formulas. In your tax brackets, through C-CPI-U.</p><p>And further out: the CPI print is one input the FOMC weighs when it sets the <a href="federal-funds-rate.html">federal funds rate</a>, which flows into every <a href="interest-rate.html">interest rate</a> you are quoted &mdash; and the <a href="apy.html">APY</a> on your savings is nominal until you subtract a price index back out of it.</p></div>
 
   <h2 id="ledger">Confirmed, unverified, convention</h2>
 
@@ -512,7 +496,7 @@
     <p>No, and BLS says so directly. In its own words the CPI is frequently called a cost-of-living index but differs in important ways from a complete cost-of-living measure, and BLS describes it as sometimes termed a conditional cost-of-living index. The Handbook of Methods adds that the CPI only approximates a cost-of-living index because the cost of living is affected by many things not captured in market transactions. A longer commute, a worse school, deteriorating water quality and rising crime all change your cost of living and none of them appear in the index.</p>
 
     <h3>Does the Federal Reserve target CPI inflation?</h3>
-    <p>No. The Federal Open Market Committee's longer-run objective of 2 percent is stated on the annual change in the personal consumption expenditures price index, published by the Bureau of Economic Analysis, not on the CPI. The two measures use different scopes, different weights and different formulas, so they routinely disagree for the same month. Comparing a CPI print to the 2 percent figure gives a systematically wrong answer about how far policy has to go. This site's live economic pillar carries both series so you can read them side by side.</p>
+    <p>No. The Federal Open Market Committee's longer-run objective of 2 percent is stated on the annual change in the personal consumption expenditures price index, published by the Bureau of Economic Analysis, not on the CPI. The two measures use different scopes, different weights and different formulas, so they routinely disagree for the same month. Comparing a CPI print to the 2 percent figure gives a systematically wrong answer about how far policy has to go. Both series are published free on FRED, so you can read them side by side.</p>
 
     <h3>Why is my personal inflation rate different from the CPI?</h3>
     <p>Because your spending is not the average household's spending, and BLS is explicit that the CPI does not necessarily measure your own experience with price change &mdash; it bases the baskets and pricing procedures on the relevant average household, not any specific family or individual. Shelter is about 35.6 percent of the CPI-U. If rent is 55 percent of your budget, a sharp rent increase hits you far harder than it hits the index; if you own your home outright, it barely touches you while still moving the headline. That gap is the design working, not failing.</p>
@@ -533,7 +517,6 @@
     <h2>Where to go next</h2>
     <ul>
       <li>Read the companion page on <a href="inflation.html">inflation</a> itself &mdash; the year-over-year formula, the full weight table, CPI against PCE, and what a nominal return looks like after prices.</li>
-      <li>See current CPI, core, PCE, rates and labor readings on the <a href="../markets-economic.html">live economic pillar</a> instead of the dated figures on this page.</li>
       <li>Go deeper on how price indexes are constructed and what central banks do with them in <a href="../economics.html">Economics for Traders</a>.</li>
       <li>See what a rising index does to taxes, housing and income streams in <a href="../stage-5-wealth.html">Stage 5 &middot; Build Wealth</a>, or how COLAs land on a fixed benefit in the <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>.</li>
       <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
@@ -577,9 +560,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">See the live data</span>
-    <p>CPI, core, PCE, rates and labor pulled live from BLS, BEA and FRED, instead of the dated figures any written page has to carry. Free, no account.</p>
-    <a class="gls-cta" href="../markets-economic.html">Live inflation, rates and labor data &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 2 is inflation from the ground up &mdash; how the price indexes are built, CPI against PCE, and what central banks do with them.</p>
+    <a class="gls-cta" href="../economics.html">Economics for Traders &rarr;</a>
   </div>
 </aside>
 
@@ -602,7 +585,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

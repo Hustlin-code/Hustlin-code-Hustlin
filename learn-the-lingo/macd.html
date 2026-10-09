@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -483,7 +467,7 @@
 
   <h2 id="units">Why a MACD reading is not comparable to anything</h2>
 
-  <p>This is the property almost nobody explains, and it changes what you are allowed to do with the number.</p><p><a href="relative-strength-index-rsi.html">RSI</a> is bounded: its formula cannot produce a value below 0 or above 100, on any instrument, at any price, ever. That bounding is what lets an RSI of 68 mean the same kind of thing on a $9 stock and a $900 stock. <strong>MACD has no bounds at all.</strong> StockCharts puts the consequence directly: <em>&ldquo;Because the MACD is unbounded, it is not particularly useful for identifying overbought and oversold levels.&rdquo;</em> There is no ceiling for a reading to be high relative to.</p><p>The deeper problem is <b>units</b>. MACD is a dollar amount subtracted from a dollar amount, so a reading is denominated in <strong>dollars per share of that particular stock</strong>. Not a percentage, not a ratio, not a score. StockCharts again: MACD values &ldquo;are dependent on the price of the underlying security,&rdquo; and therefore &ldquo;it is not possible to compare MACD values for a group of securities with varying prices.&rdquo;</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Two stocks. <b>Stock A</b> trades around $400: its 12-period EMA is $402.00 and its 26-period EMA is $398.00. <b>Stock B</b> trades around $8: its 12-period EMA is $8.04 and its 26-period EMA is $7.96.</p><p>Stock A&rsquo;s MACD line: $402.00 &minus; $398.00 = <b>+4.00</b>.<br>Stock B&rsquo;s MACD line: $8.04 &minus; $7.96 = <b>+0.08</b>.</p><p>Stock A&rsquo;s reading is <b>fifty times</b> Stock B&rsquo;s. If MACD were a momentum score, A would be in a different universe. Now express each gap as a share of the slower average, which is what makes two price levels comparable:</p><p>Stock A: 4.00 &divide; 398.00 = <b>1.005%</b>.<br>Stock B: 0.08 &divide; 7.96 = <b>1.005%</b>.</p><p class="gls-result">Identical &mdash; the same separation between the same two averages, to three decimal places. MACD reported one as 4.00 and the other as 0.08. The 50&times; difference was the share price, not the momentum.</p></div><p>The same trap runs along the time axis for a single stock. A stock that traded at $20 five years ago and $200 today is a stock whose MACD scale grew roughly tenfold with it. A reading of 1.00 was a substantial separation at $20 and is a rounding error at $200. <strong>&ldquo;MACD is higher than it has been in years&rdquo; can be a statement about nothing but the share price.</strong> Comparing today&rsquo;s reading to one from before a large price change, or from before a split, is comparing two different units.</p><p>The fix is the arithmetic in the example: divide the gap by the slower average and you have a percentage, which travels between stocks and across time. That is exactly what a percentage-based version of this same indicator does, and it is why one exists. It is not what plain MACD gives you.</p><div class="gls-where"><span class="gls-lbl">Where you&rsquo;ll see it</span><p>MACD is a default panel on essentially every charting platform, free and paid, and it sits on the live chart on the <a href="../markets-technical.html">Markets &middot; Technical</a> page alongside S&amp;P 500 breadth and a sector heatmap &mdash; free, no account. Screeners often let you filter on &ldquo;MACD crossover,&rdquo; which is worth remembering the units problem about: that filter compares an event, not a level, precisely because the levels are not comparable.</p></div>
+  <p>This is the property almost nobody explains, and it changes what you are allowed to do with the number.</p><p><a href="relative-strength-index-rsi.html">RSI</a> is bounded: its formula cannot produce a value below 0 or above 100, on any instrument, at any price, ever. That bounding is what lets an RSI of 68 mean the same kind of thing on a $9 stock and a $900 stock. <strong>MACD has no bounds at all.</strong> StockCharts puts the consequence directly: <em>&ldquo;Because the MACD is unbounded, it is not particularly useful for identifying overbought and oversold levels.&rdquo;</em> There is no ceiling for a reading to be high relative to.</p><p>The deeper problem is <b>units</b>. MACD is a dollar amount subtracted from a dollar amount, so a reading is denominated in <strong>dollars per share of that particular stock</strong>. Not a percentage, not a ratio, not a score. StockCharts again: MACD values &ldquo;are dependent on the price of the underlying security,&rdquo; and therefore &ldquo;it is not possible to compare MACD values for a group of securities with varying prices.&rdquo;</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Two stocks. <b>Stock A</b> trades around $400: its 12-period EMA is $402.00 and its 26-period EMA is $398.00. <b>Stock B</b> trades around $8: its 12-period EMA is $8.04 and its 26-period EMA is $7.96.</p><p>Stock A&rsquo;s MACD line: $402.00 &minus; $398.00 = <b>+4.00</b>.<br>Stock B&rsquo;s MACD line: $8.04 &minus; $7.96 = <b>+0.08</b>.</p><p>Stock A&rsquo;s reading is <b>fifty times</b> Stock B&rsquo;s. If MACD were a momentum score, A would be in a different universe. Now express each gap as a share of the slower average, which is what makes two price levels comparable:</p><p>Stock A: 4.00 &divide; 398.00 = <b>1.005%</b>.<br>Stock B: 0.08 &divide; 7.96 = <b>1.005%</b>.</p><p class="gls-result">Identical &mdash; the same separation between the same two averages, to three decimal places. MACD reported one as 4.00 and the other as 0.08. The 50&times; difference was the share price, not the momentum.</p></div><p>The same trap runs along the time axis for a single stock. A stock that traded at $20 five years ago and $200 today is a stock whose MACD scale grew roughly tenfold with it. A reading of 1.00 was a substantial separation at $20 and is a rounding error at $200. <strong>&ldquo;MACD is higher than it has been in years&rdquo; can be a statement about nothing but the share price.</strong> Comparing today&rsquo;s reading to one from before a large price change, or from before a split, is comparing two different units.</p><p>The fix is the arithmetic in the example: divide the gap by the slower average and you have a percentage, which travels between stocks and across time. That is exactly what a percentage-based version of this same indicator does, and it is why one exists. It is not what plain MACD gives you.</p><div class="gls-where"><span class="gls-lbl">Where you&rsquo;ll see it</span><p>MACD is a default panel on essentially every charting platform, free and paid. Screeners often let you filter on &ldquo;MACD crossover,&rdquo; which is worth remembering the units problem about: that filter compares an event, not a level, precisely because the levels are not comparable.</p></div>
 
   <h2 id="ledger">What&rsquo;s confirmed, what isn&rsquo;t, and what&rsquo;s only convention</h2>
 
@@ -491,7 +475,7 @@
 
   <h2 id="mistakes">What trips people up</h2>
 
-  <ul><li><b>Thinking the histogram is volume.</b> Vertical bars around a zero line, so the shape invites it. There is no volume data in MACD at all &mdash; the bars measure the distance between two lines in their own panel. <a href="volume.html">Volume</a> is a separate measurement, off the exchange tape.</li><li><b>Counting a histogram zero-cross and a signal-line cross as two events.</b> They are one event. The histogram <em>is</em> the gap between those two lines, so it reaches zero exactly when they touch.</li><li><b>Confusing a zero-line cross with a signal-line cross.</b> A zero-line cross is the 12 and 26 EMAs crossing each other. A signal-line cross is the gap moving relative to its own recent average, and says nothing about where the averages sit &mdash; MACD can cross its signal line while sitting deep in negative territory.</li><li><b>Expecting an indicator built from past averages to lead.</b> It cannot. Price moves first, the EMAs follow, the MACD line follows them, and the signal line follows that. Two smoothing steps, two delays.</li><li><b>Comparing readings between two stocks, or across years.</b> A reading is denominated in that stock&rsquo;s own dollars, and the scale grows with the share price. +4.00 on a $400 stock and +0.08 on an $8 stock can be the identical move, as the worked example shows exactly.</li><li><b>Running it on a range and trusting the crossings.</b> Flat price means the two averages sit together, which means MACD hovers near zero, which means its sign flips on noise. Appel built the tool trying to reduce whipsaws and it still whipsaws.</li><li><b>Adding a second momentum indicator for &ldquo;confirmation.&rdquo;</b> MACD and <a href="relative-strength-index-rsi.html">RSI</a> are both computed from the same recent closes. Agreement between them is substantially built in, so it feels like a second opinion while mostly being the same one restated.</li><li><b>Believing any percentage attached to it.</b> No named study reachable for this page puts a hit rate on any MACD signal. A confident number with no citation is the loudest warning sign on a trading page.</li><li><b>Trading rent money on it.</b> No indicator changes what a loss does to a household with no cushion under it. The <a href="../markets-behavior.html">behavior side</a> of the market, and its five-question pre-trade checklist, exist for this reason.</li></ul>
+  <ul><li><b>Thinking the histogram is volume.</b> Vertical bars around a zero line, so the shape invites it. There is no volume data in MACD at all &mdash; the bars measure the distance between two lines in their own panel. <a href="volume.html">Volume</a> is a separate measurement, off the exchange tape.</li><li><b>Counting a histogram zero-cross and a signal-line cross as two events.</b> They are one event. The histogram <em>is</em> the gap between those two lines, so it reaches zero exactly when they touch.</li><li><b>Confusing a zero-line cross with a signal-line cross.</b> A zero-line cross is the 12 and 26 EMAs crossing each other. A signal-line cross is the gap moving relative to its own recent average, and says nothing about where the averages sit &mdash; MACD can cross its signal line while sitting deep in negative territory.</li><li><b>Expecting an indicator built from past averages to lead.</b> It cannot. Price moves first, the EMAs follow, the MACD line follows them, and the signal line follows that. Two smoothing steps, two delays.</li><li><b>Comparing readings between two stocks, or across years.</b> A reading is denominated in that stock&rsquo;s own dollars, and the scale grows with the share price. +4.00 on a $400 stock and +0.08 on an $8 stock can be the identical move, as the worked example shows exactly.</li><li><b>Running it on a range and trusting the crossings.</b> Flat price means the two averages sit together, which means MACD hovers near zero, which means its sign flips on noise. Appel built the tool trying to reduce whipsaws and it still whipsaws.</li><li><b>Adding a second momentum indicator for &ldquo;confirmation.&rdquo;</b> MACD and <a href="relative-strength-index-rsi.html">RSI</a> are both computed from the same recent closes. Agreement between them is substantially built in, so it feels like a second opinion while mostly being the same one restated.</li><li><b>Believing any percentage attached to it.</b> No named study reachable for this page puts a hit rate on any MACD signal. A confident number with no citation is the loudest warning sign on a trading page.</li><li><b>Trading rent money on it.</b> No indicator changes what a loss does to a household with no cushion under it. The <a href="../trading-psychology.html">psychology side</a> of trading, and a pre-trade checklist written before the order, exist for this reason.</li></ul>
 
   <section class="gls-faq">
     <h2 id="faq">Frequently asked questions</h2>
@@ -532,9 +516,8 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>Watch MACD move on a live chart, next to S&amp;P 500 breadth and a sector heatmap, on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account.</li>
       <li>Work through indicators properly in Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>, where MACD sits beside the tools it is meant to be paired with rather than stacked on.</li>
-      <li>Run the five-question pre-trade checklist on <a href="../markets-behavior.html">Markets &middot; Behavior</a> before any indicator gets a vote.</li>
+      <li>Build a printable pre-trade checklist before any indicator gets a vote &mdash; Stage 5 of the <a href="../trading-psychology.html">Trading Psychology course</a>.</li>
       <li>Size the cushion underneath all of this with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, then see what patient money does over the same years in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
       <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
     </ul>
@@ -576,9 +559,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">See it on a live chart</span>
-    <p>Watch MACD move on a live chart, with breadth, evidence ratings and a sector heatmap beside it &mdash; so you can see the lag instead of reading about it. Free, no account.</p>
-    <a class="gls-cta" href="../markets-technical.html">Live chart and evidence ratings &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 4, Indicators &amp; Signals, works MACD on real charts, so you can see the lag instead of reading about it.</p>
+    <a class="gls-cta" href="../technical-analysis.html">Technical Analysis course &rarr;</a>
   </div>
 </aside>
 
@@ -601,7 +584,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

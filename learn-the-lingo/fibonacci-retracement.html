@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -483,7 +467,7 @@
 
   <h2 id="drawing">How they get drawn, and who chooses</h2>
 
-  <p>The tool needs two clicks: a swing high and a swing low. Nothing in the tool, and nothing in the mathematics, tells you which two.</p><p>On any real chart there are several defensible candidates. The intraday spike high, or the highest close? The low of last month, or the low of the year? Where the move &ldquo;really&rdquo; began, or where the chart shows it beginning? Those are judgment calls, and they are made by a person with a view.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Same stock. <b>Analyst A</b> measures the full move, $18.00 to $30.00, a $12.00 range. <b>Analyst B</b> thinks the real advance started at the higher low of $21.00, so measures $21.00 to $30.00, a $9.00 range. Both are drawing &ldquo;the Fibonacci levels.&rdquo;</p><p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analyst A&nbsp;&nbsp;&nbsp;Analyst B<br>23.6%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$27.17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$27.88<br>38.2%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$25.42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$26.56<br>50.0%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$24.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$25.50<br>61.8%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$22.58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$24.44<br>78.6%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$20.57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$22.92</code></p><p class="gls-result">Not one level agrees. A's 61.8% is $22.58; B's is $24.44 &mdash; $1.86 apart, more than 15% of A's entire range. Worse, B's 61.8% sits 44 cents from A's 50%. If price turns at $24.20, one of them will tell you 61.8% held and the other will tell you 50% held, and they are looking at the same chart.</p></div><p>Now put the two problems together, because this is the strongest criticism of the whole method and it belongs on the page in plain words. <b>Five levels per drawing, more than one defensible drawing, and price is essentially always near somebody's level.</b> A claim that cannot fail is not a claim. It cannot be tested, it cannot be wrong, and therefore it cannot be evidence.</p><p>The shape of the argument you will be shown is worth learning to spot. After the turn, the analyst posts the drawing that worked. You never see the drawings that did not, because those were never posted. That is not dishonesty on anyone's part, necessarily &mdash; it is what happens when a method has enough freedom in it that a flattering version is always available.</p><p>This is a large part of why <a href="../markets-technical.html">Markets &middot; Technical</a> shows live charts and breadth readings with evidence ratings attached, rather than lines somebody drew for you. Stage 5 of the <a href="../technical-analysis.html">Technical Analysis course</a> covers the methods in this family and what they can and cannot be asked to do.</p>
+  <p>The tool needs two clicks: a swing high and a swing low. Nothing in the tool, and nothing in the mathematics, tells you which two.</p><p>On any real chart there are several defensible candidates. The intraday spike high, or the highest close? The low of last month, or the low of the year? Where the move &ldquo;really&rdquo; began, or where the chart shows it beginning? Those are judgment calls, and they are made by a person with a view.</p><div class="gls-eg"><span class="gls-lbl">Worked example</span><p>Same stock. <b>Analyst A</b> measures the full move, $18.00 to $30.00, a $12.00 range. <b>Analyst B</b> thinks the real advance started at the higher low of $21.00, so measures $21.00 to $30.00, a $9.00 range. Both are drawing &ldquo;the Fibonacci levels.&rdquo;</p><p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analyst A&nbsp;&nbsp;&nbsp;Analyst B<br>23.6%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$27.17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$27.88<br>38.2%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$25.42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$26.56<br>50.0%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$24.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$25.50<br>61.8%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$22.58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$24.44<br>78.6%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$20.57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$22.92</code></p><p class="gls-result">Not one level agrees. A's 61.8% is $22.58; B's is $24.44 &mdash; $1.86 apart, more than 15% of A's entire range. Worse, B's 61.8% sits 44 cents from A's 50%. If price turns at $24.20, one of them will tell you 61.8% held and the other will tell you 50% held, and they are looking at the same chart.</p></div><p>Now put the two problems together, because this is the strongest criticism of the whole method and it belongs on the page in plain words. <b>Five levels per drawing, more than one defensible drawing, and price is essentially always near somebody's level.</b> A claim that cannot fail is not a claim. It cannot be tested, it cannot be wrong, and therefore it cannot be evidence.</p><p>The shape of the argument you will be shown is worth learning to spot. After the turn, the analyst posts the drawing that worked. You never see the drawings that did not, because those were never posted. That is not dishonesty on anyone's part, necessarily &mdash; it is what happens when a method has enough freedom in it that a flattering version is always available.</p><p>So the useful question to ask of any drawing is what it looked like before the turn, not after. Stage 5 of the <a href="../technical-analysis.html">Technical Analysis course</a> covers the methods in this family and what they can and cannot be asked to do.</p>
 
   <h2 id="evidence">What is confirmed and what is convention</h2>
 
@@ -533,9 +517,8 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>See live charts with breadth and trend evidence attached, instead of lines drawn for you, in <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account.</li>
       <li>Work the level-drawing methods properly in the <a href="../technical-analysis.html">Technical Analysis course</a>: stage 1 builds the levels, stage 5 covers the advanced methods this one belongs to.</li>
-      <li>Understand why a chart covered in lines feels so convincing &mdash; that is <a href="../trading-psychology.html">Trading Psychology</a>, and the <a href="../markets-behavior.html">Markets &middot; Behavior</a> page has a free five-question pre-trade checklist.</li>
+      <li>Understand why a chart covered in lines feels so convincing &mdash; that is Stage 2, Bias &amp; Belief, of <a href="../trading-psychology.html">Trading Psychology</a>.</li>
       <li>Before any of this matters, see what compounding does on its own in <a href="../stage-4-invest.html">Stage 4: Invest</a> or run it in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
       <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
     </ul>
@@ -551,7 +534,7 @@
       <li>Semantic Scholar, <a href="https://www.semanticscholar.org/paper/Elliott-Waves%2C-Fibonacci-and-Statistics-Prechter/806b3836aa6a723230ba10e1d34e0bd36716a797" target="_blank" rel="noopener">record for Robert R. Prechter Jr., &ldquo;Elliott Waves, Fibonacci and Statistics&rdquo;</a> &mdash; <b>listed here because a rebuttal exists and should not be hidden.</b> The full text was unreachable when this page was written, so its argument is deliberately not characterized above.</li>
       <li>Google Books, <a href="https://books.google.com/books/about/Nature_s_Law.html?id=3EvzygAACAAJ" target="_blank" rel="noopener">R.N. Elliott, <i>Nature's Law: The Secret of the Universe</i> (1946)</a> &mdash; confirms that the work through which these ratios reached traders exists and is correctly dated. We did not reach its text, which is why the popularization claim is marked Unverified.</li>
       <li><b>Our own arithmetic</b>, shown in full on the page rather than asserted: the derivations of 23.6%, 38.2%, 61.8%, 76.4%, 78.6%, 88.6%, 127.2% and 161.8% from phi; the level prices on a $12.00 move; the level-coverage comparison against the fractions 25%, 33%, 50%, 67% and 75%; and the two-analyst divergence table. Every figure can be reproduced on a calculator.</li>
-      <li>Hustlin&rsquo;, <a href="../technical-analysis.html">Technical Analysis course</a> (stage 1, levels; stage 5, advanced methods) and <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; where these conventions are taught and where the site shows charts with evidence ratings instead of pre-drawn lines.</li>
+      <li>Hustlin&rsquo;, <a href="../technical-analysis.html">Technical Analysis course</a> (stage 1, levels; stage 5, advanced methods) &mdash; where these conventions are taught.</li>
     </ol>
   </section>
 
@@ -577,9 +560,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">See it on a live chart</span>
-    <p>Pull up any ticker on a live chart and look at breadth, trend and sector evidence next to it, instead of levels somebody else drew. Free, no account.</p>
-    <a class="gls-cta" href="../markets-technical.html">Live chart and evidence ratings &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 5, Advanced Methods, covers the level-drawing family this belongs to &mdash; and what it can and cannot be asked to do.</p>
+    <a class="gls-cta" href="../technical-analysis.html">Technical Analysis course &rarr;</a>
   </div>
 </aside>
 
@@ -602,7 +585,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

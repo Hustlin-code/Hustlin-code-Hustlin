@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Library — Hustlin'</title>
+<meta name="description" content="Eleven books and eight films that go with the Hustlin' investing course.">
+<link rel="canonical" href="https://hustlin.org/library.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#FAF7EF; --surface:#FFFDF8; --deep:#0E1117; --deep-2:#181E28;
+  --ink:#171614; --ink-2:#5F594E; --ink-3:#8A8375;
+  --rule:#E5DDCC; --rule-2:#EFE9DC;
+  --gold:#B4881F; --gold-2:#C49830; --gold-bright:#E8B54A;
+  --on-deep:#F5F5F0; --on-deep-2:#8A93A3;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1117; --surface:#151A22; --deep:#080B10; --deep-2:#11161E;
+    --ink:#F5F5F0; --ink-2:#98A1B0; --ink-3:#6E7684;
+    --rule:#242B38; --rule-2:#1C222C;
+    --gold:#E8B54A; --gold-2:#E8B54A; --gold-bright:#E8B54A;
+    --on-deep:#F5F5F0; --on-deep-2:#8A93A3;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1117; --surface:#151A22; --deep:#080B10; --deep-2:#11161E;
+  --ink:#F5F5F0; --ink-2:#98A1B0; --ink-3:#6E7684;
+  --rule:#242B38; --rule-2:#1C222C;
+  --gold:#E8B54A; --gold-2:#E8B54A; --gold-bright:#E8B54A;
+  --on-deep:#F5F5F0; --on-deep-2:#8A93A3;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.hl-wrap{max-width:74rem;margin:0 auto;padding-inline:24px;padding-block:0}
+.hl-eyebrow{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hl-head{padding-block:72px 40px;border-bottom:1px solid var(--rule)}
+.hl-head h1{font-size:clamp(2.6rem,7vw,4.25rem);line-height:1.02;margin:.5rem 0 0;
+  font-weight:700;letter-spacing:-.025em;text-wrap:balance}
+.hl-lede{max-width:44rem;color:var(--ink-2);font-size:1.12rem;margin:1.1rem 0 0}
+.hl-rule{width:88px;height:4px;background:var(--gold-bright);border:0;margin:1.6rem 0 0}
+.hl-onerule{background:var(--deep);color:var(--on-deep);border-radius:3px;
+  padding:30px 32px;margin:44px 0 0;display:grid;gap:.6rem}
+.hl-onerule p{margin:0;max-width:52rem}
+.hl-onerule .big{font-size:1.35rem;font-weight:700;letter-spacing:-.01em;line-height:1.35}
+.hl-onerule .sub{color:var(--on-deep-2);font-size:.98rem}
+.hl-section{padding-block:56px 8px}
+.hl-section>header{margin-bottom:28px}
+.hl-section h2{font-size:2rem;margin:.35rem 0 0;font-weight:700;letter-spacing:-.02em}
+.hl-section .hl-note{color:var(--ink-2);margin:.45rem 0 0;max-width:46rem}
+.hl-tier{margin-block:40px 0}
+.hl-tier>.hl-eyebrow{display:block;padding-bottom:10px;border-bottom:2px solid var(--gold-bright)}
+.hl-tier .tiernote{color:var(--ink-3);font-size:.95rem;margin:.7rem 0 0}
+.hl-books{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0}
+.hl-books li{padding-block:26px;border-top:1px solid var(--rule-2);
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:8px 40px;align-items:start}
+.hl-books li:first-child{border-top:0}
+.hl-books h3{margin:0;font-size:1.22rem;font-weight:700;letter-spacing:-.012em;line-height:1.3}
+.hl-books h3 a{color:var(--ink);text-decoration:none;
+  border-bottom:2px solid var(--gold-bright);padding-bottom:1px}
+.hl-books h3 a:hover{color:var(--gold)}
+.hl-meta{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:.76rem;letter-spacing:.06em;color:var(--ink-3);margin:.5rem 0 0}
+.hl-books p.blurb{margin:0;color:var(--ink-2);font-size:.99rem;max-width:38rem}
+.hl-for{grid-column:1/-1;margin:.55rem 0 0;font-size:.9rem;color:var(--ink-2)}
+.hl-for b{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.7rem;
+  letter-spacing:.16em;color:var(--gold);font-weight:600;margin-right:.6rem}
+.hl-films{list-style:none;margin:22px 0 0;padding:0 0 0 0}
+.hl-films li{display:grid;grid-template-columns:82px minmax(0,1fr);gap:0 26px;
+  padding-block:24px;border-top:1px solid var(--rule-2);position:relative}
+.hl-films li:first-child{border-top:0}
+.hl-year{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.95rem;
+  color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums;padding-top:.15rem}
+.hl-films h3{margin:0;font-size:1.16rem;font-weight:700;letter-spacing:-.01em}
+.hl-films h3 a{color:var(--ink);text-decoration:none;
+  border-bottom:2px solid var(--gold-bright);padding-bottom:1px}
+.hl-films h3 a:hover{color:var(--gold)}
+.hl-films .what{margin:.35rem 0 0;color:var(--ink-2);font-size:.99rem;max-width:42rem}
+.hl-watch{margin:.6rem 0 0;font-size:.93rem;color:var(--ink-2);max-width:42rem}
+.hl-watch b{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.68rem;
+  letter-spacing:.16em;color:var(--gold);font-weight:600;margin-right:.55rem}
+.hl-book{margin:.7rem 0 0;font-size:.93rem;color:var(--ink-2);max-width:42rem}
+.hl-book b{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.68rem;
+  letter-spacing:.16em;color:var(--gold);font-weight:600;margin-right:.55rem;display:block;margin-bottom:.15rem}
+.hl-book a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--gold-bright);font-weight:600}
+.hl-book a:hover{color:var(--gold)}
+.hl-flag{margin:.7rem 0 0;padding:12px 16px;background:var(--surface);
+  border-left:3px solid var(--gold-bright);font-size:.9rem;color:var(--ink-2);max-width:42rem}
+.hl-close{margin-block:64px 0;padding-block:36px 80px;border-top:1px solid var(--rule)}
+.hl-close h2{font-size:1.5rem;margin:.3rem 0 0;font-weight:700;letter-spacing:-.015em}
+.hl-close p{color:var(--ink-2);max-width:46rem}
+.hl-links{list-style:none;display:flex;flex-wrap:wrap;gap:10px 12px;margin:20px 0 0;padding:0}
+.hl-links a{display:inline-block;padding:9px 15px;border:1px solid var(--rule);
+  border-radius:2px;color:var(--ink);text-decoration:none;font-size:.92rem;background:var(--surface)}
+.hl-links a:hover{border-color:var(--gold-bright);color:var(--gold)}
+.hl-fine{margin-top:30px;font-size:.83rem;color:var(--ink-3);max-width:46rem}
+a:focus-visible,.hl-links a:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+@media (max-width:760px){
+  .hl-books li{grid-template-columns:1fr;gap:10px}
+  .hl-films li{grid-template-columns:1fr;gap:6px}
+  .hl-year{padding-top:0}
+  .hl-head{padding-block:48px 32px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+  <link rel="stylesheet" href="styles.css?v=20261009-1443">
+</head>
+<body>
+<!-- ================= HUSTLIN' LIBRARY — liftable block starts here =================
+     Drop this <main> into the standard page template, then run stamp-nav and
+     stamp-footers. The <style> above it is self-contained and class-prefixed
+     with .hl- so it will not collide with the sitewide sheet.
+
+     AFFILIATE LINKS: every book link below is a plain publisher or listing URL
+     with NO affiliate tag. To monetise, append your Associates tag to the
+     amazon.com/dp/ links only (…/dp/XXXXXXXXXX?tag=YOURTAG-20) and UNCOMMENT the
+     disclosure block at the foot of this file. The FTC requires the disclosure to
+     be visible before the links, not buried — do not add tags without it.
+================================================================================= -->
+<main class="hl-wrap">
+
+  <header class="hl-head">
+    <span class="hl-eyebrow">Hustlin&rsquo; &middot; Lesson 1 resources</span>
+    <h1>The Library</h1>
+    <p class="hl-lede">Eleven books and eight films that go with the investing course.
+      None of them will tell you what to buy. All of them will change how you think about
+      the person doing the buying.</p>
+    <hr class="hl-rule">
+    <div class="hl-onerule">
+      <p class="big">You do not need eleven books. You need one, finished.</p>
+      <p class="sub">Most people leave a first investing class, buy three books, read forty pages
+        of each, and quietly conclude they are not clever enough for this. Pick one title from
+        <em>Start here</em>. Finish it. Then come back.</p>
+    </div>
+  </header>
+
+  <section class="hl-section">
+    <header>
+      <span class="hl-eyebrow">Reading</span>
+      <h2>Eleven books</h2>
+      <p class="hl-note">Split by difficulty, not by preference. The left-hand tier changes behaviour;
+        the right-hand tier is foundational and genuinely hard, and starting there is how people
+        give up.</p>
+    </header>
+    <div class="hl-tier">
+<span class="hl-eyebrow">START HERE</span>
+<p class="tiernote">The six that actually change how somebody behaves. Pick one.</p>
+<ul class="hl-books">
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/1589795474" target="_blank" rel="noopener">The Millionaire Next Door</a></h3>
+      <p class="hl-meta">Stanley &amp; Danko · 1996</p>
+    </div>
+    <p class="blurb">Two researchers went looking for American millionaires and kept finding them in used trucks and unglamorous businesses. It is the data behind the four ordinary people in Lesson 1, and it separates looking rich from being rich more clearly than anything else written since.</p>
+    <p class="hl-for"><b>FOR</b>Never invested, and wants to know what wealth actually looks like up close.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/0735216371" target="_blank" rel="noopener">Thinking in Bets</a></h3>
+      <p class="hl-meta">Annie Duke · 2018</p>
+    </div>
+    <p class="blurb">A professional poker player on the hardest idea in investing: a bad outcome is not proof of a bad decision, and a good one is not proof of a good decision. This is the being-wrong question from Lesson 1, at book length.</p>
+    <p class="hl-for"><b>FOR</b>Already trades, and keeps losing to themselves rather than to the market.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/0743200403" target="_blank" rel="noopener">One Up on Wall Street</a></h3>
+      <p class="hl-meta">Peter Lynch · 1989</p>
+    </div>
+    <p class="blurb">Lynch ran Fidelity's Magellan fund and argued that your own job, your own shopping and your own industry see things months before an analyst does. The book version of &ldquo;what do you already have?&rdquo;</p>
+    <p class="hl-for"><b>FOR</b>Anyone with a real job in a real industry who thinks that counts for nothing.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/0743224884" target="_blank" rel="noopener">Confessions of a Street Addict</a></h3>
+      <p class="hl-meta">Jim Cramer · 2002</p>
+    </div>
+    <p class="blurb">Long before the television show, Cramer ran a hedge fund and very nearly lost it. An unusually unflattering account of what professional money management feels like from the inside, hour by hour.</p>
+    <p class="hl-for"><b>FOR</b>Anyone who imagines the professionals are calm.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.penguinrandomhouse.com/books/315718/jim-cramers-get-rich-carefully-by-james-j-cramer/" target="_blank" rel="noopener">Jim Cramer's Get Rich Carefully</a></h3>
+      <p class="hl-meta">Jim Cramer · 2013</p>
+    </div>
+    <p class="blurb">The slower, later Cramer — less trading, more owning, and built on the argument that the careful version of this compounds while the exciting version quietly does not.</p>
+    <p class="hl-for"><b>FOR</b>Anyone tempted to trade their way there in a hurry.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/0071424857" target="_blank" rel="noopener">How to Use Power Phrases</a></h3>
+      <p class="hl-meta">Meryl Runion · 2004</p>
+    </div>
+    <p class="blurb">Not an investing book, which is exactly why it is on this list. A great deal of financial damage is done by a conversation somebody could not bring themselves to have — about a raise, a loan, a price, a relative. This is a book of the exact sentences.</p>
+    <p class="hl-for"><b>FOR</b>Anyone whose money problem is really a conversation problem.</p>
+  </li>
+</ul>
+</div>
+<div class="hl-tier">
+<span class="hl-eyebrow">THE ORIGINALS</span>
+<p class="tiernote">Foundational, difficult, and genuinely not where to start. These are for later.</p>
+<ul class="hl-books">
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/0070244960" target="_blank" rel="noopener">Security Analysis</a></h3>
+      <p class="hl-meta">Graham &amp; Dodd · 1934</p>
+    </div>
+    <p class="blurb">The book that invented the job, written in the wreckage of 1929 by the man who later taught Buffett. It is a textbook and it reads like one. It is also where the idea that a share is a claim on a business rather than a ticker symbol comes from.</p>
+    <p class="hl-for"><b>FOR</b>Later. If it makes you feel stupid, that is the book's fault, not yours.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/1032241829" target="_blank" rel="noopener">Technical Analysis of Stock Trends</a></h3>
+      <p class="hl-meta">Edwards &amp; Magee · 1948</p>
+    </div>
+    <p class="blurb">The other founding text, and the one that treats a chart as a record of crowd behaviour rather than a forecast. Editions vary enormously — check which one you are actually buying before you order it.</p>
+    <p class="hl-for"><b>FOR</b>Later, and only read alongside the chapters on risk.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.amazon.com/dp/1556230796" target="_blank" rel="noopener">Secrets for Profiting in Bull and Bear Markets</a></h3>
+      <p class="hl-meta">Stan Weinstein · 1988</p>
+    </div>
+    <p class="blurb">One idea, taught properly: markets move through four stages, and most losses come from buying in the wrong one. The examples are dated; the framework is not.</p>
+    <p class="hl-for"><b>FOR</b>Anyone who wants a rule for when <em>not</em> to buy.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://press.stripe.com/poor-charlies-almanack" target="_blank" rel="noopener">Poor Charlie's Almanack</a></h3>
+      <p class="hl-meta">Charlie Munger · 2005</p>
+    </div>
+    <p class="blurb">Less about investing than about thinking — mental models, inversion, and a long catalogue of the ways intelligent people fool themselves. Buffett's partner was the funnier and more quotable half of that pair.</p>
+    <p class="hl-for"><b>FOR</b>Anyone who wants to think better rather than trade more.</p>
+  </li>
+  <li>
+    <div>
+      <h3><a href="https://www.berkshirehathaway.com/letters/letters.html" target="_blank" rel="noopener">The Berkshire Hathaway shareholder letters</a></h3>
+      <p class="hl-meta">Warren Buffett · 1977&ndash;present · free</p>
+    </div>
+    <p class="blurb">Buffett never wrote a book. He wrote these instead, once a year for roughly fifty years, and gave them away. Start with a year that had a crash in it and watch how a man talks to owners when things are going badly.</p>
+    <p class="hl-for"><b>FOR</b>Everyone. It is free, and it is the best thing on this page.</p>
+  </li>
+</ul>
+</div>
+  </section>
+
+  <section class="hl-section">
+    <header>
+      <span class="hl-eyebrow">Watching</span>
+      <h2>Eight films</h2>
+      <p class="hl-note">In order of the disasters they describe. These are entertainment, and several
+        are dramatised or one-sided &mdash; watch them for the failure mode, never for the technique.</p>
+    </header>
+    <ul class="hl-films">
+  <li>
+    <div class="hl-year">1987</div>
+    <div>
+      <h3><a href="https://www.imdb.com/title/tt5996252/" target="_blank" rel="noopener">Trader</a></h3>
+      <p class="what">Paul Tudor Jones, filmed in the months before Black Monday.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>The only film here showing a real person sizing real risk in real time, rather than an actor playing one.</p>
+    <p class="hl-flag">Out of print. Jones is widely reported to have bought up copies and pulled it from circulation, so copies online are unauthorised &mdash; we link the listing, not an upload.</p>
+    <p class="hl-book"><b>THE BOOKEND</b><a href="https://youtu.be/S31J5ACsOqU" target="_blank" rel="noopener">Jones decades later, on bubbles, AI risk and Buffett</a>. Watch the 1987 film first, then this. Almost nothing in investing lets you see one person&rsquo;s judgement at twenty-year remove &mdash; and the interesting part is not that he got richer, it is what he stopped doing.</p>
+    </div>
+  </li>
+  <li>
+    <div class="hl-year">1987</div>
+    <div>
+      <h3><a href="https://en.wikipedia.org/wiki/Wall_Street_(1987_film)" target="_blank" rel="noopener">Wall Street</a></h3>
+      <p class="what">Greed as an entire worldview, and who ends up paying for it.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>That a generation watched this, understood it perfectly, and decided they wanted to be the villain.</p>
+    </div>
+  </li>
+  <li>
+    <div class="hl-year">1999</div>
+    <div>
+      <h3><a href="https://www.imdb.com/title/tt0131566/" target="_blank" rel="noopener">Rogue Trader</a></h3>
+      <p class="what">Nick Leeson and the 233-year-old bank he ended.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>How long one person can hide a loss when nobody whose job it is ever checks.</p>
+    </div>
+  </li>
+  <li>
+    <div class="hl-year">2000</div>
+    <div>
+      <h3><a href="https://en.wikipedia.org/wiki/Boiler_Room_(film)" target="_blank" rel="noopener">Boiler Room</a></h3>
+      <p class="what">What a pump-and-dump actually sounds like on the phone.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>The script is still in use. Only the medium changed — it arrives in your messages now.</p>
+    </div>
+  </li>
+  <li>
+    <div class="hl-year">2005</div>
+    <div>
+      <h3><a href="https://en.wikipedia.org/wiki/Enron:_The_Smartest_Guys_in_the_Room" target="_blank" rel="noopener">Enron: The Smartest Guys in the Room</a></h3>
+      <p class="what">Accounting treated as creative writing.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>Not the executives — the accountants, lawyers and analysts who read it and signed anyway.</p>
+    </div>
+  </li>
+  <li>
+    <div class="hl-year">2011</div>
+    <div>
+      <h3><a href="https://en.wikipedia.org/wiki/Margin_Call" target="_blank" rel="noopener">Margin Call</a></h3>
+      <p class="what">The night the risk model stops working.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>Almost nobody in it is a villain. That is the uncomfortable part, and it is the honest part.</p>
+    </div>
+  </li>
+  <li>
+    <div class="hl-year">2011</div>
+    <div>
+      <h3><a href="https://en.wikipedia.org/wiki/Too_Big_to_Fail_(film)" target="_blank" rel="noopener">Too Big to Fail</a></h3>
+      <p class="what">The 2008 bailout, from inside the room.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>Watch it straight after the Federal Reserve section of Lesson 1 — it is the same argument, dramatised.</p>
+    </div>
+  </li>
+  <li>
+    <div class="hl-year">2015</div>
+    <div>
+      <h3><a href="https://en.wikipedia.org/wiki/The_Big_Short_(film)" target="_blank" rel="noopener">The Big Short</a></h3>
+      <p class="what">Being right years too early, and what that costs.</p>
+      <p class="hl-watch"><b>WATCH FOR</b>Burry was correct and it nearly destroyed him anyway. Correct and early is indistinguishable from wrong.</p>
+    </div>
+  </li>
+</ul>
+  </section>
+
+  <section class="hl-close">
+    <span class="hl-eyebrow">Included with your seat</span>
+    <h2>Everything here is free on the site</h2>
+    <p>The reading list is optional. The course is not, and all of it is already yours &mdash;
+      the five free stages, all four paid courses, twenty-six calculators, the glossary and the
+      live market data.</p>
+    <ul class="hl-links">
+      <li><a href="/financial-literacy.html">Financial Literacy &mdash; five stages</a></li>
+      <li><a href="/stage-4-invest.html">Stage 4: Invest</a></li>
+      <li><a href="/fundamental-analysis.html">Fundamental Analysis</a></li>
+      <li><a href="/technical-analysis.html">Technical Analysis</a></li>
+      <li><a href="/trading-psychology.html">Trading Psychology</a></li>
+      <li><a href="/economics.html">Economics for Traders</a></li>
+      <li><a href="/calculate-your-hustle.html">26 calculators</a></li>
+      <li><a href="/learn-the-lingo.html">Learn the Lingo</a></li>
+    </ul>
+    <p class="hl-fine">Book and film links point to publishers and public listings. Hustlin&rsquo; is not
+      paid to recommend anything on this page, and nothing here is investment advice.</p>
+    <!-- AFFILIATE DISCLOSURE — uncomment this and delete the line above if you add Associates tags:
+    <p class="hl-fine"><strong>Disclosure:</strong> some book links on this page are affiliate links.
+      If you buy through them, Hustlin&rsquo; earns a small commission at no extra cost to you. It does
+      not change what is on this list. Nothing here is investment advice.</p>
+    -->
+  </section>
+
+</main>
+<!-- ================= liftable block ends here ================= -->
+<!-- FOOTER:START — generated by tools/stamp-footers.mjs from footer.template.html. DO NOT EDIT BY HAND. -->
+<footer class="hfy-footer">
+  <div class="hfy-ft-top">
+
+    
+    <div class="hfy-ft-brand">
+      <a href="index.html" aria-label="Hustlin' - back to home" style="display:inline-block"><img src="assets/hustlin-logo.png" onerror="this.style.display='none'" alt="Hustlin'" width="1423" height="572" loading="lazy" decoding="async"></a>
+      <p>Free financial education for people building from the ground up. No jargon. No judgment.</p>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Courses</div>
+      <div class="hfy-ft-links">
+        <a href="financial-literacy.html">Financial Literacy — Free Resource</a>
+        <a href="disability-wealth-guide.html">Disability Wealth Guide</a>
+        <a href="calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
+        <a href="technical-analysis.html">Technical Analysis</a>
+        <a href="fundamental-analysis.html">Fundamental Analysis</a>
+        <a href="trading-psychology.html">Trading Psychology</a>
+        <a href="economics.html">Economics for Traders</a>
+        <a href="index.html#courses"><strong>All-Access Bundle</strong></a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Company</div>
+      <div class="hfy-ft-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="about.html#how-this-is-funded">How This Is Funded</a>
+        <a href="work-with-us.html">Work With Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="dmca.html">DMCA &amp; Copyright</a>
+        <a href="privacy-policy.html#your-privacy-choices" id="hfy-privacy-choices">Your Privacy Choices</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div class="hfy-ft-col-title">Follow Us</div>
+      <div class="hfy-ft-social">
+        <a class="hfy-ft-x" href="https://x.com/hustlin_org" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-ig" href="https://www.instagram.com/hustlin_org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @hustlin_org
+        </a>
+        <a class="hfy-ft-yt" href="https://www.youtube.com/channel/UCBHWZIQw1GZ-BzJG8AF3J6A" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Hustlin'
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hfy-ft-bottom">
+    <div class="hfy-ft-copy">© 2026 Hustlin' · hustlin.org · All rights reserved</div>
+    
+  </div>
+
+  <div class="hfy-ft-tm" style="max-width:1100px;margin:0 auto;padding:16px 20px 0;border-top:1px solid #23231F;font-size:.72rem;line-height:1.7;color:#8D887C">
+    All third-party names, brands, and trademarks on this site belong to their owners and are used for identification and education only. Their use does not imply affiliation, sponsorship, or endorsement. Hustlin&rsquo; is not affiliated with any bank, brokerage, credit bureau, consumer reporting agency, exchange, data provider, or financial institution named here, and none of them have reviewed or approved anything on this site. Videos we point to are hosted on YouTube by their own creators, including Khan Academy and Two Cents; we do not host, embed or modify them, and we are not affiliated with, endorsed by or sponsored by those creators. Khan Academy&rsquo;s material is free at <a href="https://www.khanacademy.org/" target="_blank" rel="noopener" style="color:#B9B2A2">khanacademy.org</a>.
+  </div>
+
+  <div class="hfy-ft-disc">
+    <strong>⚠️ EDUCATIONAL DISCLAIMER</strong>
+    All content on this site is for educational and entertainment purposes only and does not constitute financial, investment, tax, or legal advice. Hustlin' and its creators are not registered investment advisers, financial planners, brokers, or attorneys. Nothing here should be treated as a personalized recommendation. Always consult a qualified financial, tax, or legal professional before making financial decisions. Past performance and hypothetical projections do not guarantee future results.
+  </div>
+<script>
+/* "Your Privacy Choices" reopens Google's certified consent message (Privacy &
+   messaging in AdSense) when it is on the page. The href stays a real link so
+   the control still works with JavaScript off and never dead-ends: without the
+   CMP it falls through to section 10 of the Privacy Policy. */
+(function(){
+  var a = document.getElementById('hfy-privacy-choices');
+  if (!a) return;
+  a.addEventListener('click', function (e) {
+    var fc = window.googlefc;
+    if (fc && typeof fc.showRevocationMessage === 'function') {
+      e.preventDefault();
+      fc.showRevocationMessage();
+    }
+  });
+})();
+</script>
+</footer>
+<!-- FOOTER:END -->
+</body>
+</html>

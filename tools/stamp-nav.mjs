@@ -20,7 +20,7 @@
    --migrate EXISTS BECAUSE THERE WERE FOUR NAVS
 
      index.html                 no <nav> at all
-     markets.html               a logo and nothing else
+     the Markets hub            a logo and nothing else
      blog.html / about.html     logo + 2 links
      stage / guide pages        logo + the 5 stage buttons
 
@@ -87,13 +87,18 @@ const EXCLUDE = new Set([
 
 /* Nav-less ON PURPOSE, matched on the repo-relative path rather than the
    basename so a future root-level calendar.html is not silently exempted.
-   These four were reported as "decide where it belongs" for weeks; the
+   The original four were reported as "decide where it belongs" for weeks; the
    decision was already made and is recorded inside each file.
 
-     Markets/calendar.html
-     Markets/heatmaps.html
-     Markets/news.html   - RETIRED 2026-08-02. Redirect stubs: noindex+follow,
-                           canonical to markets.html, meta refresh. They exist
+     markets.html, markets-economic.html, markets-fundamental.html,
+     markets-technical.html, markets-behavior.html,
+     Markets/spotlight.html, Markets/chart.html, Markets/compare.html,
+     Markets/screeners.html, Markets/calendar.html, Markets/heatmaps.html,
+     Markets/news.html
+                         - retired 2026-10-09, redirect to homepage. The whole
+                           Markets section was removed; each file is now a
+                           noindex+follow stub with a meta refresh, a
+                           location.replace() and a canonical to the homepage,
                            so old inbound links and leftover indexation land
                            somewhere useful instead of a 404. Same deliberate
                            pattern as /sinking-fund-calculator.html. A nav on a
@@ -106,7 +111,12 @@ const EXCLUDE = new Set([
 
    Anything NOT in this set that turns up nav-less is still reported. */
 const NO_NAV_BY_DESIGN = new Set([
-  'Markets/calendar.html', 'Markets/heatmaps.html', 'Markets/news.html',
+  // Retired 2026-10-09, redirect to homepage.
+  'markets.html', 'markets-economic.html', 'markets-fundamental.html',
+  'markets-technical.html', 'markets-behavior.html',
+  'Markets/spotlight.html', 'Markets/chart.html', 'Markets/compare.html',
+  'Markets/screeners.html', 'Markets/calendar.html', 'Markets/heatmaps.html',
+  'Markets/news.html',
   'symbol-check.html',
 ]);
 

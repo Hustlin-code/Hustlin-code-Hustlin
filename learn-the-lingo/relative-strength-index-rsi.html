@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -474,15 +458,15 @@
 
   <h2 id="divergence">Wilder&rsquo;s own list of uses &mdash; including the one the course skips</h2>
 
-  <p>Overbought and oversold is the use everyone knows. It was one of five. The published summary of Wilder&rsquo;s article lists the set:</p><ul><li><b>Tops and bottoms</b>, indicated above 70 and below 30.</li><li><b>Chart formations on the RSI line itself</b> &mdash; shapes that appear in the indicator without appearing on the bar chart.</li><li><b>Failure swings.</b></li><li><b>Support and resistance</b> that shows up more clearly on RSI than on price.</li><li><b>Divergence between RSI and price action</b>, signalling potential turning points.</li></ul><p>Divergence is the one most traders settle on. Price grinds out a higher high, but RSI&rsquo;s peak this time is lower than its last one. Price went further; the momentum behind it did not. This is genuinely Wilder&rsquo;s, listed under his own name.</p><p>Now the limit, because it matters more than the pattern does. <strong>The attribution confirms the definition and the origin. It confirms nothing about accuracy.</strong> No primary source reachable for this page puts a hit rate on RSI divergence &mdash; not how often it precedes a reversal, not how often it fails, not over what horizon. Anyone quoting you a percentage got it somewhere other than Wilder.</p><p><strong>The failure swing is one of the five, and the course module on RSI never names it.</strong> It is named here because his published list names it. The working definition lives inside Section VI, which was not reachable, so it stays named rather than defined &mdash; a gap this page would rather show than paper over. For levels drawn on the indicator line, see <a href="../markets-technical.html">the live technical page</a>.</p>
+  <p>Overbought and oversold is the use everyone knows. It was one of five. The published summary of Wilder&rsquo;s article lists the set:</p><ul><li><b>Tops and bottoms</b>, indicated above 70 and below 30.</li><li><b>Chart formations on the RSI line itself</b> &mdash; shapes that appear in the indicator without appearing on the bar chart.</li><li><b>Failure swings.</b></li><li><b>Support and resistance</b> that shows up more clearly on RSI than on price.</li><li><b>Divergence between RSI and price action</b>, signalling potential turning points.</li></ul><p>Divergence is the one most traders settle on. Price grinds out a higher high, but RSI&rsquo;s peak this time is lower than its last one. Price went further; the momentum behind it did not. This is genuinely Wilder&rsquo;s, listed under his own name.</p><p>Now the limit, because it matters more than the pattern does. <strong>The attribution confirms the definition and the origin. It confirms nothing about accuracy.</strong> No primary source reachable for this page puts a hit rate on RSI divergence &mdash; not how often it precedes a reversal, not how often it fails, not over what horizon. Anyone quoting you a percentage got it somewhere other than Wilder.</p><p><strong>The failure swing is one of the five, and the course module on RSI never names it.</strong> It is named here because his published list names it. The working definition lives inside Section VI, which was not reachable, so it stays named rather than defined &mdash; a gap this page would rather show than paper over.</p>
 
   <h2 id="limits">What a reading does not tell you</h2>
 
-  <p>Three things get loaded onto RSI that it cannot carry.</p><p><strong>It knows nothing about the business.</strong> The only inputs are up closes and down closes. Earnings, debt, margins, management, the lawsuit filed this morning &mdash; none of it is in there. A company can be deteriorating and print a rising RSI, because the line summarizes trading, not the company. That work happens on <a href="../markets-fundamental.html">the fundamentals side</a>.</p><p><strong>It does not tell you which direction to take the signal.</strong> This is not a hedge, it is a live disagreement. Wilder&rsquo;s framework reads an extreme as exhaustion. StockCharts credits Andrew Cardwell with the opposite reading &mdash; positive and negative reversals, and a reinterpretation of divergence as behaving differently in bull markets than in bear markets, inverting Wilder&rsquo;s framework. Two credible readings of the same line pointing opposite ways, and no published hit rate for either &mdash; reason enough to distrust anyone who tells you what a reading &ldquo;means&rdquo; without saying whose framework they are using.</p><p><strong>It does not size your risk.</strong> RSI has no opinion about how much money should be behind the trade. That question belongs to <a href="../markets-behavior.html">the behavior side of the market</a>.</p>
+  <p>Three things get loaded onto RSI that it cannot carry.</p><p><strong>It knows nothing about the business.</strong> The only inputs are up closes and down closes. Earnings, debt, margins, management, the lawsuit filed this morning &mdash; none of it is in there. A company can be deteriorating and print a rising RSI, because the line summarizes trading, not the company. That work is <a href="../fundamental-analysis.html">fundamental analysis</a>.</p><p><strong>It does not tell you which direction to take the signal.</strong> This is not a hedge, it is a live disagreement. Wilder&rsquo;s framework reads an extreme as exhaustion. StockCharts credits Andrew Cardwell with the opposite reading &mdash; positive and negative reversals, and a reinterpretation of divergence as behaving differently in bull markets than in bear markets, inverting Wilder&rsquo;s framework. Two credible readings of the same line pointing opposite ways, and no published hit rate for either &mdash; reason enough to distrust anyone who tells you what a reading &ldquo;means&rdquo; without saying whose framework they are using.</p><p><strong>It does not size your risk.</strong> RSI has no opinion about how much money should be behind the trade. That question belongs to <a href="position-sizing.html">position sizing</a> and to <a href="../trading-psychology.html">the psychology side of trading</a>.</p>
 
   <h2 id="onchart">Where RSI sits among everything else on the chart</h2>
 
-  <p>The instinct after learning one oscillator is to add three more. Resist it, for a structural reason: tools built on similar logic tend to say similar things, so stacking them repeats one opinion in two typefaces while feeling like confirmation. One tool per category is the stronger arrangement &mdash; something reading trend, something reading momentum, something reading volume.</p><p>RSI&rsquo;s slot is the momentum one. The bounded scale makes readings comparable across securities, and the 14-period default means your chart is the chart most other people are looking at. Convention has real effects when enough participants share it, even when nothing official stands behind the numbers.</p><p>Indicators in full are Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>. Live readings across the index sit on <a href="../markets-technical.html">the technical markets page</a>, no account required.</p>
+  <p>The instinct after learning one oscillator is to add three more. Resist it, for a structural reason: tools built on similar logic tend to say similar things, so stacking them repeats one opinion in two typefaces while feeling like confirmation. One tool per category is the stronger arrangement &mdash; something reading trend, something reading momentum, something reading volume.</p><p>RSI&rsquo;s slot is the momentum one. The bounded scale makes readings comparable across securities, and the 14-period default means your chart is the chart most other people are looking at. Convention has real effects when enough participants share it, even when nothing official stands behind the numbers.</p><p>Indicators in full are Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>.</p>
 
   <h2 id="mistakes">What trips people up</h2>
 
@@ -528,9 +512,8 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>See live indicator and breadth readings across the index on <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account.</li>
       <li>Work through indicators properly in Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>, where RSI sits alongside the tools it is meant to be paired with.</li>
-      <li>Check the sentiment and risk side of the same market on <a href="../markets-behavior.html">Markets &middot; Behavior</a>, including the five-question pre-trade checklist.</li>
+      <li>Work through the risk side of the same decision &mdash; how much is on the line, and why &mdash; in Stage 3 of the <a href="../trading-psychology.html">Trading Psychology course</a>.</li>
       <li>Size the buffer underneath any of this with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, then see what patient money does in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
       <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
     </ul>
@@ -571,9 +554,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">Run the numbers</span>
-    <p>Watch RSI behave on live charts &mdash; with breadth, evidence ratings and a sector heatmap next to it. Free, no account.</p>
-    <a class="gls-cta" href="../markets-technical.html">Live technical dashboard &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 4, Indicators &amp; Signals, works RSI on real charts beside the tools it is meant to be paired with.</p>
+    <a class="gls-cta" href="../technical-analysis.html">Technical Analysis course &rarr;</a>
   </div>
 </aside>
 
@@ -596,7 +579,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

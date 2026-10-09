@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -479,11 +463,11 @@
 
   <h2 id="correlation">Six 1% positions can be one 6% position</h2>
 
-  <p>This is the largest hole in retail risk management and it gets the least airtime, because it cannot be fixed by a better formula.</p><p>A trader with the $8,000 account holds six positions. Each was sized to risk 1%, $80 apiece, all documented, all disciplined. Total risk on the sheet: 6 &times; $80 = <b>$480</b>, which is <b>6%</b> of the account. He describes that as spread out.</p><p>Whether it is spread out depends entirely on whether those six things move together. Two extremes bracket the answer:</p><ul><li><b>Six genuinely independent bets.</b> If you model risk as a standard deviation, independent risks add in quadrature rather than straight, so the combined figure is the square root of 6 times 1% &mdash; about <b>2.45%</b>. Less than half the headline number. <em>That is a modeling assumption, not a fact about markets, and it is generous.</em></li><li><b>Six versions of the same trade.</b> Six regional banks, or six semiconductor names, or six things that all just need rates to fall. When the thesis is wrong it is wrong in all six at once, and the account loses the full <b>6%</b>. You did not hold six positions. You held one, in six tickers, and paid six commissions for the privilege.</li></ul><p>Real portfolios sit somewhere between, and the uncomfortable part is <strong>where they sit is not fixed &mdash; it moves against you.</strong> Longin and Solnik studied this directly in the <em>Journal of Finance</em> (volume 56, number 2, April 2001) and their conclusion is one sentence long: <b>&ldquo;Correlation increases in bear markets, but not in bull markets.&rdquo;</b> They also rejected the assumption of multivariate normality for the negative tail while failing to reject it for the positive tail &mdash; in plain terms, the tidy statistical model of how things move together holds up reasonably well on the way up and breaks on the way down.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Diversification is measured in calm markets and spent in violent ones. The six positions that looked independent in June are one position in October, and you find out by watching all six stops trigger inside the same hour. <b>The correlation you built the plan on is not the correlation you get when you need it.</b></p></div><p>The SEC's own beginners' guide names the mechanism without the math: the point of holding different things is to hold &ldquo;asset categories with investment returns that move up and down under different market conditions,&rdquo; and it warns that a single fund &ldquo;doesn't necessarily provide instant diversification, especially if the fund focuses on only one particular industry sector.&rdquo; The same warning applies to six hand-picked tickers from one sector, with more force, because you chose them precisely because they had something in common.</p><p>Practitioners handle this with a second cap &mdash; a limit on total risk open at once, and a limit on risk per sector or per theme. Common figures get quoted; none of them is published by anyone. Treat them as conventions. The <a href="../markets-technical.html">technical markets page</a> carries sector breadth across six horizons, which is one way to see how much of the market is currently doing the same thing.</p>
+  <p>This is the largest hole in retail risk management and it gets the least airtime, because it cannot be fixed by a better formula.</p><p>A trader with the $8,000 account holds six positions. Each was sized to risk 1%, $80 apiece, all documented, all disciplined. Total risk on the sheet: 6 &times; $80 = <b>$480</b>, which is <b>6%</b> of the account. He describes that as spread out.</p><p>Whether it is spread out depends entirely on whether those six things move together. Two extremes bracket the answer:</p><ul><li><b>Six genuinely independent bets.</b> If you model risk as a standard deviation, independent risks add in quadrature rather than straight, so the combined figure is the square root of 6 times 1% &mdash; about <b>2.45%</b>. Less than half the headline number. <em>That is a modeling assumption, not a fact about markets, and it is generous.</em></li><li><b>Six versions of the same trade.</b> Six regional banks, or six semiconductor names, or six things that all just need rates to fall. When the thesis is wrong it is wrong in all six at once, and the account loses the full <b>6%</b>. You did not hold six positions. You held one, in six tickers, and paid six commissions for the privilege.</li></ul><p>Real portfolios sit somewhere between, and the uncomfortable part is <strong>where they sit is not fixed &mdash; it moves against you.</strong> Longin and Solnik studied this directly in the <em>Journal of Finance</em> (volume 56, number 2, April 2001) and their conclusion is one sentence long: <b>&ldquo;Correlation increases in bear markets, but not in bull markets.&rdquo;</b> They also rejected the assumption of multivariate normality for the negative tail while failing to reject it for the positive tail &mdash; in plain terms, the tidy statistical model of how things move together holds up reasonably well on the way up and breaks on the way down.</p><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>Diversification is measured in calm markets and spent in violent ones. The six positions that looked independent in June are one position in October, and you find out by watching all six stops trigger inside the same hour. <b>The correlation you built the plan on is not the correlation you get when you need it.</b></p></div><p>The SEC's own beginners' guide names the mechanism without the math: the point of holding different things is to hold &ldquo;asset categories with investment returns that move up and down under different market conditions,&rdquo; and it warns that a single fund &ldquo;doesn't necessarily provide instant diversification, especially if the fund focuses on only one particular industry sector.&rdquo; The same warning applies to six hand-picked tickers from one sector, with more force, because you chose them precisely because they had something in common.</p><p>Practitioners handle this with a second cap &mdash; a limit on total risk open at once, and a limit on risk per sector or per theme. Common figures get quoted; none of them is published by anyone. Treat them as conventions. Sector breadth &mdash; how many sectors are moving the same way &mdash; is one way to see how much of the market is currently doing the same thing.</p>
 
   <h2 id="psychology">Why this is a psychology term wearing a calculator</h2>
 
-  <p>Everything on this page is arithmetic, and almost nobody's sizing failures are arithmetic failures. They are decisions made at the moment of entry by a person who is excited, or behind, or certain.</p><p>Size is where feelings become dollars. Conviction turns into share count. A run of wins turns into a bigger number without anyone deciding to make it bigger. A run of losses turns into a position sized to make the money back, which is the largest position of the sequence arriving at the worst moment in it. None of that shows up as a mistake in a spreadsheet, because the arithmetic was done correctly on a risk figure that had already been quietly moved.</p><p>The reason it lands this way has a documented origin. <a href="loss-aversion.html">Loss aversion</a> &mdash; the finding that losses register more heavily than equivalent gains, from Kahneman and Tversky's 1979 <em>Econometrica</em> paper on prospect theory &mdash; predicts the specific behavior sizing is meant to prevent. If a $500 loss hurts more than a $500 gain pleases, then a position large enough to produce a $500 loss will produce enough discomfort to override the plan that created it. <strong>The stop does not fail. The person watching the stop fails, and the size is what determined how much pressure was on them.</strong></p><p>Which points at the one genuinely useful thing about this whole topic. <b>Size is the only input in a trade that you control completely.</b> You do not control the price, the news, the fill, the gap, the sector, or whether your thesis was right. You control how many shares. A trader with a mediocre read and a small position survives to keep reading. A trader with an excellent read and a position that terrifies them will close it at the wrong moment and never learn that the read was excellent.</p><p>Risk and loss is Stage 3 of the <a href="../trading-psychology.html">Trading Psychology course</a>. The <a href="../markets-behavior.html">behavior page</a> carries a five-question pre-trade checklist that asks the sizing question in plain language before the order goes in, free and with no account.</p>
+  <p>Everything on this page is arithmetic, and almost nobody's sizing failures are arithmetic failures. They are decisions made at the moment of entry by a person who is excited, or behind, or certain.</p><p>Size is where feelings become dollars. Conviction turns into share count. A run of wins turns into a bigger number without anyone deciding to make it bigger. A run of losses turns into a position sized to make the money back, which is the largest position of the sequence arriving at the worst moment in it. None of that shows up as a mistake in a spreadsheet, because the arithmetic was done correctly on a risk figure that had already been quietly moved.</p><p>The reason it lands this way has a documented origin. <a href="loss-aversion.html">Loss aversion</a> &mdash; the finding that losses register more heavily than equivalent gains, from Kahneman and Tversky's 1979 <em>Econometrica</em> paper on prospect theory &mdash; predicts the specific behavior sizing is meant to prevent. If a $500 loss hurts more than a $500 gain pleases, then a position large enough to produce a $500 loss will produce enough discomfort to override the plan that created it. <strong>The stop does not fail. The person watching the stop fails, and the size is what determined how much pressure was on them.</strong></p><p>Which points at the one genuinely useful thing about this whole topic. <b>Size is the only input in a trade that you control completely.</b> You do not control the price, the news, the fill, the gap, the sector, or whether your thesis was right. You control how many shares. A trader with a mediocre read and a small position survives to keep reading. A trader with an excellent read and a position that terrifies them will close it at the wrong moment and never learn that the read was excellent.</p><p>Risk and loss is Stage 3 of the <a href="../trading-psychology.html">Trading Psychology course</a>. Stage 5 builds a printable pre-trade checklist that puts the sizing question on paper before the order goes in.</p>
 
   <h2 id="ledger">What is sourced here and what is not</h2>
 
@@ -533,9 +517,8 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>Run the five-question pre-trade checklist on <a href="../markets-behavior.html">Markets &middot; Behavior</a> before the order goes in &mdash; it asks the sizing question in plain language, free and with no account.</li>
+      <li>Put the sizing question on paper before the order goes in with the pre-trade checklist in Stage 5 of the <a href="../trading-psychology.html">Trading Psychology course</a>.</li>
       <li>Work through risk and loss properly in Stage 3 of the <a href="../trading-psychology.html">Trading Psychology course</a>, where size is treated as a decision rather than a formula.</li>
-      <li>See how much of the market is currently doing the same thing on <a href="../markets-technical.html">Markets &middot; Technical</a>, which carries sector breadth across six horizons.</li>
       <li>Find out what number a loss actually comes out of with the <a href="../net-worth-calculator.html">net worth calculator</a>, then size the buffer underneath it in the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>.</li>
       <li>See what patient money does without any of this in the <a href="../investment-growth-calculator.html">investment growth calculator</a>, or start at the beginning with <a href="../stage-4-invest.html">Stage 4: Invest</a> &mdash; free, no account.</li>
       <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
@@ -578,9 +561,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">Check yourself first</span>
-    <p>Five questions to answer before the order goes in &mdash; including the one about whether you could actually lose this money. Free, no account.</p>
-    <a class="gls-cta" href="../markets-behavior.html">The five-question pre-trade checklist &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 3, Risk &amp; Loss, treats size as a decision rather than a formula.</p>
+    <a class="gls-cta" href="../trading-psychology.html">Trading Psychology course &rarr;</a>
   </div>
 </aside>
 
@@ -603,7 +586,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -483,7 +467,7 @@
 
   <h2 id="derived">%b and BandWidth &mdash; comparing across stocks</h2>
 
-  <p>Bollinger added two derived measures to solve a problem the bands create. The bands are drawn in dollars, so &ldquo;price is $1.40 below the upper band&rdquo; means something completely different on a $12 stock than on a $600 one, and you cannot line up two charts and compare. The fix is to convert position and width into plain numbers.</p><p><b>%b</b> answers &ldquo;where is price inside the channel.&rdquo; Rule 15: &ldquo;%b tells us where we are in relation to the Bollinger Bands. The position within the bands is calculated using an adaptation of the formula for Stochastics.&rdquo;</p><div class="gls-formula"><span class="gls-lbl">%b</span><code>%b  =  ( price &minus; lower band )  &divide;  ( upper band &minus; lower band )</code><p class="gls-where">1.0 sits exactly on the upper band, 0.0 exactly on the lower, 0.5 on the middle band. Above 1.0 or below 0.0 means price closed outside the channel. On the worked example, the final close of $53.05 gives ( 53.05 &minus; 46.00 ) &divide; ( 54.00 &minus; 46.00 ) = 7.05 &divide; 8.00 = <b>0.881</b>.</p></div><p><b>BandWidth</b>, from the previous section, answers &ldquo;how wide is the channel&rdquo; on the same footing. Together they are the two facts about a chart that survive being moved to another ticker: <em>0.88 and 16.0</em> tells another reader that price is high in its channel and the channel is moderately wide, without either of you knowing the share price.</p><p>Rule 17 pushes this further and is the cleverest item on his list: &ldquo;Indicators can be normalized with %b, eliminating fixed thresholds in the process. To do this plot 50-period or longer Bollinger Bands on an indicator and then calculate %b of the indicator.&rdquo; Wrap the bands around something that is not price &mdash; <a href="relative-strength-index-rsi.html">RSI</a>, <a href="macd.html">MACD</a>, <a href="volume.html">volume</a> &mdash; and you get a reading of whether that indicator is high or low <em>for itself</em>, instead of arguing over whether the fixed line belongs at 70 or 75. Whether it improves anything is not established by any study this page could find. The idea is his, and it is worth knowing.</p><div class="gls-where"><span class="gls-lbl">Where you&rsquo;ll see it</span><p>Bands are a default overlay on essentially every charting tool, usually labeled &ldquo;BB&rdquo; with a length box reading 20 and a deviation box reading 2. Watch them behave alongside breadth readings and a sector heatmap on the free <a href="../markets-technical.html">Markets &middot; Technical</a> page. Indicators in depth are Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>.</p></div>
+  <p>Bollinger added two derived measures to solve a problem the bands create. The bands are drawn in dollars, so &ldquo;price is $1.40 below the upper band&rdquo; means something completely different on a $12 stock than on a $600 one, and you cannot line up two charts and compare. The fix is to convert position and width into plain numbers.</p><p><b>%b</b> answers &ldquo;where is price inside the channel.&rdquo; Rule 15: &ldquo;%b tells us where we are in relation to the Bollinger Bands. The position within the bands is calculated using an adaptation of the formula for Stochastics.&rdquo;</p><div class="gls-formula"><span class="gls-lbl">%b</span><code>%b  =  ( price &minus; lower band )  &divide;  ( upper band &minus; lower band )</code><p class="gls-where">1.0 sits exactly on the upper band, 0.0 exactly on the lower, 0.5 on the middle band. Above 1.0 or below 0.0 means price closed outside the channel. On the worked example, the final close of $53.05 gives ( 53.05 &minus; 46.00 ) &divide; ( 54.00 &minus; 46.00 ) = 7.05 &divide; 8.00 = <b>0.881</b>.</p></div><p><b>BandWidth</b>, from the previous section, answers &ldquo;how wide is the channel&rdquo; on the same footing. Together they are the two facts about a chart that survive being moved to another ticker: <em>0.88 and 16.0</em> tells another reader that price is high in its channel and the channel is moderately wide, without either of you knowing the share price.</p><p>Rule 17 pushes this further and is the cleverest item on his list: &ldquo;Indicators can be normalized with %b, eliminating fixed thresholds in the process. To do this plot 50-period or longer Bollinger Bands on an indicator and then calculate %b of the indicator.&rdquo; Wrap the bands around something that is not price &mdash; <a href="relative-strength-index-rsi.html">RSI</a>, <a href="macd.html">MACD</a>, <a href="volume.html">volume</a> &mdash; and you get a reading of whether that indicator is high or low <em>for itself</em>, instead of arguing over whether the fixed line belongs at 70 or 75. Whether it improves anything is not established by any study this page could find. The idea is his, and it is worth knowing.</p><div class="gls-where"><span class="gls-lbl">Where you&rsquo;ll see it</span><p>Bands are a default overlay on essentially every charting tool, usually labeled &ldquo;BB&rdquo; with a length box reading 20 and a deviation box reading 2. Indicators in depth are Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>.</p></div>
 
   <h2 id="ledger">What is confirmed, what is not, and what is only convention</h2>
 
@@ -491,7 +475,7 @@
 
   <h2 id="mistakes">What trips people up</h2>
 
-  <ul><li><b>Treating the upper band as a sell and the lower as a buy.</b> Rule 6 exists specifically to rule this out, in capital letters, and it is still the most common use of the tool.</li><li><b>Believing the 95% figure.</b> Two standard deviations covers 95% of a <em>normal distribution</em>. Prices are not normally distributed, volatility is not constant, and 20 observations is not a sample you can make tail claims from. Bollinger&rsquo;s own rule says to make no statistical assumptions at all here.</li><li><b>Expecting a tag to resolve quickly.</b> The bands are recomputed every bar. In a trend the average rises to meet the price, so a stock can sit on the upper band for weeks &mdash; the same way <a href="relative-strength-index-rsi.html">RSI</a> can hold above 70 for months.</li><li><b>Reading direction into a squeeze.</b> Narrowing bands say volatility has been low. The calculation squares the deviations, which discards the sign before the number exists. There is no directional information in there to find.</li><li><b>Turning the knobs until the chart looks profitable.</b> Shortening the average or narrowing the deviation multiplier produces more tags of the bands. That is arithmetic, not a better signal, and every additional tag is one more thing to be wrong about.</li><li><b>Stacking bands with three more momentum tools.</b> Rule 4 asks for indicators that measure different things. Bands plus <a href="macd.html">MACD</a> plus <a href="relative-strength-index-rsi.html">RSI</a> plus a stochastic is one opinion wearing four costumes, and it feels like confirmation.</li><li><b>Forgetting the bands are drawn from the same prices you are trying to judge.</b> They contain no information about the company, the sector or the news &mdash; that work happens on the <a href="../markets-fundamental.html">fundamentals side</a>, and the reason a tag feels significant is usually a bias worth checking on the <a href="../markets-behavior.html">behavior side</a>.</li><li><b>Using any of this with money that has a job.</b> No overlay changes what a loss does to a household with no cushion under it. The <a href="../emergency-fund-calculator.html">emergency fund calculator</a> is a more consequential tool than any chart on this site.</li></ul>
+  <ul><li><b>Treating the upper band as a sell and the lower as a buy.</b> Rule 6 exists specifically to rule this out, in capital letters, and it is still the most common use of the tool.</li><li><b>Believing the 95% figure.</b> Two standard deviations covers 95% of a <em>normal distribution</em>. Prices are not normally distributed, volatility is not constant, and 20 observations is not a sample you can make tail claims from. Bollinger&rsquo;s own rule says to make no statistical assumptions at all here.</li><li><b>Expecting a tag to resolve quickly.</b> The bands are recomputed every bar. In a trend the average rises to meet the price, so a stock can sit on the upper band for weeks &mdash; the same way <a href="relative-strength-index-rsi.html">RSI</a> can hold above 70 for months.</li><li><b>Reading direction into a squeeze.</b> Narrowing bands say volatility has been low. The calculation squares the deviations, which discards the sign before the number exists. There is no directional information in there to find.</li><li><b>Turning the knobs until the chart looks profitable.</b> Shortening the average or narrowing the deviation multiplier produces more tags of the bands. That is arithmetic, not a better signal, and every additional tag is one more thing to be wrong about.</li><li><b>Stacking bands with three more momentum tools.</b> Rule 4 asks for indicators that measure different things. Bands plus <a href="macd.html">MACD</a> plus <a href="relative-strength-index-rsi.html">RSI</a> plus a stochastic is one opinion wearing four costumes, and it feels like confirmation.</li><li><b>Forgetting the bands are drawn from the same prices you are trying to judge.</b> They contain no information about the company, the sector or the news &mdash; that work is <a href="../fundamental-analysis.html">fundamental analysis</a>, and the reason a tag feels significant is usually a bias, which is what <a href="../trading-psychology.html">Trading Psychology</a> covers.</li><li><b>Using any of this with money that has a job.</b> No overlay changes what a loss does to a household with no cushion under it. The <a href="../emergency-fund-calculator.html">emergency fund calculator</a> is a more consequential tool than any chart on this site.</li></ul>
 
   <section class="gls-faq">
     <h2 id="faq">Frequently asked questions</h2>
@@ -533,10 +517,9 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>Watch bands, breadth and evidence ratings behave on live charts at <a href="../markets-technical.html">Markets &middot; Technical</a> &mdash; free, no account.</li>
       <li>Read <a href="moving-average.html">moving average</a> next, since the middle band is one and the bands inherit every lag it has.</li>
       <li>Work through indicators properly in Stage 4 of the <a href="../technical-analysis.html">Technical Analysis course</a>, where bands sit next to the tools they are meant to be paired with.</li>
-      <li>Run the five-question pre-trade checklist on <a href="../markets-behavior.html">Markets &middot; Behavior</a> before any of this reaches an order screen.</li>
+      <li>Build a printable pre-trade checklist before any of this reaches an order screen &mdash; that is Stage 5 of the <a href="../trading-psychology.html">Trading Psychology course</a>.</li>
       <li>Size the cushion underneath it with the <a href="../emergency-fund-calculator.html">emergency fund calculator</a>, then see what patient money does in the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
       <li>Browse every definition in <a href="../learn-the-lingo.html">Learn the Lingo</a>.</li>
     </ul>
@@ -578,9 +561,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">See it on a live chart</span>
-    <p>See bands, breadth and sector rotation on live charts, with every reading labeled by how much confidence it deserves. Free, no account.</p>
-    <a class="gls-cta" href="../markets-technical.html">Live chart and evidence ratings &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 4, Indicators &amp; Signals, works the bands on real charts beside the tools they are meant to be paired with.</p>
+    <a class="gls-cta" href="../technical-analysis.html">Technical Analysis course &rarr;</a>
   </div>
 </aside>
 
@@ -603,7 +586,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

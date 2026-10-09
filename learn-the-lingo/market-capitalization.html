@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -459,7 +443,7 @@
 
   <h2 id="definition">What the number actually is</h2>
 
-  <p>Two screeners, same company, same minute. One says the company is worth $3.0&nbsp;billion, the other $3.2&nbsp;billion. Neither is broken. A banker pricing that company for a takeover would say $5.2&nbsp;billion and would also not be wrong. The founder, asked what she could actually get for every share she owns, would give a fourth number lower than all of them.</p><p>All four start from the simplest calculation in finance.</p><div class="gls-formula"><span class="gls-lbl">Market capitalization</span><code>market cap  =  share price  &times;  shares outstanding</code></div><p>The SEC's own investor education site defines it exactly that way. Market capitalization is &ldquo;the value of a corporation determined by multiplying the current public market price of one share of the corporation by the number of total outstanding shares.&rdquo; One price, one count, one multiplication. No adjustments, no discounts, no judgment.</p><p>That plainness is why market cap is the first column on every screener, this site's included. It is a genuinely useful number, and the one new investors misread most often.</p><p>Everything that goes wrong comes from two facts sitting inside that formula. <strong>The price is the price of one share</strong> &mdash; the last one that happened to trade. And <strong>the count is not a fact, it is a choice</strong>, because a public company has three or four defensible share counts that do not agree.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>Market cap is what somebody just paid for one share, multiplied by how many shares exist. It is <b>not</b> what the company would cost to buy, <b>not</b> money the company has or ever received, and <b>not</b> a price anyone could actually collect.</p></div><p>Those three denials are the page. Take them in order.</p>
+  <p>Two screeners, same company, same minute. One says the company is worth $3.0&nbsp;billion, the other $3.2&nbsp;billion. Neither is broken. A banker pricing that company for a takeover would say $5.2&nbsp;billion and would also not be wrong. The founder, asked what she could actually get for every share she owns, would give a fourth number lower than all of them.</p><p>All four start from the simplest calculation in finance.</p><div class="gls-formula"><span class="gls-lbl">Market capitalization</span><code>market cap  =  share price  &times;  shares outstanding</code></div><p>The SEC's own investor education site defines it exactly that way. Market capitalization is &ldquo;the value of a corporation determined by multiplying the current public market price of one share of the corporation by the number of total outstanding shares.&rdquo; One price, one count, one multiplication. No adjustments, no discounts, no judgment.</p><p>That plainness is why market cap is the first column on almost every screener. It is a genuinely useful number, and the one new investors misread most often.</p><p>Everything that goes wrong comes from two facts sitting inside that formula. <strong>The price is the price of one share</strong> &mdash; the last one that happened to trade. And <strong>the count is not a fact, it is a choice</strong>, because a public company has three or four defensible share counts that do not agree.</p><div class="gls-box"><span class="gls-lbl">The one-sentence version</span><p>Market cap is what somebody just paid for one share, multiplied by how many shares exist. It is <b>not</b> what the company would cost to buy, <b>not</b> money the company has or ever received, and <b>not</b> a price anyone could actually collect.</p></div><p>Those three denials are the page. Take them in order.</p>
 
   <h2 id="enterprise">It is not what the company would cost to buy</h2>
 
@@ -483,7 +467,7 @@
 
   <h2 id="behavior">How size changes the way a stock trades, and how indices use it</h2>
 
-  <p>None of what follows is a reason to prefer one size over another. It is mechanics.</p><h3>Liquidity and the spread</h3><p>Smaller companies have fewer shares available and fewer people trading them, which shows up as a wider gap between the best bid and offer and a price that moves further on an ordinary-sized order. A wide spread is a cost paid on entry and again on exit, and it never appears on a statement as a fee. <a href="volume.html">Volume</a> is the crude reading on it.</p><h3>Coverage, disclosure and index inclusion</h3><p>Analyst coverage thins going down the size scale, so fewer people publish estimates. And under Rule 12b-2 a company below the $75&nbsp;million public float line is a non-accelerated filer with longer deadlines, while a smaller reporting company may scale back certain disclosures. <strong>Less information exists about small companies, by design of the rules and by the economics of the research business.</strong> Whether that is opportunity or hazard depends on whether you can do the work yourself, which is what <a href="../fundamental-analysis.html">Fundamental Analysis</a> is for.</p><p>And because index thresholds are published, crossing one is an event: a company entering a widely tracked index must be bought by every fund tracking it, at a size set by its float-adjusted cap, on an announced schedule. Leaving works in reverse. That flow has nothing to do with the business.</p><h3>Volatility, and the argument about the size premium</h3><p>Smaller companies are typically less diversified, carry shorter operating histories and are repriced on thinner volume, so their prices move more. That much is mechanical. The claim built on top of it is not. That small-cap stocks earn a persistent long-run return premium traces to Rolf Banz in the <em>Journal of Financial Economics</em> in 1981 and entered practice through Eugene Fama and Kenneth French's three-factor model in the early 1990s. <strong>It has been contested ever since</strong> &mdash; Horowitz, Loughran and Savin, &ldquo;Three analyses of the firm size premium,&rdquo; <em>Journal of Empirical Finance</em> 7(2), 2000, is one well-known challenge. The clearest statement of where the argument stands comes from the paper that <em>defends</em> the premium. Asness, Frazzini, Israel, Moskowitz and Pedersen, &ldquo;Size matters, if you control your junk,&rdquo; <em>Journal of Financial Economics</em> 129(3), 2018, opens by listing the charges: the premium has been accused of &ldquo;having a weak historical record, being meager relative to other factors, varying significantly over time, weakening after its discovery, being concentrated among microcap stocks, residing predominantly in January, relying on price-based measures, and being weak internationally.&rdquo; Their argument is that those objections dissolve once you control for firm quality. <strong>A live dispute with named participants on both sides &mdash; not a settled fact.</strong></p><h3>Cap weighting, and what it does mechanically</h3><p>Most broad indices and most index <a href="etf.html">ETFs</a> weight their holdings by float-adjusted market cap. The consequence is arithmetic: as a company's price rises its market cap rises, so its share of the index rises with no trade required, and as it falls its weight falls. A cap-weighted index therefore <strong>concentrates into whatever has gone up</strong> and thins out of whatever has gone down, automatically and continuously.</p><p>That is neither a flaw nor a virtue. It is why such an index needs very little turnover &mdash; much of why these funds are cheap &mdash; and why a handful of very large companies can dominate an index nominally holding five hundred. Weighting is a choice, though, not a law: the Dow Jones Industrial Average is <b>price</b>-weighted, so a share price rather than a market cap sets each member's influence (see <a href="dow-theory.html">Dow Theory</a>). And market cap is nominal, so comparing one across decades without adjusting for <a href="inflation.html">inflation</a> compares two different dollars.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it on this site</span><p>Market cap is a sortable column in the screener on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a>, beside the nine-metric reference covering the ratios built on it. The earnings calendar there <b>filters by market cap</b> &mdash; only companies above $2&nbsp;billion appear, which the page states openly, and which lands exactly on FINRA's small-cap ceiling. For a small account building slowly, <a href="../stage-4-invest.html">Stage 4 of the free Financial Literacy course</a> is the plain-language version. All five stages are free, no account needed.</p></div>
+  <p>None of what follows is a reason to prefer one size over another. It is mechanics.</p><h3>Liquidity and the spread</h3><p>Smaller companies have fewer shares available and fewer people trading them, which shows up as a wider gap between the best bid and offer and a price that moves further on an ordinary-sized order. A wide spread is a cost paid on entry and again on exit, and it never appears on a statement as a fee. <a href="volume.html">Volume</a> is the crude reading on it.</p><h3>Coverage, disclosure and index inclusion</h3><p>Analyst coverage thins going down the size scale, so fewer people publish estimates. And under Rule 12b-2 a company below the $75&nbsp;million public float line is a non-accelerated filer with longer deadlines, while a smaller reporting company may scale back certain disclosures. <strong>Less information exists about small companies, by design of the rules and by the economics of the research business.</strong> Whether that is opportunity or hazard depends on whether you can do the work yourself, which is what <a href="../fundamental-analysis.html">Fundamental Analysis</a> is for.</p><p>And because index thresholds are published, crossing one is an event: a company entering a widely tracked index must be bought by every fund tracking it, at a size set by its float-adjusted cap, on an announced schedule. Leaving works in reverse. That flow has nothing to do with the business.</p><h3>Volatility, and the argument about the size premium</h3><p>Smaller companies are typically less diversified, carry shorter operating histories and are repriced on thinner volume, so their prices move more. That much is mechanical. The claim built on top of it is not. That small-cap stocks earn a persistent long-run return premium traces to Rolf Banz in the <em>Journal of Financial Economics</em> in 1981 and entered practice through Eugene Fama and Kenneth French's three-factor model in the early 1990s. <strong>It has been contested ever since</strong> &mdash; Horowitz, Loughran and Savin, &ldquo;Three analyses of the firm size premium,&rdquo; <em>Journal of Empirical Finance</em> 7(2), 2000, is one well-known challenge. The clearest statement of where the argument stands comes from the paper that <em>defends</em> the premium. Asness, Frazzini, Israel, Moskowitz and Pedersen, &ldquo;Size matters, if you control your junk,&rdquo; <em>Journal of Financial Economics</em> 129(3), 2018, opens by listing the charges: the premium has been accused of &ldquo;having a weak historical record, being meager relative to other factors, varying significantly over time, weakening after its discovery, being concentrated among microcap stocks, residing predominantly in January, relying on price-based measures, and being weak internationally.&rdquo; Their argument is that those objections dissolve once you control for firm quality. <strong>A live dispute with named participants on both sides &mdash; not a settled fact.</strong></p><h3>Cap weighting, and what it does mechanically</h3><p>Most broad indices and most index <a href="etf.html">ETFs</a> weight their holdings by float-adjusted market cap. The consequence is arithmetic: as a company's price rises its market cap rises, so its share of the index rises with no trade required, and as it falls its weight falls. A cap-weighted index therefore <strong>concentrates into whatever has gone up</strong> and thins out of whatever has gone down, automatically and continuously.</p><p>That is neither a flaw nor a virtue. It is why such an index needs very little turnover &mdash; much of why these funds are cheap &mdash; and why a handful of very large companies can dominate an index nominally holding five hundred. Weighting is a choice, though, not a law: the Dow Jones Industrial Average is <b>price</b>-weighted, so a share price rather than a market cap sets each member's influence (see <a href="dow-theory.html">Dow Theory</a>). And market cap is nominal, so comparing one across decades without adjusting for <a href="inflation.html">inflation</a> compares two different dollars.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>Market cap is a sortable column on almost every free stock screener, and earnings calendars often <b>filter by market cap</b> so the smallest companies drop out. For a small account building slowly, <a href="../stage-4-invest.html">Stage 4 of the free Financial Literacy course</a> is the plain-language version. All five stages are free, no account needed.</p></div>
 
   <h2 id="ledger">What is sourced here and what is not</h2>
 
@@ -533,7 +517,6 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>Sort live companies by market cap and read the nine metrics built on top of it on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a> &mdash; free, no account.</li>
       <li>Work through the balance sheet before the price multiple in Stages 3 and 4 of <a href="../fundamental-analysis.html">Fundamental Analysis</a>, which is where enterprise value stops being trivia.</li>
       <li>Start with what compounding actually does in <a href="../stage-4-invest.html">Stage 4 of the free Financial Literacy course</a> &mdash; all five stages are free and an account is optional.</li>
       <li>Run the arithmetic on your own money with the <a href="../investment-growth-calculator.html">investment growth calculator</a> or take stock with the <a href="../net-worth-calculator.html">net worth calculator</a>.</li>
@@ -578,9 +561,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">See it on live data</span>
-    <p>Sort live companies by market cap, then read the nine metrics built on top of it &mdash; with a screener, an earnings calendar and sector context beside them. Free, no account.</p>
-    <a class="gls-cta" href="../markets-fundamental.html">The nine-metric reference, live &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 4, Valuation, is where market cap meets enterprise value and the multiples built on top of it.</p>
+    <a class="gls-cta" href="../fundamental-analysis.html">Fundamental Analysis course &rarr;</a>
   </div>
 </aside>
 
@@ -603,7 +586,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

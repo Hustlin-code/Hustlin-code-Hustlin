@@ -89,7 +89,7 @@ jobs:
       # nothing exotic — node:fs, node:path, node:url, global fetch and
       # AbortController, all standard since Node 18. Pinning a version bought
       # nothing and cost a second action to keep patched.
-      - name: Bake current figures into the Markets pages
+      - name: Refresh the market snapshot
         run: |
           node --version
           node tools/inject-market-data.mjs --cadence=${{ inputs.cadence }}

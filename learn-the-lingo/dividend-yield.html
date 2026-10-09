@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -463,7 +447,7 @@
 
   <h2 id="denominator">The price is the denominator</h2>
 
-  <p>This is the whole page in one idea. A fraction gets bigger when its bottom gets smaller. The bottom of the dividend yield fraction is the share price. So <strong>the yield rises when the stock falls</strong> &mdash; automatically, with no change in the dividend and no improvement in the business.</p><p>Hold the dividend still at $2.00 a share and watch a falling price work on the headline number:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Dividend yield at falling share prices with a fixed $2.00 dividend"><table class="gls-tab"><thead><tr><th>Share price</th><th>Annual dividend</th><th>Dividend yield</th><th>Change from $50</th></tr></thead><tbody><tr><td>$50.00</td><td>$2.00</td><td>4.00%</td><td>&mdash;</td></tr><tr><td>$40.00</td><td>$2.00</td><td>5.00%</td><td>&minus;20%</td></tr><tr><td>$25.00</td><td>$2.00</td><td>8.00%</td><td>&minus;50%</td></tr><tr><td>$20.00</td><td>$2.00</td><td>10.00%</td><td>&minus;60%</td></tr><tr><td>$16.00</td><td>$2.00</td><td>12.50%</td><td>&minus;68%</td></tr></tbody></table></div><p>Every row is the same company paying the same money. The yield triples down the column and the only thing that happened is the market deciding the shares were worth less. So: <strong>a yield that has just become attractive is usually attached to a stock that has just been marked down.</strong> The high yield is not the reward for finding it. It is the symptom of whatever the market found first.</p><p>That does not make a high yield a mistake &mdash; markets mark things down for good reasons and bad ones, and sorting those out is the whole job of <a href="../markets-fundamental.html">fundamental analysis</a>. It means the yield carries no information about which case you are in. And once the price has fallen far enough, the dividend is the discretionary line item sitting right there on the cash flow statement.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; the value trap, start to finish</span><p>You buy <b>100 shares at $40.00</b> &mdash; a $4,000 position paying <b>$2.00</b> a share a year. Yield <b>5.00%</b>, income <b>$200 a year</b>.</p><p>The price falls to <b>$20.00</b>. The dividend has not changed, so the quoted yield is <b>$2.00 &divide; $20.00 = 10.00%</b>. On a screen that looks like an opportunity. On your statement, your $4,000 is <b>$2,000</b>.</p><p>Then the board cuts the dividend to <b>$0.50</b>. Yield on the current price: <b>$0.50 &divide; $20.00 = 2.50%</b>. Income drops to <b>$50 a year</b>.</p><p class="gls-result">Position: $4,000 &rarr; $2,000 (&minus;50%) &middot; Income: $200 &rarr; $50 (&minus;75%) &middot; Quoted yield: 5.00% &rarr; 10.00% &rarr; 2.50% &middot; Yield on <em>your</em> $40 cost: 5.00% &rarr; 1.25%</p></div><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>The 10.00% in the middle of that sequence was never available to anyone. It was the ratio of a dividend about to be cut to a price that had already fallen. The instant a distressed yield looks best is usually the instant before the numerator changes.</p></div>
+  <p>This is the whole page in one idea. A fraction gets bigger when its bottom gets smaller. The bottom of the dividend yield fraction is the share price. So <strong>the yield rises when the stock falls</strong> &mdash; automatically, with no change in the dividend and no improvement in the business.</p><p>Hold the dividend still at $2.00 a share and watch a falling price work on the headline number:</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="Dividend yield at falling share prices with a fixed $2.00 dividend"><table class="gls-tab"><thead><tr><th>Share price</th><th>Annual dividend</th><th>Dividend yield</th><th>Change from $50</th></tr></thead><tbody><tr><td>$50.00</td><td>$2.00</td><td>4.00%</td><td>&mdash;</td></tr><tr><td>$40.00</td><td>$2.00</td><td>5.00%</td><td>&minus;20%</td></tr><tr><td>$25.00</td><td>$2.00</td><td>8.00%</td><td>&minus;50%</td></tr><tr><td>$20.00</td><td>$2.00</td><td>10.00%</td><td>&minus;60%</td></tr><tr><td>$16.00</td><td>$2.00</td><td>12.50%</td><td>&minus;68%</td></tr></tbody></table></div><p>Every row is the same company paying the same money. The yield triples down the column and the only thing that happened is the market deciding the shares were worth less. So: <strong>a yield that has just become attractive is usually attached to a stock that has just been marked down.</strong> The high yield is not the reward for finding it. It is the symptom of whatever the market found first.</p><p>That does not make a high yield a mistake &mdash; markets mark things down for good reasons and bad ones, and sorting those out is the whole job of <a href="../fundamental-analysis.html">fundamental analysis</a>. It means the yield carries no information about which case you are in. And once the price has fallen far enough, the dividend is the discretionary line item sitting right there on the cash flow statement.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; the value trap, start to finish</span><p>You buy <b>100 shares at $40.00</b> &mdash; a $4,000 position paying <b>$2.00</b> a share a year. Yield <b>5.00%</b>, income <b>$200 a year</b>.</p><p>The price falls to <b>$20.00</b>. The dividend has not changed, so the quoted yield is <b>$2.00 &divide; $20.00 = 10.00%</b>. On a screen that looks like an opportunity. On your statement, your $4,000 is <b>$2,000</b>.</p><p>Then the board cuts the dividend to <b>$0.50</b>. Yield on the current price: <b>$0.50 &divide; $20.00 = 2.50%</b>. Income drops to <b>$50 a year</b>.</p><p class="gls-result">Position: $4,000 &rarr; $2,000 (&minus;50%) &middot; Income: $200 &rarr; $50 (&minus;75%) &middot; Quoted yield: 5.00% &rarr; 10.00% &rarr; 2.50% &middot; Yield on <em>your</em> $40 cost: 5.00% &rarr; 1.25%</p></div><div class="gls-box gls-warn"><span class="gls-lbl">Watch this</span><p>The 10.00% in the middle of that sequence was never available to anyone. It was the ratio of a dividend about to be cut to a price that had already fallen. The instant a distressed yield looks best is usually the instant before the numerator changes.</p></div>
 
   <h2 id="promise">Why this is not a savings yield</h2>
 
@@ -475,7 +459,7 @@
 
   <h2 id="sustain">Whether the dividend can keep being paid</h2>
 
-  <p>Since the numerator is mostly a forecast, the useful question is not how big the yield is but what is paying for it. Two standard tests, one better than the other.</p><h3>Payout ratio &mdash; the common test</h3><div class="gls-formula"><span class="gls-lbl">Payout ratio</span><code>Payout ratio  =  <em>dividends per share</em>  &divide;  <em>earnings per share</em></code><p class="gls-where">$2.10 of dividends against $3.00 of earnings per share is a <b>70%</b> payout ratio: seventy cents of every dollar of reported profit goes out the door.</p></div><p>A fair first look with a real weakness. Earnings are an accounting output, built under U.S. GAAP out of depreciation schedules, accruals, reserves and write-downs that management has latitude over. A dividend has none of that latitude: it is a wire transfer. Earnings can be positive in a year when cash was negative, and the payout ratio looks calm throughout.</p><h3>Cash coverage &mdash; the better test</h3><p>Dividends are paid out of cash, so measure them against cash. <a href="free-cash-flow.html">Free cash flow</a> &mdash; operating cash flow minus capital expenditures, in its most common form &mdash; is what is left after the business has paid to keep itself running. One caution: it is a <b>non-GAAP measure with no standard definition</b>, which is why the SEC's Regulation G makes a company presenting it reconcile to the nearest GAAP figure.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; the two tests disagreeing</span><p><b>$243 million</b> of net income on <b>81 million</b> shares = <b>$3.00</b> earnings per share. The dividend is <b>$2.10</b> a share, or <b>$170 million</b> paid out.</p><p><b>Payout ratio:</b> $2.10 &divide; $3.00 = <b>70%</b>. Unremarkable.</p><p>Now the cash flow statement. Operating cash flow <b>$500 million</b> minus capital expenditures <b>$380 million</b> = free cash flow of <b>$120 million</b>.</p><p><b>Cash coverage:</b> $120m against $170m of dividends = <b>0.71&times;</b>. The company paid out <b>$50 million more cash than it generated</b> &mdash; from borrowing, the cash balance, or selling something.</p><p class="gls-result">Same dividend, same year. The earnings test says 70% and fine. The cash test says the dividend ran a $50 million deficit. When they disagree, the cash one is describing what happened to the bank balance.</p></div><p>A shortfall like that is not automatically a crisis; a heavy investment year can be funded off the balance sheet. Run for years it is a countdown that ends with the capital spending or the dividend being cut. Nothing here sets a threshold, because no agency publishes one, and any &ldquo;safe&rdquo; number you read is somebody's convention.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>Payout ratio, free cash flow and yield sit together in the nine-metric reference on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a>, on live data.</p></div>
+  <p>Since the numerator is mostly a forecast, the useful question is not how big the yield is but what is paying for it. Two standard tests, one better than the other.</p><h3>Payout ratio &mdash; the common test</h3><div class="gls-formula"><span class="gls-lbl">Payout ratio</span><code>Payout ratio  =  <em>dividends per share</em>  &divide;  <em>earnings per share</em></code><p class="gls-where">$2.10 of dividends against $3.00 of earnings per share is a <b>70%</b> payout ratio: seventy cents of every dollar of reported profit goes out the door.</p></div><p>A fair first look with a real weakness. Earnings are an accounting output, built under U.S. GAAP out of depreciation schedules, accruals, reserves and write-downs that management has latitude over. A dividend has none of that latitude: it is a wire transfer. Earnings can be positive in a year when cash was negative, and the payout ratio looks calm throughout.</p><h3>Cash coverage &mdash; the better test</h3><p>Dividends are paid out of cash, so measure them against cash. <a href="free-cash-flow.html">Free cash flow</a> &mdash; operating cash flow minus capital expenditures, in its most common form &mdash; is what is left after the business has paid to keep itself running. One caution: it is a <b>non-GAAP measure with no standard definition</b>, which is why the SEC's Regulation G makes a company presenting it reconcile to the nearest GAAP figure.</p><div class="gls-eg"><span class="gls-lbl">Worked example &mdash; the two tests disagreeing</span><p><b>$243 million</b> of net income on <b>81 million</b> shares = <b>$3.00</b> earnings per share. The dividend is <b>$2.10</b> a share, or <b>$170 million</b> paid out.</p><p><b>Payout ratio:</b> $2.10 &divide; $3.00 = <b>70%</b>. Unremarkable.</p><p>Now the cash flow statement. Operating cash flow <b>$500 million</b> minus capital expenditures <b>$380 million</b> = free cash flow of <b>$120 million</b>.</p><p><b>Cash coverage:</b> $120m against $170m of dividends = <b>0.71&times;</b>. The company paid out <b>$50 million more cash than it generated</b> &mdash; from borrowing, the cash balance, or selling something.</p><p class="gls-result">Same dividend, same year. The earnings test says 70% and fine. The cash test says the dividend ran a $50 million deficit. When they disagree, the cash one is describing what happened to the bank balance.</p></div><p>A shortfall like that is not automatically a crisis; a heavy investment year can be funded off the balance sheet. Run for years it is a countdown that ends with the capital spending or the dividend being cut. Nothing here sets a threshold, because no agency publishes one, and any &ldquo;safe&rdquo; number you read is somebody's convention.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>Payout ratio, free cash flow and yield usually sit together on a stock's key-statistics page at any brokerage or free quote site. Read them together, never yield alone.</p></div>
 
   <h2 id="tax">How dividends are taxed</h2>
 
@@ -533,7 +517,6 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>Look at yield, payout and cash flow together on live data in the nine-metric reference on <a href="../markets-fundamental.html">Markets &middot; Fundamental</a>.</li>
       <li>Work through <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a> &mdash; free, no account &mdash; for what owning a slice of a company actually means.</li>
       <li>See what reinvested payouts do over decades with the <a href="../compound-interest-calculator.html">compound interest calculator</a> or the <a href="../investment-growth-calculator.html">investment growth calculator</a>.</li>
       <li>Go deeper on payout ratios, cash flow and valuation in the <a href="../fundamental-analysis.html">Fundamental Analysis</a> course.</li>
@@ -578,9 +561,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">See it on live data</span>
-    <p>Yield, payout ratio and free cash flow for one company, side by side on live data, so the yield is never the only thing you see. Free, no account.</p>
-    <a class="gls-cta" href="../markets-fundamental.html">The nine-metric reference, live &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Payout ratios, cash flow and valuation &mdash; Stages 3 and 4 &mdash; are where a yield gets checked against the business paying it.</p>
+    <a class="gls-cta" href="../fundamental-analysis.html">Fundamental Analysis course &rarr;</a>
   </div>
 </aside>
 
@@ -603,7 +586,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -463,7 +447,7 @@
 
   <h2 id="range">The target range and the rate that actually prints</h2>
 
-  <p>Two numbers. Keep them apart and the rest of this page is easy.</p><p><b>The target range</b> is what the FOMC votes on: <b>3.50% to 3.75%</b> since the December 2025 decision took effect on 11 December 2025. It is an announcement, not a measurement.</p><p><b>The effective federal funds rate</b> is what banks actually transacted at: <b>3.63%</b> on 10 August 2026, and every business day of that week. It is a measurement, not an announcement.</p><p>The Fed has published a range rather than a single point since December 2008 &mdash; an admission that pinning a market rate to the basis point is not something a central bank can promise. The New York Fed calculates the effective rate as a <b>volume-weighted median</b> of overnight federal funds transactions reported on the <b>FR 2420 Report of Selected Money Market Rates</b>, published around 9:00 a.m. Eastern each business day for the prior day. <em>Median</em> matters: the middle transaction by volume cannot be dragged around by a few odd trades the way an average could.</p><h3>Today's rate ladder, in order</h3><p>Every figure below is from the FOMC's implementation note of 10 December 2025 or the H.15 release of 11 August 2026.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="The federal funds rate corridor as of August 2026"><table><thead><tr><th>Rate</th><th>Level</th><th>Who sets it</th><th>What it does</th></tr></thead><tbody><tr><td>Discount window primary credit</td><td>3.75%</td><td>Board of Governors</td><td>A sound bank can always borrow here</td></tr><tr><td>Top of the target range</td><td>3.75%</td><td>FOMC</td><td>The announced upper limit</td></tr><tr><td>Interest on reserve balances (IORB)</td><td>3.65%</td><td>Board of Governors</td><td>The main lever</td></tr><tr><td><b>Effective fed funds rate, 10 Aug 2026</b></td><td><b>3.63%</b></td><td><b>The market</b></td><td><b>The actual outcome</b></td></tr><tr><td>Bottom of the target range</td><td>3.50%</td><td>FOMC</td><td>The announced lower limit</td></tr><tr><td>ON RRP offering rate</td><td>3.50%</td><td>FOMC</td><td>Non-banks can always lend here</td></tr></tbody></table></div><p>Read the arithmetic off that table and you can watch the machine work. The effective rate sits <b>13 basis points above</b> the ON RRP floor, <b>2 below</b> IORB and <b>12 below</b> the top of the range &mdash; to the nearest hundredth, the exact midpoint of 3.625%. That is not luck. It is what a well-built corridor produces, and the corridor is the next section.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>H.15, row &ldquo;Federal funds (effective).&rdquo; FRED series <code>EFFR</code>, plus <code>DFEDTARU</code> and <code>DFEDTARL</code> for the range. On this site, <a href="../markets-economic.html#rates">Markets &middot; Economic</a> pulls the rates block live from FRED.</p></div>
+  <p>Two numbers. Keep them apart and the rest of this page is easy.</p><p><b>The target range</b> is what the FOMC votes on: <b>3.50% to 3.75%</b> since the December 2025 decision took effect on 11 December 2025. It is an announcement, not a measurement.</p><p><b>The effective federal funds rate</b> is what banks actually transacted at: <b>3.63%</b> on 10 August 2026, and every business day of that week. It is a measurement, not an announcement.</p><p>The Fed has published a range rather than a single point since December 2008 &mdash; an admission that pinning a market rate to the basis point is not something a central bank can promise. The New York Fed calculates the effective rate as a <b>volume-weighted median</b> of overnight federal funds transactions reported on the <b>FR 2420 Report of Selected Money Market Rates</b>, published around 9:00 a.m. Eastern each business day for the prior day. <em>Median</em> matters: the middle transaction by volume cannot be dragged around by a few odd trades the way an average could.</p><h3>Today's rate ladder, in order</h3><p>Every figure below is from the FOMC's implementation note of 10 December 2025 or the H.15 release of 11 August 2026.</p><div class="gls-tabwrap" tabindex="0" role="region" aria-label="The federal funds rate corridor as of August 2026"><table><thead><tr><th>Rate</th><th>Level</th><th>Who sets it</th><th>What it does</th></tr></thead><tbody><tr><td>Discount window primary credit</td><td>3.75%</td><td>Board of Governors</td><td>A sound bank can always borrow here</td></tr><tr><td>Top of the target range</td><td>3.75%</td><td>FOMC</td><td>The announced upper limit</td></tr><tr><td>Interest on reserve balances (IORB)</td><td>3.65%</td><td>Board of Governors</td><td>The main lever</td></tr><tr><td><b>Effective fed funds rate, 10 Aug 2026</b></td><td><b>3.63%</b></td><td><b>The market</b></td><td><b>The actual outcome</b></td></tr><tr><td>Bottom of the target range</td><td>3.50%</td><td>FOMC</td><td>The announced lower limit</td></tr><tr><td>ON RRP offering rate</td><td>3.50%</td><td>FOMC</td><td>Non-banks can always lend here</td></tr></tbody></table></div><p>Read the arithmetic off that table and you can watch the machine work. The effective rate sits <b>13 basis points above</b> the ON RRP floor, <b>2 below</b> IORB and <b>12 below</b> the top of the range &mdash; to the nearest hundredth, the exact midpoint of 3.625%. That is not luck. It is what a well-built corridor produces, and the corridor is the next section.</p><div class="gls-where"><span class="gls-lbl">Where you'll see it</span><p>H.15, row &ldquo;Federal funds (effective).&rdquo; FRED series <code>EFFR</code>, plus <code>DFEDTARU</code> and <code>DFEDTARL</code> for the range.</p></div>
 
   <h2 id="how">How the Fed actually steers it, which changed after 2008</h2>
 
@@ -533,7 +517,6 @@
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>Watch the target range, the effective rate, inflation and labor data pulled live from federal sources in <a href="../markets-economic.html#rates">Markets &middot; Economic</a>.</li>
       <li>Learn how rates, central banks and bonds fit together in <a href="../economics.html">Economics for Traders</a> &mdash; that's Stage 3 of five.</li>
       <li>See why a rate change does nothing to a fixed loan you already hold with the <a href="../mortgage-calculator.html">mortgage calculator</a> &mdash; free, no account.</li>
       <li>Work through what compounding actually does in <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a>, free with no account.</li>
@@ -578,9 +561,9 @@
   </nav>
 
   <div class="gls-tool">
-    <span class="gls-lbl">See the live data</span>
-    <p>The target range, the effective rate, inflation and labor data, pulled live from FRED and shown with the release dates attached. Free, no account.</p>
-    <a class="gls-cta" href="../markets-economic.html">Live rates, inflation and labor data &rarr;</a>
+    <span class="gls-lbl">Go deeper</span>
+    <p>Stage 3 covers rates, central banks and bonds &mdash; the target range, the corridor that holds it, and how a rate decision travels.</p>
+    <a class="gls-cta" href="../economics.html">Economics for Traders &rarr;</a>
   </div>
 </aside>
 
@@ -603,7 +586,6 @@
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

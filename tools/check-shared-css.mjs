@@ -98,8 +98,9 @@ const IGNORE = new Set(['adsbygoogle', 'grecaptcha-badge']);
    styles.css, so Markets/compare.html's <table class="mkt-table sec-table">
    now gets them like every other page. The stale-entry check is what forced
    the issue — it went red the moment the finding stopped reproducing. */
+/* ['sym', ['markets-economic.html']] was here until 2026-10-09, when the
+   Markets section was removed and that page became a redirect stub. */
 const KNOWN = new Map([
-  ['sym', ['markets-economic.html']],
 ]);
 
 function walk(dir, out = []) {

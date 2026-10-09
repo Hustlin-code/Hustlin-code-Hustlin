@@ -242,6 +242,8 @@ export const POSTS = [
     series: 'Week in Review',
     date: '2026-08-09',
     read: 9,
+    // Body edited 2026-10-09: links into the removed Markets section repointed.
+    lastmod: '2026-10-09',
     priority: 0.7,
     /* Reachable from the hub's archive table and from the sitemap, but not
        given its own row in the grid - see `archived` in the field reference.

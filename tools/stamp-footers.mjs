@@ -93,18 +93,26 @@ const NO_FOOTER = new Set([
   'login.html',
   'reset-password.html',
   'signup.html',
-  // Retired 2026-08-02. News, the earnings calendar and the heatmaps moved onto
-  // markets.html / markets-economic.html and these three are now instant
-  // redirects that exist only so old inbound links do not 404. Same reasoning as
-  // auth-callback.html above: a full marketing footer on a page nobody reads for
-  // more than a fraction of a second is pure page weight. Delete these files
-  // once the old URLs stop getting traffic, and these three lines with them.
+  // Retired 2026-10-09, redirect to homepage. The whole Markets section was
+  // removed and every one of its pages is now an instant redirect stub that
+  // exists only so old inbound links do not 404. Same reasoning as
+  // auth-callback.html above: a full marketing footer on a page nobody reads
+  // for more than a fraction of a second is pure page weight.
+  'markets.html',
+  'markets-economic.html',
+  'markets-fundamental.html',
+  'markets-technical.html',
+  'markets-behavior.html',
+  'Markets/spotlight.html',
+  'Markets/chart.html',
+  'Markets/compare.html',
+  'Markets/screeners.html',
   'Markets/news.html',
   'Markets/calendar.html',
   'Markets/heatmaps.html',
   // Retired 2026-08-10. The original 8-module Economics for Traders sales page,
   // superseded by /economics.html and its five stage pages. Same redirect-stub
-  // reasoning as the three above. Unlike them it was never linked and never in
+  // reasoning as the Markets stubs above. Unlike them it was never linked and never in
   // the sitemap, so it is a candidate for outright deletion sooner rather than
   // later — the stub exists mainly to be certain nothing was quietly pointing at it.
   'EconomicsCourse/economics-for-traders.html',

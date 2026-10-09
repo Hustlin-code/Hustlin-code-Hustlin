@@ -110,8 +110,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=20260819-0214">
-<link rel="stylesheet" href="lingo.css?v=20260819-0214">
+<link rel="stylesheet" href="../styles.css?v=20261009-1443">
+<link rel="stylesheet" href="lingo.css?v=20261009-1443">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1249156793457835"
      crossorigin="anonymous"></script>
 </head>
@@ -134,7 +134,7 @@
      Before this there were four navs and no owner:
 
        index.html                 no <nav> at all
-       markets.html               a logo, and nothing else — every route out of
+       the Markets hub            a logo, and nothing else — every route out of
                                   the Markets section was the footer
        blog.html / about.html     logo + 2 links
        stage / FL / guide pages   logo + the 5 stage buttons
@@ -235,26 +235,10 @@
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-top" href="../markets.html">Markets</a>
-      <!-- "Live data" was the old panel heading. The numbers on these pages are
-           baked at build time from FRED and Finnhub and dated to their own
-           release; only the embedded TradingView widgets stream. Saying "live"
-           promised something the section does not do, and markets.html itself
-           already said "nothing here is live" further down the page. -->
-      <div class="nav-panel">
-        <p class="nav-panel-h">Market data, free, no account</p>
-        <a href="../markets.html"><b>Today's Tape</b><span>Where the market closed</span></a>
-        <a href="../markets-economic.html"><b>Economic</b><span>Jobs, inflation, rates</span></a>
-        <a href="../markets-fundamental.html"><b>Fundamental</b><span>Earnings and valuation</span></a>
-        <a href="../markets-technical.html"><b>Technical</b><span>Trend and momentum</span></a>
-        <a href="../markets-behavior.html"><b>Behavior</b><span>Sentiment and positioning</span></a>
-        <a href="../Markets/chart.html"><b>Charts</b><span>The Dow since 1896</span></a>
-        <a href="../Markets/compare.html"><b>Sector Compare</b><span>Leaders and laggards</span></a>
-        <a href="../Markets/screeners.html"><b>Screeners</b><span>Filter the market down</span></a>
-        <a href="../Markets/spotlight.html"><b>Symbol Lookup</b><span>One ticker, everything</span></a>
-      </div>
-    </li>
+    <!-- The Markets menu was removed 2026-10-09 along with the Markets section
+         (the hub, the four pillar pages and the viewer pages are now redirect
+         stubs to the homepage). The glossary's "Markets & Trading"
+         group is unaffected — it lives under Learn the Lingo. -->
 
     <li class="nav-item">
       <a class="nav-top" href="../calculate-your-hustle.html">Calculators</a>
@@ -495,7 +479,7 @@ Exact:        Real  =  ( 1 + <em>Nominal</em> )  &divide;  ( 1 + <em>Inflation</
 
   <h2 id="gaps">Where the number has holes</h2>
 
-  <p>An honest page about inflation has to say where the statistic has holes.</p><p><strong>Two months are missing.</strong> Because of the lapse in appropriations, the BLS collected no CPI data from 1 October through 12 November 2025. In the agency's words, <em>&ldquo;Missing CPI data affected October and November 2025 indexes,&rdquo;</em> and it propagated forward: <em>&ldquo;Missing October 2025 data also affected April 2026 rent and owner's equivalent rent indexes.&rdquo;</em> The Cleveland Fed had to interpolate October 2025 to keep its median and trimmed-mean series running. Any twelve-month comparison spanning that window rests partly on prices nobody collected.</p><p><strong>Every figure here has a shelf life.</strong> The July 2026 CPI is due at 8:30 a.m. Eastern on 12 August 2026, and it restates the twelve-month rate. That is why each number above carries its as-of date. For live readings rather than dated ones, the <a href="../markets-economic.html">economic pillar</a> pulls CPI, core, PCE and the breakevens straight from the source.</p>
+  <p>An honest page about inflation has to say where the statistic has holes.</p><p><strong>Two months are missing.</strong> Because of the lapse in appropriations, the BLS collected no CPI data from 1 October through 12 November 2025. In the agency's words, <em>&ldquo;Missing CPI data affected October and November 2025 indexes,&rdquo;</em> and it propagated forward: <em>&ldquo;Missing October 2025 data also affected April 2026 rent and owner's equivalent rent indexes.&rdquo;</em> The Cleveland Fed had to interpolate October 2025 to keep its median and trimmed-mean series running. Any twelve-month comparison spanning that window rests partly on prices nobody collected.</p><p><strong>Every figure here has a shelf life.</strong> The July 2026 CPI is due at 8:30 a.m. Eastern on 12 August 2026, and it restates the twelve-month rate. That is why each number above carries its as-of date. For a current reading, go to the latest release itself &mdash; BLS for CPI, BEA for PCE &mdash; rather than the dated figures here.</p>
 
   <section class="gls-faq">
     <h2 id="faq">Frequently asked questions</h2>
@@ -537,7 +521,6 @@ Exact:        Real  =  ( 1 + <em>Nominal</em> )  &divide;  ( 1 + <em>Inflation</
   <section class="gls-next">
     <h2>Where to go next</h2>
     <ul>
-      <li>See current CPI, core, PCE and breakeven readings on the <a href="../markets-economic.html">live economic pillar</a> &mdash; free, no account.</li>
       <li>Run a nominal rate forward with the <a href="../compound-interest-calculator.html">compound interest calculator</a>, then subtract inflation to see the real number.</li>
       <li>Check what a rising price level does to a fixed monthly plan in the <a href="../budget-calculator.html">budget calculator</a>.</li>
       <li>Work through <a href="../stage-4-invest.html">Stage 4 &middot; Invest</a>, where real returns start to matter, or go deeper in <a href="../economics.html">Economics for Traders</a>.</li>
@@ -609,7 +592,6 @@ Exact:        Real  =  ( 1 + <em>Nominal</em> )  &divide;  ( 1 + <em>Inflation</
         <a href="../financial-literacy.html">Financial Literacy — Free Resource</a>
         <a href="../disability-wealth-guide.html">Disability Wealth Guide</a>
         <a href="../calculate-your-hustle.html">Calculate Your Hustle — Free Tools</a>
-        <a href="../markets.html">Markets</a>
         <a href="../technical-analysis.html">Technical Analysis</a>
         <a href="../fundamental-analysis.html">Fundamental Analysis</a>
         <a href="../trading-psychology.html">Trading Psychology</a>

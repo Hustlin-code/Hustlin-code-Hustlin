@@ -46,9 +46,6 @@ Single one-time payment, lifetime access, no subscription.
 - [Trading Psychology](https://hustlin.org/trading-psychology.html)
 - [Economics for Traders](https://hustlin.org/economics.html)
 
-## Tools
-- [Markets](https://hustlin.org/markets.html): Charts, screeners, heatmaps, economic calendar
-
 ## About
 - [About & Editorial Standards](https://hustlin.org/about.html): Who writes this, where the numbers come from, how the site is funded, corrections policy, and what Hustlin' is explicitly not qualified to advise on
 - [Work With Us](https://hustlin.org/work-with-us.html)

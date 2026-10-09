@@ -306,7 +306,7 @@
           'Still free, still no account: ' +
           '<a href="/calculate-your-hustle.html">the calculators</a> · ' +
           '<a href="/disability-wealth-guide.html">Disability Wealth Guide</a> · ' +
-          '<a href="/markets.html">Markets</a>' +
+          '<a href="/learn-the-lingo.html">Learn the Lingo</a>' +
         '</div>' +
       '</div>';
   }
