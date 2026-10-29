@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/PCEPILFE",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-10-28",
-"count": 812,
+"updated": "2026-10-29",
+"count": 813,
 "obs": [
 ["1959-01-01",15.501],
 ["1959-02-01",15.513],
@@ -817,7 +817,8 @@
 ["2026-04-01",129.395],
 ["2026-05-01",129.796],
 ["2026-06-01",129.969],
-["2026-07-01",130.133],
-["2026-08-01",130.455]
+["2026-07-01",130.148],
+["2026-08-01",130.489],
+["2026-09-01",130.902]
 ]
 }

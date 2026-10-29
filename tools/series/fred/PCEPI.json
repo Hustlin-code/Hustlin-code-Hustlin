@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/PCEPI",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-10-28",
-"count": 812,
+"updated": "2026-10-29",
+"count": 813,
 "obs": [
 ["1959-01-01",15.164],
 ["1959-02-01",15.179],
@@ -817,7 +817,8 @@
 ["2026-04-01",130.672],
 ["2026-05-01",131.241],
 ["2026-06-01",131.106],
-["2026-07-01",131.172],
-["2026-08-01",131.579]
+["2026-07-01",131.187],
+["2026-08-01",131.611],
+["2026-09-01",132.257]
 ]
 }
