@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-11-04",
-  "bakedAt": "2026-11-04T17:32:36.830Z",
+  "stamp": "2026-11-05",
+  "bakedAt": "2026-11-05T17:39:32.865Z",
   "figures": {
     "inflation": {
       "set": "inflation",
@@ -182,7 +182,7 @@
       "label": "3-Month Treasury",
       "display": "4.21%",
       "value": 4.21,
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -191,9 +191,9 @@
     "twoYear": {
       "set": "rates",
       "label": "2-Year Treasury",
-      "display": "4.59%",
-      "value": 4.59,
-      "date": "2026-11-02",
+      "display": "4.61%",
+      "value": 4.61,
+      "date": "2026-11-03",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -202,9 +202,9 @@
     "tenYear": {
       "set": "rates",
       "label": "10-Year Treasury",
-      "display": "4.91%",
-      "value": 4.91,
-      "date": "2026-11-02",
+      "display": "4.95%",
+      "value": 4.95,
+      "date": "2026-11-03",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -213,9 +213,9 @@
     "thirtyYear": {
       "set": "rates",
       "label": "30-Year Treasury",
-      "display": "5.28%",
-      "value": 5.28,
-      "date": "2026-11-02",
+      "display": "5.32%",
+      "value": 5.32,
+      "date": "2026-11-03",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -224,9 +224,9 @@
     "realTenYear": {
       "set": "rates",
       "label": "10-Year Real Yield (TIPS)",
-      "display": "2.62%",
-      "value": 2.62,
-      "date": "2026-11-02",
+      "display": "2.65%",
+      "value": 2.65,
+      "date": "2026-11-03",
       "freq": "d",
       "better": "down",
       "fmt": "pct2",
@@ -235,9 +235,9 @@
     "mortgage30": {
       "set": "rates",
       "label": "30-Year Mortgage",
-      "display": "7.24%",
-      "value": 7.24,
-      "date": "2026-10-29",
+      "display": "7.18%",
+      "value": 7.18,
+      "date": "2026-11-05",
       "freq": "w",
       "better": "down",
       "fmt": "pct2",
@@ -246,9 +246,9 @@
     "curve10y2y": {
       "set": "rates",
       "label": "10-Year minus 2-Year",
-      "display": "0.34%",
-      "value": 0.34,
-      "date": "2026-11-03",
+      "display": "0.32%",
+      "value": 0.32,
+      "date": "2026-11-04",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -257,9 +257,9 @@
     "curve10y3m": {
       "set": "rates",
       "label": "10-Year minus 3-Month",
-      "display": "0.74%",
-      "value": 0.74,
-      "date": "2026-11-03",
+      "display": "0.69%",
+      "value": 0.69,
+      "date": "2026-11-04",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -398,7 +398,7 @@
   },
   "cadenceStamps": {
     "monthly": "2026-08-15",
-    "daily": "2026-11-04",
+    "daily": "2026-11-05",
     "intraday": "2026-11-05"
   },
   "earningsWatch": [
