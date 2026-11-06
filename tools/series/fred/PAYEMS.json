@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/PAYEMS",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-11-05",
-"count": 1053,
+"updated": "2026-11-06",
+"count": 1054,
 "obs": [
 ["1939-01-01",29923],
 ["1939-02-01",30100],
@@ -1058,7 +1058,8 @@
 ["2026-05-01",158861],
 ["2026-06-01",158892],
 ["2026-07-01",158882],
-["2026-08-01",159015],
-["2026-09-01",159044]
+["2026-08-01",159068],
+["2026-09-01",159128],
+["2026-10-01",159293]
 ]
 }
