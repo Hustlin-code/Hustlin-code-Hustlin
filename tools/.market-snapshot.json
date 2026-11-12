@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-11-11",
-  "bakedAt": "2026-11-11T17:27:37.573Z",
+  "stamp": "2026-11-12",
+  "bakedAt": "2026-11-12T17:44:21.405Z",
   "figures": {
     "inflation": {
       "set": "inflation",
@@ -235,9 +235,9 @@
     "mortgage30": {
       "set": "rates",
       "label": "30-Year Mortgage",
-      "display": "7.18%",
-      "value": 7.18,
-      "date": "2026-11-05",
+      "display": "7.11%",
+      "value": 7.11,
+      "date": "2026-11-12",
       "freq": "w",
       "better": "down",
       "fmt": "pct2",
@@ -398,7 +398,7 @@
   },
   "cadenceStamps": {
     "monthly": "2026-08-15",
-    "daily": "2026-11-11",
+    "daily": "2026-11-12",
     "intraday": "2026-11-12"
   },
   "earningsWatch": [
