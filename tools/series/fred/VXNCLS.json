@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/VXNCLS",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-11-12",
-"count": 6724,
+"updated": "2026-11-13",
+"count": 6725,
 "obs": [
 ["2001-02-02",54.89],
 ["2001-02-05",55.85],
@@ -6730,6 +6730,7 @@
 ["2026-11-06",34.02],
 ["2026-11-09",28.97],
 ["2026-11-10",28.57],
-["2026-11-11",26.74]
+["2026-11-11",26.74],
+["2026-11-12",28.55]
 ]
 }
