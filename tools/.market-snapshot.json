@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-11-21",
-  "bakedAt": "2026-11-21T16:57:14.644Z",
+  "stamp": "2026-11-22",
+  "bakedAt": "2026-11-22T17:24:05.383Z",
   "figures": {
     "inflation": {
       "set": "inflation",
@@ -398,7 +398,7 @@
   },
   "cadenceStamps": {
     "monthly": "2026-08-15",
-    "daily": "2026-11-21",
+    "daily": "2026-11-22",
     "intraday": "2026-11-22"
   },
   "earningsWatch": [
