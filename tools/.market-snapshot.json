@@ -1,6 +1,6 @@
 {
-  "stamp": "2026-11-23",
-  "bakedAt": "2026-11-23T21:40:38.006Z",
+  "stamp": "2026-11-24",
+  "bakedAt": "2026-11-24T20:20:38.888Z",
   "figures": {
     "inflation": {
       "set": "inflation",
@@ -248,7 +248,7 @@
       "label": "10-Year minus 2-Year",
       "display": "0.29%",
       "value": 0.29,
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -257,9 +257,9 @@
     "curve10y3m": {
       "set": "rates",
       "label": "10-Year minus 3-Month",
-      "display": "0.60%",
-      "value": 0.6,
-      "date": "2026-11-20",
+      "display": "0.55%",
+      "value": 0.55,
+      "date": "2026-11-23",
       "freq": "d",
       "better": "up",
       "fmt": "pct2",
@@ -398,7 +398,7 @@
   },
   "cadenceStamps": {
     "monthly": "2026-08-15",
-    "daily": "2026-11-23",
+    "daily": "2026-11-24",
     "intraday": "2026-11-24"
   },
   "earningsWatch": [
