@@ -4,8 +4,8 @@
 "source": "https://fred.stlouisfed.org/series/ICSA",
 "note": "Append-only archive of the FRED series. Values may be revised by the source; dates are never removed.",
 "firstArchived": "2026-08-15",
-"updated": "2026-11-24",
-"count": 3124,
+"updated": "2026-11-25",
+"count": 3125,
 "obs": [
 ["1967-01-07",208000],
 ["1967-01-14",207000],
@@ -3130,6 +3130,7 @@
 ["2026-10-24",195000],
 ["2026-10-31",191000],
 ["2026-11-07",202000],
-["2026-11-14",203000]
+["2026-11-14",202000],
+["2026-11-21",189000]
 ]
 }
